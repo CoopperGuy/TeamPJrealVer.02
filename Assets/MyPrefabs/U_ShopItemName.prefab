@@ -1,0 +1,19 @@
+Scene: Untitled
+GameObjects:
+  - Name: ShopItemName
+    UUID: 2989867825993906344
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [173.47821, 0]
+      Size: [50, 50]
+    Com_Text:
+      Text: ""
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true

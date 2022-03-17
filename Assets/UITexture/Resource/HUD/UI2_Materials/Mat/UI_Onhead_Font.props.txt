@@ -1,0 +1,50 @@
+TwoSided = false
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[1] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/ArtMain/DefaultData/BO_Tex/LV_MM_White_D_HSI.LV_MM_White_D_HSI'
+}
+Expressions[10] =
+{
+    Expressions[4] = MaterialExpressionScalarParameter'/Game/UI/Resource/HUD/UI2_Materials/Mat/UI_Onhead_Font.MaterialExpressionScalarParameter_7'
+    Expressions[5] = MaterialExpressionScalarParameter'/Game/UI/Resource/HUD/UI2_Materials/Mat/UI_Onhead_Font.MaterialExpressionScalarParameter_6'
+    Expressions[8] = MaterialExpressionTextureSample'/Game/UI/Resource/HUD/UI2_Materials/Mat/UI_Onhead_Font.MaterialExpressionTextureSample_0'
+    Expressions[9] = MaterialExpressionScalarParameter'/Game/UI/Resource/HUD/UI2_Materials/Mat/UI_Onhead_Font.MaterialExpressionScalarParameter_1'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Translucent (2)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[0] = {}
+CollectedScalarParameters[3] =
+{
+    CollectedScalarParameters[0] = { Value=0, Name=ScalarUV, Group=None }
+    CollectedScalarParameters[1] = { Value=0, Name=Distance, Group=None }
+    CollectedScalarParameters[2] = { Value=0, Name=Alpha, Group=None }
+}
+CollectedVectorParameters[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

@@ -1,0 +1,57 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_Blackhole
+    UUID: 13208719613294155398
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [6, 6, 6]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: sphere.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\002.png
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Smoke_001_TEX_PHS.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Mask_002_1_TEX_KKJ.png
+      ScrollSpeedX: [-0.800000012, -0.699999988, 0]
+      ScrollSpeedY: [-1, -0.5, 2.29999995]
+      Distortion1: [0, -1.5]
+      Distortion2: [0.100000001, -0.400000006]
+      Distortion3: [0.100000001, -0.699999988]
+      DistortionScale: 2.20000005
+      DistortionBias: 0.800000012
+    Children:
+      - Name: E_Twist
+        UUID: 3522747331973214445
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 1
+        BillBord: false
+        Com_Transform:
+          Translation: [0, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [0.250000004, 0.250000004, 0.250000004]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: TwistMesh3.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\fx_point_006_tex_kkj.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura_001_TEX_PHS.tga
+          ScrollSpeedX: [0.899999976, 0.100000001, 0]
+          ScrollSpeedY: [0, 0, 2.29999995]
+          Distortion1: [0.100000001, 0.600000024]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 9

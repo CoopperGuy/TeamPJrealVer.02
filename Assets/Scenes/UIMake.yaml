@@ -1,0 +1,79 @@
+Scene: Untitled
+GameObjects:
+  - Name: DamgageVIBuffer
+    UUID: 6030868362666704532
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+    Children:
+      - 2898716506733085731
+      - 2668881061669247027
+      - 2680872950759750853
+      - 8213200928443513509
+  - Name: Damagefont
+    UUID: 2898716506733085731
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ""
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Damagefont
+    UUID: 2668881061669247027
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ""
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Damagefont
+    UUID: 2680872950759750853
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ""
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Damagefont
+    UUID: 8213200928443513509
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Font\0Font.tga
+    RenderGroup: 1
+    FrustumRange: 1

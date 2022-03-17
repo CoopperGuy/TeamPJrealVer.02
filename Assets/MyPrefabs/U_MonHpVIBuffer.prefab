@@ -1,0 +1,17 @@
+Scene: Untitled
+GameObjects:
+  - Name: MonHpVIBuffer
+    UUID: 6085631469789567160
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-0.0650682971, -24.125, -7.67386936e-08]
+      Scale: [0.999056578, 0.100025706, 0.99927026]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+    RenderGroup: 3
+    FrustumRange: 1

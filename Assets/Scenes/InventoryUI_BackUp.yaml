@@ -1,0 +1,373 @@
+Scene: Untitled
+GameObjects:
+  - Name: Backpack_Hud
+    UUID: 16429825321286850786
+    Active: false
+    Layer: BackPackHud
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [218.791473, 432.763275]
+      Size: [941.031555, 1160.83154]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 11123017261122148341
+      - 2534542176139175624
+      - 2033216220318070637
+      - 12944058087480305985
+      - 11845365342155498423
+      - 12893099253836064542
+  - Name: MaterialItemList0
+    UUID: 8694526254544007877
+    Active: false
+    Layer: MaterialItemList
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [197.192444, 196.697922]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: EquipItem
+    UUID: 11123017261122148341
+    Active: false
+    Layer: BackPackSub
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [50, 50]
+      Size: [50, 50]
+    Children:
+      - 18113412866005203712
+      - 14307409957735197175
+      - 4477101166319400238
+      - 10489976160073860266
+      - 9907293121996886223
+      - 10108778094924642625
+      - 17742317770947660811
+      - 14364397855654282327
+      - 1491581821154571
+      - 4934735456859104473
+      - 3722583697927034329
+  - Name: ComsumableItem
+    UUID: 2534542176139175624
+    Active: false
+    Layer: BackPackSub
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [50, 50]
+      Size: [50, 50]
+    Children:
+      - 10590615739566618244
+      - 3035407541245714312
+  - Name: MaterialItem
+    UUID: 2033216220318070637
+    Active: false
+    Layer: BackPackSub
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [50, 50]
+      Size: [50, 50]
+    Children:
+      - 3605073293141489059
+      - 8694526254544007877
+  - Name: WeaponText
+    UUID: 18113412866005203712
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [111.780518, 208.901779]
+      Size: [147.171402, 50]
+    Com_Text:
+      Text: Weapont
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: HelmetText
+    UUID: 14307409957735197175
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [132.637573, 255.714142]
+      Size: [188.735458, 50]
+    Com_Text:
+      Text: Helmet
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: ChestText
+    UUID: 4477101166319400238
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [92.1981201, 313.044312]
+      Size: [112.833107, 50]
+    Com_Text:
+      Text: Cheste
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: GloveText
+    UUID: 10489976160073860266
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [97.4727783, 367.002228]
+      Size: [123.619606, 50]
+    Com_Text:
+      Text: Glove
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: ShooseText
+    UUID: 9907293121996886223
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [104.505737, 419.273834]
+      Size: [137.002594, 50]
+    Com_Text:
+      Text: Shoose
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: ItemList1
+    UUID: 17742317770947660811
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 245]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemList2
+    UUID: 14364397855654282327
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 310]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemList3
+    UUID: 1491581821154571
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 375]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemList4
+    UUID: 4934735456859104473
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 440]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemList5
+    UUID: 3722583697927034329
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 505]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: CousumableText
+    UUID: 10590615739566618244
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [146.703339, 151.170959]
+      Size: [190.052979, 50]
+    Com_Text:
+      Text: Consumable
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: MaterialItemText
+    UUID: 3605073293141489059
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [130.87912, 146.112396]
+      Size: [156.899261, 50]
+    Com_Text:
+      Text: Material
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: SelectEquip
+    UUID: 12944058087480305985
+    Active: false
+    Layer: BackPackSelect
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: true
+    Com_Transform:
+      Position: [100.989014, 87.0960388]
+      Size: [93.9292221, 50]
+    Com_Text:
+      Text: Eqiup
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: SelectComsumable
+    UUID: 11845365342155498423
+    Active: false
+    Layer: BackPackSelect
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: true
+    Com_Transform:
+      Position: [282.087921, 87.0952148]
+      Size: [198.64769, 50]
+    Com_Text:
+      Text: Consumablet
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: SelectMaterial
+    UUID: 12893099253836064542
+    Active: false
+    Layer: BackPackSelect
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 0
+    Hovering: true
+    Com_Transform:
+      Position: [471.978821, 87.0953064]
+      Size: [143.991486, 50]
+    Com_Text:
+      Text: Material
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+  - Name: ItemList0
+    UUID: 10108778094924642625
+    Active: false
+    Layer: EquipItemList
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [391, 180]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ConsumItemList0
+    UUID: 3035407541245714312
+    Active: false
+    Layer: ConsumItemList
+    Type: UI
+    SortingOrder: 0
+    RenderIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [194.175781, 206.815033]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

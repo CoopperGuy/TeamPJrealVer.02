@@ -1,0 +1,65 @@
+Scene: Untitled
+GameObjects:
+  - Name: ComboPrefab
+    UUID: 5056946464076228293
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Com_Transform:
+      Position: [-50, -50]
+      Size: [50, 50]
+    Children:
+      - Name: ComboAlret
+        UUID: 932506758459709503
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 5
+        Com_Transform:
+          Position: [-50, -50]
+          Size: [173.885269, 82.134079]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\Alert_Bg_Left_Blur.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: ComboMouse
+        UUID: 13164453045157259371
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Com_Transform:
+          Position: [-102.747192, -50.0000305]
+          Size: [32, 32]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\leftClick.png
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: ComboEffect
+        UUID: 4310656051502784947
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 7
+        Shrink:
+          - 75
+          - 0
+          - -10
+        Com_Transform:
+          Position: [-102.747009, -50]
+          Size: [50, 50]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\Fx_StrongLight.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

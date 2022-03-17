@@ -1,0 +1,29 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_FloorEffect
+    UUID: 307018615490709822
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-179.999893, -30.5384102, 179.999893]
+      Scale: [0.999997258, 0.999996483, 0.999994874]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Circle.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\020.dds
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\020.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Mask_002_1_TEX_KKJ.png
+      ScrollSpeedX: [0, 1.60000002, 0]
+      ScrollSpeedY: [3.5, 2.79999995, 2.29999995]
+      Distortion1: [0, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 4.30000019
+      DistortionBias: 7.0999999

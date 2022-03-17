@@ -1,0 +1,132 @@
+#include "EnginePCH.h"
+#include "..\public\Texture.h"
+
+USING(Engine)
+CTexture::CTexture(ID3D11Device * pDevice, ID3D11DeviceContext * pDevice_Context)
+	: CComponent(pDevice, pDevice_Context)
+{
+
+}
+
+CTexture::CTexture(const CTexture & rhs)
+	: CComponent(rhs)
+	, m_Textures(rhs.m_Textures)
+	, m_iNumTextures(rhs.m_iNumTextures)
+{
+	//for (auto& pShaderResourceView : m_Textures)
+	//	SafeAddRef(pShaderResourceView);
+
+}
+
+ID3D11ShaderResourceView* CTexture::Get_ShaderResourceView(_int iIndex){
+	if (m_Textures.size() <= 0) {
+		return nullptr;
+	}
+	else if (m_Textures[iIndex])
+		return m_Textures[iIndex].Get();
+	else
+		return nullptr;
+}
+
+HRESULT CTexture::InitializePrototype(TEXTURETYPE eType, string pTextureFilePath, _int iNumTextures)
+{
+	CComponent::InitializePrototype();
+
+	if (nullptr == m_pDevice)
+		return E_FAIL;
+
+	//if (FAILED(CoInitializeEx(nullptr, COINITBASE_MULTITHREADED)))
+	//	return E_FAIL;
+	m_FilePath = pTextureFilePath;
+
+	m_iNumTextures = iNumTextures;
+	_tchar			szFullPath[MAX_PATH] = TEXT("");
+
+	for (_int i = 0; i < iNumTextures; ++i)
+	{
+		ComRef<ID3D11ShaderResourceView>			pShaderResourceView = nullptr;
+		wstring ws(pTextureFilePath.begin(), pTextureFilePath.end());
+		const _tchar* path = ws.c_str();
+		wsprintf(szFullPath, path, i);
+
+		DirectX::ScratchImage				Image;
+
+		HRESULT hr = CoInitialize(nullptr);
+
+		switch (eType)
+		{
+		case TYPE_DDS:
+			hr = DirectX::LoadFromDDSFile(szFullPath, DirectX::DDS_FLAGS_NONE, nullptr, Image);
+			break;
+		case TYPE_TGA:
+			hr = DirectX::LoadFromTGAFile(szFullPath, nullptr, Image);
+			break;
+		case TYPE_WIC:
+			hr = DirectX::LoadFromWICFile(szFullPath, DirectX::WIC_FLAGS_NONE, nullptr, Image);
+			break;
+		}
+
+		if (FAILED(hr))
+			return E_FAIL;
+
+		ID3D11Resource*			pResource = nullptr;
+
+		if (FAILED(DirectX::CreateTexture(m_pDevice, Image.GetImages(), Image.GetImageCount(), Image.GetMetadata(), &pResource)))
+			return E_FAIL;
+
+		if (FAILED(m_pDevice->CreateShaderResourceView(pResource, nullptr, &pShaderResourceView)))
+			return E_FAIL;
+
+		SafeRelease(pResource);
+
+		m_Textures.push_back(pShaderResourceView);
+	}
+
+	return S_OK;
+}
+
+HRESULT CTexture::Initialize(void * pArg)
+{
+	CComponent::Initialize(pArg);
+
+	return S_OK;
+}
+
+CTexture * CTexture::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDevice_Context, TEXTURETYPE eType, string pTextureFilePath, _int iNumTextures)
+{
+	CTexture*		pInstance = new CTexture(pDevice, pDevice_Context);
+
+	if (FAILED(pInstance->InitializePrototype(eType, pTextureFilePath, iNumTextures)))
+	{
+		wstring path;
+		path.assign(pTextureFilePath.begin(), pTextureFilePath.end());
+		wstring errMsg = L"Failed to Creating Instance (CTextures)" + path;
+		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
+		SafeRelease(pInstance);
+	}
+
+	return pInstance;
+}
+
+CComponent * CTexture::Clone(void * pArg)
+{
+	CTexture*		pInstance = new CTexture(*this);
+
+	if (FAILED(pInstance->Initialize(pArg)))
+	{
+		//MSG_BOX("Failed to Cloned Instance (CTextures) ");
+		SafeRelease(pInstance);
+	}
+
+	return pInstance;
+}
+
+void CTexture::Free()
+{
+	CComponent::Free();
+
+	//for (auto& pShaderResourceView : m_Textures)
+	//	SafeRelease(pShaderResourceView);
+
+	m_Textures.clear();
+}

@@ -1,0 +1,11 @@
+Eat		동물 시체먹는거
+Idle		풀 냄새 킁킁
+Idle		그냥 서있는거		
+Walk		걷는거
+Run		뛰는거
+Idle		위협하는거
+ATK 02		뒤로 걸어갓다가 z 공격
+ATK 01		뒤로걸아갔다가 직진 공격
+DMG		피해입은거
+Die		죽는 모션 
+DeadBody	죽고 가만히

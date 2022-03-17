@@ -1,0 +1,37 @@
+Scene: Untitled
+GameObjects:
+  - Name: TalkDesk
+    UUID: 9297548254404690024
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 578.079651]
+      Size: [1280, 300]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBgUp.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: Text
+        UUID: 3275693566338373554
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [299.129852, 505.573242]
+          Size: [1000, 1000]
+        Com_Text:
+          Text: ""
+          Color: [1, 1, 1, 1]
+          Scale: [1, 1]
+          LayerDepth: 0
+          IsCenter: false

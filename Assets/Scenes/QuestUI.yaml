@@ -1,0 +1,227 @@
+Scene: Untitled
+GameObjects:
+  - Name: QuestList
+    UUID: 12889665759808604316
+    Active: false
+    Layer: ""
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [187.391418, 191.639297]
+      Size: [50, 50]
+  - Name: QuestListSub
+    UUID: 12864424915382906858
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1128.26099, 326.533997]
+      Size: [50, 50]
+    Children:
+      - 16287995631125625181
+      - 15542191811747929715
+      - 12805142118666484563
+  - Name: Quest_Hud
+    UUID: 2589783532281847914
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [300.869629, 360]
+      Size: [606.221375, 720]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 897123930233956990
+      - 12889665759808604316
+  - Name: QuestText
+    UUID: 897123930233956990
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [109.130432, 110.702606]
+      Size: [195.292404, 50]
+    Com_Text:
+      Text: quest List
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: QuestShortcut
+    UUID: 16287995631125625181
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1136.95618, 291.124146]
+      Size: [207.577652, 64.2292557]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Right_KillLog.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 8499379159806179817
+      - 13067805310386615929
+  - Name: QuestName
+    UUID: 8499379159806179817
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1051.73877, 286.065582]
+      Size: [344.843445, 50]
+    Com_Text:
+      Text: QuestName
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+  - Name: QuestPurpose
+    UUID: 13067805310386615929
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1067.39075, 323.161682]
+      Size: [500, 100]
+    Com_Text:
+      Text: QuestPurPose
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: false
+  - Name: QuestShortcut
+    UUID: 12805142118666484563
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1136.95618, 419.274017]
+      Size: [207.577652, 64.2292557]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Right_KillLog.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 10117224854208029290
+      - 11513149226949606065
+  - Name: QuestName
+    UUID: 10117224854208029290
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1051.73877, 414.215454]
+      Size: [344.843445, 50]
+    Com_Text:
+      Text: QuestName
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+  - Name: QuestPurpose
+    UUID: 11513149226949606065
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1060.43433, 451.311554]
+      Size: [500, 100]
+    Com_Text:
+      Text: QuestPurPose
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: false
+  - Name: QuestShortcut
+    UUID: 15542191811747929715
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1136.95618, 355.199097]
+      Size: [207.577652, 64.2292557]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Right_KillLog.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 12415205669606939399
+      - 5950913508321936982
+  - Name: QuestName
+    UUID: 12415205669606939399
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1053.47791, 350.140533]
+      Size: [344.843445, 50]
+    Com_Text:
+      Text: QuestName
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+  - Name: QuestPurpose
+    UUID: 5950913508321936982
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [1063.9126, 387.236633]
+      Size: [500, 100]
+    Com_Text:
+      Text: QuestPurPose
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: false

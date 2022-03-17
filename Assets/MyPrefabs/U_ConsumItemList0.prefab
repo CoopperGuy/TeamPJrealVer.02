@@ -1,0 +1,19 @@
+Scene: Untitled
+GameObjects:
+  - Name: ConsumItemList0
+    UUID: 12558281200953164834
+    Active: true
+    Layer: ConsumItemList
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [194.175781, 206.815033]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

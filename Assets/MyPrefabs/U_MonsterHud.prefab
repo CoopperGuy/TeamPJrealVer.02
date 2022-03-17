@@ -1,0 +1,99 @@
+Scene: Untitled
+GameObjects:
+  - Name: MonsterHud
+    UUID: 1381435621086077448
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [672.272034, 78.5456848]
+      Size: [50, 50]
+    Children:
+      - Name: MonHpBar
+        UUID: 11006289813535263151
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 1
+        PassIndex: 3
+        Hovering: false
+        Com_Transform:
+          Position: [672.272034, 66.5]
+          Size: [775, 21.0375061]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: MonFlagLevel
+        UUID: 4442240217663513029
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 1
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [245.013855, 69.0309448]
+          Size: [39.9318085, 32.6227036]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Font\DmgF_Null_0.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: MonName
+        UUID: 5292706359850053046
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 2
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [452.438416, 83.3031616]
+          Size: [319.511505, 50]
+        Com_Text:
+          Text: MonsterName
+          Color: [1, 1, 1, 1]
+          Scale: [1, 1]
+          LayerDepth: 0
+          IsCenter: true
+      - Name: MonHp
+        UUID: 2613754997014482700
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [672.272034, 65.8584595]
+          Size: [777.083862, 25.9195328]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: MonFlag
+        UUID: 11178141960437754700
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [245.013855, 69.0309448]
+          Size: [67.4183044, 57.6541138]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alert_Bg_LevelFlag.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

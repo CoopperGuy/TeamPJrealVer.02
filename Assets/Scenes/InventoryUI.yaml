@@ -1,0 +1,361 @@
+Scene: Untitled
+GameObjects:
+  - Name: Backpack_Hud
+    UUID: 16429825321286850786
+    Active: false
+    Layer: BackPackHud
+    Instancing: false
+    Type: UI
+    SortingOrder: 5
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [302.26944, 432.763275]
+      Size: [600, 1160.83154]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 11123017261122148341
+      - 2534542176139175624
+      - 2033216220318070637
+      - 12944058087480305985
+      - 11845365342155498423
+      - 12893099253836064542
+  - Name: EquipItem
+    UUID: 11123017261122148341
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [27.3909912, 50]
+      Size: [50, 50]
+    Children:
+      - 18113412866005203712
+      - 14307409957735197175
+      - 4477101166319400238
+      - 10489976160073860266
+      - 9907293121996886223
+      - 13592429952304183812
+  - Name: ComsumableItem
+    UUID: 2534542176139175624
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [25.6518555, 50]
+      Size: [50, 50]
+    Children:
+      - 10590615739566618244
+      - 15437861468603381042
+  - Name: MaterialItem
+    UUID: 2033216220318070637
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [27.3909912, 56.744751]
+      Size: [50, 50]
+    Children:
+      - 3605073293141489059
+      - 6971170235059011951
+  - Name: WeaponText
+    UUID: 18113412866005203712
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 200]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Weapon
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: HelmetText
+    UUID: 14307409957735197175
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 260]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Helmet
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: ChestText
+    UUID: 4477101166319400238
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 320]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Chest
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: GloveText
+    UUID: 10489976160073860266
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 380]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Glove
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: ShooseText
+    UUID: 9907293121996886223
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 440]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Shoose
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: MaterialItemList0
+    UUID: 6971170235059011951
+    Active: false
+    Layer: MaterialItemList
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [-22.6090088, 6.74475098]
+      Size: [50, 50]
+  - Name: CousumableText
+    UUID: 10590615739566618244
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [122.355194, 151.170959]
+      Size: [190.052979, 50]
+    Com_Text:
+      Text: Consumable
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: MaterialItemText
+    UUID: 3605073293141489059
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [108.270111, 152.857147]
+      Size: [156.899261, 50]
+    Com_Text:
+      Text: Material
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: EquipItemList
+    UUID: 13592429952304183812
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [-22.6090088, 0]
+      Size: [50, 50]
+  - Name: ConsumItemList
+    UUID: 15437861468603381042
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [-24.3481445, 0]
+      Size: [50, 50]
+  - Name: SelectEquip
+    UUID: 12944058087480305985
+    Active: false
+    Layer: BackPackSelect
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 11
+    Hovering: true
+    Shrink:
+      - 200
+      - 165
+      - -0.850000024
+    XShrink: true
+    YShrink: false
+    Breath: true
+    Com_Transform:
+      Position: [97.652832, 87.0960693]
+      Size: [200, 25]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "     Eqiup"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: SelectComsumable
+    UUID: 11845365342155498423
+    Active: false
+    Layer: BackPackSelect
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 11
+    Hovering: true
+    Shrink:
+      - 200
+      - 165
+      - -0.850000024
+    XShrink: true
+    YShrink: false
+    Breath: true
+    Com_Transform:
+      Position: [296.314148, 87.0951843]
+      Size: [200, 25]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "    Consum"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: SelectMaterial
+    UUID: 12893099253836064542
+    Active: false
+    Layer: BackPackSelect
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 11
+    Hovering: true
+    Shrink:
+      - 200
+      - 165
+      - -0.850000024
+    XShrink: true
+    YShrink: false
+    Breath: true
+    Com_Transform:
+      Position: [498.513885, 88.7429504]
+      Size: [200, 25]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "   Material"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true

@@ -1,0 +1,118 @@
+#include "stdafx.h"
+#include "..\Public\Obb.h"
+#include "BasicCollider.h"
+#include "Obb.h"
+USING(Client)
+
+CObb::CObb()
+{
+}
+
+
+
+HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CGameObject * pArg)
+{
+	CEngine* pEngine = CEngine::GetInstance();
+
+	m_pObj =static_cast<CEmptyGameObject*>(pEngine->AddGameObjectToPrefab(pEngine->GetCurSceneNumber(), "Prototype_GameObject_OBBs", "O_OBBs", &XMMatrixTranslationFromVector(XMLoadFloat3(&position))));
+	m_pOBB = static_cast<CBasicCollider*>(m_pObj->GetComponent("Com_OBB"));
+	m_pStat = static_cast<CStat*>(m_pObj->GetComponent("Com_Stat"));
+
+	m_pOBB->SetSize(size);
+	m_pOBB->SetCollisionType(_collisionType);
+	CStat::STAT stat = m_pStat->GetStatInfo();
+	stat.level = 1;
+	stat.levelAtk = dmg;
+	m_pStat->SetStatInfo(stat);
+	m_fDuration = _duration;
+
+	m_pStat->SetSTATE(CStat::STATES_ATK);
+	pEngine->AddScriptObject(this, pEngine->GetCurSceneNumber());
+	return S_OK;
+}
+
+HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _collisionType, _float _duration, CGameObject * pArg)
+{
+	CEngine* pEngine = CEngine::GetInstance();
+
+	m_pObj = static_cast<CEmptyGameObject*>(pEngine->AddGameObjectToPrefab(pEngine->GetCurSceneNumber(), "Prototype_GameObject_OBBs", "O_OBBs", &XMMatrixTranslationFromVector(position)));
+	m_pOBB = static_cast<CBasicCollider*>(m_pObj->GetComponent("Com_OBB"));
+	m_pStat = static_cast<CStat*>(m_pObj->GetComponent("Com_Stat"));
+
+	_float3 size;
+	XMStoreFloat3(&size, _size);
+	m_pOBB->SetSize(size);
+	m_pOBB->SetCollisionType(_collisionType);
+	CStat::STAT stat = m_pStat->GetStatInfo();
+	stat.level = 1;
+	stat.levelAtk = dmg;
+	m_pStat->SetStatInfo(stat);
+	m_fDuration = _duration;
+
+	m_pStat->SetSTATE(CStat::STATES_ATK);
+
+	pEngine->AddScriptObject(this, pEngine->GetCurSceneNumber());
+	return S_OK;
+}
+
+void CObb::Update(_double deltaTime)
+{
+	m_fDelta += (_float)deltaTime;
+
+	if (m_fDuration < m_fDelta) {
+		this->SetDead();
+		m_pObj->SetDead();
+	}
+}
+
+void CObb::LateUpdate(_double deltaTime)
+{
+}
+
+void CObb::Render()
+{
+}
+
+void CObb::SetSize(_fvector _size)
+{
+	_float3 size;
+	XMStoreFloat3(&size, _size);
+	this->SetSize(size);
+}
+
+void CObb::SetSize(_float3 _size)
+{
+	m_pOBB->SetSize(_size);
+}
+
+void CObb::SetupDead()
+{
+	this->SetDead();
+	m_pObj->SetDead();
+}
+
+
+CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CGameObject * pTarget)
+{
+	CObb*	obj = new CObb();
+	if (FAILED(obj->Initailze(position, size, dmg, _collisionType, _duration, pTarget))) {
+		SAFE_RELEASE(obj);
+		return nullptr;
+	}
+	return obj;
+}
+
+CObb * CObb::Create(_fvector position, _fvector size, _float dmg, ID _collisionType, _float _duration, CGameObject * pTarget)
+{
+	CObb*	obj = new CObb();
+	if (FAILED(obj->Initailze(position, size, dmg, _collisionType, _duration, pTarget))) {
+		SAFE_RELEASE(obj);
+		return nullptr;
+	}
+	return obj;
+}
+
+
+void CObb::Free()
+{
+}

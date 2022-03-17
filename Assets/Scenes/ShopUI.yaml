@@ -1,0 +1,77 @@
+Scene: Untitled
+GameObjects:
+  - Name: ShopHud
+    UUID: 4702152833107490206
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 5
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [248.695618, 360]
+      Size: [557.570801, 1000.74615]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 14943875813476588455
+      - 12519216463723988365
+  - Name: ShopName
+    UUID: 12519216463723988365
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [49.999939, 88.7822266]
+      Size: [71.2389145, 50]
+    Com_Text:
+      Text: Shop
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: ShopList
+    UUID: 18102883137171902426
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [250, 0]
+      Size: [50, 50]
+  - Name: BuyButton
+    UUID: 14943875813476588455
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 1
+    Hovering: true
+    Com_Transform:
+      Position: [444.783356, 670.514404]
+      Size: [106.881622, 50.1993561]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Onhead_TextBubble.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "   \n  Buy"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true

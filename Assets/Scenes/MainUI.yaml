@@ -1,0 +1,667 @@
+Scene: Untitled
+GameObjects:
+  - Name: PlayerHud
+    UUID: 4644742733117997328
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [666.953552, 616.166931]
+      Size: [50, 50]
+    Children:
+      - 3718436722915007908
+      - 14458919065677680900
+      - 9116170420833322363
+      - 7595816087655284489
+  - Name: Hp
+    UUID: 3718436722915007908
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [674.14502, 643.156738]
+      Size: [300, 15]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 360541464009531842
+  - Name: HpBar
+    UUID: 360541464009531842
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 3
+    Hovering: false
+    Com_Transform:
+      Position: [674.144958, 644.742615]
+      Size: [295, 13]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+      TextureMaskPath: ..\..\Assets\UITexture\Gauge_Bar.tga
+      TextureNoisePath: ..\..\Assets\UITexture\Gauge_Bar_02.tga
+      TextureAnyPath: ..\..\Assets\UITexture\Gauge_Bar_Full1.tga
+      Color: [0, 0, 0, 1]
+  - Name: Stamina
+    UUID: 14458919065677680900
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [674.044983, 663.542419]
+      Size: [300, 15]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 5971317390204806477
+  - Name: StaminaBar
+    UUID: 5971317390204806477
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 3
+    Hovering: false
+    Com_Transform:
+      Position: [674.044983, 663.542419]
+      Size: [295, 12]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\StaminaHud.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: Exp
+    UUID: 9116170420833322363
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [674.044983, 680.680237]
+      Size: [300, 12]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 12521340856426920314
+  - Name: ExpBar
+    UUID: 12521340856426920314
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 3
+    Hovering: false
+    Com_Transform:
+      Position: [674.044983, 680.680237]
+      Size: [295, 10]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\ExpHud.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: LevelFlag
+    UUID: 7595816087655284489
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [487.144348, 657.198669]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Alert_Bg_LevelFlag.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 13299719075681608056
+      - 7440413138310284788
+      - 8153880922184464073
+  - Name: LevelFont
+    UUID: 13299719075681608056
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [487.144287, 657.198975]
+      Size: [18, 18]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\DmgF_Null_0.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillIcon
+    UUID: 13536765509469864204
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1245.47485, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 5191734195603716267
+  - Name: SkillBorder
+    UUID: 5191734195603716267
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [1246.76147, 668.685364]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillBorder.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SelectItemHud
+    UUID: 529759806022810624
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [167.802216, 130.936859]
+      Size: [264.524719, 103.957817]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "\n  Items"
+      Color: [0.840579689, 0.840579689, 0.840579689, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 5923592597401862741
+  - Name: EscMenu
+    UUID: 487349684833413362
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [419.231598, 410.842316]
+      Size: [860.464111, 2998.01318]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 529759806022810624
+      - 16786830591833640957
+  - Name: TextLine
+    UUID: 5923592597401862741
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [167.802002, 109.016418]
+      Size: [264.524994, 1]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SelectQuestHud
+    UUID: 16786830591833640957
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [167.802002, 259.08667]
+      Size: [264.524994, 103.958]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: " \n  Quest"
+      Color: [0.869565248, 0.869565248, 0.869565248, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 3633483967520159922
+  - Name: TextLine
+    UUID: 3633483967520159922
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [167.802002, 238.852081]
+      Size: [264.524994, 1]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickSlot0
+    UUID: 4709607269928993000
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [37.0359497, 659.909424]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Groggy_Gauge.dds
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 12322287636575365322
+      - 15201883921803617419
+  - Name: QuickSlotIcon
+    UUID: 12322287636575365322
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [37.0359497, 659.909546]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickBorder
+    UUID: 15201883921803617419
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [37.0359497, 659.909119]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Gauge.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickRegi0
+    UUID: 9990065505030077495
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [557.809326, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "\n\n \n  \n   Z"
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 7651156532380057483
+  - Name: QuickRegi1
+    UUID: 7920380615560780865
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [622.292969, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "   \n\n\n\n   X"
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 17528326666143867850
+  - Name: QuickRegi2
+    UUID: 4453287704084560765
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [686.776978, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "\n\n\n   \n   C"
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 4231274138471713980
+  - Name: QuickRegi3
+    UUID: 4577720191395817431
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [751.260986, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: "\n\n\n\n   V"
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: true
+    Children:
+      - 5413296028055816498
+  - Name: QuickRegiIcon
+    UUID: 7651156532380057483
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 9
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [557.809021, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickRegiIcon1
+    UUID: 17528326666143867850
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 9
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [622.29303, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickRegiIcon2
+    UUID: 4231274138471713980
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 9
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [686.776978, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: QuickRegiIcon3
+    UUID: 5413296028055816498
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 9
+    PassIndex: 8
+    Hovering: false
+    Com_Transform:
+      Position: [751.260986, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: GoldIcon
+    UUID: 5159038175060798352
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [897.960571, 686.859131]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Icon_Gold_0.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: Gold
+    UUID: 7276647562409506089
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [972.11615, 691.847534]
+      Size: [111.699234, 21.6747799]
+    Com_Text:
+      Text: 0
+      Color: [1, 1, 1, 1]
+      Scale: [0.899999976, 0.899999976]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: LevelFont20
+    UUID: 7440413138310284788
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [483.012207, 656.928406]
+      Size: [10, 10]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: LevelFont21
+    UUID: 8153880922184464073
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [490.942749, 656.927979]
+      Size: [10, 10]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: RegistQuickSlot
+    UUID: 8828850492644535637
+    Active: false
+    Layer: RegistQuickSlot
+    Instancing: false
+    Type: UI
+    SortingOrder: 9
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [644.859985, 360]
+      Size: [1972.12988, 264.164337]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Right_KillLog.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 9990065505030077495
+      - 7920380615560780865
+      - 4453287704084560765
+      - 4577720191395817431
+      - 8668102252136602084
+  - Name: CloseButton
+    UUID: 8668102252136602084
+    Active: false
+    Layer: RegistQuickSlot
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: true
+    Com_Transform:
+      Position: [1250.47339, 325.136383]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Continuty_2.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

@@ -1,0 +1,77 @@
+Scene: Untitled
+GameObjects:
+  - Name: LoadingScene
+    UUID: 779237612020771888
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [1280, 720]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_I09.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: LoadGuage
+    UUID: 6376478613605949467
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [97.9907837, 620.397034]
+      Size: [128, 128]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\Loading_Gauge_SymbolBg.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 15822741442950894898
+      - 2678576956082392449
+  - Name: LoadingGuage
+    UUID: 15822741442950894898
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [97.9907227, 620.396667]
+      Size: [128, 128]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\Loading_Gauge_Symbol.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: LoadPercentage
+    UUID: 2678576956082392449
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [82.8555908, 685.196411]
+      Size: [112.094482, 85.8596954]
+    Com_Text:
+      Text: ""
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false

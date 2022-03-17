@@ -1,0 +1,22 @@
+Scene: Untitled
+GameObjects:
+  - Name: ComboEffect
+    UUID: 4310656051502784947
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 7
+    Shrink:
+      - 50
+      - 0
+      - 50
+    Com_Transform:
+      Position: [-102.747009, -50]
+      Size: [50, 50]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Alret\Fx_StrongLight.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

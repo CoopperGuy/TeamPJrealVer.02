@@ -1,0 +1,126 @@
+Scene: Untitled
+GameObjects:
+  - Name: light
+    UUID: 463561755303631127
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [1, 1, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: sagak
+    UUID: 13672298776701663251
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-8.46688843, -1.89320886, 0.684310198]
+      Rotation: [-29.7863922, -22.4473667, 50.4581375]
+      Scale: [0.999999702, 0.999998927, 0.999999225]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Stairs2
+    UUID: 1195974782785730125
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -5.52446556, 0]
+      Rotation: [0.00036257779, -88.5224533, -0.000126787796]
+      Scale: [0.999999642, 0.999999583, 0.999999642]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs2.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Bag
+    UUID: 5164646298944482621
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.69657612, -2.45166612, 0]
+      Rotation: [37.8484993, -18.0911045, 14.4206753]
+      Scale: [4.39443398, 4.42528582, 0.99999994]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\ObjD\
+      MeshFileName: Bag1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Stair3
+    UUID: 13766728053950514723
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.28499293, 0, -7.19230986]
+      Rotation: [-50.999634, 86.7257385, -49.999634]
+      Scale: [0.999993742, 1, 0.999993742]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Stair\Stair3\
+      MeshFileName: Stair3.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Collider
+    UUID: 68101244888458458
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -11.8361073, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [100, 7.69999981, 100]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1

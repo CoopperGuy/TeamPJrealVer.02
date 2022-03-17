@@ -1,0 +1,17 @@
+Scene: Untitled
+GameObjects:
+  - Name: MonHpBar
+    UUID: 16404952975323431135
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-0.0650682822, -24.1250019, -7.67387007e-08]
+      Scale: [0.99944973, 0.100004472, 0.999609172]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+    RenderGroup: 2
+    FrustumRange: 1

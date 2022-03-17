@@ -1,0 +1,43 @@
+Scene: Untitled
+GameObjects:
+  - Name: TalkBox
+    UUID: 2855803263849067272
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: true
+    Com_Transform:
+      Position: [1142.17395, 370.374603]
+      Size: [221.674713, 69.2376785]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Alret\Alert_Bg_Left_Blur.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: ""
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: false
+    Children:
+      - Name: BoxText
+        UUID: 15806603572233763376
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [1142.17383, 387.236572]
+          Size: [164.285873, 50]
+        Com_Text:
+          Text: ""
+          Color: [1, 1, 1, 1]
+          Scale: [1, 1]
+          LayerDepth: 0
+          IsCenter: true

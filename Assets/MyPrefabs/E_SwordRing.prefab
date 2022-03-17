@@ -1,0 +1,29 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_SwordRing
+    UUID: 4462042033817236282
+    Active: true
+    Layer: Effect_SwordRing
+    Type: Effect
+    PassIndex: 4
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0.25, 0]
+      Rotation: [0, -0, 0]
+      Scale: [5, 3.9000001, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Ring.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.png
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Flake_002_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test.jpg
+      ScrollSpeedX: [0.100000001, 0, 0]
+      ScrollSpeedY: [0.00999999978, 2.0999999, 2.29999995]
+      Distortion1: [-0.100000001, 0.400000006]
+      Distortion2: [0.100000001, -0.100000001]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 1
+      DistortionBias: 1.39999998

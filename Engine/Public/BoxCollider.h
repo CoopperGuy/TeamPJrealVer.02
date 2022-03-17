@@ -1,0 +1,32 @@
+#pragma once
+
+#include "Collider.h"
+#include "VIBuffer_LineBox.h"
+
+BEGIN(Engine)
+
+class ENGINE_DLL CBoxCollider final : public CCollider
+{
+private:
+	explicit CBoxCollider(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
+	explicit CBoxCollider(const CBoxCollider& rhs);
+	virtual ~CBoxCollider() = default;
+public:
+	static CBoxCollider* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
+	virtual CComponent* Clone(void* pArg) override;
+	virtual void Free() override;
+
+public:
+	virtual HRESULT InitializePrototype();
+	virtual HRESULT Initialize(void* pArg);
+
+public:
+	virtual HRESULT SetUpDebugLine() override;
+	virtual void SetUpRigidActor(void* pShapeInfo, RIGIDBODYDESC desc, CGameObject* obj) override;
+public:
+	void SetSize(_float3 m_Size);
+	_float3 GetSize() { return m_Size; };
+
+};
+
+END

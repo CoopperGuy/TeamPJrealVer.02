@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Defaults">
+      <UniqueIdentifier>{b575678c-5c44-43ae-85b0-63d8b7896a1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ToolManager">
+      <UniqueIdentifier>{a2484fb0-aacc-4429-bc48-8a1fdcf31218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow">
+      <UniqueIdentifier>{3a02f6d4-c919-443c-9ce4-f6e65eff9b90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Log">
+      <UniqueIdentifier>{4c1bc84d-4b7a-4d1e-a4f8-1f731e8a1bd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\ContentBrowser">
+      <UniqueIdentifier>{3a2f80bf-7a2a-4414-9cb5-02466c755b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Inspector">
+      <UniqueIdentifier>{364fe455-10b1-43d4-b355-32bddf78fe78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Gizmo">
+      <UniqueIdentifier>{58637ec0-ddb2-435e-8197-ac8bae7b5180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Hierarchy">
+      <UniqueIdentifier>{20f1acdd-54fa-4c03-b50b-9e965db4e6e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{e6c2b097-4117-4bc7-89a7-497da963fb36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{e17f5b08-e647-4a79-856a-ba2eb6b7f890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{78663f16-7fee-4771-bc43-4b8052cd43cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Navi">
+      <UniqueIdentifier>{f68ab664-7dbb-4a50-a299-b88812e80fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FX">
+      <UniqueIdentifier>{6d9f25f2-5c71-4554-81c9-b62fddf7efbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{f79ac939-7db5-45f5-9ed7-b108ddc4d425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character">
+      <UniqueIdentifier>{c80aff23-ac27-4160-bd00-be614fa9f721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Defines">
+      <UniqueIdentifier>{64131c9e-e540-4269-94b2-7eec6d30f3f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Weapone">
+      <UniqueIdentifier>{b48ffdc8-1601-4a27-abfc-2e612675148a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiWindow\Instancing">
+      <UniqueIdentifier>{8e2a6a7b-9bf0-49e5-bfe0-da68fae56c7d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>99.Defaults</Filter>
+    </Image>
+    <Image Include="Tool.ico">
+      <Filter>99.Defaults</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Defaults</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool.cpp">
+      <Filter>99.Defaults</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ToolManager.cpp">
+      <Filter>ToolManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Log.cpp">
+      <Filter>ImGuiWindow\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ContentBrowser.cpp">
+      <Filter>ImGuiWindow\ContentBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Gizmo.cpp">
+      <Filter>ImGuiWindow\Gizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Inspector.cpp">
+      <Filter>ImGuiWindow\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Hierarchy.cpp">
+      <Filter>ImGuiWindow\Hierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_impl_win32.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_impl_dx11.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Tool.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Camera_Tool.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Navi.cpp">
+      <Filter>ImGuiWindow\Navi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ToolPlayer.cpp">
+      <Filter>GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ToolCharacter.cpp">
+      <Filter>GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Haribo.cpp">
+      <Filter>GameObject\Weapone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\MapInstancing.cpp">
+      <Filter>ImGuiWindow\Instancing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>99.Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool.h">
+      <Filter>99.Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ToolManager.h">
+      <Filter>ToolManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Log.h">
+      <Filter>ImGuiWindow\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ContentBrowser.h">
+      <Filter>ImGuiWindow\ContentBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Gizmo.h">
+      <Filter>ImGuiWindow\Gizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Inspector.h">
+      <Filter>ImGuiWindow\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Hierarchy.h">
+      <Filter>ImGuiWindow\Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Backends\imgui_impl_win32.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Backends\imgui_impl_dx11.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Tool.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Camera_Tool.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Navi.h">
+      <Filter>ImGuiWindow\Navi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Shader\Shader_Defines.hpp">
+      <Filter>FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ToolCharacter.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ToolPlayer.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Haribo.h">
+      <Filter>GameObject\Weapone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\MapInstancing.h">
+      <Filter>ImGuiWindow\Instancing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tool.rc">
+      <Filter>99.Defaults</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Defaults</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Fresnel2.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_GrenadeTrajectory.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Line.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Mesh.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_PointInstance.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Rect.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Rect_Viewport.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_RectImage.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_RectInstance.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Sky.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Smoke.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Terrain.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Texture.hlsl">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\TextureTest.hlsl">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Effect.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Fire.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Fresnel.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

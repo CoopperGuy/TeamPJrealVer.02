@@ -1,0 +1,71 @@
+Scene: Untitled
+GameObjects:
+  - Name: ShopItem
+    UUID: 1597704841940506257
+    Active: false
+    Layer: Default
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [250, 110.899994]
+      Size: [352.952148, 70.9198074]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: ShopItemName
+        UUID: 12009972794004307782
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [169.999939, 95.7243347]
+          Size: [466.134979, 50]
+        Com_Text:
+          Text: ""
+          Color: [1, 1, 1, 1]
+          Scale: [0.75, 0.75]
+          LayerDepth: 0
+          IsCenter: false
+      - Name: ShopItemImage
+        UUID: 7691390894199396891
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [112.608704, 110.899994]
+          Size: [50, 50]
+        Com_VIBuffer:
+          TexturePath: ""
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: ShopItemPrice
+        UUID: 2921233219953894625
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [336.957947, 117.644684]
+          Size: [488.796814, 50]
+        Com_Text:
+          Text: ""
+          Color: [1, 1, 1, 1]
+          Scale: [0.5, 0.5]
+          LayerDepth: 0
+          IsCenter: false

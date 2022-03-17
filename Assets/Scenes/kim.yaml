@@ -1,0 +1,153 @@
+Scene: Untitled
+GameObjects:
+  - Name: Direction
+    UUID: 14881628268781159922
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-122.649948, 600.828979, -595.85614]
+      Rotation: [0, -0, 0]
+      Scale: [10, 10, 10]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [1, 1, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tile1
+    UUID: 9845630866505455091
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-1.32127726, -1.43200004, -14.9407673]
+      Rotation: [0, -0, 0]
+      Scale: [18.116415, 29.7076778, 35]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile12.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: WolfBoss
+    UUID: 3231261571195986858
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.94024396, -1.43200004, -2.22222877]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.200000003
+      Height: 0.400000006
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0.100000001, 0]
+      Size: [0.300000012, 0.300000012, 0.300000012]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\WolfBoss\
+      MeshFileName: WolfBoss.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [11, 0, 11, 11]
+      HpRegen: [1, 1]
+      Atk: [11, 0, 11]
+      Arm: [34, 0, 34]
+      Exp: [123, 123123, 123123]
+      Level: 1
+      Gold: 434
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Npc_Elf
+    UUID: 15695811712816867819
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.11130428, -1.33557498, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PointElf\
+      MeshFileName: Npc_Elf.fbx
+      HasCollider: false
+      Equipment: false
+    Com_NPCInfo:
+      NPCID: 100
+      QuestID: 10000
+      BoxID: 1000
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, -1.43200004, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-0.0906029195, -1.43200004, -5.102355]
+      Rotation: [0.999999642, 0.999999642, 0.999999642]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [12.2909899, -1.43200004, 0.802885056]
+      Rotation: [0.999999642, 0.999999642, 0.999999642]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1

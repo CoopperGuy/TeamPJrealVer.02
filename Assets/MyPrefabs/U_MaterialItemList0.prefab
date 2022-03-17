@@ -1,0 +1,19 @@
+Scene: Untitled
+GameObjects:
+  - Name: MaterialItemList0
+    UUID: 8694526254544007877
+    Active: true
+    Layer: MaterialItemList
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [197.192444, 196.697922]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

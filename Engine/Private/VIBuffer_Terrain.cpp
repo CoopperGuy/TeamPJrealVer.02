@@ -1,0 +1,375 @@
+#include "EnginePCH.h"
+#include "..\Public\VIBuffer_Terrain.h"
+#include "Texture.h"
+#include "Shader.h"
+#include "Engine.h"
+
+USING(Engine)
+
+CVIBuffer_Terrain::CVIBuffer_Terrain(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
+	: CVIBuffer(pDevice, pDeviceContext)
+{
+}
+
+CVIBuffer_Terrain::CVIBuffer_Terrain(const CVIBuffer_Terrain & rhs)
+	: CVIBuffer(rhs)
+{
+}
+
+CVIBuffer_Terrain * CVIBuffer_Terrain::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
+{
+	CVIBuffer_Terrain*	pInstance = new CVIBuffer_Terrain(pDevice, pDeviceContext);
+
+	//if (FAILED(pInstance->InitializePrototype()))
+	//{
+	//	MSG_BOX("Failed To Creating CVIBuffer_Terrain");
+	//	SafeRelease(pInstance);
+	//}
+	pInstance->InitializePrototype();
+
+	return pInstance;
+}
+
+CComponent * CVIBuffer_Terrain::Clone(void * pArg)
+{
+	CVIBuffer_Terrain*	pInstance = new CVIBuffer_Terrain(*this);
+
+	if (FAILED(pInstance->Initialize(pArg)))
+	{
+		MSG_BOX("Failed To Creating CVIBuffer_Terrain");
+		SafeRelease(pInstance);
+	}
+
+	return pInstance;
+}
+
+void CVIBuffer_Terrain::Free()
+{
+	__super::Free();
+	SafeDeleteArray(m_pCloneVertices);
+	SafeRelease(m_pTexture);
+}
+
+HRESULT CVIBuffer_Terrain::InitializePrototype()
+{
+	//if (FAILED(__super::InitializePrototype()))
+	//	return E_FAIL;
+	__super::InitializePrototype();
+	CreateBuffer(&m_pVertices);
+
+	return S_OK;
+}
+
+HRESULT CVIBuffer_Terrain::Initialize(void * pArg)
+{
+	if (FAILED(__super::Initialize(pArg)))
+		return E_FAIL;
+
+	m_pShader = make_unique<CShader>("../../Assets/Shader/Shader_Terrain.fx");
+	m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, "../../Assets/Texture/Grass.tga");
+	return S_OK;
+}
+
+HRESULT CVIBuffer_Terrain::Render(_uint iPassIndex)
+{
+	m_pShader->SetUp_TextureOnShader("g_DiffuseTexture", m_pTexture);
+
+	if (iPassIndex != 4)
+	{
+		_uint iNumLight = CLightManager::GetInstance()->GetNumRenderLights();
+		for (int i = 0; i < (_int)iNumLight; ++i)
+		{
+			m_pShader->SetUp_ValueOnShader(("g_LightViewMatrix" + to_string(i)).c_str(), &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(i)), sizeof(_matrix));
+			m_pShader->SetUp_ValueOnShader(("g_LightProjMatrix" + to_string(i)).c_str(), &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(i)), sizeof(_matrix));
+			m_pShader->SetUp_ValueOnShader(("lightPosition" + to_string(i)).c_str(), &CLightManager::GetInstance()->GetPosition(i), sizeof(_float3));
+		}
+	}
+	else
+	{
+		_uint lightIndex = CLightManager::GetInstance()->GetCurrentIndex();
+		m_pShader->SetUp_ValueOnShader("g_LightViewMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(lightIndex)), sizeof(_matrix));
+		m_pShader->SetUp_ValueOnShader("g_LightProjMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(lightIndex)), sizeof(_matrix));
+		m_pShader->SetUp_ValueOnShader("lightPosition0", &CLightManager::GetInstance()->GetPosition(lightIndex), sizeof(_float3));
+	}
+
+
+	if (iPassIndex == 4)
+		iPassIndex = 1;
+	else
+	{
+
+		_uint iNumLights = CLightManager::GetInstance()->GetNumRenderLights();
+		for (int i = 0; i < (_int)iNumLights; ++i)
+		{
+			ID3D11ShaderResourceView*	pShadowSRV = CLightManager::GetInstance()->GetShaderResourceView(i);
+			m_pShader->SetUp_TextureOnShader(("depthMapTexture" + to_string(i)).c_str(), pShadowSRV);
+		}
+
+
+		//CTargetManager*		pTargetManager = GET_INSTANCE(CTargetManager);
+		//_uint iLightIndex = 0;
+
+		//string targetName = "Target_Shadow" + to_string(iLightIndex);
+
+		//ID3D11ShaderResourceView*	pShadowSRV = pTargetManager->GetShaderResourceView(targetName);
+		//if (nullptr == pShadowSRV)
+		//	return E_FAIL;
+		//m_pShader->SetUp_TextureOnShader(("depthMapTexture" + to_string(iLightIndex)).c_str(), pShadowSRV);
+
+		//iLightIndex++;
+		//targetName = "Target_Shadow" + to_string(iLightIndex);
+		//pShadowSRV = pTargetManager->GetShaderResourceView(targetName);
+		//if (nullptr == pShadowSRV)
+		//	return E_FAIL;
+		//m_pShader->SetUp_TextureOnShader(("depthMapTexture" + to_string(iLightIndex)).c_str(), pShadowSRV);
+		//RELEASE_INSTANCE(CTargetManager);
+	}
+
+	__super::Render(iPassIndex);
+
+	return S_OK;
+}
+
+HRESULT CVIBuffer_Terrain::CreateBuffer(void ** pVertices)
+{
+	SafeDeleteArray(*pVertices);
+
+	HANDLE		hFile = CreateFile(StringToWString(m_HeightMapPath).c_str(), GENERIC_READ, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+	if (0 == hFile)
+		return E_FAIL;
+
+	_ulong					dwByte = 0;
+
+	BITMAPFILEHEADER		fh;
+	ReadFile(hFile, &fh, sizeof(BITMAPFILEHEADER), &dwByte, nullptr);
+
+	BITMAPINFOHEADER		ih;
+	ReadFile(hFile, &ih, sizeof(BITMAPINFOHEADER), &dwByte, nullptr);
+
+	_ulong*		pPixel = new _ulong[ih.biWidth * ih.biHeight];
+	ReadFile(hFile, pPixel, sizeof(_ulong) * ih.biWidth * ih.biHeight, &dwByte, nullptr);
+
+	CloseHandle(hFile);
+
+	m_iStride = sizeof(VTXNORTEX);
+	m_iNumVerticesX = ih.biWidth;
+	m_iNumVerticesZ = ih.biHeight;
+	m_iNumVertices = m_iNumVerticesX * m_iNumVerticesZ;
+	m_iNumVertexBuffers = 1;
+
+	m_VBDesc.ByteWidth = m_iStride * m_iNumVertices;
+	m_VBDesc.Usage = D3D11_USAGE_IMMUTABLE;
+	m_VBDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	m_VBDesc.CPUAccessFlags = 0;
+	m_VBDesc.MiscFlags = 0;
+	m_VBDesc.StructureByteStride = m_iStride;
+
+	float fHeightScale = 10.f;
+
+	*pVertices = new VTXNORTEX[m_iNumVertices];
+	ZeroMemory(*pVertices, sizeof(VTXNORTEX) * m_iNumVertices);
+
+	for (_uint i = 0; i < m_iNumVerticesZ; ++i)
+	{
+		for (_uint j = 0; j < m_iNumVerticesX; ++j)
+		{
+			_uint		iIndex = i * m_iNumVerticesX + j;
+
+			// float height = (pPixel[iIndex] & 0x000000ff) / fHeightScale;
+			float height = -5.f;
+			((VTXNORTEX*)*pVertices)[iIndex].vPosition = _float3((float)j, height, (float)i);
+			((VTXNORTEX*)*pVertices)[iIndex].vNormal = _float3(0.f, 0.f, 0.f);
+			((VTXNORTEX*)*pVertices)[iIndex].vTexUV = _float2(j / (m_iNumVerticesX - 1.f), 1.f - i / (m_iNumVerticesZ - 1.f));
+		}
+	}
+
+	/* For.D3D11_SUBRESOURCE_DATA */
+	m_VBSubResourceData.pSysMem = *pVertices;
+#pragma endregion VERTEXBUFFER
+
+#pragma region INDEXBUFFER
+
+	m_iNumPrimitive = (m_iNumVerticesX - 1) * (m_iNumVerticesZ - 1) * 2;
+	m_iNumVerticesPerPrimitive = 3;
+	m_eIndexFormat = DXGI_FORMAT_R32_UINT;
+	m_ePrimitive = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+
+	/* For.D3D11_BUFFER_DESC */
+	m_IBDesc.ByteWidth = sizeof(POLYGONINDICES32) * m_iNumPrimitive;
+	m_IBDesc.Usage = D3D11_USAGE_IMMUTABLE;
+	m_IBDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	m_IBDesc.CPUAccessFlags = 0;
+	m_IBDesc.MiscFlags = 0;
+	m_IBDesc.StructureByteStride = 0;
+
+	POLYGONINDICES32*		pIndices = new POLYGONINDICES32[m_iNumPrimitive];
+	ZeroMemory(pIndices, sizeof(POLYGONINDICES32) * m_iNumPrimitive);
+
+	_uint		iNumPrimitive = 0;
+
+	for (_uint i = 0; i < m_iNumVerticesZ - 1; ++i)
+	{
+		for (_uint j = 0; j < m_iNumVerticesX - 1; ++j)
+		{
+			_uint		iIndex = i * m_iNumVerticesX + j;
+
+			_uint		iIndices[4] = { iIndex + m_iNumVerticesX,
+				iIndex + m_iNumVerticesX + 1,
+				iIndex + 1,
+				iIndex
+			};
+
+			_vector			vNormal, vSour, vDest;
+
+			pIndices[iNumPrimitive]._0 = iIndices[0];
+			pIndices[iNumPrimitive]._1 = iIndices[1];
+			pIndices[iNumPrimitive]._2 = iIndices[2];
+
+			vSour = XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vPosition) -
+				XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vPosition);
+
+			vDest = XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vPosition) -
+				XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vPosition);
+
+			vNormal = XMVector3Cross(vDest, vSour);
+
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal) += vNormal));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal) += vNormal));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal) += vNormal));
+
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal)));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal)));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal)));
+
+			++iNumPrimitive;
+
+
+			pIndices[iNumPrimitive]._0 = iIndices[0];
+			pIndices[iNumPrimitive]._1 = iIndices[2];
+			pIndices[iNumPrimitive]._2 = iIndices[3];
+
+			vSour = XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vPosition) -
+				XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vPosition);
+
+			vDest = XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vPosition) -
+				XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vPosition);
+
+			vNormal = XMVector3Cross(vDest, vSour);
+
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal) += vNormal));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal) += vNormal));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal,
+				(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal) += vNormal));
+
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._0].vNormal)));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._1].vNormal)));
+			XMStoreFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal,
+				XMVector3Normalize(XMLoadFloat3(&((VTXNORTEX*)*pVertices)[pIndices[iNumPrimitive]._2].vNormal)));
+
+			++iNumPrimitive;
+		}
+	}
+
+	m_IBSubResourceData.pSysMem = pIndices;
+
+#pragma endregion INDEXBUFFER
+
+	if (FAILED(__super::Create_Buffers()))
+		return E_FAIL;
+
+	SafeDeleteArray(pPixel);
+
+	SafeDeleteArray(pIndices);
+
+	return S_OK;
+}
+
+void CVIBuffer_Terrain::SetHeightMapPath(string path)
+{
+	m_HeightMapPath = path;
+	CreateBuffer(&m_pCloneVertices);
+
+	CreateHeightField(&m_pCloneVertices);
+}
+
+void CVIBuffer_Terrain::SetTexturePath(string path)
+{
+	m_TexturePath = path;
+}
+
+string CVIBuffer_Terrain::GetHeightMapPath()
+{
+	return m_HeightMapPath;
+}
+
+string CVIBuffer_Terrain::GetTexturePath()
+{
+	return m_TexturePath;
+}
+
+void CVIBuffer_Terrain::CreateHeightField(void ** pVertices)
+{
+	if (m_pTerrainActor)
+		m_pTerrainActor->release();
+
+	if (!CEngine::GetInstance()->GetPhysics())
+		return;
+
+	m_pTerrainActor = CEngine::GetInstance()->GetPhysics()->createRigidStatic(PxTransform(PxIdentity));
+	m_pTerrainActor->setActorFlag(PxActorFlag::eVISUALIZATION, TRUE);
+	m_pTerrainActor->userData = this;
+
+	const double i255 = 1.0 / 255.0;
+	const PxReal heightScale = 20.f;
+
+	PxHeightFieldSample* hfSamples = new PxHeightFieldSample[m_iNumVertices];
+	//_uint vertexIndex = m_iNumVertices - 1;
+	for (_uint i = 0; i < m_iNumVerticesZ; ++i)
+	{
+		for (_uint j = 0; j < m_iNumVerticesX; ++j)
+		{
+			_uint		iIndex = i * m_iNumVerticesX + j;
+			_uint		vertexIndex = j * m_iNumVerticesX + i; // PhysX
+
+			hfSamples[iIndex].height = (PxI16)(((VTXNORTEX*)*pVertices)[vertexIndex].vPosition.y * heightScale);
+			hfSamples[iIndex].materialIndex0 = 0;
+			hfSamples[iIndex].materialIndex1 = 0;
+			hfSamples[iIndex].clearTessFlag();
+		}
+	}
+	// Build PxHeightFieldDesc from samples
+	PxHeightFieldDesc terrainDesc;
+	terrainDesc.format = PxHeightFieldFormat::eS16_TM;
+	terrainDesc.nbColumns = m_iNumVerticesX;
+	terrainDesc.nbRows = m_iNumVerticesZ;
+	terrainDesc.samples.data = hfSamples;
+	terrainDesc.samples.stride = sizeof(PxHeightFieldSample); // 2x 8-bit material indices + 16-bit height
+	PxHeightField* heightField = CEngine::GetInstance()->GetCooking()->createHeightField(terrainDesc, CEngine::GetInstance()->GetPhysics()->getPhysicsInsertionCallback());
+	PxHeightFieldGeometry hfGeom(heightField, PxMeshGeometryFlags(), (1/20.f), 1, 1);
+	PxTransform localPose;
+	localPose.p = PxVec3(0, 0.3f, 0);         // heightfield is at world (0,minHeight,0)
+	localPose.q = PxQuat(PxIdentity);
+	PxMaterial* mat = CEngine::GetInstance()->GetPhysics()->createMaterial(0.5f, 0.5f, 0.1f);
+	PxShape* shape = PxRigidActorExt::createExclusiveShape(*m_pTerrainActor, hfGeom, *mat);
+	shape->setLocalPose(localPose);
+
+	PxFilterData filterData;
+	filterData.word0 = CPxManager::GROUP1;
+	filterData.word1 = CPxManager::GROUP2 | CPxManager::GROUP3;
+	filterData.word2 = CPxManager::GROUP1;
+
+	shape->setQueryFilterData(filterData);
+
+	CEngine::GetInstance()->AddActor(m_pTerrainActor);
+	delete[] hfSamples;
+}

@@ -1,0 +1,17 @@
+Scene: Untitled
+GameObjects:
+  - Name: NPC_F
+    UUID: 5486403055828340723
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [3.03691506, 3.26459527, 10.0238886]
+      Rotation: [7.30989075, -7.50003672, -2.15281602e-07]
+      Scale: [0.494325161, 0.196405813, 0.950030506]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Alret\pressF.png
+    RenderGroup: 3
+    FrustumRange: 1

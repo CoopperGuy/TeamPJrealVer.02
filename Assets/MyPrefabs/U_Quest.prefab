@@ -1,0 +1,54 @@
+Scene: Untitled
+GameObjects:
+  - Name: Quest
+    UUID: 14857359388547457284
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [201.480347, 173.275436]
+      Size: [275.9664, 60.0055504]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Onhead_TextBubble.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: QuestName
+        UUID: 11743139134738387640
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 2
+        PassIndex: 0
+        Hovering: false
+        Com_Transform:
+          Position: [214.734833, 192.92804]
+          Size: [156.665726, 50]
+        Com_Text:
+          Text: ""
+          Color: [1, 1, 1, 1]
+          Scale: [0.699999988, 0.699999988]
+          LayerDepth: 0
+          IsCenter: true
+      - Name: QuestImage
+        UUID: 8554947566219512674
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 2
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [89.5688477, 173.275436]
+          Size: [32, 32]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Hud\Alert_Icon_Quest_Episode.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

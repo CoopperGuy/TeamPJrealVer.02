@@ -1,0 +1,38 @@
+Scene: Untitled
+GameObjects:
+  - Name: LogoImgae
+    UUID: 552468376985198531
+    Active: true
+    Layer: logoimg
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [751.304565, 375.175537]
+      Size: [1516.35999, 720]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Lobby\Logo.png
+      TextureMaskPath: ..\..\Assets\Texture\Grass_1.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: StartMeesage
+    UUID: 1973818521863027044
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [733.479126, 560.912781]
+      Size: [428.723145, 50]
+    Com_Text:
+      Text: Prees 'Space' to Start
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true

@@ -1,0 +1,169 @@
+#include "stdafx.h"
+#include "..\Public\ContentBrowser.h"
+
+static const FILESYSTEM::path s_AssetPath = "../../Assets";
+USING(Tool)
+
+CContentBrowser::CContentBrowser()
+	:m_FrameCount(0)
+{
+	m_pEngine = CEngine::GetInstance();
+	m_pDevice = m_pEngine->GetDevice();
+	m_pDeviceContext  = m_pEngine->GetDeviceContext();
+	Initialize();
+
+}
+
+void CContentBrowser::Initialize()
+{
+	m_CurrentDirectory = s_AssetPath;
+
+	m_pTexFolder = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, "../../Assets/Texture/Folder.png");
+	m_pTexFile = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, "../../Assets/Texture/File.png");
+	m_pTexImage = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, "../../Assets/Texture/Image.png");
+}
+
+
+void CContentBrowser::SetContentHierarchy(FILESYSTEM::path curPath)
+{
+	if (!FILESYSTEM::is_directory(curPath) || curPath.empty())
+		return;
+
+	for (auto& iter : FILESYSTEM::directory_iterator(curPath))
+	{
+		FILESYSTEM::path filePath = iter.path();
+		string fileName = iter.path().filename().string();
+		if (FILESYSTEM::is_directory(filePath))
+		{
+			ImGui::PushID(fileName.c_str());
+			bool isOpen = ImGui::TreeNode(fileName.c_str());
+			if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+			{
+				if (FILESYSTEM::is_directory(iter.status()))
+					m_CurrentDirectory = filePath;
+			}
+			if (isOpen)
+			{
+
+				ImGui::Indent(ImGui::GetTreeNodeToLabelSpacing());
+				ImGui::TreePop();
+				SetContentHierarchy(filePath);
+				ImGui::Unindent(ImGui::GetTreeNodeToLabelSpacing());
+			}
+
+			ImGui::PopID();
+		}
+	}
+}
+
+void CContentBrowser::Free()
+{
+	SafeRelease(m_pTexFolder);
+	SafeRelease(m_pTexFile);
+	SafeRelease(m_pTexImage);
+}
+
+void CContentBrowser::Update()
+{
+	ImGui::Begin("Content Browswer");
+
+	ImGui::Columns(2, "Browser", true);
+
+	if (!m_FrameCount)
+	{
+		ImGui::SetColumnWidth(0, 180.f);
+		++m_FrameCount;
+	}
+
+	ImGui::Text("Assets");
+	ImGui::Indent(ImGui::GetTreeNodeToLabelSpacing());
+	SetContentHierarchy(s_AssetPath);
+	ImGui::Unindent(ImGui::GetTreeNodeToLabelSpacing());
+
+	ImGui::NextColumn();
+	if (m_CurrentDirectory != FILESYSTEM::path(s_AssetPath))
+	{
+		if (ImGui::Button("<-"))
+		{
+			m_CurrentDirectory = m_CurrentDirectory.parent_path();
+		}
+		ImGui::SameLine();
+	}
+	ImGui::Text(m_CurrentDirectory.string().c_str());
+
+	static float padding = 8.f;
+	static float thumbnailSize = 80;
+	float cellSize = thumbnailSize + padding;
+
+	float panelWidth = ImGui::GetContentRegionAvail().x;
+	int columnCount = (int)(panelWidth / cellSize);
+	if (columnCount < 1)
+		columnCount = 1;
+
+
+	// Saving room for float slider
+	const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing();
+	ImGui::BeginChild("Content Browser Region", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar);
+
+	ImGui::Columns(columnCount, 0, false);
+
+	for (auto& iter : FILESYSTEM::directory_iterator(m_CurrentDirectory))
+	{
+		const auto& path = iter.path();
+		string fileName = path.filename().string();
+		
+		// make every button unique
+		ImGui::PushID(fileName.c_str());
+
+		// Needs to load Texture2D
+		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0, 0, 0, 0 });
+		ImTextureID texImage;
+		if (FILESYSTEM::is_directory(iter.status()))
+			texImage = (ImTextureID)m_pTexFolder->Get_ShaderResourceView();
+		else
+		{
+			if (path.extension().string() == ".png")
+				texImage = (ImTextureID)m_pTexImage->Get_ShaderResourceView();
+			else
+				texImage = (ImTextureID)m_pTexFile->Get_ShaderResourceView();
+		}
+
+		ImGui::ImageButton(texImage, { thumbnailSize, thumbnailSize }, { 0, 0 }, { 1, 1 });
+
+		//ImGui::Button(fileName.c_str(), { thumbnailSize, thumbnailSize });
+
+		if (ImGui::BeginDragDropSource())
+		{
+			string pathString = path.string();
+			const char* path = pathString.c_str();
+			ImGui::SetDragDropPayload("GameObject", path, sizeof(char) * pathString.length() + 1, ImGuiCond_Once);
+			ImGui::Text("This is a drag and drop source");
+			ImGui::EndDragDropSource();
+		}
+
+		ImGui::PopStyleColor();
+		ImGui::PopID();
+
+
+		if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+		{
+			if (FILESYSTEM::is_directory(iter.status()))
+				m_CurrentDirectory /= path.filename();
+		}
+	
+		ImGui::Text(fileName.c_str());
+
+		ImGui::NextColumn();
+	}
+	ImGui::Columns(1);
+
+	ImGui::EndChild();
+
+	ImGui::EndColumns();
+	ImGui::End();
+}
+
+void CContentBrowser::LateUpdate()
+{
+}
+

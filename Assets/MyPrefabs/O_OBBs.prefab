@@ -1,0 +1,30 @@
+Scene: Untitled
+GameObjects:
+  - Name: OBBs
+    UUID: 2206547575397558530
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [-0.201503113, -0.198927626, 0.989498138]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.300000012, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 4
+    Com_Stat:
+      Hp: [0, 0, 0, 0]
+      HpRegen: [0, 0]
+      Atk: [0, 0, 0]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 1

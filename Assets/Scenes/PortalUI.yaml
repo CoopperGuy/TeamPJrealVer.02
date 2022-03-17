@@ -1,0 +1,116 @@
+Scene: Untitled
+GameObjects:
+  - Name: PortalUI
+    UUID: 17929663331906623655
+    Active: false
+    Layer: PortalUI
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 3
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [690, 360]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 8826417902434231510
+      - 6538552279295496399
+      - 787797055287121316
+  - Name: LeftArrow
+    UUID: 8826417902434231510
+    Active: false
+    Layer: PortalUI
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 3
+    Hovering: true
+    Com_Transform:
+      Position: [330, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Icon_Left.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: RightArrow
+    UUID: 6538552279295496399
+    Active: false
+    Layer: PortalUI
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 3
+    Hovering: true
+    Com_Transform:
+      Position: [950.967896, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Icon_Right.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ScenePosition
+    UUID: 9838132120610020160
+    Active: false
+    Layer: PortalUI
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [50, 50]
+    Children:
+      - 3413066835145731984
+  - Name: Boss1
+    UUID: 3413066835145731984
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 3
+    Hovering: true
+    Com_Transform:
+      Position: [640, 360]
+      Size: [400, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_DG_K11_Nigraturis_SecondHalf.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: EscapePortal
+    UUID: 787797055287121316
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 3
+    Hovering: true
+    Shrink:
+      - 50
+      - 20
+      - 1
+    XShrink: true
+    YShrink: true
+    Com_Transform:
+      Position: [960.433716, 209.630539]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Continuty_2.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

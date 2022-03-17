@@ -1,0 +1,36 @@
+Scene: Untitled
+GameObjects:
+  - Name: shoulderEffect
+    UUID: 16360291868176570978
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 6
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.0728855953, 0.122553416, 3.44368935]
+      Rotation: [0, -0, 0]
+      Scale: [1.29999995, 1.29999995, 3]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Effect_HalfCircleY.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_WaveTile_010_TEX_.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Trun_FX_Trail02_Tex_HKJ.jpg
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0.699999988, 1.89999998, 2.29999995]
+      Distortion1: [0.200000003, 0.100000001]
+      Distortion2: [0.200000003, 0]
+      Distortion3: [0.200000003, 0]
+      DistortionScale: 3.70000005
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 1

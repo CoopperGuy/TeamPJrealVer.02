@@ -1,0 +1,4651 @@
+Scene: Untitled
+GameObjects:
+  - Name: Direction
+    UUID: 14881628268781159922
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-148.429993, 268.50293, -118.834785]
+      Rotation: [0, -0, 0]
+      Scale: [10, 10, 10]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [1, 1, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tile0
+    UUID: 12922991384091154885
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.13113403, -1.43200004, 8.71432781]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1.23581791]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile0
+    UUID: 13309157823893872052
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.50777483, -1.42999995, 20.3967457]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1.11398935]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile0
+    UUID: 14251467854916618300
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [6.48995972, -1.42999995, 19.3701515]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile0
+    UUID: 492714151271859714
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [16.6510658, -1.43200004, 17.4719467]
+      Rotation: [0, -0, 0]
+      Scale: [1.19253373, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile16.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile1
+    UUID: 9845630866505455091
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-1.32127726, -1.43200004, -14.9407673]
+      Rotation: [0, -0, 0]
+      Scale: [18.116415, 29.7076778, 35]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile12.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile1
+    UUID: 8197141922904794986
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [116.73317, -1.43200004, -14.9407673]
+      Rotation: [0, -0, 0]
+      Scale: [18.116415, 29.7076778, 35]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile12.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tile0
+    UUID: 3351236338240869286
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [17.1133041, -0.942232609, 29.1614437]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Tile0
+    UUID: 16589152909972282644
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [7.11660099, -0.941999972, 28.221899]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Tile0
+    UUID: 10917634273969463841
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.86371779, -0.941999972, 29.922308]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Tile1
+    UUID: 17016352453168407460
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [13.7607803, -1.43200004, -48.8957748]
+      Rotation: [0, -0, 0]
+      Scale: [15.2719679, 1, 31.0751686]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile12.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Tile1
+    UUID: 13839231298222816020
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-0.389156342, -1.43200004, -50.0282211]
+      Rotation: [0, -0, 0]
+      Scale: [13.0481005, 1, 35.2471504]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile12.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Tile0
+    UUID: 15985307283736372808
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-12.9817247, -0.941999972, 21.4420834]
+      Rotation: [0, -0, 0]
+      Scale: [1.02958798, 1, 1.23262703]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Tile0
+    UUID: 6086647746755913526
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-12.9458342, -0.941999972, 32.5837479]
+      Rotation: [0, -0, 0]
+      Scale: [1.03486693, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Tile0
+    UUID: 14633628578990788905
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-23.1245403, -0.941999972, 31.4354897]
+      Rotation: [0, -0, 0]
+      Scale: [1.00180364, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Tile0
+    UUID: 5682679673161218151
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-23.1101418, -0.941999972, 21.4823551]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Tile0
+    UUID: 10891552339093942989
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.8354609, -0.941999972, 39.8857231]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile14.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Tile1
+    UUID: 334982000637083488
+    Active: true
+    Layer: Tile1
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [33.2590981, -1.43200004, -50.3954468]
+      Rotation: [0, -0, 0]
+      Scale: [2.61955762, 1, 2.77559876]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile15.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Building1
+    UUID: 12440519036710443682
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [13.7634497, 0.321670085, 17.6484966]
+      Rotation: [0.000155229078, 56.9676666, 0.000130582266]
+      Scale: [1.00000012, 1, 1.38074148]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: .Basic0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [13.7634497, 0.321670085, 17.6484966]
+    Rotation: [0.000155229078, 56.9676666, 0.000130582266]
+    Scale: [1.00000012, 1, 1.38074148]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: .Basic0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building2
+    UUID: 340757647408421201
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.71132469, -1.49018133, 4.19915581]
+      Rotation: [-179.999893, -89.9009705, -179.999893]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.71132469, -1.49018133, 4.19915581]
+    Rotation: [-179.999893, -89.9009705, -179.999893]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building1
+    UUID: 4574138561809524154
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.45985651, 0.288614839, 7.30891418]
+      Rotation: [-179.999893, 0.0387113206, -179.999756]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: .Basic0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.45985651, 0.288614839, 7.30891418]
+    Rotation: [-179.999893, 0.0387113206, -179.999756]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: .Basic0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building2
+    UUID: 11477114712956224179
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.09745693, -1.50567782, 10.6068888]
+      Rotation: [-179.999893, -86.0575409, -179.999893]
+      Scale: [0.999987364, 1, 0.999987364]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.09745693, -1.50567782, 10.6068888]
+    Rotation: [-179.999893, -86.0575409, -179.999893]
+    Scale: [0.999987364, 1, 0.999987364]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building4
+    UUID: 7713035104280980650
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.4460187, 0.616392672, 2.96959567]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.4460187, 0.616392672, 2.96959567]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building5
+    UUID: 1922507886778629513
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0.688100517, -1.1199398, 4.44060564]
+      Rotation: [-0.000232577804, -89, -9.7233562e-05]
+      Scale: [0.999997377, 1, 0.999997377]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0.688100517, -1.1199398, 4.44060564]
+    Rotation: [-0.000232577804, -89, -9.7233562e-05]
+    Scale: [0.999997377, 1, 0.999997377]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building6
+    UUID: 4258708591433411677
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.77961719, -1.17320228, 7.29171705]
+      Rotation: [-0.00905430783, 89, -0.0100892298]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.77961719, -1.17320228, 7.29171705]
+    Rotation: [-0.00905430783, 89, -0.0100892298]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building7
+    UUID: 9670354147354495285
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0.985568464, -1.17684054, 10.121171]
+      Rotation: [0.00381085067, -88.8193893, -0.00342978584]
+      Scale: [0.999859571, 1, 0.999859571]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0.985568464, -1.17684054, 10.121171]
+    Rotation: [0.00381085067, -88.8193893, -0.00342978584]
+    Scale: [0.999859571, 1, 0.999859571]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Building2
+    UUID: 10733221325571278960
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.75701833, -1.15267897, 12.9745512]
+      Rotation: [-179.999893, 89.1193085, -179.999893]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.75701833, -1.15267897, 12.9745512]
+    Rotation: [-179.999893, 89.1193085, -179.999893]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Building2
+    UUID: 8285748798088532104
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.57934928, -1.42510033, 16.6398468]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.57934928, -1.42510033, 16.6398468]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: ShopTent
+    UUID: 18001527745481357451
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.58377504, -0.305256099, 18.3288727]
+      Rotation: [-0.000811815844, -0, 0.000310832489]
+      Scale: [3.37216401, 0.999999642, 0.999974132]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\Tent\
+      MeshFileName: SideTent.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.58377504, -0.305256099, 18.3288727]
+    Rotation: [-0.000811815844, -0, 0.000310832489]
+    Scale: [3.37216401, 0.999999642, 0.999974132]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\Tent\
+    MeshFileName: SideTent.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: Building7
+    UUID: 4729890703158719666
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [5.44739819, -1.39755654, 17.5079956]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.44739819, -1.39755654, 17.5079956]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Building2
+    UUID: 16535915286090172162
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.32108688, -1.39158654, 16.6950035]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [8.32108688, -1.39158654, 16.6950035]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 25
+  - Name: Tree1
+    UUID: 12078607079155503884
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.28999925, -1.11182868, 22.3285942]
+      Rotation: [0, 3.48675323, 0]
+      Scale: [0.999999821, 1, 0.999999821]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.28999925, -1.11182868, 22.3285942]
+    Rotation: [0, 3.48675323, 0]
+    Scale: [0.999999821, 1, 0.999999821]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Building8
+    UUID: 16513429234277874742
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.64592123, -1.49443269, 16.5094357]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic9.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.64592123, -1.49443269, 16.5094357]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic9.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Building1
+    UUID: 10865135084104315073
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.93060064, 0.276937395, 13.7146053]
+      Rotation: [179.999634, -0, -179.999359]
+      Scale: [0.998837888, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: .Basic0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.93060064, 0.276937395, 13.7146053]
+    Rotation: [179.999634, -0, -179.999359]
+    Scale: [0.998837888, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: .Basic0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Building2
+    UUID: 15970730541082979898
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-0.706771612, -1.47477639, 22.9505768]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-0.706771612, -1.47477639, 22.9505768]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Building7
+    UUID: 8405568727235896689
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.66386914, -1.49448156, 18.9498024]
+      Rotation: [0, 89, 0]
+      Scale: [0.999951124, 1.79564035, 0.999868274]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.66386914, -1.49448156, 18.9498024]
+    Rotation: [0, 89, 0]
+    Scale: [0.999951124, 1.79564035, 0.999868274]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Building1
+    UUID: 2519643187805153640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.05932426, 0.20535472, 20.5252781]
+      Rotation: [-179.999893, -0, -179.999893]
+      Scale: [0.999993801, 0.999997616, 0.999993801]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: .Basic0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.05932426, 0.20535472, 20.5252781]
+    Rotation: [-179.999893, -0, -179.999893]
+    Scale: [0.999993801, 0.999997616, 0.999993801]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: .Basic0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Tree1
+    UUID: 14033477668964264780
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.03159547, -1.01172161, 21.8200893]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.03159547, -1.01172161, 21.8200893]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: ShopObj0
+    UUID: 9462616390175978249
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.68121862, -1.68162668, 13.1591759]
+      Rotation: [-179.999496, 89.411232, -179.999496]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+      MeshFileName: shop0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.68121862, -1.68162668, 13.1591759]
+    Rotation: [-179.999496, 89.411232, -179.999496]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+    MeshFileName: shop0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopObj1
+    UUID: 2272235986033348426
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.51229501, -1.68106544, 12.6972713]
+      Rotation: [0, 87.8601303, 0]
+      Scale: [0.999957263, 1, 0.999957263]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+      MeshFileName: shop2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.51229501, -1.68106544, 12.6972713]
+    Rotation: [0, 87.8601303, 0]
+    Scale: [0.999957263, 1, 0.999957263]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+    MeshFileName: shop2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopObj2
+    UUID: 15287274547899508633
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.54927158, -1.66568732, 12.2389278]
+      Rotation: [4.36573355e-05, 89, 0.000810097205]
+      Scale: [0.999996901, 1, 0.999996901]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+      MeshFileName: shop3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.54927158, -1.66568732, 12.2389278]
+    Rotation: [4.36573355e-05, 89, 0.000810097205]
+    Scale: [0.999996901, 1, 0.999996901]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+    MeshFileName: shop3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopObj3
+    UUID: 3498440571360700904
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.69369841, -1.44098592, 11.8703012]
+      Rotation: [-179.999634, -54.0749207, -179.999893]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\fish\
+      MeshFileName: 2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.69369841, -1.44098592, 11.8703012]
+    Rotation: [-179.999634, -54.0749207, -179.999893]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\fish\
+    MeshFileName: 2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopObj2
+    UUID: 9570353402332760560
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.48536992, -1.76272559, 9.55797863]
+      Rotation: [0.000295406877, 89.0755005, 0.000295467791]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+      MeshFileName: shop3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.48536992, -1.76272559, 9.55797863]
+    Rotation: [0.000295406877, 89.0755005, 0.000295467791]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+    MeshFileName: shop3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopObj4
+    UUID: 7298067573737176516
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.52055407, -1.4893136, 9.98948574]
+      Rotation: [-179.943558, 89.9827271, -179.943558]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+      MeshFileName: shop6.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.52055407, -1.4893136, 9.98948574]
+    Rotation: [-179.943558, 89.9827271, -179.943558]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\
+    MeshFileName: shop6.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: ShopTent
+    UUID: 6062100944377265688
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.52445889, -0.211003214, 16.437439]
+      Rotation: [-179.999893, 89, -179.999893]
+      Scale: [3.43270254, 1, 0.999997735]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Shop\Tent\
+      MeshFileName: SideTent.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.52445889, -0.211003214, 16.437439]
+    Rotation: [-179.999893, 89, -179.999893]
+    Scale: [3.43270254, 1, 0.999997735]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Shop\Tent\
+    MeshFileName: SideTent.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: Tower0
+    UUID: 6451135486118588043
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [12.6886969, 3.48425245, 23.9161606]
+      Rotation: [179.999237, -2.73041034, 179.997406]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower11\
+      MeshFileName: Tower11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [12.6886969, 3.48425245, 23.9161606]
+    Rotation: [179.999237, -2.73041034, 179.997406]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower11\
+    MeshFileName: Tower11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Building7
+    UUID: 17328426008050414717
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.17310572, -1.42532074, 22.1714001]
+      Rotation: [179.999893, -0, -179.999237]
+      Scale: [1, 0.999977529, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.17310572, -1.42532074, 22.1714001]
+    Rotation: [179.999893, -0, -179.999237]
+    Scale: [1, 0.999977529, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 34.0999985
+  - Name: Building2
+    UUID: 17169748551134166277
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [16.0686951, -1.39688587, 20.6107426]
+      Rotation: [-0.000213975713, -74.0312653, 0.000320738764]
+      Scale: [0.999999046, 0.99999994, 0.999999046]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [16.0686951, -1.39688587, 20.6107426]
+    Rotation: [-0.000213975713, -74.0312653, 0.000320738764]
+    Scale: [0.999999046, 0.99999994, 0.999999046]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tower0
+    UUID: 9316141531031210170
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [18.7641144, 0.261002392, 32.0404396]
+      Rotation: [-88.12883, -62.8106499, 177.672424]
+      Scale: [0.999984384, 0.99849081, 0.999832809]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+      MeshFileName: Tower0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [18.7641144, 0.261002392, 32.0404396]
+    Rotation: [-88.12883, -62.8106499, 177.672424]
+    Scale: [0.999984384, 0.99849081, 0.999832809]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+    MeshFileName: Tower0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tower0
+    UUID: 14995832192033006716
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [4.88758373, 0.902970612, 24.5421906]
+      Rotation: [90.4045258, 26.3928432, 0.180188537]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+      MeshFileName: Tower0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.88758373, 0.902970612, 24.5421906]
+    Rotation: [90.4045258, 26.3928432, 0.180188537]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+    MeshFileName: Tower0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tower1
+    UUID: 10800007304432986870
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-58.7758331, -1.18702352, 16.4274998]
+      Rotation: [-0.0172742903, 84.9477158, -0.0167165194]
+      Scale: [1.82012451, 1.75266397, 0.999056518]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Castle\
+      MeshFileName: MastabaWall.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-58.7758331, -1.18702352, 16.4274998]
+    Rotation: [-0.0172742903, 84.9477158, -0.0167165194]
+    Scale: [1.82012451, 1.75266397, 0.999056518]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Castle\
+    MeshFileName: MastabaWall.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Door
+    UUID: 13417884768381488182
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-29.8691101, -1.10361958, 14.4929543]
+      Rotation: [0, 85.965477, 0]
+      Scale: [0.99998796, 1, 0.99998796]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+      MeshFileName: 3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-29.8691101, -1.10361958, 14.4929543]
+    Rotation: [0, 85.965477, 0]
+    Scale: [0.99998796, 1, 0.99998796]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+    MeshFileName: 3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Door
+    UUID: 7580131713104042055
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-27.0437927, -1.39806616, 10.7317028]
+      Rotation: [-0.000904053508, 53.8072815, -0.00112125825]
+      Scale: [0.999999523, 1, 0.999999523]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+      MeshFileName: 3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-27.0437927, -1.39806616, 10.7317028]
+    Rotation: [-0.000904053508, 53.8072815, -0.00112125825]
+    Scale: [0.999999523, 1, 0.999999523]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+    MeshFileName: 3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Door
+    UUID: 7743364862434867298
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-24.4548588, -1.32791281, 0.876550734]
+      Rotation: [5.19200403e-05, 39.6382027, -0.00125115295]
+      Scale: [1, 0.99999994, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+      MeshFileName: 3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-24.4548588, -1.32791281, 0.876550734]
+    Rotation: [5.19200403e-05, 39.6382027, -0.00125115295]
+    Scale: [1, 0.99999994, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Door\
+    MeshFileName: 3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: MainBuilding
+    UUID: 15647701227774987971
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [6.44922543, -0.201812878, 36.2313004]
+      Rotation: [-90.7089539, -0, 179.955551]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0.300000012, 0, -1.70000005]
+      Type: Box
+      Size: [16, 3, 3.29999995]
+      RigidBody:
+        Enabled: true
+        Gravity: false
+        Kinematic: true
+        CharacterController: false
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower1\
+      MeshFileName: Tower1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [6.44922543, -0.201812878, 36.2313004]
+    Rotation: [-90.7089539, -0, 179.955551]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower1\
+    MeshFileName: Tower1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Building2
+    UUID: 8362892758832474009
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [4.99932957, -1.41750979, 23.0443802]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic8.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.99932957, -1.41750979, 23.0443802]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic8.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Tower0
+    UUID: 3462368268781689793
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [19.4945641, 0.124568917, 27.4320412]
+      Rotation: [-90.8761978, 11.5643263, 179.82579]
+      Scale: [0.999980748, 1, 0.99804765]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+      MeshFileName: Tower0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [19.4945641, 0.124568917, 27.4320412]
+    Rotation: [-90.8761978, 11.5643263, 179.82579]
+    Scale: [0.999980748, 1, 0.99804765]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+    MeshFileName: Tower0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Wall0
+    UUID: 14995044255829783718
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-21.1418171, -1.21462905, 32.9660645]
+      Rotation: [-179.991028, -49.8839378, 179.990494]
+      Scale: [1, 1.90791368, 2.30476689]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+      MeshFileName: Wall5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-21.1418171, -1.21462905, 32.9660645]
+    Rotation: [-179.991028, -49.8839378, 179.990494]
+    Scale: [1, 1.90791368, 2.30476689]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+    MeshFileName: Wall5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Wall0
+    UUID: 10322228687516177256
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [22.5695076, -1.40327251, 29.7180195]
+      Rotation: [2.67344761, 51.0479889, 3.43920684]
+      Scale: [0.999994457, 0.697821558, 0.197390005]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+      MeshFileName: Wall5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [22.5695076, -1.40327251, 29.7180195]
+    Rotation: [2.67344761, 51.0479889, 3.43920684]
+    Scale: [0.999994457, 0.697821558, 0.197390005]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+    MeshFileName: Wall5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Stair
+    UUID: 13725999780804918395
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [12.6868982, -1.62909102, 21.3195591]
+      Rotation: [0, -86.098999, 0]
+      Scale: [0.777928054, 1, 1.24885643]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs2.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Building1
+    UUID: 5431102966451345363
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.02648258, 0.352272332, 22.6829739]
+      Rotation: [0.000627723988, -89, 0.000180145857]
+      Scale: [0.999868274, 1, 0.999868274]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: .Basic0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [8.02648258, 0.352272332, 22.6829739]
+    Rotation: [0.000627723988, -89, 0.000180145857]
+    Scale: [0.999868274, 1, 0.999868274]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: .Basic0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Building7
+    UUID: 4920500475579783849
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.1896734, -1.37091804, 17.5020409]
+      Rotation: [-3.60865197e-05, -0, -2.56019462e-07]
+      Scale: [0.9999789, 1, 0.99998033]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.1896734, -1.37091804, 17.5020409]
+    Rotation: [-3.60865197e-05, -0, -2.56019462e-07]
+    Scale: [0.9999789, 1, 0.99998033]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Bag1
+    UUID: 18081586643945634612
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [14.3212805, -1.48331034, 19.4633636]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\ObjD\
+      MeshFileName: Bag0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [14.3212805, -1.48331034, 19.4633636]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\ObjD\
+    MeshFileName: Bag0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30.2999992
+  - Name: Bag1
+    UUID: 4233329117469440946
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [13.8924713, -1.59798741, 19.1228943]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\ObjD\
+      MeshFileName: Bag0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [13.8924713, -1.59798741, 19.1228943]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\ObjD\
+    MeshFileName: Bag0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 3614984601466610581
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.46479559, -0.126569271, 17.1575127]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.46479559, -0.126569271, 17.1575127]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 15245613571280438566
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.06859207, 0, 5.06624031]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.06859207, 0, 5.06624031]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Building7
+    UUID: 11396082197939429357
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [9.85624313, -1.42266476, 23.1858978]
+      Rotation: [-179.9991, -0, -179.999756]
+      Scale: [1, 1, 2.53575349]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+      MeshFileName: Basic11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [9.85624313, -1.42266476, 23.1858978]
+    Rotation: [-179.9991, -0, -179.999756]
+    Scale: [1, 1, 2.53575349]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
+    MeshFileName: Basic11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 40
+  - Name: Building8
+    UUID: 15635995120916664015
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 2.58110332, 0.124636173]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower12\
+      MeshFileName: Tower12.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 2.58110332, 0.124636173]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower12\
+    MeshFileName: Tower12.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tree2
+    UUID: 2046348260479698611
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [10.6526165, -1.89250386, -63.7524529]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [10.6526165, -1.89250386, -63.7524529]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 2752042559411860989
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [35.5795631, -2.26261735, -38.4743309]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.53597629, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [35.5795631, -2.26261735, -38.4743309]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.53597629, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree3
+    UUID: 8250970336077405421
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [7.91867256, 4.41155577, -118.09169]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.91867256, 4.41155577, -118.09169]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock0
+    UUID: 10131494975855268783
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.32852602, -1.73922718, -5.89678621]
+      Rotation: [-179.998199, 86.8273239, -179.998199]
+      Scale: [0.999998331, 1, 0.999998331]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.32852602, -1.73922718, -5.89678621]
+    Rotation: [-179.998199, 86.8273239, -179.998199]
+    Scale: [0.999998331, 1, 0.999998331]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock0
+    UUID: 18384359414561031479
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.65946436, -1.82689357, -5.47234011]
+      Rotation: [-179.999756, -77.6034546, -179.999496]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.65946436, -1.82689357, -5.47234011]
+    Rotation: [-179.999756, -77.6034546, -179.999496]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock1
+    UUID: 16018709517490033836
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.86928844, 1.0613991, -12.8953009]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.86928844, 1.0613991, -12.8953009]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock2
+    UUID: 12812299493847273198
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [41.5215149, -0.404965639, -34.6649475]
+      Rotation: [0, -42.4682236, 0]
+      Scale: [3, 2.12235069, 4.87859917]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [41.5215149, -0.404965639, -34.6649475]
+    Rotation: [0, -42.4682236, 0]
+    Scale: [3, 2.12235069, 4.87859917]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock2
+    UUID: 14813784206377541176
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.31262064, 2.75661254, -56.9772224]
+      Rotation: [-179.998062, 13.7117252, -179.998199]
+      Scale: [3.00000072, 3, 3.00000072]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.31262064, 2.75661254, -56.9772224]
+    Rotation: [-179.998062, 13.7117252, -179.998199]
+    Scale: [3.00000072, 3, 3.00000072]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock0
+    UUID: 13543469473507422566
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [23.1746845, -2.52237701, -67.4481812]
+      Rotation: [0.000252174272, -30.75951, 0.00273364061]
+      Scale: [4.14152431, 3, 3.00000024]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [23.1746845, -2.52237701, -67.4481812]
+    Rotation: [0.000252174272, -30.75951, 0.00273364061]
+    Scale: [4.14152431, 3, 3.00000024]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock0
+    UUID: 4436143619680458232
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.89265943, -1.98135388, -14.5231056]
+      Rotation: [-179.999496, -87.908371, 179.999496]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.89265943, -1.98135388, -14.5231056]
+    Rotation: [-179.999496, -87.908371, 179.999496]
+    Scale: [0.999999881, 1, 0.999999881]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock2
+    UUID: 9636052790615683704
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-6.76015043, 0.543462157, -17.874361]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.76015043, 0.543462157, -17.874361]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 40
+  - Name: Rock3
+    UUID: 15283863746898003281
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.06700826, -1.38354874, -19.6861897]
+      Rotation: [0, -0, 0]
+      Scale: [1.29999995, 1.29999995, 1.29999995]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.06700826, -1.38354874, -19.6861897]
+    Rotation: [0, -0, 0]
+    Scale: [1.29999995, 1.29999995, 1.29999995]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock3
+    UUID: 9990411016068702572
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.98840046, -1.85501385, -21.1955662]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.98840046, -1.85501385, -21.1955662]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Rock5
+    UUID: 8053890571467301806
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [9.07002258, -0.491210341, -21.0964394]
+      Rotation: [-179.998459, -69.5641785, -179.997787]
+      Scale: [0.999999642, 1, 0.999999642]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock6.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [9.07002258, -0.491210341, -21.0964394]
+    Rotation: [-179.998459, -69.5641785, -179.997787]
+    Scale: [0.999999642, 1, 0.999999642]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock6.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock4
+    UUID: 10853497946736378281
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [9.34016132, -3.93178678, -29.4709454]
+      Rotation: [-7.57538223, -17.5154972, -3.36901379]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [9.34016132, -3.93178678, -29.4709454]
+    Rotation: [-7.57538223, -17.5154972, -3.36901379]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock5
+    UUID: 8116156931763360784
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-11.735673, -0.934876919, -25.6856689]
+      Rotation: [-0.000272197096, 82.297966, -0.000271220808]
+      Scale: [0.999996662, 1, 0.999996662]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock6.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-11.735673, -0.934876919, -25.6856689]
+    Rotation: [-0.000272197096, 82.297966, -0.000271220808]
+    Scale: [0.999996662, 1, 0.999996662]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock6.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Rock4
+    UUID: 3100180262231125759
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-6.47941875, -4.33351755, -35.9733467]
+      Rotation: [170.711136, -17.9362183, 177.159149]
+      Scale: [0.999999404, 0.999997616, 0.999999464]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+      MeshFileName: RockWall3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.47941875, -4.33351755, -35.9733467]
+    Rotation: [170.711136, -17.9362183, 177.159149]
+    Scale: [0.999999404, 0.999997616, 0.999999464]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\Rock2\
+    MeshFileName: RockWall3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock6
+    UUID: 13572660814503331196
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.01365423, -1.59442723, -44.2232628]
+      Rotation: [-5.27936354e-05, 41.7620163, 0.00011160547]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.01365423, -1.59442723, -44.2232628]
+    Rotation: [-5.27936354e-05, 41.7620163, 0.00011160547]
+    Scale: [0.999999881, 1, 0.999999881]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 40
+  - Name: Rock6
+    UUID: 2075968517419944519
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [19.1319294, -4.21673346, -38.358284]
+      Rotation: [179.998825, -6.97946596, 179.998703]
+      Scale: [1.2988987, 2.13147068, 1.49251258]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [19.1319294, -4.21673346, -38.358284]
+    Rotation: [179.998825, -6.97946596, 179.998703]
+    Scale: [1.2988987, 2.13147068, 1.49251258]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock7
+    UUID: 1357138972903271627
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [27.3205376, -2.94867253, -36.0951614]
+      Rotation: [0, -0, 0]
+      Scale: [2, 6.77719498, 2.74868155]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [27.3205376, -2.94867253, -36.0951614]
+    Rotation: [0, -0, 0]
+    Scale: [2, 6.77719498, 2.74868155]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: Rock7
+    UUID: 2651334556342343074
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [31.7576599, -1.3219831, -36.3487396]
+      Rotation: [0, -0, 0]
+      Scale: [2.05597591, 5.21745682, 1.31777465]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [31.7576599, -1.3219831, -36.3487396]
+    Rotation: [0, -0, 0]
+    Scale: [2.05597591, 5.21745682, 1.31777465]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Rock7
+    UUID: 17528939901214693330
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [39.7517815, -2.10273647, -38.6606369]
+      Rotation: [0, -0, 0]
+      Scale: [1, 3.91060519, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [39.7517815, -2.10273647, -38.6606369]
+    Rotation: [0, -0, 0]
+    Scale: [1, 3.91060519, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 150
+  - Name: Rock7
+    UUID: 17148875353587366287
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.2622062, -1.62480652, -50.6359978]
+      Rotation: [179.999878, -1.03634715, 179.999893]
+      Scale: [1.19276965, 6.78326416, 1.89926934]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.2622062, -1.62480652, -50.6359978]
+    Rotation: [179.999878, -1.03634715, 179.999893]
+    Scale: [1.19276965, 6.78326416, 1.89926934]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Rock6
+    UUID: 8225107453785862910
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [5.17626524, -1.93381655, -57.2636528]
+      Rotation: [0.252266258, 65.8238373, 0.276699632]
+      Scale: [1.09703863, 1.31552303, 0.999841988]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.17626524, -1.93381655, -57.2636528]
+    Rotation: [0.252266258, 65.8238373, 0.276699632]
+    Scale: [1.09703863, 1.31552303, 0.999841988]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock7
+    UUID: 2323684744134020629
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [6.75662899, -3.01006651, -62.6724625]
+      Rotation: [0, -0, 0]
+      Scale: [1, 2.33221364, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [6.75662899, -3.01006651, -62.6724625]
+    Rotation: [0, -0, 0]
+    Scale: [1, 2.33221364, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 70
+  - Name: Rock8
+    UUID: 15543491545039955845
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [7.80984545, -0.16687417, -63.1183662]
+      Rotation: [0, -36.3790627, 0]
+      Scale: [1, 1.03080821, 1.60693705]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock24.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.80984545, -0.16687417, -63.1183662]
+    Rotation: [0, -36.3790627, 0]
+    Scale: [1, 1.03080821, 1.60693705]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock24.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock7
+    UUID: 7619747643985865204
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [10.1448011, -1.3648684, -67.7462845]
+      Rotation: [0, 57.0028, 0]
+      Scale: [1, 3.18266988, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [10.1448011, -1.3648684, -67.7462845]
+    Rotation: [0, 57.0028, 0]
+    Scale: [1, 3.18266988, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 150
+  - Name: Rock8
+    UUID: 13909919130312996354
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [14.3075209, 1.52111459, -64.7735825]
+      Rotation: [-179.999893, -66.1456146, -179.998978]
+      Scale: [0.999999702, 1.92716289, 2.35603976]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock24.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [14.3075209, 1.52111459, -64.7735825]
+    Rotation: [-179.999893, -66.1456146, -179.998978]
+    Scale: [0.999999702, 1.92716289, 2.35603976]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock24.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock7
+    UUID: 12254452805547957725
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [41.9944191, -1.98967957, -43.0490799]
+      Rotation: [0, 68.3701248, 0]
+      Scale: [2, 5.81037664, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [41.9944191, -1.98967957, -43.0490799]
+    Rotation: [0, 68.3701248, 0]
+    Scale: [2, 5.81037664, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Rock10
+    UUID: 2562680268214268520
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [42.7551918, -0.327899456, -49.4852676]
+      Rotation: [0, -5.71264887, 0]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock16.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [42.7551918, -0.327899456, -49.4852676]
+    Rotation: [0, -5.71264887, 0]
+    Scale: [0.999999881, 1, 0.999999881]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock16.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock10
+    UUID: 10864783121199975069
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [45.7569237, -11.6733971, -51.9451714]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock10.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [45.7569237, -11.6733971, -51.9451714]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock10.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock7
+    UUID: 15911172882057951940
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [40.4059143, -2.17697978, -53.1274796]
+      Rotation: [0, -34.757412, 0]
+      Scale: [1.77171481, 3.07333493, 1.99770558]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [40.4059143, -2.17697978, -53.1274796]
+    Rotation: [0, -34.757412, 0]
+    Scale: [1.77171481, 3.07333493, 1.99770558]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 80
+  - Name: Rock10
+    UUID: 5367063749021697630
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [42.7161789, -12.2878599, -56.53722]
+      Rotation: [0, -31.3508472, 0]
+      Scale: [0.999999762, 1, 0.999999762]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock10.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [42.7161789, -12.2878599, -56.53722]
+    Rotation: [0, -31.3508472, 0]
+    Scale: [0.999999762, 1, 0.999999762]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock10.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock10
+    UUID: 10482842016164064253
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [5.20277452, -10.9633036, -65.8570786]
+      Rotation: [-16.8425121, 44.487606, -11.9771395]
+      Scale: [0.99999994, 0.999998629, 0.99999994]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock10.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.20277452, -10.9633036, -65.8570786]
+    Rotation: [-16.8425121, 44.487606, -11.9771395]
+    Scale: [0.99999994, 0.999998629, 0.99999994]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock10.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Rock11
+    UUID: 3964326076703357662
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.024354, 0.0151462555, -65.9369583]
+      Rotation: [0, -0, 0]
+      Scale: [2, 2.70338106, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock25.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.024354, 0.0151462555, -65.9369583]
+    Rotation: [0, -0, 0]
+    Scale: [2, 2.70338106, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock25.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 90
+  - Name: Rock11
+    UUID: 11993536434620527012
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [16.3808422, -1.4189415, -64.1829071]
+      Rotation: [-7.0191777e-07, -19.3614178, 10.7014856]
+      Scale: [0.999998629, 1.85474825, 1.96613121]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock25.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [16.3808422, -1.4189415, -64.1829071]
+    Rotation: [-7.0191777e-07, -19.3614178, 10.7014856]
+    Scale: [0.999998629, 1.85474825, 1.96613121]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock25.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 90
+  - Name: Rock7
+    UUID: 8794735048651156188
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [20.3815765, -1.60090184, -62.1584969]
+      Rotation: [0, -41.1205559, 0]
+      Scale: [2.12278724, 3.78603411, 2.1821959]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [20.3815765, -1.60090184, -62.1584969]
+    Rotation: [0, -41.1205559, 0]
+    Scale: [2.12278724, 3.78603411, 2.1821959]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Rock7
+    UUID: 7682278972483774343
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [24.5202084, -1.73063779, -59.9424553]
+      Rotation: [0, -47.2885475, 0]
+      Scale: [0.99999994, 4.14724874, 2.26217818]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [24.5202084, -1.73063779, -59.9424553]
+    Rotation: [0, -47.2885475, 0]
+    Scale: [0.99999994, 4.14724874, 2.26217818]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 150
+  - Name: Rock7
+    UUID: 1991718261595736990
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [28.4389172, -1.98058403, -57.5565033]
+      Rotation: [0, -52.10186, 0]
+      Scale: [1.42550123, 3.54157567, 1.63317895]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [28.4389172, -1.98058403, -57.5565033]
+    Rotation: [0, -52.10186, 0]
+    Scale: [1.42550123, 3.54157567, 1.63317895]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 80
+  - Name: Rock11
+    UUID: 11360599051346115682
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [35.2453766, -1.26634097, -55.7296638]
+      Rotation: [0, -34.5219688, 0]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock25.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [35.2453766, -1.26634097, -55.7296638]
+    Rotation: [0, -34.5219688, 0]
+    Scale: [0.999999881, 1, 0.999999881]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock25.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 90
+  - Name: mountain
+    UUID: 13364878155835912780
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [61.3013344, -0.899515688, -7.87453842]
+      Rotation: [-179.999084, -63.1437378, -179.999893]
+      Scale: [0.999999166, 1, 0.50784874]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+      MeshFileName: Mounain.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [61.3013344, -0.899515688, -7.87453842]
+    Rotation: [-179.999084, -63.1437378, -179.999893]
+    Scale: [0.999999166, 1, 0.50784874]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+    MeshFileName: Mounain.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1000
+  - Name: mountain
+    UUID: 9706706842074580141
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [51.8522797, 7.26259804, -126.62468]
+      Rotation: [0, -13.116333, 0]
+      Scale: [0.999998868, 1, 0.999998868]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+      MeshFileName: Mounain.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [51.8522797, 7.26259804, -126.62468]
+    Rotation: [0, -13.116333, 0]
+    Scale: [0.999998868, 1, 0.999998868]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+    MeshFileName: Mounain.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1000
+  - Name: Rock7
+    UUID: 15082675120531517750
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [31.4280834, -2.14949036, -57.0954361]
+      Rotation: [-179.999893, 53.404377, -179.999893]
+      Scale: [2.35922623, 4.51946783, 0.999998689]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: Rock26.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [31.4280834, -2.14949036, -57.0954361]
+    Rotation: [-179.999893, 53.404377, -179.999893]
+    Scale: [2.35922623, 4.51946783, 0.999998689]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+    MeshFileName: Rock26.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 120
+  - Name: Npc_Human_Shop
+    UUID: 6304503013006773131
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.60479522, -1.47514379, 13.666337]
+      Rotation: [-179.999496, -0.959040165, -179.999893]
+      Scale: [1.50000012, 1.5, 1.50000012]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PointHuman\
+      MeshFileName: Npc_Human.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Shop:
+      Range: [0, 0]
+      Type: 1
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Npc_Elf
+    UUID: 1438774933223767426
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-1.57199037, -0.261718482, 31.696104]
+      Rotation: [0.000425622566, -76.3132858, 0.00109485141]
+      Scale: [1.99999785, 2, 1.99999785]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PointElf\
+      MeshFileName: Npc_Elf.fbx
+      HasCollider: false
+      Equipment: false
+    Com_NPCInfo:
+      NPCID: 100
+      QuestID: 1000
+      BoxID: 1000
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: mountain
+    UUID: 8690382471702822452
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-86.255188, -3.92844296, -48.8857841]
+      Rotation: [0, -0, 0]
+      Scale: [1, 0.627585053, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+      MeshFileName: Mounain.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-86.255188, -3.92844296, -48.8857841]
+    Rotation: [0, -0, 0]
+    Scale: [1, 0.627585053, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+    MeshFileName: Mounain.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Base
+    UUID: 18400105001208491404
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.48610067, -1.09839618, 39.4384956]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: tower
+    UUID: 17527635201522515545
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.0981178, -0.166399926, 35.9476318]
+      Rotation: [0, 15.030344, 0]
+      Scale: [1.247787, 0.999999881, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower4\
+      MeshFileName: Tower4.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: MainStair
+    UUID: 10675163774037354155
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0.566790104, -1.01428258, 31.4908562]
+      Rotation: [-179.999893, -89.1890869, -179.999359]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 200
+  - Name: MainStair
+    UUID: 191828161847489689
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [4.15762806, -1.01400042, 31.4962006]
+      Rotation: [0.000104273538, -89, 0.000104273815]
+      Scale: [0.999998331, 0.999946356, 0.999998331]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: MainStair
+    UUID: 8238937136615871886
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [7.89318228, -1.01400006, 31.4606533]
+      Rotation: [0, -89.8999863, 0]
+      Scale: [0.999828875, 1, 0.999828875]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: MainStair
+    UUID: 12853128869522409926
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.6088047, -1.01400006, 31.4507675]
+      Rotation: [0, -89.8999863, 0]
+      Scale: [0.999828875, 1, 0.999828875]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: MainStair
+    UUID: 6100115139488370511
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [15.312789, -1.01400006, 31.4401321]
+      Rotation: [0, -89.8999863, 0]
+      Scale: [0.999828875, 1, 0.999828875]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
+      MeshFileName: Stairs1.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: mountain
+    UUID: 3352397736284962604
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-40.5981712, 0, 98.6953049]
+      Rotation: [0, 58.0040817, 0]
+      Scale: [0.479000151, 1.02697754, 0.941928566]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+      MeshFileName: Mounain.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-40.5981712, 0, 98.6953049]
+    Rotation: [0, 58.0040817, 0]
+    Scale: [0.479000151, 1.02697754, 0.941928566]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Mountain\
+    MeshFileName: Mounain.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Goat
+    UUID: 2256180665075156242
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.89999962, -1.35875249, -41.3062668]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+      MeshFileName: Goat.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [8.89999962, -1.35875249, -41.3062668]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+    MeshFileName: Goat.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Goat
+    UUID: 9206853591881958313
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [3.3801074, -1.23215854, -43]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+      MeshFileName: Goat.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [3.3801074, -1.23215854, -43]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+    MeshFileName: Goat.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Goat
+    UUID: 1142721878622972820
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.42272758, -1.36523056, -47.9205666]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+      MeshFileName: Goat.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [8.42272758, -1.36523056, -47.9205666]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Animal\Goat\
+    MeshFileName: Goat.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfBoss
+    UUID: 16414651220201745838
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [36.1756248, 1.12894619, -43.0279045]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0.400000006, 0]
+      Type: Capsule
+      Radius: 0.5
+      Height: 0.200000003
+      RigidBody:
+        Enabled: true
+        Gravity: false
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0.5, 0]
+      Size: [0.5, 0.5, 0.5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\WolfBoss\
+      MeshFileName: WolfBoss.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [300, 0, 300, 100]
+      HpRegen: [3, 1]
+      Atk: [3, 0, 1]
+      Arm: [0, 0, 0]
+      Exp: [5, 15, 5]
+      Level: 3
+      Gold: 20
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 12262871148888038252
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.18578434, 0.862855077, -47.5683022]
+      Rotation: [0, -0, 0]
+      Scale: [1.89922512, 1.40061808, 1.46324372]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.18578434, 0.862855077, -47.5683022]
+    Rotation: [0, -0, 0]
+    Scale: [1.89922512, 1.40061808, 1.46324372]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 9453332785802584018
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [5.08946991, 0, -63.3075294]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.08946991, 0, -63.3075294]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 10201366431033865670
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [2.31801176, 1.44357741, -62.0165863]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.31801176, 1.44357741, -62.0165863]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 16799693623599272212
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [36.1793861, -1.32286704, -53.8162537]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [36.1793861, -1.32286704, -53.8162537]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 5462476100793734434
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [40.4107208, -1.45961654, -49.8010979]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [40.4107208, -1.45961654, -49.8010979]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 16842352264019431788
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-7.72549391, 1.20322323, -42.6580887]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-7.72549391, 1.20322323, -42.6580887]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 13226469586180685653
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [33.1536636, -1.43944287, -37.8630295]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [33.1536636, -1.43944287, -37.8630295]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 8436840126399406835
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.8943162, -1.52941728, 0.414474249]
+      Rotation: [0, -0, 0]
+      Scale: [0.530869186, 0.702237368, 0.621209025]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.8943162, -1.52941728, 0.414474249]
+    Rotation: [0, -0, 0]
+    Scale: [0.530869186, 0.702237368, 0.621209025]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 13402519776448429900
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-7.1351819, -0.605404139, 12.2821875]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-7.1351819, -0.605404139, 12.2821875]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 5503469432173628400
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [3.175704, -1.3895483, 10.2136421]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [3.175704, -1.3895483, 10.2136421]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree1
+    UUID: 14753901197211632332
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.45005202, -1.03510094, 4.56171989]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.45005202, -1.03510094, 4.56171989]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree1
+    UUID: 8997630664252625964
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.18972349, -0.960980415, 23.1562786]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.18972349, -0.960980415, 23.1562786]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree1
+    UUID: 4934185641143125174
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-4.48113632, -1.10848022, 22.7299595]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.48113632, -1.10848022, 22.7299595]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 11960208313895829375
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.6220474, -0.95555228, 16.2397747]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.6220474, -0.95555228, 16.2397747]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 1782799078918613889
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [17.4888401, -0.72895664, 22.3933296]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [17.4888401, -0.72895664, 22.3933296]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 6466727902367850048
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [17.5518799, 0, 18.288969]
+      Rotation: [0, 33.215435, 0]
+      Scale: [0.999999762, 1, 0.999999762]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [17.5518799, 0, 18.288969]
+    Rotation: [0, 33.215435, 0]
+    Scale: [0.999999762, 1, 0.999999762]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 8960505435676003830
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [5.88291836, -1.65096557, 14.8501921]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.88291836, -1.65096557, 14.8501921]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 3356751722922772163
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.83392143, 0.558458567, 41.742775]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.83392143, 0.558458567, 41.742775]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 14185235845012726554
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-7.49457073, 1.44475174, 39.844265]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-7.49457073, 1.44475174, 39.844265]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 10788993395131809153
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-0.755454779, 0.54273057, 47.8849258]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-0.755454779, 0.54273057, 47.8849258]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 16885369312233007951
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-11.2368841, 1.55142117, 37.4939499]
+      Rotation: [0, -0, 0]
+      Scale: [1.54528427, 1, 1.04600048]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-11.2368841, 1.55142117, 37.4939499]
+    Rotation: [0, -0, 0]
+    Scale: [1.54528427, 1, 1.04600048]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 14483736177863423440
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.9676933, 0, 47.1404648]
+      Rotation: [0, -0, 0]
+      Scale: [1.35338247, 1.71895039, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.9676933, 0, 47.1404648]
+    Rotation: [0, -0, 0]
+    Scale: [1.35338247, 1.71895039, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 2149284854392440588
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [15.8669815, -0.295766592, 44.8748055]
+      Rotation: [0, -0, 0]
+      Scale: [1.6723932, 1.22984445, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [15.8669815, -0.295766592, 44.8748055]
+    Rotation: [0, -0, 0]
+    Scale: [1.6723932, 1.22984445, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 847327843109376947
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [17.0475655, -1.19646204, 40.6106491]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [17.0475655, -1.19646204, 40.6106491]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 4474267685465669052
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [15.9938669, -0.289608806, 37.1322212]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [15.9938669, -0.289608806, 37.1322212]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 2991790771752105463
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [20.9274082, -2.18251371, 39.6466103]
+      Rotation: [0, -23.5118847, 0]
+      Scale: [0.99999994, 1.69451427, 1.41232729]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [20.9274082, -2.18251371, 39.6466103]
+    Rotation: [0, -23.5118847, 0]
+    Scale: [0.99999994, 1.69451427, 1.41232729]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 5973085868318328674
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [23.9636955, -1.10980713, 34.356739]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [23.9636955, -1.10980713, 34.356739]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 11024624786963883433
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [19.2671833, -2.19868588, 24.1315441]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [19.2671833, -2.19868588, 24.1315441]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 13591090215306991440
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [22.2497311, -1.11838436, 26.6520653]
+      Rotation: [0, -0, 0]
+      Scale: [1.7028147, 1.08565652, 1.2813462]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [22.2497311, -1.11838436, 26.6520653]
+    Rotation: [0, -0, 0]
+    Scale: [1.7028147, 1.08565652, 1.2813462]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: flower1
+    UUID: 4726902272232281647
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [15.3568268, -1.04053581, -61.9025764]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\
+      MeshFileName: f1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [15.3568268, -1.04053581, -61.9025764]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\
+    MeshFileName: f1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: CorpseSet
+    UUID: 7132049440655230929
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [25.5394382, -1.62015283, -40.5287247]
+      Rotation: [0, -0, 0]
+      Scale: [0.0228670593, 0.0248748492, 0.0227935556]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
+      MeshFileName: CorpseSet.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [25.5394382, -1.62015283, -40.5287247]
+    Rotation: [0, -0, 0]
+    Scale: [0.0228670593, 0.0248748492, 0.0227935556]
+    MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
+    MeshFileName: CorpseSet.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: CorpseSet
+    UUID: 13525661825771743587
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [33.0514069, -1.48175335, -53.6910095]
+      Rotation: [0, -0, 0]
+      Scale: [0.0141306687, 0.0208820309, 0.0180331133]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
+      MeshFileName: CorpseSet.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [33.0514069, -1.48175335, -53.6910095]
+    Rotation: [0, -0, 0]
+    Scale: [0.0141306687, 0.0208820309, 0.0180331133]
+    MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
+    MeshFileName: CorpseSet.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 5018221230016486926
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [44.4355431, -0.175409675, -40.5517349]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.95419812, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [44.4355431, -0.175409675, -40.5517349]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.95419812, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 7048137659633978757
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [45.71521, -1.54610181, -44.1369476]
+      Rotation: [0, -0, 0]
+      Scale: [1.27904558, 1.85619986, 1.414083]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [45.71521, -1.54610181, -44.1369476]
+    Rotation: [0, -0, 0]
+    Scale: [1.27904558, 1.85619986, 1.414083]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Tree2
+    UUID: 12323124467946575713
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [42.6281013, 1.13258696, -48.5088234]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [42.6281013, 1.13258696, -48.5088234]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: Base
+    UUID: 15973146144191321713
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [10.1943579, -1.09800005, 39.4543953]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Wall0
+    UUID: 3633750838221864353
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [1.02360916, -1.63459396, 25.0482769]
+      Rotation: [0.00148037937, 6.02515125, 0.00159484986]
+      Scale: [3.2848649, 2.3402164, 1.64952815]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+      MeshFileName: Wall5.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.02360916, -1.63459396, 25.0482769]
+    Rotation: [0.00148037937, 6.02515125, 0.00159484986]
+    Scale: [3.2848649, 2.3402164, 1.64952815]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+    MeshFileName: Wall5.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: SubBudilding
+    UUID: 7827369921621460334
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-25.0829506, -1.15200901, 27.6159744]
+      Rotation: [-179.982147, 79.9770126, -179.979919]
+      Scale: [0.999798775, 0.999999523, 0.999998033]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Builidng\
+      MeshFileName: Tower3.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: Plant
+    UUID: 8175720676848871797
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.91134214, -0.815791368, 37.9575729]
+      Rotation: [-179.999893, 19.8609486, -179.999893]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+      MeshFileName: Plant1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.91134214, -0.815791368, 37.9575729]
+    Rotation: [-179.999893, 19.8609486, -179.999893]
+    Scale: [0.999999881, 1, 0.999999881]
+    MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+    MeshFileName: Plant1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PlantRound
+    UUID: 7327595217734418874
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-5.93531275, -0.918615937, 38.0683937]
+      Rotation: [-179.999893, 21.528101, -179.999893]
+      Scale: [0.999999583, 1, 0.999999583]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+      MeshFileName: Plant1Round.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.93531275, -0.918615937, 38.0683937]
+    Rotation: [-179.999893, 21.528101, -179.999893]
+    Scale: [0.999999583, 1, 0.999999583]
+    MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+    MeshFileName: Plant1Round.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Plant
+    UUID: 3300714895051943810
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.031461, -0.909430563, 38.9140167]
+      Rotation: [-179.999619, 8.17683697, -179.999634]
+      Scale: [1, 1.60282981, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+      MeshFileName: Plant1.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.031461, -0.909430563, 38.9140167]
+    Rotation: [-179.999619, 8.17683697, -179.999634]
+    Scale: [1, 1.60282981, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+    MeshFileName: Plant1.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PlantRound
+    UUID: 6822989451286164136
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.01157427, -0.922504842, 38.8745918]
+      Rotation: [-179.999619, 6.64277124, -179.999634]
+      Scale: [0.999998331, 1, 0.999998331]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+      MeshFileName: Plant1Round.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.01157427, -0.922504842, 38.8745918]
+    Rotation: [-179.999619, 6.64277124, -179.999634]
+    Scale: [0.999998331, 1, 0.999998331]
+    MeshFilePath: ..\..\Assets\Meshes\Map\PlantB\
+    MeshFileName: Plant1Round.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Wall
+    UUID: 3302644083205562418
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.90865397, -1.40909612, 46.402523]
+      Rotation: [-179.999893, 89.2391586, -179.999893]
+      Scale: [1.46300006, 1.37399995, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+      MeshFileName: Wall2.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Tree2
+    UUID: 15113476974249642510
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-15.3213902, 1.31112731, 35.2832069]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-15.3213902, 1.31112731, 35.2832069]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 4653626635368920632
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-19.0303841, 1.64868832, 34.023201]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-19.0303841, 1.64868832, 34.023201]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 5525696862960774745
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-25.3574848, -1.09878492, 19.5604591]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-25.3574848, -1.09878492, 19.5604591]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 1205640114741307940
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-19.9070187, -1.026443, 20.7197189]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-19.9070187, -1.026443, 20.7197189]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 12303097963092685239
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-18.5996342, -1.71362162, 17.834753]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.44300246, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-18.5996342, -1.71362162, 17.834753]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.44300246, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 11749226388208539398
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-21.8948708, -1.01555753, 19.6273441]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-21.8948708, -1.01555753, 19.6273441]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 17587022139737469498
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-11.5326824, 0.486270547, 21.0222969]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-11.5326824, 0.486270547, 21.0222969]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 18126489604722262421
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-8.17038918, -0.752782106, 20.4822865]
+      Rotation: [0, -31.1633244, 0]
+      Scale: [0.999999762, 1.48298383, 0.999999762]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-8.17038918, -0.752782106, 20.4822865]
+    Rotation: [0, -31.1633244, 0]
+    Scale: [0.999999762, 1.48298383, 0.999999762]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 3797939090686709279
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-7.06000471, -0.05569911, 22.980154]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.52696133, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-7.06000471, -0.05569911, 22.980154]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.52696133, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 3933233294469273352
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [30.6306725, -1.38837266, -54.3936996]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.40785062, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [30.6306725, -1.38837266, -54.3936996]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.40785062, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 6359985708382291815
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [24.8592377, -1.43361044, -57.2291908]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [24.8592377, -1.43361044, -57.2291908]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 4338627621373531927
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [17.3514347, -1.36909652, -60.4365082]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [17.3514347, -1.36909652, -60.4365082]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 11815179932721565410
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [20.3773899, -1.85382676, -58.3445435]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [20.3773899, -1.85382676, -58.3445435]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grounds
+    UUID: 7110904078969131155
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-1.60702682, -1.35580635, -41.907032]
+      Rotation: [0, -0, 0]
+      Scale: [1.7013309, 1, 1.63068926]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Ground\
+      MeshFileName: 2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-1.60702682, -1.35580635, -41.907032]
+    Rotation: [0, -0, 0]
+    Scale: [1.7013309, 1, 1.63068926]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Ground\
+    MeshFileName: 2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: grass
+    UUID: 9420537273396757587
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [35.3370285, -1.43353188, -47.9901695]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [35.3370285, -1.43353188, -47.9901695]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 8815211077367746642
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [27.3586006, -1.38804984, -41.6586609]
+      Rotation: [0, -0, 0]
+      Scale: [1.93047905, 1, 1.86746871]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [27.3586006, -1.38804984, -41.6586609]
+    Rotation: [0, -0, 0]
+    Scale: [1.93047905, 1, 1.86746871]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 14166552981520446805
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [24.8407288, -1.39131391, -45.8570061]
+      Rotation: [0, -0, 0]
+      Scale: [1.62907124, 1, 2.72387481]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [24.8407288, -1.39131391, -45.8570061]
+    Rotation: [0, -0, 0]
+    Scale: [1.62907124, 1, 2.72387481]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 16507025442472714507
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [19.8828869, -1.2559216, -51.0196877]
+      Rotation: [0, -0, 0]
+      Scale: [2.00642443, 1, 3.33190274]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [19.8828869, -1.2559216, -51.0196877]
+    Rotation: [0, -0, 0]
+    Scale: [2.00642443, 1, 3.33190274]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 18087724543028630579
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [11.6241751, -1.4130969, -40.5416336]
+      Rotation: [0, -0, 0]
+      Scale: [1.99987507, 1, 3.53818488]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.6241751, -1.4130969, -40.5416336]
+    Rotation: [0, -0, 0]
+    Scale: [1.99987507, 1, 3.53818488]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 9139895615335884072
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [13.7598286, -1.29858541, -48.8042755]
+      Rotation: [0, -0, 0]
+      Scale: [2.39924836, 1, 3.98765087]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [13.7598286, -1.29858541, -48.8042755]
+    Rotation: [0, -0, 0]
+    Scale: [2.39924836, 1, 3.98765087]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: grass
+    UUID: 7109815852856168259
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [4.90854645, -1.39241993, -35.7260818]
+      Rotation: [0, -0, 0]
+      Scale: [2.26120782, 1, 3.29410696]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+      MeshFileName: Grass14.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.90854645, -1.39241993, -35.7260818]
+    Rotation: [0, -0, 0]
+    Scale: [2.26120782, 1, 3.29410696]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
+    MeshFileName: Grass14.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Tree2
+    UUID: 8232704872324230230
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-3.5961132, 0, 23.4029255]
+      Rotation: [0, -0, 0]
+      Scale: [1.41544735, 1.52984166, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.5961132, 0, 23.4029255]
+    Rotation: [0, -0, 0]
+    Scale: [1.41544735, 1.52984166, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 6848420231897815445
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-27.9498463, 1.78718376, 21.849493]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-27.9498463, 1.78718376, 21.849493]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 10211260395597730759
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-21.5529251, -0.951846182, 32.4339561]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.26097834, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-21.5529251, -0.951846182, 32.4339561]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1.26097834, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 4834970063142629580
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-23.4698524, 1.67173004, 32.843853]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-23.4698524, 1.67173004, 32.843853]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Tree2
+    UUID: 12349493849185628378
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-2.19602871, -0.962592363, 34.8384438]
+      Rotation: [0, -0, 0]
+      Scale: [0.806494415, 1, 0.528754532]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+      MeshFileName: Tree0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.19602871, -0.962592363, 34.8384438]
+    Rotation: [0, -0, 0]
+    Scale: [0.806494415, 1, 0.528754532]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tree\
+    MeshFileName: Tree0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Wall3
+    UUID: 14372987226435577570
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [-25.6294003, -0.558767796, 23.6275387]
+      Rotation: [-179.989182, -87.528183, 179.991409]
+      Scale: [1.66771328, 1.6485337, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+      MeshFileName: Wall6.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-25.6294003, -0.558767796, 23.6275387]
+    Rotation: [-179.989182, -87.528183, 179.991409]
+    Scale: [1.66771328, 1.6485337, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Wall\
+    MeshFileName: Wall6.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Empty Object
+    UUID: 11299466344839329523
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Empty Object
+    UUID: 12241364650233199547
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: grounds
+    UUID: 14590780933271519474
+    Active: true
+    Layer: grounds
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [18.8627243, -1.40183902, -39.2953453]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Ground\
+      MeshFileName: 2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [18.8627243, -1.40183902, -39.2953453]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Ground\
+    MeshFileName: 2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 30
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.99953175, -1.39999998, -41]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [3.37035799, -1.29353499, -43.0064583]
+      Rotation: [0.999999642, 0.999999642, 0.999999642]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: WolfSpawn
+    UUID: 18264255434391606204
+    Active: true
+    Layer: WolfSpawner
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [8.67289829, -1.26871216, -48.13134]
+      Rotation: [0.999999642, 0.999999642, 0.999999642]
+      Scale: [1, 1, 1]
+    Com_Spawn:
+      Name: WOLF
+      Time: 60
+    RenderGroup: 1
+    FrustumRange: 1

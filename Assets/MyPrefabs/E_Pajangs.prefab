@@ -1,0 +1,29 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_Pajangs
+    UUID: 8947149988981990722
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Donut.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_001_TEX_HKB.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
+      ScrollSpeedX: [0.100000001, 2.20000005, 0.800000012]
+      ScrollSpeedY: [-2, -1.60000002, 2.29999995]
+      Distortion1: [2.0999999, 0.300000012]
+      Distortion2: [0.100000001, 0.600000024]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 1.89999998
+      DistortionBias: 0.600000024

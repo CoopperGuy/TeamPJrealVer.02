@@ -1,0 +1,47 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_Fire
+    UUID: 3078421297698019188
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    Com_Transform:
+      Translation: [0.824593484, 1.23299634, 4.97298479]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\f_06_blur.tga
+    Effect_Setting:
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Mask_001_TEX_KKJ.tga
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0.400000006, 0.699999988, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.100000001]
+      Distortion3: [0.100000001, 0.300000012]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+    Children:
+      - Name: water
+        UUID: 2297871178583922897
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 1
+        Com_Transform:
+          Translation: [0, -0.968614578, 0]
+          Rotation: [0, -0, 0]
+          Scale: [1, 1, 1]
+        Com_VIBuffer:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.tga
+        Effect_Setting:
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_aura_test1_Xclamp.tga
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_smoke_006_TEX_CJH.tga
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [-0.300000012, -0.800000012, 2.29999995]
+          Distortion1: [-0.100000001, -0.200000003]
+          Distortion2: [1.60000002, -1.79999995]
+          Distortion3: [0.100000001, -1.5]
+          DistortionScale: 1
+          DistortionBias: 0

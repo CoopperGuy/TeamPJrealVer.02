@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Client.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\MainApp.h">
+      <Filter>00.MainApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Logo.h">
+      <Filter>01.Scenes\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_GamePlay.h">
+      <Filter>01.Scenes\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Loading.h">
+      <Filter>01.Scenes\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Loader.h">
+      <Filter>01.Scenes\Loading\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Background.h">
+      <Filter>02.GameObjects\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Client_Defines.h">
+      <Filter>98.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Backends\imgui_impl_dx11.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Backends\imgui_impl_win32.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Log.h">
+      <Filter>ImGui\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Test.h">
+      <Filter>01.Scenes\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Terrain.h">
+      <Filter>02.GameObjects\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Shader\Shader_Defines.hpp">
+      <Filter>FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Grid.h">
+      <Filter>97.Manager\PathFindingManager\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Node.h">
+      <Filter>97.Manager\PathFindingManager\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\PathFinding.h">
+      <Filter>97.Manager\PathFindingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Camera_Follow.h">
+      <Filter>02.GameObjects\Camera\Camera_Follow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Client_Struct.h">
+      <Filter>98.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Lobby.h">
+      <Filter>01.Scenes\Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Client_Enum.h">
+      <Filter>98.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Effect.h">
+      <Filter>01.Scenes\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Camera_Lobby.h">
+      <Filter>02.GameObjects\Camera\Camera_Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Sky.h">
+      <Filter>02.GameObjects\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SkillIcon.h">
+      <Filter>04.UI\SkillIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\LevelFlag.h">
+      <Filter>04.UI\LevelFlag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\HpBar.h">
+      <Filter>04.UI\HpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MonHp.h">
+      <Filter>04.UI\MonHp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Player.h">
+      <Filter>02.GameObjects\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Character.h">
+      <Filter>02.GameObjects\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\TestMap.h">
+      <Filter>02.GameObjects\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\StateMachine.h">
+      <Filter>02.GameObjects\Character\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ComboHud.h">
+      <Filter>04.UI\ComboHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ComboIcon.h">
+      <Filter>04.UI\ComboHud\ComboIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Wolf.h">
+      <Filter>02.GameObjects\Character\Enemy\Wolf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Enemy.h">
+      <Filter>02.GameObjects\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Idle_Player.h">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\00.Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Walk_Player.h">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\01.Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Run_Player.h">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\02.Run</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Att_Player.h">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\03.Att</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MenuHud.h">
+      <Filter>04.UI\MenuHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BackPackHud.h">
+      <Filter>04.UI\BackPackHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\EquipItemHud.h">
+      <Filter>04.UI\BackPackHud\EquipItemHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ConsumItemHud.h">
+      <Filter>04.UI\BackPackHud\ConsumItemHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Axe.h">
+      <Filter>02.GameObjects\Character\Equip\Weapon\00.RedAxe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\GoldAxe.h">
+      <Filter>02.GameObjects\Character\Equip\Weapon\01.GoldAxe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MaterialHud.h">
+      <Filter>04.UI\BackPackHud\MaterialHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Inventory.h">
+      <Filter>04.UI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Item.h">
+      <Filter>04.UI\Inventory\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\TalkHud.h">
+      <Filter>04.UI\Talk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\QuestHud.h">
+      <Filter>04.UI\Quest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SideQuestHud.h">
+      <Filter>04.UI\Quest\SideQuestHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\LoadingGauge.h">
+      <Filter>04.UI\LoadingGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\DmgVIBuffer.h">
+      <Filter>04.UI\DmgFont</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MonHpVIBuffer.h">
+      <Filter>04.UI\MonHp\VIBufer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\NPC.h">
+      <Filter>02.GameObjects\Character\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ElfNPC.h">
+      <Filter>02.GameObjects\Character\NPC\Elf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Camera_Fly.h">
+      <Filter>02.GameObjects\Camera\Camera_Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Npc_Shop.h">
+      <Filter>02.GameObjects\Character\NPC\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ShopInvenHud.h">
+      <Filter>04.UI\ShopInvenHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ShopHud.h">
+      <Filter>02.GameObjects\Character\NPC\Shop\ShopHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\EventCheck.h">
+      <Filter>97.Manager\EventChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Spawn.h">
+      <Filter>02.GameObjects\Character\Enemy\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\QuickSlot.h">
+      <Filter>04.UI\QuickSlot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\AddQuickslot.h">
+      <Filter>04.UI\QuickSlot\AddQuickSlot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Gold.h">
+      <Filter>04.UI\Gold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Equipment.h">
+      <Filter>02.GameObjects\Character\Equip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Skill_Player.h">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\04.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\WolfBoss.h">
+      <Filter>02.GameObjects\Character\Enemy\WolfBoss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Stage01.h">
+      <Filter>01.Scenes\Scene_Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Glove.h">
+      <Filter>02.GameObjects\Character\Equip\Glove</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Armor.h">
+      <Filter>02.GameObjects\Character\Equip\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Boots.h">
+      <Filter>02.GameObjects\Character\Equip\Boots</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Lower.h">
+      <Filter>02.GameObjects\Character\Equip\Lower</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Scene_Kim.h">
+      <Filter>01.Scenes\GamePlay\kim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_SEO.h">
+      <Filter>01.Scenes\GamePlay\seo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_JUN.h">
+      <Filter>01.Scenes\GamePlay\jun</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_LEE.h">
+      <Filter>01.Scenes\GamePlay\lee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Flogas.h">
+      <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\WaterEA.h">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\El_Flogas.h">
+      <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Scene_Stage2.h">
+      <Filter>01.Scenes\Scene_Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Portal.h">
+      <Filter>02.GameObjects\Map\Portal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\PortalUI.h">
+      <Filter>04.UI\Portal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\BasicEffect.h">
+      <Filter>05.Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectBlood.h">
+      <Filter>05.Effect\Blood</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectFly.h">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectDust.h">
+      <Filter>05.Effect\Dust</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectSwordRing.h">
+      <Filter>05.Effect\FlogasDungeon\SwordRing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\TestMonster.h">
+      <Filter>02.GameObjects\Character\Enemy\TestMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\InstanceEffectFire.h">
+      <Filter>05.Effect\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectBlackhole.h">
+      <Filter>05.Effect\FlogasDungeon\Blackhole</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectGrab.h">
+      <Filter>05.Effect\FlogasDungeon\Grab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPajang.h">
+      <Filter>05.Effect\FlogasDungeon\Pajang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectFlyLaser.h">
+      <Filter>05.Effect\FlogasDungeon\Flylaser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Obb.h">
+      <Filter>02.GameObjects\OBB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ShoulerAtk.h">
+      <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectEAFire.h">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client.cpp">
+      <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\MainApp.cpp">
+      <Filter>00.MainApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Logo.cpp">
+      <Filter>01.Scenes\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_GamePlay.cpp">
+      <Filter>01.Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Loader.cpp">
+      <Filter>01.Scenes\Loading\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Background.cpp">
+      <Filter>02.GameObjects\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_impl_dx11.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_impl_win32.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Backends\imgui_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Log.cpp">
+      <Filter>ImGui\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Test.cpp">
+      <Filter>01.Scenes\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Terrain.cpp">
+      <Filter>02.GameObjects\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Grid.cpp">
+      <Filter>97.Manager\PathFindingManager\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Node.cpp">
+      <Filter>97.Manager\PathFindingManager\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\PathFinding.cpp">
+      <Filter>97.Manager\PathFindingManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Camera_Follow.cpp">
+      <Filter>02.GameObjects\Camera\Camera_Follow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Lobby.cpp">
+      <Filter>01.Scenes\Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Effect.cpp">
+      <Filter>01.Scenes\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Camera_Lobby.cpp">
+      <Filter>02.GameObjects\Camera\Camera_Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Sky.cpp">
+      <Filter>02.GameObjects\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SkillIcon.cpp">
+      <Filter>04.UI\SkillIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\LevelFlag.cpp">
+      <Filter>04.UI\LevelFlag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\HpBar.cpp">
+      <Filter>04.UI\HpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\MonHp.cpp">
+      <Filter>04.UI\MonHp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Player.cpp">
+      <Filter>02.GameObjects\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Character.cpp">
+      <Filter>02.GameObjects\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\TestMap.cpp">
+      <Filter>02.GameObjects\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\StateMachine.cpp">
+      <Filter>02.GameObjects\Character\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ComboHud.cpp">
+      <Filter>04.UI\ComboHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ComboIcon.cpp">
+      <Filter>04.UI\ComboHud\ComboIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Wolf.cpp">
+      <Filter>02.GameObjects\Character\Enemy\Wolf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Enemy.cpp">
+      <Filter>02.GameObjects\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Idle_Player.cpp">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\00.Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Walk_Player.cpp">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\01.Walk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Run_Player.cpp">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\02.Run</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Att_Player.cpp">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\03.Att</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\MenuHud.cpp">
+      <Filter>04.UI\MenuHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\BackPackHud.cpp">
+      <Filter>04.UI\BackPackHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\EquipItemHud.cpp">
+      <Filter>04.UI\BackPackHud\EquipItemHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ConsumItemHud.cpp">
+      <Filter>04.UI\BackPackHud\ConsumItemHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Axe.cpp">
+      <Filter>02.GameObjects\Character\Equip\Weapon\00.RedAxe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\GoldAxe.cpp">
+      <Filter>02.GameObjects\Character\Equip\Weapon\01.GoldAxe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\MaterialHud.cpp">
+      <Filter>04.UI\BackPackHud\MaterialHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Inventory.cpp">
+      <Filter>04.UI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Item.cpp">
+      <Filter>04.UI\Inventory\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\TalkHud.cpp">
+      <Filter>04.UI\Talk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\QuestHud.cpp">
+      <Filter>04.UI\Quest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SideQuestHud.cpp">
+      <Filter>04.UI\Quest\SideQuestHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\LoadingGauge.cpp">
+      <Filter>04.UI\LoadingGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\DmgVIBuffer.cpp">
+      <Filter>04.UI\DmgFont</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\MonHpVIBuffer.cpp">
+      <Filter>04.UI\MonHp\VIBufer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\NPC.cpp">
+      <Filter>02.GameObjects\Character\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ElfNPC.cpp">
+      <Filter>02.GameObjects\Character\NPC\Elf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Camera_Fly.cpp">
+      <Filter>02.GameObjects\Camera\Camera_Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Npc_Shop.cpp">
+      <Filter>02.GameObjects\Character\NPC\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ShopInvenHud.cpp">
+      <Filter>04.UI\ShopInvenHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ShopHud.cpp">
+      <Filter>02.GameObjects\Character\NPC\Shop\ShopHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\EventCheck.cpp">
+      <Filter>97.Manager\EventChecker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Loading.cpp">
+      <Filter>01.Scenes\Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Spawn.cpp">
+      <Filter>02.GameObjects\Character\Enemy\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\QuickSlot.cpp">
+      <Filter>04.UI\QuickSlot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\AddQuickslot.cpp">
+      <Filter>04.UI\QuickSlot\AddQuickSlot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Gold.cpp">
+      <Filter>04.UI\Gold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Equipment.cpp">
+      <Filter>02.GameObjects\Character\Equip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Skill_Player.cpp">
+      <Filter>02.GameObjects\Character\StateMachine\00.Player\04.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\WolfBoss.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WolfBoss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Stage01.cpp">
+      <Filter>01.Scenes\Scene_Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Glove.cpp">
+      <Filter>02.GameObjects\Character\Equip\Glove</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Armor.cpp">
+      <Filter>02.GameObjects\Character\Equip\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Boots.cpp">
+      <Filter>02.GameObjects\Character\Equip\Boots</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Lower.cpp">
+      <Filter>02.GameObjects\Character\Equip\Lower</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Scene_Kim.cpp">
+      <Filter>01.Scenes\GamePlay\kim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_LEE.cpp">
+      <Filter>01.Scenes\GamePlay\lee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_JUN.cpp">
+      <Filter>01.Scenes\GamePlay\jun</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_SEO.cpp">
+      <Filter>01.Scenes\GamePlay\seo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Flogas.cpp">
+      <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\WaterEA.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\El_Flogas.cpp">
+      <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_Stage2.cpp">
+      <Filter>01.Scenes\Scene_Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Portal.cpp">
+      <Filter>02.GameObjects\Map\Portal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\PortalUI.cpp">
+      <Filter>04.UI\Portal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\BasicEffect.cpp">
+      <Filter>05.Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectBlood.cpp">
+      <Filter>05.Effect\Blood</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectFly.cpp">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectDust.cpp">
+      <Filter>05.Effect\Dust</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSwordRing.cpp">
+      <Filter>05.Effect\FlogasDungeon\SwordRing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\TestMonster.cpp">
+      <Filter>02.GameObjects\Character\Enemy\TestMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\InstanceEffectFire.cpp">
+      <Filter>05.Effect\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectBlackhole.cpp">
+      <Filter>05.Effect\FlogasDungeon\Blackhole</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectGrab.cpp">
+      <Filter>05.Effect\FlogasDungeon\Grab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPajang.cpp">
+      <Filter>05.Effect\FlogasDungeon\Pajang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectFlyLaser.cpp">
+      <Filter>05.Effect\FlogasDungeon\Flylaser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Obb.cpp">
+      <Filter>02.GameObjects\OBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ShoulerAtk.cpp">
+      <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectEAFire.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Client.ico">
+      <Filter>99.Default</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>99.Default</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="99.Default">
+      <UniqueIdentifier>{4dfc6b95-4382-4bdb-9f14-6a565e6998f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.MainApp">
+      <UniqueIdentifier>{ed1ee828-51c4-4112-88a4-7a2ca1e4e5b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Defines">
+      <UniqueIdentifier>{10c71ab4-c4d1-4cfd-b9b9-3c3d53cca1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes">
+      <UniqueIdentifier>{6ba7644a-db69-4942-9844-9401ea77b364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Logo">
+      <UniqueIdentifier>{d3205a9e-843b-4fb1-9c08-ff7ae7730b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Loading">
+      <UniqueIdentifier>{3ab6aea0-5ae5-4729-9196-4ca12e48b966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\GamePlay">
+      <UniqueIdentifier>{89b7a558-eac1-4c87-b978-bd6838981b97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Loading\Loader">
+      <UniqueIdentifier>{f8c02495-847b-49b8-9d63-5979ba83a25f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects">
+      <UniqueIdentifier>{5ff2851f-39c1-4816-bd3c-252daf4aaed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Background">
+      <UniqueIdentifier>{0e23e1a7-a5ff-4461-83bf-344d3a5a3ebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{8132b200-b6bb-4f35-8fc8-d212490cb612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\Log">
+      <UniqueIdentifier>{98d89a91-70fd-4522-987c-b32469311c5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Test">
+      <UniqueIdentifier>{4258d464-ef75-47e6-8d6b-1bae8b80a25b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Terrain">
+      <UniqueIdentifier>{c02996f5-caf3-4521-8d4f-9ad3146637d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FX">
+      <UniqueIdentifier>{bfd9097f-0a6e-415e-9acc-d189c34c374d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Components">
+      <UniqueIdentifier>{a5ceb8ed-a68c-41fd-b944-db3f95fb66db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager">
+      <UniqueIdentifier>{ecfb6b88-7f25-46c4-9bca-24346ce8f5bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\PathFindingManager">
+      <UniqueIdentifier>{b8375056-5470-4f93-b684-311dc07c6ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\PathFindingManager\Grid">
+      <UniqueIdentifier>{12593d30-3da1-4307-9d26-cf886fc50737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\PathFindingManager\Node">
+      <UniqueIdentifier>{b89def4f-662e-4fe3-a8de-8777d9237882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Lobby">
+      <UniqueIdentifier>{ac300dfc-b5b1-4ac5-9c27-cf41aa281234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Effect">
+      <UniqueIdentifier>{0c0da219-9af9-48e2-bcf3-12905cc74003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Sky">
+      <UniqueIdentifier>{4944569c-eee3-4b19-ac73-6349ecbd35a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI">
+      <UniqueIdentifier>{652700e4-e1a7-4593-9d4d-ebf540c4e9e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\HpBar">
+      <UniqueIdentifier>{ea3286c2-848b-44b3-9c31-ba5c23e2c10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\DmgFont">
+      <UniqueIdentifier>{d61eed23-66b9-4c46-8d67-45c1a60f26b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\LevelFlag">
+      <UniqueIdentifier>{d4089a2e-6efb-4b55-b397-6e7926a96b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MonHp">
+      <UniqueIdentifier>{d1174004-240f-498a-8e02-b269b07fb4cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character">
+      <UniqueIdentifier>{d7260cd3-ab35-4f37-a0df-7c849d18ccbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine">
+      <UniqueIdentifier>{87f72a28-8de9-4cdf-b4bf-8a5e7d75123f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map">
+      <UniqueIdentifier>{f347125c-9e34-42ad-b7d8-64ddfa20a69d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ComboHud">
+      <UniqueIdentifier>{dfdda2c9-82a9-41cf-8180-deae86a1cd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ComboHud\ComboIcon">
+      <UniqueIdentifier>{f78da6c5-2012-4f42-94d6-d33debe499ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player">
+      <UniqueIdentifier>{87921a53-6198-42f9-9427-f061092a7cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player\00.Idle">
+      <UniqueIdentifier>{608593b9-156d-4771-b480-44f4bfc20e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player\01.Walk">
+      <UniqueIdentifier>{edbe30de-0d79-47ff-86be-f233749f52d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player\02.Run">
+      <UniqueIdentifier>{13f61200-59c3-4b45-8acf-404fda11975d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player\03.Att">
+      <UniqueIdentifier>{dd63031f-6d5c-4f92-94e1-d8e823114a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Camera">
+      <UniqueIdentifier>{c5074939-735e-44c2-8810-e9cf6e8b5481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Camera\Camera_Fly">
+      <UniqueIdentifier>{ade715b0-6738-45c6-ad2b-7b99408ade48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Camera\Camera_Lobby">
+      <UniqueIdentifier>{d4b3e46f-6cc1-4545-a0f0-c15754bf84c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy">
+      <UniqueIdentifier>{63eceb40-ae2b-4783-ab95-3c4de17e643f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\Wolf">
+      <UniqueIdentifier>{5668b4c4-f17a-46da-b958-67071b53bc70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MenuHud">
+      <UniqueIdentifier>{cfac49d1-019b-4693-86ee-4ecb35016894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud">
+      <UniqueIdentifier>{0c2d4485-265c-4f70-b0af-c3b2bd57cec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\EquipItemHud">
+      <UniqueIdentifier>{f08ce71c-a07e-42f6-b18c-290ef4752321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\ConsumItemHud">
+      <UniqueIdentifier>{e87c55d4-d661-498b-9c3e-be77923f6f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\MaterialHud">
+      <UniqueIdentifier>{3951d8e9-b2b9-448b-83fb-189a0dafb818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Player">
+      <UniqueIdentifier>{3d4340ef-4b50-43ed-bd2b-a3c585ee44bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Inventory">
+      <UniqueIdentifier>{e0189cb1-deec-4de4-a593-0aef184f93c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Inventory\Item">
+      <UniqueIdentifier>{8443359d-40c4-4ea0-b3d3-f6eb8b48f007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Talk">
+      <UniqueIdentifier>{e1948351-d639-46ca-800c-e62dffe5c778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Quest">
+      <UniqueIdentifier>{6bc491b5-62a5-4fa1-814e-092d262523c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Quest\SideQuestHud">
+      <UniqueIdentifier>{6c7bf673-5372-400e-8364-37865f1c9c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\LoadingGauge">
+      <UniqueIdentifier>{a73aae91-2cb6-4585-8d20-4005dc43d9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MonHp\VIBufer">
+      <UniqueIdentifier>{f5e3f0a6-d983-4d89-9698-64c84c0ccdc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\NPC">
+      <UniqueIdentifier>{26345f43-4feb-4ce6-adea-a25a63ec4819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\NPC\Elf">
+      <UniqueIdentifier>{da7b1519-f675-4685-bddf-9857cc2d4c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\NPC\Human">
+      <UniqueIdentifier>{cade4c28-a1fb-4a64-bbbc-247bca470637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\NPC\Shop">
+      <UniqueIdentifier>{365792fa-60c3-4082-b869-f314d8212abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ShopInvenHud">
+      <UniqueIdentifier>{a07d204d-f5f6-4a6c-8ec6-2cb07bafd207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\NPC\Shop\ShopHud">
+      <UniqueIdentifier>{c61648db-4945-4eb8-a8e8-bdbc4c99b754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\EventChecker">
+      <UniqueIdentifier>{a63e5993-53ba-4616-a0ab-6247a3d1d043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\Spawn">
+      <UniqueIdentifier>{0c7c5f14-0092-41f6-93e1-6e137141c016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\QuickSlot">
+      <UniqueIdentifier>{6df2378b-03ae-47f4-bda7-b07ad65874cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\QuickSlot\AddQuickSlot">
+      <UniqueIdentifier>{4248d005-72a3-4b68-bd7a-f45693978745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Gold">
+      <UniqueIdentifier>{88c3e311-5b5c-410d-a6ba-9af20d3881bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip">
+      <UniqueIdentifier>{35cb6ed9-321d-4baf-9347-d7c2605401cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Weapon">
+      <UniqueIdentifier>{cd21bc16-4fbd-4e48-b880-6e77afc17799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Weapon\00.RedAxe">
+      <UniqueIdentifier>{10f31294-e94c-404b-b059-3d9c993da163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Weapon\01.GoldAxe">
+      <UniqueIdentifier>{56d8d42f-e3fd-4824-9b18-f81b4b0690d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Weapon\02.BasicAxe">
+      <UniqueIdentifier>{f20fcd4a-8870-4599-85e2-98e87af726bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\StateMachine\00.Player\04.Skill">
+      <UniqueIdentifier>{50c8d1ad-ea58-49ad-81fc-5caf92cefff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\WolfBoss">
+      <UniqueIdentifier>{f63430bf-13cd-46af-b6b9-c8bae0585553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Scene_Stage1">
+      <UniqueIdentifier>{c44e9470-eddc-4817-95a2-7c3aa1f1d7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Boots">
+      <UniqueIdentifier>{696c060d-9fac-4b51-af7e-463a1ee226cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Armor">
+      <UniqueIdentifier>{8a70cedd-bc18-48cb-b747-652dc08be293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Glove">
+      <UniqueIdentifier>{f525492a-97a2-4b72-bbfb-a6e327cb8a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Lower">
+      <UniqueIdentifier>{5352a02a-a249-4dac-9d4e-e5c063c1afaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\GamePlay\kim">
+      <UniqueIdentifier>{07a52b9f-f1f2-4e41-a400-5b5429272af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\GamePlay\lee">
+      <UniqueIdentifier>{b101b293-5673-48fc-a92e-50bc6b0dddca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\GamePlay\seo">
+      <UniqueIdentifier>{7090e4cc-0748-4022-9e86-007a21492565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\GamePlay\jun">
+      <UniqueIdentifier>{ceec5d13-14a0-481f-b97d-63583513aa58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\Flogas">
+      <UniqueIdentifier>{5ab2918d-5834-4885-942a-d4e5ade77abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="100.TestOBB">
+      <UniqueIdentifier>{d1e6f74a-6a87-4ce7-b13a-b7778edae4d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\WaterEA">
+      <UniqueIdentifier>{3b3e8c8a-ebe4-422d-a251-8902cfd720be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\El_Flogas">
+      <UniqueIdentifier>{fcf836ad-c78c-4e55-97f5-148b0bc91151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect">
+      <UniqueIdentifier>{e015e111-5e27-49fa-90b6-55163f897cad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Blood">
+      <UniqueIdentifier>{d517d386-1850-47da-a38b-7699e7b8801a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Dust">
+      <UniqueIdentifier>{1ca148f2-8a0c-46e4-83f1-6ccb294320eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Portal">
+      <UniqueIdentifier>{177f2bc1-4ad5-4032-b5af-23baff63fef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Scene_Stage2">
+      <UniqueIdentifier>{3c2380f2-a082-4c0c-90de-88bdde76c122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Portal">
+      <UniqueIdentifier>{96033c71-9e55-4c82-b1b9-1c5ed5702ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\SkillIcon">
+      <UniqueIdentifier>{dc39dc03-5a3d-4e97-beca-2df591d6078f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Blood">
+      <UniqueIdentifier>{b98e05ca-1130-45db-8654-5b82942f02fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Dust">
+      <UniqueIdentifier>{b071948e-d33a-4e4d-a2f8-23cccf6be23f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\TestMonster">
+      <UniqueIdentifier>{7bcdc8e7-c2d5-404e-8573-9e2157a3f766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Instance">
+      <UniqueIdentifier>{b6c9297b-c55e-4216-84d3-a6c1ece153bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon">
+      <UniqueIdentifier>{2d1f065d-f3f8-4365-9beb-ccea3adb5e9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Fly">
+      <UniqueIdentifier>{a0a4f70c-c18c-4970-a3af-a932faa1490a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Flylaser">
+      <UniqueIdentifier>{34202178-b0d6-41aa-8499-fab196c63d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\SwordRing">
+      <UniqueIdentifier>{01b36692-1267-4773-b660-9fefb5a3b5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Blackhole">
+      <UniqueIdentifier>{3146d605-6edf-4246-bba0-062810346050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Grab">
+      <UniqueIdentifier>{4ec86c75-e00d-4d1e-8508-3ae283585e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Pajang">
+      <UniqueIdentifier>{7fa73b9b-b501-4e98-94cb-eb56b3cdcb22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\OBB">
+      <UniqueIdentifier>{d799b32c-6fe9-4b51-9cdc-38a7ea286fbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Camera\Camera_Follow">
+      <UniqueIdentifier>{650f4204-cbd2-464c-9cb6-be0c6990c006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect">
+      <UniqueIdentifier>{1591a5a1-ac40-4036-a3a5-72af2410fd4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\ShoulderAtk">
+      <UniqueIdentifier>{3140871f-e41a-4c39-bccb-47b630ed52cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>99.Default</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Default</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Terrain.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Mesh.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_RectImage.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Rect.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_RectInstance.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Fire.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Smoke.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_GrenadeTrajectory.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_PointInstance.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Fresnel.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\DebugLine.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Rect_Viewport.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Line.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Sky.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Effect.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_TriangleDBG.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_HDR.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Bloom.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_SSAO.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_ModelInstance.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Assets\Shader\Shader_Decal.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

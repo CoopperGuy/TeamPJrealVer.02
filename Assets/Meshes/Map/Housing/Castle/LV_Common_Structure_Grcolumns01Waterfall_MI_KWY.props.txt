@@ -1,0 +1,128 @@
+Parent = MaterialInstanceConstant'/Game/ArtMain/Shad/BG/UPMI/LV_UberProb_OPA_1SD_D_UPMI.LV_UberProb_OPA_1SD_D_UPMI'
+ScalarParameterValues[7] =
+{
+    ScalarParameterValues[0] =
+    {
+        ParameterInfo = { Name=Roughness_A Intensity }
+        ParameterValue = 0.538095
+        ParameterName = None
+    }
+    ScalarParameterValues[1] =
+    {
+        ParameterInfo = { Name=Roughness_A Intensity_Max }
+        ParameterValue = 1
+        ParameterName = None
+    }
+    ScalarParameterValues[2] =
+    {
+        ParameterInfo = { Name=Roughness_A Intensity_Min }
+        ParameterValue = 0.490476
+        ParameterName = None
+    }
+    ScalarParameterValues[3] =
+    {
+        ParameterInfo = { Name=Specular_A Intensity }
+        ParameterValue = 0.2
+        ParameterName = None
+    }
+    ScalarParameterValues[4] =
+    {
+        ParameterInfo = { Name=Specular_A Intensity_Min }
+        ParameterValue = 0.314286
+        ParameterName = None
+    }
+    ScalarParameterValues[5] =
+    {
+        ParameterInfo = { Name=Normal_Detail Tile_UV }
+        ParameterValue = 2
+        ParameterName = None
+    }
+    ScalarParameterValues[6] =
+    {
+        ParameterInfo = { Name=RefractionDepthBias }
+        ParameterValue = 0
+        ParameterName = None
+    }
+}
+TextureParameterValues[4] =
+{
+    TextureParameterValues[0] =
+    {
+        ParameterInfo = { Name=Tex_BaseColor_A }
+        ParameterValue = Texture2D'/Game/Environments/Common/LV_Common_Structure_C/LV_Common_Structure_Grcolumns01_D_KIT.LV_Common_Structure_Grcolumns01_D_KIT'
+        ParameterName = None
+    }
+    TextureParameterValues[1] =
+    {
+        ParameterInfo = { Name=Tex_Normal_A }
+        ParameterValue = Texture2D'/Game/Environments/Common/LV_Common_Structure_C/LV_Common_Structure_Grcolumns01_N_KIT.LV_Common_Structure_Grcolumns01_N_KIT'
+        ParameterName = None
+    }
+    TextureParameterValues[2] =
+    {
+        ParameterInfo = { Name=Tex_ShadeMask_A }
+        ParameterValue = Texture2D'/Game/Environments/Common/LV_Common_Structure_C/LV_Common_Structure_Grcolumns01_D_KIT.LV_Common_Structure_Grcolumns01_D_KIT'
+        ParameterName = None
+    }
+    TextureParameterValues[3] =
+    {
+        ParameterInfo = { Name=Tex_Normal_Detail }
+        ParameterValue = Texture2D'/Game/Environments/Common/LV_Common_DetailNormal_A/LV_Common_DetailNormal_A_BaseConcrete02_N_KIT.LV_Common_DetailNormal_A_BaseConcrete02_N_KIT'
+        ParameterName = None
+    }
+}
+VectorParameterValues[1] =
+{
+    VectorParameterValues[0] =
+    {
+        ParameterInfo = { Name=BaseColor_A_ColorBlend }
+        ParameterValue = { R=0.619792, G=0.619792, B=0.619792, A=0 }
+        ParameterName = None
+    }
+}
+BasePropertyOverrides =
+{
+    bOverride_BlendMode = false
+    BlendMode = BLEND_Opaque (0)
+    bOverride_TwoSided = false
+    TwoSided = false
+    bOverride_OpacityMaskClipValue = false
+    OpacityMaskClipValue = 0.3333
+}
+StaticParameters =
+{
+    StaticSwitchParameters[0] = {}
+    StaticComponentMaskParameters[0] = {}
+    TerrainLayerWeightParameters[0] = {}
+    MaterialLayersParameters[0] = {}
+}
+RuntimeVirtualTextureParameterValues[0] = {}
+FontParameterValues[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[3] =
+{
+    TextureStreamingData[0] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = LV_Common_Structure_Grcolumns01_D_KIT
+    }
+    TextureStreamingData[1] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = LV_Common_Structure_Grcolumns01_D_KIT
+    }
+    TextureStreamingData[2] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = LV_Common_Structure_Grcolumns01_N_KIT
+    }
+}

@@ -1,0 +1,25 @@
+Scene: Untitled
+GameObjects:
+  - Name: Npc_Elf
+    UUID: 6172273672000499957
+    Active: true
+    Layer: QuestNPC
+    Type: Object
+    PassIndex: 0
+    Com_Transform:
+      Translation: [3.06292439, 1.0288105, 9.80264187]
+      Rotation: [-179.976028, -89.1897354, 179.975632]
+      Scale: [5, 5, 5.00000191]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PointElf\
+      MeshFileName: NpcElf.fbx
+      HasCollider: false
+      HasInstancing: false
+      Building: false
+      BackGround: false
+      Ground: false
+    Com_NPCInfo:
+      NPCID: 4
+      QuestID: 4
+    RenderGroup: 1
+    FrustumRange: 1
