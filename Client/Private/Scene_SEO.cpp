@@ -34,7 +34,7 @@ HRESULT CScene_SEO::Render()
 
 HRESULT CScene_SEO::ReadyScript()
 {
-	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
 	m_pEngine->AddScriptObject(CWaterEA::Create(nullptr), SCENE_SEO);
 
 	return S_OK;

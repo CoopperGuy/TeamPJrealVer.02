@@ -247,9 +247,6 @@
     <ClInclude Include="..\Public\Flogas.h">
       <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\WaterEA.h">
-      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\El_Flogas.h">
       <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
     </ClInclude>
@@ -302,6 +299,9 @@
       <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\EffectEAFire.h">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\WaterEA.h">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClInclude>
   </ItemGroup>
@@ -537,9 +537,6 @@
     <ClCompile Include="..\Private\Flogas.cpp">
       <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\WaterEA.cpp">
-      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
-    </ClCompile>
     <ClCompile Include="..\private\El_Flogas.cpp">
       <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
     </ClCompile>
@@ -592,6 +589,9 @@
       <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectEAFire.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\WaterEA.cpp">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClCompile>
   </ItemGroup>

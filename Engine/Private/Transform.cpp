@@ -90,6 +90,26 @@ _float CTransform::Get_Degree()
 	return XMConvertToDegrees(acos(XMVectorGetX(rotation) / sqrt(XMVectorGetX(rotation) / 2 + XMVectorGetY(rotation) / 2)));
 }
 
+_fmatrix CTransform::Remove_ScaleRotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
+}
+
+_fmatrix CTransform::Remove_Scale(_fmatrix TransformMatrix)
+{
+	_matrix			NonScaleMatrix = Remove_ScaleRotation(TransformMatrix);
+
+	NonScaleMatrix.r[0] = XMVector3Normalize(TransformMatrix.r[0]);
+	NonScaleMatrix.r[1] = XMVector3Normalize(TransformMatrix.r[1]);
+	NonScaleMatrix.r[2] = XMVector3Normalize(TransformMatrix.r[2]);
+
+	return NonScaleMatrix;
+}
+
 void CTransform::QuaternionToEuler(_fvector quater, _float3& euler)
 {
 	_double x, y, z, w;

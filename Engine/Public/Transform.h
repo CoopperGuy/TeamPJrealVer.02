@@ -74,6 +74,9 @@ public:
 	void Set_RootMat(_fmatrix Pxmat) { XMStoreFloat4x4(&m_PxMatrix, Pxmat); }
 	_float4x4 Get_Pxmat() { return m_PxMatrix; }
 
+	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
+	_fmatrix Remove_Scale(_fmatrix TransformMatrix);
+
 public:
 	void QuaternionToEuler(_fvector quater, _float3& euler);
 public:

@@ -19,6 +19,10 @@ HRESULT CWaterEA::Initialize(_float3 position)
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ 3.f,0.3f,-3.f });
 
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+
+	m_pModel->SetAnimationLoop((_uint)STATE::ATT, false, false);
+	m_pModel->SetAnimationLoop((_uint)STATE::IDLE, true, false);
+
 	m_eState = IDLE;
 	return S_OK;
 }
@@ -28,24 +32,9 @@ void CWaterEA::Update(_double dDeltaTime)
 	if (m_bDead)
 		return;
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-	{
-		m_eState = IDLE;
-		indexd = 1;
-	}
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-	{
-		m_eState = ATT;
-		indexd = 0;
-		makeEffect = true;
-	}
-
-	if(m_pEffEAFire)
-		Set_FirePos();
+	Set_State(dDeltaTime);
 
 
-	m_pModel->SetUp_AnimationIndex(indexd);
-	m_pModel->Play_Animation(dDeltaTime);
 }
 
 void CWaterEA::LateUpdate(_double dDeltaTime)
@@ -55,14 +44,9 @@ void CWaterEA::LateUpdate(_double dDeltaTime)
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
-	if (makeEffect) {
-		auto EffectEAFire = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_EA_Att_Fire", "Effect_EA_Att_Fire");
-		CEngine::GetInstance()->AddScriptObject(m_pEffEAFire = CEffectEAFire::Create(EffectEAFire), CEngine::GetInstance()->GetCurSceneNumber());
-		_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
-		_matrix TossMatrix = handbone * m_pTransform->GetWorldMatrix();
-		m_pEffEAFire->SetMatrix(TossMatrix);
-		makeEffect = false;
-	}
+
+	m_pModel->Play_Animation(dDeltaTime * m_dAniIndex);
+
 
 }
 
@@ -71,21 +55,52 @@ void CWaterEA::Render()
 
 }
 
-void CWaterEA::Set_FirePos()
+
+void CWaterEA::Set_State(_double dDeltaTime)
 {
-	if (m_eState == ATT) {
-		_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	switch (m_eState)
+	{
+	case Client::CWaterEA::ATT:
+		if (makeEffect) {
+			auto EffectEAFire = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_EA_Att_Fire", "Effect_EA_Att_Fire");
+			CEngine::GetInstance()->AddScriptObject(m_pEffEAFire = CEffectEAFire::Create(EffectEAFire), CEngine::GetInstance()->GetCurSceneNumber());
+			makeEffect = false;
+		}
+		m_pModel->SetUp_AnimationIndex(0);
 		if (keyFrame >= 0 && keyFrame <= 23)
 		{
+			_matrix worlmatrix = m_pTransform->GetWorldMatrix();
 			_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
-			_matrix TossMatrix = handbone * m_pTransform->GetWorldMatrix();
-			m_pEffEAFire->SetMatrix(TossMatrix);
+			handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
+			if (m_pEffEAFire) {
+				m_pEffEAFire->SetMatrix(handbone);
+				m_pEffEAFire->SetScale(_float3{ start,start ,0.f });
+			}
 		}
 
-		if (keyFrame >= 24)
+		if (keyFrame >= 23 && keyFrame <= 31)
+			m_pEffEAFire->SetScale(_float3{ float(start += plus),float(start += plus) ,0.f });
+
+		if (keyFrame >= 40)
 		{
-			//m_pEffEAFire->set
+			if (m_pEffEAFire)
+				m_pEffEAFire->SetObj();
+			m_dIdleTime = 0;
+			m_eState = IDLE;
 		}
+		break;
+	case Client::CWaterEA::IDLE: {
+		start = 0.2f;
+		m_dIdleTime += dDeltaTime;
+		m_pModel->SetUp_AnimationIndex(1);
+		int irand = rand() % 5;
+		irand += 10;
+		if (m_dIdleTime > irand) {
+			m_eState = ATT;
+			makeEffect = true;
+		}
+	}break;
 	}
 }
 
@@ -103,5 +118,13 @@ CWaterEA * CWaterEA::Create(CGameObject * pObj, _float3 position)
 
 void CWaterEA::Free()
 {
-}
 
+}
+_fmatrix CWaterEA::Remove_ScaleRotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
+}

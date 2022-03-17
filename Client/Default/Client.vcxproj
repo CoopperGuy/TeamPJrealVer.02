@@ -249,7 +249,7 @@
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TestMonster.h" />
-    <ClInclude Include="..\public\WaterEA.h" />
+    <ClInclude Include="..\Public\WaterEA.h" />
     <ClInclude Include="..\Public\Wolf.h" />
     <ClInclude Include="..\Public\Node.h" />
     <ClInclude Include="..\Public\PathFinding.h" />
@@ -358,7 +358,7 @@
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />
-    <ClCompile Include="..\private\WaterEA.cpp" />
+    <ClCompile Include="..\Private\WaterEA.cpp" />
     <ClCompile Include="..\Private\Wolf.cpp" />
     <ClCompile Include="..\Private\Node.cpp" />
     <ClCompile Include="..\Private\PathFinding.cpp" />
