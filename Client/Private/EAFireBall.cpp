@@ -45,8 +45,8 @@ void CEAFireBall::Update(_double deltaTime)
 	if (m_bDead)
 		true;
 
-	/*if (0 <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))*/
-	if (!m_pOBB->Get_isHit()) {
+	/*if (!m_pOBB->Get_isHit()) {*/
+	if (0 <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
 		_vector		vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 		_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - vPosition;
@@ -73,6 +73,7 @@ void CEAFireBall::Update(_double deltaTime)
 			m_pEffFireball->SetDead();
 		m_bDead = true;
 	}
+
 
 }
 
