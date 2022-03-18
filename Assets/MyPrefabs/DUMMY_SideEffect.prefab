@@ -1,0 +1,36 @@
+Scene: Untitled
+GameObjects:
+  - Name: SideEffect
+    UUID: 6804634283258154333
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 4
+    BillBord: false
+    Com_Transform:
+      Translation: [-2.64652467, 0, 4.38904095]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.80001307, 1.00000012]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Side_Effect.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Dust_003_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\explo016.tga
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0.5, 0.25, 2.29999995]
+      Distortion1: [3.20000005, 1]
+      Distortion2: [1.5, 0.5]
+      Distortion3: [0.800000012, 0.5]
+      DistortionScale: 0.00999999978
+      DistortionBias: 0.0199999996
+      FadeOut: true
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.5

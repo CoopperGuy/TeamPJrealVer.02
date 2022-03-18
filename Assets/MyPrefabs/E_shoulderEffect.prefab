@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.0728855953, 0.122553416, 3.44368935]
       Rotation: [0, -0, 0]
-      Scale: [1.29999995, 1.29999995, 3]
+      Scale: [0.7, 0.7, 3]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: Effect_HalfCircleY.fbx

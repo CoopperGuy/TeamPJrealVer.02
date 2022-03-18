@@ -65,6 +65,9 @@ private:
 private:
 	_int			m_iNumOBBs = 0;
 	_int			m_iAnimationIndex = 0;
+
+	_bool			m_bRimLightEnable = false;
+	_float3			m_vRimLightColor = { 1.f, 0.5f, 0.5f };
 private:
 	CRenderer::RENDER m_eRenderGroup		= CRenderer::RENDER_NONALPHA;
 

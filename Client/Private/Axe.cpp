@@ -7,6 +7,7 @@
 #include "EventCheck.h"
 #include "Camera_Fly.h"
 #include "ShoulerAtk.h"
+#include "ImpactGround.h"
 USING(Client)
 
 CAxe::CAxe()
@@ -215,7 +216,10 @@ void CAxe::Set_TrailOnOff()
 		}
 		if (keyFrame == 14) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround");
+			CEngine::GetInstance()->AddScriptObject(CImpactGround::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+
 		break;
 	}
 	case Client::Player_State::RBCombo1: {

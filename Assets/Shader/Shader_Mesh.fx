@@ -21,6 +21,13 @@ cbuffer LightBuffer
     float3 lightDir;
 };
 
+cbuffer RimLightBuffer
+{
+    bool   g_RimLightEnable;
+    float3 g_CamPosition;
+    float3 g_RimLitghColor;
+};
+
 cbuffer Dissolve
 {
     float g_fDissolve;
@@ -73,6 +80,7 @@ struct VS_OUT
     float4 lightViewPosition : TEXCOORD1;
     float3 lightPos : TEXCOORD2;
     float4 vProjPos : TEXCOORD3;
+    float3 vWPos : TEXCOORD4;
 };
 
 struct VS_OUT_LIGHT_DEPTH
@@ -96,7 +104,8 @@ VS_OUT VS_MAIN(VS_IN In)
     Out.vNormal = normalize(mul(vector(In.vNormal, 0.f), g_WorldMatrix)).xyz;
     Out.vTangent = normalize(mul(vector(In.vTangent, 0.f), g_WorldMatrix)).xyz;
     Out.vBiNormal = normalize(mul(vector(In.vBiNormal, 0.f), g_WorldMatrix)).xyz;
-
+    
+    Out.vWPos = mul(vector(In.vPosition, 1.f), g_WorldMatrix).xyz;
     Out.lightViewPosition = mul(vector(In.vPosition, 1.f), g_WorldMatrix);
     Out.lightViewPosition = mul(Out.lightViewPosition, g_LightViewMatrix);
     Out.lightViewPosition = mul(Out.lightViewPosition, g_LightProjMatrix);
@@ -190,6 +199,7 @@ VS_OUT VS_MAIN_ANIM(VS_IN In)
     Out.vTangent = normalize(mul(vTangent, g_WorldMatrix)).xyz;
     Out.vBiNormal = normalize(mul(vBiNormal, g_WorldMatrix)).xyz;
 
+    Out.vWPos = mul(vPosition, g_WorldMatrix).xyz;
     Out.lightViewPosition = mul(vPosition, g_WorldMatrix);
     Out.lightViewPosition = mul(Out.lightViewPosition, g_LightViewMatrix);
     Out.lightViewPosition = mul(Out.lightViewPosition, g_LightProjMatrix);
@@ -247,6 +257,7 @@ struct PS_IN
     float4 lightViewPosition : TEXCOORD1;
     float3 lightPos : TEXCOORD2;
     float4 vProjPos : TEXCOORD3;
+    float3 vWPos : TEXCOORD4;
 };
 
 struct PS_IN_LIGHT_DEPTH
@@ -317,6 +328,7 @@ PS_OUT PS_MAIN(PS_IN In)
     // 이 텍스처 좌표 위치에서 샘플러를 사용하여 텍스처에서 픽셀 색상을 샘플링합니다.
     textureColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
     float3 Emission = g_EmissiveTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    
     //float4 dissolveColor = g_DissolveTexture.Sample(g_DiffuseSampler, In.vTexUV);
     // 빛과 텍스처 색상을 결합합니다.
     color = color * textureColor + (float4(Emission, 0.f) * float4(1.0f, 1.0f, 1.0f, 0.f));
@@ -331,14 +343,20 @@ PS_OUT PS_MAIN(PS_IN In)
 
     if(color.a < 0.8f)
         discard;
-
-    Out.vDiffuse = color;
-
+    
     vector vNormalDesc = g_NormalTexture.Sample(g_DiffuseSampler, In.vTexUV);
     float3 vNormal = vNormalDesc.xyz * 2.f - 1.f;
     float3x3 TBN = float3x3(In.vTangent, In.vBiNormal, In.vNormal);
     vNormal = mul(vNormal, TBN);
 
+    if (g_RimLightEnable)
+    {
+        float3 vCamPos = normalize(g_CamPosition - In.vWPos);
+        float RimLightIntensity = smoothstep(0.f, 0.5f, 1 - max(0, dot(vNormal, vCamPos)));
+        color.xyz += float3(1.f, 0.f, 0.f) * RimLightIntensity;
+    }
+
+    Out.vDiffuse = color;
     Out.vNormal = vector(vNormal.xyz * 0.5f + 0.5f, 1.0f);
     Out.vDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);    
     Out.vSpecular = g_SpecularTexture.Sample(g_DiffuseSampler, In.vTexUV);

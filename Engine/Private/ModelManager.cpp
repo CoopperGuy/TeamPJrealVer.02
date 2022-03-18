@@ -87,7 +87,7 @@ void CModelManager::CloneModelIns(CGameObject* pObj, string pMeshFilePath, strin
 	auto& iter = m_CurCloningObj.find(fullPath);
 	if (iter != m_CurCloningObj.end())
 	{
-		while (iter->second == true)
+		while (iter->second == false)
 			Sleep(100);
 	}
 	else
