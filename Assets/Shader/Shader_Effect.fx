@@ -243,10 +243,10 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     uint UVy = 0;
 
     UVx = g_iSpriteNum % 4;
-    UVy = g_iSpriteNum / 8;
+    UVy = g_iSpriteNum / 4;
 
-    Out.vMaskUV.x = ((In.vTexUV.x + UVx) / 4.f);
-    Out.vMaskUV.y = ((In.vTexUV.y + UVy) / 8.f);
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 4.f);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 8.f);
    
     return Out;
 }
@@ -420,10 +420,15 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
     float4 vDiffuseColor;
     float4 vMask;
 
-    vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
-    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3.f) * g_fAlpha;
+   // vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+    vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    vMask.a = ((vMask.r + vMask.g + vMask.b));
     
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+
+
+    if (vDiffuseColor.r == 1 || vDiffuseColor.g == 1 || vDiffuseColor.b == 1)
+        discard;
    
     vDiffuseColor *= vMask;
        

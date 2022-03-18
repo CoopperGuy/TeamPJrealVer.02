@@ -236,6 +236,19 @@ void CTransform::ChaseTarget(_fvector vTargetPos, _double TimeDelta)
 	LookAtForLandObject(vTargetPos);
 }
 
+void CTransform::ChaseTarget2(_fvector vTargetPos, _double TimeDelta)
+{
+	_vector		vPosition = GetState(CTransform::STATE_POSITION);
+
+	_vector		vDirection = vTargetPos - vPosition;
+
+	vPosition += XMVector3Normalize(vDirection) * m_TransformDesc.fSpeedPerSec * (_float)TimeDelta;
+
+	SetState(CTransform::STATE_POSITION, vPosition);
+
+	LookAt(vTargetPos);
+}
+
 void CTransform::LookAtForLandObject(_fvector vTargetPos)
 {
 	_vector		vPosition = GetState(CTransform::STATE_POSITION);
@@ -255,7 +268,17 @@ void CTransform::LookAtForLandObject(_fvector vTargetPos)
 
 void CTransform::LookAt(_fvector vTargetPos)
 {
+	_vector		vDirection = vTargetPos - GetState(CTransform::STATE_POSITION);
 
+	_vector vUp = GetState(CTransform::STATE_UP);			//	y축 // 외적으로 방향백터를 구하기위해서 그리고 좌우로만 바뀌지 y축은 안바뀌니까
+	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
+
+	vRight = XMVector3Normalize(vRight) * GetScale(CTransform::STATE_RIGHT);	//위에서 외적한 right는 스케일이 깨져있어서 원래 사용하던 right를 대입해주자 
+	_vector		vLook = XMVector3Cross(vRight, vUp);			// 위에서 바꿔준 항등행렬과 y축을 외적하기 
+	vLook = XMVector3Normalize(vLook) * GetScale(CTransform::STATE_LOOK);
+
+	SetState(CTransform::STATE_RIGHT, vRight);
+	SetState(CTransform::STATE_LOOK, vLook);
 }
 
 void CTransform::SetUpRotation(_fvector vAxis, _float fDegree)

@@ -313,6 +313,9 @@
     <ClInclude Include="..\Public\FlogasDunDoor.h">
       <Filter>02.GameObjects\Map\Door</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EAFireBall.h">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClInclude>
     <ClInclude Include="..\public\ImpactBeam.h">
       <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>
     </ClInclude>
@@ -617,6 +620,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\FlogasDunDoor.cpp">
       <Filter>02.GameObjects\Map\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EAFireBall.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClCompile>
     <ClCompile Include="..\private\ImpactBeam.cpp">
       <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>

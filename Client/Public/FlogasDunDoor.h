@@ -17,6 +17,8 @@ public:
 private:
 	CEmptyGameObject*	m_pFlogasDunDoor = nullptr;
 	CEmptyGameObject*	m_pPlayer = nullptr;
+	CEmptyGameObject*	m_pAlretUI = nullptr;
+
 	CTransform*			m_pTransform = nullptr;
 
 	_bool				m_bOpenDoor = false;
@@ -24,6 +26,8 @@ private:
 	_vector pFlogasDunDoor = {};
 
 	_float MaxHight = 2.f;
+	_float doorY;
+
 
 public:
 	static CFlogasDunDoor*	Create(CGameObject*	pTarget = nullptr);

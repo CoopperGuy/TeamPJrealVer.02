@@ -53,7 +53,8 @@ public:
 	_bool GetFadeOutEnable() { return m_bFadeOut; }
 	_bool GetFadeInEnable() { return m_bFadeIn; }
 	_bool GetBillBord() { return m_bBillBord; }
-	_bool CheckLinkTarget() { return m_bLinkTarget;}
+	_bool CheckLinkTarget() { return m_bLinkTarget; }
+	_bool GetSpriteEnd() { return m_SpriteEnd;}
 
 	string GetTargetObjectName() { return m_TargetObjName; }
 	string GetTargetBoneName() { return m_TargetBoneName; }
@@ -84,6 +85,8 @@ public:
 	void SetMoveSpd(_float _moveSpd) { m_fMoveSpd = _moveSpd; }
 	void RemoveTargetObject() { m_pTargetObject = nullptr; }
 	void LinkTransform();
+
+	void SetSpriteSpeed(_float pSpeed) { m_fSpriteSpeed = pSpeed; }
 
 private:
 	HRESULT SetUpComponents();
@@ -139,9 +142,12 @@ private:
 	string	m_TargetObjName = "";
 	string	m_TargetBoneName = "";
 
+	_bool	m_SpriteEnd = false;
+
 private:
 	_float m_fMoveSpd = 1.f;
 	_float m_fProcessTime = 0.f;
+	_float m_fSpriteSpeed = 5.f;
 
 };
 

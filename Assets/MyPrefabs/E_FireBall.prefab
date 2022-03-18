@@ -1,25 +1,22 @@
 Scene: Untitled
 GameObjects:
   - Name: E_FireBall
-    UUID: 14752078499206932637
+    UUID: 11356540558688865723
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 1
-    BillBord: false
+    PassIndex: 2
+    BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [0, 10.6999607, 0]
-      Scale: [0.600000024, 0.119999997, 0.600000024]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Cross.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Tile_004_TEX_HKB.dds
+      Rotation: [12.5637417, 33.8234825, 5.13853195e-07]
+      Scale: [1, 0.999957204, 1.00002885]
+    Com_VIBuffer:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Tile_004_TEX_HKB.tga
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_01.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AESmoke_001_PS_JYW.tga
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_fireball.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]

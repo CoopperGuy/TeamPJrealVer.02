@@ -48,6 +48,7 @@ private:
 
 	CGameObject* pAttachObj = nullptr;
 
+
 };
 
 END

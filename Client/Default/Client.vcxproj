@@ -191,6 +191,7 @@
     <ClInclude Include="..\public\ComboIcon.h" />
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
+    <ClInclude Include="..\Public\EAFireBall.h" />
     <ClInclude Include="..\Public\EffectBlackhole.h" />
     <ClInclude Include="..\Public\EffectBlood.h" />
     <ClInclude Include="..\Public\EffectDust.h" />
@@ -305,6 +306,7 @@
     <ClCompile Include="..\private\ConsumItemHud.cpp" />
     <ClCompile Include="..\private\Character.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
+    <ClCompile Include="..\Private\EAFireBall.cpp" />
     <ClCompile Include="..\Private\EffectBlackhole.cpp" />
     <ClCompile Include="..\Private\EffectBlood.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />

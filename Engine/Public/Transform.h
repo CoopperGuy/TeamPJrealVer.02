@@ -91,6 +91,7 @@ public:
 	void GoDown(_double deltaTime);
 	void ChaseTarget(CTransform* pTarget);
 	void ChaseTarget(_fvector vTargetPos, _double TimeDelta);
+	void ChaseTarget2(_fvector vTargetPos, _double TimeDelta);
 	void LookAtForLandObject(_fvector vTargetPos);
 	void LookAt(_fvector vTargetPos);
 	void SetUpRotation(_fvector vAxis, _float fDegree);
