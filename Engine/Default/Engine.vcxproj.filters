@@ -333,9 +333,6 @@
     <ClInclude Include="..\Public\GraphicDevice.h">
       <Filter>00.System\01.Device\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\SceneSerializer.h">
-      <Filter>01.Utility\01.Scene\SceneSerializer</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\Engine_Struct.h">
       <Filter>99.Defines</Filter>
     </ClInclude>
@@ -602,6 +599,9 @@
     </ClInclude>
     <ClInclude Include="..\Public\DmgVIBuffer.h">
       <Filter>01.Utility\02.GameObject\EmptyObject\UI\DmgFont</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SceneSerializer.h">
+      <Filter>01.Utility\01.Scene\SceneSerializer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
