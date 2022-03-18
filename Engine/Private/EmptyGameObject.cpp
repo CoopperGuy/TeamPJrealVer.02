@@ -16,6 +16,8 @@ CEmptyGameObject::CEmptyGameObject(const CEmptyGameObject & rhs)
 	: CGameObject(rhs)
 	, m_eRenderGroup(rhs.m_eRenderGroup)
 	, m_iNumOBBs(rhs.m_iNumOBBs)
+	, m_bRimLightEnable(rhs.m_bRimLightEnable)
+	, m_vRimLightColor(rhs.m_vRimLightColor)
 {
 }
 
@@ -547,6 +549,10 @@ HRESULT CEmptyGameObject::Render(_uint iPassIndex)
 				pModel->SetUp_TextureOnShader("g_NormalTexture", i, aiTextureType_NORMALS);
 				pModel->SetUp_TextureOnShader("g_EmissiveTexture", i, aiTextureType_EMISSIVE);
 				pModel->SetUp_TextureOnShader("g_SpecularTexture", i, aiTextureType_SPECULAR);
+
+				pModel->GetShader()->SetUp_ValueOnShader("g_RimLightEnable", &m_bRimLightEnable, sizeof(_bool));
+				pModel->GetShader()->SetUp_ValueOnShader("g_CamPosition", &m_pEngine->GetCamPosition(), sizeof(_float3));
+				pModel->GetShader()->SetUp_ValueOnShader("g_RimLitghColor", &m_vRimLightColor, sizeof(_float3));
 				// TODO: Handle passIndex
 				pModel->Render(i, iPassIndex);
 			}
