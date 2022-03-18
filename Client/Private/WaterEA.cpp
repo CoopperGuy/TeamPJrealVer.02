@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\WaterEA.h"
 #include "EffectEAFire.h"
+#include "EAFireBall.h"
+#include "Obb.h"
 #include "EffectFireBall.h"
 
 CWaterEA::CWaterEA()
@@ -26,6 +28,8 @@ HRESULT CWaterEA::Initialize(_float3 position)
 
 	CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
+
+	//pos ,size ,  dmg,collisiontpye, duration;
 
 	m_eState = IDLE;
 	return S_OK;
@@ -65,39 +69,28 @@ void CWaterEA::Set_State(_double dDeltaTime)
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 	switch (m_eState)
 	{
-	case Client::CWaterEA::ATT:
+	case Client::CWaterEA::ATT: {
 		m_pModel->SetUp_AnimationIndex(0);
-		if (makeEffect) {
-			if (fireballmake < 8) {
-				fireballmake += 1;
-				auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFireball = CEffectFireBall::Create(EffectFireBall), CEngine::GetInstance()->GetCurSceneNumber());
-				makeEffect = false;
-			}
-		}
-		if (keyFrame >= 0 && keyFrame <= 23)
+		m_dmake += dDeltaTime;
+		if (keyFrame >= 22 && keyFrame <= 23)
 		{
+			if (fireballmake <= 10  ) {
+				fireballmake += 1;
+				_matrix worlmatrix = m_pTransform->GetWorldMatrix();
+				_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
+				handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
 
-			_matrix worlmatrix = m_pTransform->GetWorldMatrix();
-			_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
-			handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
-			if (m_pEffFireball) {
-				m_pEffFireball->SetMatrix(handbone);
-				m_pEffFireball->SetScale(_float3{ start,start ,0.f });
+				auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_EAFire", "O_EAFire");
+				CEngine::GetInstance()->AddScriptObject(m_pEAFB = CEAFireBall::Create(EffectFireBall, handbone), CEngine::GetInstance()->GetCurSceneNumber());
 			}
 		}
-
-		if (keyFrame >= 23 && keyFrame <= 31)
-			m_pEffFireball->SetScale(_float3{ float(start += plus),float(start += plus) ,0.f });
-		else
-			start = 0.2f;
-
 		if (keyFrame >= 40)
 		{
 			m_dIdleTime = 0;
 			m_eState = IDLE;
 		}
-		break;
+	}
+								break;
 	case Client::CWaterEA::IDLE: {
 		LookPlayer();
 		m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
@@ -105,7 +98,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_dIdleTime += dDeltaTime;
 		m_pModel->SetUp_AnimationIndex(1);
 		int irand = rand() % 5;
-		irand += 10;
+		irand += 5;
 		if (m_dIdleTime > irand) {
 			m_eState = ATT;
 			fireballmake = 0;

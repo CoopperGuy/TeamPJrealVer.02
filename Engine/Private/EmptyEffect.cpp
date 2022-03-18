@@ -126,6 +126,8 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_fFadeInDuration = rhs->m_fFadeInDuration;
 	m_fFadeInStratTime = rhs->m_fFadeInStratTime;
 	m_fEffectDuration = rhs->m_fEffectDuration;
+	m_SpriteEnd = rhs->m_SpriteEnd;
+	m_fSpriteSpeed = rhs->m_fSpriteSpeed;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
@@ -298,10 +300,11 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	
 	m_fFrameTime += (_float)TimeDelta;
 	
-	m_fSpriteNum += (_float)TimeDelta * 10.f;
-	if (m_fSpriteNum >= 16.f)
+	m_fSpriteNum += (_float)TimeDelta * m_fSpriteSpeed;
+	if (m_fSpriteNum >= 32.f)
 	{
 		m_fSpriteNum = 0;
+		m_SpriteEnd = true;
 	}
 
 	CComponent* OBB = GetComponent("Com_OBB");

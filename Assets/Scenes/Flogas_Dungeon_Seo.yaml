@@ -1520,7 +1520,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.5215435, 26.0779991, 1.79999995]
+      Scale: [22.5215359, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1639,8 +1639,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.89321303, 1.35158932, 0.287679523]
-      Rotation: [0.795326412, -1.60096478, 2.00180885e-08]
-      Scale: [0.294571787, 0.276100785, 0.586925626]
+      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
+      Scale: [0.292110413, 0.277124763, 0.585024297]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1671,8 +1671,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [0.795326471, -1.60096514, 2.00180921e-08]
-      Scale: [0.641758442, 0.536299706, 1.27410507]
+      Rotation: [-5.87530899, 5.63119078, 2.14478121e-07]
+      Scale: [0.636370122, 0.538268983, 1.26991534]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2022,8 +2022,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [0.795326412, -1.60096478, 2.00180885e-08]
-      Scale: [0.64066112, 0.535113692, 1.27464068]
+      Rotation: [-5.87530851, 5.6311903, 2.14478121e-07]
+      Scale: [0.635259211, 0.537108958, 1.27043772]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2054,8 +2054,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.0729816, 1.41420758, 0.24706772]
-      Rotation: [0.795326471, -1.60096478, 2.00180903e-08]
-      Scale: [0.320362687, 0.431485504, 1.27464068]
+      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
+      Scale: [0.317668498, 0.433031797, 1.27043772]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2086,8 +2086,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.63890743, 1.38610911, -0.00537226489]
-      Rotation: [0.795326352, -1.60096478, 2.00180903e-08]
-      Scale: [0.320393026, 0.431539297, 1.27464068]
+      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
+      Scale: [0.31767866, 0.433085531, 1.27043772]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2118,8 +2118,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-4.63161945, 1.40606964, 0.369205177]
-      Rotation: [0.795326471, -1.6009649, 2.00180903e-08]
-      Scale: [0.320448786, 0.431563646, 1.27478516]
+      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
+      Scale: [0.317762285, 0.43310979, 1.27053678]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2150,8 +2150,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [0.795326471, -1.6009649, 2.00180921e-08]
-      Scale: [0.641169846, 0.535144448, 1.27478516]
+      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
+      Scale: [0.635760188, 0.537134647, 1.27053678]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2182,8 +2182,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [0.795326471, -1.6009649, 2.00180903e-08]
-      Scale: [0.640944421, 0.535184622, 1.27478516]
+      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
+      Scale: [0.635585904, 0.537168801, 1.27053678]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2214,8 +2214,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [0.795326471, -1.60096514, 2.00180921e-08]
-      Scale: [0.527553141, 0.710388422, 1.27492309]
+      Rotation: [-5.87530899, 5.63119125, 2.14478149e-07]
+      Scale: [0.523100674, 0.712935507, 1.27069807]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2246,8 +2246,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [0.795326471, -1.60096514, 2.00180921e-08]
-      Scale: [0.541282594, 0.723881781, 1.40445566]
+      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
+      Scale: [0.536709845, 0.726482451, 1.39981675]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2278,8 +2278,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [0.795326471, -1.60096502, 2.00180903e-08]
-      Scale: [0.896597385, 0.804043889, 1.27492309]
+      Rotation: [-5.87530851, 5.6311903, 2.14478149e-07]
+      Scale: [0.889129281, 0.806931436, 1.27069807]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2310,8 +2310,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [0.795326412, -1.60096502, 2.00180921e-08]
-      Scale: [0.914710164, 0.781866729, 1.27478516]
+      Rotation: [-5.87530899, 5.63119125, 2.14478149e-07]
+      Scale: [0.907067299, 0.784680605, 1.27053678]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2418,13 +2418,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.59087181, 0, -12.5]
+      Translation: [-4.59087181, 0, -13.5303354]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [6, 13, 5]
+      Size: [6, 13, 27.6000004]
       Angle:
         - 0
         - 0
@@ -2450,13 +2450,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.30362844, 0, -12.5074453]
+      Translation: [4.30362844, 0, -13.8407211]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [6, 13.6999998, 5.5]
+      Size: [6, 13.6999998, 26.3999996]
       Angle:
         - 0
         - 0
@@ -3115,16 +3115,75 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, 0.0688617826, -11.8000002]
+      Translation: [0, 0, -11.8000002]
       Rotation: [0, -0, 0]
-      Scale: [1.66880155, 1.07146752, 1]
+      Scale: [1.66880155, 1.07146752, 0.999996483]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [3, 1.29999995, 1.20000005]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
       MeshFileName: Door5.fbx
-      HasCollider: true
+      HasCollider: false
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
+  - Name: DoorBrazier
+    UUID: 1862018310413293936
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.78438592, -0.260542691, -13.5458183]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Brazier\
+      MeshFileName: Brazier.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: CamCollider
+    UUID: 14798397418374276240
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.119728565, 2.60946107, -26.7915611]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [6, 8.19999981, 5.0999999]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 27.7999992
   - Name: PointLight01
     UUID: 4563585621494192207
     Active: true
@@ -3155,7 +3214,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, 2.23428726, 2.01697946]
+      Translation: [0, 2.23428726, 2.01697922]
       Rotation: [0, -0, 0]
       Scale: [1, 4.14513683, 4.44995117]
     Com_Collider:

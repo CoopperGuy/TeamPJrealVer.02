@@ -313,6 +313,9 @@
     <ClInclude Include="..\Public\FlogasDunDoor.h">
       <Filter>02.GameObjects\Map\Door</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EAFireBall.h">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -611,6 +614,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\FlogasDunDoor.cpp">
       <Filter>02.GameObjects\Map\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EAFireBall.cpp">
+      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

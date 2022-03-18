@@ -14,7 +14,16 @@ HRESULT CFlogasDunDoor::Initailze(CGameObject * pArg)
 	m_pTransform = static_cast<CTransform*>(m_pFlogasDunDoor->GetComponent("Com_Transform"));
 	if (m_pFlogasDunDoor == nullptr || m_pPlayer == nullptr)
 		return E_FAIL;
-	_vector pFlogasDunDoor = m_pTransform->GetState(CTransform::STATE_POSITION);
+	pFlogasDunDoor = m_pTransform->GetState(CTransform::STATE_POSITION);
+
+	m_pAlretUI = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("O_NPC_F"));
+	_vector pos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, -0.3f, 0.f), m_pTransform->GetWorldMatrix());
+	_float3 float3Pos;
+	XMStoreFloat3(&float3Pos, pos);
+	m_pAlretUI->SetPosition(float3Pos);
+
+	doorY = XMVectorGetY(pFlogasDunDoor);
+
 	return S_OK;
 }
 
@@ -25,17 +34,27 @@ void CFlogasDunDoor::Update(_double deltaTime)
 	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
 	_float dist = XMVectorGetZ(XMVector3Length(pFlogasDunDoor - playerPos));
 
-	cout << dist << endl;
 
-	//if (dist < 15.f) {
-	//	if (MaxHight>XMVectorGetY(pFlogasDunDoor)) {
-	//		m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),XMVectorGetY(pFlogasDunDoor) + float(deltaTime),XMVectorGetZ(pFlogasDunDoor) });
-	//	}
-	//	else
-	//	{
-	//		m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),XMVectorGetY(pFlogasDunDoor) - float(deltaTime),XMVectorGetZ(pFlogasDunDoor) });
-	//	}
-	//}
+	if (dist < 3.f) {
+		if (m_pAlretUI) {
+			m_pAlretUI->SetActive(true);
+		}
+		//if (CEngine::GetInstance()->IsKeyDown('F')) {
+		//	if (!m_bOpenDoor)
+		//		m_bOpenDoor = true;
+		//}
+		if (CEngine::GetInstance()->IsKeyDown('F')) {
+			doorY += 0.1f;
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
+		}
+
+	}
+	else {
+		if (m_pAlretUI) {
+			m_pAlretUI->SetActive(false);
+		}
+	}
+
 }
 
 void CFlogasDunDoor::LateUpdate(_double deltaTime)

@@ -9,8 +9,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [-179.999893, 71.0184402, -179.999893]
-      Scale: [5, 5, 5]
+      Rotation: [0.999999642, 0.999999523, 0.999998987]
+      Scale: [3.00000024, 3, 3.00000024]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Monster\WaterEA\
       MeshFileName: waterEA.fbx
