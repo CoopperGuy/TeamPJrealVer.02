@@ -25,6 +25,7 @@ public:
 	void SetFadeInOut(CGameObject * pObj);
 
 	void SetMatrix(_matrix pWorldMatrix) { m_pTransform->SetMatrix(pWorldMatrix); }
+	void SetScale(_float3 scail) { m_pTransform->SetScale(scail); }
 
 public:
 	void SetObj() { m_bSet = true; }
@@ -41,9 +42,8 @@ private:
 	_float3 m_fScrollY = {};
 
 
-	_float PlusScale = 1.f;
-	_float plusscale = 1.f;
-	_float m_fMaxScail = 2.f;
+	_float PlusScale = 0.01f;
+	_float m_fMaxScail = 0.2f;
 	_float m_fDeadTime = 0.f;
 
 	CGameObject* pAttachObj = nullptr;

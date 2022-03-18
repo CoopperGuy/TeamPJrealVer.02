@@ -247,9 +247,6 @@
     <ClInclude Include="..\Public\Flogas.h">
       <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\WaterEA.h">
-      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\El_Flogas.h">
       <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
     </ClInclude>
@@ -301,11 +298,20 @@
     <ClInclude Include="..\public\ShoulerAtk.h">
       <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\EffectEAFire.h">
+    <ClInclude Include="..\Public\WaterEA.h">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClInclude>
     <ClInclude Include="..\public\ImpactGround.h">
       <Filter>05.Effect\PlayerEffect\ImpactGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectFireBall.h">
+      <Filter>05.Effect\FlogasDungeon\WaterEA\FireBall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectEAFire.h">
+      <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\FlogasDunDoor.h">
+      <Filter>02.GameObjects\Map\Door</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -540,9 +546,6 @@
     <ClCompile Include="..\Private\Flogas.cpp">
       <Filter>02.GameObjects\Character\Enemy\Flogas</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\WaterEA.cpp">
-      <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
-    </ClCompile>
     <ClCompile Include="..\private\El_Flogas.cpp">
       <Filter>02.GameObjects\Character\Enemy\El_Flogas</Filter>
     </ClCompile>
@@ -594,11 +597,20 @@
     <ClCompile Include="..\private\ShoulerAtk.cpp">
       <Filter>05.Effect\PlayerEffect\ShoulderAtk</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\EffectEAFire.cpp">
+    <ClCompile Include="..\Private\WaterEA.cpp">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClCompile>
     <ClCompile Include="..\private\ImpactGround.cpp">
       <Filter>05.Effect\PlayerEffect\ImpactGround</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectFireBall.cpp">
+      <Filter>05.Effect\FlogasDungeon\WaterEA\FireBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectEAFire.cpp">
+      <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\FlogasDunDoor.cpp">
+      <Filter>02.GameObjects\Map\Door</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -939,6 +951,15 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\ImpactGround">
       <UniqueIdentifier>{ce0654e4-fba6-47a2-b31a-dae9571069ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\WaterEA">
+      <UniqueIdentifier>{a5f911b9-ee32-4e45-8c22-04b13ab4bded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\WaterEA\FireBall">
+      <UniqueIdentifier>{1356775d-6e89-4ee5-a184-4b28664a345c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Door">
+      <UniqueIdentifier>{9a197bdb-196e-4fff-ae1a-15516856e85e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

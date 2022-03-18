@@ -300,15 +300,15 @@ HRESULT CLoader::GameSceneSEO()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/BossSY.yaml", SCENE_SEO);
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
-		MSG_BOX("Failed To Create Pajang Prefab");
+		MSG_BOX("Failed To Create Fire Prefab");
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_FireBall")))
+		MSG_BOX("Failed To Create FireBall Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-	{
 		MSG_BOX("Failed To Create Prefab");
-	}
 
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_Seo2.yaml", SCENE_SEO);
 
 	m_isFinish = true;
 

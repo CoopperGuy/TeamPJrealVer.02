@@ -47,32 +47,22 @@ void CEffectEAFire::Update(_double deltaTime)
 
 	if (m_bSet) {
 
-		m_fScale.x += PlusScale;
-		m_fScale.y += PlusScale * 0.95f;
-		m_fScale.z += PlusScale;
-
-		m_pTransform->SetScale(m_fScale);
-
-		if (m_fScale.y > m_fMaxScail)
+		if (m_bSetFadeOut)
 		{
-			if (m_bSetFadeOut)
+			SetFadeInOut(m_pGameObject);
+			m_bSetFadeOut = false;
+		}
+
+		if (static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutEnable()) {
+			m_fDeadTime += deltaTime;
+			if (m_fDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 			{
-				SetFadeInOut(m_pGameObject);
-				m_bSetFadeOut = false;
+				m_bDead = true;
 			}
 		}
 	}
-
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutEnable()) {
-		m_fDeadTime += deltaTime;
-		if (m_fDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
-		{
-			m_bDead = true;
-		}
-	}
-
-
 }
+
 
 void CEffectEAFire::LateUpdate(_double deltaTime)
 {
@@ -89,10 +79,14 @@ void CEffectEAFire::Render()
 
 void CEffectEAFire::SetFadeInOut(CGameObject * pObj)
 {
+	//static_cast<CEmptyEffect*>(pObj)->SetFadeInEnable(true);
+	//static_cast<CEmptyEffect*>(pObj)->SetFadeInStartTime(0.f);
+	//static_cast<CEmptyEffect*>(pObj)->SetFadeInDuration(0.5f);
+
 	static_cast<CEmptyEffect*>(pObj)->SetFadeOutEnable(true);
 	static_cast<CEmptyEffect*>(pObj)->SetFadeOutStartTime(0.f);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(1.f);
-	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(1.f);
+	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(0.3f);
+	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(0.3f);
 }
 
 void CEffectEAFire::Free()

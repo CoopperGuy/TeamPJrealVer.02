@@ -195,6 +195,7 @@
     <ClInclude Include="..\Public\EffectBlood.h" />
     <ClInclude Include="..\Public\EffectDust.h" />
     <ClInclude Include="..\Public\EffectEAFire.h" />
+    <ClInclude Include="..\Public\EffectFireBall.h" />
     <ClInclude Include="..\Public\EffectFly.h" />
     <ClInclude Include="..\Public\EffectFlyLaser.h" />
     <ClInclude Include="..\Public\EffectGrab.h" />
@@ -207,6 +208,7 @@
     <ClInclude Include="..\public\Equipment.h" />
     <ClInclude Include="..\public\EventCheck.h" />
     <ClInclude Include="..\Public\Flogas.h" />
+    <ClInclude Include="..\Public\FlogasDunDoor.h" />
     <ClInclude Include="..\public\Gold.h" />
     <ClInclude Include="..\public\Glove.h" />
     <ClInclude Include="..\public\GoldAxe.h" />
@@ -250,7 +252,7 @@
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TestMonster.h" />
-    <ClInclude Include="..\public\WaterEA.h" />
+    <ClInclude Include="..\Public\WaterEA.h" />
     <ClInclude Include="..\Public\Wolf.h" />
     <ClInclude Include="..\Public\Node.h" />
     <ClInclude Include="..\Public\PathFinding.h" />
@@ -305,6 +307,7 @@
     <ClCompile Include="..\Private\EffectBlood.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
+    <ClCompile Include="..\Private\EffectFireBall.cpp" />
     <ClCompile Include="..\Private\EffectFly.cpp" />
     <ClCompile Include="..\Private\EffectFlyLaser.cpp" />
     <ClCompile Include="..\Private\EffectGrab.cpp" />
@@ -317,6 +320,7 @@
     <ClCompile Include="..\private\Equipment.cpp" />
     <ClCompile Include="..\private\EventCheck.cpp" />
     <ClCompile Include="..\Private\Flogas.cpp" />
+    <ClCompile Include="..\Private\FlogasDunDoor.cpp" />
     <ClCompile Include="..\private\Gold.cpp" />
     <ClCompile Include="..\private\Glove.cpp" />
     <ClCompile Include="..\private\GoldAxe.cpp" />
@@ -360,7 +364,7 @@
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />
-    <ClCompile Include="..\private\WaterEA.cpp" />
+    <ClCompile Include="..\Private\WaterEA.cpp" />
     <ClCompile Include="..\Private\Wolf.cpp" />
     <ClCompile Include="..\Private\Node.cpp" />
     <ClCompile Include="..\Private\PathFinding.cpp" />

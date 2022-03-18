@@ -90,6 +90,26 @@ _float CTransform::Get_Degree()
 	return XMConvertToDegrees(acos(XMVectorGetX(rotation) / sqrt(XMVectorGetX(rotation) / 2 + XMVectorGetY(rotation) / 2)));
 }
 
+_fmatrix CTransform::Remove_ScaleRotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
+}
+
+_fmatrix CTransform::Remove_Scale(_fmatrix TransformMatrix)
+{
+	_matrix			NonScaleMatrix = Remove_ScaleRotation(TransformMatrix);
+
+	NonScaleMatrix.r[0] = XMVector3Normalize(TransformMatrix.r[0]);
+	NonScaleMatrix.r[1] = XMVector3Normalize(TransformMatrix.r[1]);
+	NonScaleMatrix.r[2] = XMVector3Normalize(TransformMatrix.r[2]);
+
+	return NonScaleMatrix;
+}
+
 void CTransform::QuaternionToEuler(_fvector quater, _float3& euler)
 {
 	_double x, y, z, w;
@@ -185,6 +205,18 @@ void CTransform::GoToSetDir(_vector dir, _double deltaTime)
 	vPosition += dir * deltaTime;
 	SetState(CTransform::STATE_POSITION, vPosition);
 
+}
+
+void CTransform::GoDown(_double deltaTime)
+{
+	_vector			vPosition = _vector();
+	_vector			vUp = _vector();
+	vUp = GetState(CTransform::STATE_UP);
+	vPosition = GetState(CTransform::STATE_POSITION);
+
+	vPosition += XMVector3Normalize(vUp) * m_TransformDesc.fSpeedPerSec * _float(deltaTime) * -1.0f;
+
+	SetState(CTransform::STATE_POSITION, vPosition);
 }
 
 void CTransform::ChaseTarget(CTransform * pTarget)
