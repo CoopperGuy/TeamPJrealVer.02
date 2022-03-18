@@ -29,9 +29,9 @@ HRESULT CImpactBeam::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 
 void CImpactBeam::Update(_double deltaTime)
 {
-	m_pEffectTrans->SetScale(_float3(m_DurationDelta, m_DurationDelta * 0.5f + 0.3f, m_DurationDelta ));
+	m_pEffectTrans->SetScale(_float3(m_DurationDelta, m_DurationDelta * 0.75f + 0.3f, m_DurationDelta ));
 	m_Child[0]->SetScale(_float3(m_DurationDelta * 5.f, 0.5f, m_DurationDelta * 5.f));
-	m_Child[1]->SetScale(_float3(m_DurationDelta * 1.5f, m_DurationDelta * 1.5f, m_DurationDelta * 1.5f));
+	m_Child[1]->SetScale(_float3(m_DurationDelta * 2.f, m_DurationDelta * 2.f, m_DurationDelta * 2.f));
 
 }
 
