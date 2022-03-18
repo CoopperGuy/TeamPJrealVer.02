@@ -421,7 +421,7 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
     float4 vMask;
 
     vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
-    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3.f) * g_fAlpha;
+    //vMask.a = ((vMask.r + vMask.g + vMask.b) / 3.f) * g_fAlpha;
     
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    

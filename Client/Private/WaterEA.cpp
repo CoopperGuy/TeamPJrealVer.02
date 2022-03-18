@@ -68,9 +68,12 @@ void CWaterEA::Set_State(_double dDeltaTime)
 	case Client::CWaterEA::ATT:
 		m_pModel->SetUp_AnimationIndex(0);
 		if (makeEffect) {
-			auto EffectEAFire = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_EA_Att_Fire", "Effect_EA_Att_Fire");
-			CEngine::GetInstance()->AddScriptObject(m_pEffEAFire = CEffectEAFire::Create(EffectEAFire), CEngine::GetInstance()->GetCurSceneNumber());
-			makeEffect = false;
+			if (fireballmake < 8) {
+				fireballmake += 1;
+				auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
+				CEngine::GetInstance()->AddScriptObject(m_pEffFireball = CEffectFireBall::Create(EffectFireBall), CEngine::GetInstance()->GetCurSceneNumber());
+				makeEffect = false;
+			}
 		}
 		if (keyFrame >= 0 && keyFrame <= 23)
 		{
@@ -78,26 +81,21 @@ void CWaterEA::Set_State(_double dDeltaTime)
 			_matrix worlmatrix = m_pTransform->GetWorldMatrix();
 			_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
 			handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
-			if (m_pEffEAFire) {
-				m_pEffEAFire->SetMatrix(handbone);
-				m_pEffEAFire->SetScale(_float3{ start,start ,0.f });
+			if (m_pEffFireball) {
+				m_pEffFireball->SetMatrix(handbone);
+				m_pEffFireball->SetScale(_float3{ start,start ,0.f });
 			}
 		}
 
 		if (keyFrame >= 23 && keyFrame <= 31)
-			m_pEffEAFire->SetScale(_float3{ float(start += plus),float(start += plus) ,0.f });
+			m_pEffFireball->SetScale(_float3{ float(start += plus),float(start += plus) ,0.f });
 		else
 			start = 0.2f;
 
 		if (keyFrame >= 40)
 		{
-			if (m_pEffEAFire)
-				m_pEffEAFire->SetObj();
 			m_dIdleTime = 0;
 			m_eState = IDLE;
-			makeFireball = true;
-			m_dmake = 0.f;
-			fireballmake = 0;
 		}
 		break;
 	case Client::CWaterEA::IDLE: {
@@ -105,32 +103,13 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
 		start = 0.4f;
 		m_dIdleTime += dDeltaTime;
-		m_dmake += dDeltaTime;
 		m_pModel->SetUp_AnimationIndex(1);
 		int irand = rand() % 5;
 		irand += 10;
 		if (m_dIdleTime > irand) {
 			m_eState = ATT;
+			fireballmake = 0;
 			makeEffect = true;
-		}
-		if (keyFrame >= 8) {
-			if (m_dmake >= 0.27f && fireballmake < 8) {
-				fireballmake += 1;
-				auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFireball = CEffectFireBall::Create(EffectFireBall), CEngine::GetInstance()->GetCurSceneNumber());
-				_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
-				pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.1f);
-				pos = XMVectorSetZ(pos, XMVectorGetZ(pos) - 0.0f);
-				m_pEffFireball->SetTransform(pos);
-	/*				_matrix worlmatrix = m_pTransform->GetWorldMatrix();
-				_matrix handbone = m_pModel->Get_BoneWithoutOffset("Bip01-Head");
-				handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
-				if(m_pEffFireball)
-					m_pEffFireball->SetMatrix(handbone);*/
-				//m_pEffFireball->SetScale(_float3{ 0.5f,0.5f ,0.f });
-				//makeFireball = false;
-				m_dmake = 0;
-			}
 		}
 		break;
 	}

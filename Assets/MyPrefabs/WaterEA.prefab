@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: WaterEA
+    UUID: 6269375272436398037
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-179.999893, 71.0184402, -179.999893]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\WaterEA\
+      MeshFileName: waterEA.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 10

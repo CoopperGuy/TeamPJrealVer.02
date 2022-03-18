@@ -182,7 +182,7 @@ HRESULT CLoader::GameSceneLogo()
 	std::thread t5(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5);
 	t5.detach();
 
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Player.yaml", SCENE_STATIC);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Player_Seo.yaml", SCENE_STATIC);
 	while (m_pLoadingGauge->GetPercentage() < 30.f)
 		m_pLoadingGauge->AddPercentage(0.001f);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Equip.yaml", SCENE_STATIC);
