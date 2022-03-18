@@ -316,6 +316,9 @@
     <ClInclude Include="..\public\ImpactBeam.h">
       <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ImpactShort.h">
+      <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -617,6 +620,9 @@
     </ClCompile>
     <ClCompile Include="..\private\ImpactBeam.cpp">
       <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ImpactShort.cpp">
+      <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -969,6 +975,9 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\ImpactBeam">
       <UniqueIdentifier>{dae92d70-7d7a-4c1b-a031-0de6c5c55cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\ImpactShort">
+      <UniqueIdentifier>{ddb7f3b1-e5b6-49d8-b712-ce988382b4fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

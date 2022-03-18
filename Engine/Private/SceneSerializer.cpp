@@ -1251,6 +1251,9 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 	auto uuid = obj["UUID"].as<uint64_t>();
 	auto layer = obj["Layer"].as<string>();
 	auto active = obj["Active"].as<_bool>();
+	int numOBBs = 0;
+	if (obj["NumOBB"])
+		numOBBs = obj["NumOBB"].as<_int>();
 	int renderGroup = 1;
 	_float	FrustumRange = 1.f;
 	_bool _bInstancing = false;
@@ -1262,7 +1265,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 		FrustumRange = obj["FrustumRange"].as<_float>();
 
 	GameObjectMutex.lock();
-	CGameObject* deserializedObject = m_pEngine->ClonePrototype("Prototype_EmptyGameObject", pPrototypeTag);
+	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyGameObject", layer);
 	GameObjectMutex.unlock();
 
 	if (obj["PassIndex"])
@@ -1275,6 +1278,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetRenderGroup((CRenderer::RENDER)renderGroup);
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetFrustum(FrustumRange);
+	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetNumOBB(numOBBs);
 
 	auto transformCom = obj["Com_Transform"];
 	if (transformCom)
@@ -1372,31 +1376,64 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 		PhysxMutex.unlock();
 	}
 
-	auto OBB = obj["Com_OBB"];
-	if (OBB)
-	{
-		if (deserializedObject->AddComponent(0, "Prototype_OBBCollider", "Com_OBB"))
-			MSG_BOX("Failed to Com_OBB");
+	_int i = 0;
+	do {
+		string obb = "Com_OBB";
+		if (i != 0)
+			obb += to_string(i);
+		auto OBB = obj[obb.c_str()];
+		if (OBB)
+		{
+			if (deserializedObject->AddComponent(0, "Prototype_OBBCollider", obb))
+				MSG_BOX("Failed to Com_OBB");
 
-		CComponent* pCollider = deserializedObject->GetComponent("Com_OBB");
+			CComponent* pCollider = deserializedObject->GetComponent(obb);
 
-		auto center_n = OBB["Center"];
-		_float3 Pos;
-		Pos.x = center_n[0].as<float>();
-		Pos.y = center_n[1].as<float>();
-		Pos.z = center_n[2].as<float>();
+			auto center_n = OBB["Center"];
+			_float3 Pos;
+			Pos.x = center_n[0].as<float>();
+			Pos.y = center_n[1].as<float>();
+			Pos.z = center_n[2].as<float>();
 
-		dynamic_cast<CBasicCollider*>(pCollider)->SetPos(Pos);
+			dynamic_cast<CBasicCollider*>(pCollider)->SetPos(Pos);
 
-		auto size_n = OBB["Size"];
-		_float3 size;
-		size.x = size_n[0].as<float>();
-		size.y = size_n[1].as<float>();
-		size.z = size_n[2].as<float>();
+			auto size_n = OBB["Size"];
+			_float3 size;
+			size.x = size_n[0].as<float>();
+			size.y = size_n[1].as<float>();
+			size.z = size_n[2].as<float>();
 
-		dynamic_cast<CBasicCollider*>(pCollider)->SetSize(size);
-	}
+			dynamic_cast<CBasicCollider*>(pCollider)->SetSize(size);
 
+			auto attach = OBB["IsAttach"];
+			if (attach) {
+				_bool atc = attach.as<_bool>();
+				dynamic_cast<CBasicCollider*>(pCollider)->SetIsAttachBone(atc);
+			}
+
+			auto boneName = OBB["BoneName"];
+			if (boneName) {
+				string name = boneName.as<string>();
+				dynamic_cast<CBasicCollider*>(pCollider)->SetBoneName(name);
+			}
+
+			auto offset_n = OBB["Offset"];
+			if (offset_n) {
+				_float3 offset;
+				offset.x = offset_n[0].as<_float>();
+				offset.y = offset_n[1].as<_float>();
+				offset.z = offset_n[2].as<_float>();
+				dynamic_cast<CBasicCollider*>(pCollider)->SetOffset(offset);
+			}
+
+			auto CollType = OBB["CollisionType"];
+			if (CollType) {
+				_int coltype = CollType.as<_int>();
+				dynamic_cast<CBasicCollider*>(pCollider)->SetCollisionType((ID)coltype);
+			}
+		}
+		i++;
+	} while (i < numOBBs);
 
 	auto AABB = obj["Com_AABB"];
 	if (AABB)
