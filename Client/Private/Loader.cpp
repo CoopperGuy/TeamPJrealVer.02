@@ -224,6 +224,9 @@ HRESULT CLoader::GameSceneLogo()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_shoulderEffect", "E_shoulderEffect")))
 		MSG_BOX("Failed To Create shoulderEffect Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround")))
+		MSG_BOX("Failed To Create shoulderEffect Prefab");
+
 	_bool threadFinish = false;
 	while (!threadFinish) {
 		for (_int i = 0; i < ThreadIndex; i++) {
@@ -241,7 +244,7 @@ HRESULT CLoader::GameSceneLogo()
 
 HRESULT CLoader::GameSceneKIM()
 {
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices.yaml", SCENE_KIM);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 

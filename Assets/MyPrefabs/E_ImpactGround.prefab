@@ -1,0 +1,238 @@
+Scene: Untitled
+GameObjects:
+  - Name: ImpactGround
+    UUID: 2521586105275128075
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 4
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.0261065364, 0, 0]
+      Rotation: [90, -0, 0]
+      Scale: [0.99948138, 1, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Impact_001_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire_003_TEX_CJH_tile.tga
+      ScrollSpeedX: [0.5, 0.5, 0]
+      ScrollSpeedY: [0.5, 0.5, 0]
+      Distortion1: [0.5, 0.200000003]
+      Distortion2: [0.5, 0.200000003]
+      Distortion3: [0, 0]
+      DistortionScale: 0.200000003
+      DistortionBias: 0.200000003
+      FadeOut: true
+      FadeOutDuration: 0.699999988
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.699999988
+    Children:
+      - Name: BombBeam
+        UUID: 4134174179706818796
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 7
+        BillBord: false
+        Com_Transform:
+          Translation: [0, 0, 0]
+          Rotation: [-90, -0, 0]
+          Scale: [0.293334246, 1.16292858, 0.776206195]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: BombBeam.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_SparkLand_001_TEX_HKB.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\DooMask\FX_spark_002.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2, 2.29999995]
+          Distortion1: [0.200000003, 2]
+          Distortion2: [0.100000001, 3]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0.100000001
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988
+      - Name: ImpactBack
+        UUID: 3531022728891202397
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 4
+        BillBord: false
+        Com_Transform:
+          Translation: [-0.100000001, -0.200000003, 0.100000001]
+          Rotation: [-90, 5.93619446e-13, -152.498917]
+          Scale: [0.199996531, 0.147127762, 0.409680486]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: BombBeam2.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.png
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Wind001_TEX_HKJ_Up.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\explo016.tga
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.800000012
+          DistortionBias: 0.5
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988
+      - Name: ImpactBack
+        UUID: 3157935026663495747
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 4
+        BillBord: false
+        Com_Transform:
+          Translation: [-0.12113218, 0.2064908, 0.127280265]
+          Rotation: [-90, -0, 29.9999962]
+          Scale: [0.199999958, 0.147, 0.400000006]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: BombBeam2.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.png
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Wind001_TEX_HKJ_Up.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\explo016.tga
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.800000012
+          DistortionBias: 0.5
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988
+      - Name: SideEffect
+        UUID: 16048733700335402382
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 7
+        BillBord: false
+        Com_Transform:
+          Translation: [-0.253220022, 0.0414650813, -0.492094338]
+          Rotation: [0, -8.64335823, 0]
+          Scale: [1, 0.5, 4]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: Side_Effect.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_SparkLand_001_TEX_HKB.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\DooMask\FX_spark_002.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [0.5, 0.25, 2.29999995]
+          Distortion1: [3.20000005, 1]
+          Distortion2: [1.5, 0.5]
+          Distortion3: [0.800000012, 0.5]
+          DistortionScale: 0.00999999978
+          DistortionBias: 0.0199999996
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988
+      - Name: SideEffect
+        UUID: 2782415617845316787
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 7
+        BillBord: false
+        Com_Transform:
+          Translation: [-0.333830357, -0.385867476, -0.476617277]
+          Rotation: [0, -8.63000011, 0]
+          Scale: [0.999976277, 0.5, 3.99998927]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: Side_Effect.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_SparkLand_001_TEX_HKB.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\DooMask\FX_spark_002.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [0.5, 0.25, 2.29999995]
+          Distortion1: [3.20000005, 1]
+          Distortion2: [1.5, 0.5]
+          Distortion3: [0.800000012, 0.5]
+          DistortionScale: 0.00999999978
+          DistortionBias: 0.0199999996
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988
+      - Name: BombEffect
+        UUID: 11528005651376569059
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 7
+        BillBord: false
+        Com_Transform:
+          Translation: [-0.0115634128, 3.32962463e-10, -0.00303579494]
+          Rotation: [-90, -0, 0]
+          Scale: [1.65108454, 1, 2.14819503]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: BombEffect.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.png
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Spark_006_TEX_PYS.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\DooMask\FX_spark_002.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.800000012
+          DistortionBias: 0.5
+          FadeOut: true
+          FadeOutDuration: 0.699999988
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.699999988

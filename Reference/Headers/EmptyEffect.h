@@ -47,6 +47,8 @@ public:
 	_float GetFadeInStartTime() { return m_fFadeInStratTime; }
 	_float GetFadeInDuration() { return m_fFadeInDuration; }
 	_float GetFadeAlpha() { return m_fFadeAlpha; }
+	_float GetProcessTime() { return m_fProcessTime; }
+	_float GetMoveSpd() { return m_fMoveSpd; }
 
 	_bool GetFadeOutEnable() { return m_bFadeOut; }
 	_bool GetFadeInEnable() { return m_bFadeIn; }
@@ -78,6 +80,8 @@ public:
 	void SetTargetObjectName(string TargetObjName) { m_TargetObjName = TargetObjName; }
 	void SetTargetBoneName(string TargetBoneName) { m_TargetBoneName = TargetBoneName; }
 
+	void SetProcessTime(_float _processTime) { m_fProcessTime = _processTime; }
+	void SetMoveSpd(_float _moveSpd) { m_fMoveSpd = _moveSpd; }
 	void RemoveTargetObject() { m_pTargetObject = nullptr; }
 	void LinkTransform();
 
@@ -134,6 +138,10 @@ private:
 	_bool	m_bLinkTarget = false;
 	string	m_TargetObjName = "";
 	string	m_TargetBoneName = "";
+
+private:
+	_float m_fMoveSpd = 1.f;
+	_float m_fProcessTime = 0.f;
 
 };
 
