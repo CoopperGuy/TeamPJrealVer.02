@@ -215,7 +215,9 @@
     <ClInclude Include="..\Public\Grid.h" />
     <ClInclude Include="..\public\HpBar.h" />
     <ClInclude Include="..\public\Idle_Player.h" />
+    <ClInclude Include="..\public\ImpactBeam.h" />
     <ClInclude Include="..\public\ImpactGround.h" />
+    <ClInclude Include="..\public\ImpactShort.h" />
     <ClInclude Include="..\Public\InstanceEffectFire.h" />
     <ClInclude Include="..\public\Inventory.h" />
     <ClInclude Include="..\public\Item.h" />
@@ -327,7 +329,9 @@
     <ClCompile Include="..\Private\Grid.cpp" />
     <ClCompile Include="..\private\HpBar.cpp" />
     <ClCompile Include="..\private\Idle_Player.cpp" />
+    <ClCompile Include="..\private\ImpactBeam.cpp" />
     <ClCompile Include="..\private\ImpactGround.cpp" />
+    <ClCompile Include="..\private\ImpactShort.cpp" />
     <ClCompile Include="..\Private\InstanceEffectFire.cpp" />
     <ClCompile Include="..\private\Inventory.cpp" />
     <ClCompile Include="..\private\Item.cpp" />
