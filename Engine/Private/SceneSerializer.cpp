@@ -1265,7 +1265,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 		FrustumRange = obj["FrustumRange"].as<_float>();
 
 	GameObjectMutex.lock();
-	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyGameObject", layer);
+	CGameObject* deserializedObject = m_pEngine->ClonePrototype("Prototype_EmptyGameObject", pPrototypeTag);
 	GameObjectMutex.unlock();
 
 	if (obj["PassIndex"])
