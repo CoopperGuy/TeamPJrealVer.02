@@ -313,6 +313,9 @@
     <ClInclude Include="..\Public\FlogasDunDoor.h">
       <Filter>02.GameObjects\Map\Door</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ImpactBeam.h">
+      <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -611,6 +614,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\FlogasDunDoor.cpp">
       <Filter>02.GameObjects\Map\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ImpactBeam.cpp">
+      <Filter>05.Effect\PlayerEffect\ImpactBeam</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -960,6 +966,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Map\Door">
       <UniqueIdentifier>{9a197bdb-196e-4fff-ae1a-15516856e85e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\ImpactBeam">
+      <UniqueIdentifier>{dae92d70-7d7a-4c1b-a031-0de6c5c55cae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

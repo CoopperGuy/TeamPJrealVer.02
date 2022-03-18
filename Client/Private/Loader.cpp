@@ -227,6 +227,9 @@ HRESULT CLoader::GameSceneLogo()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround")))
 		MSG_BOX("Failed To Create shoulderEffect Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactBeam", "E_ImpactBeam00")))
+		MSG_BOX("Failed To Create shoulderEffect Prefab");
+
 	_bool threadFinish = false;
 	while (!threadFinish) {
 		for (_int i = 0; i < ThreadIndex; i++) {

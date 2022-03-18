@@ -5,7 +5,7 @@ GameObjects:
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 4
+    PassIndex: 7
     BillBord: false
     Com_Transform:
       Translation: [-0.0261065364, 0, 0]
