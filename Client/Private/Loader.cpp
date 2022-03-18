@@ -219,19 +219,19 @@ HRESULT CLoader::GameSceneLogo()
 		MSG_BOX("Failed To Create Pajang Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObject_DMGFont", "U_DamageVIBuffer")))
-		MSG_BOX("Failed To Create shoulderEffect Prefab");
+		MSG_BOX("Failed To Create U_DamageVIBuffer Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_shoulderEffect", "E_shoulderEffect")))
-		MSG_BOX("Failed To Create shoulderEffect Prefab");
+		MSG_BOX("Failed To Create E_shoulderEffect Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround2")))
-		MSG_BOX("Failed To Create shoulderEffect Prefab");
+		MSG_BOX("Failed To Create E_ImpactGround2 Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactBeam", "E_ImpactBeam00")))
-		MSG_BOX("Failed To Create shoulderEffect Prefab");
+		MSG_BOX("Failed To Create E_ImpactBeam00 Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
-		MSG_BOX("Failed To Create shoulderEffect Prefab");
+		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 	_bool threadFinish = false;
 	while (!threadFinish) {
 		for (_int i = 0; i < ThreadIndex; i++) {
