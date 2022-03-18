@@ -285,7 +285,7 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 
 	/*for.DecalBuffer Component*/
 
-	Parent->AddChild(this);
+	//Parent->AddChild(this);
 #pragma endregion
 
 	return S_OK;
@@ -508,6 +508,12 @@ void CEmptyEffect::SetUp_ValueOnModelShader()
 
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fFadeAlpha", &m_fFadeAlpha, sizeof(_float));
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fAlpha", &m_fAlpha, sizeof(_float));
+
+	if(CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+		static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fFrameTime, sizeof(_float));
+	else
+		static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));
+	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_UVSpd", &m_fMoveSpd, sizeof(_float));
 }
 
 string CEmptyEffect::GetTextureFilePath(TEXTUREID idx)

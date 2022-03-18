@@ -29,7 +29,7 @@ void CShoulerAtk::Update(_double deltaTime)
 	m_pEffectTrans->SetLookUpVector(playerLook);
 
 	_vector playerPos = m_pPlayerTrans->GetState(CTransform::STATE_POSITION);
-	const _vector	correctPosition = XMVectorSet(0.f, 0.25f, 0.f, 0.f);
+	const _vector	correctPosition = XMVectorSet(0.f, 0.15f, 0.f, 0.f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, playerPos + correctPosition);
 }
 
