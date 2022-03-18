@@ -41,6 +41,8 @@ public:
 	virtual void	SetisRender(_bool tf) override;
 	void Set_Render(_uint index, _bool Render) { m_bRender[index] = Render; }
 	void SetNumOBB(_int obb) { m_iNumOBBs = obb; }
+	void SetRimLight(_bool bRimLight) { m_bRimLightEnable = bRimLight; }
+
 public:
 	_int&	GetRenderGroup() { return	(_int&)m_eRenderGroup; }
 	_bool	GetHaveParent();

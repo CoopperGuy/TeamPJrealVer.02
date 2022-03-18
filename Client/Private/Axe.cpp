@@ -31,11 +31,9 @@ HRESULT CAxe::Initialize()
 
 
 	XMStoreFloat4x4(&m_matRightBone, XMMatrixIdentity());
-
-	_matrix WeaponTrans = XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
-	pAxe->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
-	m_pTrail = static_cast<CVIBuffer_Trail*>(pAxe->GetComponent("Com_Trail"));
-
+	
+	Create_Trail();
+	
 	return S_OK;
 }
 
@@ -48,8 +46,8 @@ void CAxe::LateUpdate(_double deltaTime)
 {
 	State_Att();
 
-	if (m_pTrail)
-		m_pTrail->Update(deltaTime, XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
+	if (m_pTrailBuffer)
+		m_pTrailBuffer->Update(deltaTime, XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
 	Set_TrailOnOff();
 }
 
@@ -100,13 +98,39 @@ void CAxe::State_Idle()
 {
 }
 
+void CAxe::Create_Trail()
+{
+	m_pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Player_Trail");
+	if (m_pTrail == nullptr)
+		return;
+
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(m_pTrail);
+	
+	pEffect->SetPassIndex(3);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/FX_AEAura.jpg", CEmptyEffect::TEXTURE_NOISE);
+
+	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
+	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
+	pEffect->setDistortion(0, _float2(0.1f, 0.2f));
+	pEffect->setDistortion(1, _float2(0.1f, 0.3f));
+	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
+	pEffect->SetDistortionScale(4.f);
+	pEffect->SetDistortionBias(1.f);
+
+	_matrix WeaponTrans = XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
+	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
+	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
+}
+
 void CAxe::Set_TrailOnOff()
 {
 	CModel*	playerModel = static_cast<CModel*>(pPlayer->GetComponent("Com_Model"));
 	CStat*	playerStat = static_cast<CStat*>(pPlayer->GetComponent("Com_Stat"));
 	CTransform*	playerTrans = static_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
 	Player_State playerState = (Player_State)playerModel->Get_AnimIndex();
-	m_pTrail->SetIsActive(false);
+	m_pTrailBuffer->SetIsActive(false);
 	playerStat->SetSTATE(CStat::STATES_IDEL);
 	_vector thisPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	switch (playerState)
@@ -172,7 +196,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::LBCombo1: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 2 && keyFrame <= 23) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.5f);
 		}
@@ -183,7 +207,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::LBCombo2: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 3 && keyFrame <= 29) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.65f);
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.1f);
@@ -196,7 +220,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::LBCombo3: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 2 && keyFrame <= 11) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.35f);
 		}
@@ -210,7 +234,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::LBCombo4_1: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 3 && keyFrame <= 23) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(1.f);
 		}
@@ -225,7 +249,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::RBCombo1: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 13 && keyFrame <= 22) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.6f);
 		}
@@ -249,7 +273,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::RBCombo3: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 0 && keyFrame <= 13) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.7f);
 		}
@@ -260,7 +284,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::RBCombo4: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 12 && keyFrame <= 22) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(1.1f);
 		}
@@ -292,12 +316,12 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::WhirlWind_Start: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 16) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 		}
 		break;
 	}
 	case Client::Player_State::WhirlWind_ing: {
-		m_pTrail->SetIsActive(true);
+		m_pTrailBuffer->SetIsActive(true);
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.1f);
 		break;
@@ -305,7 +329,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::WhirlWind_End: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 0 && keyFrame <= 9) {
-			m_pTrail->SetIsActive(true);
+			m_pTrailBuffer->SetIsActive(true);
 		}
 		break;
 	}
@@ -315,13 +339,13 @@ void CAxe::Set_TrailOnOff()
 		break;
 	}
 	case Client::Player_State::Chop_ing1: {
-		m_pTrail->SetIsActive(true);
+		m_pTrailBuffer->SetIsActive(true);
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
 		break;
 	}
 	case Client::Player_State::Chop_ing2: {
-		m_pTrail->SetIsActive(true);
+		m_pTrailBuffer->SetIsActive(true);
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
 		break;

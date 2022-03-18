@@ -28,6 +28,8 @@ private:
 	void State_Att();
 	void State_Idle();
 
+	void Create_Trail();
+
 public:
 	void Set_DrawTrail() { m_DrawTrail = true; }
 
@@ -44,7 +46,8 @@ private:
 	CCollider*		m_pCollider			= nullptr;
 	CModel*			m_pModel			= nullptr;
 private:
-	CVIBuffer_Trail* m_pTrail			= nullptr;
+	CVIBuffer_Trail* m_pTrailBuffer			= nullptr;
+	CGameObject*	m_pTrail = nullptr;
 private:
 	class CBasicCollider* m_pOBB = nullptr;
 private:

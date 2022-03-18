@@ -1062,9 +1062,10 @@ void CPlayer::InputSkill()
 	}
 
 	if (CEngine::GetInstance()->IsKeyDown('5')) {
-		_matrix i = m_pTransform->GetWorldMatrix();
-		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Instance_Fire", "InstanceFire", &m_pTransform->GetWorldMatrix());
-		CEngine::GetInstance()->AddScriptObject(CInstanceEffectFire::Create(pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
+	}
+	if (CEngine::GetInstance()->IsKeyDown('6')) {
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
 	}
 
 

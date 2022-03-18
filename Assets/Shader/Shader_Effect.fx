@@ -40,6 +40,7 @@ cbuffer EffectBuffer
 Texture2D g_DiffuseTexture;
 Texture2D g_MaskTexture;
 Texture2D g_NoiseTexture;
+Texture2D g_Texture;
 
 SamplerState g_DefaultSampler
 {
@@ -462,13 +463,14 @@ vector PS_MAIN_TRAIL(PS_IN_TEST In) : SV_TARGET
 
     vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
 
-    vDiffuseColor = g_DiffuseTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
+    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV.xy);
+    //vDiffuseColor = g_DiffuseTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
 
-    vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
+    //vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
    
-    vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
+    //vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
 
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha + g_AlphaSet;
+    //vDiffuseColor.a = vAlpha.a * g_fFadeAlpha + g_AlphaSet;
     if (vDiffuseColor.a <= 0.1f)
         discard;
 
