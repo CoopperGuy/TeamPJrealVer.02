@@ -654,6 +654,93 @@ vector PS_MAIN_MESHRED(PS_IN_TEST In) : SV_TARGET
     return vDiffuseColor;
 }
 
+vector PS_MAIN_MESH_FlogasWave(PS_IN_TEST In) : SV_TARGET
+{
+	float4 vNoise[3];
+	float4 vFinalNoise;
+	float fPerturb;
+	float2 vNoiseCoord;
+	float4 vDiffuseColor;
+	float4 vAlpha;
+
+	vNoise[0] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord1);
+	vNoise[1] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord2);
+	vNoise[2] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord3);
+
+	vNoise[0] = (vNoise[0] - 0.5f) * 2.0f;
+	vNoise[1] = (vNoise[1] - 0.5f) * 2.0f;
+	vNoise[2] = (vNoise[2] - 0.5f) * 2.0f;
+
+	vNoise[0].xy = vNoise[0].xy * g_vDistortion[0].xy;
+	vNoise[1].xy = vNoise[1].xy * g_vDistortion[1].xy;
+	vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
+
+	//vNoise[0].xy = vNoise[0].xy * float2(0.1f, 0.2f);
+	//vNoise[1].xy = vNoise[1].xy * float2(0.1f, 0.3f);
+	//vNoise[2].xy = vNoise[2].xy * float2(0.1f, 0.1f);
+
+	vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
+
+	fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
+
+	vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
+
+	vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
+
+	vAlpha = g_MaskTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
+	vAlpha.a = vAlpha.g;
+	vDiffuseColor.a = vAlpha.a;     
+	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+	//vDiffuseColor.b = vAlpha.r;
+	if (vDiffuseColor.a <= 0.1f)
+		discard;
+
+	return vDiffuseColor;
+}
+
+vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
+{
+	float4 vNoise[3];
+float4 vFinalNoise;
+float fPerturb;
+float2 vNoiseCoord;
+float4 vDiffuseColor;
+float4 vAlpha;
+
+vNoise[0] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord1);
+vNoise[1] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord2);
+vNoise[2] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord3);
+
+vNoise[0] = (vNoise[0] - 0.5f) * 2.0f;
+vNoise[1] = (vNoise[1] - 0.5f) * 2.0f;
+vNoise[2] = (vNoise[2] - 0.5f) * 2.0f;
+
+vNoise[0].xy = vNoise[0].xy * g_vDistortion[0].xy;
+vNoise[1].xy = vNoise[1].xy * g_vDistortion[1].xy;
+vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
+
+//vNoise[0].xy = vNoise[0].xy * float2(0.1f, 0.2f);
+//vNoise[1].xy = vNoise[1].xy * float2(0.1f, 0.3f);
+//vNoise[2].xy = vNoise[2].xy * float2(0.1f, 0.1f);
+
+vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
+
+fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
+
+vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
+
+vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
+
+vAlpha = g_MaskTexture.Sample(g_BorderSampler, vNoiseCoord.xy);
+vAlpha.a = vAlpha.g;
+vDiffuseColor.a = vAlpha.a;
+vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+//vDiffuseColor.b = vAlpha.r;
+if (vDiffuseColor.a <= 0.1f)
+discard;
+
+return vDiffuseColor;
+}
 
 technique11 DefaultDevice
 {
@@ -762,4 +849,26 @@ technique11 DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_MESHREDUP();
     }
+
+	pass MeshEffectFlogasWave
+	{
+		SetRasterizerState(Rasterizer_NoneCull);
+		SetDepthStencilState(DepthStecil_Default, 0);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN_TESTUVMOVE();
+		GeometryShader = NULL;
+		PixelShader = compile ps_5_0 PS_MAIN_MESH_FlogasWave();
+	}
+
+	pass MeshEffectFlogasFire
+	{
+		SetRasterizerState(Rasterizer_NoneCull);
+		SetDepthStencilState(DepthStecil_Default, 0);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN_TEST();
+		GeometryShader = NULL;
+		PixelShader = compile ps_5_0 PS_MAIN_MESH_FlogasFire();
+	}
 }
