@@ -234,6 +234,9 @@ HRESULT CRenderer::DrawRenderGroup()
 	if (FAILED(RenderAlpha()))
 		return E_FAIL;
 
+	if (FAILED(RenderTrail()))
+		return E_FAIL;
+
 	if (FAILED(RenderUI()))
 		return E_FAIL;
 
@@ -751,6 +754,23 @@ HRESULT CRenderer::RenderAlpha()
 		Render_Shader();
 		//Render_Main();
 	}
+
+	return S_OK;
+}
+
+HRESULT CRenderer::RenderTrail()
+{
+	for (auto& pGameObject : m_RenderGroups[RENDER_TRAIL])
+	{
+		if (nullptr != pGameObject)
+		{
+			if (FAILED(pGameObject->Render()))
+				return E_FAIL;
+
+			SafeRelease(pGameObject);
+		}
+	}
+	m_RenderGroups[RENDER_TRAIL].clear();
 
 	return S_OK;
 }

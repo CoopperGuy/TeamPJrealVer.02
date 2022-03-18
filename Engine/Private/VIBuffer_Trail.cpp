@@ -259,6 +259,9 @@ HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 
 	m_pShader->SetUp_ValueOnShader("g_AlphaSet", &m_fAlpha, sizeof(_float));
 
+	ID3D11ShaderResourceView*	pDiffuseSRV = CTargetManager::GetInstance()->GetShaderResourceView("Target_Main");
+	if (pDiffuseSRV != nullptr)
+		m_pShader->SetUp_TextureOnShader("g_HDRTexture", pDiffuseSRV);
 	//m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));
 	
 	m_pDeviceContext->IASetVertexBuffers(0, m_iNumVertexBuffers, m_pVB.GetAddressOf(), &m_iStride, &iOffset);
