@@ -218,7 +218,10 @@ void CPlayer::LateUpdate(_double dDeltaTime)
 	else {
 		m_pGameObject->SetActive(true);
 	}
-
+	if (m_pModel->Get_AnimIndex() == (_uint)Player_State::RBCombo2)
+		m_dAnimSpeed = 2.f;
+	else
+		m_dAnimSpeed = 1.f;
 	m_pModel->Play_Animation(dDeltaTime * m_dAnimSpeed);
 
 	if (CEngine::GetInstance()->IsKeyDown(VK_F5)) {

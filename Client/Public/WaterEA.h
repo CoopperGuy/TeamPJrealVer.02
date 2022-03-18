@@ -21,9 +21,9 @@ public:
 
 private:
 	CTransform* m_pTargetTransform = nullptr;
-	class CEffectEAFire* m_pEffEAFire = nullptr;
-	class CEffectFireBall* m_pEffFireball = nullptr;
 
+
+	class CEAFireBall* m_pEAFB = nullptr;
 private:
 	void Set_State(_double dDeltaTime);
 
@@ -54,6 +54,7 @@ private:
 	_bool	makeEffect = false;
 	_bool	makeFireball = false;
 	_uint indexd = 0;
+
 };
 
 END

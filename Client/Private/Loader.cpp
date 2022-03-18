@@ -224,9 +224,14 @@ HRESULT CLoader::GameSceneLogo()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_shoulderEffect", "E_shoulderEffect")))
 		MSG_BOX("Failed To Create shoulderEffect Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround")))
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround2")))
 		MSG_BOX("Failed To Create shoulderEffect Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactBeam", "E_ImpactBeam00")))
+		MSG_BOX("Failed To Create shoulderEffect Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
+		MSG_BOX("Failed To Create shoulderEffect Prefab");
 	_bool threadFinish = false;
 	while (!threadFinish) {
 		for (_int i = 0; i < ThreadIndex; i++) {
@@ -278,8 +283,8 @@ HRESULT CLoader::GameSceneJUN()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_JUNG);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_JUNG);
-
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Instance_Fire", "E_InstanceFire")))
 	//{
 	//	MSG_BOX("Failed To Create INSTANPrefab");
@@ -299,16 +304,21 @@ HRESULT CLoader::GameSceneSEO()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/BossSY.yaml", SCENE_SEO);
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
-		MSG_BOX("Failed To Create Fire Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
+	//	MSG_BOX("Failed To Create Fire Prefab");
+
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_FireBall")))
 		MSG_BOX("Failed To Create FireBall Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-		MSG_BOX("Failed To Create Prefab");
+		MSG_BOX("Failed To Create O_WaterEA Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
+		MSG_BOX("Failed To Create O_EAFire Prefab");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_Seo2.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon_Seo.yaml", SCENE_SEO);
 
 	m_isFinish = true;
 

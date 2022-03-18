@@ -255,7 +255,7 @@ HRESULT CCollider::Render()
 
 _float3 CCollider::GetEuler()
 {
-	return m_euler;
+	return _float3(XMConvertToDegrees(m_euler.x), XMConvertToDegrees(m_euler.y), XMConvertToDegrees(m_euler.z));
 }
 
 void CCollider::SetPosition(_float3 pos)
@@ -275,7 +275,7 @@ void CCollider::ReleaseController() {
 
 void CCollider::SetEuler(_float3 euler)
 {
-	m_euler = euler;
+	m_euler = _float3(XMConvertToRadians(euler.x), XMConvertToRadians(euler.y), XMConvertToRadians(euler.z));
 }
 
 

@@ -21,42 +21,23 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: WaterEA
-    UUID: 6269375272436398037
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [-179.999893, 71.0184402, -179.999893]
-      Scale: [4, 4, 4]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\WaterEA\
-      MeshFileName: waterEA.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 10
-  - Name: Empty Object
-    UUID: 7340158233290813910
+  - Name: E_FireBall
+    UUID: 11356540558688865723
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
     PassIndex: 2
-    BillBord: false
+    BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.999911487, 0.999924004, 1.00009549]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.png
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Diffuse\FX_fireball.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_fireball.dds
+      TextureMaskPath: ""
       TextureNoisePath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
@@ -72,3 +53,51 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+  - Name: O_WaterEA
+    UUID: 6269375272436398037
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [3, 3, 3]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\WaterEA\
+      MeshFileName: waterEA.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 10
+  - Name: O_EAFire
+    UUID: 7403091102448526652
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 3
+    Com_Stat:
+      Hp: [0, 0, 0, 0]
+      HpRegen: [0, 0]
+      Atk: [15, 0, 5]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 3
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 1

@@ -1,0 +1,30 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_EAFire
+    UUID: 7403091102448526652
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 5
+    Com_Stat:
+      Hp: [0, 0, 0, 0]
+      HpRegen: [0, 0]
+      Atk: [15, 0, 5]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 3
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 1

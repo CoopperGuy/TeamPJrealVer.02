@@ -8,6 +8,8 @@
 #include "Camera_Fly.h"
 #include "ShoulerAtk.h"
 #include "ImpactGround.h"
+#include "ImpactBeam.h"
+#include "ImpactShort.h"
 USING(Client)
 
 CAxe::CAxe()
@@ -240,7 +242,7 @@ void CAxe::Set_TrailOnOff()
 		}
 		if (keyFrame == 14) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
-			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround");
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround2");
 			CEngine::GetInstance()->AddScriptObject(CImpactGround::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 
@@ -261,7 +263,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::RBCombo2: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetDMGRatio(0.5f);
-		if (keyFrame == 8) {
+		if (keyFrame >= 8) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4.f, 0.03f);
 		}
 		if (keyFrame == 0) {
@@ -290,6 +292,10 @@ void CAxe::Set_TrailOnOff()
 		}
 		if (keyFrame == 19) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
+		}
+		if (keyFrame == 18) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
+			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		break;
 	}
@@ -340,14 +346,26 @@ void CAxe::Set_TrailOnOff()
 	}
 	case Client::Player_State::Chop_ing1: {
 		m_pTrailBuffer->SetIsActive(true);
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
+		if (keyFrame == 5) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
+			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+
+		}
 		break;
 	}
 	case Client::Player_State::Chop_ing2: {
 		m_pTrailBuffer->SetIsActive(true);
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
+		if (keyFrame == 5) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
+			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+
+		}
 		break;
 	}
 	case Client::Player_State::Chop_End: {

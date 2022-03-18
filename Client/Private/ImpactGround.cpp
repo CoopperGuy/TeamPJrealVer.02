@@ -33,6 +33,7 @@ HRESULT CImpactGround::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pP
 
 void CImpactGround::Update(_double deltaTime)
 {
+	m_pEffectTrans->SetScale(_float3(m_DurationDelta * 3.f, m_DurationDelta * 3.f, m_DurationDelta * 3.f));
 }
 
 void CImpactGround::LateUpdate(_double deltaTime)

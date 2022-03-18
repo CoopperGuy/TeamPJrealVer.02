@@ -9,11 +9,11 @@ CEffectFireBall::CEffectFireBall()
 {
 }
 
-CEffectFireBall * CEffectFireBall::Create(void * pArg)
+CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector* pos)
 {
 	CEffectFireBall*		pInstance = new CEffectFireBall();
 
-	if (FAILED(pInstance->Initialize(pArg)))
+	if (FAILED(pInstance->Initialize(pArg, pos)))
 	{
 		MSG_BOX("Failed to Create CEffectFireBall");
 		SafeRelease(pInstance);
@@ -24,35 +24,18 @@ CEffectFireBall * CEffectFireBall::Create(void * pArg)
 }
 
 
-HRESULT CEffectFireBall::Initialize(void* pArg)
+HRESULT CEffectFireBall::Initialize(void* pArg, _vector* pos)
 {
 	if (pArg != nullptr) {
 
 		m_pGameObject = (CGameObject*)pArg;
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
+
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-		StartPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		SetFadeInOut(m_pGameObject);
+		m_pTransform->SetState(CTransform::STATE_POSITION, *pos);
 
-
-		CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
-		m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
-
-		LookPlayer();
-		//CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "O_WaterEA");
-		//if (pTargetObj == nullptr)
-		//	return E_FAIL;
-		//CTransform* pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
-		//m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-		//_vector pos = pTargetTransform->GetState(CTransform::STATE_POSITION);
-		//pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
-		//m_pTransform->SetState(CTransform::STATE_POSITION, pos);
-		//m_fScale = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
-		//CStat* stat = static_cast<CStat*>(pTargetObj->GetComponent("Com_Stat"));
-		////pos ,size ,  dmg,collisiontpye, duration;
-		//m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_fScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 	}
 	return S_OK;
 }
@@ -64,25 +47,20 @@ void CEffectFireBall::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
-	//m_pTransform->RotateAxis(_vector{ 0.f,0.f,1.f }, -90.f);
-
-	LookPlayer();
-
-	if (m_pGameObject)
-	{
-		//m_pTransform->SetScale(_float3{ 0.5f,0.5f,0.f });
-		m_pTransform->GoStraight(deltaTime*0.5f);
-		m_pTransform->GoDown(deltaTime*0.2f);
-
-		//if (0 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-		//	SetFadeInOut(m_pGameObject);
-		//m_pTransform->SetUpRotation(_vector{0.f,0.1f,0.f},90.f);
-	}
-
-	if (0.15f>=static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeAlpha())
+	
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		m_bDead = true;
 	}
+
+	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+	_float4x4 newWorld;
+	_float4x4 world = m_pTransform->GetMatrix();
+	_vector scale, rotation, position;
+	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
+	XMStoreFloat4x4(&newWorld, viewInverse);
+	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
+	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
 }
 
 
@@ -92,7 +70,6 @@ void CEffectFireBall::LateUpdate(_double deltaTime)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
-		//m_pOBB->SetupDead();
 	}
 }
 
@@ -100,30 +77,20 @@ void CEffectFireBall::Render()
 {
 }
 
-void CEffectFireBall::SetFadeInOut(CGameObject * pObj)
-{
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutEnable(true);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutStartTime(0.f);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(1.5f);
-	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(1.5f);
-}
 
 void CEffectFireBall::Free()
 {
 	__super::Free();
 }
 
-void CEffectFireBall::LookPlayer()
+void CEffectFireBall::SetPos(_matrix _pmatrix)
 {
-	_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION);
+	if (m_pTransform != nullptr)
+	{
+		m_pTransform->SetMatrix(_pmatrix);
+	}
+}
 
-	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	y축 // 외적으로 방향백터를 구하기위해서 그리고 좌우로만 바뀌지 y축은 안바뀌니까
-	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
-
-	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//위에서 외적한 right는 스케일이 깨져있어서 원래 사용하던 right를 대입해주자 
-	_vector		vLook = XMVector3Cross(vRight, vUp);			// 위에서 바꿔준 항등행렬과 y축을 외적하기 
-	vLook = XMVector3Normalize(vLook) * m_pTransform->GetScale(CTransform::STATE_LOOK);
-
-	m_pTransform->SetState(CTransform::STATE_RIGHT, vRight);
-	m_pTransform->SetState(CTransform::STATE_LOOK, vLook);
+void CEffectFireBall::Set_Pos(_vector pPos)
+{
 }
