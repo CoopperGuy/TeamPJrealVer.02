@@ -85,8 +85,8 @@ void CEffectEAFire::SetFadeInOut(CGameObject * pObj)
 
 	static_cast<CEmptyEffect*>(pObj)->SetFadeOutEnable(true);
 	static_cast<CEmptyEffect*>(pObj)->SetFadeOutStartTime(0.f);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(0.5f);
-	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(0.5f);
+	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(0.3f);
+	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(0.3f);
 }
 
 void CEffectEAFire::Free()

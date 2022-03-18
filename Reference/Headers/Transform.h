@@ -88,6 +88,7 @@ public:
 	void GoRight(_double TimeDelta);
 	void GoBackWard(_double TimeDelta);
 	void GoToSetDir(_vector dir, _double deltaTime);
+	void GoDown(_double deltaTime);
 	void ChaseTarget(CTransform* pTarget);
 	void ChaseTarget(_fvector vTargetPos, _double TimeDelta);
 	void LookAtForLandObject(_fvector vTargetPos);

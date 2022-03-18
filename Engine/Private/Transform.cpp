@@ -207,6 +207,18 @@ void CTransform::GoToSetDir(_vector dir, _double deltaTime)
 
 }
 
+void CTransform::GoDown(_double deltaTime)
+{
+	_vector			vPosition = _vector();
+	_vector			vUp = _vector();
+	vUp = GetState(CTransform::STATE_UP);
+	vPosition = GetState(CTransform::STATE_POSITION);
+
+	vPosition += XMVector3Normalize(vUp) * m_TransformDesc.fSpeedPerSec * _float(deltaTime) * -1.0f;
+
+	SetState(CTransform::STATE_POSITION, vPosition);
+}
+
 void CTransform::ChaseTarget(CTransform * pTarget)
 {
 }

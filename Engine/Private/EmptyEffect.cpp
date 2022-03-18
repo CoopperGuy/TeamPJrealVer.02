@@ -285,7 +285,6 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 
 	/*for.DecalBuffer Component*/
 
-	Parent->AddChild(this);
 #pragma endregion
 
 	return S_OK;
@@ -299,7 +298,7 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	m_fFrameTime += (_float)TimeDelta;
 	
 	m_fSpriteNum += (_float)TimeDelta * 10.f;
-	if (m_fSpriteNum >= 16.f)
+	if (m_fSpriteNum >= 32.f)
 	{
 		m_fSpriteNum = 0;
 	}

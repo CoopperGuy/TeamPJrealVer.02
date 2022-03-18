@@ -180,10 +180,10 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     uint UVy = 0;
 
     UVx = g_iSpriteNum % 4;
-    UVy = g_iSpriteNum / 4;
+    UVy = g_iSpriteNum / 8;
 
     Out.vMaskUV.x = ((In.vTexUV.x + UVx) / 4.f);
-    Out.vMaskUV.y = ((In.vTexUV.y + UVy) / 4.f);
+    Out.vMaskUV.y = ((In.vTexUV.y + UVy) / 8.f);
    
     return Out;
 }
