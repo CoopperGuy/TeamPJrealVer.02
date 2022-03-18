@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Transform.h"
 #include "Engine.h"
+#include "TargetManager.h"
 
 CVIBuffer_Trail::CVIBuffer_Trail(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, string shaderPath)
 	: CVIBuffer(pDevice, pDeviceContext)
@@ -121,51 +122,10 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 			XMStoreFloat3(&((VTXTEX*)SubResource.pData)[i + 1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
 		}
 
-
-
 		m_pDeviceContext->Unmap(m_pVB.Get(), 0);
 	}
 
-	m_pShader = make_unique<CShader>("../../Assets/Shader/Shader_Effect.fx");
-
-	/*Diffuse*/
-	char	szExt[MAX_PATH] = "";
-
-	string TextureFilePath = "../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds";
-
-	_splitpath(TextureFilePath.c_str(), nullptr, nullptr, nullptr, szExt);
-
-	if (!strcmp(szExt, ".dds") || !strcmp(szExt, ".DDS"))
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_DDS, TextureFilePath);
-	else if (!strcmp(szExt, ".tga") || !strcmp(szExt, ".TGA") || !strcmp(szExt, ".Tga"))
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, TextureFilePath);
-	else
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, TextureFilePath);
-
-	/*Mask*/
-	TextureFilePath = "../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg";
-
-	_splitpath(TextureFilePath.c_str(), nullptr, nullptr, nullptr, szExt);
-
-	if (!strcmp(szExt, ".dds") || !strcmp(szExt, ".DDS"))
-		m_pTexture1 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_DDS, TextureFilePath);
-	else if (!strcmp(szExt, ".tga") || !strcmp(szExt, ".TGA") || !strcmp(szExt, ".Tga"))
-		m_pTexture1 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, TextureFilePath);
-	else
-		m_pTexture1 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, TextureFilePath);
-
-
-	/*Noise*/
-	TextureFilePath = "../../Assets/Textures/Effect/Noise/FX_AEAura.jpg";
-
-	_splitpath(TextureFilePath.c_str(), nullptr, nullptr, nullptr, szExt);
-
-	if (!strcmp(szExt, ".dds") || !strcmp(szExt, ".DDS"))
-		m_pTexture2 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_DDS, TextureFilePath);
-	else if (!strcmp(szExt, ".tga") || !strcmp(szExt, ".TGA") || !strcmp(szExt, ".Tga"))
-		m_pTexture2 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, TextureFilePath);
-	else
-		m_pTexture2 = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, TextureFilePath);
+	m_pShader = make_unique<CShader>("../../Assets/Shader/Shader_Effect.fx");	
 
 	for (_int i = m_iNumVertices; i > 0; i--) {
 		m_vecCatmullRom.push_back(((VTXTEX*)m_pVertices)[i]);
@@ -199,9 +159,6 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 	DirectX::XMStoreFloat3(&((VTXTEX*)SubResource.pData)[1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
 
 	if (m_bisActive) {
-
-
-
 		if (m_iVtxCnt < 4) {
 			m_vecCatmullRom.emplace_back(((VTXTEX*)SubResource.pData)[0]);
 			m_vecCatmullRom.emplace_back(((VTXTEX*)SubResource.pData)[1]);
@@ -300,41 +257,10 @@ HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 		return S_OK;
 	_uint		iOffset = 0;
 
-	_float3 m_vScrollSpeedX = { 0.5f, 0.5f, 0.f };
-	_float3 m_vScrollSpeedY = { 0.f, 0.f, 0.f };
-	_float3 m_vScale = { 1.f, 2.f, 3.f };
-	_float m_fPadding = 0.f;
-
-	_float2 m_vDistortion[3] = { { 0.1f, 0.2f },{ 0.1f, 0.3f },{ 0.1f, 0.1f } };
-	_float	m_fDistortionScale = 4.f;
-	_float	m_fDistortionBias = 1.f;
-	_float	m_fFadeAlpha = 1.f;
-
-	m_pShader->SetUp_ValueOnShader("g_fFrameTime", &m_TimeAcc, sizeof(_float));
-	m_pShader->SetUp_ValueOnShader("g_vScrollSpeedX", &m_vScrollSpeedX, sizeof(_float3));
-	m_pShader->SetUp_ValueOnShader("g_vScrollSpeedY", &m_vScrollSpeedY, sizeof(_float3));
-	m_pShader->SetUp_ValueOnShader("g_vScale", &m_vScale, sizeof(_float3));
-
-	m_pShader->SetUp_ValueOnShader("g_vDistortion", &m_vDistortion, sizeof(_float2) * 3);
-	m_pShader->SetUp_ValueOnShader("g_fDistortionScale", &m_fDistortionScale, sizeof(_float));
-	m_pShader->SetUp_ValueOnShader("g_fDistortionBias", &m_fDistortionBias, sizeof(_float));
-
-	m_pShader->SetUp_ValueOnShader("g_fFadeAlpha", &m_fFadeAlpha, sizeof(_float));
-
 	m_pShader->SetUp_ValueOnShader("g_AlphaSet", &m_fAlpha, sizeof(_float));
 
-
-	m_pShader->SetUp_ValueOnShader("g_ViewMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW)), sizeof(_matrix));
-	m_pShader->SetUp_ValueOnShader("g_ProjMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ)), sizeof(_matrix));
 	//m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));
-
-	if (m_pTexture)
-		m_pShader->SetUp_TextureOnShader("g_DiffuseTexture", m_pTexture);
-	if (m_pTexture)
-		m_pShader->SetUp_TextureOnShader("g_MaskTexture", m_pTexture1);
-	if (m_pTexture)
-		m_pShader->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture2);
-
+	
 	m_pDeviceContext->IASetVertexBuffers(0, m_iNumVertexBuffers, m_pVB.GetAddressOf(), &m_iStride, &iOffset);
 	m_pDeviceContext->IASetIndexBuffer(m_pIB.Get(), m_eIndexFormat, 0);
 	m_pDeviceContext->IASetPrimitiveTopology(m_ePrimitive);
@@ -372,36 +298,5 @@ CComponent * CVIBuffer_Trail::Clone(void * pArg)
 void CVIBuffer_Trail::Free()
 {
 	__super::Free();
-	SafeRelease(m_pTexture);
-	SafeRelease(m_pTexture1);
-	SafeRelease(m_pTexture2);
-}
-
-string CVIBuffer_Trail::GetTextureFilePath()
-{
-	if (m_pTexture)
-		return m_pTexture->GetFilePath();
-	return "";
-}
-
-void CVIBuffer_Trail::UpdateTexture(string texturePath)
-{
-	if (m_pTexture) {
-		SafeRelease(m_pTexture);
-		m_pTexture = nullptr;
-	}
-	CTexture::TEXTURETYPE type = CTexture::TYPE_END;
-
-	FILESYSTEM::path path = texturePath;
-	string ext = path.extension().string();
-
-	if (ext == ".dds" || ext == ".DDS")
-		type = CTexture::TYPE_DDS;
-	else if (ext == ".tga" || ext == ".TGA" || ext == ".Tga")
-		type = CTexture::TYPE_TGA;
-	else
-		type = CTexture::TYPE_WIC;
-
-
-	m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, type, texturePath);
+	
 }

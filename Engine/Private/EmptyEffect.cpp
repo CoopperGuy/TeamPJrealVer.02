@@ -312,7 +312,7 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	{
 		dynamic_cast<CBasicCollider*>(OBB)->Update_State(m_pTransformCom->GetWorldMatrix());
 	}
-
+	
 
 	UpdateFadeEffect(TimeDelta);
 
@@ -462,7 +462,25 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 
 		static_cast<CVIBuffer_PointInstance*>(PointInstanceCom)->Render(m_iPassIndex);
 	}
-		
+	
+	/* Render Trail */
+	CComponent* TrailCom = GetComponent("Com_Trail");
+	if (TrailCom)
+	{
+		SetUp_ValueOnShader("Com_Trail");
+		if (m_pTexture[TEXTURE_DIFFUSE])
+			static_cast<CVIBuffer*>(TrailCom)->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", m_pTexture[TEXTURE_DIFFUSE]);
+
+		if (m_pTexture[TEXTURE_MASK])
+			static_cast<CVIBuffer*>(TrailCom)->GetShader()->SetUp_TextureOnShader("g_MaskTexture", m_pTexture[TEXTURE_MASK]);
+
+		if (m_pTexture[TEXTURE_NOISE])
+			static_cast<CVIBuffer*>(TrailCom)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NOISE]);
+
+		static_cast<CVIBuffer_Trail*>(TrailCom)->Render(m_iPassIndex);
+	}
+
+
 	return S_OK;
 }
 

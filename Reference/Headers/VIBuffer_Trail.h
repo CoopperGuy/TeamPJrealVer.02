@@ -20,14 +20,9 @@ public:
 	virtual void Free() override;
 
 public:
-	string GetTextureFilePath();
-	void UpdateTexture(string texturePath);
 	void SetColor(_float4 color) { m_Color = color; }
 private:
 	_float4			m_Color = { 1.f, 1.f, 1.f, 1.f };
-	class CTexture*		m_pTexture = nullptr;
-	class CTexture*		m_pTexture1 = nullptr;
-	class CTexture*		m_pTexture2 = nullptr;
 
 	_double m_TimeAcc = 0.0;
 
