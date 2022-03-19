@@ -192,6 +192,11 @@
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
+    <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\MeteoFireBall.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\Public\EffectBlackhole.h" />
     <ClInclude Include="..\Public\EffectBlood.h" />
     <ClInclude Include="..\Public\EffectDust.h" />
@@ -200,8 +205,16 @@
     <ClInclude Include="..\Public\EffectFly.h" />
     <ClInclude Include="..\Public\EffectFlyLaser.h" />
     <ClInclude Include="..\Public\EffectGrab.h" />
+    <ClInclude Include="..\Public\EffectMagic.h" />
+    <ClInclude Include="..\Public\EffectMagicAf.h" />
+    <ClInclude Include="..\Public\EffectMeteoFire.h" />
+    <ClInclude Include="..\Public\EffectMeteoFireBall.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\Public\EffectPajang.h" />
     <ClInclude Include="..\Public\EffectSwordRing.h" />
+    <ClInclude Include="..\Public\EffectMeteoTrail.h" />
     <ClInclude Include="..\public\ElfNPC.h" />
     <ClInclude Include="..\public\El_Flogas.h" />
     <ClInclude Include="..\Public\Enemy.h" />
@@ -315,8 +328,17 @@
     <ClCompile Include="..\Private\EffectFly.cpp" />
     <ClCompile Include="..\Private\EffectFlyLaser.cpp" />
     <ClCompile Include="..\Private\EffectGrab.cpp" />
+    <ClCompile Include="..\Private\EffectMagic.cpp" />
+    <ClCompile Include="..\Private\EffectMagicAf.cpp" />
+    <ClCompile Include="..\Private\EffectMeteoExpolRing.cpp" />
+    <ClCompile Include="..\Private\EffectMeteoFire.cpp" />
+    <ClCompile Include="..\Private\EffectMeteoFireBall.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
+    <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\private\ElfNPC.cpp" />
     <ClCompile Include="..\private\El_Flogas.cpp" />
     <ClCompile Include="..\Private\Enemy.cpp" />
@@ -345,6 +367,10 @@
     <ClCompile Include="..\Private\MainApp.cpp" />
     <ClCompile Include="..\private\MaterialHud.cpp" />
     <ClCompile Include="..\private\MenuHud.cpp" />
+    <ClCompile Include="..\Private\MeteoFireBall.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\private\MonHp.cpp" />
     <ClCompile Include="..\private\MonHpVIBuffer.cpp" />
     <ClCompile Include="..\private\NPC.cpp" />

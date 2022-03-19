@@ -12,7 +12,7 @@ CLoader::CLoader()
 {
 }
 
-void ThreadTest(CLoader*	loader, string path, SCENE sceneNum,_int threadIdx) {
+void ThreadTest(CLoader*	loader, string path, SCENE sceneNum, _int threadIdx) {
 	CEngine::GetInstance()->DeserializeScene(path, sceneNum);
 	loader->SetFinish(threadIdx);
 }
@@ -124,7 +124,7 @@ HRESULT CLoader::UpdateGauge(_double deltaTime)
 	_float	percentage = m_pLoadingGauge->GetPercentage();
 	if (percentage < 90.f) {
 		m_pLoadingGauge->AddPercentage(1.f*deltaTime);
-	//	cout << percentage << "\n";
+		//	cout << percentage << "\n";
 	}
 	return S_OK;
 }
@@ -307,6 +307,8 @@ HRESULT CLoader::GameSceneSEO()
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
 	//	MSG_BOX("Failed To Create Fire Prefab");
 
+
+	/*WaterEA Effect
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_FireBall")))
 		MSG_BOX("Failed To Create FireBall Prefab");
 
@@ -314,10 +316,33 @@ HRESULT CLoader::GameSceneSEO()
 		MSG_BOX("Failed To Create O_WaterEA Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-		MSG_BOX("Failed To Create O_EAFire Prefab");
+		MSG_BOX("Failed To Create O_EAFire Prefab"); */
+
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
+		MSG_BOX("Failed To Create E_MeteoTrail Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
+		MSG_BOX("Failed To Create E_MeteoFire Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
+		MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
+		MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
+		MSG_BOX("Failed To Create E_Meteo Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
+		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
+		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_Seo2.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon_Seo.yaml", SCENE_SEO);
 
 	m_isFinish = true;

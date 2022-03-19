@@ -247,7 +247,7 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     UVy = g_iSpriteNum / 4;
 
     Out.vTexUV.x = ((In.vTexUV.x + UVx) / 4.f);
-    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 8.f);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 4.f);
    
     return Out;
 }
@@ -283,7 +283,6 @@ vector PS_MAIN(PS_IN In) : SV_TARGET
 
     return DiffuseColor;
 }
-
 
 vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
 {
@@ -423,21 +422,42 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
    // vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
     vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
-    vMask.a = ((vMask.r + vMask.g + vMask.b));
-    
-    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
 
-
-    if (vDiffuseColor.r == 1 || vDiffuseColor.g == 1 || vDiffuseColor.b == 1)
+    if (vMask.a <= 0.2f)
         discard;
+
+    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
     vDiffuseColor *= vMask;
        
-    if (vDiffuseColor.a <= 0.1f)
-        discard;
 
     return vDiffuseColor;
 }
+
+vector PS_MAIN_SPRITE_DISCARD(PS_IN_SPRITE In) : SV_TARGET
+{
+    float4 vDiffuseColor;
+    float4 vMask;
+
+   // vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+    vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    //vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
+
+
+    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+   
+    vDiffuseColor *= vMask;
+       
+    if (vDiffuseColor.a <= 0.2f)
+        discard;
+
+       //if (vDiffuseColor.r >= 0.9f || vDiffuseColor.g >= 0.9f || vDiffuseColor.b >= 0.9f)
+       // discard;
+
+    return vDiffuseColor;
+}
+
 
 
 vector PS_MAIN_TRAIL(PS_IN_TEST In) : SV_TARGET
@@ -873,4 +893,15 @@ technique11 DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN_MESH_FlogasFire();
 	}
+
+    pass SPRITDISCARDWhite
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_SPRITE();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SPRITE_DISCARD();
+    }
 }

@@ -74,7 +74,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_dmake += dDeltaTime;
 		if (keyFrame >= 22 && keyFrame <= 23)
 		{
-			if (fireballmake <= 10  ) {
+			if (fireballmake <= 5  ) {
 				fireballmake += 1;
 				_matrix worlmatrix = m_pTransform->GetWorldMatrix();
 				_matrix handbone = m_pModel->Get_BoneWithoutOffset("BN_Finger_04");
@@ -90,7 +90,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 			m_eState = IDLE;
 		}
 	}
-								break;
+	break;
 	case Client::CWaterEA::IDLE: {
 		LookPlayer();
 		m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
@@ -138,7 +138,7 @@ void CWaterEA::LookPlayer()
 {
 	_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION);
 
-	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	y축 // 외적으로 방향백터를 구하기위해서 그리고 좌우로만 바뀌지 y축은 안바뀌니까
+	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	y축 // 외적으로 방향백터s를 구하기위해서 그리고 좌우로만 바뀌지 y축은 안바뀌니까
 	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
 
 	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//위에서 외적한 right는 스케일이 깨져있어서 원래 사용하던 right를 대입해주자 
