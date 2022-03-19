@@ -111,7 +111,7 @@ void CAxe::Create_Trail()
 	pEffect->SetPassIndex(3);
 	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
 	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/FX_AEAura.jpg", CEmptyEffect::TEXTURE_NOISE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/Trail.dds", CEmptyEffect::TEXTURE_NOISE);
 
 	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
 	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));

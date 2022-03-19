@@ -40,7 +40,7 @@ cbuffer EffectBuffer
 Texture2D g_DiffuseTexture;
 Texture2D g_MaskTexture;
 Texture2D g_NoiseTexture;
-Texture2D g_Texture;
+Texture2D g_HDRTexture;
 
 SamplerState g_DefaultSampler
 {
@@ -86,6 +86,16 @@ struct VS_OUT_TEST
     float2 vTexCoord1 : TEXCOORD1;
     float2 vTexCoord2 : TEXCOORD2;
     float2 vTexCoord3 : TEXCOORD3;
+};
+
+struct VS_OUT_TRAIL
+{
+    float4 vPosition : SV_POSITION;
+    float2 vTexUV : TEXCOORD0;
+    float2 vTexCoord1 : TEXCOORD1;
+    float2 vTexCoord2 : TEXCOORD2;
+    float2 vTexCoord3 : TEXCOORD3;
+    float4 vProj : TEXCOORD4;
 };
 
 VS_OUT VS_MAIN(VS_IN In)
@@ -192,9 +202,9 @@ VS_OUT_TEST VS_MAIN_UVHALF(VS_IN In)
 }
 
 
-VS_OUT_TEST VS_MAIN_TRAIL(VS_IN In)
+VS_OUT_TRAIL VS_MAIN_TRAIL(VS_IN In)
 {
-    VS_OUT_TEST Out = (VS_OUT_TEST) 0;
+    VS_OUT_TRAIL Out = (VS_OUT_TRAIL) 0;
 
     //matrix matVP;
 
@@ -223,6 +233,8 @@ VS_OUT_TEST VS_MAIN_TRAIL(VS_IN In)
     Out.vTexCoord3 = In.vTexUV * g_vScale.z;
     Out.vTexCoord3.x = Out.vTexCoord3.x + (g_fFrameTime * g_vScrollSpeedX.z);
     Out.vTexCoord3.y = Out.vTexCoord3.y + (g_fFrameTime * g_vScrollSpeedY.z);
+
+    Out.vProj = Out.vPosition;
 
     return Out;
 }
@@ -272,6 +284,16 @@ struct PS_IN_TEST
     float2 vTexCoord1 : TEXCOORD1;
     float2 vTexCoord2 : TEXCOORD2;
     float2 vTexCoord3 : TEXCOORD3;
+};
+
+struct PS_IN_TRAIL
+{
+    float4 vPosition : SV_POSITION;
+    float2 vTexUV : TEXCOORD0;
+    float2 vTexCoord1 : TEXCOORD1;
+    float2 vTexCoord2 : TEXCOORD2;
+    float2 vTexCoord3 : TEXCOORD3;
+    float4 vProj : TEXCOORD4;
 };
 
 vector PS_MAIN(PS_IN In) : SV_TARGET
@@ -440,46 +462,27 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 }
 
 
-vector PS_MAIN_TRAIL(PS_IN_TEST In) : SV_TARGET
+vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
 {
-    float4 vNoise[3];
-    float4 vFinalNoise;
-    float fPerturb;
-    float2 vNoiseCoord;
-    float4 vDiffuseColor;
-    float4 vAlpha;
+    float2 uv = In.vProj.xy / In.vProj.w;
+    uv = uv * float2(0.5f, -0.5f) + 0.5f;
+    
+    float4 vNoise = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexUV);
 
-    vNoise[0] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord1);
-    vNoise[1] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord2);
-    vNoise[2] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord3);
-     
-    vNoise[0] = (vNoise[0] - 0.5f) * 2.0f;
-    vNoise[1] = (vNoise[1] - 0.5f) * 2.0f;
-    vNoise[2] = (vNoise[2] - 0.5f) * 2.0f;
+    uv.x += vNoise.x * 0.1f;
+    uv.y -= vNoise.y * 0.1f;
 
-    vNoise[0].xy = vNoise[0].xy * g_vDistortion[0].xy;
-    vNoise[1].xy = vNoise[1].xy * g_vDistortion[1].xy;
-    vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
+    float4 vDiffuse = g_HDRTexture.Sample(g_DefaultSampler, uv + 0.01f);
+    float4 vColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
+      
+    vColor.a = vColor.r;
+    vColor.r = 1.f;
+    vColor.gb = vColor.g;
 
-
-    vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
-
-    fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
-
-    vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
-
-    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV.xy);
-    //vDiffuseColor = g_DiffuseTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
-
-    //vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
-   
-    //vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
-
-    //vDiffuseColor.a = vAlpha.a * g_fFadeAlpha + g_AlphaSet;
-    if (vDiffuseColor.a <= 0.1f)
-        discard;
-
-    return vDiffuseColor;
+    if (vColor.a > 0.f)
+        vDiffuse += vColor;
+    
+    return vDiffuse;
 }
 
 
@@ -641,7 +644,7 @@ vector PS_MAIN_MESHRED(PS_IN_TEST In) : SV_TARGET
 
     vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
 
-    vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
+    //vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
 
     vAlpha = g_MaskTexture.Sample(g_BorderSampler, vNoiseCoord.xy);
     
