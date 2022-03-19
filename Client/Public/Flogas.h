@@ -63,7 +63,7 @@ private:
 	class CEffectPajang* m_pEffPajang = nullptr;
 	class CEffectFlyLaser* m_pEffFlyLaser = nullptr;
 	class CEffectBlackhole* m_pEffBlackhole = nullptr;
-	class CEffectSwordRing* m_pEffSwordRing= nullptr;
+	class CEffectSwordRing* m_pEffSwordRing = nullptr;
 
 private:
 	Flogas m_eState = Flogas_END;
@@ -97,6 +97,7 @@ private:
 	_uint m_iLastIndex		 = 0;
 	_uint m_iFlyingCount	 = 0;
 	_uint m_iOnePatternCount = 0;
+	_uint m_iMakeMeteo = 0;
 
 	_float3 m_vTargetToLook;
 	_float3 m_vCenterPos;

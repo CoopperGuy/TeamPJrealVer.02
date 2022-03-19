@@ -273,7 +273,7 @@ HRESULT CModel::CreateBuffer(string pMeshFilePath, string pMeshFileName, string 
 		return S_OK;
 	}
 
-	//int numAnim = m_pScene->mNumAnimations;
+	//int numAnim =	 m_pScene->mNumAnimations;
 	//_matrix		ScaleMatrix, RotationMatrix, TranslationMatrix;
 	//_matrix		ModelPivotMatrix;
 	//ScaleMatrix = XMMatrixScaling(0.01f, 0.01f, 0.01f);

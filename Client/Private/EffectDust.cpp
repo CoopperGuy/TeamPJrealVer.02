@@ -28,6 +28,7 @@ HRESULT CEffectDust::Initialize(void* pArg)
 {
 	if (pArg != nullptr) {
 
+
 		m_pGameObject = (CGameObject*)pArg;
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
@@ -40,12 +41,7 @@ HRESULT CEffectDust::Initialize(void* pArg)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
-
-	//	_matrix posMatrix = {};
-	//	//_matrix targetbone = pTargetmodel->Get_TransformationMatrix("Bip01-L-Calf");
-	////뼈못찾는듯 다른뼈로 해보장
-	//	memcpy(&posMatrix, &targetbone, sizeof(XMMATRIX));
-	//	m_pTransform->SetMatrix(posMatrix);
+		m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ 0.f,0.f,0.f });
 	}
 	return S_OK;
 }
@@ -57,28 +53,15 @@ void CEffectDust::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
+
+	m_fFrame += 14.f*deltaTime;
+
+	if (m_fFrame >= 14)
+		m_bDead = true;
 }
 
 void CEffectDust::LateUpdate(_double deltaTime)
 {
-
-	
-	if (m_bAnimationEnd)
-	{
-		SetFadeInOut(m_pGameObject);
-		m_bSet = true;
-		if (m_bSet)
-		{
-			FadeInStartTime += deltaTime;
-			if (FadeInStartTime > static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
-			{
-				m_bDead = true;
-				m_bSet = false;
-				m_bAnimationEnd = false;
-			}
-		}
-
-	}
 
 
 	if (m_bDead)

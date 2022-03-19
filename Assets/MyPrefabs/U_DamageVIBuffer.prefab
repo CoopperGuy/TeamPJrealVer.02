@@ -5,11 +5,12 @@ GameObjects:
     Active: true
     Layer: Default
     Type: Object
-    PassIndex: 0
+    PassIndex: 2
+    NumOBB: 0
     Com_Transform:
-      Translation: [-0.0689577162, 1.16861475, 10.6208334]
-      Rotation: [11.3099337, 0, 0]
-      Scale: [0.1, 0.1, 0.1]
+      Translation: [0, 0, 0]
+      Rotation: [20.9414711, 58.5375328, 0]
+      Scale: [0.0998205692, 0.0995257273, 0.10006468]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
@@ -21,7 +22,8 @@ GameObjects:
         Active: true
         Layer: Default
         Type: Object
-        PassIndex: 0
+        PassIndex: 2
+        NumOBB: 0
         Com_Transform:
           Translation: [0, 0, 0]
           Rotation: [0, -0, 0]
@@ -36,7 +38,8 @@ GameObjects:
         Active: true
         Layer: Default
         Type: Object
-        PassIndex: 0
+        PassIndex: 2
+        NumOBB: 0
         Com_Transform:
           Translation: [1, 0, 0]
           Rotation: [0, -0, 0]
@@ -51,7 +54,8 @@ GameObjects:
         Active: true
         Layer: Default
         Type: Object
-        PassIndex: 0
+        PassIndex: 2
+        NumOBB: 0
         Com_Transform:
           Translation: [2, 0, 0]
           Rotation: [0, -0, 0]
@@ -66,7 +70,8 @@ GameObjects:
         Active: true
         Layer: Default
         Type: Object
-        PassIndex: 0
+        PassIndex: 2
+        NumOBB: 0
         Com_Transform:
           Translation: [3, 0, 0]
           Rotation: [0, -0, 0]
@@ -74,5 +79,21 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+        RenderGroup: 3
+        FrustumRange: 1
+      - Name: DamageEffect
+        UUID: 8726014127316743946
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 2
+        NumOBB: 0
+        Com_Transform:
+          Translation: [1, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [1, 1, 1]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Alret\Fx_StrongLight.png
         RenderGroup: 3
         FrustumRange: 1

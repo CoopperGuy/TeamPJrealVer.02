@@ -17,6 +17,10 @@
 #include "EffectSwordRing.h"
 #include "EffectBlackhole.h"
 #include "SlashWave.h"
+#include "EffectMeteoFire.h"
+#include "EffectMeteoTrail.h"
+#include "EffectMagic.h"]
+#include "MeteoFireBall.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -87,7 +91,7 @@ HRESULT CFlogas::Initialize(_float3 position)
 	m_pModel->SetUp_AnimationIndex(0);
 	m_pMonHp = CMonHp::Create(m_pGameObject);
 	XMStoreFloat3(&m_vCenterPos, m_pTransform->GetState(CTransform::STATE_POSITION));
-	
+
 	m_pElement[0] = CEl_Flogas::Create("El_Flogas01");
 	m_pElement[1] = CEl_Flogas::Create("El_Flogas02");
 	m_pElement[2] = CEl_Flogas::Create("El_Flogas03");
@@ -122,30 +126,31 @@ void CFlogas::Update(_double dDeltaTime)
 		}
 		
 
-	m_fDist = SetDistance();
+		m_fDist = SetDistance();
 
-	if (m_bStartBattle)
-	{
-		if (!m_bPhaseSecond)
-			InCombat(dDeltaTime);
-		else
-			SecondCombat(dDeltaTime);
-	}
-	else
-	{
-		if(!m_bDeadMotion)
-			m_pModel->SetUp_AnimationIndex(IDLE);
+		if (m_bStartBattle)
+		{
+			if (!m_bPhaseSecond)
+				InCombat(dDeltaTime);
+			else
+				SecondCombat(dDeltaTime);
+		}
 		else
 		{
-			Empty_queue();
-			if (m_pMonHp)
+			if(!m_bDeadMotion)
+				m_pModel->SetUp_AnimationIndex(IDLE);
+			else
 			{
-				m_pMonHp->SetRelease();
-				m_pMonHp = nullptr;
+				Empty_queue();
+				if (m_pMonHp)
+				{
+					m_pMonHp->SetRelease();
+					m_pMonHp = nullptr;
+				}
+				m_eState = DIE;
+				if (m_pModel->Get_isFinished(DIE))
+					m_eState = DEADBODY;
 			}
-			m_eState = DIE;
-			if (m_pModel->Get_isFinished(DIE))
-				m_eState = DEADBODY;
 		}
 	}
 	//OrganizeEffect(m_eState);
@@ -163,14 +168,14 @@ void CFlogas::Update(_double dDeltaTime)
 		m_bDeadMotion = true;
 	}
 
-
-
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 	}
 
+
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
+
 
 	//fall down
 	/*PxControllerFilters filters;
@@ -185,7 +190,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
-	OrganizeEffect(m_eState);	
+	OrganizeEffect(m_eState);
 }
 
 void CFlogas::Render()
@@ -515,6 +520,7 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 	PxControllerFilters filters;
 	if (m_bMove)
 	{
+
 	/*	m_dChaseTime += dDeltaTime;
 		if (m_dChaseTime > 3.f)
 		{
@@ -528,7 +534,7 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 		}*/
 		m_eState = RUN;
 		/*if (m_fDist >= 1.3f)
-			m_eState = RUN;
+			  m_eState = RUN;
 		else
 			m_eState = WALK;*/
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
@@ -595,10 +601,10 @@ void CFlogas::Flying(_double dDeltaTime)
 	{
 		Empty_queue();
 
-		
+
 		_uint iCheck = m_pElement[0]->Get_Destination() + m_pElement[1]->Get_Destination() + m_pElement[2]->Get_Destination()
 			+ m_pElement[3]->Get_Destination();
-		
+
 		if (iCheck >= 3)
 		{
 			m_eState = FLYING_END;
@@ -673,6 +679,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	switch (eState)
 	{
 	case IDLE:
+		m_iMakeMeteo = 0;
 		break;
 	case WALK:
 		break;
@@ -685,7 +692,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
 			m_eCurSTATES = CStat::STATES_ATK;
 		}
-		else 
+		else
 			m_eCurSTATES = CStat::STATES_IDEL;
 		if (keyFrame == 28.f) {
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
@@ -693,7 +700,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			m_pEffSwordRing->SetSlashR(false);
 		}
 	}
-		break;
+	break;
 	case L_Slash:
 	{
 		if (keyFrame == 27)
@@ -723,7 +730,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case SWORDTHROWING_START:
 		if (keyFrame >= 82 && keyFrame <= 116) {
 			m_eCurSTATES = CStat::STATES_ATK;
-		}		
+		}
 		break;
 	case SWORDTHROWING_LOOP:
 		m_eCurSTATES = CStat::STATES_IDEL;
@@ -758,9 +765,31 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		}
 		break;
 	}
-	case FIREFIST:
-		m_eCurSTATES = CStat::STATES_IDEL;
-		break;
+	case FIREFIST: {
+		if (keyFrame == 50) {
+			//내려찍기 
+			if (m_bMakeEffect) {
+				auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoTrail", "E_MeteoTrail");
+				CEngine::GetInstance()->AddScriptObject(CEffectMeteoTrail::Create(EffectTrail), CEngine::GetInstance()->GetCurSceneNumber());
+				auto EffectFire = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoFire", "E_MeteoFire");
+				CEngine::GetInstance()->AddScriptObject(CEffectMeteoFire::Create(EffectFire), CEngine::GetInstance()->GetCurSceneNumber());
+				m_bMakeEffect = false;
+			}
+		}
+		if (keyFrame >= 51 && keyFrame <= 70)
+		{
+
+			if (m_iMakeMeteo <= 8)
+			{
+				auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
+				CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, pos), CEngine::GetInstance()->GetCurSceneNumber());
+				m_iMakeMeteo += 1;
+				/*auto EffectDropArea = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
+				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectDropArea, pos), CEngine::GetInstance()->GetCurSceneNumber());*/
+			}
+		}
+	}
+	 break;
 	case FOOTHAMMER:
 		m_eCurSTATES = CStat::STATES_IDEL;
 		break;
@@ -779,6 +808,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
 				m_bMakeEffect = false;
 			}
+
 		}
 		break;
 	}

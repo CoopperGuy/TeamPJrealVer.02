@@ -514,6 +514,9 @@ HRESULT CEmptyGameObject::Render(_uint iPassIndex)
 	if (!m_bIsActive)
 		return S_OK;
 
+	if (m_bisRender == false)
+		return S_OK;
+
 	CComponent* buffer = GetComponent("Com_VIBuffer");
 	if (buffer)
 		dynamic_cast<CVIBuffer*>(buffer)->Render(iPassIndex);

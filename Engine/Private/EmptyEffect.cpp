@@ -301,7 +301,8 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	m_fFrameTime += (_float)TimeDelta;
 	
 	m_fSpriteNum += (_float)TimeDelta * m_fSpriteSpeed;
-	if (m_fSpriteNum >= 25.f)
+
+	if (m_fSpriteNum >= 16.f)
 	{
 		m_fSpriteNum = 0;
 		m_SpriteEnd = true;
@@ -349,7 +350,13 @@ _uint CEmptyEffect::LateUpdate(_double TimeDelta)
 		m_pTransformCom->SetMatrix(m_pLocalTransformCom->GetWorldMatrix() * pTargetModel->Get_BoneMatrix(m_TargetBoneName.c_str()) * TargetMatrix);
 	}
 
-	return m_pRendererCom->AddRenderGroup(CRenderer::RENDER_ALPHA, this);
+	CComponent* TrailCom = GetComponent("Com_Trail");
+	if (TrailCom != nullptr)
+		m_pRendererCom->AddRenderGroup(CRenderer::RENDER_TRAIL, this);
+	else
+	m_pRendererCom->AddRenderGroup(CRenderer::RENDER_ALPHA, this);
+
+	return 0;
 }
 
 HRESULT CEmptyEffect::Render(_uint iPassIndex)
