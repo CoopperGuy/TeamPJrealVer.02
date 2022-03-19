@@ -135,6 +135,11 @@ void CAxe::Set_TrailOnOff()
 	m_pTrailBuffer->SetIsActive(false);
 	playerStat->SetSTATE(CStat::STATES_IDEL);
 	_vector thisPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	for (_int i = 0; i < (_int)Player_State::Player_End; i++) {
+		if (i == (_int)playerState)
+			continue;
+		m_effectCreate[i] = false;
+	}
 	switch (playerState)
 	{
 	case Client::Player_State::WakeUp_Bad:
@@ -266,9 +271,10 @@ void CAxe::Set_TrailOnOff()
 		if (keyFrame >= 8) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4.f, 0.03f);
 		}
-		if (keyFrame == 0) {
+		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_shoulderEffect", "E_shoulderEffect");
 			CEngine::GetInstance()->AddScriptObject(CShoulerAtk::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+			m_effectCreate[_int(playerState)] = true;
 		}
 		break;
 	}
@@ -293,9 +299,10 @@ void CAxe::Set_TrailOnOff()
 		if (keyFrame == 19) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
 		}
-		if (keyFrame == 18) {
+		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 18) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+			m_effectCreate[_int(playerState)] = true;
 		}
 		break;
 	}
@@ -349,10 +356,10 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
-		if (keyFrame == 5) {
+		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
-
+			m_effectCreate[_int(playerState)] = true;
 		}
 		break;
 	}
@@ -361,10 +368,10 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.2f);
-		if (keyFrame == 5) {
+		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
-
+			m_effectCreate[_int(playerState)] = true;
 		}
 		break;
 	}
@@ -402,4 +409,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::Player_End:
 		break;
 	}
+
+	m_pTrailBuffer->SetIsActive(false);
+
 }

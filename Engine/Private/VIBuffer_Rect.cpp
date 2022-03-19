@@ -135,6 +135,7 @@ HRESULT CVIBuffer_Rect::Render(_uint iPassIndex)
 	m_pShader->SetUp_ValueOnShader("g_ViewMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW)), sizeof(_matrix));
 	m_pShader->SetUp_ValueOnShader("g_ProjMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ)), sizeof(_matrix));
 	m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));
+	m_pShader->SetUp_ValueOnShader("g_Alpha", &m_fAlpha, sizeof(_float));
 
 	if (m_pTexture)
 		m_pShader->SetUp_TextureOnShader("Diffuse", m_pTexture);

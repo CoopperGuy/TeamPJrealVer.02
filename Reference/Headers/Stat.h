@@ -25,11 +25,12 @@ public:
 		_float levelExp;
 		_float levelAtk;
 		_float levelRegen;
+		_float critical = 0.1f;
 		_int   level;
 		_int   gold = 0;
 		_bool  isDead = false;
 		_bool  isImmortal = false;
-		char   padding[3];
+		char   padding[6];
 	}STAT;
 	enum STATES{STATES_IDEL, STATES_ATK, STATES_HITTED, STATES_END};
 private:
@@ -42,6 +43,7 @@ public:
 	void SetSTATE(STATES _state) { m_eState = _state; }
 	void SetStamina(_float _stamina) { m_fStamina += _stamina; }
 	void SetDMGRatio(_float _ratio) { m_fDMGRatio = _ratio; }
+	void SetCritical(_float critical) { m_tStat.critical = critical; }
 public:
 	_bool GetIsImmortal() { return m_tStat.isImmortal; }
 	STAT GetStatInfo() { return m_tStat; }
@@ -50,6 +52,7 @@ public:
 	_float GetStaPercentage() { return m_fStamina / m_fStaMax; }
 	_float GetExpPercentage() { return m_tStat.exp / m_tStat.maxExp; }
 	_float GetDMGRatio() { return m_fDMGRatio; }
+	_float GetCritical() { return m_tStat.critical; }
 public:
 	_bool UseStamina(_float stamina);
 public:
