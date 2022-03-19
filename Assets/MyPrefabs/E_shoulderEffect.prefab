@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: shoulderEffect
-    UUID: 16360291868176570978
+    UUID: 17376219239291952529
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 6
+    PassIndex: 7
     BillBord: false
     Com_Transform:
-      Translation: [-0.0728855953, 0.122553416, 3.44368935]
+      Translation: [1.04777813, 0.122553416, 3.44368935]
       Rotation: [0, -0, 0]
-      Scale: [0.7, 0.7, 3]
+      Scale: [0.799999988, 0.799999988, 3]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: Effect_HalfCircleY.fbx
@@ -25,12 +25,12 @@ GameObjects:
       Distortion1: [0.200000003, 0.100000001]
       Distortion2: [0.200000003, 0]
       Distortion3: [0.200000003, 0]
-      DistortionScale: 3.70000005
-      DistortionBias: 0
+      DistortionScale: 4.30000019
+      DistortionBias: 0.600000024
       FadeOut: true
-      FadeOutDuration: 0.2
+      FadeOutDuration: 0.200000003
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0.2
+      EffectDuration: 0.200000003

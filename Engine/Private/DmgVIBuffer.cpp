@@ -45,7 +45,7 @@ CDmgVIBuffer::CDmgVIBuffer()
 {
 }
 
-HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos ,  _float dmg)
+HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos ,  _float dmg, _bool isCrit, _bool effect)
 {
 	m_fDmg = dmg;
 	//std::thread loadDmgFont(ThreadDmgBuffer, this, pos,  m_fDmg);
@@ -58,6 +58,7 @@ HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos ,  _float dmg)
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	list<CGameObject*> child = thisUI->GetChildren();
 	int i = 0;
+	_int idx = 0;
 	auto iter = child.end();
 
 	string strDmg = to_string((_int)dmg);
@@ -66,16 +67,33 @@ HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos ,  _float dmg)
 		if (i < strDmg.length()) {
 			string number;
 			number.push_back(strDmg.at(i));
-			string dmgFontPath = "../../Assets/UITexture/Font/DmgF_Atk_" + number + ".dds";
-			static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
+			if (isCrit) {
+				string dmgFontPath = "../../Assets/UITexture/Font/DmgF_CriAtk_" + number + ".dds";
+				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
+			}
+			else {
+				string dmgFontPath = "../../Assets/UITexture/Font/DmgF_Atk_" + number + ".dds";
+				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
+			}
 			i++;
 		}
 		else {
-			string dmgFontPath = "../../Assets/UITexture/Font/nullImage.dds";
-			static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
+			if (idx != 4) {
+				string dmgFontPath = "../../Assets/UITexture/Font/nullImage.dds";
+				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
+			}
 
 		}
 		static_cast<CEmptyGameObject*>(iter)->SetLocalPosition(_float3{ (_float)i,0,0 });
+		if (idx == 4) {
+			static_cast<CEmptyGameObject*>(iter)->SetLocalPosition(_float3{ (_float)i / 2.f + 0.5f,0,0 });
+			if (effect)
+				iter->SetActive(true);
+			else
+				iter->SetActive(false);
+		}
+		m_listChild.emplace_back(static_cast<CEmptyGameObject*>(iter));
+		idx++;
 	}
 	this->SetTransform(dynamic_cast<CTransform*>(thisUI->GetComponent("Com_Transform")));
 	this->SetisEnd();
@@ -88,9 +106,27 @@ void CDmgVIBuffer::Update(_double deltaTime)
 	if (isEnd) {
 		if (__super::IsDead() || m_pThisUI == nullptr || m_pThisUI->isDead() )
 			return;
+
+
 		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 		_float y = XMVectorGetY(pos) - 0.2f * deltaTime;
 		m_pTransform->SetState(CTransform::STATE_POSITION, XMVectorSetY(pos, y));
+
+
+		if (isStartDisable) {
+			m_fAlpha -= 1.5f * deltaTime;
+			for (auto& iter : m_listChild)
+				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->SetAlpha(m_fAlpha);
+		}
+		if (isShrink) {
+			m_startSize += 0.5f * deltaTime;
+		}
+		else {
+			if (m_startSize > 0.065f)
+				m_startSize -= 0.5f*deltaTime;
+		}
+		m_pTransform->SetScale(_float3{ m_startSize ,m_startSize ,m_startSize });
+
 	}
 }
 
@@ -98,11 +134,21 @@ void CDmgVIBuffer::LateUpdate(_double deltaTime)
 {
 	if (isEnd) {
 		m_LifeDelta += deltaTime;
+		m_durationDelta += deltaTime;
 		if (m_LifeTime < m_LifeDelta) {
 			m_pThisUI->SetDead();
 			__super::SetDead();
-			m_LifeDelta = 0;
 			return;
+		}
+		if (m_fAlpha < 0.f) {
+			m_pThisUI->SetDead();
+			__super::SetDead();
+			return;
+		}
+
+		if (m_startSize > 0.125f) {
+			isShrink = false;
+			isStartDisable = true;
 		}
 		m_pThisUI->SetisRender(true);
 	}
@@ -115,10 +161,10 @@ void CDmgVIBuffer::Render()
 {
 }
 
-CDmgVIBuffer * CDmgVIBuffer::Create(CGameObject * pTarget, _float3 pos , _float dmg)
+CDmgVIBuffer * CDmgVIBuffer::Create(CGameObject * pTarget, _float3 pos , _float dmg, _bool isCrit, _bool effect)
 {
 	CDmgVIBuffer*	obj = new CDmgVIBuffer();
-	if (FAILED(obj->Initailze(pTarget,pos, dmg))) {
+	if (FAILED(obj->Initailze(pTarget,pos, dmg, isCrit, effect))) {
 		SAFE_RELEASE(obj);
 		return nullptr;
 	}
