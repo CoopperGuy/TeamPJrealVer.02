@@ -243,11 +243,11 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     uint UVx = 0;
     uint UVy = 0;
 
-    UVx = g_iSpriteNum % 4;
-    UVy = g_iSpriteNum / 4;
+    UVx = g_iSpriteNum % 5;
+    UVy = g_iSpriteNum / 5;
 
-    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 4.f);
-    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 8.f);
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 5.f);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 5.f);
    
     return Out;
 }
@@ -432,7 +432,6 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
         discard;
    
     vDiffuseColor *= vMask;
-       
     if (vDiffuseColor.a <= 0.1f)
         discard;
 

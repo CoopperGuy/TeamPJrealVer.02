@@ -137,6 +137,35 @@ HRESULT CLoader::GamePlayLoader()
 	return S_OK;
 }
 
+HRESULT CLoader::GameFlogasLoader()
+{
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFly", "E_BossFly")))
+		MSG_BOX("Failed To Create BossFly Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFlyLaser", "E_Laser")))
+		MSG_BOX("Failed To Create BossFlyLaser Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Dust", "E_DustEffect")))
+		MSG_BOX("Failed To Create DustEffect Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_SwordRing", "E_SwordRing")))
+		MSG_BOX("Failed To Create ring Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blackhole", "E_Blackhole")))
+		MSG_BOX("Failed To Create Blackhole Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Grab", "E_Grab")))
+		MSG_BOX("Failed To Create Grab Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Pajang", "E_Pajangs")))
+		MSG_BOX("Failed To Create Pajang Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireSlash", "E_FireSlash")))
+		MSG_BOX("Failed To Create FireSlash Prefab");
+
+	return S_OK;
+}
+
 HRESULT CLoader::GameTestLoader()
 {
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/FieldMapGround.yaml", SCENE_TEST);
@@ -194,27 +223,9 @@ HRESULT CLoader::GameSceneLogo()
 	while (m_pLoadingGauge->GetPercentage() < 90.f)
 		m_pLoadingGauge->AddPercentage(0.001f);
 	////AddEffect
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFly", "E_BossFly")))
-	//	MSG_BOX("Failed To Create BossFly Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFlyLaser", "E_Laser")))
-	//	MSG_BOX("Failed To Create BossFlyLaser Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Dust", "E_DustEffect")))
-	//	MSG_BOX("Failed To Create DustEffect Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_SwordRing", "E_SwordRing")))
-	//	MSG_BOX("Failed To Create ring Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blackhole", "E_Blackhole")))
-	//	MSG_BOX("Failed To Create Blackhole Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Grab", "E_Grab")))
-	//	MSG_BOX("Failed To Create Grab Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Pajang", "E_Pajangs")))
-	//	MSG_BOX("Failed To Create Pajang Prefab");
-
+	//if (FAILED(GameFlogasLoader()))
+	//	MSG_BOX("Failed To Create Flogas Effect");
+	
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObject_OBBs", "O_OBBs")))
 		MSG_BOX("Failed To Create Pajang Prefab");
 
@@ -282,13 +293,12 @@ HRESULT CLoader::GameSceneJUN()
 {
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Instance_Fire", "E_InstanceFire")))
-	//{
-	//	MSG_BOX("Failed To Create INSTANPrefab");
-	//}
+	
+	if (FAILED(GameFlogasLoader()))
+		MSG_BOX("Failed To Create Flogas Effect");
 
 	m_isFinish = true;
 

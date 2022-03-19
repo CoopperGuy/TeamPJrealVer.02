@@ -251,6 +251,7 @@
     <ClInclude Include="..\public\ShopInvenHud.h" />
     <ClInclude Include="..\public\ShoulerAtk.h" />
     <ClInclude Include="..\public\SideQuestHud.h" />
+    <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
@@ -366,6 +367,7 @@
     <ClCompile Include="..\private\ShopInvenHud.cpp" />
     <ClCompile Include="..\private\ShoulerAtk.cpp" />
     <ClCompile Include="..\private\SideQuestHud.cpp" />
+    <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
