@@ -31,6 +31,7 @@ public:
 	HRESULT Initialize(SCENE eScene);
 	HRESULT	UpdateGauge(_double deltaTime);
 	HRESULT GamePlayLoader();
+	HRESULT GameFlogasLoader();
 	HRESULT	GameTestLoader();
 	HRESULT	GameSceneLoader(string scene, SCENE sceneNum);
 	HRESULT GameSceneStage01();

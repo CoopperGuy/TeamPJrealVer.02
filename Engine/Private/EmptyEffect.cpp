@@ -301,6 +301,7 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	m_fFrameTime += (_float)TimeDelta;
 	
 	m_fSpriteNum += (_float)TimeDelta * m_fSpriteSpeed;
+
 	if (m_fSpriteNum >= 16.f)
 	{
 		m_fSpriteNum = 0;

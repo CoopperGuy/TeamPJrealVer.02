@@ -8,7 +8,7 @@ class CFlogas : public CEnemy
 {
 public:
 	enum Flogas { IDLE, WALK, RUN, R_Slash, L_Slash, THRUST, SWORDTHROWING_START, SWORDTHROWING_LOOP, SWORDTHROWING_END, FIREWAVE,FIREFIST
-		,FLYING_END2, FLYING, FOOTHAMMER,ahffn1, ahffn2, ahffn3, ahffn4, STUN,DMG_F,DMG_B, DIE, DEADBODY,FLYING_START,FLYING_ING,FLYING_END, Flogas_END };
+		,FLYING_END2, FLYING, FOOTHAMMER,STICKSWORD1, STICKSWORD2, STICKSWORD3, STICKSWORDCutScene, STUN,DMG_F,DMG_B, DIE, DEADBODY,FLYING_START,FLYING_ING,FLYING_END, Flogas_END };
 
 private:
 	explicit CFlogas();
@@ -77,7 +77,7 @@ private:
 	_bool m_bSpecialAtt		= false;
 	_bool m_bSpecialStart	= false;
 	_bool m_bDeadMotion		= false;
-
+	_bool m_bMeteor			= false;
 	_bool m_bPhaseSecond	= false;
 	_bool m_bFly			= true;
 	_bool m_bCenter			= false;

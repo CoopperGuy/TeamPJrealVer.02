@@ -322,6 +322,9 @@
     <ClInclude Include="..\public\ImpactShort.h">
       <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\SlashWave.h">
+      <Filter>05.Effect\FlogasDungeon</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\EffectMeteoFire.h">
       <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>
     </ClInclude>
@@ -653,6 +656,9 @@
     </ClCompile>
     <ClCompile Include="..\private\ImpactShort.cpp">
       <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SlashWave.cpp">
+      <Filter>05.Effect\FlogasDungeon</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectMeteoFire.cpp">
       <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>

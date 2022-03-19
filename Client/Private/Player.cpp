@@ -769,7 +769,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			if (m_pModel->GetCurrentKeyFrame() < 10)
 			{
 				memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
-				fSpeed = 5.f;
+				fSpeed = 4.f;
 			}
 			else
 			{
@@ -781,7 +781,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			if (m_pModel->GetCurrentKeyFrame() < 17)
 			{
 				memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
-				fSpeed = 2.7f;
+				fSpeed = 2.f;
 			}
 			else
 			{

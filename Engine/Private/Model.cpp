@@ -989,9 +989,7 @@ void CModel::Set_ForceLoop(_uint Index, _bool result)
 
 _bool CModel::Get_isFinished(_uint iIndex)
 {
-	_bool Finished = m_Animations[iIndex]->Update_TransformationMatrices(0.f);
-
-	return Finished;
+	return m_Animations[iIndex]->Get_isFinished();
 }
 
 _bool CModel::Get_isFinished()
@@ -1145,11 +1143,14 @@ HRESULT CModel::Update_CombinedTransformationMatrices(_double TimeDelta)
 			pRender->SetMatrix(m_pTransform->GetWorldMatrix());
 		}
 		_float ratio = (m_fBlendTime / m_fBlendDuration);
-		m_Animations[m_iPrevAnimationIndex]->Update_TransformationMatrices(0.5f);
+		//if(!m_Animations[m_iPrevAnimationIndex]->GetLoop())
+			//m_Animations[m_iPrevAnimationIndex]->Update_TransformationMatrices(0.5f);
 
 		if(!m_Animations[m_iAnimationIndex]->GetRoot() && !m_Animations[m_iPrevAnimationIndex]->GetRoot())
 			m_Animations[m_iAnimationIndex]->Blend_Animation(m_Animations[m_iPrevAnimationIndex], ratio, m_bChanged);
 	
+		else
+			m_Animations[m_iPrevAnimationIndex]->Update_TransformationMatrices(0.5f);
 		m_fBlendTime += (_float)TimeDelta;
 		if (m_fBlendTime >= m_fBlendDuration) {
 			m_iPrevAnimationIndex = m_iAnimationIndex;

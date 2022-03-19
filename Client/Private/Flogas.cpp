@@ -16,6 +16,7 @@
 #include "EffectFireTwist.h"
 #include "EffectSwordRing.h"
 #include "EffectBlackhole.h"
+#include "SlashWave.h"
 #include "EffectMeteoFire.h"
 #include "EffectMeteoTrail.h"
 #include "EffectMagic.h"]
@@ -114,7 +115,7 @@ void CFlogas::Update(_double dDeltaTime)
 	//	m_pGameObject->SetDead();
 
 	__super::Update(dDeltaTime);
-	/*if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
+	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
 		{
 			m_bStartBattle = true;
 			if(m_pStat->GetStatInfo().hp < 2400.f)
@@ -123,7 +124,7 @@ void CFlogas::Update(_double dDeltaTime)
 			if(m_pStat->GetStatInfo().hp <= 0)
 				m_bDeadMotion = true;
 		}
-		*/
+		
 
 		m_fDist = SetDistance();
 
@@ -151,21 +152,21 @@ void CFlogas::Update(_double dDeltaTime)
 					m_eState = DEADBODY;
 			}
 		}
-		OrganizeEffect(m_eState);
+	}
+	//OrganizeEffect(m_eState);
 
-		if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		{
-			m_bStartBattle = true;
-		}
-		if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		{
-			m_bPhaseSecond = true;
-		}
-		if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-		{
-			m_bDeadMotion = true;
-		}
-
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	{
+		m_bStartBattle = true;
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	{
+		m_bPhaseSecond = true;
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	{
+		m_bDeadMotion = true;
+	}
 
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
@@ -208,12 +209,50 @@ void CFlogas::Empty_queue()
 
 void CFlogas::InCombat(_double dDeltaTime)
 {
-	if (!m_bAtt && !m_bSpecialAtt && !m_bOverChase)
+	if (!m_bAtt && !m_bSpecialAtt && !m_bOverChase && m_iOnePatternCount < 3)
 		Adjust_Dist(dDeltaTime);
 	//if (m_bOverChase)
 	//	OverChase(dDeltaTime);
+	if (m_iOnePatternCount > 2)
+	{
+		if (OriginShift(dDeltaTime) && !m_bMeteor)
+		{
+			Empty_queue();
+			if (m_QueState.empty())
+			{
+				m_QueState.push(FIREFIST);
+				m_QueState.push(FLYING_END2);
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+				m_bMeteor = true;
+			}
+		}
+		else if (m_bMeteor)
+		{
+			if(m_bDelay)
+				m_dDelayTime += dDeltaTime;
+			
+			if (m_pModel->Get_isFinished(FIREFIST))
+			{
+				if (m_dDelayTime <= 0)
+				{
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+				}
+				m_bDelay = true;
+			}
 
-	if (m_bClose)
+			if (m_dDelayTime > 3.5f)
+			{
+				m_bDelay = false;
+				m_bCenter = false;
+				m_bMeteor = false;
+				m_dDelayTime = 0.f;
+				m_iOnePatternCount = 0;
+			}
+		}
+	}
+	else if (m_bClose)
 	{
 		if (m_QueState.empty())
 		{
@@ -245,7 +284,7 @@ void CFlogas::InCombat(_double dDeltaTime)
 	//{
 	//	m_dDelayTime += dDeltaTime;
 	//}
-	if (!m_bSpecialAtt)
+	if (!m_bSpecialAtt && m_iOnePatternCount < 3)
 		EndState(m_eState, dDeltaTime);
 }
 
@@ -302,29 +341,29 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 			{
 				_int iSecondDrawing = rand() % 100;
 
-				if (iSecondDrawing < 20)
+			/*	if (iSecondDrawing < 20)
 				{
 					if (m_QueState.back() != FIREFIST)
 						m_QueState.push(FIREFIST);
 					else
 						continue;
-				}
+				}*/
 
-				else if (iSecondDrawing < 50)
+				if (iSecondDrawing < 40)
 				{
 					if (m_QueState.back() != FOOTHAMMER)
 						m_QueState.push(FOOTHAMMER);
 					else
 						continue;
 				}
-				else if (iSecondDrawing < 80)
+				else if (iSecondDrawing < 90)
 				{
 					if (m_QueState.back() != FIREWAVE)
 						m_QueState.push(FIREWAVE);
 					else
 						continue;
 				}
-				else if (iSecondDrawing < 90)
+				else if (iSecondDrawing < 95)
 				{
 					if (m_QueState.size() >= 3)
 					{
@@ -432,17 +471,17 @@ void CFlogas::RandomPattern()
 			m_QueState.push(R_Slash);
 			m_QueState.push(THRUST);
 		}
-		if (Drawing <= 10)
+		/*if (Drawing <= 10)
 		{
 			m_QueState.push(FIREWAVE);
 		}
 		else
-		{
+		{*/
 			if (m_QueState.back() == THRUST)
 				m_QueState.push(L_Slash);
 			else
 				m_QueState.push(THRUST);
-		}
+		//}
 	}
 }
 
@@ -481,35 +520,33 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 	PxControllerFilters filters;
 	if (m_bMove)
 	{
-		/*	m_dChaseTime += dDeltaTime;
-			if (m_dChaseTime > 3.f)
-			{
-				Empty_queue();
-				m_QueState.push(FIREWAVE);
-				m_bOverChase = true;
-				m_bClose = false;
-				m_bMove = false;
-				m_dChaseTime = 0.f;
 
-			}*/
-		if (m_fDist >= 1.3f)
-			m_eState = RUN;
+	/*	m_dChaseTime += dDeltaTime;
+		if (m_dChaseTime > 3.f)
+		{
+			Empty_queue();
+			m_QueState.push(FIREWAVE);
+			m_bOverChase = true;
+			m_bClose = false;
+			m_bMove = false;
+			m_dChaseTime = 0.f;
+
+		}*/
+		m_eState = RUN;
+		/*if (m_fDist >= 1.3f)
+			  m_eState = RUN;
 		else
-			m_eState = WALK;
+			m_eState = WALK;*/
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
-		m_pController->move(vDir * 2.f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+		m_pController->move(vDir * 0.8f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 	}
 }
 
 void CFlogas::SpecialPattern(_double dDeltaTime)
 {
-	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
-	PxControllerFilters filters;
-
-
 	if (m_bSpecialStart)
 	{
 		Empty_queue();
@@ -616,17 +653,20 @@ _bool CFlogas::OriginShift(_double dDeltaTime)
 	{
 		if (!m_bCenter)
 		{
+			m_bAtt = false;
 			m_eState = RUN;
 			vCenter = XMVectorSetY(vCenter, 0.f);
 			m_pTransform->SetLook(vCenter);
 			memcpy(&vDir, &XMVector3Normalize(vCenter), sizeof(_float3));
-			m_pController->move(vDir * 0.02f/* * 0.5f*/, 0.01f, (_float)dDeltaTime, nullptr);
+			m_pController->move(vDir * 1.f * dDeltaTime, 0.01f, (_float)dDeltaTime, nullptr);
 			return false;
 		}
 	}
 	else
+	{
+		m_pTransform->SetLook(XMLoadFloat3(&m_vTargetToLook));
 		m_bCenter = true;
-
+	}
 	return true;
 }
 
@@ -634,7 +674,6 @@ void CFlogas::OrganizeEffect(Flogas eState)
 {
 	//키프레임으로 이펙트
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
-	//m_pModel->Set_CurrentKeyFrame();
 	_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	//m_pTrail->SetIsActive(false);
 	switch (eState)
@@ -649,6 +688,8 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case R_Slash:
 	{
 		if (keyFrame >= 30 && keyFrame <= 35) {
+			/*CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
+			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
 			m_eCurSTATES = CStat::STATES_ATK;
 		}
 		else
@@ -662,6 +703,11 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	break;
 	case L_Slash:
 	{
+		if (keyFrame == 27)
+		{
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
+			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 		if (keyFrame >= 29 && keyFrame <= 36) {
 			m_eCurSTATES = CStat::STATES_ATK;
 		}
@@ -713,9 +759,9 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		}
 		if (keyFrame == 124.f)
 		{
-			/*auto EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
+			auto EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
-			make = true;*/
+			make = true;
 		}
 		break;
 	}

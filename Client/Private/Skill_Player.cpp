@@ -67,7 +67,7 @@ CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 
 void CSkill_Player::Update(_double dDeltaTime, CPlayer & pPlayer)
 {
-	pPlayer.Set_AnimSpeed(1.5f);
+	pPlayer.Set_AnimSpeed(1.f);
 	_uint iFinished = 0;
 
 	if (m_bDuring)
