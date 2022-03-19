@@ -1,0 +1,33 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_MeteoDropArea
+    UUID: 5243742198099154231
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, -1.68498016e-08, 0]
+      Rotation: [90, -0, 0]
+      Scale: [0.998864949, 1, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 4
+      FadeIn: true
+      FadeInDuration: 3
+      FadeInStratTime: 0
+      EffectDuration: 5

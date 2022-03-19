@@ -298,6 +298,8 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 		return E_FAIL;	
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_PointInstance", CVIBuffer_PointInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_PointInstance.fx", 10))))
 		return E_FAIL;
+	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_SmokesPointInstance", CVIBuffer_PointInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_PointInstance.fx"))))
+		return E_FAIL;
 	
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_Line", CVIBuffer_Line::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_Line.fx", 20))))
 		return E_FAIL;
@@ -340,6 +342,10 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_Spawn", CSpawner::Create(m_pDevice, m_pDeviceContext))))
 		return E_FAIL;
+
+	///*smokeEff*/
+	//if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_SmokeEffect", CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, "../../Assets/Textures/ExplosionSmoke/Smoke.tga", 99))))
+	//	return E_FAIL;
 
 
 #pragma region instancingTest

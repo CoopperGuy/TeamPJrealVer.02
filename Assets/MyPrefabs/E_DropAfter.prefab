@@ -1,0 +1,33 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_DropAfter
+    UUID: 12452118736208502
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-79.0236282, -0, 0]
+      Scale: [2, 2, 2]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 15
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 15

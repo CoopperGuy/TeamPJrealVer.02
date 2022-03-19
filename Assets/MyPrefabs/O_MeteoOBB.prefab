@@ -1,0 +1,30 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_MeteoOBB
+    UUID: 7920848272098640496
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 5
+    Com_Stat:
+      Hp: [0, 0, 0, 0]
+      HpRegen: [0, 0]
+      Atk: [3, 0, 3]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 1

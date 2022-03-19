@@ -322,6 +322,27 @@
     <ClInclude Include="..\public\ImpactShort.h">
       <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoFire.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoTrail.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectMagic.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectMagicAf.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoFireBall.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\MeteoFireBall.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoExpolRing.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
     <ClInclude Include="..\public\Skills.h">
       <Filter>04.UI\SkillIcon\SkillInfo</Filter>
     </ClInclude>
@@ -632,6 +653,27 @@
     </ClCompile>
     <ClCompile Include="..\private\ImpactShort.cpp">
       <Filter>05.Effect\PlayerEffect\ImpactShort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoFire.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoTrail.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\TakeDown</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMagic.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMagicAf.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoFireBall.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\MeteoFireBall.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoExpolRing.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Skills.cpp">
       <Filter>04.UI\SkillIcon\SkillInfo</Filter>
@@ -990,6 +1032,15 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\ImpactShort">
       <UniqueIdentifier>{ddb7f3b1-e5b6-49d8-b712-ce988382b4fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST">
+      <UniqueIdentifier>{2840642e-7df8-4286-ae71-41537f2b67bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\TakeDown">
+      <UniqueIdentifier>{3365c5ab-e566-44ea-ad8c-01fc0a91d11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\Magic">
+      <UniqueIdentifier>{46545f34-01a7-447d-9c97-225d6600903c}</UniqueIdentifier>
     </Filter>
     <Filter Include="04.UI\SkillIcon\SkillInfo">
       <UniqueIdentifier>{60fb8895-ed32-4c1a-b06f-26310100b3a7}</UniqueIdentifier>

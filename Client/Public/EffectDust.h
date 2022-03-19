@@ -34,7 +34,8 @@ private:
 	_vector TargetPos = {};
 
 	_float3  m_fScail = {};
-
+private:
+	_float m_fFrame = 0;
 
 
 };
