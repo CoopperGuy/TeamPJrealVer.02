@@ -343,6 +343,9 @@
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h">
       <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Skills.h">
+      <Filter>04.UI\SkillIcon\SkillInfo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -671,6 +674,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\EffectMeteoExpolRing.cpp">
       <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Skills.cpp">
+      <Filter>04.UI\SkillIcon\SkillInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1035,6 +1041,9 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FIREFIST\Magic">
       <UniqueIdentifier>{46545f34-01a7-447d-9c97-225d6600903c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\SkillIcon\SkillInfo">
+      <UniqueIdentifier>{60fb8895-ed32-4c1a-b06f-26310100b3a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

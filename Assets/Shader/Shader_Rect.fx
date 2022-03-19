@@ -12,6 +12,7 @@ cbuffer UiInformation
     float g_Percentage = 1.f;
     float g_Back = 1.f;
     float g_Time = 0.f;
+    float g_Alpha = 1.f;
     bool g_isHover = false;
     bool g_isSelected = false;
 };
@@ -86,6 +87,17 @@ vector PS_MAIN_HPBAR(PS_IN In) : SV_TARGET
     // color += vColor;
     return color;
 }
+vector PS_MAIN_DISABLE(PS_IN In) : SV_TARGET
+{
+    float4 diffuse = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 color = diffuse;
+    color.a = (diffuse.r + diffuse.b + diffuse.g) / 3.f;
+
+    if (color.a < 0.1f)
+        discard;
+    color.a = g_Alpha;
+    return color;
+}
 
 technique11		DefaultDevice
 {
@@ -109,5 +121,14 @@ technique11		DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_HPBAR();
     }
+    pass Disable
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_DISABLE();
+    }
 }

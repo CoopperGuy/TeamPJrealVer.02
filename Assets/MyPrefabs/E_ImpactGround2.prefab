@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: ImpactGround
-    UUID: 13231668506687507617
+    UUID: 13480987572143471996
     Active: true
     Layer: Default
     Type: Effect
@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.0261065364, 0, 0]
       Rotation: [90, -0, 0]
-      Scale: [0.999474406, 1, 1]
+      Scale: [0.999473333, 1, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -33,7 +33,7 @@ GameObjects:
       EffectDuration: 0.699999988
     Children:
       - Name: BombBeam
-        UUID: 15267835277857355721
+        UUID: 1898316970560474556
         Active: true
         Layer: Default
         Type: Effect
@@ -42,7 +42,7 @@ GameObjects:
         Com_Transform:
           Translation: [0.0322805718, 0, 0]
           Rotation: [-90, -0, 0]
-          Scale: [0.293317974, 1.16292858, 0.776206195]
+          Scale: [0.999979079, 1, 0.776206195]
         Com_Model:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: BombBeam.fbx
@@ -67,7 +67,7 @@ GameObjects:
           FadeInStratTime: 0
           EffectDuration: 0.699999988
       - Name: SideEffect
-        UUID: 7328569142637480768
+        UUID: 1889988721554672599
         Active: true
         Layer: Default
         Type: Effect
@@ -101,7 +101,7 @@ GameObjects:
           FadeInStratTime: 0
           EffectDuration: 0.699999988
       - Name: SideEffect
-        UUID: 6061304404691438485
+        UUID: 13432642468920332980
         Active: true
         Layer: Default
         Type: Effect
@@ -135,7 +135,7 @@ GameObjects:
           FadeInStratTime: 0
           EffectDuration: 0.699999988
       - Name: BombEffect
-        UUID: 12931279819775217880
+        UUID: 11766554945000820330
         Active: true
         Layer: Default
         Type: Effect
@@ -169,7 +169,7 @@ GameObjects:
           FadeInStratTime: 0
           EffectDuration: 0.699999988
       - Name: SideEffect
-        UUID: 13110135521995072448
+        UUID: 2649540390573185121
         Active: true
         Layer: Default
         Type: Effect
@@ -203,7 +203,7 @@ GameObjects:
           FadeInStratTime: 0
           EffectDuration: 0.699999988
       - Name: SideEffect
-        UUID: 12525120803886584625
+        UUID: 6093289776554519071
         Active: true
         Layer: Default
         Type: Effect

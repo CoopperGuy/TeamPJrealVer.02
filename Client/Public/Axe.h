@@ -55,6 +55,8 @@ private:
 	_bool			m_bDamageCheck = false;
 	_bool			m_DrawTrail = false;
 private:
+	_bool			m_effectCreate[(_int)Player_State::Player_End];
+private:
 	_float4x4 m_matRightBone = {};
 
 };

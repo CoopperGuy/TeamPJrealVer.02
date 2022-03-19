@@ -22,10 +22,13 @@ public:
 	string GetTextureFilePath();
 	void UpdateTexture(string texturePath);
 	void SetColor(_float4 color) { m_Color = color; }
+	void SetAlpha(_float _alpha) { m_fAlpha = _alpha; }
+private:
+	class CTexture*		m_pTexture = nullptr;
 private:
 	_float4			m_Color = { 1.f, 1.f, 1.f, 1.f };
-	class CTexture*		m_pTexture = nullptr;
-
+private:
+	_float	m_fAlpha = 1.f;
 };
 
 END

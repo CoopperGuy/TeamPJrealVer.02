@@ -56,9 +56,25 @@ void CStat::HpHeal(_float healPoint)
 _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 {
 	STAT enemyStatus = enemyStat->GetStatInfo();
-	_int ratio = 20 + rand() % 80;
+	_int ratio = 80 + rand() % 20;
+	_int crit = rand() % 100;
+
 	_float balance = ratio * 0.01f;
-	_float dmg = enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000))) * enemyStat->GetDMGRatio() * balance;
+	_float criRatio = 1.f;
+	_float dmgRation = enemyStat->GetDMGRatio();
+
+	_bool isCrit = false;
+	_bool isEFfect = false;
+
+	if (crit < enemyStatus.critical * 100.f) {
+		criRatio = 1.5f;
+		isCrit = true;
+	}
+	if (dmgRation > 1.f)
+		isEFfect = true;
+
+	_float dmg = (enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000))) 
+		* dmgRation * balance) * criRatio;
 
 	if (printDmg) {
 		_matrix cameraMat = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
@@ -70,7 +86,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 		_int randPos = 2 + rand() % 2;
 		_float magnification = (_float)randPos / 10.f;
 		XMStoreFloat3(&fDmgPosition, m_pTransform->GetState(CTransform::STATE_POSITION) + right * magnification);
-		CDmgVIBuffer::Create(nullptr, fDmgPosition, dmg);
+		CDmgVIBuffer::Create(nullptr, fDmgPosition, dmg, isCrit, isEFfect);
 	}
 	m_tStat.hp -= dmg;
 	if (m_tStat.hp <= 0.f) {
@@ -82,6 +98,8 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 
 _bool CStat::DamagedAtk(_float enemyStatAtk, _bool printDmg)
 {
+	//don't use
+
 	_float dmg = enemyStatAtk * (1 - (m_tStat.armor / (m_tStat.armor + 1000)));
 	//
 	if (printDmg) {
