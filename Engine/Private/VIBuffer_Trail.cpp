@@ -114,7 +114,7 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 			return E_FAIL;
 
 		_vector vLocalPosLow = XMVectorSet(0.f, -0.2f, 0.f, 0.f);
-		_vector vLocalPosHigh = XMVectorSet(0.f, 0.5f, 0.f, 0.f);
+		_vector vLocalPosHigh = XMVectorSet(0.f, 0.45f, 0.f, 0.f);
 
 		for (_uint i = 0; i < m_iNumVertices; i += 2)
 		{
@@ -153,7 +153,7 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 	}
 
 	_vector vLocalPosLow = XMVectorSet(0.f, -0.2f, 0.f, 0.f);
-	_vector vLocalPosHigh = XMVectorSet(0.f, 0.5f, 0.f, 0.f);
+	_vector vLocalPosHigh = XMVectorSet(0.f, 0.45f, 0.f, 0.f);
 
 	DirectX::XMStoreFloat3(&((VTXTEX*)SubResource.pData)[0].vPosition, XMVector3TransformCoord(vLocalPosLow, WeaponTransform));
 	DirectX::XMStoreFloat3(&((VTXTEX*)SubResource.pData)[1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
@@ -259,7 +259,7 @@ HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 
 	m_pShader->SetUp_ValueOnShader("g_AlphaSet", &m_fAlpha, sizeof(_float));
 
-	ID3D11ShaderResourceView*	pDiffuseSRV = CTargetManager::GetInstance()->GetShaderResourceView("Target_Main");
+	ID3D11ShaderResourceView*	pDiffuseSRV = CTargetManager::GetInstance()->GetShaderResourceView("Target_Trail");
 	if (pDiffuseSRV != nullptr)
 		m_pShader->SetUp_TextureOnShader("g_HDRTexture", pDiffuseSRV);
 	//m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));

@@ -90,6 +90,10 @@ HRESULT CRenderer::InitializePrototype()
 
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_SSAO_Blur", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
+
+	/* Target_Trail */
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Trail", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
 	
 	/* MRT_Deferred */
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Deferred", "Target_Diffuse")))
@@ -516,7 +520,6 @@ HRESULT CRenderer::Render_Shader()
 	// BirghtFilter
 	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_Bright");
 
-	//pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_HDR_Diffuse");
 	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Main");
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
@@ -531,7 +534,9 @@ HRESULT CRenderer::Render_Shader()
 	Render_Bloom();
 	
 	
-	// Draw BackBuffer
+	// Draw Trail
+	m_pTargetManager->Begin_SingleRT(m_pDeviceContext, "Target_Trail");
+
 	 pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_HDR");
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
@@ -544,6 +549,16 @@ HRESULT CRenderer::Render_Shader()
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
 
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomOriTexture", pBloomOriSRV);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture", pBloomSRV);
+
+	m_pVIBuffer->Render(5);
+
+	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
+		return E_FAIL;
+
+	// Draw BackBuffer	
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomOriTexture", pBloomOriSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture", pBloomSRV);
