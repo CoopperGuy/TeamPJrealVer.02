@@ -318,40 +318,46 @@ HRESULT CLoader::GameSceneSEO()
 	//	MSG_BOX("Failed To Create Fire Prefab");
 
 
-	/*WaterEA Effect
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_FireBall")))
+//	WaterEA Effect
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
 		MSG_BOX("Failed To Create FireBall Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
 		MSG_BOX("Failed To Create O_WaterEA Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-		MSG_BOX("Failed To Create O_EAFire Prefab"); */
+		MSG_BOX("Failed To Create O_EAFire Prefab"); 
+
+	//if (FAILED(GameFlogasLoader()))
+	//	MSG_BOX("Failed To Create Flogas Effect");
 
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
-		MSG_BOX("Failed To Create E_MeteoTrail Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
+	//	MSG_BOX("Failed To Create E_MeteoTrail Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
-		MSG_BOX("Failed To Create E_MeteoFire Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
+	//	MSG_BOX("Failed To Create E_MeteoFire Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
-		MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
+	//	MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
-		MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
+	//	MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
-		MSG_BOX("Failed To Create E_Meteo Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
+	//	MSG_BOX("Failed To Create E_Meteo Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
-		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
+	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
-		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
+	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
+	//	MSG_BOX("Failed To Create Smoke Prefab");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon_Seo.yaml", SCENE_SEO);
 

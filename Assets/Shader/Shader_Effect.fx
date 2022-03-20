@@ -255,12 +255,38 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     uint UVx = 0;
     uint UVy = 0;
 
-    UVx = g_iSpriteNum % 5;
-    UVy = g_iSpriteNum / 5;
+    UVx = g_iSpriteNum % 4;
+    UVy = g_iSpriteNum / 4;
 
 
-    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 4.f);
-    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 4.f);
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 5.f);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 5.f);
+   
+    return Out;
+}
+
+VS_OUT_SPRITE VS_MAIN_SPRITE8X8(VS_IN In)
+{
+    VS_OUT_SPRITE Out = (VS_OUT_SPRITE) 0;
+
+    /* Postion */
+    matrix matWV, matWVP;
+
+    matWV = mul(g_WorldMatrix, g_ViewMatrix);
+    matWVP = mul(matWV, g_ProjMatrix);
+
+    Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+    Out.vTexUV = In.vTexUV;
+    
+    uint UVx = 0;
+    uint UVy = 0;
+
+    UVx = g_iSpriteNum % 4;
+    UVy = g_iSpriteNum / 4;
+
+
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 8.f);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 8.f);
    
     return Out;
 }
@@ -474,11 +500,17 @@ vector PS_MAIN_SPRITE_DISCARD(PS_IN_SPRITE In) : SV_TARGET
    
     vDiffuseColor *= vMask;
        
-    if (vDiffuseColor.a <= 0.2f)
+   //vDiffuseColor.a = ((vDiffuseColor.r + vDiffuseColor.g + vDiffuseColor.b) / 3);
+
+    if (vDiffuseColor.a <= 0.05f)
         discard;
 
-       //if (vDiffuseColor.r >= 0.9f || vDiffuseColor.g >= 0.9f || vDiffuseColor.b >= 0.9f)
-       // discard;
+    
+    if (vDiffuseColor.r <= 0.01f || vDiffuseColor.g <= 0.01f || vDiffuseColor.b <= 0.01f)
+        discard;
+
+    //if (vDiffuseColor.r >= 0.9f || vDiffuseColor.g >= 0.9f || vDiffuseColor.b >= 0.9f)
+    //    discard;
 
     return vDiffuseColor;
 }
@@ -900,14 +932,23 @@ technique11 DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN_MESH_FlogasFire();
 	}
-
     pass SPRITDISCARDWhite
-    {
+    {//12
         SetRasterizerState(Rasterizer_Solid);
         SetDepthStencilState(DepthStecil_Default, 0);
         SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
         VertexShader = compile vs_5_0 VS_MAIN_SPRITE();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SPRITE_DISCARD();
+    }
+    pass SPRIT8X8
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_SPRITE8X8();
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_SPRITE_DISCARD();
     }

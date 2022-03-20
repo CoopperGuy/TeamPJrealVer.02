@@ -29,6 +29,8 @@ public:
 private:
 
 	CGameObject* pAttachObj = nullptr;
+
+	_double deaddt = 0;
 	//CTransform* m_pTargetTransform = nullptr;
 
 	//_bool	m_bSetFadeOut = true;

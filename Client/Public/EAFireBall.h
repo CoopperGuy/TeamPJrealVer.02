@@ -29,6 +29,7 @@ private:
 	class CEffectFireBall* m_pEffFireball = nullptr;
 
 	_vector				m_pos = {};
+	_vector				m_Targetpos = {};
 
 	_bool makeFB = false;
 

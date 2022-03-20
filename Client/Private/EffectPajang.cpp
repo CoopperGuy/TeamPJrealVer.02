@@ -51,8 +51,8 @@ HRESULT CEffectPajang::Initialize(void* pArg)
 		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 		pos = XMVectorSetY(pos, XMVectorGetY(pos) - 0.6f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
-		CStat* stat =static_cast<CStat*>(pTargetObj->GetComponent("Com_Stat"));
-		m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_fScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
+		//CStat* stat =static_cast<CStat*>(pTargetObj->GetComponent("Com_Stat"));
+		//m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_fScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 	}
 	return S_OK;
 }

@@ -27,15 +27,13 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 
 	_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
-	CEngine::GetInstance()->AddScriptObject(m_pEffFireball = CEffectFireBall::Create(EffectFireBall, &mypos), CEngine::GetInstance()->GetCurSceneNumber());
+	CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, &mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
 	CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
-
+	m_Targetpos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 
 	LookAt(m_pTargetTransform->GetState(CTransform::STATE_POSITION));
-
-	SafeAddRef(m_pOBB);
 
 	return S_OK;
 }
@@ -46,10 +44,10 @@ void CEAFireBall::Update(_double deltaTime)
 		true;
 
 	/*if (!m_pOBB->Get_isHit()) {*/
-	if (0 <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
+	if (0.2f <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
 		_vector		vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - vPosition;
+		_vector		vDirection = m_Targetpos - vPosition;
 
 		vPosition += XMVector3Normalize(vDirection) * 3.f * (_float)deltaTime;
 
@@ -59,20 +57,19 @@ void CEAFireBall::Update(_double deltaTime)
 		myPos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
 
 		makedt += deltaTime;
-		if (makedt >= 0.15)
+		if (makedt >= 0.1)
 		{
-			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
-			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
-			CEngine::GetInstance()->AddScriptObject(m_pEffFireball = CEffectFireBall::Create(EffectFireBall, &mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+			CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, &vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 			makedt = 0;
 		}
 	}
 	else
 	{
-		if (m_pEffFireball)
-			m_pEffFireball->SetDead();
 		m_bDead = true;
 	}
+	if (m_pOBB->Get_isHit())
+		m_bDead = true;
 
 
 }
@@ -99,7 +96,6 @@ CEAFireBall * CEAFireBall::Create(CGameObject * pTarget, _matrix pos)
 
 void CEAFireBall::Free()
 {
-	SafeRelease(m_pOBB);
 }
 
 void CEAFireBall::LookAt(_fvector vTargetPos)

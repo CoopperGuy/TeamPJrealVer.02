@@ -38,6 +38,8 @@ HRESULT CEffectMeteoFireBall::Initialize(void* pArg, _vector* pos)
 		m_pTransform->SetState(CTransform::STATE_POSITION, *pos);
 
 		startposy = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
+
+		static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(64.f);
 	}
 	return S_OK;
 }
@@ -49,16 +51,28 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
+
+	//static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(64.f);
+
+
 	posy = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
 	pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	deaddt += deltaTime;
 	
+	//if (deaddt >=0.8f)
+	//{
+	//	deaddt = 0;
+	//	m_bDead = true;
+	//}
 
 	if (deaddt >=0.5f)
 	{
 		deaddt = 0;
 		m_bDead = true;
 	}
+
+	if (0.1 > XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+		m_bDead = true;
 }
 
 
@@ -66,11 +80,6 @@ void CEffectMeteoFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
 	{
-		if (posy <= 0.2) {
-
-			auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoEnd", "E_MeteoEnd");
-			CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolRing::Create(EffectTrail, pos), CEngine::GetInstance()->GetCurSceneNumber());
-		}
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

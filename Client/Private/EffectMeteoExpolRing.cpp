@@ -33,6 +33,8 @@ HRESULT CEffectMeteoExpolRing::Initialize(void* pArg, _vector pos)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
+
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 		Startscail.x = m_pTransform->GetScale(CTransform::STATE_RIGHT);
@@ -52,14 +54,23 @@ void CEffectMeteoExpolRing::Update(_double deltaTime)
 	
 	m_dDeadTime += deltaTime;
 
-	Startscail.x += deltaTime;
-	Startscail.y+= deltaTime;
+	Startscail.x += deltaTime*1.2 ;
+	Startscail.y+= deltaTime *1.2;
 
 
 	m_pTransform->SetScale(_float3(Startscail));
 
-	if (m_pTransform->GetScale(CTransform::STATE_RIGHT) >= 1.5f)
+	if (m_pTransform->GetScale(CTransform::STATE_UP) >= 1.3f)
 		m_bDead = true;
+
+	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+	_float4x4 newWorld;
+	_float4x4 world = m_pTransform->GetMatrix();
+	_vector scale, rotation, position;
+	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
+	XMStoreFloat4x4(&newWorld, viewInverse);
+	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
+	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
 }
 
 

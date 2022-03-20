@@ -116,44 +116,44 @@ void CFlogas::Update(_double dDeltaTime)
 
 	__super::Update(dDeltaTime);
 	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
-		{
-			m_bStartBattle = true;
-			if(m_pStat->GetStatInfo().hp < 2400.f)
-				m_bPhaseSecond = true;
+	{
+		m_bStartBattle = true;
+		if (m_pStat->GetStatInfo().hp < 2400.f)
+			m_bPhaseSecond = true;
 
-			if(m_pStat->GetStatInfo().hp <= 0)
-				m_bDeadMotion = true;
-		}
-		
+		if (m_pStat->GetStatInfo().hp <= 0)
+			m_bDeadMotion = true;
+	}
 
-		m_fDist = SetDistance();
 
-		if (m_bStartBattle)
-		{
-			if (!m_bPhaseSecond)
-				InCombat(dDeltaTime);
-			else
-				SecondCombat(dDeltaTime);
-		}
+	m_fDist = SetDistance();
+
+	if (m_bStartBattle)
+	{
+		if (!m_bPhaseSecond)
+			InCombat(dDeltaTime);
+		else
+			SecondCombat(dDeltaTime);
+	}
+	else
+	{
+		if (!m_bDeadMotion)
+			m_pModel->SetUp_AnimationIndex(IDLE);
 		else
 		{
-			if(!m_bDeadMotion)
-				m_pModel->SetUp_AnimationIndex(IDLE);
-			else
+			Empty_queue();
+			if (m_pMonHp)
 			{
-				Empty_queue();
-				if (m_pMonHp)
-				{
-					m_pMonHp->SetRelease();
-					m_pMonHp = nullptr;
-				}
-				m_eState = DIE;
-				if (m_pModel->Get_isFinished(DIE))
-					m_eState = DEADBODY;
+				m_pMonHp->SetRelease();
+				m_pMonHp = nullptr;
 			}
+			m_eState = DIE;
+			if (m_pModel->Get_isFinished(DIE))
+				m_eState = DEADBODY;
 		}
 	}
-	//OrganizeEffect(m_eState);
+
+	OrganizeEffect(m_eState);
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 	{
@@ -168,6 +168,7 @@ void CFlogas::Update(_double dDeltaTime)
 		m_bDeadMotion = true;
 	}
 
+
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 	}
@@ -180,9 +181,6 @@ void CFlogas::Update(_double dDeltaTime)
 	//fall down
 	/*PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
-
-
-
 }
 void CFlogas::LateUpdate(_double dDeltaTime)
 {
@@ -229,9 +227,9 @@ void CFlogas::InCombat(_double dDeltaTime)
 		}
 		else if (m_bMeteor)
 		{
-			if(m_bDelay)
+			if (m_bDelay)
 				m_dDelayTime += dDeltaTime;
-			
+
 			if (m_pModel->Get_isFinished(FIREFIST))
 			{
 				if (m_dDelayTime <= 0)
@@ -341,13 +339,13 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 			{
 				_int iSecondDrawing = rand() % 100;
 
-			/*	if (iSecondDrawing < 20)
-				{
-					if (m_QueState.back() != FIREFIST)
-						m_QueState.push(FIREFIST);
-					else
-						continue;
-				}*/
+				/*	if (iSecondDrawing < 20)
+					{
+						if (m_QueState.back() != FIREFIST)
+							m_QueState.push(FIREFIST);
+						else
+							continue;
+					}*/
 
 				if (iSecondDrawing < 40)
 				{
@@ -477,10 +475,10 @@ void CFlogas::RandomPattern()
 		}
 		else
 		{*/
-			if (m_QueState.back() == THRUST)
-				m_QueState.push(L_Slash);
-			else
-				m_QueState.push(THRUST);
+		if (m_QueState.back() == THRUST)
+			m_QueState.push(L_Slash);
+		else
+			m_QueState.push(THRUST);
 		//}
 	}
 }
@@ -521,17 +519,17 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 	if (m_bMove)
 	{
 
-	/*	m_dChaseTime += dDeltaTime;
-		if (m_dChaseTime > 3.f)
-		{
-			Empty_queue();
-			m_QueState.push(FIREWAVE);
-			m_bOverChase = true;
-			m_bClose = false;
-			m_bMove = false;
-			m_dChaseTime = 0.f;
+		/*	m_dChaseTime += dDeltaTime;
+			if (m_dChaseTime > 3.f)
+			{
+				Empty_queue();
+				m_QueState.push(FIREWAVE);
+				m_bOverChase = true;
+				m_bClose = false;
+				m_bMove = false;
+				m_dChaseTime = 0.f;
 
-		}*/
+			}*/
 		m_eState = RUN;
 		/*if (m_fDist >= 1.3f)
 			  m_eState = RUN;
@@ -752,11 +750,6 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				make = false;
 			}
 		}
-		if (keyFrame >= 90.f)
-		{
-			if (m_pEffBlackhole)
-				m_pEffBlackhole->SetDead();
-		}
 		if (keyFrame == 124.f)
 		{
 			auto EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
@@ -772,7 +765,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoTrail", "E_MeteoTrail");
 				CEngine::GetInstance()->AddScriptObject(CEffectMeteoTrail::Create(EffectTrail), CEngine::GetInstance()->GetCurSceneNumber());
 				auto EffectFire = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoFire", "E_MeteoFire");
-				CEngine::GetInstance()->AddScriptObject(CEffectMeteoFire::Create(EffectFire), CEngine::GetInstance()->GetCurSceneNumber());
+				CEngine::GetInstance()->AddScriptObject(CEffectMeteoFire::Create(EffectFire, pos), CEngine::GetInstance()->GetCurSceneNumber());
 				m_bMakeEffect = false;
 			}
 		}
@@ -781,15 +774,18 @@ void CFlogas::OrganizeEffect(Flogas eState)
 
 			if (m_iMakeMeteo <= 8)
 			{
-				auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
-				CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, pos), CEngine::GetInstance()->GetCurSceneNumber());
+				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
+				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectMagic, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+				/*auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
+				CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, pos), CEngine::GetInstance()->GetCurSceneNumber());*/
 				m_iMakeMeteo += 1;
 				/*auto EffectDropArea = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectDropArea, pos), CEngine::GetInstance()->GetCurSceneNumber());*/
 			}
 		}
 	}
-	 break;
+				   break;
 	case FOOTHAMMER:
 		m_eCurSTATES = CStat::STATES_IDEL;
 		break;
