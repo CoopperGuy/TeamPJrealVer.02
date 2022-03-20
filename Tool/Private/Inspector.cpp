@@ -939,11 +939,6 @@ void CInspector::DrawEffectSetting()
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetFadeInEnable(bFadeIn);
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetFadeOutEnable(bFadeOut);
 
-
-			_float fMaxSprite = static_cast<CEmptyEffect*>(g_pObjFocused)->GetSpritMaxNum();
-			ImGui::DragFloat("MaxSprite", &fMaxSprite, 1.f, 0.f, 100.f);
-			static_cast<CEmptyEffect*>(g_pObjFocused)->SetSpritMaxNum(fMaxSprite);
-
 			ImGui::TreePop();
 		}
 
