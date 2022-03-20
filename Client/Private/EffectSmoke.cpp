@@ -27,7 +27,6 @@ CEffectSmoke * CEffectSmoke::Create(void * pArg, _vector pos)
 HRESULT CEffectSmoke::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
-
 		m_pGameObject = (CGameObject*)pArg;
 		if (m_pGameObject == nullptr)
 			return E_FAIL;

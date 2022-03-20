@@ -132,6 +132,7 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 
+
 	for (_uint i = 0; i < 3; ++i)
 	{
 		m_vDistortion[i] = rhs->m_vDistortion[i];
@@ -228,6 +229,7 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 
+
 	for (_uint i = 0; i < 3; ++i)
 	{
 		m_vDistortion[i] = rhs->m_vDistortion[i];
@@ -310,7 +312,7 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	m_fSpriteNum += (_float)TimeDelta * m_fSpriteSpeed;
 
 
-	if (m_fSpriteNum >= m_iSpriteNumTotal)
+	if (m_fSpriteNum >= (_float)m_iSpriteNumTotal)
 	{
 		m_fSpriteNum = 0;
 		m_SpriteEnd = true;
