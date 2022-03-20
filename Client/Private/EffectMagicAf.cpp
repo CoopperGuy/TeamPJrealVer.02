@@ -33,8 +33,10 @@ HRESULT CEffectMagicAf::Initialize(void* pArg, _vector pos)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
+		pos = XMVectorSetY(pos, 0.1f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
+		
 	}
 	return S_OK;
 }
@@ -49,7 +51,7 @@ void CEffectMagicAf::Update(_double deltaTime)
 	
 	m_dFadeoutDu += deltaTime;
 
-	if (m_dFadeoutDu >=static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
+	if (m_dFadeoutDu >=static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
 	{
 		m_bDead = true;
 	}

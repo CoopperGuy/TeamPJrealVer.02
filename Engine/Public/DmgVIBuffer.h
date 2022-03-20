@@ -12,7 +12,7 @@ private:
 	explicit CDmgVIBuffer();
 	virtual ~CDmgVIBuffer() = default;
 public:
-	virtual HRESULT Initailze(CGameObject * pArg, _float3 pos, _float dmg, _bool isCrit = false, _bool effect = false);
+	virtual HRESULT Initailze(CGameObject * pArg, _float3 pos, _float dmg, _bool isCrit = false, _bool effect = false, _bool isPlayer = true);
 	virtual void Update(_double deltaTime) override;
 	virtual void LateUpdate(_double deltaTime) override;
 	virtual void Render();
@@ -35,12 +35,13 @@ private:
 	_float			m_fDmg = 0.f;
 	_float			m_startSize = 0.1f;
 	_float			m_fAlpha = 1.f;
+	_float			m_fEffectSize = 1.f;
 private:
 	_bool isEnd = false;
 	_bool isShrink = true;
 	_bool isStartDisable = false;
 public:
-	static CDmgVIBuffer* Create(CGameObject*	pTarget = nullptr, _float3 pos = { 0.f,0.f,0.f }, _float dmg = 0.f, _bool isCrit = false, _bool effect = false);
+	static CDmgVIBuffer* Create(CGameObject*	pTarget = nullptr, _float3 pos = { 0.f,0.f,0.f }, _float dmg = 0.f, _bool isCrit = false, _bool effect = false, _bool isPlayer = true);
 	virtual void Free() override;
 };
 

@@ -33,11 +33,6 @@ HRESULT CEffectDust::Initialize(void* pArg)
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
 
-		CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
-		if (pTargetObj == nullptr)
-			return E_FAIL;
-
-		CModel* pTargetmodel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
@@ -54,9 +49,9 @@ void CEffectDust::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	m_fFrame += 14.f*deltaTime;
+	m_fFrame += 99.f*deltaTime;
 
-	if (m_fFrame >= 14)
+	if (m_fFrame >= 99)
 		m_bDead = true;
 }
 

@@ -42,61 +42,137 @@ GameObjects:
     FrustumRange: 1
     Children:
       - 677224132997392640
-  - Name: E_Pajangs
-    UUID: 8947149988981990722
+  - Name: E_Meteo
+    UUID: 8835746308440072306
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 13
+    BillBord: true
+    Com_Transform:
+      Translation: [3.42297292, -8.5704599e-09, -0.00865564682]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [1.21158826, 1.20727241, 1.20074213]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall04_8x8.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 2
+    Children:
+      - 2381238995712484175
+      - 13029808233010186455
+  - Name: Empty Object
+    UUID: 13029808233010186455
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
     PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.00637821853, -0.0598833412, 0.106797487]
+      Rotation: [0, -0, 0]
+      Scale: [0.0399999991, 0.0399999991, 0.0399999991]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: FireBallMesh.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\016.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Smoke_Tile_001_TEX_CJS_NRM.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Smoke_034_TEX_HKB.png
+      ScrollSpeedX: [1.10000002, 1.29999995, 0]
+      ScrollSpeedY: [1, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 1.20000005
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+  - Name: Empty Object
+    UUID: 2381238995712484175
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 13
+    BillBord: true
+    Com_Transform:
+      Translation: [-0.0443048254, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall8x8.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+  - Name: Empty Object
+    UUID: 9513304959393707675
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 13
     BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Donut.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
+    Com_VIBuffer:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_001_TEX_HKB.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
-      ScrollSpeedX: [0.100000001, 2.20000005, 0.800000012]
-      ScrollSpeedY: [-2, -1.60000002, 2.29999995]
-      Distortion1: [2.0999999, 0.300000012]
-      Distortion2: [0.100000001, 0.600000024]
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 1.89999998
-      DistortionBias: 0.600000024
-    Children:
-      - 16901135596473849040
-  - Name: E_Pajangs
-    UUID: 16901135596473849040
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 1
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 90]
-      Scale: [0.999998331, 1, 0.999870241]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Donut.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_006_TEX_CJH.png
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_001_TEX_HKB.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
-      ScrollSpeedX: [-1.10000002, 2.20000005, 0.800000012]
-      ScrollSpeedY: [-2.20000005, 1.70000005, 2.29999995]
-      Distortion1: [-1.70000005, 0.300000012]
-      Distortion2: [0.100000001, 0.600000024]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0
-      DistortionBias: 0.600000024
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0

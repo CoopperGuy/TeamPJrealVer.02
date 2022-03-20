@@ -181,7 +181,7 @@ GameObjects:
       EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
     Effect_Setting:
       TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\T_Maria_Flame_MASK_04.png
+      TextureMaskPath: ""
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2, 0]

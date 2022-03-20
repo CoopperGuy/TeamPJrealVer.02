@@ -8,7 +8,7 @@ GameObjects:
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [0, -1.68498016e-08, 0]
+      Translation: [0, 0, 0]
       Rotation: [90, -0, 0]
       Scale: [0.998864949, 1, 1]
     Com_VIBuffer:
@@ -26,8 +26,8 @@ GameObjects:
       DistortionBias: 0
       FadeOut: true
       FadeOutDuration: 1
-      FadeOutStratTime: 4
+      FadeOutStratTime: 2
       FadeIn: true
-      FadeInDuration: 3
+      FadeInDuration: 1
       FadeInStratTime: 0
-      EffectDuration: 5
+      EffectDuration: 3

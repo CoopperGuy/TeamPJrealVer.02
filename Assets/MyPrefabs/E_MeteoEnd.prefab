@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoEnd
-    UUID: 898772190028004214
+    UUID: 5763748172793368558
     Active: true
     Layer: Default
     Type: Effect
@@ -9,13 +9,13 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [19.0145931, 3.41339231, 2.13822389e-07]
-      Scale: [1.29495621, 0.996417522, 0.997708678]
+      Rotation: [9.18636322, 5.62876892, -5.36193348e-08]
+      Scale: [1.293046, 0.99604553, 0.999652088]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_SelectRing_001_TEX_KKJ.png
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_lens_001_TEX_CJH.png
       TextureNoisePath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
@@ -24,10 +24,10 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0
       DistortionBias: 0
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
+      FadeOut: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 2
       FadeIn: false
-      FadeInDuration: 0
+      FadeInDuration: 2
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 3

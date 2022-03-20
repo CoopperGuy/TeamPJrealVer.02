@@ -49,10 +49,12 @@ public:
 	_float GetFadeAlpha() { return m_fFadeAlpha; }
 	_float GetProcessTime() { return m_fProcessTime; }
 	_float GetMoveSpd() { return m_fMoveSpd; }
+
 	_float GetSpriteSpeed() { return m_fSpriteSpeed; }
 	_uint GetSpriteX() { return m_iSpriteNumX; }
 	_uint GetSpriteY() { return m_iSpriteNumY; }
 	_uint GetSpriteTotal() { return m_iSpriteNumTotal; }
+
 	_bool GetFadeOutEnable() { return m_bFadeOut; }
 	_bool GetFadeInEnable() { return m_bFadeIn; }
 	_bool GetBillBord() { return m_bBillBord; }
@@ -157,7 +159,6 @@ private:
 private:
 	_float m_fMoveSpd = 1.f;
 	_float m_fProcessTime = 0.f;
-
 };
 
 END
