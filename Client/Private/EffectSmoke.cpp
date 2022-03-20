@@ -27,7 +27,6 @@ CEffectSmoke * CEffectSmoke::Create(void * pArg, _vector pos)
 HRESULT CEffectSmoke::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
-
 		m_pGameObject = (CGameObject*)pArg;
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
@@ -38,9 +37,6 @@ HRESULT CEffectSmoke::Initialize(void* pArg, _vector pos)
 
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
-
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(8.f);
-
 	}
 	return S_OK;
 }
@@ -53,8 +49,6 @@ void CEffectSmoke::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 	
-	static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(8.f);
-
 	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		m_bDead = true;

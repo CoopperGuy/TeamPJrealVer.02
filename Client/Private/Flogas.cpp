@@ -117,11 +117,9 @@ void CFlogas::Update(_double dDeltaTime)
 	__super::Update(dDeltaTime);
 	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
 	{
-
-		{
-			m_bStartBattle = true;
-			if(m_pStat->GetStatInfo().hp < 2400.f)
-				m_bPhaseSecond = true;
+		m_bStartBattle = true;
+		if (m_pStat->GetStatInfo().hp < 2400.f)
+			m_bPhaseSecond = true;
 
 		if (m_pStat->GetStatInfo().hp <= 0)
 			m_bDeadMotion = true;
@@ -469,7 +467,7 @@ void CFlogas::RandomPattern()
 		}
 		else
 		{
-	
+
 			m_QueState.push(R_Slash);
 			m_QueState.push(THRUST);
 		}
@@ -484,9 +482,9 @@ void CFlogas::RandomPattern()
 			m_QueState.push(L_Slash);
 		else
 			m_QueState.push(THRUST);
-		}
 	}
 }
+
 
 void CFlogas::Adjust_Dist(_double dDeltaTime)
 {
@@ -755,7 +753,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				make = false;
 			}
 		}
-    
+
 		if (keyFrame == 124.f)
 		{
 			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
