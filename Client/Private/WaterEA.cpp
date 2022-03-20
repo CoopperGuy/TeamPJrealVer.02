@@ -21,7 +21,7 @@ HRESULT CWaterEA::Initialize(_float3 position)
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
 
-	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 
 	m_pModel->SetAnimationLoop((_uint)STATE::ATT, false, false);
 	m_pModel->SetAnimationLoop((_uint)STATE::IDLE, true, false);
@@ -52,8 +52,8 @@ void CWaterEA::LateUpdate(_double dDeltaTime)
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
-
-	m_pModel->Play_Animation(dDeltaTime * m_dAniIndex);
+	else
+		m_pModel->Play_Animation(dDeltaTime * m_dAniIndex);
 
 
 }

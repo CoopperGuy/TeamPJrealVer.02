@@ -35,7 +35,7 @@ HRESULT CEffectMeteoFire::Initialize(void* pArg, _vector pos)
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
 		pos = XMVectorSetZ(pos, XMVectorGetZ(pos) + 0.5f);
-		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
+		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.3f);
 
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);

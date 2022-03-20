@@ -24,7 +24,7 @@ USING(Tool)
 extern HINSTANCE hInst;
 
 
-static string strScene = "../../Assets/Scenes/TestRoom_Effect_Jun.yaml";
+static string strScene = "../../Assets/Scenes/Dungeon1_SY.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

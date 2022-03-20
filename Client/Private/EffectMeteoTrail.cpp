@@ -48,11 +48,15 @@ HRESULT CEffectMeteoTrail::Initialize(void* pArg)
 		//m_pTransform->SetMatrix(targetbone);
 
 		_vector pos = pTargetTransform->GetState(CTransform::STATE_POSITION);
-		pos = XMVectorSetZ(pos, XMVectorGetZ(pos) - 0.3f);
+		//pos = XMVectorSetZ(pos, XMVectorGetZ(pos) - 0.3f);
 
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
+		CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
+		CTransform* pPlayerTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
+
+		m_pTransform->SetLook(pPlayerTransform->GetState(CTransform::STATE_POSITION));
 
 	}
 	return S_OK;
@@ -102,4 +106,19 @@ _fmatrix CEffectMeteoTrail::Remove_ScaleRotation(_fmatrix TransformMatrix)
 	NonRotateMatrix.r[3] = TransformMatrix.r[3];
 
 	return NonRotateMatrix;
+}
+
+void CEffectMeteoTrail::LookAt(_fvector vTargetPos)
+{
+	_vector		vDirection = vTargetPos - m_pTransform->GetState(CTransform::STATE_POSITION);
+
+	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	y축 // 외적으로 방향백터를 구하기위해서 그리고 좌우로만 바뀌지 y축은 안바뀌니까
+	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
+
+	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//위에서 외적한 right는 스케일이 깨져있어서 원래 사용하던 right를 대입해주자 
+	_vector		vLook = XMVector3Cross(vRight, vUp);			// 위에서 바꿔준 항등행렬과 y축을 외적하기 
+	vLook = XMVector3Normalize(vLook) * m_pTransform->GetScale(CTransform::STATE_LOOK);
+
+	m_pTransform->SetState(CTransform::STATE_RIGHT, vRight);
+	m_pTransform->SetState(CTransform::STATE_LOOK, vLook);
 }

@@ -9,7 +9,7 @@ CEffectFireBall::CEffectFireBall()
 {
 }
 
-CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector* pos)
+CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector pos)
 {
 	CEffectFireBall*		pInstance = new CEffectFireBall();
 
@@ -24,7 +24,7 @@ CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector* pos)
 }
 
 
-HRESULT CEffectFireBall::Initialize(void* pArg, _vector* pos)
+HRESULT CEffectFireBall::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
 
@@ -34,7 +34,7 @@ HRESULT CEffectFireBall::Initialize(void* pArg, _vector* pos)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, *pos);
+		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 	}
 	return S_OK;
