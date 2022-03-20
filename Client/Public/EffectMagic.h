@@ -23,6 +23,13 @@ public:
 
 private:
 	_double m_dDeadTime = 0;
+	_double m_makefb = 0;
+	_double m_makedt = 0;
+
+	_bool makemeteo = false;
+	
+	_vector mypos = {};
+
 };
 
 END

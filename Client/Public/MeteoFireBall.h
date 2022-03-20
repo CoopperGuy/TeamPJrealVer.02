@@ -26,18 +26,21 @@ private:
 	CTransform* m_pTargetTransform = nullptr;
 	CTransform*			m_pTransform = nullptr;
 
-	class CEffectMeteoFireBall* m_pEffFireball = nullptr;
+	class CEffectSmokeBall* m_pEffFireball = nullptr;
 
-	_vector				mypos = {};
 
 	_bool makeFB = false;
 
-	_vector playerpos = {};
 
 	_double makedt = 0;
 
 	_float posy = 0.f;
 
+	_vector				mypos = {};
+	_vector playerpos = {};
+
+
+	_vector m_arrivePos = {};
 
 private:
 	CBasicCollider*	m_pOBB = nullptr;

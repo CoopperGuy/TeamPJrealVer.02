@@ -48,10 +48,15 @@ void CEffectFireBall::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 	
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+
+	deaddt += deltaTime;
+	if (deaddt >= 0.5f)
 	{
 		m_bDead = true;
+		deaddt = 0;
 	}
+	else if (0.1 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+		m_bDead = true;
 
 	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
 	_float4x4 newWorld;
@@ -61,6 +66,9 @@ void CEffectFireBall::Update(_double deltaTime)
 	XMStoreFloat4x4(&newWorld, viewInverse);
 	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
 	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
+
+
+
 }
 
 

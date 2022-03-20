@@ -1,20 +1,20 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoFire
-    UUID: 61009448689612205
+    UUID: 18333540398341057465
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 12
+    PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0.0134859178, 0.697222233, 0.215248793]
-      Rotation: [13.7955227, -7.40366507, 5.38093673e-07]
-      Scale: [1.2, 1.2, 1.2]
+      Translation: [0.0, 0, 0]
+      Rotation: [11.3099327, -0.125000209, 1.66753056e-09]
+      Scale: [1.60395589, 1.50323932, 1.20630932]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Explosion_sub_04.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Explosion1.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       ScrollSpeedX: [0, 0, 0]

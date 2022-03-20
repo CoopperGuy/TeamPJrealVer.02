@@ -49,6 +49,7 @@ public:
 	_float GetFadeAlpha() { return m_fFadeAlpha; }
 	_float GetProcessTime() { return m_fProcessTime; }
 	_float GetMoveSpd() { return m_fMoveSpd; }
+	_float GetSpritMaxNum() { return m_fSpriteMaxNum; }
 
 	_bool GetFadeOutEnable() { return m_bFadeOut; }
 	_bool GetFadeInEnable() { return m_bFadeIn; }
@@ -87,6 +88,7 @@ public:
 	void LinkTransform();
 
 	void SetSpriteSpeed(_float pSpeed) { m_fSpriteSpeed = pSpeed; }
+	void SetSpritMaxNum(_float pMaxNum) { m_fSpriteMaxNum = pMaxNum; }
 
 private:
 	HRESULT SetUpComponents();
@@ -148,7 +150,7 @@ private:
 	_float m_fMoveSpd = 1.f;
 	_float m_fProcessTime = 0.f;
 	_float m_fSpriteSpeed = 15.f;
-
+	_float m_fSpriteMaxNum = 25.f;
 };
 
 END

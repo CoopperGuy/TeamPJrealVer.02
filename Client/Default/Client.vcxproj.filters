@@ -349,6 +349,9 @@
     <ClInclude Include="..\public\Skills.h">
       <Filter>04.UI\SkillIcon\SkillInfo</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectSmoke.h">
+      <Filter>05.Effect\Dust</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -683,6 +686,9 @@
     </ClCompile>
     <ClCompile Include="..\private\Skills.cpp">
       <Filter>04.UI\SkillIcon\SkillInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSmoke.cpp">
+      <Filter>05.Effect\Dust</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

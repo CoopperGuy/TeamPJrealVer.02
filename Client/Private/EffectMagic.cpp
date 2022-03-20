@@ -3,6 +3,7 @@
 #include "..\Public\EffectMagic.h"
 #include "EmptyEffect.h"
 #include "EffectMagicAf.h"
+#include "MeteoFireBall.h"
 USING(Client)
 
 CEffectMagic::CEffectMagic()
@@ -33,25 +34,13 @@ HRESULT CEffectMagic::Initialize(void* pArg, _vector pos)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-		_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+		//pos = XMVectorSetY(pos, 0.1f);
 
-		int r = rand() % 2;
-		r += 1;
-		int pRandom;
-		if (r == 1) {
-			pRandom = rand() % 10;
-			mypos = XMVectorSet(XMVectorGetX(pos) - pRandom, 0.1f, XMVectorGetZ(pos) - pRandom, 1.f);
-		}
-		else {
-			pRandom = (rand() % 10)* -1;
-			mypos = XMVectorSet(XMVectorGetX(pos) + pRandom, 0.1f, XMVectorGetZ(pos) + pRandom, 1.f);
-
-		}
-
-
-
-		m_pTransform->SetState(CTransform::STATE_POSITION, mypos);
-
+		_int  startrand = rand() % 2;
+		if (0 == startrand)
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
+		else
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
 	}
 	return S_OK;
 }
@@ -63,17 +52,28 @@ void CEffectMagic::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
-	
+	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	m_dDeadTime += deltaTime;
+	m_makefb += deltaTime;
+	m_makedt += deltaTime;
 
-	_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-	if (m_dDeadTime >=static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
-	{
-	/*	auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter");
-		CEngine::GetInstance()->AddScriptObject(CEffectMagicAf::Create(EffectTrail, mypos), CEngine::GetInstance()->GetCurSceneNumber());*/
-		m_bDead = true;
+	if (!makemeteo && m_makefb >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutStartTime()) {
+		makemeteo = true;
+		m_makefb = 0;
 	}
+
+	if (makemeteo) {
+		_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
+		auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
+		CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+		makemeteo = false;
+	}
+
+
+	if (m_dDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
+		m_bDead = true;
 }
 
 
@@ -81,6 +81,9 @@ void CEffectMagic::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
 	{
+
+
+
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

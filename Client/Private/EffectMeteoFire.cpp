@@ -9,11 +9,11 @@ CEffectMeteoFire::CEffectMeteoFire()
 {
 }
 
-CEffectMeteoFire * CEffectMeteoFire::Create(void * pArg)
+CEffectMeteoFire * CEffectMeteoFire::Create(void * pArg, _vector pos)
 {
 	CEffectMeteoFire*		pInstance = new CEffectMeteoFire();
 
-	if (FAILED(pInstance->Initialize(pArg)))
+	if (FAILED(pInstance->Initialize(pArg, pos)))
 	{
 		MSG_BOX("Failed to Create CEffectMeteoFire");
 		SafeRelease(pInstance);
@@ -24,7 +24,7 @@ CEffectMeteoFire * CEffectMeteoFire::Create(void * pArg)
 }
 
 
-HRESULT CEffectMeteoFire::Initialize(void* pArg)
+HRESULT CEffectMeteoFire::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
 
@@ -34,35 +34,13 @@ HRESULT CEffectMeteoFire::Initialize(void* pArg)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
-		////flogas
-		//CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
-		//if (pTargetObj == nullptr)
-		//	return E_FAIL;
-
-		//CTransform* pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
-		//CModel* pTargetmodel = static_cast<CModel*>(pTargetObj->GetComponent("Com_Model"));
-
-		//_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");
-
-		//m_pTransform->SetMatrix(targetbone *pTargetTransform->GetWorldMatrix());
-
-		//flogas
-		CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
-		if (pTargetObj == nullptr)
-			return E_FAIL;
-
-		CTransform* pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
-		CModel* pTargetmodel = static_cast<CModel*>(pTargetObj->GetComponent("Com_Model"));
-
-		//_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");
-		//targetbone = Remove_ScaleRotation(targetbone *pTargetTransform->GetWorldMatrix());
-		//m_pTransform->SetMatrix(targetbone);
-
-		_vector pos = pTargetTransform->GetState(CTransform::STATE_POSITION);
 		pos = XMVectorSetZ(pos, XMVectorGetZ(pos) + 0.5f);
+		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
 
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
+		static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(16.f);
 
 	}
 	return S_OK;
@@ -76,6 +54,8 @@ void CEffectMeteoFire::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 	
+	static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(16.f);
+
 	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		m_bDead = true;

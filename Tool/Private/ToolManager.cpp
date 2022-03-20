@@ -23,6 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
+
 static string strScene = "../../Assets/Scenes/MainUI.yaml";
 
 CToolManager::CToolManager()

@@ -26,6 +26,8 @@
 
 #include "Stat.h"
 #include "Shop.h"
+
+#include "EffectDust.h"
 CMainApp::CMainApp()
 	: m_pEngine(CEngine::GetInstance())
 {
@@ -343,8 +345,8 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_Spawn", CSpawner::Create(m_pDevice, m_pDeviceContext))))
 		return E_FAIL;
 
-	///*smokeEff*/
-	//if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_SmokeEffect", CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, "../../Assets/Textures/ExplosionSmoke/Smoke.tga", 99))))
+	/////fireEffectTest/
+	//if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_SmokeEffect", CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_DDS, "../../Assets/Textures/Instance/ExplosionSmoke/Smoke%d.dds", 99))))
 	//	return E_FAIL;
 
 
@@ -410,7 +412,6 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 	///*SkyBox*/
 	//if (FAILED(m_pEngine->AddPrototype("GameObject_Sky", CSky::Create(m_pDevice, m_pDeviceContext))))
 	//	return E_FAIL;
-
 
 
 	return S_OK;
