@@ -7,12 +7,7 @@ CSkills::CSkills()
 {
 }
 
-CSkills * CSkills::Create(CSkills * pTarget)
-{
-	return nullptr;
-}
-
-void CSkills::Free()
+CSkills::~CSkills()
 {
 }
 

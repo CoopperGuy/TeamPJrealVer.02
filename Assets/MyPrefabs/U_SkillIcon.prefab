@@ -1,0 +1,54 @@
+Scene: Untitled
+GameObjects:
+  - Name: SkillIcon
+    UUID: 13536765509469864204
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1147.01331, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: Icon
+        UUID: 1251316223543296090
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [1148.29944, 668.684998]
+          Size: [16, 16]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: SkillBorder
+        UUID: 5191734195603716267
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 4
+        Hovering: false
+        Com_Transform:
+          Position: [1148.29993, 668.685364]
+          Size: [32, 32]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\skill\SkillBorder.tga
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

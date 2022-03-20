@@ -86,7 +86,7 @@ GameObjects:
         Active: true
         Layer: Default
         Type: Object
-        PassIndex: 2
+        PassIndex: 3
         NumOBB: 0
         Com_Transform:
           Translation: [1, 0, 0]
