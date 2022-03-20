@@ -64,17 +64,17 @@ CPlayer * CPlayer::Create(CGameObject * pObj)
 void CPlayer::Free()
 {
 	__super::Free();
-//	SafeRelease(m_pState);
+	//	SafeRelease(m_pState);
 
-	/*for (_uint i = 0; i < (_uint)CurState::Max; ++i)
-		SafeRelease(m_pDynamicState[i]);
-*/
-//SafeRelease(m_pMenuHud);
-//SafeRelease(m_pInven);
+		/*for (_uint i = 0; i < (_uint)CurState::Max; ++i)
+			SafeRelease(m_pDynamicState[i]);
+	*/
+	//SafeRelease(m_pMenuHud);
+	//SafeRelease(m_pInven);
 
-//for (int i = 0; i < quickSlotSize; i++) {
-//	SafeRelease(m_pQuickSlot[i]);
-//}
+	//for (int i = 0; i < quickSlotSize; i++) {
+	//	SafeRelease(m_pQuickSlot[i]);
+	//}
 }
 
 HRESULT CPlayer::Initialize()
@@ -90,7 +90,7 @@ HRESULT CPlayer::Initialize()
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
-	
+
 	if (m_pCollider)
 	{
 		m_pController = m_pCollider->GetController();
@@ -148,7 +148,16 @@ HRESULT CPlayer::Initialize()
 	m_pGold = CGold::Create(m_pGameObject);
 	m_pHpBar = CHpBar::Create(m_pGameObject);
 	m_pLevelFlag = LevelFlag::Create(m_pGameObject);
-	//m_pSkillIcon = CSkillIcon::Create(m_pGameObject);
+	m_pSkillIcon = CSkillIcon::Create(m_pGameObject);
+	
+	CSkillIcon::SKILLINFO info;
+	info.coolTime = 15.f;
+	info.level = 1;
+	info.Name = "WhrilWind";
+	m_pSkillIcon->SetSkillInfo(1, info);
+	info.coolTime = 20.f;
+	info.Name = "guillotine";
+	m_pSkillIcon->SetSkillInfo(3, info);
 
 	m_pMenuHud->LinkInventoryToHud(m_pInven);
 
@@ -278,7 +287,7 @@ CStateMachine * CPlayer::GetState(CurState eState)
 
 _float3 CPlayer::Get_CenterPosition()
 {
-	
+
 	return _float3();
 }
 
@@ -318,8 +327,8 @@ void CPlayer::PlayerCombo(_double dDeltaTime)
 			InputLB(dDeltaTime);
 		else if (m_iRB >= 0)
 			InputRB(dDeltaTime);
-	/*	else if (m_iMix >= 0)
-			InputMix(dDeltaTime);*/
+		/*	else if (m_iMix >= 0)
+				InputMix(dDeltaTime);*/
 	}
 	if (m_dCombatTime > 5.f)
 	{
@@ -371,7 +380,7 @@ void CPlayer::InputLB(_double dDeltaTime)
 			if (m_pModel->Get_isFinished())
 			{
 				//if (!m_bMixCombo)
-					m_bCombo = true;
+				m_bCombo = true;
 			}
 		}
 		if (m_iLB == 3)
@@ -379,7 +388,7 @@ void CPlayer::InputLB(_double dDeltaTime)
 			if (m_pModel->Get_isFinished())
 			{
 				//if (!m_bMixCombo)
-					m_bCombo = true;
+				m_bCombo = true;
 			}
 		}
 		if (m_iLB == 4)
@@ -421,7 +430,7 @@ void CPlayer::InputLB(_double dDeltaTime)
 	if (m_pState->Get_State() == CurState::ATT)
 	{
 		m_dCombatTime = 0.f;
-		
+
 		if (m_pModel->Get_isFinished())
 		{
 			m_bCB = true;
@@ -438,7 +447,7 @@ void CPlayer::InputLB(_double dDeltaTime)
 		//Ing Att
 		else if (CEngine::GetInstance()->IsMouseDown(0) && !m_bComboDelay)
 		{
-				m_bDuring = true;
+			m_bDuring = true;
 		}
 		//else if (CEngine::GetInstance()->IsMouseDown(1) && !m_bComboDelay)
 		//{
@@ -482,7 +491,7 @@ void CPlayer::InputRB(_double dDeltaTime)
 			if (m_pModel->Get_isFinished())
 				m_bCombo = true;
 		}
-	
+
 		if (m_bCombo)
 		{
 			++m_iRB;
@@ -517,7 +526,7 @@ void CPlayer::InputRB(_double dDeltaTime)
 	if (m_pState->Get_State() == CurState::ATT)
 	{
 		m_dCombatTime = 0.f;
-		
+
 		if (m_pModel->Get_isFinished())
 		{
 			m_bCB = true;
@@ -722,7 +731,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 
 		if (CEngine::GetInstance()->Get_DIKState(DIK_LSHIFT)) //Sprint
 		{
-			fSpeed =2.5f;
+			fSpeed = 2.5f;
 		}
 		if (CEngine::GetInstance()->IsKeyDown(VK_CONTROL)) // Jump
 		{
@@ -755,7 +764,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		}
 	}
 
-	if(m_bEvade)
+	if (m_bEvade)
 	{
 		m_bEvadeDelay = true;
 		m_EvadeDelayTime = 0.f;
@@ -776,7 +785,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 				if (m_bMove)
 					m_bEvade = false;
 			}
-		break;
+			break;
 		case (_uint)Player_State::CBEvade:
 			if (m_pModel->GetCurrentKeyFrame() < 17)
 			{
@@ -788,7 +797,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 				if (m_bMove)
 					m_bEvade = false;
 			}
-		break;
+			break;
 		}
 
 		if (m_pModel->Get_isFinished()) {
@@ -1018,7 +1027,7 @@ _bool CPlayer::IsGravity()
 		}
 	}
 	else {
-	//	cout << "playe no collid with terrain \n";
+		//	cout << "playe no collid with terrain \n";
 		isCollied = true;
 	}
 	return isCollied;
@@ -1037,31 +1046,43 @@ void CPlayer::UIInput()
 		i = 3;
 
 	if (i >= 0) {
-		if(quickSlotSize > i)
-		m_pQuickSlot[i]->UseItem(this);
+		if (quickSlotSize > i)
+			m_pQuickSlot[i]->UseItem(this);
 	}
 }
 void CPlayer::InputSkill()
 {
 	if (CEngine::GetInstance()->IsKeyDown('1'))
 	{
-		m_bCB = true;
-		m_iSkillIndex = m_iSkill[(_uint)Skill::Slot1];
+		if (m_pSkillIcon->IsCoolDown(0)) {
+			m_bCB = true;
+			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot1];
+			m_pSkillIcon->UseSkill(0);
+		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('2'))
 	{
-		m_bCB = true;
-		m_iSkillIndex = m_iSkill[(_uint)Skill::Slot2];
+		if (m_pSkillIcon->IsCoolDown(1)) {
+			m_bCB = true;
+			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot2];
+			m_pSkillIcon->UseSkill(1);
+		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('3'))
 	{
-		m_bCB = true;
-		m_iSkillIndex = m_iSkill[(_uint)Skill::Slot3];
+		if (m_pSkillIcon->IsCoolDown(2)) {
+			m_bCB = true;
+			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot3];
+			m_pSkillIcon->UseSkill(2);
+		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('4'))
 	{
-		m_bCB = true;
-		m_iSkillIndex = m_iSkill[(_uint)Skill::Slot4];
+		if (m_pSkillIcon->IsCoolDown(3)) {
+			m_bCB = true;
+			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot4];
+			m_pSkillIcon->UseSkill(3);
+		}
 	}
 
 	if (CEngine::GetInstance()->IsKeyDown('5')) {

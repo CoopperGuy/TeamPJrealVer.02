@@ -171,7 +171,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
-  - Name: SkillIcon
+  - Name: SkillIcon00
     UUID: 13536765509469864204
     Active: true
     Layer: Default
@@ -181,7 +181,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1245.47485, 667.452698]
+      Position: [1130, 667.452698]
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
@@ -190,6 +190,7 @@ GameObjects:
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
     Children:
+      - 1251316223543296090
       - 5191734195603716267
   - Name: SkillBorder
     UUID: 5191734195603716267
@@ -201,10 +202,10 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [1246.76147, 668.685364]
+      Position: [1130, 667.452698]
       Size: [32, 32]
     Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\skill\SkillBorder.tga
+      TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
@@ -589,7 +590,7 @@ GameObjects:
       IsCenter: true
   - Name: LevelFont20
     UUID: 7440413138310284788
-    Active: false
+    Active: true
     Layer: Default
     Instancing: false
     Type: UI
@@ -607,7 +608,7 @@ GameObjects:
       Color: [0, 0, 0, 1]
   - Name: LevelFont21
     UUID: 8153880922184464073
-    Active: false
+    Active: true
     Layer: Default
     Instancing: false
     Type: UI
@@ -619,6 +620,195 @@ GameObjects:
       Size: [10, 10]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: Icon
+    UUID: 1251316223543296090
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1130, 667.452698]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillIcon01
+    UUID: 14965003752090874297
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1162, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 2450450927756622740
+      - 7384799410845815373
+  - Name: Icon
+    UUID: 2450450927756622740
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1162, 667.452698]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillBorder
+    UUID: 7384799410845815373
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [1162, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillIcon02
+    UUID: 16828965550382113538
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1194, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 13157395383238026214
+      - 9863711243995913723
+  - Name: Icon
+    UUID: 13157395383238026214
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1194, 667.452698]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillBorder
+    UUID: 9863711243995913723
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [1194, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillIcon03
+    UUID: 8047637696585945015
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1226, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 12738321021896914698
+      - 3481039916029682447
+  - Name: Icon
+    UUID: 12738321021896914698
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1226, 667.452698]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SkillBorder
+    UUID: 3481039916029682447
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 4
+    Hovering: false
+    Com_Transform:
+      Position: [1226, 667.452698]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
