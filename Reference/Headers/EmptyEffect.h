@@ -96,7 +96,6 @@ public:
 	void SetSpriteY(_uint NumY) { m_iSpriteNumY = NumY; }
 	void SetSpriteTotal(_uint Num) { m_iSpriteNumTotal = Num; }
 
-
 private:
 	HRESULT SetUpComponents();
 	virtual void LinkTranformWithParent();
@@ -144,9 +143,9 @@ private:
 	_bool	m_bZoomOut = false;
 
 	_float	m_fSpriteNum = 0;
-	_uint  m_iSpriteNumX = 0.f;
-	_uint  m_iSpriteNumY = 0.f;
-	_uint  m_iSpriteNumTotal = 0.f;
+	_uint  m_iSpriteNumX = 0;
+	_uint  m_iSpriteNumY = 0;
+	_uint  m_iSpriteNumTotal = 0;
 	_float m_fSpriteSpeed = 5.f;
 
 	_bool	m_bBillBord = false;

@@ -118,7 +118,7 @@ void CFlogas::Update(_double dDeltaTime)
 	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
 	{
 
-		{
+		
 			m_bStartBattle = true;
 			if(m_pStat->GetStatInfo().hp < 2400.f)
 				m_bPhaseSecond = true;
@@ -402,7 +402,6 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 			if (m_pModel->Get_isFinished())
 			{
 				m_dSpecialDelay = 0.f;
-				m_dSpecialDelay = 0.f;
 				m_dDelayTime = 0.f;
 			}
 
@@ -441,10 +440,13 @@ void CFlogas::EndState(Flogas eState, _double dDeltaTime)
 				break;
 			case FLYING_END:
 				m_eState = FLYING_END2;
+				break;
 			case DIE:
 				m_eState = DEADBODY;
+				break;
 			case DEADBODY:
 				m_eState = DEADBODY;
+				break;
 			default:
 				m_eState = IDLE;
 				break;
@@ -484,7 +486,7 @@ void CFlogas::RandomPattern()
 			m_QueState.push(L_Slash);
 		else
 			m_QueState.push(THRUST);
-		}
+		
 	}
 }
 
