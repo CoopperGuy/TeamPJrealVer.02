@@ -37,6 +37,7 @@ HRESULT CEffectSmoke::Initialize(void* pArg, _vector pos)
 
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
 	}
 	return S_OK;
 }
