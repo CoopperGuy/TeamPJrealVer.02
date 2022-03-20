@@ -187,6 +187,19 @@ HRESULT CLoader::GameSceneStage02()
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2);
 
+	if (FAILED(GameFlogasLoader()))
+		MSG_BOX("Failed To Create Flogas Effect");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
+		MSG_BOX("Failed To Create FireBall Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
+		MSG_BOX("Failed To Create O_WaterEA Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
+		MSG_BOX("Failed To Create O_EAFire Prefab");
+
+
 	m_isFinish = true;
 	return S_OK;
 }
@@ -240,7 +253,7 @@ HRESULT CLoader::GameSceneLogo()
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactBeam", "E_ImpactBeam00")))
 		MSG_BOX("Failed To Create E_ImpactBeam00 Prefab");
-
+		
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
 		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 	_bool threadFinish = false;
@@ -294,7 +307,7 @@ HRESULT CLoader::GameSceneJUN()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/z.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
 	
 	if (FAILED(GameFlogasLoader()))

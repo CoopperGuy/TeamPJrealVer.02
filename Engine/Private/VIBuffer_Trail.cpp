@@ -255,6 +255,8 @@ HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 {
 	if (m_fAlpha <= -0.99f)
 		return S_OK;
+	if (m_bisActive && m_fAlpha <= -0.5f)
+		return S_OK;
 	_uint		iOffset = 0;
 
 	m_pShader->SetUp_ValueOnShader("g_AlphaSet", &m_fAlpha, sizeof(_float));
