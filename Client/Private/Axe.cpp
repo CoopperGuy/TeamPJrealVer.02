@@ -409,7 +409,4 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::Player_End:
 		break;
 	}
-
-	m_pTrailBuffer->SetIsActive(false);
-
 }

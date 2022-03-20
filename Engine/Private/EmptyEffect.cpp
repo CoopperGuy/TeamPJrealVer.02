@@ -408,6 +408,9 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		if (m_pTexture[TEXTURE_NOISE])
 			static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NOISE]);
 
+		if (m_pTexture[TEXTURE_NORMAL])
+			static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NORMAL]);
+
 		static_cast<CVIBuffer*>(buffer)->Render(m_iPassIndex);
 	}
 
@@ -443,6 +446,8 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 	{
 		CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(DecalCom);
 		ID3D11ShaderResourceView* pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Depth");
+		if (pDepthSRV == nullptr)
+			return E_FAIL;
 
 		pDecal->GetShader()->SetUp_TextureOnShader("g_DepthTexture", pDepthSRV);
 
@@ -476,6 +481,9 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 
 		if (m_pTexture[TEXTURE_NOISE])
 			static_cast<CVIBuffer*>(PointInstanceCom)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NOISE]);
+
+		if (m_pTexture[TEXTURE_NORMAL])
+			static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NORMAL]);
 
 		static_cast<CVIBuffer_PointInstance*>(PointInstanceCom)->Render(m_iPassIndex);
 	}
