@@ -700,6 +700,11 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	
 	out << YAML::Key << "EffectDuration" << YAML::Value << pGameObj->GetEffectDuration();
 
+	out << YAML::Key << "SpriteNumX" << YAML::Value << pGameObj->GetSpriteX();
+	out << YAML::Key << "SpriteNumY" << YAML::Value << pGameObj->GetSpriteY();
+	out << YAML::Key << "SpriteTotal" << YAML::Value << pGameObj->GetSpriteTotal();
+	out << YAML::Key << "SpriteSpeed" << YAML::Value << pGameObj->GetSpriteSpeed();
+
 	out << YAML::EndMap;
 }
 
@@ -1024,8 +1029,6 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		vDistortion3.x = sequence[0].as<float>();
 		vDistortion3.y = sequence[1].as<float>();
 
-
-
 		CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(deserializedObject);
 
 		pEffect->SetTexture(DiffuseFilePath, CEmptyEffect::TEXTURE_DIFFUSE);
@@ -1068,7 +1071,22 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 			_float	EffectDuration = EffectSetting["EffectDuration"].as<_float>();
 			pEffect->SetEffectDuration(EffectDuration);
 		}
-
+		if (EffectSetting["SpriteNumX"]) {
+			_int	NumX = EffectSetting["SpriteNumX"].as<_int>();
+			pEffect->SetSpriteX(NumX);
+		}
+		if (EffectSetting["SpriteNumY"]) {
+			_int	NumY = EffectSetting["SpriteNumY"].as<_int>();
+			pEffect->SetSpriteY(NumY);
+		}
+		if (EffectSetting["SpriteTotal"]) {
+			_int	NumTotal = EffectSetting["SpriteTotal"].as<_int>();
+			pEffect->SetSpriteTotal(NumTotal);
+		}
+		if (EffectSetting["SpriteSpeed"]) {
+			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
+			pEffect->SetSpriteSpeed(fSpriteSpeed);
+		}
 	}
 
 	return deserializedObject;
@@ -1177,7 +1195,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		_float2 vDistortion3;
 		_float fDistortionScale = EffectSetting["DistortionScale"].as<float>();
 		_float fDistortionBias = EffectSetting["DistortionBias"].as<float>();
-
+		
 
 		auto sequence = EffectSetting["ScrollSpeedX"];
 		vScrollSpeedX.x = sequence[0].as<float>();
@@ -1209,7 +1227,6 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		pEffect->setDistortion(2, vDistortion3);
 		pEffect->SetDistortionScale(fDistortionScale);
 		pEffect->SetDistortionBias(fDistortionBias);
-
 		
 		if (EffectSetting["FadeOut"]) {
 			_bool	FadeOut = EffectSetting["FadeOut"].as<_bool>();
@@ -1239,7 +1256,22 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 			_float	EffectDuration = EffectSetting["EffectDuration"].as<_float>();
 			pEffect->SetEffectDuration(EffectDuration);
 		}
-
+		if (EffectSetting["SpriteNumX"]) {
+			_int	NumX = EffectSetting["EffectDuration"].as<_int>();
+			pEffect->SetSpriteX(NumX);
+		}
+		if (EffectSetting["SpriteNumY"]) {
+			_int	NumY = EffectSetting["SpriteNumY"].as<_int>();
+			pEffect->SetSpriteY(NumY);
+		}
+		if (EffectSetting["SpriteTotal"]) {
+			_int	NumTotal = EffectSetting["SpriteTotal"].as<_int>();
+			pEffect->SetSpriteTotal(NumTotal);
+		}
+		if (EffectSetting["SpriteSpeed"]) {
+			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
+			pEffect->SetSpriteSpeed(fSpriteSpeed);
+		}
 	}
 
 	return deserializedObject;

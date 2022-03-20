@@ -70,8 +70,8 @@ public:
 	void SetPxMatrix(PxMat44 mat);
 	void SetPxPosition(PxExtendedVec3 vec3);
 	void SetPiviotMatrix(_float4x4 _matrix) { m_pivotMatrix = _matrix; }
-	_float Get_Degree();
 	void Set_RootMat(_fmatrix Pxmat) { XMStoreFloat4x4(&m_PxMatrix, Pxmat); }
+	_float Get_Degree();
 	_float4x4 Get_Pxmat() { return m_PxMatrix; }
 
 	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);

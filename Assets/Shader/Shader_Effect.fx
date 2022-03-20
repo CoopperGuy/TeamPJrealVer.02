@@ -35,6 +35,8 @@ cbuffer EffectBuffer
     float g_fFadeAlpha;
     float g_fAlpha;
     uint g_iSpriteNum;
+	uint g_iSpriteNumX;
+	uint g_iSpriteNumY;
 };
 
 Texture2D g_DiffuseTexture;
@@ -255,12 +257,12 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     uint UVx = 0;
     uint UVy = 0;
 
-    UVx = g_iSpriteNum % 4;
-    UVy = g_iSpriteNum / 4;
+    UVx = g_iSpriteNum % g_iSpriteNumX;
+    UVy = g_iSpriteNum / g_iSpriteNumX;
 
 
-    Out.vTexUV.x = ((In.vTexUV.x + UVx) / 5.f);
-    Out.vTexUV.y = ((In.vTexUV.y + UVy) / 5.f);
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / (float)g_iSpriteNumX);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / (float)g_iSpriteNumY);
    
     return Out;
 }
@@ -491,14 +493,14 @@ vector PS_MAIN_SPRITE_DISCARD(PS_IN_SPRITE In) : SV_TARGET
     float4 vDiffuseColor;
     float4 vMask;
 
-   // vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
-    vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
-    //vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
+    vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+    //vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
 
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
-    vDiffuseColor *= vMask;
+    vDiffuseColor.a = vMask.a;
        
    //vDiffuseColor.a = ((vDiffuseColor.r + vDiffuseColor.g + vDiffuseColor.b) / 3);
 

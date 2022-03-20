@@ -41,10 +41,12 @@ HRESULT CEffectPajang::Initialize(void* pArg)
 		CModel* pTargetmodel = static_cast<CModel*>(pTargetObj->GetComponent("Com_Model"));
 
 		//_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");
-		_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger21");
+		_matrix targetbone = XMMatrixIdentity();
+		memcpy(&targetbone.r[3], &pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger21").r[3],sizeof(_vector));
+		targetbone.r[3] = XMVectorSetY(targetbone.r[3], 1.f);
 		//memccpy(&m_pTransform->GetWorldMatrix(), &targetbone, 0, sizeof(_matrix));
 		m_pTransform->SetMatrix(targetbone *pTargetTransform->GetWorldMatrix());
-		m_pTransform->SetUpRotation(_vector{ 0.f,0.f,1.f }, 90.f);
+		//m_pTransform->SetUpRotation(_vector{ 0.f,0.f,1.f }, 90.f);
 
 		m_fScale = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) ,0.f };
 

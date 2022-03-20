@@ -21,7 +21,7 @@ GameObjects:
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise01.dds
       ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [0, 1, 0]
+      ScrollSpeedY: [0, 5, 0]
       Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
@@ -55,8 +55,8 @@ GameObjects:
           TextureDiffusePath: ""
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\04_SwirlDistort_Tx.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
-          ScrollSpeedX: [1, 0, 0]
-          ScrollSpeedY: [1, 1, 0]
+          ScrollSpeedX: [4, 0, 0]
+          ScrollSpeedY: [4, 4, 0]
           Distortion1: [0.100000001, 0.5]
           Distortion2: [1, 1]
           Distortion3: [1, 1]
