@@ -253,7 +253,8 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
 
     Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
     Out.vTexUV = In.vTexUV;
-    
+  //  Out.vMaskUV = In.vTexUV;
+
     uint UVx = 0;
     uint UVy = 0;
 
@@ -471,19 +472,19 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
     float4 vDiffuseColor;
     float4 vMask;
 
-   // vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
-    vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
-    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
+	//vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+	vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+	vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
 
     if (vMask.a <= 0.2f)
         discard;
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
-    vDiffuseColor *= vMask;
+    //vDiffuseColor *= vMask;
 
-    if (vDiffuseColor.a <= 0.1f)
-        discard;
+  /*  if (vDiffuseColor.a <= 0.1f)
+        discard;*/
 
     return vDiffuseColor;
 }
@@ -493,14 +494,14 @@ vector PS_MAIN_SPRITE_DISCARD(PS_IN_SPRITE In) : SV_TARGET
     float4 vDiffuseColor;
     float4 vMask;
 
-    vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
-    //vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
-    vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
+	vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+	//vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+	vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
 
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
-    vDiffuseColor.a = vMask.a;
+    vDiffuseColor.a *= vMask.a;
        
    //vDiffuseColor.a = ((vDiffuseColor.r + vDiffuseColor.g + vDiffuseColor.b) / 3);
 

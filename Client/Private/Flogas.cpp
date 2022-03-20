@@ -118,13 +118,16 @@ void CFlogas::Update(_double dDeltaTime)
 	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
 	{
 
-		
-			m_bStartBattle = true;
-			if(m_pStat->GetStatInfo().hp < 2400.f)
-				m_bPhaseSecond = true;
+
+		m_bStartBattle = true;
+		if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp * 0.5f)
+			m_bPhaseSecond = true;
 
 		if (m_pStat->GetStatInfo().hp <= 0)
+		{
+			m_bStartBattle = false;
 			m_bDeadMotion = true;
+		}
 	}
 
 

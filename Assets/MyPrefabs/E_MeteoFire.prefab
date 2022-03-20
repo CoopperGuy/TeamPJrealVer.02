@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoFire
-    UUID: 18333540398341057465
+    UUID: 11145043146937721873
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0.0, 0, 0]
-      Rotation: [11.3099327, -0.125000209, 1.66753056e-09]
-      Scale: [1.60395589, 1.50323932, 1.20630932]
+      Translation: [0, 0.143458739, 0.0286916774]
+      Rotation: [-0.0737043768, 5.37535143, 4.18722945e-10]
+      Scale: [1.60325694, 1.50238121, 1.2064687]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -31,3 +31,7 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 1
