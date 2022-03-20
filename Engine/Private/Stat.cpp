@@ -7,12 +7,12 @@ USING(Engine)
 
 
 CStat::CStat(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
-	:CComponent(pDevice,pDeviceContext)
+	:CComponent(pDevice, pDeviceContext)
 {
 }
 
 CStat::CStat(const CStat & rhs)
-	:CComponent(rhs),
+	: CComponent(rhs),
 	m_tStat(rhs.m_tStat)
 {
 }
@@ -73,21 +73,20 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	if (dmgRation > 1.f)
 		isEFfect = true;
 
-	_float dmg = (enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000))) 
+	_float dmg = (enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000)))
 		* dmgRation * balance) * criRatio;
 
-	if (printDmg) {
-		_matrix cameraMat = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
-		_float3 fCameraRight, fDmgPosition;
-		_float4x4 matrix;
-		XMStoreFloat4x4(&matrix, cameraMat);
-		memcpy(&fCameraRight, matrix.m[0], sizeof(_float3));
-		_vector right = XMVectorSetY(XMVector3Normalize(XMLoadFloat3(&fCameraRight)), 2.f);
-		_int randPos = 2 + rand() % 2;
-		_float magnification = (_float)randPos / 10.f;
-		XMStoreFloat3(&fDmgPosition, m_pTransform->GetState(CTransform::STATE_POSITION) + right * magnification);
-		CDmgVIBuffer::Create(nullptr, fDmgPosition, dmg, isCrit, isEFfect);
-	}
+	_matrix cameraMat = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+	_float3 fCameraRight, fDmgPosition;
+	_float4x4 matrix;
+	XMStoreFloat4x4(&matrix, cameraMat);
+	memcpy(&fCameraRight, matrix.m[0], sizeof(_float3));
+	_vector right = XMVectorSetY(XMVector3Normalize(XMLoadFloat3(&fCameraRight)), 2.f);
+	_int randPos = 2 + rand() % 2;
+	_float magnification = (_float)randPos / 10.f;
+	XMStoreFloat3(&fDmgPosition, m_pTransform->GetState(CTransform::STATE_POSITION) + right * magnification);
+	CDmgVIBuffer::Create(nullptr, fDmgPosition, dmg, isCrit, isEFfect, printDmg);
+
 	m_tStat.hp -= dmg;
 	if (m_tStat.hp <= 0.f) {
 		m_tStat.isDead = true;
@@ -108,7 +107,7 @@ _bool CStat::DamagedAtk(_float enemyStatAtk, _bool printDmg)
 		_float4x4 matrix;
 		XMStoreFloat4x4(&matrix, cameraMat);
 		memcpy(&fCameraRight, matrix.m[0], sizeof(_float3));
-		_vector right = XMVectorSetY( XMVector3Normalize(XMLoadFloat3(&fCameraRight)),2.f);
+		_vector right = XMVectorSetY(XMVector3Normalize(XMLoadFloat3(&fCameraRight)), 2.f);
 		_int randPos = 2 + rand() % 2;
 		_float magnification = (_float)randPos / 10.f;
 		XMStoreFloat3(&fDmgPosition, m_pTransform->GetState(CTransform::STATE_POSITION) + right * magnification);
@@ -121,7 +120,7 @@ _bool CStat::DamagedAtk(_float enemyStatAtk, _bool printDmg)
 		m_tStat.isDead = true;
 		return true;
 	}
-	
+
 	return false;
 }
 

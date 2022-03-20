@@ -99,6 +99,19 @@ vector PS_MAIN_DISABLE(PS_IN In) : SV_TARGET
     return color;
 }
 
+vector PS_MAIN_DISABLE2(PS_IN In) : SV_TARGET
+{
+    float4 diffuse = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 color = diffuse;
+    float alpha = (color.r + color.g + color.b) / 3.f;
+    color.a = alpha;
+
+    if (color.a < 0.1f)
+        discard;
+
+    return color;
+}
+
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -130,5 +143,15 @@ technique11		DefaultDevice
         VertexShader = compile vs_5_0 VS_MAIN();
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_DISABLE();
+    }
+    pass ONE
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_One, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_DISABLE2();
     }
 }

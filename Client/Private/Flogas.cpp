@@ -116,6 +116,7 @@ void CFlogas::Update(_double dDeltaTime)
 
 	__super::Update(dDeltaTime);
 	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
+	{
 		{
 			m_bStartBattle = true;
 			if(m_pStat->GetStatInfo().hp < 2400.f)
