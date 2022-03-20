@@ -38,8 +38,6 @@ HRESULT CEffectMeteoFireBall::Initialize(void* pArg, _vector* pos)
 		m_pTransform->SetState(CTransform::STATE_POSITION, *pos);
 
 		startposy = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
-
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetSpritMaxNum(64.f);
 	}
 	return S_OK;
 }

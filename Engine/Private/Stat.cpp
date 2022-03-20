@@ -171,7 +171,7 @@ void CStat::HpRegeneration(_double deltaTime)
 
 void CStat::StaminaRegeneration(_double deltaTime)
 {
-	m_fStamina += m_fStaRegen*deltaTime;
+	m_fStamina += m_fStaRegen*(_float)deltaTime;
 }
 
 void CStat::CorrecetMaxStamina()
