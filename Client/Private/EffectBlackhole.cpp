@@ -56,7 +56,13 @@ void CEffectBlackhole::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
+	m_fDead += deltaTime;
 
+	if (m_fDead > 3.f)
+	{
+		m_bDead = true;
+		return;
+	}
 	CTransform* pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 	CModel* pTargetmodel = static_cast<CModel*>(pTargetObj->GetComponent("Com_Model"));
 	_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");

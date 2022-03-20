@@ -302,7 +302,7 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 	
 	m_fSpriteNum += (_float)TimeDelta * m_fSpriteSpeed;
 
-	if (m_fSpriteNum >= 16.f)
+	if (m_fSpriteNum >= m_iSpriteNumTotal)
 	{
 		m_fSpriteNum = 0;
 		m_SpriteEnd = true;
@@ -519,6 +519,9 @@ void CEmptyEffect::SetUp_ValueOnShader(string ComponentTag)
 	
 	_uint iSpriteNum = (_uint)m_fSpriteNum;
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNum", &iSpriteNum, sizeof(_uint));
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNumX", &m_iSpriteNumX, sizeof(_uint));
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNumY", &m_iSpriteNumY, sizeof(_uint));
+
 }
 
 void CEmptyEffect::SetUp_ValueOnModelShader()

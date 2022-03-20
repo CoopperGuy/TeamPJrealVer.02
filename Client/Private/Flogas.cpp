@@ -152,7 +152,7 @@ void CFlogas::Update(_double dDeltaTime)
 					m_eState = DEADBODY;
 			}
 		}
-	}
+	
 	//OrganizeEffect(m_eState);
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
@@ -180,10 +180,8 @@ void CFlogas::Update(_double dDeltaTime)
 	//fall down
 	/*PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
-
-
-
 }
+
 void CFlogas::LateUpdate(_double dDeltaTime)
 {
 	__super::LateUpdate(dDeltaTime);
@@ -463,13 +461,16 @@ void CFlogas::RandomPattern()
 
 		if (Drawing > 50)
 		{
-			m_QueState.push(R_Slash);
+			//m_QueState.push(R_Slash);
+			m_QueState.push(L_Slash);
 			m_QueState.push(L_Slash);
 		}
 		else
 		{
-			m_QueState.push(R_Slash);
-			m_QueState.push(THRUST);
+			m_QueState.push(L_Slash);
+			m_QueState.push(L_Slash);
+			//m_QueState.push(R_Slash);
+			//m_QueState.push(THRUST);
 		}
 		/*if (Drawing <= 10)
 		{
@@ -480,7 +481,8 @@ void CFlogas::RandomPattern()
 			if (m_QueState.back() == THRUST)
 				m_QueState.push(L_Slash);
 			else
-				m_QueState.push(THRUST);
+				m_QueState.push(L_Slash);
+				//m_QueState.push(THRUST);
 		//}
 	}
 }
@@ -713,11 +715,11 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		}
 		else
 			m_eCurSTATES = CStat::STATES_IDEL;
-		if (keyFrame == 28.f) {
+		/*if (keyFrame == 28.f) {
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
 			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
 			m_pEffSwordRing->SetSlashR(true);
-		}
+		}*/
 		break;
 	}
 	case THRUST:
@@ -752,14 +754,10 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				make = false;
 			}
 		}
-		if (keyFrame >= 90.f)
-		{
-			if (m_pEffBlackhole)
-				m_pEffBlackhole->SetDead();
-		}
+	
 		if (keyFrame == 124.f)
 		{
-			auto EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
+			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
 			make = true;
 		}

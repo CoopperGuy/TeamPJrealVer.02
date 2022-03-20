@@ -43,7 +43,7 @@ private:
 
 	_float PlusScale = 1.f;
 	_float m_fMaxScail = 5.f;
-
+	_float m_fDead = 0.f;
 };
 
 END
