@@ -163,6 +163,12 @@ HRESULT CLoader::GameFlogasLoader()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireSlash", "E_FireSlash")))
 		MSG_BOX("Failed To Create FireSlash Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_Fire_explosion")))
+		MSG_BOX("Failed To Create E_Fire_explosion Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
+		MSG_BOX("Failed To Create E_FireBoob Prefab");
+
 	return S_OK;
 }
 

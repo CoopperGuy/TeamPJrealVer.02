@@ -19,8 +19,9 @@
 #include "SlashWave.h"
 #include "EffectMeteoFire.h"
 #include "EffectMeteoTrail.h"
-#include "EffectMagic.h"]
+#include "EffectMagic.h"
 #include "MeteoFireBall.h"
+#include "Fire_explosion.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -172,7 +173,11 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 		m_bDeadMotion = true;
 	}
-
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_U))
+	{
+		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire_explosion", "Fire_explosion");
+		CEngine::GetInstance()->AddScriptObject(CFire_explosion::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+	}
 
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
