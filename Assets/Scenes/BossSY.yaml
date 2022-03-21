@@ -21,27 +21,8 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: Roof
-    UUID: 17905721910628997374
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 19.9440002, 0]
-      Rotation: [0, -0, 0]
-      Scale: [0.5, 0.5, 0.5]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon2\Roof\
-      MeshFileName: Roof.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 100
-  - Name: Floor
-    UUID: 2370993724810836214
+  - Name: Empty Object
+    UUID: 8114685731527054045
     Active: true
     Layer: Default
     Instancing: false
@@ -51,282 +32,30 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [17, 2, 17]
+      Scale: [1, 1, 1]
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon2\BADAK\
-      MeshFileName: badack2.fbx
-      HasCollider: true
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 100
-  - Name: Water
-    UUID: 4587213756306410097
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 4
-    BillBord: false
-    Com_Transform:
-      Translation: [-4.82443568e-07, -0.534016311, 1.15133778e-08]
-      Rotation: [90, 7.99991941, 0.000104272069]
-      Scale: [34.9999962, 35, 0.999993742]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\abs.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Fx_Water_002_Tex_Pys.png
-      ScrollSpeedX: [-0.100000001, -0.100000001, 0]
-      ScrollSpeedY: [-0.100000001, -0.191, 2.20000005]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.600000024
-      DistortionBias: 1.29999995
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-  - Name: CamCollider1
-    UUID: 12612541215930593208
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, 16.775095]
-      Rotation: [0, -0, 0]
-      Scale: [1.36710548, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 50
-  - Name: CamCollider1
-    UUID: 9745437605041046302
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, -16.8658218]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 50
-  - Name: CamCollider1
-    UUID: 10935363635551892603
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [17.6701775, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 88.2999878
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: CamCollider1
-    UUID: 6112912549688330657
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-16.9572678, -7.91756535, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 89.1999741
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: CamCollider1
-    UUID: 17102987229334579348
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [13.5109024, 0, 14.7879868]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 41.3999786
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: CamCollider1
-    UUID: 198818307398218000
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-11.4570007, -0.441026688, -11.7280445]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 42.1999817
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: CamCollider1
-    UUID: 1703599836712041815
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [14.7802696, -2.40487099, -14.0734959]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - 136.300003
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: CamCollider1
-    UUID: 15671853698510492452
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-18.553648, -0.7693609, 7.52751684]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [25, 25, 8]
-      Angle:
-        - 0
-        - -62.7999878
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: Wall
-    UUID: 7540281682007890871
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 6.69999981, 0]
-      Rotation: [0, -0, 0]
-      Scale: [0.5, 0.5, 0.5]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon2\Wall\
-      MeshFileName: Wall.fbx
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
       HasCollider: false
       Equipment: false
     RenderGroup: 1
-    FrustumRange: 500
+    FrustumRange: 50
+  - Name: Empty Object
+    UUID: 3890743706725207804
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 10.0198145, 2.32282472]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: Roof.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100

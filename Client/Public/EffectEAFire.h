@@ -22,13 +22,8 @@ public:
 	virtual void Free() override;
 
 
-	void SetFadeInOut(CGameObject * pObj);
-
-	void SetMatrix(_matrix pWorldMatrix) { m_pTransform->SetMatrix(pWorldMatrix); }
 	void SetScale(_float3 scail) { m_pTransform->SetScale(scail); }
 
-public:
-	void SetObj() { m_bSet = true; }
 private:
 	_bool	m_bSetFadeOut = true;
 	_bool m_bSet = false;

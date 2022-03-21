@@ -267,6 +267,33 @@ VS_OUT_SPRITE VS_MAIN_SPRITE(VS_IN In)
     return Out;
 }
 
+VS_OUT_SPRITE VS_MAIN_SPRITEMASK(VS_IN In)
+{
+	VS_OUT_SPRITE Out = (VS_OUT_SPRITE)0;
+
+	/* Postion */
+	matrix matWV, matWVP;
+
+	matWV = mul(g_WorldMatrix, g_ViewMatrix);
+	matWVP = mul(matWV, g_ProjMatrix);
+
+	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+	Out.vTexUV = In.vTexUV;
+	Out.vMaskUV = In.vTexUV;
+
+	uint UVx = 0;
+	uint UVy = 0;
+
+	UVx = g_iSpriteNum % g_iSpriteNumX;
+	UVy = g_iSpriteNum / g_iSpriteNumX;
+
+
+	Out.vTexUV.x = ((In.vTexUV.x + UVx) / (float)g_iSpriteNumX);
+	Out.vTexUV.y = ((In.vTexUV.y + UVy) / (float)g_iSpriteNumY);
+
+	return Out;
+}
+
 struct PS_IN
 {
     float4 vPosition : SV_POSITION;
@@ -461,7 +488,23 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
     return vDiffuseColor;
 }
+vector PS_MAIN_SPRITEMASK(PS_IN_SPRITE In) : SV_TARGET
+{
+	float4 vDiffuseColor;
+	float4 vMask;
 
+	vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+	vMask.a = ((vMask.r + vMask.g + vMask.b) / 3);
+
+	vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+
+	vDiffuseColor.a = vMask.a;
+
+	if (vDiffuseColor.a <= 0.1f)
+	discard;
+
+	return vDiffuseColor;
+}
 
 vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
 {
@@ -876,5 +919,15 @@ technique11 DefaultDevice
 		VertexShader = compile vs_5_0 VS_MAIN_TEST();
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN_MESH_FlogasFire();
+	}
+	pass SPriteMask
+	{
+		SetRasterizerState(Rasterizer_NoneCull);
+		SetDepthStencilState(DepthStecil_Default, 0);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN_SPRITEMASK();
+		GeometryShader = NULL;
+		PixelShader = compile ps_5_0 PS_MAIN_SPRITEMASK();
 	}
 }
