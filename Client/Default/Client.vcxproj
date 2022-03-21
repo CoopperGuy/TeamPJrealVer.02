@@ -202,6 +202,8 @@
     <ClInclude Include="..\Public\EAFireBall.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
+    <ClInclude Include="..\Public\Fire_Boob.h" />
+    <ClInclude Include="..\Public\Fire_explosion.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -357,6 +359,8 @@
     <ClCompile Include="..\private\EquipItemHud.cpp" />
     <ClCompile Include="..\private\Equipment.cpp" />
     <ClCompile Include="..\private\EventCheck.cpp" />
+    <ClCompile Include="..\Private\Fire_Boob.cpp" />
+    <ClCompile Include="..\Private\Fire_explosion.cpp" />
     <ClCompile Include="..\Private\Flogas.cpp" />
     <ClCompile Include="..\Private\FlogasDunDoor.cpp" />
     <ClCompile Include="..\private\Gold.cpp" />

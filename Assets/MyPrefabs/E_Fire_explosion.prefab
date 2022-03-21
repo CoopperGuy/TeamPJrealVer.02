@@ -1,0 +1,73 @@
+Scene: Untitled
+GameObjects:
+  - Name: Fire_explosion
+    UUID: 12895974190404613629
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [-1.53585112, 0.766852498, -0.200000003]
+      Rotation: [1.31522679, -2.36686969, 3.33789663e-09]
+      Scale: [0.95491302, 0.9533301, 0.932278633]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall8x8.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Shock_004_Tex_KKJ.tga
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\FX_Shock_New04_Tx.tga
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 1.5
+      FadeOutStratTime: 1
+      FadeIn: true
+      FadeInDuration: 1
+      FadeInStratTime: 0
+      EffectDuration: 1.5
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 15
+    Children:
+      - Name: TorchFire
+        UUID: 6601677359937610046
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 2
+        BillBord: true
+        Com_Transform:
+          Translation: [0.0777356625, 0.538773537, -0.0785020888]
+          Rotation: [0, -0, 0]
+          Scale: [2, 2, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_TorchFire.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.800000012
+          DistortionBias: 0.5
+          FadeOut: true
+          FadeOutDuration: 1.5
+          FadeOutStratTime: 1
+          FadeIn: true
+          FadeInDuration: 1
+          FadeInStratTime: 0
+          EffectDuration: 2
+          SpriteNumX: 8
+          SpriteNumY: 4
+          SpriteTotal: 32
+          SpriteSpeed: 10

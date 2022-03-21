@@ -187,6 +187,13 @@ HRESULT CLoader::GameFlogasLoader()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
 		MSG_BOX("Failed To Create Smoke Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_Fire_explosion")))
+		MSG_BOX("Failed To Create E_Fire_explosion Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
+		MSG_BOX("Failed To Create E_FireBoob Prefab");
+
+
 	return S_OK;
 }
 
@@ -330,6 +337,8 @@ HRESULT CLoader::GameSceneLEE()
 
 HRESULT CLoader::GameSceneJUN()
 {
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -4.f));
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);

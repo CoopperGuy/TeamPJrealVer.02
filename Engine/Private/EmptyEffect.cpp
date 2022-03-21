@@ -133,7 +133,6 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
 
-
 	for (_uint i = 0; i < 3; ++i)
 	{
 		m_vDistortion[i] = rhs->m_vDistortion[i];

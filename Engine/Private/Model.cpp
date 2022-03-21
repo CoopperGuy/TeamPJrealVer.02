@@ -292,7 +292,7 @@ HRESULT CModel::CreateBuffer(string pMeshFilePath, string pMeshFileName, string 
 
 	if (FAILED(Create_VertexIndexBuffer(pShaderFilePath)))
 		return E_FAIL;
-		
+
 	if (!m_bLinkEquip)
 	{
 		if (FAILED(SetUp_AnimationInfo()))
@@ -792,7 +792,7 @@ HRESULT CModel::SetUp_SkinnedInfo()
 
 HRESULT CModel::SetUp_SkinnedInfoToEquipment(CModel * pTarget)
 {
-	for (_uint i = 0; i < m_pScene->mNumMeshes; ++i)
+	/*for (_uint i = 0; i < m_pScene->mNumMeshes; ++i)
 	{
 		aiMesh*		pMesh = m_pScene->mMeshes[i];
 		CMeshContainer*	pMeshContainer = m_MeshContainers[i];
@@ -839,7 +839,7 @@ HRESULT CModel::SetUp_SkinnedInfoToEquipment(CModel * pTarget)
 			}
 			pMeshContainer->Add_Bones(pBoneDesc);
 		}
-	}
+	}*/
 	Sort_MeshesByMaterial();
 
 	for (auto& pMeshContainer : m_MeshContainers)

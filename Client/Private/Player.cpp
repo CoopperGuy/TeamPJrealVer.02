@@ -903,7 +903,10 @@ void CPlayer::Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial)
 	if (bCheck)
 	{
 		if (m_pEquip[(_uint)eEquipType]->Get_GameObj()->GetActive())
-			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
+		{
+			//if(eEquipType != Equip::Armor)
+				static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
+		}
 		else
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, true);
 	}

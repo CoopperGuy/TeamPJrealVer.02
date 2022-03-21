@@ -25,33 +25,33 @@ RasterizerState Rasterizer_Wireframe
 RasterizerState Rasterizer_Solid
 {
 	FillMode = Solid;
-CullMode = Back;
-FrontCounterClockwise = false;
+	CullMode = Back;
+	FrontCounterClockwise = false;
 };
 
 RasterizerState Rasterizer_None
 {
 	FillMode = Solid;
-CullMode = None;
-FrontCounterClockwise = false;
+	CullMode = None;
+	FrontCounterClockwise = false;
 };
 
 RasterizerState Rasterizer_Sky
 {
 	FillMode = Solid;
-CullMode = Front;
-FrontCounterClockwise = false;
+	CullMode = Front;
+	FrontCounterClockwise = false;
 };
 
 RasterizerState Rasterizer_NoneCull
 {
 	FillMode = Solid;
-CullMode = None;
-FrontCounterClockwise = false;
+	CullMode = None;
+	FrontCounterClockwise = false;
 };
 
 /*
-BOOL DepthEnable;
+BOOL DepthEnable;5ddddwddddwwwwwwdwuuuuuuuuuuuuuu
 D3D11_DEPTH_WRITE_MASK DepthWriteMask;
 D3D11_COMPARISON_FUNC DepthFunc;
 BOOL StencilEnable;
