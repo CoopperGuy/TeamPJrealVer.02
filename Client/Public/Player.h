@@ -72,13 +72,14 @@ public:
 	_bool Get_AttState() { return m_AttState; }
 	_float3 Get_CenterPosition();
 	void Collsion();
-
+	_bool GetUsableSkill() { return m_bUsableSkill; }
+public:
+	void SetUpEquip(string Name);
 
 private:
 	void Input();
 	void PlayerMove(_double dDeltaTime);
 	void Jump(_double dDeltaTime);
-	void SetUpEquip(string Name);
 	void Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial);
 	_vector SetEvadeDist();
 	_bool Walk();
@@ -120,6 +121,7 @@ private:
 	_bool m_bMixCombo		= false;
 
 	_bool m_bEvade			= false;
+	_bool m_bUsableSkill	= false;
 
 private:
 	_uint m_iIndex							= 0;

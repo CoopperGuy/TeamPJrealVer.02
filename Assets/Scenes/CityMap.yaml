@@ -1060,7 +1060,7 @@ GameObjects:
     Com_Transform:
       Translation: [-58.7758331, -1.18702352, 16.4274998]
       Rotation: [-0.017274294, 84.9477158, -0.0167165194]
-      Scale: [1.82012451, 1.75266266, 0.999056518]
+      Scale: [1.82012451, 1.75266254, 0.999056518]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Castle\
       MeshFileName: MastabaWall.fbx
@@ -1068,7 +1068,7 @@ GameObjects:
       Equipment: false
     Translation: [-58.7758331, -1.18702352, 16.4274998]
     Rotation: [-0.017274294, 84.9477158, -0.0167165194]
-    Scale: [1.82012451, 1.75266266, 0.999056518]
+    Scale: [1.82012451, 1.75266254, 0.999056518]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Castle\
     MeshFileName: MastabaWall.fbx
     HasCollider: false
@@ -3070,3 +3070,36 @@ GameObjects:
       Distortion3: [0.5, 0.100000001]
       DistortionScale: 0.300000012
       DistortionBias: 0
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+  - Name: EquipNPC
+    UUID: 8599249920016921887
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.8690536, -1.42564845, 17.6705112]
+      Rotation: [-179.999634, -0, -179.999496]
+      Scale: [1.49999988, 1.5, 1.49999988]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\NPC\Elf\
+      MeshFileName: NpcElfF.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Shop:
+      Range: [0, 99]
+      Type: 0
+    RenderGroup: 1
+    FrustumRange: 5

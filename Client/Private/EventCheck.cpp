@@ -31,6 +31,12 @@ void CEventCheck::SetCameraFly(CCamera_Fly * camera)
 		m_pCameraFly = camera;
 }
 
+void CEventCheck::SetBackPackHud(CBackPackHud * _backPack)
+{
+	if (_backPack)
+		m_pBackPackHud = _backPack;
+}
+
 void CEventCheck::AddItemAtQuickSlot(CItem * item, _int idx)
 {
 	if (m_pPlayerScript)
@@ -81,6 +87,12 @@ void CEventCheck::ShakeCamera(CCamera_Fly::SHAKE _shake, _int _cnt, _float _dura
 {
 	if (m_pCameraFly)
 		m_pCameraFly->ShakeCamera(_shake, _cnt, _duration, _spd);
+}
+
+void CEventCheck::SetUpEquip(string _equipName)
+{
+	if (m_pPlayerScript)
+		m_pPlayerScript->SetUpEquip(_equipName);
 }
 
 

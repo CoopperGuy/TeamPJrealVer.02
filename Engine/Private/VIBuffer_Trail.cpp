@@ -214,7 +214,7 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 				for (size_t i = m_vecCatmullRom.size() - 1; i > 0; i--) {
 					((VTXTEX*)SubResource.pData)[(m_vecCatmullRom.size() - 1) - i].vPosition = m_vecCatmullRom[i].vPosition;
 				}
-				for (_uint i = m_vecCatmullRom.size() - 1; i < m_iNumVertices; i++) {
+				for (size_t i = m_vecCatmullRom.size() - 1; i < m_iNumVertices; i++) {
 					((VTXTEX*)SubResource.pData)[i].vPosition = m_vecCatmullRom[m_vecCatmullRom.size() - 1].vPosition;
 				}
 			}

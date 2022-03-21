@@ -3,6 +3,8 @@
 #include "Transform.h"
 #include "DmgVIBuffer.h"
 #include "Engine.h"
+#include "LightManager.h"
+#include "Light.h"
 USING(Engine)
 
 
@@ -73,6 +75,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	if (dmgRation > 1.f)
 		isEFfect = true;
 
+
 	_float dmg = (enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000)))
 		* dmgRation * balance) * criRatio;
 
@@ -86,6 +89,23 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	_float magnification = (_float)randPos / 10.f;
 	XMStoreFloat3(&fDmgPosition, m_pTransform->GetState(CTransform::STATE_POSITION) + right * magnification);
 	CDmgVIBuffer::Create(nullptr, fDmgPosition, dmg, isCrit, isEFfect, printDmg);
+
+	if(printDmg)
+		static_cast<CEmptyGameObject*>(m_pMaster)->SetRimLight(true, DirectX::Colors::White * 0.6f, 0.075f);
+
+	if (isCrit && printDmg) {
+		LIGHTDESC _desc;
+		_desc.eType = LIGHTDESC::LIGHT_POINT;
+		XMStoreFloat4(&_desc.vLightDir, XMVectorSet(0.f, 1.f, 0.f, 0.f));
+		XMStoreFloat4(&_desc.vLightPos, m_pTransform->GetState(CTransform::STATE_POSITION));
+		_desc.fLightRange = 5.f;
+		_desc.fLightAngle = 20.f;
+		XMStoreFloat4(&_desc.vDiffuse, DirectX::Colors::LightGray);
+		XMStoreFloat4(&_desc.vAmbient, DirectX::Colors::Black);
+		XMStoreFloat4(&_desc.vSpecular, DirectX::Colors::White);
+		CLight::Create(m_pDevice, m_pDeviceContext, _desc, m_pTransform, true);
+	}
+
 
 	m_tStat.hp -= dmg;
 	if (m_tStat.hp <= 0.f) {

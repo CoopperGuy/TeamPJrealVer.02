@@ -102,6 +102,7 @@ _uint CEngine::Update(_double dTimeDelta)
 	m_pScriptObjectManager->Update(dTimeDelta);
 	m_pGameObjectManager->Update(dTimeDelta);
 
+	m_pLightManager->Update(dTimeDelta);
 	m_pFrustum->Transform_ToWorldSpace();
 
 	m_pScriptObjectManager->LateUpdate(dTimeDelta);
@@ -605,6 +606,8 @@ HRESULT CEngine::AddLight(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceC
 
 	return m_pLightManager->AddLight(pDevice, pDeviceContext, LightDesc);
 }
+
+
 
 HRESULT CEngine::Add_RenderTarget(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, string pRenderTargetTag, _uint iWidth, _uint iHeight, DXGI_FORMAT Format, _float4 vClearColor)
 {

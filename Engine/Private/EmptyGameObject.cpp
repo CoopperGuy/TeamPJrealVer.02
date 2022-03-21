@@ -435,6 +435,13 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 	if (!m_bIsActive)
 		return 0;
 
+	if (m_bRimLightEnable) {
+		m_RimLightTimeAcc += TimeDelta;
+		if (m_RimLightTime < m_RimLightTimeAcc) {
+			m_bRimLightEnable = false;
+			m_RimLightTimeAcc = 0;
+		}
+	}
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
 		CComponent* pModel = GetComponent("Com_Model");
@@ -555,7 +562,7 @@ HRESULT CEmptyGameObject::Render(_uint iPassIndex)
 								
 				pModel->GetShader()->SetUp_ValueOnShader("g_RimLightEnable", &m_bRimLightEnable, sizeof(_bool));
 				pModel->GetShader()->SetUp_ValueOnShader("g_CamPosition", &m_pEngine->GetCamPosition(), sizeof(_float3));
-				pModel->GetShader()->SetUp_ValueOnShader("g_RimLitghColor", &m_vRimLightColor, sizeof(_float3));
+				pModel->GetShader()->SetUp_ValueOnShader("g_RimLitghColor", &m_vRimLightColor, sizeof(_float4));
 				// TODO: Handle passIndex
 				pModel->Render(i, iPassIndex);
 			}
@@ -631,6 +638,13 @@ void CEmptyGameObject::SetisRender(_bool tf)
 	for (auto& iter : m_listChildren) {
 		iter->SetisRender(m_bisRender);
 	}
+}
+
+void CEmptyGameObject::SetRimLight(_bool bRimLight, _fvector _lightColor, _double _lifeTime)
+{
+	m_bRimLightEnable = bRimLight;
+	XMStoreFloat4(&m_vRimLightColor, _lightColor);
+	m_RimLightTime = _lifeTime;
 }
 
 HRESULT CEmptyGameObject::SetUpComponents()
