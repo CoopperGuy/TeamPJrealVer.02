@@ -2,7 +2,8 @@
 #include "Client_Struct.h"
 #include "..\Public\EffectEAFire.h"
 #include "EmptyEffect.h"
-#include "Obb.h"
+#include "EffectFireBall.h"
+
 USING(Client)
 
 CEffectEAFire::CEffectEAFire()
@@ -32,7 +33,6 @@ HRESULT CEffectEAFire::Initialize(void* pArg)
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-		m_fScale = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , 0.f };
 	}
 	return S_OK;
 }
@@ -45,21 +45,13 @@ void CEffectEAFire::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	if (m_bSet) {
-
-		if (m_bSetFadeOut)
-		{
-			SetFadeInOut(m_pGameObject);
-			m_bSetFadeOut = false;
-		}
-
-		if (static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutEnable()) {
-			m_fDeadTime += deltaTime;
-			if (m_fDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
-			{
-				m_bDead = true;
-			}
-		}
+	m_dMakeFB + -deltaTime;
+	_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	if (m_dMakeFB >= 0.8)
+	{
+		auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+		CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, pPos), CEngine::GetInstance()->GetCurSceneNumber());
+		m_dMakeFB = 0;
 	}
 }
 
@@ -75,18 +67,6 @@ void CEffectEAFire::LateUpdate(_double deltaTime)
 
 void CEffectEAFire::Render()
 {
-}
-
-void CEffectEAFire::SetFadeInOut(CGameObject * pObj)
-{
-	//static_cast<CEmptyEffect*>(pObj)->SetFadeInEnable(true);
-	//static_cast<CEmptyEffect*>(pObj)->SetFadeInStartTime(0.f);
-	//static_cast<CEmptyEffect*>(pObj)->SetFadeInDuration(0.5f);
-
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutEnable(true);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutStartTime(0.f);
-	static_cast<CEmptyEffect*>(pObj)->SetFadeOutDuration(0.3f);
-	static_cast<CEmptyEffect*>(pObj)->SetEffectDuration(0.3f);
 }
 
 void CEffectEAFire::Free()

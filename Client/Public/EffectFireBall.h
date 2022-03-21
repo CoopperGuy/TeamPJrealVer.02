@@ -13,12 +13,12 @@ private:
 	virtual ~CEffectFireBall() = default;
 
 public:
-	virtual HRESULT Initialize(void* pArg, _vector* pos);
+	virtual HRESULT Initialize(void* pArg, _vector pos);
 	virtual void Update(_double deltaTime);
 	virtual void LateUpdate(_double deltaTime);
 	virtual void Render();
 public:
-	static CEffectFireBall* Create(void * pArg, _vector* pos);
+	static CEffectFireBall* Create(void * pArg, _vector pos);
 	virtual void Free() override;
 
 public:

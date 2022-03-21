@@ -23,7 +23,6 @@ private:
 	CTransform* m_pTargetTransform = nullptr;
 
 
-	class CEAFireBall* m_pEAFB = nullptr;
 private:
 	void Set_State(_double dDeltaTime);
 

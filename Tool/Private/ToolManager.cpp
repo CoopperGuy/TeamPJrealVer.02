@@ -24,8 +24,8 @@ USING(Tool)
 extern HINSTANCE hInst;
 
 
-static string strScene = "../../Assets/Scenes/InventoryUI.yaml";
 
+static string strScene = "../../Assets/Scenes/InventoryUI.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

@@ -19,9 +19,10 @@ HRESULT CWaterEA::Initialize(_float3 position)
 	m_pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_WaterEA", "O_WaterEA");
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
+	//m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
+	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,position.y,position.z });
 
-	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 
 	m_pModel->SetAnimationLoop((_uint)STATE::ATT, false, false);
 	m_pModel->SetAnimationLoop((_uint)STATE::IDLE, true, false);
@@ -40,7 +41,12 @@ void CWaterEA::Update(_double dDeltaTime)
 	if (m_bDead)
 		return;
 
-	Set_State(dDeltaTime);
+	CGameObject* m_pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
+	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
+
+	if(XMVectorGetZ(playerPos) >= -9.3f)
+		Set_State(dDeltaTime);
 
 
 }
@@ -52,8 +58,8 @@ void CWaterEA::LateUpdate(_double dDeltaTime)
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
-
-	m_pModel->Play_Animation(dDeltaTime * m_dAniIndex);
+	else
+		m_pModel->Play_Animation(dDeltaTime * m_dAniIndex);
 
 
 }
@@ -99,7 +105,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_pModel->SetUp_AnimationIndex(1);
 		int irand = rand() % 5;
 		irand += 5;
-		if (m_dIdleTime > irand) {
+		if (m_dIdleTime > _float(rand() % 5 + 5)) {
 			m_eState = ATT;
 			fireballmake = 0;
 			makeEffect = true;

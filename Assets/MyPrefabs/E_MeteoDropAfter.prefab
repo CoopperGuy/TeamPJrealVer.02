@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoDropAfter
-    UUID: 12938049065228700907
+    UUID: 7366736193689543707
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [1.26873755, 0.0751133785, -0.387277424]
-      Rotation: [-79.0236282, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Translation: [0, 0, 0]
+      Rotation: [90, -0, 0]
+      Scale: [1.49997032, 1.5, 1.5]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -25,9 +25,9 @@ GameObjects:
       DistortionScale: 0
       DistortionBias: 0
       FadeOut: true
-      FadeOutDuration: 0.7
-      FadeOutStratTime: 1.7
+      FadeOutDuration: 0.699999988
+      FadeOutStratTime: 1.70000005
       FadeIn: true
       FadeInDuration: 1
       FadeInStratTime: 0
-      EffectDuration: 2.4
+      EffectDuration: 2.4000001

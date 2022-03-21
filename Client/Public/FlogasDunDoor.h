@@ -18,7 +18,7 @@ private:
 	CEmptyGameObject*	m_pFlogasDunDoor = nullptr;
 	CEmptyGameObject*	m_pPlayer = nullptr;
 	CEmptyGameObject*	m_pAlretUI = nullptr;
-
+	CCollider*			m_pCollider = nullptr;
 	CTransform*			m_pTransform = nullptr;
 
 	_bool				m_bOpenDoor = false;
@@ -26,6 +26,7 @@ private:
 	_vector pFlogasDunDoor = {};
 
 	_float MaxHight = 2.f;
+	_float MinHight = 0.f;
 	_float doorY;
 
 

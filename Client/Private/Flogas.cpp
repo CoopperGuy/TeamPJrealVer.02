@@ -119,8 +119,8 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 
 		m_bStartBattle = true;
-		if (m_pStat->GetStatInfo().hp < 2400.f)
-			m_bPhaseSecond = true;
+		/*if (m_pStat->GetStatInfo().hp < 2400.f)
+			m_bPhaseSecond = true;*/
 
 		if (m_pStat->GetStatInfo().hp <= 0)
 			m_bDeadMotion = true;
@@ -168,6 +168,17 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 		m_bDeadMotion = true;
 	}
+
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD9))
+	//{
+	//	m_eState = FIREFIST;
+	//	m_bMakeEffect = true;
+	//}
+
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD8))
+	//{
+	//	m_eState = IDLE;
+	//}
 
 
 	if (m_pCollider) {
@@ -229,6 +240,8 @@ void CFlogas::InCombat(_double dDeltaTime)
 		}
 		else if (m_bMeteor)
 		{
+			m_bMakeEffect = true;
+
 			if (m_bDelay)
 				m_dDelayTime += dDeltaTime;
 

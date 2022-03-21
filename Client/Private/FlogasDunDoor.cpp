@@ -16,6 +16,8 @@ HRESULT CFlogasDunDoor::Initailze(CGameObject * pArg)
 		return E_FAIL;
 	pFlogasDunDoor = m_pTransform->GetState(CTransform::STATE_POSITION);
 
+	m_pCollider = static_cast<CCollider*>(m_pFlogasDunDoor->GetComponent("Com_Collider"));
+
 	m_pAlretUI = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("O_NPC_F"));
 	_vector pos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, -0.3f, 0.f), m_pTransform->GetWorldMatrix());
 	_float3 float3Pos;
@@ -29,36 +31,54 @@ HRESULT CFlogasDunDoor::Initailze(CGameObject * pArg)
 
 void CFlogasDunDoor::Update(_double deltaTime)
 {
+
+	if (m_bDead)
+		return;
 	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
+	pFlogasDunDoor = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
 	_float dist = XMVectorGetZ(XMVector3Length(pFlogasDunDoor - playerPos));
 
-
-	if (dist < 3.f) {
+	if (dist < 3.f && XMVectorGetZ(playerPos) <= -11.f) {
 		if (m_pAlretUI) {
 			m_pAlretUI->SetActive(true);
 		}
-		//if (CEngine::GetInstance()->IsKeyDown('F')) {
-		//	if (!m_bOpenDoor)
-		//		m_bOpenDoor = true;
-		//}
 		if (CEngine::GetInstance()->IsKeyDown('F')) {
-			doorY += 0.1f;
+			if (!m_bOpenDoor)
+				m_bOpenDoor = true;
+		}
+		if (m_bOpenDoor && MaxHight >= XMVectorGetY(pFlogasDunDoor)) {
+			doorY += 0.2f * deltaTime;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
+
 		}
 
 	}
 	else {
 		if (m_pAlretUI) {
 			m_pAlretUI->SetActive(false);
+			m_bOpenDoor = false;
+		}
+		if (!m_bOpenDoor && MinHight <= XMVectorGetY(pFlogasDunDoor)) {
+			m_pAlretUI->SetActive(false);
+			doorY -= 0.2f * deltaTime;
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
 		}
 	}
+	_float3 pos;
+	XMStoreFloat3(&pos, pFlogasDunDoor);
+	m_pCollider->SetRelativePos(pos);
 
 }
 
 void CFlogasDunDoor::LateUpdate(_double deltaTime)
 {
+	if (m_bDead)
+	{
+		this->SetDead();
+		m_pFlogasDunDoor->SetDead();
+	}
 }
 
 
