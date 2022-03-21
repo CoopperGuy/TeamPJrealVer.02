@@ -9,7 +9,7 @@ CEffectFireBall::CEffectFireBall()
 {
 }
 
-CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector* pos)
+CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector pos)
 {
 	CEffectFireBall*		pInstance = new CEffectFireBall();
 
@@ -24,7 +24,7 @@ CEffectFireBall * CEffectFireBall::Create(void * pArg, _vector* pos)
 }
 
 
-HRESULT CEffectFireBall::Initialize(void* pArg, _vector* pos)
+HRESULT CEffectFireBall::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
 
@@ -33,8 +33,9 @@ HRESULT CEffectFireBall::Initialize(void* pArg, _vector* pos)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+		_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, *pos);
+		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 	}
 	return S_OK;
@@ -47,28 +48,9 @@ void CEffectFireBall::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
-	
 
-	deaddt += deltaTime;
-	if (deaddt >= 0.5f)
-	{
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 		m_bDead = true;
-		deaddt = 0;
-	}
-	else if (0.1 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-		m_bDead = true;
-
-	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
-	_float4x4 newWorld;
-	_float4x4 world = m_pTransform->GetMatrix();
-	_vector scale, rotation, position;
-	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
-	XMStoreFloat4x4(&newWorld, viewInverse);
-	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
-	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
-
-
-
 }
 
 

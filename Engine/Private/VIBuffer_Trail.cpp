@@ -214,7 +214,7 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 				for (size_t i = m_vecCatmullRom.size() - 1; i > 0; i--) {
 					((VTXTEX*)SubResource.pData)[(m_vecCatmullRom.size() - 1) - i].vPosition = m_vecCatmullRom[i].vPosition;
 				}
-				for (_uint i = m_vecCatmullRom.size() - 1; i < m_iNumVertices; i++) {
+				for (size_t i = m_vecCatmullRom.size() - 1; i < m_iNumVertices; i++) {
 					((VTXTEX*)SubResource.pData)[i].vPosition = m_vecCatmullRom[m_vecCatmullRom.size() - 1].vPosition;
 				}
 			}
@@ -254,6 +254,8 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 {
 	if (m_fAlpha <= -0.99f)
+		return S_OK;
+	if (m_bisActive && m_fAlpha <= -0.5f)
 		return S_OK;
 	_uint		iOffset = 0;
 

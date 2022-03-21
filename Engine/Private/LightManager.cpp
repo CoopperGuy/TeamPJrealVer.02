@@ -18,6 +18,26 @@ const LIGHTDESC * CLightManager::GetLightDesc(_uint iIndex) const
 	return (*iter)->GetLightDesc();
 }
 
+_int CLightManager::Update(_double DetalTime)
+{
+
+	auto& iter_begin = m_Lights.begin();
+	for (; iter_begin != m_Lights.end();) {
+		if ((*iter_begin)->GetIsTempLight()) {
+
+			(*iter_begin)->Update(DetalTime);
+
+			if ((*iter_begin)->GetIsTimeOver())
+				iter_begin = m_Lights.erase(iter_begin);
+			else
+				iter_begin++;
+		}
+		else
+			iter_begin++;
+	}
+	return _int();
+}
+
 HRESULT CLightManager::AddLight(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, const LIGHTDESC & LightDesc)
 {
 	CLight*		pLight = CLight::Create(pDevice, pDeviceContext, LightDesc, nullptr);

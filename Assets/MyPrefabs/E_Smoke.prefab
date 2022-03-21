@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Smoke
-    UUID: 9826918129919664999
+    UUID: 997978612743431210
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 1.61363494, 0.322727054]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [1.5, 1.49996817, 1.5]
+      Translation: [0, 0, 0]
+      Rotation: [10.3111353, 4.74494982, 0]
+      Scale: [1.49920869, 1.49976027, 1.50398767]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -31,3 +31,7 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 30

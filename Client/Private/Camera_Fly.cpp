@@ -233,7 +233,7 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 	_vector preameraPos = m_pTransformCom->GetState(CTransform::STATE_POSITION);
 
 
-	if (g_Menu == false)
+	if (g_Menu == false && g_AnotherMenu == false)
 	{
 		if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_Y))
 		{

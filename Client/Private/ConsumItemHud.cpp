@@ -64,14 +64,16 @@ void CConsumItemHud::Update(_double deltaTime)
 
 
 	if (m_pThisUI->IsActive()) {
-		if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) {
-			m_bSelectInputIndex = true;
+		if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_CONSUM) {
+			if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) {
+				m_bSelectInputIndex = true;
+				CEventCheck::GetInstance()->OpenAddQuickSlot(m_bSelectInputIndex);
+			}
 		}
 	}
 	else {
 		m_iCurSelected = -1;
 	}
-	CEventCheck::GetInstance()->OpenAddQuickSlot(m_bSelectInputIndex);
 }
 
 void CConsumItemHud::LateUpdate(_double deltaTime)

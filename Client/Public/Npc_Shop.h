@@ -27,7 +27,7 @@ private:
 	CShopHud*							m_pShopHud = nullptr;
 private:
 	_int								m_iCurSelectedItem = -1;
-	mutable _float						m_fAlretMakeDistance = 5.f;
+	mutable _float						m_fAlretMakeDistance = 0.5f;
 private:
 	_bool								m_bisCreated = false;
 public:

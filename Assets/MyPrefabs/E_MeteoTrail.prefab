@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoTrail
-    UUID: 4076343496303798685
+    UUID: 14929800752604188094
     Active: true
     Layer: Default
     Type: Effect
@@ -9,13 +9,13 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [-1.72465503, 0.557287276, -1.13834941]
-      Rotation: [-178.88623, -70.7669678, -91.3255005]
-      Scale: [0.999305367, 1, 0.999999523]
+      Rotation: [0, 89, 0]
+      Scale: [0.999303579, 0.999999166, 0.999997795]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: RevivalLine.fbx
+      MeshFileName: MeteoTrail.fbx
       HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\001.png
     Effect_Setting:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_trail_010_TEX_CJH.png
@@ -34,3 +34,7 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 1
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5

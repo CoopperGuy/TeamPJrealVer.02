@@ -40,6 +40,7 @@ private:
 	_bool isEnd = false;
 	_bool isShrink = true;
 	_bool isStartDisable = false;
+	_bool m_IsCritical = false;
 public:
 	static CDmgVIBuffer* Create(CGameObject*	pTarget = nullptr, _float3 pos = { 0.f,0.f,0.f }, _float dmg = 0.f, _bool isCrit = false, _bool effect = false, _bool isPlayer = true);
 	virtual void Free() override;

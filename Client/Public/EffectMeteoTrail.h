@@ -23,6 +23,8 @@ public:
 
 	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
 
+	void LookAt(_fvector vTargetPos);
+
 private:
 	_double	m_dFadeOutDuration = 0;
 };

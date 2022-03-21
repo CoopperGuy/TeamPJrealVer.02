@@ -73,6 +73,8 @@ HRESULT CScene_Stage01::ReadyScript()
 {
 	CElfNPC::Create(m_pEngine->FindGameObjectWithName(m_pEngine->GetCurSceneNumber(), "Npc_Elf")), m_pEngine->GetCurSceneNumber();
 	CNpc_Shop::Create(m_pEngine->FindGameObjectWithName(m_pEngine->GetCurSceneNumber(), "Npc_Human_Shop"));
+	CNpc_Shop::Create(m_pEngine->FindGameObjectWithName(m_pEngine->GetCurSceneNumber(), "EquipNPC"));
+
 	m_pPortal = CPortal::Create();
 	CEngine::GetInstance()->AddScriptObject(m_pPortal, CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;

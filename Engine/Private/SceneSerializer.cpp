@@ -1266,7 +1266,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 			pEffect->SetEffectDuration(EffectDuration);
 		}
 		if (EffectSetting["SpriteNumX"]) {
-			_int	NumX = EffectSetting["EffectDuration"].as<_int>();
+			_int	NumX = EffectSetting["SpriteNumX"].as<_int>();
 			pEffect->SetSpriteX(NumX);
 		}
 		if (EffectSetting["SpriteNumY"]) {

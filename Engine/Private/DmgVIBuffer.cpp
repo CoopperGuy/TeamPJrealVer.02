@@ -48,6 +48,7 @@ CDmgVIBuffer::CDmgVIBuffer()
 HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos, _float dmg, _bool isCrit, _bool effect, _bool isPlayer)
 {
 	m_fDmg = dmg;
+	m_IsCritical = isCrit;
 	//std::thread loadDmgFont(ThreadDmgBuffer, this, pos,  m_fDmg);
 	//loadDmgFont.detach();
 
@@ -112,7 +113,7 @@ void CDmgVIBuffer::Update(_double deltaTime)
 
 
 		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
-		_float y = XMVectorGetY(pos) - 0.2f * deltaTime;
+		_float y = XMVectorGetY(pos) - 0.2f * (_float)deltaTime;
 		m_pTransform->SetState(CTransform::STATE_POSITION, XMVectorSetY(pos, y));
 
 
@@ -122,14 +123,25 @@ void CDmgVIBuffer::Update(_double deltaTime)
 				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->SetAlpha(m_fAlpha);
 		}
 		if (isShrink) {
-			m_startSize += 0.5f * deltaTime;
-			m_fEffectSize += 0.5f * deltaTime;
+			if (m_IsCritical) {
+				m_startSize += 0.825f * (_float)deltaTime;
+			}
+			else {
+				m_startSize += 0.5f * (_float)deltaTime;
+			}
+			m_fEffectSize += 0.5f * (_float)deltaTime;
 		}
 		else {
-			if (m_startSize > 0.065f)
-				m_startSize -= 0.5f*deltaTime;
+			if (m_IsCritical) {
+				if (m_startSize > 0.1f)
+					m_startSize -= 0.5f*(_float)deltaTime;
+			}
+			else {
+				if (m_startSize > 0.065f)
+					m_startSize -= 0.5f*(_float)deltaTime;
+			}
 			if (m_fEffectSize > 0.65)
-				m_fEffectSize -= 0.5f * deltaTime;
+				m_fEffectSize -= 0.5f * (_float)deltaTime;
 
 		}
 		m_pTransform->SetScale(_float3{ m_startSize ,m_startSize ,m_startSize });

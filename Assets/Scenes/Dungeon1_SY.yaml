@@ -21,25 +21,6 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: Roof
-    UUID: 12439306000784340327
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 7
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 1.79999995, -5.58133888]
-      Rotation: [0, -0, 0]
-      Scale: [4.67603016, 1, 3.69376755]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Roof\
-      MeshFileName: Roof.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 500
   - Name: DecoFloor
     UUID: 1361245669408703193
     Active: true
@@ -49,7 +30,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.129999995, -1, -4.74100018]
+      Translation: [0.419081867, -3.13097477, 3.53722405]
       Rotation: [0, 1.99999964, 0]
       Scale: [1.63300002, 1.26800013, 0.837000072]
     Com_Model:
@@ -59,67 +40,30 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
-  - Name: E_EAFireBall
-    UUID: 1410864695008113936
+  - Name: E_MeteoExplo
+    UUID: 8785287643544324078
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 1
-    BillBord: true
+    PassIndex: 2
+    BillBord: false
     Com_Transform:
-      Translation: [0.00537901092, 0.213814706, 0.084786281]
-      Rotation: [20.9324837, -6.97170019, -2.15033012e-07]
-      Scale: [0.929242134, 1.00371122, 0.989151418]
+      Translation: [-0.841885507, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_BoomMask_02.tga
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AESmoke_001_PS_JYW.tga
-      ScrollSpeedX: [-0.100000001, 0, 0]
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [-0.300000012, 0.200000003]
+      Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.300000012
-      DistortionBias: 0.300000012
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-    Children:
-      - 12959098929675823599
-  - Name: Empty Object
-    UUID: 12959098929675823599
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 4
-    BillBord: false
-    Com_Transform:
-      Translation: [0.0370278656, -0.243990928, 0.0160817206]
-      Rotation: [0, -0, 0]
-      Scale: [0.0500000007, 0.0500000007, 0.0500000007]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: FireBallMesh.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
-    Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Flame_01_mask_Tex.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
-      ScrollSpeedX: [0.300000012, 0.600000024, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.899999976, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 1.10000002
+      DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: false
       FadeOutDuration: 0
@@ -128,3 +72,117 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 30
+    Children:
+      - 7381740714801723460
+  - Name: E_MeteoTexture
+    UUID: 7381740714801723460
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 2
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke2.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 30
+  - Name: E_EAFireBall
+    UUID: 5939711621973384903
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, -0.0229713507]
+      Rotation: [27.9416618, 14.1262789, 0]
+      Scale: [0.999141216, 1.00065696, 0.998089254]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall03_8x8.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 3
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 3
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 30
+  - Name: E_EAFireExplo
+    UUID: 3711329144164515411
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [27.941658, 14.1262808, 0]
+      Scale: [0.999853075, 0.998856366, 1.00022817]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 30

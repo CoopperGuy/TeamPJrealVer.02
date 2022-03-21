@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\MaterialHud.h"
-
+#include "EventCheck.h"
 BEGIN(Client)
 void CheckMaterialItem(CMaterialHud* script) {
 	if (script->GetThreadNum() < 0)

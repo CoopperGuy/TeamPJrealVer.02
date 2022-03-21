@@ -1,25 +1,22 @@
 Scene: Untitled
 GameObjects:
   - Name: Empty Object
-    UUID: 12014699262726649371
+    UUID: 10195638768773787200
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 4
-    BillBord: false
+    PassIndex: 2
+    BillBord: true
     Com_Transform:
-      Translation: [-0.0983913168, 0, -0.115538478]
-      Rotation: [-179.999756, 21.7849312, 179.999756]
-      Scale: [0.428447604, 0.104488559, 0.638794839]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: BombBeam2.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.png
+      Translation: [0, 0, 0]
+      Rotation: [40.8730316, 89.2830658, -2.77198378e-05]
+      Scale: [0.999986231, 0.99999541, 0.999938071]
+    Com_VIBuffer:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Wind001_TEX_HKJ_Up.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\explo016.tga
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall03_8x8.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -27,10 +24,14 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: true
-      FadeOutDuration: 0.699999988
+      FadeOut: false
+      FadeOutDuration: 0
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0.699999988
+      EffectDuration: 0
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 30
