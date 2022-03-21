@@ -67,7 +67,7 @@ CStateMachine* CWalk_Player::Input(CPlayer& pPlayer)
 	
 	if (!CEngine::GetInstance()->IsKeyPressed(VK_SHIFT))
 	{
-		if (!pSkill->Get_Cancel())
+		if (!pSkill->Get_Cancel() && pPlayer.GetUsableSkill())
 		{
 			if (CEngine::GetInstance()->Get_DIKDown(DIK_1) || CEngine::GetInstance()->Get_DIKDown(DIK_2)
 				|| CEngine::GetInstance()->Get_DIKDown(DIK_3) || CEngine::GetInstance()->Get_DIKDown(DIK_4))

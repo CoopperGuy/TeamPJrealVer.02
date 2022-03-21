@@ -307,7 +307,7 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 	_vector afterLook = m_pTransformCom->GetState(CTransform::STATE_LOOK);
 	_float3 euler;
 	m_pTransformCom->QuaternionToEuler(afterLook, euler);
-	_vector look = DirectX::XMVectorLerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
+	_vector look = DirectX::XMQuaternionSlerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
 
 	m_bShake = false;
 
