@@ -365,6 +365,8 @@ HRESULT CLoader::GameSceneSEO()
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
 	//	MSG_BOX("Failed To Create Fire Prefab");
 
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 
 //	WaterEA Effect
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))

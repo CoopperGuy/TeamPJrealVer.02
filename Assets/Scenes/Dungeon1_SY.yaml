@@ -58,6 +58,7 @@ GameObjects:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -96,6 +97,7 @@ GameObjects:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke2.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -124,14 +126,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, -0.0229713507]
-      Rotation: [27.9416618, 14.1262789, 0]
-      Scale: [0.999141216, 1.00065696, 0.998089254]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.999141216, 1.00065696, 0.998089373]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall03_8x8.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -160,14 +163,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [27.941658, 14.1262808, 0]
-      Scale: [0.999853075, 0.998856366, 1.00022817]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.999853134, 0.998856366, 1.00022817]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]

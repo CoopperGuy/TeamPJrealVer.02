@@ -25,7 +25,7 @@ extern HINSTANCE hInst;
 
 
 
-static string strScene = "../../Assets/Scenes/InventoryUI.yaml";
+static string strScene = "../../Assets/Scenes/Dungeon1_SY.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
