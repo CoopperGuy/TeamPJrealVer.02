@@ -345,14 +345,14 @@ HRESULT CLoader::GameSceneSEO()
 
 
 //	WaterEA Effect
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
-		MSG_BOX("Failed To Create FireBall Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
+	//	MSG_BOX("Failed To Create FireBall Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-		MSG_BOX("Failed To Create O_WaterEA Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
+	//	MSG_BOX("Failed To Create O_WaterEA Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-		MSG_BOX("Failed To Create O_EAFire Prefab"); 
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
+	//	MSG_BOX("Failed To Create O_EAFire Prefab"); 
 
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");
@@ -384,8 +384,8 @@ HRESULT CLoader::GameSceneSEO()
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon_Seo.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon_Seo.yaml", SCENE_SEO);
 
 	m_isFinish = true;
 

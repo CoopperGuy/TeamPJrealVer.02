@@ -43,20 +43,20 @@ HRESULT CEffectMeteoTrail::Initialize(void* pArg)
 		CTransform* pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 		CModel* pTargetmodel = static_cast<CModel*>(pTargetObj->GetComponent("Com_Model"));
 
-		//_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");
-		//targetbone = Remove_ScaleRotation(targetbone *pTargetTransform->GetWorldMatrix());
-		//m_pTransform->SetMatrix(targetbone);
+		_matrix targetbone = pTargetmodel->Get_BoneWithoutOffset("Bip01-L-Finger2");
+		targetbone = Remove_ScaleRotation(targetbone *pTargetTransform->GetWorldMatrix());
+		m_pTransform->SetMatrix(targetbone);
+		m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
+		//_vector pos = pTargetTransform->GetState(CTransform::STATE_POSITION);
+		////pos = XMVectorSetZ(pos, XMVectorGetZ(pos) - 0.3f);
 
-		_vector pos = pTargetTransform->GetState(CTransform::STATE_POSITION);
-		//pos = XMVectorSetZ(pos, XMVectorGetZ(pos) - 0.3f);
 
+		//m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+		//CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
+		//CTransform* pPlayerTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
-		CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
-		CTransform* pPlayerTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
-
-		m_pTransform->SetLook(pPlayerTransform->GetState(CTransform::STATE_POSITION));
+		//m_pTransform->SetLook(pPlayerTransform->GetState(CTransform::STATE_POSITION));
 
 	}
 	return S_OK;

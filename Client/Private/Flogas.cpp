@@ -115,45 +115,45 @@ void CFlogas::Update(_double dDeltaTime)
 	//	m_pGameObject->SetDead();
 
 	__super::Update(dDeltaTime);
-	//////////////////if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
-	//////////////////{
+	if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp)
+	{
 
-	//////////////////	m_bStartBattle = true;
-	//////////////////	/*if (m_pStat->GetStatInfo().hp < 2400.f)
-	//////////////////		m_bPhaseSecond = true;*/
+		m_bStartBattle = true;
+		/*if (m_pStat->GetStatInfo().hp < 2400.f)
+			m_bPhaseSecond = true;*/
 
-	//////////////////	if (m_pStat->GetStatInfo().hp <= 0)
-	//////////////////		m_bDeadMotion = true;
-	//////////////////}
+		if (m_pStat->GetStatInfo().hp <= 0)
+			m_bDeadMotion = true;
+	}
 
 
-	//////////////////m_fDist = SetDistance();
+	m_fDist = SetDistance();
 
-	//////////////////if (m_bStartBattle)
-	//////////////////{
-	//////////////////	if (!m_bPhaseSecond)
-	//////////////////		InCombat(dDeltaTime);
-	//////////////////	else
-	//////////////////		SecondCombat(dDeltaTime);
-	//////////////////}
-	//////////////////else
-	//////////////////{
-	//////////////////	if (!m_bDeadMotion)
-	//////////////////		m_pModel->SetUp_AnimationIndex(IDLE);
-	//////////////////	else
-	//////////////////	{
-	//////////////////		Empty_queue();
-	//////////////////		if (m_pMonHp)
-	//////////////////		{
-	//////////////////			m_pMonHp->SetRelease();
-	//////////////////			m_pMonHp = nullptr;
-	//////////////////		}
-	//////////////////		m_eState = DIE;
-	//////////////////		if (m_pModel->Get_isFinished(DIE))
-	//////////////////			m_eState = DEADBODY;
-	//////////////////	}
+	if (m_bStartBattle)
+	{
+		if (!m_bPhaseSecond)
+			InCombat(dDeltaTime);
+		else
+			SecondCombat(dDeltaTime);
+	}
+	else
+	{
+		if (!m_bDeadMotion)
+			m_pModel->SetUp_AnimationIndex(IDLE);
+		else
+		{
+			Empty_queue();
+			if (m_pMonHp)
+			{
+				m_pMonHp->SetRelease();
+				m_pMonHp = nullptr;
+			}
+			m_eState = DIE;
+			if (m_pModel->Get_isFinished(DIE))
+				m_eState = DEADBODY;
+		}
 
-	//////////////////}
+	}
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
@@ -169,16 +169,16 @@ void CFlogas::Update(_double dDeltaTime)
 		m_bDeadMotion = true;
 	}
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD9))
-	{
-		m_eState = FIREFIST;
-		m_bMakeEffect = true;
-	}
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD9))
+	//{
+	//	m_eState = FIREFIST;
+	//	m_bMakeEffect = true;
+	//}
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD8))
-	{
-		m_eState = IDLE;
-	}
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD8))
+	//{
+	//	m_eState = IDLE;
+	//}
 
 
 	if (m_pCollider) {

@@ -19,7 +19,8 @@ HRESULT CWaterEA::Initialize(_float3 position)
 	m_pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_WaterEA", "O_WaterEA");
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
+	//m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
+	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,position.y,position.z });
 
 	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 

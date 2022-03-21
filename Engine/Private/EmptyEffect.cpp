@@ -314,8 +314,8 @@ _uint CEmptyEffect::Update(_double TimeDelta)
 
 	if (m_fSpriteNum >= (_float)m_iSpriteNumTotal)
 	{
-		m_fSpriteNum = 0;
 		m_SpriteEnd = true;
+		m_fSpriteNum = 0;
 	}
 
 	CComponent* OBB = GetComponent("Com_OBB");

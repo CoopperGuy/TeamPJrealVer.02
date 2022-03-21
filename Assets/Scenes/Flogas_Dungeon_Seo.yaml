@@ -1520,7 +1520,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.5215359, 26.0779991, 1.79999995]
+      Scale: [22.521534, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1541,6 +1541,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: Wall1
     UUID: 1483917860621449909
     Active: true
@@ -1639,8 +1643,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.89321303, 1.35158932, 0.287679523]
-      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
-      Scale: [0.292110413, 0.277124763, 0.585024297]
+      Rotation: [-117.820168, 61.0998573, -180]
+      Scale: [0.293505192, 0.27578482, 0.601540923]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1661,6 +1665,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 15770022732734872725
     Active: true
@@ -1671,8 +1679,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [-5.87530899, 5.63119078, 2.14478121e-07]
-      Scale: [0.636370122, 0.538268983, 1.26991534]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.639373481, 0.535599351, 1.30583382]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1693,6 +1701,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: Wall1
     UUID: 3639142049821933306
     Active: true
@@ -2022,8 +2034,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [-5.87530851, 5.6311903, 2.14478121e-07]
-      Scale: [0.635259211, 0.537108958, 1.27043772]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.638268411, 0.534469664, 1.3063674]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2044,6 +2056,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 5691130930190213264
     Active: true
@@ -2054,8 +2070,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.0729816, 1.41420758, 0.24706772]
-      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
-      Scale: [0.317668498, 0.433031797, 1.27043772]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.319180191, 0.430893064, 1.3063674]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2076,6 +2092,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 5974207186220585515
     Active: true
@@ -2086,8 +2106,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.63890743, 1.38610911, -0.00537226489]
-      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
-      Scale: [0.31767866, 0.433085531, 1.27043772]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.31918931, 0.430957884, 1.3063674]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2108,6 +2128,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 1671464895325951026
     Active: true
@@ -2118,8 +2142,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-4.63161945, 1.40606964, 0.369205177]
-      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
-      Scale: [0.317762285, 0.43310979, 1.27053678]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.319265217, 0.430983484, 1.3064723]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2140,6 +2164,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 5754051776145636077
     Active: true
@@ -2150,8 +2178,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
-      Scale: [0.635760188, 0.537134647, 1.27053678]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.638766289, 0.5345034, 1.3064723]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2172,6 +2200,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 8218886197490550364
     Active: true
@@ -2182,8 +2214,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [-5.87530947, 5.63119078, 2.14478149e-07]
-      Scale: [0.635585904, 0.537168801, 1.27053678]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.638604462, 0.534536004, 1.3064723]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2204,6 +2236,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 4506074469666995895
     Active: true
@@ -2214,8 +2250,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [-5.87530899, 5.63119125, 2.14478149e-07]
-      Scale: [0.523100674, 0.712935507, 1.27069807]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.525540471, 0.709390998, 1.30664229]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2236,6 +2272,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 14101136375250397075
     Active: true
@@ -2246,8 +2286,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [-5.87530899, 5.63119078, 2.14478149e-07]
-      Scale: [0.536709845, 0.726482451, 1.39981675]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.539218605, 0.722910523, 1.43944311]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2268,6 +2308,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 5152656489460797690
     Active: true
@@ -2278,8 +2322,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [-5.87530851, 5.6311903, 2.14478149e-07]
-      Scale: [0.889129281, 0.806931436, 1.27069807]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.893349826, 0.80294615, 1.30664229]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2300,6 +2344,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: LampFire
     UUID: 3014897176380867306
     Active: true
@@ -2310,8 +2358,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [-5.87530899, 5.63119125, 2.14478149e-07]
-      Scale: [0.907067299, 0.784680605, 1.27053678]
+      Rotation: [-117.820183, 61.099865, -180]
+      Scale: [0.911378145, 0.780827165, 1.3064723]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2332,6 +2380,10 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: Wall3
     UUID: 7857229646009060073
     Active: true
@@ -2418,7 +2470,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.59087181, 0, -13.5303354]
+      Translation: [-4.89567566, 0, -25.8517857]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2450,7 +2502,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.30362844, 0, -13.8407211]
+      Translation: [4.30362844, 0, -25.4101162]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -3115,7 +3167,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, 0, -11.8000002]
+      Translation: [-0.10782212, 0, -11.8000002]
       Rotation: [0, -0, 0]
       Scale: [1.66880155, 1.07146752, 0.999996483]
     Com_Collider:
@@ -3184,6 +3236,50 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 27.7999992
+  - Name: BokdoWall
+    UUID: 2747437417898251859
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-5.29617071, 2.41690159, -18.3300323]
+      Rotation: [0, -0, -92.8961105]
+      Scale: [1.05534685, 0.999999881, 0.999998868]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-5.29617071, 2.41690159, -18.3300323]
+    Rotation: [0, -0, -92.8961105]
+    Scale: [1.05534685, 0.999999881, 0.999998868]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: sagak.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: BokdoWall
+    UUID: 1899260058293726673
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [5.08791924, 2.33590579, -20.7867146]
+      Rotation: [0, -0, 92.8265991]
+      Scale: [0.999999762, 0.999999762, 0.999999702]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 50
   - Name: PointLight01
     UUID: 4563585621494192207
     Active: true
@@ -3214,7 +3310,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, 2.23428726, 2.01697922]
+      Translation: [0, 2.23428726, 2.31601739]
       Rotation: [0, -0, 0]
       Scale: [1, 4.14513683, 4.44995117]
     Com_Collider:
