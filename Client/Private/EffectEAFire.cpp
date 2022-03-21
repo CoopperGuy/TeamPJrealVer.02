@@ -2,7 +2,8 @@
 #include "Client_Struct.h"
 #include "..\Public\EffectEAFire.h"
 #include "EmptyEffect.h"
-#include "Obb.h"
+#include "EffectFireBall.h"
+
 USING(Client)
 
 CEffectEAFire::CEffectEAFire()
@@ -43,6 +44,15 @@ void CEffectEAFire::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
+
+	m_dMakeFB + -deltaTime;
+	_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	if (m_dMakeFB >= 0.8)
+	{
+		auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+		CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, pPos), CEngine::GetInstance()->GetCurSceneNumber());
+		m_dMakeFB = 0;
+	}
 }
 
 

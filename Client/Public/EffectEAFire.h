@@ -21,27 +21,12 @@ public:
 	static CEffectEAFire* Create(void*	pTarget);
 	virtual void Free() override;
 
-
-	void SetScale(_float3 scail) { m_pTransform->SetScale(scail); }
-
+public:
+	void Set_Pos(_vector pos) { m_pTransform->SetState(CTransform::STATE_POSITION,pos);}
 private:
-	_bool	m_bSetFadeOut = true;
-	_bool m_bSet = false;
-
-	_vector TargetPos = {};
-	_vector StartScale = {};
+	_double m_dMakeFB = 0;
 
 
-	_float3  m_fScale = {};
-	_float3 m_fScrollX = {};
-	_float3 m_fScrollY = {};
-
-
-	_float PlusScale = 0.01f;
-	_float m_fMaxScail = 0.2f;
-	_float m_fDeadTime = 0.f;
-
-	CGameObject* pAttachObj = nullptr;
 
 
 };

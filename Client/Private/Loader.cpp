@@ -345,6 +345,9 @@ HRESULT CLoader::GameSceneSEO()
 
 
 //	WaterEA Effect
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))
+		MSG_BOX("Failed To Create FireBall Prefab");
+
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
 		MSG_BOX("Failed To Create FireBall Prefab");
 

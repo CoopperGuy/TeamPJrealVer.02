@@ -33,6 +33,7 @@ HRESULT CEffectFireBall::Initialize(void* pArg, _vector pos)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+		_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
