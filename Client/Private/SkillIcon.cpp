@@ -63,7 +63,9 @@ void CSkillIcon::SetSkillInfo(_int idx, SKILLINFO _info)
 
 _bool CSkillIcon::IsCoolDown(_int idx)
 {
-	return m_tInfo[idx].coolTime <= m_tInfo[idx].coolDelta;
+	if (m_tInfo[idx].coolTime > m_tInfo[idx].coolDelta)
+		return false;
+	return true;
 }
 
 CSkillIcon * CSkillIcon::Create(CGameObject * pTarget)

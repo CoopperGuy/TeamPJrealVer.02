@@ -9,6 +9,7 @@ CVIBuffer_Rect_Viewport::CVIBuffer_Rect_Viewport(ID3D11Device * pDevice, ID3D11D
 CVIBuffer_Rect_Viewport::CVIBuffer_Rect_Viewport(const CVIBuffer_Rect_Viewport & rhs)
 	: CVIBuffer(rhs)
 {
+	m_pShader = rhs.m_pShader;
 }
 
 HRESULT CVIBuffer_Rect_Viewport::InitializePrototype(_float fX, _float fY, _float fWidth, _float fHeight, string pShaderFilePath)

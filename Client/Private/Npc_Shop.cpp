@@ -30,8 +30,9 @@ HRESULT CNpc_Shop::Initailze(CGameObject * pArg)
 	if (pArg) {
 		m_pShopNPC = (CEmptyGameObject*)pArg;
 		m_pNpcTransform = static_cast<CTransform*>(m_pShopNPC->GetComponent("Com_Transform"));
-		std::thread creatShop(SetupShopList, this);
-		creatShop.detach();
+	/*	std::thread creatShop(SetupShopList, this);
+		creatShop.detach();*/
+		this->SetupShop();
 	}
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	m_pShopHud = CShopHud::Create(nullptr);

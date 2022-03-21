@@ -33,7 +33,7 @@ HRESULT CBackPackHud::Initailze(CGameObject * pArg)
 	CEngine::GetInstance()->AddScriptObject(m_pMaterialHud, 0);
 	CEngine::GetInstance()->AddScriptObject(m_pConsumHud, 0);
 
-
+	CEventCheck::GetInstance()->SetBackPackHud(this);
 
 	return S_OK;
 }
@@ -101,7 +101,7 @@ void CBackPackHud::Update(_double deltaTime)
 		m_fAddPosX = 390.f;	
 	else 
 		m_fAddPosX = 1030.f;
-
+	CEventCheck::GetInstance()->SetCurBackPack(CEventCheck::BACKPACKSTATE(m_iCurSelected));
 	m_pEquipHud->SetAddPosition(m_fAddPosX);
 	m_pMaterialHud->SetAddPosition(m_fAddPosX);
 	m_pConsumHud->SetAddPosition(m_fAddPosX);
