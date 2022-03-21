@@ -14,6 +14,7 @@ public:
 		_int   level = 1.f;
 		_float coolTime = 10.f;
 		_float coolDelta = 0.f;
+		_float skillDuration = 0.f;
 		string Name;
 	}SKILLINFO;
 
@@ -37,7 +38,7 @@ private:
 	vector<CEmptyUI*>	m_child[sizeOfUI];
 	vector<CVIBuffer_RectUI*>	m_pVIBufferList;
 	vector<CEmptyUI*>		m_pUIList;
-	CGameObject*	pTarget = nullptr;
+	CEmptyGameObject*	m_pPlayer = nullptr;
 private:
 	_float	m_fTime = 0.f;
 	_float	m_fDegree = 0.f;

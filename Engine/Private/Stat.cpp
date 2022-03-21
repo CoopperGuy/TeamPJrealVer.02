@@ -106,6 +106,10 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 		CLight::Create(m_pDevice, m_pDeviceContext, _desc, m_pTransform, true);
 	}
 
+	if (enemyStat->GetStatusEffect() & STATUSEFFECT::BLOOD) {
+		enemyStatus.hp += dmg /** 0.1f*/;
+		enemyStat->CorrectMaxHp();
+	}
 
 	m_tStat.hp -= dmg;
 	if (m_tStat.hp <= 0.f) {

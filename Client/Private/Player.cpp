@@ -156,6 +156,10 @@ HRESULT CPlayer::Initialize()
 	info.Name = "WhrilWind";
 	m_pSkillIcon->SetSkillInfo(1, info);
 	info.coolTime = 20.f;
+	info.skillDuration = 10.f;
+	info.Name = "";
+	m_pSkillIcon->SetSkillInfo(2, info);
+	info.coolTime = 20.f;
 	info.Name = "guillotine";
 	m_pSkillIcon->SetSkillInfo(3, info);
 

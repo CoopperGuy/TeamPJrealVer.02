@@ -246,7 +246,7 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(1.f);
 		}
 		if (keyFrame == 14) {
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround2");
 			CEngine::GetInstance()->AddScriptObject(CImpactGround::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 		}
@@ -296,13 +296,12 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(1.1f);
 		}
-		if (keyFrame == 19) {
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
-		}
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 18) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
+
 		}
 		break;
 	}
