@@ -6,46 +6,15 @@ cbuffer Matrices
 	matrix		g_WorldMatrix;
 	matrix		g_ViewMatrix;
 	matrix		g_ProjMatrix;
-
-	matrix g_LightViewMatrix0;
-	matrix g_LightProjMatrix0;
-	matrix g_LightViewMatrix1;
-	matrix g_LightProjMatrix1;
-	matrix g_LightViewMatrix2;
-	matrix g_LightProjMatrix2;
-	matrix g_LightViewMatrix3;
-	matrix g_LightProjMatrix3;
-	matrix g_LightViewMatrix4;
-	matrix g_LightProjMatrix4;
-	matrix g_LightViewMatrix5;
-	matrix g_LightProjMatrix5;
 }
 
-cbuffer LightBuffer
+cbuffer Color
 {
-	float3 lightPosition0;
-	float3 lightPosition1;
-	float3 lightPosition2;
-	float3 lightPosition3;
-	float3 lightPosition4;
-	float3 lightPosition5;
-
-	float3 lightDir0;
-	float3 lightDir1;
-	float3 lightDir2;
-	float3 lightDir3;
-	float3 lightDir4;
-	float3 lightDir5;
-
-	float lightAngle0;
-	float lightAngle1;
-	float lightAngle2;
-	float lightAngle3;
-	float lightAngle4;
-	float lightAngle5;
+    float4 g_Color;
 };
 
 Texture2D		g_DiffuseTexture;
+Texture2D       g_MaskTexture;
 
 SamplerState	g_DiffuseSampler
 {
@@ -62,13 +31,14 @@ struct VS_IN
     float4 vUp : INSTANCE1;
     float4 vLook : INSTANCE2;
     float4 vTranslation : INSTANCE3;
+    uint iRenderEnable : INSTANCE4;
 };
 
 struct VS_OUT
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-	float4	vViewPortPos : TEXCOORD1;
+    uint iRenderEnable : TEXCOORD1;
 };
 
 /* 정점의 스페이스 변환. (월드, 뷰, 투영행렬의 곱.)*/
@@ -85,6 +55,7 @@ VS_OUT VS_MAIN(VS_IN In)
 
 	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
 	Out.vTexUV = In.vTexUV;
+    Out.iRenderEnable = In.iRenderEnable;
 
 	return Out;
 }
@@ -98,15 +69,20 @@ struct PS_IN
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-	float4	vViewPortPos : TEXCOORD1;
+    uint iRenderEnable : TEXCOORD1;
 };
 
 vector	PS_MAIN(PS_IN In) : SV_TARGET
 {
 	vector		vColor = (vector)0;
 
-	vColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
+   // if (In.iRenderEnable == 0)
+        //discard;
 
+    vColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vColor.a = vColor.r;
+    vColor.rgb *= g_Color;
+    vColor.argb = 1.f;
 	//if (vColor.a < 0.3f)
 	//	discard;
 

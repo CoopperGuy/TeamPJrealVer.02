@@ -397,6 +397,12 @@ void CInspector::UpdateEffect()
 				MSG_BOX("Failed to AddComponent");
 		}
 
+		if (ImGui::MenuItem("RectInst"))
+		{
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_RectInstance", "Com_RectInstance", g_pObjFocused->GetComponent("Com_Transform"))))
+				MSG_BOX("Failed to AddComponent");
+		}
+
 		if (ImGui::MenuItem("OBB"))
 		{
 			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_OBBCollider", "Com_OBB", g_pObjFocused->GetComponent("Com_Transform"))))
@@ -766,6 +772,8 @@ void CInspector::DrawEffectSetting()
 		pComponent = g_pObjFocused->GetComponent("Com_Model");
 	if (pComponent == nullptr)
 		pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
+	if (pComponent == nullptr)
+		pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
 
 	if (pComponent)
 	{

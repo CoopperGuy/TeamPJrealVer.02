@@ -96,7 +96,7 @@ HRESULT CScene_Tool::ReadyPrototypeComponent()
 		return E_FAIL;
 	if (FAILED(m_pEngine->AddPrototype(0, "Prototype_VIBuffer_Rect", CVIBuffer_Rect::Create(m_pDevice, m_pDeviceContext))))
 		return E_FAIL;
-	if (FAILED(m_pEngine->AddPrototype(0, "Prototype_VIBuffer_RectInstance", CVIBuffer_RectInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_RectInstance.fx", 10))))
+	if (FAILED(m_pEngine->AddPrototype(0, "Prototype_VIBuffer_RectInstance", CVIBuffer_RectInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_RectInstance.fx"))))
 		return E_FAIL;
 	if (FAILED(m_pEngine->AddPrototype(0, "Prototype_VIBuffer_Cube", CVIBuffer_Cube::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_Decal.fx"))))
 		return E_FAIL;

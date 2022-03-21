@@ -1495,7 +1495,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999991, -4.61904192]
       Rotation: [90, -0, 0]
-      Scale: [22.9280663, 14.1777449, 0.200000003]
+      Scale: [22.9280643, 14.1777449, 0.200000003]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1607,8 +1607,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.89321303, 1.35158932, 0.287679523]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [0.435645878, 0.268905997, 0.417938471]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.435645849, 0.268905729, 0.417938471]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1632,8 +1632,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [0.948099852, 0.522374928, 0.907155752]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.948099792, 0.522374928, 0.907155752]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1976,8 +1976,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [0.946697533, 0.521134734, 0.907527268]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.946697474, 0.521134734, 0.907527268]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2001,8 +2001,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.0729816, 1.41420758, 0.24706772]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [0.473388791, 0.420217693, 0.907598495]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.473388761, 0.420217693, 0.907598615]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2026,8 +2026,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.63890743, 1.38610911, -0.00537226489]
-      Rotation: [25.3614006, -80.523674, 0]
-      Scale: [0.473466694, 0.420241058, 0.907602966]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.473466694, 0.420240879, 0.907602966]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2051,8 +2051,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-4.63161945, 1.40606964, 0.369205177]
-      Rotation: [25.3614006, -80.523674, 0]
-      Scale: [0.473497927, 0.420265526, 0.90767467]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.473497897, 0.420265466, 0.90767467]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2076,8 +2076,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [25.3614006, -80.523674, 0]
-      Scale: [0.947392106, 0.521219134, 0.907711565]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.947392046, 0.5212183, 0.907711565]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2101,8 +2101,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [25.3614006, -80.523674, 0]
-      Scale: [0.947143078, 0.521276891, 0.907638609]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.947143018, 0.521276653, 0.907638729]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2126,8 +2126,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [0.779235899, 0.69184655, 0.907749653]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.779235899, 0.691845953, 0.907749653]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2151,7 +2151,7 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [0.000620263105, -81.0051956, -0.000366721069]
+      Rotation: [11.3099308, -0, 0]
       Scale: [0.800000012, 0.705037832, 1]
     Com_VIBuffer:
       {}
@@ -2176,8 +2176,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [25.3614006, -80.523674, 0]
-      Scale: [1.32620955, 0.783043206, 0.907771587]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [1.32620955, 0.783042192, 0.907771587]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2201,8 +2201,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [25.3614025, -80.523674, 0]
-      Scale: [1.35272205, 0.761461079, 0.907722235]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [1.35272193, 0.761461079, 0.907722175]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2350,27 +2350,6 @@ GameObjects:
         Gravity: false
         Kinematic: false
         CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight01
-    UUID: 4563585621494192207
-    Active: true
-    Layer: PointLight
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-3.30093312, 2.08050489, 1.62502313]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 7.30000019
-      Angle: 20
-      Diffuse: [1, 0.340321064, 0.130434811, 1]
-      Ambient: [0.224637687, 0.0716236085, 0.0716236085, 1]
-      Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
   - Name: PointLight02Sub
@@ -2764,6 +2743,27 @@ GameObjects:
         Gravity: false
         Kinematic: false
         CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight01
+    UUID: 4563585621494192207
+    Active: true
+    Layer: PointLight
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.30093312, 2.08050489, 1.62502313]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 7.30000019
+      Angle: 20
+      Diffuse: [1, 0.340321064, 0.130434811, 1]
+      Ambient: [0.224637687, 0.0716236085, 0.0716236085, 1]
+      Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
   - Name: CamCollider

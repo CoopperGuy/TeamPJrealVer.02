@@ -360,6 +360,10 @@ _uint CEmptyEffect::LateUpdate(_double TimeDelta)
 		m_pTransformCom->SetMatrix(m_pLocalTransformCom->GetWorldMatrix() * pTargetModel->Get_BoneMatrix(m_TargetBoneName.c_str()) * TargetMatrix);
 	}
 
+	CComponent* RectInstCom = GetComponent("Com_RectInstance");
+	if (RectInstCom)
+		static_cast<CVIBuffer_RectInstance*>(RectInstCom)->Update(TimeDelta);
+
 	CComponent* TrailCom = GetComponent("Com_Trail");
 	if (TrailCom != nullptr)
 		m_pRendererCom->AddRenderGroup(CRenderer::RENDER_TRAIL, this);
@@ -486,6 +490,19 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 			static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NORMAL]);
 
 		static_cast<CVIBuffer_PointInstance*>(PointInstanceCom)->Render(m_iPassIndex);
+	}
+
+	/* Render RectInstance */
+	CComponent* RectInstanceCom = GetComponent("Com_RectInstance");
+	if (RectInstanceCom)
+	{		
+		static_cast<CVIBuffer*>(RectInstanceCom)->GetShader()->SetUp_ValueOnShader("g_ViewMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW)), sizeof(_matrix));
+		static_cast<CVIBuffer*>(RectInstanceCom)->GetShader()->SetUp_ValueOnShader("g_ProjMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ)), sizeof(_matrix));
+		
+		if (m_pTexture[TEXTURE_MASK])
+			static_cast<CVIBuffer*>(RectInstanceCom)->GetShader()->SetUp_TextureOnShader("g_MaskTexture", m_pTexture[TEXTURE_MASK]);
+		
+		static_cast<CVIBuffer_RectInstance*>(RectInstanceCom)->Render(m_iPassIndex);
 	}
 	
 	/* Render Trail */

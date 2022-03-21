@@ -1,6 +1,7 @@
 #include "EnginePCH.h"
 #include "..\Public\VIBuffer_RectInstance.h"
 #include "Pipeline.h"
+#include "Engine.h"
 
 CVIBuffer_RectInstance::CVIBuffer_RectInstance(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
 	: CVIBuffer(pDevice, pDeviceContext)	
@@ -16,9 +17,14 @@ CVIBuffer_RectInstance::CVIBuffer_RectInstance(const CVIBuffer_RectInstance & rh
 	, m_iNumInstance(rhs.m_iNumInstance)
 	, m_InstanceMatrices(rhs.m_InstanceMatrices)
 	, m_shaderPath(rhs.m_shaderPath)
+	, m_dLifeTime(rhs.m_dLifeTime)
+	, m_dLifeTimeAcc(rhs.m_dLifeTimeAcc)
+	, m_iInstNum(rhs.m_iInstNum)
 {
 	SafeAddRef(m_pVBInstance);
 
+	if (rhs.m_pShader != nullptr)
+		m_pShader = rhs.m_pShader;
 }
 
 HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uint iNumInstance)
@@ -26,8 +32,10 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 	if (FAILED(__super::InitializePrototype()))
 		return E_FAIL;	
 
-	m_iNumInstance = iNumInstance;
+	//m_iNumInstance = iNumInstance;
+	m_iNumInstance = 1000;
 	m_iNumVertexBuffers = 2;
+	m_iInstNum = m_iNumInstance;
 
 #pragma region VERTEXBUFFER
 
@@ -106,14 +114,14 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 
 	ZeroMemory(&m_VBInstanceDesc, sizeof(D3D11_BUFFER_DESC));
 
-	m_VBInstanceDesc.ByteWidth = m_iNumInstance * sizeof(VTXMATRIX);
+	m_VBInstanceDesc.ByteWidth = m_iNumInstance * sizeof(VTXRECTINST);
 	m_VBInstanceDesc.Usage = D3D11_USAGE_DYNAMIC;
 	m_VBInstanceDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	m_VBInstanceDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	m_VBInstanceDesc.MiscFlags = 0;
-	m_VBInstanceDesc.StructureByteStride = sizeof(VTXMATRIX);
+	m_VBInstanceDesc.StructureByteStride = sizeof(VTXRECTINST);
 
-	VTXMATRIX*			pInstanceVertices = new VTXMATRIX[m_iNumInstance];
+	VTXRECTINST*			pInstanceVertices = new VTXRECTINST[m_iNumInstance];
 	m_VBInstanceSubResourceData.pSysMem = pInstanceVertices;	
 
 	if (FAILED(m_pDevice->CreateBuffer(&m_VBInstanceDesc, &m_VBInstanceSubResourceData, &m_pVBInstance)))
@@ -121,23 +129,8 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 
 	SafeDeleteArray(pInstanceVertices);
 	SafeDeleteArray(pIndices);
-
-
-
-#pragma endregion 
 	
-	//D3D11_INPUT_ELEMENT_DESC		ElmentDesc[] = {
-	//	{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-	//	{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 }, 
-
-	//	{ "TEXCOORD", 1, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 0, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
-	//	{ "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
-	//	{ "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
-	//	{ "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_INSTANCE_DATA, 1 }
-	//};
-
-	//if (FAILED(__super::Compile_Shader(ElmentDesc, 6, pShaderFilePath)))
-	//	return E_FAIL;
+#pragma endregion 
 
 	m_shaderPath = pShaderFilePath;
 	return S_OK;
@@ -147,28 +140,56 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 
 HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
 {
-	m_pShader = make_unique<CShader>(m_shaderPath);
+	if (m_pShader == nullptr)
+		m_pShader = make_unique<CShader>(m_shaderPath);
+
+
+	_float3 OffsetPosition = { 0.f, 0.f, 0.f };
+	
+	if (pArg)
+	{
+		m_pTargetTransform = (CTransform*)pArg;
+		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+	}
+
+	m_dLifeTime = 3.0;
 
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
-		VTXMATRIX*		pIV = new VTXMATRIX();
-		pIV->vRight = _float4(1.f, 0.f, 0.f, 0.f);
-		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
+		m_fStartSize[i] = 0.1f + (rand() % 10 * 0.1f);
+		m_fStartSpeed[i] = 1.f + (rand() % 201 * 0.01f);
+		m_vDir[i] = _float4((rand() % 1000 - 500) * 0.001f, rand() % 500 * 0.001f, (rand() % 1000 - 500) * 0.001f, 0.f);
+		XMStoreFloat4(&m_vDir[i], XMVector4Normalize(XMLoadFloat4(&m_vDir[i])));
+
+		VTXRECTINST*		pIV = new VTXRECTINST();
+		pIV->vRight = _float4(1.f /** m_fStartSize[i] * m_fSize*/, 0.f, 0.f, 0.f);
+		pIV->vUp = _float4(0.f, 1.f/* * m_fStartSize[i] * m_fSize*/, 0.f, 0.f);
 		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
-		pIV->vPosition = _float4(0, 0, 0, 1.f);
-		pIV->iStartFrame = _float(rand() % 36);
+		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		if (i < m_iInstNum)
+			pIV->iRenderEnable = 1;
+		else
+			pIV->iRenderEnable = 0;
 		m_InstanceMatrices.push_back(pIV);
+
+			
 	}
 	return S_OK;
 }
 
 HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 {
+	m_dLifeTimeAcc += TimeDelta;
+
+	CEngine* pEngine = CEngine::GetInstance();
+	if (pEngine == nullptr)
+		return E_FAIL;
+
 	D3D11_MAPPED_SUBRESOURCE		SubResource;
 
 	CPipeline*		pPipeLine = GET_INSTANCE(CPipeline);
 
-	sort(m_InstanceMatrices.begin(), m_InstanceMatrices.end(), [&](VTXMATRIX* SourMatrix, VTXMATRIX* DestMatrix) {
+	sort(m_InstanceMatrices.begin(), m_InstanceMatrices.end(), [&](VTXRECTINST* SourMatrix, VTXRECTINST* DestMatrix) {
 		_vector		SourPosition = XMVector4Transform(XMLoadFloat4(&SourMatrix->vPosition), pPipeLine->Get_Transform(CPipeline::D3DTS_VIEW));
 		_vector		DestPosition = XMVector4Transform(XMLoadFloat4(&DestMatrix->vPosition), pPipeLine->Get_Transform(CPipeline::D3DTS_VIEW));
 
@@ -177,19 +198,44 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 
 		return false;
 	});	
-
+	
 	if (FAILED(m_pDeviceContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
 		return E_FAIL;
 	
-
+	
 	for (_uint i = 0; i < m_iNumInstance; ++i)
-	{
-		((VTXMATRIX*)SubResource.pData)[i] = *m_InstanceMatrices[i];
+	{		
+		
+
+		//if (m_dLifeTime < m_dLifeTimeAcc)
+		//{
+		//	_float3 OffsetPosition = { 0.f, 0.f, 0.f };
+		//	if (m_pTargetTransform != nullptr)
+		//		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+		//	m_InstanceMatrices[i]->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		//}
+		//else
+		//	XMStoreFloat4(&m_InstanceMatrices[i]->vPosition, XMLoadFloat4(&m_vDir[i]) * TimeDelta * m_fStartSpeed[i]/* * m_fSpeed*/);
+		
+		// billbord
+		_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
+		_vector vAxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+		_vector vRight = XMVector3Normalize(XMVector3Cross(vAxisY, vLook));
+		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+
+		XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight/* * m_fStartSize[i] * m_fSize*/);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp/* * m_fStartSize[i] * m_fSize*/);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
+
+		((VTXRECTINST*)SubResource.pData)[i] = *m_InstanceMatrices[i];
 	}	
 
 	m_pDeviceContext->Unmap(m_pVBInstance, 0);
 
 	RELEASE_INSTANCE(CPipeline);
+
+	if (m_dLifeTime < m_dLifeTimeAcc)
+		m_dLifeTimeAcc = 0.0;
 
 	return S_OK;
 }
@@ -208,7 +254,7 @@ HRESULT CVIBuffer_RectInstance::Render(_uint iPassIndex)
 
 	_uint	iStrides[] = {
 		sizeof(VTXTEX),
-		sizeof(VTXMATRIX)
+		sizeof(VTXRECTINST)
 	};
 
 	_uint		iOffset[] = {
@@ -218,14 +264,10 @@ HRESULT CVIBuffer_RectInstance::Render(_uint iPassIndex)
 	m_pDeviceContext->IASetVertexBuffers(0, m_iNumVertexBuffers, pVBBuffers, iStrides, iOffset);
 	m_pDeviceContext->IASetIndexBuffer(m_pIB.Get(), m_eIndexFormat, 0);
 	m_pDeviceContext->IASetPrimitiveTopology(m_ePrimitive);
-
-
-	//m_pDeviceContext->IASetInputLayout(m_EffectDescs[iPassIndex].pLayout);
-	//if (FAILED(m_EffectDescs[iPassIndex].pPass->Apply(0, m_pDeviceContext)))
-	//	return E_FAIL;
+	
+	m_pShader->SetUp_ValueOnShader("g_Color", &m_vColor, sizeof(_float4));
 	m_pShader->Render(iPassIndex);
-
-	/* 0 : 인스턴스하나당 인덱스버퍼의 인덱슬르 몇개 활용하여 그리는지? */
+	
 	m_pDeviceContext->DrawIndexedInstanced(6, m_iNumInstance, 0, 0, 0);
 	
 	return S_OK;
