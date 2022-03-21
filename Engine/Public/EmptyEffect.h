@@ -11,7 +11,7 @@ BEGIN(Engine)
 class ENGINE_DLL CEmptyEffect final : public CGameObject
 {
 public:
-	enum TEXTUREID { TEXTURE_MASK, TEXTURE_NOISE, TEXTURE_DIFFUSE, TEXTURE_END };
+	enum TEXTUREID { TEXTURE_MASK, TEXTURE_NOISE, TEXTURE_DIFFUSE, TEXTURE_NORMAL, TEXTURE_END };
 public:
 	explicit CEmptyEffect(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	explicit CEmptyEffect(const CEmptyEffect& rhs);

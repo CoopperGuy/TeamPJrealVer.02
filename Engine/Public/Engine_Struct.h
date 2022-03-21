@@ -33,6 +33,14 @@ namespace Engine
 		_float			iStartFrame;
 	}VTXMATRIX;
 
+	typedef struct tagVertex_RectInstance
+	{
+		XMFLOAT4		vRight;
+		XMFLOAT4		vUp;
+		XMFLOAT4		vLook;
+		XMFLOAT4		vPosition;
+		_uint			iRenderEnable;
+	}VTXRECTINST;
 
 	typedef struct tagKeyFrameDesc
 	{

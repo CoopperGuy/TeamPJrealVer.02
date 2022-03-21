@@ -666,6 +666,7 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::Key << "TextureDiffusePath" << YAML::Value << pGameObj->GetTextureFilePath(CEmptyEffect::TEXTURE_DIFFUSE);
 	out << YAML::Key << "TextureMaskPath" << YAML::Value << pGameObj->GetTextureFilePath(CEmptyEffect::TEXTURE_MASK);
 	out << YAML::Key << "TextureNoisePath" << YAML::Value << pGameObj->GetTextureFilePath(CEmptyEffect::TEXTURE_NOISE);
+	out << YAML::Key << "TextureNormalPath" << YAML::Value << pGameObj->GetTextureFilePath(CEmptyEffect::TEXTURE_NORMAL);
 
 	out << YAML::Key << "ScrollSpeedX";
 	out << YAML::Value << YAML::Flow;
@@ -1002,6 +1003,9 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		string DiffuseFilePath = EffectSetting["TextureDiffusePath"].as<string>();
 		string MaskFilePath = EffectSetting["TextureMaskPath"].as<string>();
 		string NoiseFilePath = EffectSetting["TextureNoisePath"].as<string>();
+		string NormalFilePath = "";
+		if (EffectSetting["TextureNormalPath"])
+			NormalFilePath = EffectSetting["TextureNormalPath"].as<string>();
 
 		_float3 vScrollSpeedX;
 		_float3 vScrollSpeedY;
@@ -1034,6 +1038,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		pEffect->SetTexture(DiffuseFilePath, CEmptyEffect::TEXTURE_DIFFUSE);
 		pEffect->SetTexture(MaskFilePath, CEmptyEffect::TEXTURE_MASK);
 		pEffect->SetTexture(NoiseFilePath, CEmptyEffect::TEXTURE_NOISE);
+		pEffect->SetTexture(NormalFilePath, CEmptyEffect::TEXTURE_NORMAL);
 		pEffect->SetScrollSpeedX(vScrollSpeedX);
 		pEffect->SetScrollSpeedY(vScrollSpeedY);
 		pEffect->setDistortion(0, vDistortion1);
@@ -1187,6 +1192,9 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		string DiffuseFilePath = EffectSetting["TextureDiffusePath"].as<string>();
 		string MaskFilePath = EffectSetting["TextureMaskPath"].as<string>();
 		string NoiseFilePath = EffectSetting["TextureNoisePath"].as<string>();
+		string NormalFilePath = "";
+		if (EffectSetting["TextureNormalPath"])
+			NormalFilePath = EffectSetting["TextureNormalPath"].as<string>();
 
 		_float3 vScrollSpeedX;
 		_float3 vScrollSpeedY;
@@ -1220,6 +1228,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		pEffect->SetTexture(DiffuseFilePath, CEmptyEffect::TEXTURE_DIFFUSE);
 		pEffect->SetTexture(MaskFilePath, CEmptyEffect::TEXTURE_MASK);
 		pEffect->SetTexture(NoiseFilePath, CEmptyEffect::TEXTURE_NOISE);
+		pEffect->SetTexture(NormalFilePath, CEmptyEffect::TEXTURE_NORMAL);
 		pEffect->SetScrollSpeedX(vScrollSpeedX);
 		pEffect->SetScrollSpeedY(vScrollSpeedY);
 		pEffect->setDistortion(0, vDistortion1);

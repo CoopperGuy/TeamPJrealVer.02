@@ -397,6 +397,12 @@ void CInspector::UpdateEffect()
 				MSG_BOX("Failed to AddComponent");
 		}
 
+		if (ImGui::MenuItem("RectInst"))
+		{
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_RectInstance", "Com_RectInstance", g_pObjFocused->GetComponent("Com_Transform"))))
+				MSG_BOX("Failed to AddComponent");
+		}
+
 		if (ImGui::MenuItem("OBB"))
 		{
 			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_OBBCollider", "Com_OBB", g_pObjFocused->GetComponent("Com_Transform"))))
@@ -766,6 +772,8 @@ void CInspector::DrawEffectSetting()
 		pComponent = g_pObjFocused->GetComponent("Com_Model");
 	if (pComponent == nullptr)
 		pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
+	if (pComponent == nullptr)
+		pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
 
 	if (pComponent)
 	{
@@ -859,7 +867,33 @@ void CInspector::DrawEffectSetting()
 
 					static_cast<CEmptyEffect*>(g_pObjFocused)->SetTexture(FilePath, CEmptyEffect::TEXTURE_NOISE);
 				}
+				ImGui::EndDragDropTarget();
+			}
 
+			// Setup Normal Texture
+			TextureFilePath = static_cast<CEmptyEffect*>(g_pObjFocused)->GetTextureFilePath(CEmptyEffect::TEXTURE_NORMAL).c_str();
+
+			if (TextureFilePath == "")
+				TextureFilePath = "None";
+			else
+			{
+				char	szFileName[MAX_PATH] = "";
+
+				_splitpath(TextureFilePath.c_str(), nullptr, nullptr, szFileName, nullptr);
+				TextureFilePath = szFileName;
+			}
+
+			ImGui::Text("Normal :");
+			ImGui::SameLine();
+			ImGui::Text(TextureFilePath.c_str());
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+				{
+					const char* FilePath = (const char*)(payload->Data);
+
+					static_cast<CEmptyEffect*>(g_pObjFocused)->SetTexture(FilePath, CEmptyEffect::TEXTURE_NORMAL);
+				}
 				ImGui::EndDragDropTarget();
 			}
 			/*Sprite*/

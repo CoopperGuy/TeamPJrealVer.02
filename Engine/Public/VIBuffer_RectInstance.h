@@ -6,10 +6,12 @@ BEGIN(Engine)
 
 class ENGINE_DLL CVIBuffer_RectInstance final : public CVIBuffer
 {
+	enum SHAPE { RING, CONE, SHAPE_END };
 private:
 	explicit CVIBuffer_RectInstance(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	explicit CVIBuffer_RectInstance(const CVIBuffer_RectInstance& rhs);
 	virtual ~CVIBuffer_RectInstance() = default;
+
 public:
 	virtual HRESULT InitializePrototype(string pShaderFilePath, _uint iNumInstance);
 	virtual HRESULT Initialize(void* pArg) override;
@@ -18,7 +20,7 @@ public:
 	HRESULT Render(_uint iPassIndex);
 
 public:
-	vector<VTXMATRIX*>&		GetInstanceMatrices() {
+	vector<VTXRECTINST*>&		GetInstanceMatrices() {
 		return m_InstanceMatrices;
 	};
 
@@ -28,8 +30,23 @@ private:
 	D3D11_SUBRESOURCE_DATA	m_VBInstanceSubResourceData;
 
 	_uint					m_iNumInstance = 0;
-	vector<VTXMATRIX*>		m_InstanceMatrices;
+	vector<VTXRECTINST*>		m_InstanceMatrices;
 	string					m_shaderPath = "";
+
+	CTransform*				m_pTargetTransform = nullptr;
+
+	_float4					m_vColor = { 1.f, 1.f, 1.f, 0.f };
+	_float4					m_vDir[5000] = { { 0.f, 0.f, 0.f, 0.f }, };
+	_double					m_dLifeTime = 0.0;
+	_double					m_dLifeTimeAcc = 0.0;
+	_uint					m_iInstNum = 0;
+	_uint					m_iRenderEnable[5000] = { 0, };
+	_float					m_fStartSpeed[5000] = { 0.f, };
+	_float					m_fStartSize[5000] = { 0.f, };
+
+	_float					m_fSpeed = 5.f;
+	_float					m_fSize = 1.f;
+
 public:
 	static CVIBuffer_RectInstance* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, string pShaderFilePath, _uint iNumInstance = 1);
 	virtual CComponent* Clone(void* pArg) override;

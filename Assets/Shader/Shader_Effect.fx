@@ -42,6 +42,7 @@ cbuffer EffectBuffer
 Texture2D g_DiffuseTexture;
 Texture2D g_MaskTexture;
 Texture2D g_NoiseTexture;
+Texture2D g_NormalTexture;
 Texture2D g_HDRTexture;
 
 SamplerState g_DefaultSampler
@@ -516,7 +517,7 @@ vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
     uv.x += vNoise.x * 0.1f;
     uv.y -= vNoise.y * 0.1f;
 
-    float4 vDiffuse = g_HDRTexture.Sample(g_DefaultSampler, uv + 0.01f);
+    float4 vDiffuse = g_HDRTexture.Sample(g_DefaultSampler, uv/* + 0.01f*/);
     float4 vColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
       
     vColor.a = vColor.r;
@@ -747,6 +748,18 @@ vector PS_MAIN_MESH_FlogasWave(PS_IN_TEST In) : SV_TARGET
 	return vDiffuseColor;
 }
 
+vector PS_MAIN_NORMAL(PS_IN In) : SV_TARGET
+{    
+    float4 DiffuseColor = float4(0.f, 0.f, 0.f, 0.f);
+    float4 Normal = g_NormalTexture.Sample(g_DefaultSampler, In.vTexUV);
+
+    DiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV + (Normal.xy * 0.01));
+    if (DiffuseColor.a == 0.f)
+        discard;
+
+    return DiffuseColor;
+}
+
 vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
 {
 	float4 vNoise[3];
@@ -930,4 +943,16 @@ technique11 DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN_SPRITEMASK();
 	}
+  
+  pass NORMAL_SAMPLE
+  {
+      SetRasterizerState(Rasterizer_Solid);
+      SetDepthStencilState(DepthStecil_Default, 0);
+      SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+      VertexShader = compile vs_5_0 VS_MAIN();
+      GeometryShader = NULL;
+      PixelShader = compile ps_5_0 PS_MAIN_NORMAL();
+  }
+  
 }
