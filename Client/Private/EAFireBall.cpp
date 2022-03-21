@@ -3,6 +3,7 @@
 #include "EffectFireBall.h"
 #include "BasicCollider.h"
 #include "Transform.h"
+#include "EffectEAFire.h"
 USING(Client)
 
 CEAFireBall::CEAFireBall()
@@ -26,14 +27,16 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 
 
 	_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
-	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_FireBall");
-	CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+	//auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire", "E_EAFire");
+	//CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
 	CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
 	m_Targetpos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 
 	LookAt(m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+
+
 
 	return S_OK;
 }
@@ -44,7 +47,7 @@ void CEAFireBall::Update(_double deltaTime)
 		true;
 
 	/*if (!m_pOBB->Get_isHit()) {*/
-	if (0.2f <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
+	if (0.1f <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
 		_vector		vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 		_vector		vDirection = m_Targetpos - vPosition;
@@ -57,9 +60,9 @@ void CEAFireBall::Update(_double deltaTime)
 		myPos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
 
 		makedt += deltaTime;
-		if (makedt >= 0.1)
+		if (makedt >= 0.15)
 		{
-			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire", "E_EAFire");
 			CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 			makedt = 0;
 		}
@@ -69,6 +72,9 @@ void CEAFireBall::Update(_double deltaTime)
 		m_bDead = true;
 	}
 	if (m_pOBB->Get_isHit())
+		m_bDead = true;
+
+	if (XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 		m_bDead = true;
 
 

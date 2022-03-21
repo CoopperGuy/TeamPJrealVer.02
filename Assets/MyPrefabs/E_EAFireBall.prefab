@@ -1,22 +1,23 @@
 Scene: Untitled
 GameObjects:
   - Name: E_EAFireBall
-    UUID: 3711329144164515411
+    UUID: 3269050365708262497
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [27.9416618, 14.1262798, 0]
-      Scale: [0.9998613, 0.998909473, 1.00022817]
+      Translation: [0.138881922, 0, -0.0192823987]
+      Rotation: [28.8265934, 7.90443134, 0]
+      Scale: [0.999155998, 0.998835325, 1.00034833]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke2.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -34,4 +35,4 @@ GameObjects:
       SpriteNumX: 5
       SpriteNumY: 5
       SpriteTotal: 25
-      SpriteSpeed: 30
+      SpriteSpeed: 25

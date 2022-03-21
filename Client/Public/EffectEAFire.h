@@ -13,12 +13,12 @@ private:
 	virtual ~CEffectEAFire() = default;
 
 public:
-	virtual HRESULT Initialize(void* pArg);
+	virtual HRESULT Initialize(void* pArg, _vector pos);
 	virtual void Update(_double deltaTime);
 	virtual void LateUpdate(_double deltaTime);
 	virtual void Render();
 public:
-	static CEffectEAFire* Create(void*	pTarget);
+	static CEffectEAFire* Create(void*	pTarget, _vector pos);
 	virtual void Free() override;
 
 public:
