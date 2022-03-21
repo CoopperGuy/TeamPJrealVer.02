@@ -9,7 +9,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 1
     Com_Transform:
-      Translation: [0, 0, -16]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:

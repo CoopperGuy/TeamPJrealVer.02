@@ -34,7 +34,6 @@ void CFlogasDunDoor::Update(_double deltaTime)
 
 	if (m_bDead)
 		return;
-
 	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
 	pFlogasDunDoor = m_pTransform->GetState(CTransform::STATE_POSITION);
 

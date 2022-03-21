@@ -41,7 +41,12 @@ void CWaterEA::Update(_double dDeltaTime)
 	if (m_bDead)
 		return;
 
-	Set_State(dDeltaTime);
+	CGameObject* m_pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
+	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
+
+	if(XMVectorGetZ(playerPos) >= -9.3f)
+		Set_State(dDeltaTime);
 
 
 }
@@ -100,7 +105,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_pModel->SetUp_AnimationIndex(1);
 		int irand = rand() % 5;
 		irand += 5;
-		if (m_dIdleTime > irand) {
+		if (m_dIdleTime > _float(rand() % 5 + 5)) {
 			m_eState = ATT;
 			fireballmake = 0;
 			makeEffect = true;
