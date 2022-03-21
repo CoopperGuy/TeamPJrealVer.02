@@ -25,7 +25,7 @@ cbuffer RimLightBuffer
 {
     bool   g_RimLightEnable;
     float3 g_CamPosition;
-    float3 g_RimLitghColor;
+    float4 g_RimLitghColor;
 };
 
 cbuffer Dissolve
@@ -353,7 +353,7 @@ PS_OUT PS_MAIN(PS_IN In)
     {
         float3 vCamPos = normalize(g_CamPosition - In.vWPos);
         float RimLightIntensity = smoothstep(0.f, 0.5f, 1 - max(0, dot(vNormal, vCamPos)));
-        color.xyz += float3(1.f, 0.f, 0.f) * RimLightIntensity;
+        color.xyz += g_RimLitghColor * RimLightIntensity;
     }
 
     Out.vDiffuse = color;

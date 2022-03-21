@@ -823,10 +823,10 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		vPlayerLook = vEvadeLook;
 		m_bCombo = false;
 	}
-	if (CEngine::GetInstance()->IsKeyDown('K'))
+	/*if (CEngine::GetInstance()->IsKeyDown('K'))
 		SetUpEquip("PlateArmor");
 	if (CEngine::GetInstance()->IsKeyDown('L'))
-		SetUpEquip("LeatherArmor");
+		SetUpEquip("LeatherArmor");*/
 
 	m_pTransform->SetLook(vPlayerLook);
 
@@ -864,7 +864,7 @@ void CPlayer::Jump(_double dDeltaTime)
 
 void CPlayer::SetUpEquip(string Name)
 {
-	ITEMINFO Info = CEngine::GetInstance()->GetItemAsName(Name + ".fbx").second;
+	ITEMINFO Info = CEngine::GetInstance()->GetItemAsName(Name).second;
 	_uint i = 0;
 	if (Info.itemType == ITEMTYPE::EQUIP)
 	{
@@ -1058,6 +1058,10 @@ void CPlayer::InputSkill()
 			m_bCB = true;
 			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot1];
 			m_pSkillIcon->UseSkill(0);
+			m_bUsableSkill = true;
+		}
+		else {
+			m_bUsableSkill = false;
 		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('2'))
@@ -1066,6 +1070,10 @@ void CPlayer::InputSkill()
 			m_bCB = true;
 			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot2];
 			m_pSkillIcon->UseSkill(1);
+			m_bUsableSkill = true;
+		}
+		else {
+			m_bUsableSkill = false;
 		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('3'))
@@ -1074,6 +1082,10 @@ void CPlayer::InputSkill()
 			m_bCB = true;
 			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot3];
 			m_pSkillIcon->UseSkill(2);
+			m_bUsableSkill = true;
+		}
+		else {
+			m_bUsableSkill = false;
 		}
 	}
 	if (CEngine::GetInstance()->IsKeyDown('4'))
@@ -1082,15 +1094,19 @@ void CPlayer::InputSkill()
 			m_bCB = true;
 			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot4];
 			m_pSkillIcon->UseSkill(3);
+			m_bUsableSkill = true;
+		}
+		else {
+			m_bUsableSkill = false;
 		}
 	}
 
-	if (CEngine::GetInstance()->IsKeyDown('5')) {
-		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
-	}
-	if (CEngine::GetInstance()->IsKeyDown('6')) {
-		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
-	}
+	//if (CEngine::GetInstance()->IsKeyDown('5')) {
+	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
+	//}
+	//if (CEngine::GetInstance()->IsKeyDown('6')) {
+	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
+	//}
 
 
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD0)) {

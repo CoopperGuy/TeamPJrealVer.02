@@ -336,7 +336,7 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::WhirlWind_ing: {
 		m_pTrailBuffer->SetIsActive(true);
 		playerStat->SetSTATE(CStat::STATES_ATK);
-		playerStat->SetDMGRatio(0.1f);
+		playerStat->SetDMGRatio(0.5f);
 		break;
 	}
 	case Client::Player_State::WhirlWind_End: {
@@ -355,7 +355,7 @@ void CAxe::Set_TrailOnOff()
 		m_pTrailBuffer->SetIsActive(true);
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
-		playerStat->SetDMGRatio(0.2f);
+		playerStat->SetDMGRatio(1.3f);
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
@@ -367,7 +367,7 @@ void CAxe::Set_TrailOnOff()
 		m_pTrailBuffer->SetIsActive(true);
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
-		playerStat->SetDMGRatio(0.2f);
+		playerStat->SetDMGRatio(1.3f);
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
@@ -409,7 +409,4 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::Player_End:
 		break;
 	}
-
-	m_pTrailBuffer->SetIsActive(false);
-
 }

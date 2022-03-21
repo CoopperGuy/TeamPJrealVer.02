@@ -41,8 +41,8 @@ public:
 	virtual void	SetisRender(_bool tf) override;
 	void Set_Render(_uint index, _bool Render) { m_bRender[index] = Render; }
 	void SetNumOBB(_int obb) { m_iNumOBBs = obb; }
-	void SetRimLight(_bool bRimLight) { m_bRimLightEnable = bRimLight; }
-
+	void SetRimLight(_bool bRimLight, _fvector _lightColor, _double _lifeTime);
+	//DirectX::Colors::Red;
 public:
 	_int&	GetRenderGroup() { return	(_int&)m_eRenderGroup; }
 	_bool	GetHaveParent();
@@ -68,8 +68,11 @@ private:
 	_int			m_iNumOBBs = 0;
 	_int			m_iAnimationIndex = 0;
 
+private:
 	_bool			m_bRimLightEnable = false;
-	_float3			m_vRimLightColor = { 1.f, 0.5f, 0.5f };
+	_float4			m_vRimLightColor = { 1.f, 0.5f, 0.5f, 1.f };
+	_double			m_RimLightTimeAcc = 0.f;
+	_double			m_RimLightTime = 0.15f;
 private:
 	CRenderer::RENDER m_eRenderGroup		= CRenderer::RENDER_NONALPHA;
 

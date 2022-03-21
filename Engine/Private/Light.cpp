@@ -15,10 +15,11 @@ CLight::CLight(const CLight & rhs)
 	, m_LightDesc(rhs.m_LightDesc)
 {
 }
-HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform)
+HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, _bool _tempLight)
 {
 	m_pTransform = pTransform;
-
+	m_bTempLight = _tempLight;
+	
 	if (LightDesc.eType == tagLightDesc::LIGHT_END)
 	{
 		m_LightDesc.eType = LIGHTDESC::LIGHT_POINT;
@@ -32,6 +33,11 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform)
 	else
 		m_LightDesc = LightDesc;
 
+	if (m_bTempLight) {
+		m_fDestColor = m_LightDesc.vDiffuse;
+		XMStoreFloat4(&m_LightDesc.vDiffuse, XMVectorZero());
+	}
+
 	_uint		iNumViewports = 1;
 
 	D3D11_VIEWPORT		ViewportDesc;
@@ -40,7 +46,13 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform)
 
 	//m_pDeviceContext->RSGetViewports(&iNumViewports, &ViewportDesc);
 
-	m_pVIBuffer = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, WINCX, WINCY, "../../Assets/Shader/Shader_Rect_Viewport.fx");
+	if (CLightManager::GetInstance()->GetNumLights() > 0) {
+		CLight* light = CLightManager::GetInstance()->GetLightFront();
+		m_pVIBuffer = light->GetVIBuffer();
+	}
+	else {
+		m_pVIBuffer = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, WINCX, WINCY, "../../Assets/Shader/Shader_Rect_Viewport.fx");
+	}
 	if (nullptr == m_pVIBuffer)
 		return E_FAIL;
 
@@ -141,6 +153,16 @@ HRESULT CLight::Render_DebugBuffer()
 	return S_OK;
 }
 
+_uint CLight::Update(_double deltaTime)
+{
+	if (m_bTempLight) {
+		m_DeltaTime += deltaTime;
+		_double lerpTime = 2.2f * (4 * m_DeltaTime / m_LifeTime) *(-m_DeltaTime / m_LifeTime + 1);
+		XMStoreFloat4(&m_LightDesc.vDiffuse, XMVectorLerp(XMVectorZero(), XMLoadFloat4(&m_fDestColor), lerpTime));
+	}
+	return _uint();
+}
+
 _matrix CLight::GetViewMatrix()
 {
 	return XMMatrixInverse(nullptr, m_pTransform->GetWorldMatrix());
@@ -176,11 +198,11 @@ ID3D11ShaderResourceView * CLight::GetShaderResourceView()
 	return nullptr;
 }
 
-CLight * CLight::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, const LIGHTDESC & LightDesc, CTransform* pTransform)
+CLight * CLight::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, const LIGHTDESC & LightDesc, CTransform* pTransform, _bool _tempLight)
 {
 	CLight*	pInstance = new CLight(pDevice, pDeviceContext);
 
-	if (FAILED(pInstance->Initialize(LightDesc, pTransform)))
+	if (FAILED(pInstance->Initialize(LightDesc, pTransform, _tempLight)))
 	{
 		MSG_BOX("Failed To Creating CLight");
 		SafeRelease(pInstance);

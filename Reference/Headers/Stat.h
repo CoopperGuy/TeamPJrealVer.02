@@ -87,7 +87,6 @@ private:
 private:
 	_float	m_fmagnification = 1.f;
 	_float	m_fDMGRatio = 1.f;
-
 public:
 	static CStat*	Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	virtual CComponent * Clone(void * pArg) override;

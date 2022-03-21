@@ -14,6 +14,8 @@ public:
 public:
 	const LIGHTDESC* GetLightDesc(_uint iIndex = 0) const;
 public:
+	_int	Update(_double DetalTime);
+public:
 	HRESULT AddLight(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, const LIGHTDESC& LightDesc);
 	HRESULT AddLight(class CLight* pLight);
 	HRESULT RemoveLight(class CLight* pLight);
@@ -33,6 +35,8 @@ public:
 	_uint	GetCurrentIndex() { return m_iCurrentIndex; };
 	_uint	GetNumRenderLights() { return (_uint)m_RenderLights.size(); }
 	_uint	GetNumLights() { return (_uint)m_Lights.size(); }
+
+	class CLight*	GetLightFront() { return m_Lights.front(); }
 private:
 	list<class CLight*>				m_Lights;
 	typedef list<class CLight*>		LIGHTS;
