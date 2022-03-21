@@ -142,6 +142,7 @@ private:
 	_bool	m_bZoomIn = false;	
 	_bool	m_bZoomOut = false;
 
+
 	_float	m_fSpriteNum = 0.f;
 	_uint  m_iSpriteNumX = 0;
 	_uint  m_iSpriteNumY = 0;
