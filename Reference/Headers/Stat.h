@@ -33,6 +33,10 @@ public:
 		char   padding[6];
 	}STAT;
 	enum STATES{STATES_IDEL, STATES_ATK, STATES_HITTED, STATES_END};
+	enum STATUSEFFECT{
+		STATUSEFFCT_NONE = 0,
+		BLOOD = (1 << 0)
+		};
 private:
 	explicit CStat(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	explicit CStat(const CStat& rhs);
@@ -44,6 +48,8 @@ public:
 	void SetStamina(_float _stamina) { m_fStamina += _stamina; }
 	void SetDMGRatio(_float _ratio) { m_fDMGRatio = _ratio; }
 	void SetCritical(_float critical) { m_tStat.critical = critical; }
+	void SetStatusEffect(STATUSEFFECT _effect) { m_StatusEffect = STATUSEFFECT(m_StatusEffect | _effect); }
+	void ShutStatusEffect(STATUSEFFECT _effect) { m_StatusEffect &= ~_effect; }
 public:
 	_bool GetIsImmortal() { return m_tStat.isImmortal; }
 	STAT GetStatInfo() { return m_tStat; }
@@ -53,6 +59,7 @@ public:
 	_float GetExpPercentage() { return m_tStat.exp / m_tStat.maxExp; }
 	_float GetDMGRatio() { return m_fDMGRatio; }
 	_float GetCritical() { return m_tStat.critical; }
+	_int GetStatusEffect() { return m_StatusEffect; }
 public:
 	_bool UseStamina(_float stamina);
 public:
@@ -80,6 +87,7 @@ private:
 private:
 	STAT	m_tStat{};
 	STATES	m_eState = STATES::STATES_END;
+	_int	m_StatusEffect = STATUSEFFECT::STATUSEFFCT_NONE;
 private:
 	_float	m_fStamina = 0.f;
 	_float	m_fStaMax = 100.f;

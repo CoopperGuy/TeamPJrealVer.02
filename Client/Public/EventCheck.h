@@ -39,6 +39,8 @@ public:
 public:
 	void SetCurBackPack(BACKPACKSTATE _state) { m_eBackState = _state; }
 	BACKPACKSTATE GetBackPackState() { return m_eBackState; }
+public:
+	_float3 GetLockOnPos();
 private:
 	CPlayer*		m_pPlayerScript = nullptr;
 	CAddQuickslot*	m_pAddQuick = nullptr;

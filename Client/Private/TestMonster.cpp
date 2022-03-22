@@ -16,7 +16,7 @@ CTestMonster::CTestMonster(CGameObject * pObj)
 HRESULT CTestMonster::Initialize()
 {
 	CEngine*	pEngine = CEngine::GetInstance();
-	m_pThisObj = static_cast<CEmptyGameObject*>(pEngine->FindGameObjectWithName(pEngine->GetCurSceneNumber(), "TestMonster"));
+	m_pThisObj = static_cast<CEmptyGameObject*>(pEngine->FindGameObjectWithName(pEngine->GetCurSceneNumber(), "testMonster"));
 	m_pThisModel = static_cast<CModel*>(m_pThisObj->GetComponent("Com_Model"));
 	m_pThisStat = static_cast<CStat*>(m_pThisObj->GetComponent("Com_Stat"));
 	m_pThisModel->SetAnimationLoop(0, true);

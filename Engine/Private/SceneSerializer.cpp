@@ -657,6 +657,13 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::EndMap;
 	}
 
+	if (obj->GetComponent("Com_RectInstance"))
+	{
+		out << YAML::Key << "Com_RectInstance";
+		out << YAML::BeginMap;
+		out << YAML::EndMap;
+	}
+
 	/* Effect_Setting */
 	CEmptyEffect* pGameObj = static_cast<CEmptyEffect*>(obj);
 
@@ -995,6 +1002,13 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 	{
 		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_PointInstance", "Com_PointInstance", deserializedObject->GetComponent("Com_Transform")))
 			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_PointInstance");
+	}
+
+	auto RectInstanceCom = obj["Com_RectInstance"];
+	if (RectInstanceCom)
+	{
+		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_RectInstance", "Com_RectInstance", deserializedObject->GetComponent("Com_Transform")))
+			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_RectInstance");
 	}
 
 	auto EffectSetting = obj["Effect_Setting"];

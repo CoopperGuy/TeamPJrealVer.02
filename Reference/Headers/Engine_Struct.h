@@ -40,6 +40,9 @@ namespace Engine
 		XMFLOAT4		vLook;
 		XMFLOAT4		vPosition;
 		_uint			iRenderEnable;
+		_float			fStartSpeed;
+		_float			fStartSize;
+		_float4			vDir;
 	}VTXRECTINST;
 
 	typedef struct tagKeyFrameDesc

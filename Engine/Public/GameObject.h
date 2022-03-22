@@ -76,6 +76,7 @@ public:
 	_bool  GetIsRender() { return m_bisRender; }
 	_float GetViewZ();
 	_float3 GetPosition();
+	_float3 GetCollisionPosition();
 	_float3	GetCollsionSize() { return m_CollisionSize; }
 protected:
 	class CEngine*				m_pEngine = nullptr;

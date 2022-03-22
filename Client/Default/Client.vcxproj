@@ -281,6 +281,7 @@
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
+    <ClInclude Include="..\public\TargetOn.h" />
     <ClInclude Include="..\public\TestMonster.h" />
     <ClInclude Include="..\Public\WaterEA.h" />
     <ClInclude Include="..\Public\Wolf.h" />
@@ -415,6 +416,7 @@
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
+    <ClCompile Include="..\private\TargetOn.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />
     <ClCompile Include="..\Private\WaterEA.cpp" />
     <ClCompile Include="..\Private\Wolf.cpp" />
