@@ -9,6 +9,7 @@
 #include "EffectSmoke.h"
 #include "EffectMagicAf.h"
 #include "EffectMeteoExpolFire.h"
+#include "EventCheck.h"
 USING(Client)
 
 CMeteoFireBall::CMeteoFireBall()
@@ -74,7 +75,7 @@ void CMeteoFireBall::Update(_double deltaTime)
 			m_pMeteo->Set_Pos(mypos);
 
 		makedt += deltaTime;
-		if (makedt >= 0.04)
+		if (makedt >= 0.075)
 		{
 			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Meteo", "E_Meteo");
@@ -97,6 +98,9 @@ void CMeteoFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
 	{
+
+		CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4.f, 0.08f);
+
 		auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
 		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 

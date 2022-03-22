@@ -38,9 +38,9 @@ HRESULT CEffectMagic::Initialize(void* pArg, _vector pos)
 
 		_int  startrand = rand() % 2;
 		if (0 == startrand)
-			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
 		else
-			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
 	}
 	return S_OK;
 }
