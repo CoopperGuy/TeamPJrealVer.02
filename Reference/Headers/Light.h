@@ -57,6 +57,8 @@ private:
 	_double							m_DeltaTime = 0;
 	_double							m_LifeTime = 0.05;
 	_float4							m_fDestColor{};
+private:
+	_bool							m_bIsClone = false;
 public:
 	static CLight* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, const LIGHTDESC& LightDesc, CTransform* pTransform, _bool _tempLight = false);
 	virtual CComponent* Clone(void* pArg);

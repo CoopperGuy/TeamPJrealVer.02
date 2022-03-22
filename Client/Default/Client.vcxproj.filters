@@ -358,6 +358,9 @@
     <ClInclude Include="..\Public\Fire_explosion.h">
       <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\TargetOn.h">
+      <Filter>04.UI\TargetOn</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -701,6 +704,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Fire_explosion.cpp">
       <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\TargetOn.cpp">
+      <Filter>04.UI\TargetOn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1074,6 +1080,9 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FireExplosion">
       <UniqueIdentifier>{2f2b2acf-e036-4abb-821b-33d2424bada9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\TargetOn">
+      <UniqueIdentifier>{e3712d70-1560-4639-8c58-2dc8dc2165d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
