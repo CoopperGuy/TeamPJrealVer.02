@@ -38,7 +38,7 @@ private:
 	_float3  m_fScale = {};
 	_float3 m_fScrollX = {};
 	_float3 m_fScrollY = {};
-
+	_float3	m_vScales;
 
 	_float PlusScale = 0.1f;
 	_float m_fMaxScail = 1.5f;

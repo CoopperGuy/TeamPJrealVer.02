@@ -10,13 +10,14 @@ CObb::CObb()
 
 
 
-HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CGameObject * pArg)
+HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CTransform * pArg)
 {
 	CEngine* pEngine = CEngine::GetInstance();
-
+	m_pTargetTransform = pArg;
 	m_pObj =static_cast<CEmptyGameObject*>(pEngine->AddGameObjectToPrefab(pEngine->GetCurSceneNumber(), "Prototype_GameObject_OBBs", "O_OBBs", &XMMatrixTranslationFromVector(XMLoadFloat3(&position))));
 	m_pOBB = static_cast<CBasicCollider*>(m_pObj->GetComponent("Com_OBB"));
 	m_pStat = static_cast<CStat*>(m_pObj->GetComponent("Com_Stat"));
+	m_pTransform  = static_cast<CTransform*>(m_pObj->GetComponent("Com_Transform"));
 
 	m_pOBB->SetSize(size);
 	m_pOBB->SetCollisionType(_collisionType);
@@ -31,13 +32,15 @@ HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisio
 	return S_OK;
 }
 
-HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _collisionType, _float _duration, CGameObject * pArg)
+HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _collisionType, _float _duration, CTransform * pArg)
 {
 	CEngine* pEngine = CEngine::GetInstance();
+	m_pTargetTransform = pArg;
 
 	m_pObj = static_cast<CEmptyGameObject*>(pEngine->AddGameObjectToPrefab(pEngine->GetCurSceneNumber(), "Prototype_GameObject_OBBs", "O_OBBs", &XMMatrixTranslationFromVector(position)));
 	m_pOBB = static_cast<CBasicCollider*>(m_pObj->GetComponent("Com_OBB"));
 	m_pStat = static_cast<CStat*>(m_pObj->GetComponent("Com_Stat"));
+	m_pTransform = static_cast<CTransform*>(m_pObj->GetComponent("Com_Transform"));
 
 	_float3 size;
 	XMStoreFloat3(&size, _size);
@@ -57,8 +60,8 @@ HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _colli
 
 void CObb::Update(_double deltaTime)
 {
+	m_pTransform->SetMatrix(m_pTargetTransform->GetWorldMatrix());
 	m_fDelta += (_float)deltaTime;
-
 	if (m_fDuration < m_fDelta) {
 		this->SetDead();
 		m_pObj->SetDead();
@@ -91,8 +94,13 @@ void CObb::SetupDead()
 	m_pObj->SetDead();
 }
 
+void CObb::SetPosision(_float3 _pos)
+{
+	m_pObj->SetPosition(_pos);
+}
 
-CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CGameObject * pTarget)
+
+CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CTransform * pTarget)
 {
 	CObb*	obj = new CObb();
 	if (FAILED(obj->Initailze(position, size, dmg, _collisionType, _duration, pTarget))) {
@@ -102,7 +110,7 @@ CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionTyp
 	return obj;
 }
 
-CObb * CObb::Create(_fvector position, _fvector size, _float dmg, ID _collisionType, _float _duration, CGameObject * pTarget)
+CObb * CObb::Create(_fvector position, _fvector size, _float dmg, ID _collisionType, _float _duration, CTransform * pTarget)
 {
 	CObb*	obj = new CObb();
 	if (FAILED(obj->Initailze(position, size, dmg, _collisionType, _duration, pTarget))) {

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\SlashWave.h"
-
+#include "Obb.h"
 USING(Client)
 
 CSlashWave::CSlashWave()
@@ -25,6 +25,17 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	_vector vPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	//m_pEffectTrans->GoRight(0.05);
 	vPos += XMVector3Normalize(m_pTargetTrans->GetState(CTransform::STATE_RIGHT))  * -0.05f;
+
+	_vector pos = vTargetPos;
+	pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
+	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
+	m_vecScales = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
+
+	CStat* stat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
+
+	m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vecScales), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
+
 	return S_OK;
 }
 
@@ -35,6 +46,9 @@ void CSlashWave::Update(_double dDeltaTime)
 		m_pChildren->GetScale(CTransform::STATE_RIGHT);
 		m_pEffectTrans->GoStraight(dDeltaTime * 1.0);
 		m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, m_fScale));
+		_vector pos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
+		_float3 effectPos;
+		XMStoreFloat3(&effectPos, pos);
 		//m_pChildren->SetScale(_float3(m_pChildren->GetScale(CTransform::STATE_RIGHT) + (m_fScale-1.f)
 		//	, m_pChildren->GetScale(CTransform::STATE_UP) + (m_fScale - 1.f)
 		//		, m_pChildren->GetScale(CTransform::STATE_LOOK) + (m_fScale - 1.f)));
@@ -43,6 +57,9 @@ void CSlashWave::Update(_double dDeltaTime)
 				, 0.2 + (m_fScale - 1.f)));
 		if(m_fScale < 1.5f)
 			m_fScale += dDeltaTime;
+
+		
+		m_pOBB->SetPosision(effectPos);
 	}
 }
 
@@ -50,6 +67,7 @@ void CSlashWave::LateUpdate(_double deltaTime)
 {
 	m_DurationDelta += deltaTime;
 	if (m_DurationDelta > m_Duration) {
+		m_pOBB->SetupDead();
 		this->SetDead();
 		m_pThis->SetDead();
 	}
