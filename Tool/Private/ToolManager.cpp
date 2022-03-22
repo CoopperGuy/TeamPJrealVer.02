@@ -23,9 +23,8 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-
-
 static string strScene = "../../Assets/Scenes/Boss_Ursa.yaml";
+
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

@@ -95,6 +95,13 @@ void CEventCheck::SetUpEquip(string _equipName)
 		m_pPlayerScript->SetUpEquip(_equipName);
 }
 
+_float3 CEventCheck::GetLockOnPos()
+{
+	if (m_pPlayerScript)
+		return m_pPlayerScript->GetLockOnPosition();
+	return _float3();
+}
+
 
 
 void CEventCheck::Free()

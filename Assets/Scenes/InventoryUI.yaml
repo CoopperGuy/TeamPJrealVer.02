@@ -25,18 +25,56 @@ GameObjects:
       - 12944058087480305985
       - 11845365342155498423
       - 12893099253836064542
-  - Name: MaterialItemList0
-    UUID: 6971170235059011951
+  - Name: EquipItem
+    UUID: 11123017261122148341
     Active: false
-    Layer: MaterialItemList
+    Layer: BackPackSub
     Instancing: false
     Type: UI
     SortingOrder: 6
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [-22.6090088, 6.74475098]
+      Position: [27.3909912, 50]
       Size: [50, 50]
+    Children:
+      - 18113412866005203712
+      - 14307409957735197175
+      - 4477101166319400238
+      - 10489976160073860266
+      - 9907293121996886223
+      - 312116914979708147
+      - 13592429952304183812
+  - Name: ComsumableItem
+    UUID: 2534542176139175624
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [25.6518555, 50]
+      Size: [50, 50]
+    Children:
+      - 10590615739566618244
+      - 15437861468603381042
+  - Name: MaterialItem
+    UUID: 2033216220318070637
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [27.3909912, 56.744751]
+      Size: [50, 50]
+    Children:
+      - 3605073293141489059
+      - 6971170235059011951
   - Name: WeaponText
     UUID: 18113412866005203712
     Active: false
@@ -157,56 +195,42 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
-  - Name: EquipItem
-    UUID: 11123017261122148341
+  - Name: LowerText
+    UUID: 312116914979708147
     Active: false
-    Layer: BackPackSub
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 500]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Lower
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+  - Name: MaterialItemList0
+    UUID: 6971170235059011951
+    Active: false
+    Layer: MaterialItemList
     Instancing: false
     Type: UI
     SortingOrder: 6
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [27.3909912, 50]
+      Position: [-22.6090088, 6.74475098]
       Size: [50, 50]
-    Children:
-      - 18113412866005203712
-      - 14307409957735197175
-      - 4477101166319400238
-      - 10489976160073860266
-      - 9907293121996886223
-      - 312116914979708147
-      - 13592429952304183812
-  - Name: ComsumableItem
-    UUID: 2534542176139175624
-    Active: false
-    Layer: BackPackSub
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [25.6518555, 50]
-      Size: [50, 50]
-    Children:
-      - 10590615739566618244
-      - 15437861468603381042
-  - Name: MaterialItem
-    UUID: 2033216220318070637
-    Active: false
-    Layer: BackPackSub
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [27.3909912, 56.744751]
-      Size: [50, 50]
-    Children:
-      - 3605073293141489059
-      - 6971170235059011951
   - Name: CousumableText
     UUID: 10590615739566618244
     Active: false
@@ -267,30 +291,6 @@ GameObjects:
     Com_Transform:
       Position: [-24.3481445, 0]
       Size: [50, 50]
-  - Name: LowerText
-    UUID: 312116914979708147
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 500]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Lower
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
   - Name: SelectEquip
     UUID: 12944058087480305985
     Active: false

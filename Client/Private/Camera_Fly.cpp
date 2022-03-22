@@ -217,8 +217,11 @@ HRESULT CCamera_Fly::SetUp_Components()
 
 void CCamera_Fly::Set_Pos(_double DeltaTime)
 {
-	PxExtendedVec3 physxPos = m_pTargetCollider->GetPosition();
-	_vector vTargetCenterPos = XMVectorSet((_float)physxPos.x, (_float)physxPos.y, (_float)physxPos.z, 1.f) + XMLoadFloat3(&m_vShakePos);
+	PxExtendedVec3 tempPos = m_pTargetCollider->GetPosition();
+	_float3	physxPos = _float3((_float)tempPos.x, (_float)tempPos.y, (_float)tempPos.z);
+	_float3 lockOnPos = CEventCheck::GetInstance()->GetLockOnPos();
+	_vector lerpTargetCenterPos = XMVectorLerp(XMLoadFloat3(&physxPos), XMLoadFloat3(&lockOnPos), DeltaTime * 10.f);
+	_vector vTargetCenterPos = lerpTargetCenterPos + XMLoadFloat3(&m_vShakePos);
 	_matrix mat = XMMatrixIdentity();
 	_long			MouseMove = 0;
 	_long			MouseWheel = 0;
@@ -307,7 +310,7 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 	_vector afterLook = m_pTransformCom->GetState(CTransform::STATE_LOOK);
 	_float3 euler;
 	m_pTransformCom->QuaternionToEuler(afterLook, euler);
-	_vector look = DirectX::XMVectorLerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
+	_vector look = DirectX::XMQuaternionSlerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
 
 	m_bShake = false;
 

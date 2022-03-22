@@ -874,17 +874,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [2.08170962, 1.15599632, 0.497489035]
-      Rotation: [0, 89, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Translation: [8.22952843, 1.15597105, -8.92769051]
+      Rotation: [-179.999741, -8.54113197, -179.999893]
+      Scale: [1.50000024, 1.5, 1.50000024]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
       MeshFileName: Lamp.fbx
       HasCollider: false
       Equipment: false
-    Translation: [2.08170962, 1.15599632, 0.497489035]
-    Rotation: [0, 89, 0]
-    Scale: [1.5, 1.5, 1.5]
+    Translation: [8.22952843, 1.15597105, -8.92769051]
+    Rotation: [-179.999741, -8.54113197, -179.999893]
+    Scale: [1.50000024, 1.5, 1.50000024]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
     MeshFileName: Lamp.fbx
     HasCollider: false
@@ -899,17 +899,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.65346336, 1.15399969, 0.238304824]
-      Rotation: [-179.997025, 85.9485245, -179.996887]
-      Scale: [1.50000012, 1.5, 1.50000012]
+      Translation: [8.26515007, 1.15399909, -3.48726583]
+      Rotation: [-179.999634, -19.9153748, -179.999634]
+      Scale: [1.5000006, 1.5, 1.5000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
       MeshFileName: Lamp.fbx
       HasCollider: false
       Equipment: false
-    Translation: [4.65346336, 1.15399969, 0.238304824]
-    Rotation: [-179.997025, 85.9485245, -179.996887]
-    Scale: [1.50000012, 1.5, 1.50000012]
+    Translation: [8.26515007, 1.15399909, -3.48726583]
+    Rotation: [-179.999634, -19.9153748, -179.999634]
+    Scale: [1.5000006, 1.5, 1.5000006]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
     MeshFileName: Lamp.fbx
     HasCollider: false
@@ -924,16 +924,16 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.61394405, 1.15400004, 0.613511384]
-      Rotation: [-179.999893, 89.2447662, -179.999893]
+      Translation: [-7.87795687, 1.15400004, -0.609434843]
+      Rotation: [-1.37530128e-06, 2.03472567, -3.97829183e-08]
       Scale: [1.50000012, 1.5, 1.50000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
       MeshFileName: Lamp.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-4.61394405, 1.15400004, 0.613511384]
-    Rotation: [-179.999893, 89.2447662, -179.999893]
+    Translation: [-7.87795687, 1.15400004, -0.609434843]
+    Rotation: [-1.37530128e-06, 2.03472567, -3.97829183e-08]
     Scale: [1.50000012, 1.5, 1.50000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
     MeshFileName: Lamp.fbx
@@ -1024,17 +1024,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-1.89413619, 1.15400004, 0.526755452]
-      Rotation: [0, 89, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Translation: [-7.92026997, 1.15400004, -8.43056679]
+      Rotation: [0, -36.8935089, 0]
+      Scale: [1.50000012, 1.5, 1.50000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
       MeshFileName: Lamp.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-1.89413619, 1.15400004, 0.526755452]
-    Rotation: [0, 89, 0]
-    Scale: [1.5, 1.5, 1.5]
+    Translation: [-7.92026997, 1.15400004, -8.43056679]
+    Rotation: [0, -36.8935089, 0]
+    Scale: [1.50000012, 1.5, 1.50000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Lamp\
     MeshFileName: Lamp.fbx
     HasCollider: false
@@ -1520,13 +1520,14 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.521534, 26.0779991, 1.79999995]
+      Scale: [22.5215168, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Fire\lava.png
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\abs.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_WaveTile_009_TEX_KKJ.png
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0.0500000007, 0.00999999978, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -1642,15 +1643,16 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-1.89321303, 1.35158932, 0.287679523]
-      Rotation: [-117.820168, 61.0998573, -180]
-      Scale: [0.293505192, 0.27578482, 0.601540923]
+      Translation: [-7.69327307, 1.31196868, -8.28250313]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.290435791, 0.24647288, 0.602381706]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Fire\lava.png
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.10000002, 1.70000005, 2.29999995]
       Distortion1: [0.100000001, 0.300000012]
@@ -1679,14 +1681,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.639373481, 0.535599351, 1.30583382]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.632724285, 0.478720188, 1.30769563]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Fire\lava.png
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.5, 0, 0]
       ScrollSpeedY: [1.29999995, 0.300000012, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2034,14 +2037,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.638268411, 0.534469664, 1.3063674]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.631664932, 0.47772637, 1.30825591]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [-0.400000006, 0.699999988, 0]
       ScrollSpeedY: [0.5, 0.699999988, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2069,15 +2073,16 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [2.0729816, 1.41420758, 0.24706772]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.319180191, 0.430893064, 1.3063674]
+      Translation: [7.93538809, 1.34698355, -8.84075165]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.315950006, 0.385125041, 1.30844522]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.400000006, 0.300000012, 0]
       ScrollSpeedY: [0.899999976, 0.400000006, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2105,15 +2110,16 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [4.63890743, 1.38610911, -0.00537226489]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.31918931, 0.430957884, 1.3063674]
+      Translation: [8.08104706, 1.34008193, -3.44539356]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.315851778, 0.385185957, 1.30825591]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.100000001, 0.100000001, 0]
       ScrollSpeedY: [0.600000024, 0.699999988, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2141,15 +2147,16 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-4.63161945, 1.40606964, 0.369205177]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.319265217, 0.430983484, 1.3064723]
+      Translation: [-7.58388233, 1.30740726, -0.59903425]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.315916598, 0.385203809, 1.30846059]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2178,14 +2185,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.638766289, 0.5345034, 1.3064723]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.632161736, 0.477757215, 1.30830777]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.400000006, -0.600000024, 0]
       ScrollSpeedY: [0.600000024, 0.800000012, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2214,14 +2222,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.638604462, 0.534536004, 1.3064723]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.631949902, 0.477778196, 1.30830777]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.300000012, 0, 0]
       ScrollSpeedY: [1.10000002, 0.5, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2250,14 +2259,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.525540471, 0.709390998, 1.30664229]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.520029247, 0.634003341, 1.30849636]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0.600000024, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2286,14 +2296,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.539218605, 0.722910523, 1.43944311]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.533636391, 0.646130562, 1.44130397]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2322,14 +2333,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.893349826, 0.80294615, 1.30664229]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.883905947, 0.717658639, 1.30849636]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0.400000006, 2, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2358,14 +2370,15 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [-117.820183, 61.099865, -180]
-      Scale: [0.911378145, 0.780827165, 1.3064723]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.90171659, 0.697846413, 1.30825591]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\021.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Fire\FX_BoomMask_02.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0.200000003, 1.89999998, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -2470,7 +2483,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.89567566, 0, -25.8517857]
+      Translation: [-4.89567566, 0, -24.4943409]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2502,7 +2515,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.30362844, 0, -25.4101162]
+      Translation: [4.30362844, 0, -24.0107975]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2529,7 +2542,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-1.86290908, 1.23763025, 0.285951495]
+      Translation: [-7.69467306, 1.32634377, -8.36112595]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
@@ -2555,7 +2568,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 10
+      Range: 3.5
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2576,7 +2589,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 10
+      Range: 3.5
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2592,7 +2605,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [2.09119821, 1.28853989, 0.276229531]
+      Translation: [8.57621574, 1.22263777, -9.19071388]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
@@ -2634,7 +2647,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.66803074, 1.28696001, 0]
+      Translation: [8.244174, 1.28696001, -3.33414054]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
@@ -2739,7 +2752,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.55947971, 1.18374622, 0.60845685]
+      Translation: [-7.08639479, 1.47725797, -0.988871694]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
@@ -2760,13 +2773,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, -2.18696213, -4.48374367]
+      Translation: [0, -1.03840292, -4.29167938]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [93.9000015, 1.89999998, 46.0999985]
+      Size: [93.9000015, 1.89999998, 10.1000004]
       Angle:
         - 0
         - 0
@@ -3280,6 +3293,33 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
+  - Name: CamCollider
+    UUID: 3278669181217834212
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.345507503, 3.90349984, -5.32244444]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [27.6000004, 1, 19.3999996]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1
   - Name: PointLight01
     UUID: 4563585621494192207
     Active: true

@@ -3,7 +3,7 @@ GameObjects:
   - Name: Flogas
     UUID: 13424981851195139762
     Active: true
-    Layer: Layer_Flogas
+    Layer: Layer_Monster
     Instancing: false
     Type: Object
     PassIndex: 0

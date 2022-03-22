@@ -20,6 +20,7 @@
 #include "QuickSlot.h"
 #include "Gold.h"
 #include "SkillIcon.h"
+#include "TargetOn.h"
 #pragma endregion
 
 #pragma region Equipment
@@ -156,6 +157,10 @@ HRESULT CPlayer::Initialize()
 	info.Name = "WhrilWind";
 	m_pSkillIcon->SetSkillInfo(1, info);
 	info.coolTime = 20.f;
+	info.skillDuration = 10.f;
+	info.Name = "";
+	m_pSkillIcon->SetSkillInfo(2, info);
+	info.coolTime = 20.f;
 	info.Name = "guillotine";
 	m_pSkillIcon->SetSkillInfo(3, info);
 
@@ -180,6 +185,8 @@ HRESULT CPlayer::Initialize()
 	//1ÀÓ
 	//cout << "PlayerATK:" << m_pStatus->GetStatInfo().atk << endl;
 
+	Ready_FrustumInProjSpace();
+
 	return S_OK;
 }
 
@@ -195,6 +202,8 @@ void CPlayer::Update(_double dDeltaTime)
 
 	if (!m_pGameObject)
 		return;
+
+	Transform_ToWorldSpace();
 
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
@@ -216,6 +225,7 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 	//#endif // _DEBUG
 	Collsion();
+	SearchMonster();
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
@@ -299,6 +309,13 @@ void CPlayer::Collsion()
 		m_pGameObject->Set_AttackState(false);
 
 
+}
+
+_float3 CPlayer::GetLockOnPosition()
+{
+	if(m_listMonsters.size() > 0)
+		return m_listMonsters.front()->GetCollisionPosition();
+	return m_pGameObject->GetCollisionPosition();
 }
 
 void CPlayer::Input()
@@ -1115,5 +1132,96 @@ void CPlayer::InputSkill()
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD0)) {
 	//	CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Wolf", "Wolf");
 	//}
+}
+
+void CPlayer::Ready_FrustumInProjSpace()
+{
+	m_vPoint[0] = _float3(-1.f, 1.f, 0.f);
+	m_vPoint[1] = _float3(1.f, 1.f, 0.f);
+	m_vPoint[2] = _float3(1.f, -1.f, 0.f);
+	m_vPoint[3] = _float3(-1.f, -1.f, 0.f);
+
+	m_vPoint[4] = _float3(-1.f, 1.f, -1.f);
+	m_vPoint[5] = _float3(1.f, 1.f, -1.f);
+	m_vPoint[6] = _float3(1.f, -1.f, -1.f);	
+	m_vPoint[7] = _float3(-1.f, -1.f, -1.f);
+}
+
+void CPlayer::Transform_ToWorldSpace()
+{
+
+	_vector		vPoint[8];
+	_vector*	tempPoint = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"))->GetObbBox();
+	for (int i = 0; i < 8; i++) {
+		vPoint[i] = tempPoint[i];
+	}
+
+	Make_Plane(vPoint);
+}
+
+void CPlayer::Make_Plane(_fvector * pPoints)
+{
+	XMStoreFloat4(&m_Plane[0], XMPlaneFromPoints(pPoints[1], pPoints[2], pPoints[5]));
+	XMStoreFloat4(&m_Plane[1], XMPlaneFromPoints(pPoints[4], pPoints[7], pPoints[0]));
+
+	XMStoreFloat4(&m_Plane[2], XMPlaneFromPoints(pPoints[4], pPoints[5], pPoints[1]));
+	XMStoreFloat4(&m_Plane[3], XMPlaneFromPoints(pPoints[3], pPoints[6], pPoints[7]));
+
+	XMStoreFloat4(&m_Plane[4], XMPlaneFromPoints(pPoints[5], pPoints[4], pPoints[7]));
+	XMStoreFloat4(&m_Plane[5], XMPlaneFromPoints(pPoints[0], pPoints[1], pPoints[2]));
+}
+
+void CPlayer::SearchMonster()
+{
+	if (m_pTargetOn) {
+		if (m_listMonsters.size() > 0) {
+			_float lenght = XMVectorGetX(XMVector3Length(XMLoadFloat3(&m_pGameObject->GetPosition()) - XMLoadFloat3(&m_listMonsters.front()->GetPosition())));
+			if (lenght >= 4.f) {
+				m_listMonsters.clear();
+				m_pTargetOn->ReleaseThisUI();
+				m_pTargetOn = nullptr;
+			}
+		}
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_B)) {
+		m_listMonsters.clear();
+		CEngine* engine = CEngine::GetInstance();
+		list<CGameObject*> monList = engine->GetGameObjectInLayer(engine->GetCurSceneNumber(), "Layer_Monster");
+		for (auto& iter : monList) {
+			if (isInFrustum(XMLoadFloat3(&iter->GetCollisionPosition()), 1.f)) {
+				m_listMonsters.emplace_back(iter);
+			}
+		}
+		sort(m_listMonsters.begin(), m_listMonsters.end(), [](CGameObject* _A, CGameObject* _B) {
+			return _A->GetCollisionPosition().z < _B->GetCollisionPosition().z;
+		});
+		if (m_listMonsters.size() > 0) {
+			if (m_pTargetOn) {
+				m_pTargetOn->ReleaseThisUI();
+				m_pTargetOn = nullptr;
+				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
+			}
+			else {
+				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
+			}
+		}
+		else {
+			if (m_pTargetOn) {
+				m_pTargetOn->ReleaseThisUI();
+				m_pTargetOn = nullptr;
+			}
+		}
+	}
+	
+}
+
+_bool CPlayer::isInFrustum(_fvector vPosition, _float fRange)
+{
+	for (_uint i = 0; i < 6; ++i)
+	{
+		if (fRange < XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&m_Plane[i]), vPosition)))
+			return false;
+	}
+	return true;
 }
 

@@ -49,14 +49,14 @@ void CEffectFireBall::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
-		m_bDead = true;
+	//if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+		//m_bDead = true;
 }
 
 
 void CEffectFireBall::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

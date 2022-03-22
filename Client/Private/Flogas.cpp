@@ -25,7 +25,7 @@
 #pragma endregion
 
 #include "Obb.h"
-
+#include "WaterEA.h"
 
 USING(Client)
 
@@ -120,8 +120,18 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 
 		m_bStartBattle = true;
-		if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp * 0.5f)
+		if (m_pStat->GetStatInfo().hp < m_pStat->GetStatInfo().maxHp * 0.5f) {
 			m_bPhaseSecond = true;
+			static bool makeEA = true;
+			if (makeEA) {
+				_float3 Leftpos = { -6.5f,0.3f,-1.f };
+				_float3 Rightpos = { 6.5f,0.3f,-1.f };
+
+				m_pWaterEA.emplace_back(CWaterEA::Create(nullptr, Leftpos));
+				m_pWaterEA.emplace_back(CWaterEA::Create(nullptr, Rightpos));
+				makeEA = false;
+			}
+		}
 
 		if (m_pStat->GetStatInfo().hp <= 0)
 		{
@@ -164,6 +174,7 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 		m_bStartBattle = true;
 	}
+
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 	//{
 	//	m_bPhaseSecond = true;
@@ -180,10 +191,7 @@ void CFlogas::Update(_double dDeltaTime)
 	//	m_bMakeEffect = true;
 	//}
 
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD8))
-	//{
-	//	m_eState = IDLE;
-	//}
+
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_U))
 	{
@@ -199,7 +207,6 @@ void CFlogas::Update(_double dDeltaTime)
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 
-
 	//fall down
 	/*PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
@@ -212,6 +219,14 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
 	OrganizeEffect(m_eState);
+
+	if (m_bDeadMotion)
+	{
+		for (auto WaterEA : m_pWaterEA)
+		{
+			WaterEA->SetDead();
+		}
+	}
 }
 
 void CFlogas::Render()

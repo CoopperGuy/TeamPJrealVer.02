@@ -8,6 +8,7 @@
 #include "EffectMeteoExpolRing.h"
 #include "EffectSmoke.h"
 #include "EffectMagicAf.h"
+#include "EffectMeteoExpolFire.h"
 USING(Client)
 
 CMeteoFireBall::CMeteoFireBall()
@@ -25,7 +26,7 @@ HRESULT CMeteoFireBall::Initailze(CGameObject * pArg, _vector pos)
 	m_arrivePos = pos;
 	int random = rand() % 2;
 
-	if(random == 0)
+	if (random == 0)
 		pos = XMVectorSetX(pos, XMVectorGetX(pos) * -1);
 
 	pos = XMVectorSetY(pos, 2.f + float(rand() % 3));
@@ -40,8 +41,6 @@ HRESULT CMeteoFireBall::Initailze(CGameObject * pArg, _vector pos)
 
 
 	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
-	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Meteo", "E_Meteo");
-	CEngine::GetInstance()->AddScriptObject(CEffectMeteoFireBall::Create(EffectFireBall, &mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
 	CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
@@ -67,13 +66,15 @@ void CMeteoFireBall::Update(_double deltaTime)
 
 		_vector		vDirection = m_arrivePos - mypos;
 
-		mypos += XMVector3Normalize(vDirection) * _float(rand()%8+3) * (_float)deltaTime;
+		mypos += XMVector3Normalize(vDirection) * _float(rand() % 8 + 3) * (_float)deltaTime;
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, mypos);
-
+		
+		if (m_pMeteo)
+			m_pMeteo->Set_Pos(mypos);
 
 		makedt += deltaTime;
-		if (makedt >= 0.1)
+		if (makedt >= 0.04)
 		{
 			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Meteo", "E_Meteo");
@@ -104,6 +105,12 @@ void CMeteoFireBall::LateUpdate(_double deltaTime)
 
 		auto EffectAf = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter");
 		CEngine::GetInstance()->AddScriptObject(CEffectMagicAf::Create(EffectAf, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+
+		auto EffectFireEnd = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire_explosion", "E_MeteoExplo");
+		CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolFire::Create(EffectFireEnd, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+
+		if (m_pMeteo)
+			m_pMeteo->SetDead();
 
 		this->SetDead();
 		m_pEAFireBall->SetDead();

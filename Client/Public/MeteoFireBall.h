@@ -26,6 +26,7 @@ private:
 	CTransform* m_pTargetTransform = nullptr;
 	CTransform*			m_pTransform = nullptr;
 
+	class CEffectMeteoFireBall* m_pMeteo = nullptr;
 	class CEffectSmokeBall* m_pEffFireball = nullptr;
 
 

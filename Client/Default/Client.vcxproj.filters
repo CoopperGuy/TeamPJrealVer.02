@@ -361,6 +361,13 @@
     <ClInclude Include="..\Public\Ursa.h">
       <Filter>02.GameObjects\Character\Enemy\Ursa</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoExpolFire.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\TargetOn.h">
+      <Filter>04.UI\TargetOn</Filter>
+
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -707,6 +714,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\Ursa.cpp">
       <Filter>02.GameObjects\Character\Enemy\Ursa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoExpolFire.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\TargetOn.cpp">
+      <Filter>04.UI\TargetOn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1083,6 +1096,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Ursa">
       <UniqueIdentifier>{93a0abd7-38e9-4bfc-96c3-1778de104aac}</UniqueIdentifier>
+ </Filter>
+    <Filter Include="04.UI\TargetOn">
+      <UniqueIdentifier>{e3712d70-1560-4639-8c58-2dc8dc2165d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

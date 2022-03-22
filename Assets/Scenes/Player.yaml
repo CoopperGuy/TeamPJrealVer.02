@@ -7,7 +7,7 @@ GameObjects:
     Instancing: false
     Type: Object
     PassIndex: 0
-    NumOBB: 1
+    NumOBB: 2
     Com_Transform:
       Translation: [4.63500023, 0, 19.8500004]
       Rotation: [0, -0, 0]
@@ -33,6 +33,13 @@ GameObjects:
       BoneName: ""
       Offset: [0, 0.200000003, 0]
       CollisionType: 0
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [1, 0.75, 1]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0.25, 1]
+      CollisionType: 7
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Player\
       MeshFileName: Player.fbx

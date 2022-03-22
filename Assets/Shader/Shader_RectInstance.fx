@@ -11,6 +11,7 @@ cbuffer Matrices
 cbuffer Color
 {
     float4 g_Color;
+    float g_Alpha;
 };
 
 Texture2D		g_DiffuseTexture;
@@ -31,14 +32,14 @@ struct VS_IN
     float4 vUp : INSTANCE1;
     float4 vLook : INSTANCE2;
     float4 vTranslation : INSTANCE3;
-    uint iRenderEnable : INSTANCE4;
+   // uint iRenderEnable : INSTANCE4;
 };
 
 struct VS_OUT
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-    uint iRenderEnable : TEXCOORD1;
+   // uint iRenderEnable : TEXCOORD1;
 };
 
 /* 정점의 스페이스 변환. (월드, 뷰, 투영행렬의 곱.)*/
@@ -55,7 +56,7 @@ VS_OUT VS_MAIN(VS_IN In)
 
 	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
 	Out.vTexUV = In.vTexUV;
-    Out.iRenderEnable = In.iRenderEnable;
+    //Out.iRenderEnable = In.iRenderEnable;
 
 	return Out;
 }
@@ -69,7 +70,7 @@ struct PS_IN
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-    uint iRenderEnable : TEXCOORD1;
+   // uint iRenderEnable : TEXCOORD1;
 };
 
 vector	PS_MAIN(PS_IN In) : SV_TARGET
@@ -80,11 +81,11 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
         //discard;
 
     vColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
-    vColor.a = vColor.r;
+    vColor.a = vColor.r * g_Alpha;
     vColor.rgb *= g_Color;
-    vColor.argb = 1.f;
-	//if (vColor.a < 0.3f)
-	//	discard;
+    //vColor.argb = 1.f;
+	if (vColor.a < 0.3f)
+		discard;
 
 	return vColor;
 }
@@ -95,7 +96,7 @@ technique11		DefaultDevice
 {
 	pass DefaultPass
 	{
-		SetRasterizerState(Rasterizer_Solid);
+        SetRasterizerState(Rasterizer_NoneCull);
 		SetDepthStencilState(DepthStecil_Default, 0);
 		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
