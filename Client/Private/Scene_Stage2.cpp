@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\Scene_Stage2.h"
 #include "Flogas.h"
-
+#include "FlogasDunDoor.h"
 USING(Client)
 
 CScene_Stage02::CScene_Stage02(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -41,7 +41,9 @@ HRESULT CScene_Stage02::ReadyLayerCamera(string pLayerTag)
 
 HRESULT CScene_Stage02::ReadyScript()
 {
-	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	CEngine* engine = CEngine::GetInstance();
+	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), engine->GetCurSceneNumber());
+	m_pEngine->AddScriptObject(CFlogasDunDoor::Create(nullptr), engine->GetCurSceneNumber());
 
 	return S_OK;
 }

@@ -380,16 +380,16 @@ void CGameObject::Free()
 {
 	for (auto& Pair : m_Components)
 	{
-//#ifdef _DEBUG
-//
-//		if (Pair.second)
-//			cout << GetName() << "obj name "<< Pair.first << " com name " << Pair.second->getRefCnt() << " cnt" << "\n";
-//#endif
+#ifdef _DEBUG
+
+		if (Pair.second)
+			cout << GetName() << "obj name "<< Pair.first << " com name " << Pair.second->getRefCnt() << " cnt" << "\n";
+#endif
 		SafeRelease(Pair.second);
-//#ifdef _DEBUG
-//		if(Pair.second)
-//			cout << GetName() << "obj name " << Pair.first << " com name " << Pair.second->getRefCnt() << " cnt" << "\n";
-//#endif
+#ifdef _DEBUG
+		if(Pair.second)
+			cout << GetName() << "obj name " << Pair.first << " com name " << Pair.second->getRefCnt() << " cnt" << "\n";
+#endif
 	}
 	m_Components.clear();
 
