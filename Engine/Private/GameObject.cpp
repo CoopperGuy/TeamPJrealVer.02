@@ -183,6 +183,16 @@ _float3 CGameObject::GetPosition()
 	return _float3();
 }
 
+_float3 CGameObject::GetCollisionPosition()
+{
+	CCollider* col = static_cast<CCollider*>(GetComponent("Com_Collider"));
+	if (col) {
+		PxExtendedVec3 pos = col->GetPosition();
+		return _float3((_float)pos.x, (_float)pos.y, (_float)pos.z);
+	}
+	return _float3();
+}
+
 void CGameObject::SetParent(CGameObject* pParent)
 {
 	m_pParent = pParent;

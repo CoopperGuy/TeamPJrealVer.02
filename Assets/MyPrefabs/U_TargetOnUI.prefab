@@ -1,0 +1,88 @@
+Scene: Untitled
+GameObjects:
+  - Name: TargetOnUI
+    UUID: 16365049974841485153
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [0, 0]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Alret\TargetOn_Cross_0.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: TargetU
+        UUID: 2914389673639308445
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [0.000244140625, -30]
+          Size: [64, 32]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\TargetOn_Circle_0U.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: TargetD
+        UUID: 5926586224246078426
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [0.000244140625, 30]
+          Size: [64, 32]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0D.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: TargetL
+        UUID: 15415947625566344589
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [-30, 3.05175781e-05]
+          Size: [32, 64]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0L.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+      - Name: TargetR
+        UUID: 3593592188953855940
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 0
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [30, 3.05175781e-05]
+          Size: [32, 64]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0R.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

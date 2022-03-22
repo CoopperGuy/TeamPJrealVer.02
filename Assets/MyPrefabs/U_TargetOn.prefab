@@ -1,0 +1,83 @@
+Scene: Untitled
+GameObjects:
+  - Name: TargetOn
+    UUID: 390548602960878220
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 2
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.0277518481, 0.359006882, -0.0857350379]
+      Rotation: [-172.539658, -35.967495, -180]
+      Scale: [1, 1, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Alret\TargetOn_Cross_0.dds
+    RenderGroup: 1
+    FrustumRange: 1
+    Children:
+      - Name: targetU
+        UUID: 12042614782245636343
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 2
+        NumOBB: 0
+        Com_Transform:
+          Translation: [0, 0.600000024, 0]
+          Rotation: [0, -0, 0]
+          Scale: [1.29999995, 0.5, 0.5]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Alret\TargetOn_Circle_0U.dds
+        RenderGroup: 1
+        FrustumRange: 1
+      - Name: targetD
+        UUID: 3607437428934835789
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 2
+        NumOBB: 0
+        Com_Transform:
+          Translation: [0, -0.600000024, 0]
+          Rotation: [0, -0, 0]
+          Scale: [1.29995906, 0.499998242, 0.999999166]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0D.dds
+        RenderGroup: 1
+        FrustumRange: 1
+      - Name: targetR
+        UUID: 11518160305332221164
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 2
+        NumOBB: 0
+        Com_Transform:
+          Translation: [0.600000024, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [0.300000012, 1.29999995, 1]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0R.dds
+        RenderGroup: 1
+        FrustumRange: 1
+      - Name: targetL
+        UUID: 14546534936315354485
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 2
+        NumOBB: 0
+        Com_Transform:
+          Translation: [-0.600000024, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [0.300000012, 1.29999995, 1]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Alret\Trun_TargetOn_Circle_0L.dds
+        RenderGroup: 1
+        FrustumRange: 1
