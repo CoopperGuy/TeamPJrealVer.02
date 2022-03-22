@@ -59,7 +59,7 @@ _float CPortal::DistanceWithDirection()
 		case Client::CPortalUI::STAGE02:
 			m_eSceneNum = SCENE_STAGE2;
 			m_bChangeScene = true;
-			static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 5.f, -10.f));
+			static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, -18.f));
 			m_pPortalUI->SetIsActive(false);
 			m_pPortalUI->SetSCENES(CPortalUI::SCENES_END);
 			g_AnotherMenu = false;
