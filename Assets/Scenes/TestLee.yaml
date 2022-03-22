@@ -21,6 +21,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Sphere_Ring_Gray_002_TEX_HKB.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_smoke_006_TEX_CJH.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.00999999978, 0.0199999996, 0]
       ScrollSpeedY: [0.0500000007, 0.0299999993, 0]
       Distortion1: [0.100000001, 0.200000003]
@@ -28,6 +29,17 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 2.70000005
       DistortionBias: 0
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
     Children:
       - 4095491330651492224
   - Name: Empty Object
@@ -41,7 +53,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [-90.0000076, -0, 179.999893]
-      Scale: [0.00984522235, 0.00999999978, 0.00100000005]
+      Scale: [0.00984518416, 0.00999999978, 0.00100000005]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: SM_FX_GEZCylinder01.FBX
@@ -51,6 +63,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_001_TEX_HKB.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura_001_TEX_PHS.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0.0199999996, 0.0299999993, -0.100000001]
       ScrollSpeedY: [0.100000001, 0.0199999996, 0.00999999978]
       Distortion1: [0.899999976, 0.200000003]
@@ -58,6 +71,17 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 1.89999998
       DistortionBias: 0.800000012
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: Empty Object
     UUID: 11376723915432919273
     Active: true
@@ -79,6 +103,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\04_SwirlDistort_Tx.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura.jpg
+      TextureNormalPath: ""
       ScrollSpeedX: [0.00999999978, 0.0199999996, 0]
       ScrollSpeedY: [-0.00999999978, -0.0199999996, 1]
       Distortion1: [0.100000001, 2.4000001]
@@ -86,6 +111,17 @@ GameObjects:
       Distortion3: [0.100000001, 0.200000003]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
   - Name: Empty Object
     UUID: 12692684037689434024
     Active: true
@@ -113,24 +149,25 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 1
-  - Name: E_InstanceFire
-    UUID: 3347402236496735346
+  - Name: Empty Object
+    UUID: 18349270582809899812
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 1
+    PassIndex: 0
     BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_PointInstance:
+    Com_RectInstance:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_wind_003_TEX_CJH.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AESmoke_001_PS_JYW.tga
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Glow.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -138,3 +175,14 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5

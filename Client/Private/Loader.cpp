@@ -322,8 +322,8 @@ HRESULT CLoader::GameSceneKIM()
 HRESULT CLoader::GameSceneLEE()
 {
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestLee.yaml", SCENE_LEE);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_LEE);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_LEE);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_LEE);
 
 	/*if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Instance_Fire", "E_InstanceFire")))
 	{

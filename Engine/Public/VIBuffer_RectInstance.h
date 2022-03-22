@@ -35,17 +35,16 @@ private:
 
 	CTransform*				m_pTargetTransform = nullptr;
 
-	_float4					m_vColor = { 1.f, 1.f, 1.f, 0.f };
-	_float4					m_vDir[5000] = { { 0.f, 0.f, 0.f, 0.f }, };
+	_float4					m_vColor = { 0.5f, 0.5f, 0.5f, 0.f };
 	_double					m_dLifeTime = 0.0;
 	_double					m_dLifeTimeAcc = 0.0;
-	_uint					m_iInstNum = 0;
-	_uint					m_iRenderEnable[5000] = { 0, };
-	_float					m_fStartSpeed[5000] = { 0.f, };
-	_float					m_fStartSize[5000] = { 0.f, };
-
-	_float					m_fSpeed = 5.f;
+	
+	_float					m_fSpeed = 1.f;
 	_float					m_fSize = 1.f;
+	_float					m_fAlpha = 1.f;
+
+	_uint					m_iInstNum = 0;
+
 
 public:
 	static CVIBuffer_RectInstance* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, string pShaderFilePath, _uint iNumInstance = 1);
