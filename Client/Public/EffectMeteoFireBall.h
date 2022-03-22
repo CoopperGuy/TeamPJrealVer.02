@@ -34,6 +34,8 @@ private:
 	float posy = 0.f;
 	_vector pos = {};
 	_float startposy = 0.f;
+
+	_double m_dMakeFB = 0;
 	//CTransform* m_pTargetTransform = nullptr;
 
 	//_bool	m_bSetFadeOut = true;

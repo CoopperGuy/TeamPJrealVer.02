@@ -1,0 +1,23 @@
+Scene: Untitled
+GameObjects:
+  - Name: light
+    UUID: 463561755303631127
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-10.5980415, 61.5929871, 3.64534569]
+      Rotation: [-179.999893, 71.0184402, -179.999893]
+      Scale: [0.999999881, 1, 0.999999881]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [1, 1, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1

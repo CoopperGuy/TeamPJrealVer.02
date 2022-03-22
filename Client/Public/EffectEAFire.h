@@ -22,9 +22,10 @@ public:
 	virtual void Free() override;
 
 public:
-	void Set_Pos(_vector pos) { m_pTransform->SetState(CTransform::STATE_POSITION,pos);}
+	void Set_Pos(_vector pos);
 private:
 	_double m_dMakeFB = 0;
+	_vector vPosition = {};
 
 
 

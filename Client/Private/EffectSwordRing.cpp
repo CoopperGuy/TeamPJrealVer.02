@@ -79,7 +79,7 @@ void CEffectSwordRing::Update(_double deltaTime)
 
 
 	m_fScale.x += PlusScale;
-	m_fScale.y += PlusScale * 0.95f;
+	m_fScale.y += PlusScale * 1.5f;
 	m_fScale.z += PlusScale;
 	m_pTransform->RotateAxis(XMVectorSet(0.f,1.f,0.f,0.f), deltaTime * 2.f);
 	m_pTransform->SetScale(m_fScale);

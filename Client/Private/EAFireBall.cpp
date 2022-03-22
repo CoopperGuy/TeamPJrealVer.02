@@ -36,7 +36,11 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 
 	LookAt(m_pTargetTransform->GetState(CTransform::STATE_POSITION));
 
+	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+	CEngine::GetInstance()->AddScriptObject(m_pEffFire = CEffectEAFire::Create(EffectFireBall, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
+	if (m_pEffFire == nullptr)
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -59,31 +63,54 @@ void CEAFireBall::Update(_double deltaTime)
 		_matrix myPos = m_pTransform->GetWorldMatrix();
 		myPos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
 
-		makedt += deltaTime;
-		if (makedt >= 0.15)
-		{
-			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire", "E_EAFire");
-			CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
-			makedt = 0;
-		}
+		if (m_pEffFire)
+			m_pEffFire->Set_Pos(vPosition);
+
+		//makedt += deltaTime;
+		//if (makedt >= 0.15)
+		//{
+		//	//auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire", "E_EAFire");
+		//	//CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
+		//	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
+		//	CEngine::GetInstance()->AddScriptObject(CEffectEAFire::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
+		//	makedt = 0;
+		//}
 	}
 	else
 	{
 		m_bDead = true;
 	}
-	if (m_pOBB->Get_isHit())
-		m_bDead = true;
+	//if (m_pOBB->Get_isHit())
+	//	m_bDead = true;
 
-	if (XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-		m_bDead = true;
+	//if (XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	//	m_bDead = true;
 
 
 }
 
 void CEAFireBall::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+	if (m_pOBB->Get_isHit())
 	{
+		if (m_pEffFire)
+			m_pEffFire->SetDead();
+		this->SetDead();
+		m_pEAFireBall->SetDead();
+	}
+
+	else if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	{
+		if (m_pEffFire)
+			m_pEffFire->SetDead();
+		this->SetDead();
+		m_pEAFireBall->SetDead();
+	}
+
+	if(m_bDead)
+	{
+		if (m_pEffFire)
+			m_pEffFire->SetDead();
 		this->SetDead();
 		m_pEAFireBall->SetDead();
 	}

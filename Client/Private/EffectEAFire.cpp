@@ -46,25 +46,25 @@ void CEffectEAFire::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	m_dMakeFB + -deltaTime;
-	_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	m_dMakeFB += deltaTime;
+	vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 	if (m_dMakeFB >= 0.15)
 	{
-		auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
-		CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, pPos), CEngine::GetInstance()->GetCurSceneNumber());
+		auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire", "E_EAFire");
+		CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 		m_dMakeFB = 0;
 	}
-
-
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
-		m_bDead = true;
-
 
 }
 
 
 void CEffectEAFire::LateUpdate(_double deltaTime)
 {
+	if (0.1f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	{
+		this->SetDead();
+		m_pGameObject->SetDead();
+	}
 	if (m_bDead)
 	{
 		this->SetDead();
@@ -79,4 +79,12 @@ void CEffectEAFire::Render()
 void CEffectEAFire::Free()
 {
 	__super::Free();
+}
+
+void CEffectEAFire::Set_Pos(_vector pos)
+{
+	_vector postemp = {};
+	memcpy(&postemp, &pos, sizeof(XMVECTOR));
+
+	m_pTransform->SetState(CTransform::STATE_POSITION, postemp);
 }

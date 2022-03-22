@@ -1,22 +1,23 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Smoke
-    UUID: 997978612743431210
+    UUID: 15208104133241892971
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
-    BillBord: true
+    BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [10.3111353, 4.74494982, 0]
-      Scale: [1.49920869, 1.49976027, 1.50398767]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\WispySmoke02_8x8.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -31,7 +32,7 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
-      SpriteNumX: 5
-      SpriteNumY: 5
-      SpriteTotal: 25
-      SpriteSpeed: 30
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 50

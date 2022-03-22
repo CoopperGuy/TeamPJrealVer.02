@@ -22,7 +22,7 @@ HRESULT CWaterEA::Initialize(_float3 position)
 	//m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ -6.5f,0.3f,-1.f });
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,position.y,position.z });
 
-	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 
 	m_pModel->SetAnimationLoop((_uint)STATE::ATT, false, false);
 	m_pModel->SetAnimationLoop((_uint)STATE::IDLE, true, false);
@@ -103,7 +103,7 @@ void CWaterEA::Set_State(_double dDeltaTime)
 		m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
 		m_dIdleTime += dDeltaTime;
 		m_pModel->SetUp_AnimationIndex(1);
-		int irand = rand() % 5;
+		int irand = rand() % 8;
 		irand += 5;
 		if (m_dIdleTime > _float(rand() % 5 + 5)) {
 			m_eState = ATT;

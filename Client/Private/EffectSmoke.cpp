@@ -49,12 +49,8 @@ void CEffectSmoke::Update(_double deltaTime)
 
 	if (!m_pGameObject)
 		return;
-	
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
-	{
-		m_bDead = true;
-	}
 
+	deaddt += deltaTime;
 	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
 	_float4x4 newWorld;
 	_float4x4 world = m_pTransform->GetMatrix();
@@ -68,7 +64,13 @@ void CEffectSmoke::Update(_double deltaTime)
 
 void CEffectSmoke::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+
+	if (deaddt >= 0.3)
+	{
+		this->SetDead();
+		m_pGameObject->SetDead();
+	}
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

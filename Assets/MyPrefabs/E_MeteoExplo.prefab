@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoExplo
-    UUID: 8785287643544324078
+    UUID: 9964478890369991515
     Active: true
     Layer: Default
     Type: Effect
@@ -14,9 +14,10 @@ GameObjects:
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke4.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_fireball.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -31,13 +32,13 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
-      SpriteNumX: 5
-      SpriteNumY: 5
-      SpriteTotal: 25
+      SpriteNumX: 4
+      SpriteNumY: 8
+      SpriteTotal: 32
       SpriteSpeed: 30
     Children:
       - Name: E_MeteoTexture
-        UUID: 7381740714801723460
+        UUID: 17560369029756367008
         Active: true
         Layer: Default
         Type: Effect
@@ -53,6 +54,7 @@ GameObjects:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke2.dds
           TextureMaskPath: ""
           TextureNoisePath: ""
+          TextureNormalPath: ""
           ScrollSpeedX: [0, 0, 0]
           ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
           Distortion1: [0.100000001, 0.200000003]

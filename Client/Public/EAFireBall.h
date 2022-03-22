@@ -26,7 +26,7 @@ private:
 	CTransform* m_pTargetTransform = nullptr;
 	CTransform*			m_pTransform = nullptr;
 
-	class CEffectEAFire* m_pEffFireball = nullptr;
+	class CEffectEAFire* m_pEffFire = nullptr;
 
 	_vector				m_pos = {};
 	_vector				m_Targetpos = {};
