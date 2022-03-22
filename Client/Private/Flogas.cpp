@@ -174,14 +174,23 @@ void CFlogas::Update(_double dDeltaTime)
 	{
 		m_bStartBattle = true;
 	}
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	{
-		m_bPhaseSecond = true;
-	}
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bDeadMotion = true;
-	}
+
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	//{
+	//	m_bPhaseSecond = true;
+	//}
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	//{
+	//	m_bDeadMotion = true;
+	//}
+
+
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD9))
+	//{
+	//	m_eState = FIREFIST;
+	//	m_bMakeEffect = true;
+	//}
+
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_U))

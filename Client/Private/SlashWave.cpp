@@ -19,7 +19,7 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	m_pEffectTrans->SetLookUpVector(vLook);
 	_vector vTargetPos = m_pTargetTrans->GetState(CTransform::STATE_POSITION);
 	const _vector	vOffset = XMVectorSet(-0.3f, -0.1f, 0.f, 0.f);
-	m_pChildren = static_cast<CTransform*>(m_pThis->GetChildren().front()->GetComponent("Com_Transform"));
+	m_pChildren = static_cast<CTransform*>(m_pThis->GetChildren().front()->GetComponent("Com_LocalTransform"));
 //	vTargetPos = XMVectorSetY(vTargetPos, -0.1f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 	_vector vPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
@@ -35,10 +35,14 @@ void CSlashWave::Update(_double dDeltaTime)
 		m_pChildren->GetScale(CTransform::STATE_RIGHT);
 		m_pEffectTrans->GoStraight(dDeltaTime * 1.0);
 		m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, m_fScale));
-		m_pChildren->SetScale(_float3(m_pChildren->GetScale(CTransform::STATE_RIGHT) + (m_fScale-1.f)
-			, m_pChildren->GetScale(CTransform::STATE_UP) + (m_fScale - 1.f)
-				, m_pChildren->GetScale(CTransform::STATE_LOOK) + (m_fScale - 1.f)));
-		m_fScale += dDeltaTime;
+		//m_pChildren->SetScale(_float3(m_pChildren->GetScale(CTransform::STATE_RIGHT) + (m_fScale-1.f)
+		//	, m_pChildren->GetScale(CTransform::STATE_UP) + (m_fScale - 1.f)
+		//		, m_pChildren->GetScale(CTransform::STATE_LOOK) + (m_fScale - 1.f)));
+		m_pChildren->SetScale(_float3(0.5 + (m_fScale-1.f)
+			, 0.1 + (m_fScale - 1.f)
+				, 0.2 + (m_fScale - 1.f)));
+		if(m_fScale < 1.5f)
+			m_fScale += dDeltaTime;
 	}
 }
 
