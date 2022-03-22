@@ -157,12 +157,12 @@ HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
 
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
-		//m_fStartSize[i] = 0.01f + (rand() % 3 * 0.01f);
-		//m_fStartSpeed[i] = 0.1f + (rand() % 201 * 0.001f);
+		_uint j = m_iNumInstance / 4;
+		_uint k = i / j;
 
-
-		_vector vDir = XMVectorSet((rand() % 1000 - 500) * 0.001f, rand() % 10 * 0.01f, (rand() % 1000 - 500) * 0.001f, 0.f);
-		vDir = XMVector4Normalize(vDir);
+		_float fRadian = _float((90 * k) + (rand() % 90));
+		_vector vDir = XMVectorSet(cosf(fRadian), sinf(fRadian), 0.f, 0.f);
+		//vDir = XMVector4Normalize(vDir);
 
 		VTXRECTINST*		pIV = new VTXRECTINST();
 		pIV->vRight = _float4(1.f , 0.f, 0.f, 0.f);
@@ -197,8 +197,7 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	CPipeline*		pPipeLine = GET_INSTANCE(CPipeline);
 	
 	if (FAILED(m_pDeviceContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
-		return E_FAIL;
-	
+		return E_FAIL;	
 	
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
