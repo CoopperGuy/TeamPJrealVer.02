@@ -98,7 +98,7 @@ void CUrsa::Update(_double dDeltaTime)
 
 	if (m_bCombat[First])
 	{
-		if (!m_bCB)
+		if (!m_bCB || m_bCB && !m_bDelay)
 			Adjust_Dist(dDeltaTime);
 	}
 	Checking_Phase(dDeltaTime);
@@ -179,9 +179,19 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 void CUrsa::Checking_Phase(_double dDeltaTime)
 {
 	_float Max = m_pStat->GetStatInfo().maxHp;
+	if (m_bDelay)
+	{
+		m_dPatternTime += dDeltaTime;
+		if (m_dPatternTime > 1.5)
+		{
+			m_dPatternTime = 0.0;
+			m_bCB = false;
+			m_bDelay = false;
+		}
+	}
 	if (m_pStat->GetStatInfo().hp < Max)
 	{
-		if(!m_bCB)
+		if(!m_bCB &&!m_bDelay)
 			Adjust_Dist(dDeltaTime);
 		m_bCombat[First] = true;
 		if (m_pStat->GetStatInfo().hp < Max * 0.7f)
@@ -198,7 +208,6 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 			}
 		}
 	}
-	
 }
 
 void CUrsa::Execute_Pattern(_double dDeltaTime)
@@ -226,19 +235,21 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 
 			else if (m_bCombat[Third])
 				Third_Phase(dDeltaTime);
-
 		}
 	}
 }
 
 void CUrsa::First_Phase(_double dDeltaTime)
 {
-	if (m_QueState.empty())
+	if (m_QueState.empty() && !m_bDelay)
 	{
 		++m_iComboIndex;
 		m_bCB = true;
 		if (m_iComboIndex > 3)
+		{
 			m_iComboIndex = 0;
+			m_bClose = false;
+		}
 	}
 }
 
@@ -254,7 +265,7 @@ void CUrsa::SetUp_Combo()
 {
 	if (m_bCombat[First])
 	{
-		if (m_QueState.empty() && m_bCB)
+		if (m_QueState.empty() && !m_bDelay)
 		{
 			switch (m_iComboIndex)
 			{
@@ -300,12 +311,13 @@ void CUrsa::Checking_Finished()
 {
 	if (m_pModel->Get_isFinished())
 	{
-		if (m_QueState.empty())
-			m_bCB = false;
 		if (!m_QueState.empty())
 		{
 			m_eState = m_QueState.front();
 			m_QueState.pop();
+			if (m_QueState.empty())
+				m_bDelay = true;
+			
 		}
 	}
 }

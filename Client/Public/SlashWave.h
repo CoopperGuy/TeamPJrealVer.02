@@ -23,6 +23,8 @@ private:
 	_double			m_Duration = 3.0;
 	_double			m_DurationDelta = 0;
 	_float			m_fScale = 1.f;
+
+	_float3			m_vChildScale;
 public:
 	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget);
 	virtual void Free();
