@@ -21,3 +21,430 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
+  - Name: CenterBadack
+    UUID: 11434008330826731278
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 0, 0]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: player
+    UUID: 17044599425376578197
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Player\
+      MeshFileName: Player.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Room
+    UUID: 3800833857031863779
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.616501629, 5.24514476e-08, -7.14961195]
+      Rotation: [-179.999496, 88.2664032, -179.999496]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Room\
+      MeshFileName: Room2.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Badack
+    UUID: 15350582510162919879
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, -4.98518229]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 0, -4.98518229]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 439004948455009912
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, -9.96486282]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 0, -9.96486282]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 1044533236613904314
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.99295568, 0, -9.93216038]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.99295568, 0, -9.93216038]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 4052401080348672466
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.98000002, 0, -4.99594164]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.98000002, 0, -4.99594164]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 6952110697444722395
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.99261332, 0, -0.002861619]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.99261332, 0, -0.002861619]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 3850013722333479966
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.98899984, 0, -4.92266655]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.98899984, 0, -4.92266655]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 11409919040451949299
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.98726463, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.98726463, 0, 0]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 8984985292688112221
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [5.00535488, 0, 4.9762826]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [5.00535488, 0, 4.9762826]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 9870355226897670650
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.00762617588, 0, 4.96172714]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0.00762617588, 0, 4.96172714]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 14255700790397454497
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.95641518, 0, 4.94829369]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.95641518, 0, 4.94829369]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 7142826076710930547
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.92337513, 0, -9.91104507]
+      Rotation: [0, -0, 0]
+      Scale: [5, 5, 5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.92337513, 0, -9.91104507]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Badack
+    UUID: 11934648936233624272
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-9.99260712, 0, 0.12069428]
+      Rotation: [0, -0, 0]
+      Scale: [5.0999999, 5, 14.6999998]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-9.99260712, 0, 0.12069428]
+    Rotation: [0, -0, 0]
+    Scale: [5.0999999, 5, 14.6999998]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Badack
+    UUID: 11092712703356998530
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [9.85720539, 0, 2.45990944]
+      Rotation: [0, -0, 0]
+      Scale: [5, 1, 10]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [9.85720539, 0, 2.45990944]
+    Rotation: [0, -0, 0]
+    Scale: [5, 1, 10]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Badack
+    UUID: 5753280475030347639
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 9.42128277]
+      Rotation: [0, -0, 0]
+      Scale: [22.7999992, 1, 4]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile11.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 0, 9.42128277]
+    Rotation: [0, -0, 0]
+    Scale: [22.7999992, 1, 4]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+    MeshFileName: Tile11.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Empty Object
+    UUID: 17334314549232120902
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1

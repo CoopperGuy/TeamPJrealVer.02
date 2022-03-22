@@ -200,6 +200,7 @@
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
+    <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\Fire_Boob.h" />
@@ -343,6 +344,7 @@
     <ClCompile Include="..\Private\EffectGrab.cpp" />
     <ClCompile Include="..\Private\EffectMagic.cpp" />
     <ClCompile Include="..\Private\EffectMagicAf.cpp" />
+    <ClCompile Include="..\Private\EffectMeteoExpolFire.cpp" />
     <ClCompile Include="..\Private\EffectMeteoExpolRing.cpp" />
     <ClCompile Include="..\Private\EffectMeteoFire.cpp" />
     <ClCompile Include="..\Private\EffectMeteoFireBall.cpp">

@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.5, 1.5, 1.5]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -72,4 +72,4 @@ GameObjects:
           SpriteNumX: 5
           SpriteNumY: 5
           SpriteTotal: 25
-          SpriteSpeed: 30
+          SpriteSpeed: 20

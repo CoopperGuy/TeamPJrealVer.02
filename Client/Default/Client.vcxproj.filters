@@ -358,6 +358,9 @@
     <ClInclude Include="..\Public\Fire_explosion.h">
       <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectMeteoExpolFire.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -701,6 +704,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Fire_explosion.cpp">
       <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectMeteoExpolFire.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

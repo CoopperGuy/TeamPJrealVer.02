@@ -5,6 +5,7 @@
 #include "EffectMeteoExpolRing.h"
 #include "EffectMeteoFire.h"
 #include "EffectSmoke.h"
+#include "EffectMeteoExpolFire.h"
 USING(Client)
 
 CEffectMeteoFireBall::CEffectMeteoFireBall()
@@ -100,7 +101,7 @@ void CEffectMeteoFireBall::LateUpdate(_double deltaTime)
 	}
 
 
-	if (0.1 > XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	if (0.1 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
