@@ -39,7 +39,7 @@ private:
 	_double					m_dLifeTime = 0.0;
 	_double					m_dLifeTimeAcc = 0.0;
 	
-	_float					m_fSpeed = 1.f;
+	_float					m_fSpeed = 5.f;
 	_float					m_fSize = 1.f;
 	_float					m_fAlpha = 1.f;
 

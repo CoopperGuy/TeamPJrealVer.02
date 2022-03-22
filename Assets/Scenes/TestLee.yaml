@@ -9,7 +9,7 @@ GameObjects:
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [1.15008307, 0, 0]
+      Translation: [1.15008307, 0, 3.08684516]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -53,7 +53,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [-90.0000076, -0, 179.999893]
-      Scale: [0.00984518416, 0.00999999978, 0.00100000005]
+      Scale: [0.00984507706, 0.00999999978, 0.00100000005]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: SM_FX_GEZCylinder01.FBX
@@ -91,7 +91,7 @@ GameObjects:
     PassIndex: 4
     BillBord: false
     Com_Transform:
-      Translation: [1.2342124, 0.386362255, 0]
+      Translation: [1.06255126, 0.386362255, 8.0400753]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -123,33 +123,6 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
   - Name: Empty Object
-    UUID: 12692684037689434024
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-2.0751729, -0.0533454455, -0.0106682777]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [72.6999969, 8.89999962, 66.8000031]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: Empty Object
     UUID: 18349270582809899812
     Active: true
     Layer: Default
@@ -165,7 +138,7 @@ GameObjects:
       {}
     Effect_Setting:
       TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Glow.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
