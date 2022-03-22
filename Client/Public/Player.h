@@ -90,7 +90,6 @@ private:
 	void UIInput();
 	void InputSkill();
 private:
-	void Ready_FrustumInProjSpace();
 	void Transform_ToWorldSpace();
 	void Make_Plane(_fvector* pPoints);
 	void SearchMonster();
@@ -167,6 +166,7 @@ private://hud
 	CTargetOn*	m_pTargetOn = nullptr;
 private:
 	CBasicCollider* m_pOBB = nullptr;
+	CBasicCollider* m_pBox = nullptr;
 private:
 	class CEquipment* m_pEquip[(_uint)Equip::Max_Equip] = {nullptr};
 	CStateMachine* m_pState = nullptr;

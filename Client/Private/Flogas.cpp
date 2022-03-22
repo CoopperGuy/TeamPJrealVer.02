@@ -102,6 +102,8 @@ HRESULT CFlogas::Initialize(_float3 position)
 	CEngine::GetInstance()->AddScriptObject(m_pElement[2], CEngine::GetInstance()->GetCurSceneNumber());
 	CEngine::GetInstance()->AddScriptObject(m_pElement[3], CEngine::GetInstance()->GetCurSceneNumber());
 
+	Create_Trail();
+
 	return S_OK;
 }
 
@@ -210,6 +212,10 @@ void CFlogas::Update(_double dDeltaTime)
 	//fall down
 	/*PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
+
+	if (m_pTrailBuffer)
+		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
+
 }
 
 void CFlogas::LateUpdate(_double dDeltaTime)
@@ -231,6 +237,94 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 
 void CFlogas::Render()
 {
+}
+
+void CFlogas::Create_Trail()
+{
+	m_pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Flogas_Trail");
+	if (m_pTrail == nullptr)
+		return;
+
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(m_pTrail);
+
+	pEffect->SetPassIndex(3);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/Trail.dds", CEmptyEffect::TEXTURE_NOISE);
+
+	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
+	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
+	pEffect->setDistortion(0, _float2(0.1f, 0.2f));
+	pEffect->setDistortion(1, _float2(0.1f, 0.3f));
+	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
+	pEffect->SetDistortionScale(4.f);
+	pEffect->SetDistortionBias(1.f);
+	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_WP_R"));
+	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
+	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
+	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
+}
+
+void CFlogas::Set_TrailOnOff()
+{
+	switch (m_eState)
+	{
+	case Client::CFlogas::IDLE:
+		break;
+	case Client::CFlogas::WALK:
+		break;
+	case Client::CFlogas::RUN:
+		break;
+	case Client::CFlogas::R_Slash:
+		break;
+	case Client::CFlogas::L_Slash:
+		break;
+	case Client::CFlogas::THRUST:
+		break;
+	case Client::CFlogas::SWORDTHROWING_START:
+		break;
+	case Client::CFlogas::SWORDTHROWING_LOOP:
+		break;
+	case Client::CFlogas::SWORDTHROWING_END:
+		break;
+	case Client::CFlogas::FIREWAVE:
+		break;
+	case Client::CFlogas::FIREFIST:
+		break;
+	case Client::CFlogas::FLYING_END2:
+		break;
+	case Client::CFlogas::FLYING:
+		break;
+	case Client::CFlogas::FOOTHAMMER:
+		break;
+	case Client::CFlogas::STICKSWORD1:
+		break;
+	case Client::CFlogas::STICKSWORD2:
+		break;
+	case Client::CFlogas::STICKSWORD3:
+		break;
+	case Client::CFlogas::STICKSWORDCutScene:
+		break;
+	case Client::CFlogas::STUN:
+		break;
+	case Client::CFlogas::DMG_F:
+		break;
+	case Client::CFlogas::DMG_B:
+		break;
+	case Client::CFlogas::DIE:
+		break;
+	case Client::CFlogas::DEADBODY:
+		break;
+	case Client::CFlogas::FLYING_START:
+		break;
+	case Client::CFlogas::FLYING_ING:
+		break;
+	case Client::CFlogas::FLYING_END:
+		break;
+	case Client::CFlogas::Flogas_END:
+		break;
+
+	}
 }
 
 void CFlogas::Empty_queue()
@@ -719,6 +813,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 	_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	//m_pTrail->SetIsActive(false);
+	m_DrawTrail = false;
 	switch (eState)
 	{
 	case IDLE:
@@ -734,6 +829,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			/*CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
 			m_eCurSTATES = CStat::STATES_ATK;
+			m_DrawTrail = true;
 		}
 		else
 			m_eCurSTATES = CStat::STATES_IDEL;
@@ -753,6 +849,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		}
 		if (keyFrame >= 29 && keyFrame <= 36) {
 			m_eCurSTATES = CStat::STATES_ATK;
+			m_DrawTrail = true;
 		}
 		else
 			m_eCurSTATES = CStat::STATES_IDEL;
@@ -766,6 +863,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case THRUST:
 		if (keyFrame >= 38 && keyFrame <= 60) {
 			m_eCurSTATES = CStat::STATES_ATK;
+			m_DrawTrail = true;
 		}
 		else
 			m_eCurSTATES = CStat::STATES_IDEL;
@@ -773,6 +871,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case SWORDTHROWING_START:
 		if (keyFrame >= 82 && keyFrame <= 116) {
 			m_eCurSTATES = CStat::STATES_ATK;
+			m_DrawTrail = true;
 		}
 		break;
 	case SWORDTHROWING_LOOP:
@@ -781,6 +880,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case SWORDTHROWING_END:
 		if (keyFrame >= 64 && keyFrame <= 79) {
 			m_eCurSTATES = CStat::STATES_ATK;
+			m_DrawTrail = true;
 		}
 		else
 			m_eCurSTATES = CStat::STATES_IDEL;
@@ -865,7 +965,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case FLYING_END2:
 		break;
 	}
-
+	m_pTrailBuffer->SetIsActive(m_DrawTrail);
 }
 
 

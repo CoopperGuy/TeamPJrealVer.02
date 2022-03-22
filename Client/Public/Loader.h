@@ -27,6 +27,7 @@ public:
 	}
 public:
 	void SetFinish(_int idx) { m_isThreadFinish[idx] = true; }
+	void SetCompleteBit(_uint _bits) { m_iCompleteBit |= (1<<_bits); }
 public:
 	HRESULT Initialize(SCENE eScene);
 	HRESULT	UpdateGauge(_double deltaTime);
@@ -51,6 +52,7 @@ private:
 	_uint				m_iFinishCnt = 0;
 	_bool				m_isFinish;
 	_bool				m_isThreadFinish[ThreadIndex];
+	_uint				m_iCompleteBit = 0;
 private:
 	CLoadingGauge*		m_pLoadingGauge = nullptr;
 
