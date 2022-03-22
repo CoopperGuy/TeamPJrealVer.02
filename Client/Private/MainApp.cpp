@@ -302,6 +302,8 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 		return E_FAIL;
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_SmokesPointInstance", CVIBuffer_PointInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_PointInstance.fx"))))
 		return E_FAIL;
+	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_RectInstance", CVIBuffer_RectInstance::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_RectInstance.fx"))))
+		return E_FAIL;
 	
 	if (FAILED(m_pEngine->AddPrototype(SCENE_STATIC, "Prototype_VIBuffer_Line", CVIBuffer_Line::Create(m_pDevice, m_pDeviceContext, "../../Assets/Shader/Shader_Line.fx", 20))))
 		return E_FAIL;

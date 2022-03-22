@@ -33,7 +33,7 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 		return E_FAIL;	
 
 	//m_iNumInstance = iNumInstance;
-	m_iNumInstance = 1000;
+	m_iNumInstance = 100;
 	m_iNumVertexBuffers = 2;
 	m_iInstNum = m_iNumInstance;
 
@@ -152,20 +152,27 @@ HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
 		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
 	}
 
-	m_dLifeTime = 3.0;
+	m_dLifeTime = 5.0;
+	XMStoreFloat4(&m_vColor, DirectX::Colors::LightGray);
 
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
-		m_fStartSize[i] = 0.1f + (rand() % 10 * 0.1f);
-		m_fStartSpeed[i] = 1.f + (rand() % 201 * 0.01f);
-		m_vDir[i] = _float4((rand() % 1000 - 500) * 0.001f, rand() % 500 * 0.001f, (rand() % 1000 - 500) * 0.001f, 0.f);
-		XMStoreFloat4(&m_vDir[i], XMVector4Normalize(XMLoadFloat4(&m_vDir[i])));
+		//m_fStartSize[i] = 0.01f + (rand() % 3 * 0.01f);
+		//m_fStartSpeed[i] = 0.1f + (rand() % 201 * 0.001f);
+
+
+		_vector vDir = XMVectorSet((rand() % 1000 - 500) * 0.001f, rand() % 10 * 0.01f, (rand() % 1000 - 500) * 0.001f, 0.f);
+		vDir = XMVector4Normalize(vDir);
 
 		VTXRECTINST*		pIV = new VTXRECTINST();
-		pIV->vRight = _float4(1.f /** m_fStartSize[i] * m_fSize*/, 0.f, 0.f, 0.f);
-		pIV->vUp = _float4(0.f, 1.f/* * m_fStartSize[i] * m_fSize*/, 0.f, 0.f);
+		pIV->vRight = _float4(1.f , 0.f, 0.f, 0.f);
+		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
 		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
 		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		pIV->fStartSize = 0.05f + (rand() % 6 * 0.01f);
+		pIV->fStartSpeed = 0.05f + (rand() % 201 * 0.0005f);
+		XMStoreFloat4(&pIV->vDir, vDir);
+		//pIV->vDir = XMLoadFloat4(&vDir);
 		if (i < m_iInstNum)
 			pIV->iRenderEnable = 1;
 		else
@@ -188,6 +195,34 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	D3D11_MAPPED_SUBRESOURCE		SubResource;
 
 	CPipeline*		pPipeLine = GET_INSTANCE(CPipeline);
+	
+	if (FAILED(m_pDeviceContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
+		return E_FAIL;
+	
+	
+	for (_uint i = 0; i < m_iNumInstance; ++i)
+	{
+		if (m_dLifeTime < m_dLifeTimeAcc)
+		{
+			_float3 OffsetPosition = { 0.f, 0.f, 0.f };
+			if (m_pTargetTransform != nullptr)
+				XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+			m_InstanceMatrices[i]->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		}
+
+		else
+			XMStoreFloat4(&m_InstanceMatrices[i]->vPosition, XMLoadFloat4(&m_InstanceMatrices[i]->vPosition) + XMLoadFloat4(&m_InstanceMatrices[i]->vDir) * TimeDelta * m_InstanceMatrices[i]->fStartSpeed * m_fSpeed);
+		
+		// //billbord	
+		_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
+		_vector vAxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+		_vector vRight = XMVector3Normalize(XMVector3Cross(vAxisY, vLook));
+		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+
+		XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
+	}	
 
 	sort(m_InstanceMatrices.begin(), m_InstanceMatrices.end(), [&](VTXRECTINST* SourMatrix, VTXRECTINST* DestMatrix) {
 		_vector		SourPosition = XMVector4Transform(XMLoadFloat4(&SourMatrix->vPosition), pPipeLine->Get_Transform(CPipeline::D3DTS_VIEW));
@@ -197,42 +232,16 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 			return true;
 
 		return false;
-	});	
-	
-	if (FAILED(m_pDeviceContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
-		return E_FAIL;
-	
-	
+	});
+
 	for (_uint i = 0; i < m_iNumInstance; ++i)
-	{		
-		
-
-		//if (m_dLifeTime < m_dLifeTimeAcc)
-		//{
-		//	_float3 OffsetPosition = { 0.f, 0.f, 0.f };
-		//	if (m_pTargetTransform != nullptr)
-		//		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
-		//	m_InstanceMatrices[i]->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
-		//}
-		//else
-		//	XMStoreFloat4(&m_InstanceMatrices[i]->vPosition, XMLoadFloat4(&m_vDir[i]) * TimeDelta * m_fStartSpeed[i]/* * m_fSpeed*/);
-		
-		// billbord
-		_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
-		_vector vAxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
-		_vector vRight = XMVector3Normalize(XMVector3Cross(vAxisY, vLook));
-		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-
-		XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight/* * m_fStartSize[i] * m_fSize*/);
-		XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp/* * m_fStartSize[i] * m_fSize*/);
-		XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
-
 		((VTXRECTINST*)SubResource.pData)[i] = *m_InstanceMatrices[i];
-	}	
 
 	m_pDeviceContext->Unmap(m_pVBInstance, 0);
 
 	RELEASE_INSTANCE(CPipeline);
+
+	m_fAlpha = 1.f - (_float)(m_dLifeTimeAcc / m_dLifeTime);
 
 	if (m_dLifeTime < m_dLifeTimeAcc)
 		m_dLifeTimeAcc = 0.0;
@@ -266,6 +275,7 @@ HRESULT CVIBuffer_RectInstance::Render(_uint iPassIndex)
 	m_pDeviceContext->IASetPrimitiveTopology(m_ePrimitive);
 	
 	m_pShader->SetUp_ValueOnShader("g_Color", &m_vColor, sizeof(_float4));
+	m_pShader->SetUp_ValueOnShader("g_Alpha", &m_fAlpha, sizeof(_float));
 	m_pShader->Render(iPassIndex);
 	
 	m_pDeviceContext->DrawIndexedInstanced(6, m_iNumInstance, 0, 0, 0);

@@ -23,8 +23,6 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-
-
 static string strScene = "../../Assets/Scenes/m_pxVertices2.yaml";
 
 CToolManager::CToolManager()
