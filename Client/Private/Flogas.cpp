@@ -160,10 +160,10 @@ void CFlogas::Update(_double dDeltaTime)
 	}
 
 
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	//{
-	//	m_bStartBattle = true;
-	//}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	{
+		m_bStartBattle = true;
+	}
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 	//{
 	//	m_bPhaseSecond = true;
