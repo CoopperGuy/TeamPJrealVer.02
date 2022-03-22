@@ -155,13 +155,17 @@ HRESULT CPlayer::Initialize()
 	m_pSkillIcon = CSkillIcon::Create(m_pGameObject);
 	
 	CSkillIcon::SKILLINFO info;
+	info.coolTime = 7.5f;
+	info.level = 1;
+	info.Name = "storm";
+	m_pSkillIcon->SetSkillInfo(0, info);
 	info.coolTime = 15.f;
 	info.level = 1;
 	info.Name = "WhrilWind";
 	m_pSkillIcon->SetSkillInfo(1, info);
 	info.coolTime = 20.f;
 	info.skillDuration = 10.f;
-	info.Name = "";
+	info.Name = "Blood";
 	m_pSkillIcon->SetSkillInfo(2, info);
 	info.coolTime = 20.f;
 	info.Name = "guillotine";
@@ -1185,9 +1189,6 @@ void CPlayer::SearchMonster()
 			if (m_pTargetOn) {
 				m_pTargetOn->ReleaseThisUI();
 				m_pTargetOn = nullptr;
-				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
-			}
-			else {
 				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
 			}
 		}

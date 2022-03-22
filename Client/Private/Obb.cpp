@@ -35,7 +35,8 @@ HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisio
 HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _collisionType, _float _duration, CTransform * pArg)
 {
 	CEngine* pEngine = CEngine::GetInstance();
-	m_pTargetTransform = pArg;
+	if(pArg)
+		m_pTargetTransform = pArg;
 
 	m_pObj = static_cast<CEmptyGameObject*>(pEngine->AddGameObjectToPrefab(pEngine->GetCurSceneNumber(), "Prototype_GameObject_OBBs", "O_OBBs", &XMMatrixTranslationFromVector(position)));
 	m_pOBB = static_cast<CBasicCollider*>(m_pObj->GetComponent("Com_OBB"));
@@ -60,7 +61,8 @@ HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _colli
 
 void CObb::Update(_double deltaTime)
 {
-	m_pTransform->SetMatrix(m_pTargetTransform->GetWorldMatrix());
+	if(m_pTargetTransform)
+		m_pTransform->SetMatrix(m_pTargetTransform->GetWorldMatrix());
 	m_fDelta += (_float)deltaTime;
 	if (m_fDuration < m_fDelta) {
 		this->SetDead();

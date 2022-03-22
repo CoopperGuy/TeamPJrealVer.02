@@ -88,12 +88,12 @@ _uint CCamera_Fly::Update(_double TimeDelta)
 			if (m_pEngine->IsMousePressed(2))
 			{
 				if (MouseMove = (long)m_pEngine->GetMouseMoveValue().x)
-				if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_X))
-					m_pTransformCom->RotateAxis(XMVectorSet(0.f, 1.f, 0.f, 0.f), MouseMove * TimeDelta * 3.f);
+					if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_X))
+						m_pTransformCom->RotateAxis(XMVectorSet(0.f, 1.f, 0.f, 0.f), MouseMove * TimeDelta * 3.f);
 
 				if (MouseMove = (long)m_pEngine->GetMouseMoveValue().y)
-				if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_Y))
-					m_pTransformCom->RotateAxis(m_pTransformCom->GetState(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 3.f);
+					if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_Y))
+						m_pTransformCom->RotateAxis(m_pTransformCom->GetState(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 3.f);
 			}
 		}
 	}
@@ -123,17 +123,17 @@ void CCamera_Fly::ShakeCamera(SHAKE _shake, _int _cnt, _float _duration, _float 
 	{
 		m_fDirection = 1.f;
 	}
-		break;
+	break;
 	case Client::CCamera_Fly::SHAKE_LEFT:
 	{
 		m_fDirection = -1.f;
 	}
-		break;
+	break;
 	case Client::CCamera_Fly::SHAKE_ING:
 	{
 		m_fDirection = -1.f;
 	}
-		break;
+	break;
 	}
 }
 
@@ -176,6 +176,15 @@ void CCamera_Fly::ShakePosition(_fvector _pos, _float _duration)
 	m_bShake = true;
 }
 
+void CCamera_Fly::ShakeUpDown(_int _cnt, _float _duration, _float _spd)
+{
+	m_iYCnt = _cnt;
+	m_fYSpd = _spd;
+	m_fYDuration = _duration;
+	m_bYShake = true;
+	m_fYDirection = 1.f;
+}
+
 void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 {
 	if (CEngine::GetInstance()->GetCurSceneNumber() < SCENE_GAMEPLAY)
@@ -183,29 +192,29 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 	PxExtendedVec3 physxPos = m_pTargetCollider->GetPosition();
 	_vector vTargetCenterPos = XMVectorSet((_float)physxPos.x, (_float)physxPos.y, (_float)physxPos.z, 1.f);
 	m_fCameraCollisionDelta += (_float)deltaTime;
-	/*if (m_fCameraCollisionTime < m_fCameraCollisionDelta) 
+	/*if (m_fCameraCollisionTime < m_fCameraCollisionDelta)
 	{*/
-		_vector vCamPos = m_pTransformCom->GetState(CTransform::STATE_POSITION);
-		_vector dir = vTargetCenterPos - vCamPos;
-		_vector vRayDir = XMVector3Normalize(dir);
-		PxRaycastBuffer buf; 
-		PxQueryFilterData filterData;
-		filterData.data.word1 = CPxManager::GROUP1;
-		filterData.data.word1 = CPxManager::GROUP4;
-		filterData.flags |= PxQueryFlag::eSTATIC;
-		_vector length = XMVector3Length(dir);
-		if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 100.f, buf, filterData))
+	_vector vCamPos = m_pTransformCom->GetState(CTransform::STATE_POSITION);
+	_vector dir = vTargetCenterPos - vCamPos;
+	_vector vRayDir = XMVector3Normalize(dir);
+	PxRaycastBuffer buf;
+	PxQueryFilterData filterData;
+	filterData.data.word1 = CPxManager::GROUP1;
+	filterData.data.word1 = CPxManager::GROUP4;
+	filterData.flags |= PxQueryFlag::eSTATIC;
+	_vector length = XMVector3Length(dir);
+	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 100.f, buf, filterData))
+	{
+		if ((XMVectorGetX(length) - buf.getAnyHit(0).distance) > 0.1f)
 		{
-			if ((XMVectorGetX(length) - buf.getAnyHit(0).distance) > 0.1f) 
-			{
-				//cout << "camera Collied \n";
-				m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
-				if (m_vDistance <= 0.2f)
-					m_vDistance = 0.2f;
-			}
-		/*	else 
-				cout << "camera No Collied \n";*/
+			//cout << "camera Collied \n";
+			m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
+			if (m_vDistance <= 0.2f)
+				m_vDistance = 0.2f;
 		}
+		/*	else
+				cout << "camera No Collied \n";*/
+	}
 	/*	m_fCameraCollisionDelta = 0;
 	}*/
 }
@@ -245,7 +254,7 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 
 		if (MouseMove = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_X))
 		{
-			m_pTransformCom->RotateAxis(DirectX::XMVectorSet(0.f, 1.f, 0.f, 0.f), DeltaTime * MouseMove * 2.f);			
+			m_pTransformCom->RotateAxis(DirectX::XMVectorSet(0.f, 1.f, 0.f, 0.f), DeltaTime * MouseMove * 2.f);
 		}
 		if (MouseWheel = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_WHEEL))
 		{
@@ -260,6 +269,38 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 			}
 		}
 	}
+
+	ShakeX(DeltaTime);
+	ShakeY(DeltaTime);
+	ShakeFov(DeltaTime);
+	_vector afterLook = m_pTransformCom->GetState(CTransform::STATE_LOOK);
+	_float3 euler;
+	m_pTransformCom->QuaternionToEuler(afterLook, euler);
+	_vector look = DirectX::XMQuaternionSlerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
+
+
+	if (euler.x >= XMConvertToRadians(85.f)) {
+		m_pTransformCom->SetLookUpVector(preLook);
+	}
+	else if (euler.x <= XMConvertToRadians(-85.f)) {
+		m_pTransformCom->SetLookUpVector(preLook);
+	}
+	else {
+		m_pTransformCom->SetLookUpVector(XMVector3Normalize(look));
+	}
+
+
+	_vector cameraPos = m_pTransformCom->GetState(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vShakePos) + XMLoadFloat3(&m_vShakeYPos);
+	_vector lerpPos = DirectX::XMVectorLerp(cameraPos, vTargetCenterPos, m_fCameraMoveLerpSpd);
+	m_pTransformCom->SetState(CTransform::STATE_POSITION, lerpPos);
+
+
+	mat = XMMatrixTranslation(0.f, 0.f, -m_vDistance) * XMLoadFloat4x4(&m_pTransformCom->GetMatrix());
+	m_pTransformCom->SetMatrix(mat);
+}
+
+void CCamera_Fly::ShakeX(_double DeltaTime)
+{
 	if (m_eShaking == SHAKE::SHAKE_ING)
 	{
 		m_fDurationDelta += DeltaTime;
@@ -281,9 +322,8 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 			_vector cameraRight = m_pTransformCom->GetState(CTransform::STATE_RIGHT);
 			XMStoreFloat3(&m_vShakePos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakePos), cameraRight, (_float)m_fDurationDelta) * m_fDirection);
 		}
-	}else
-	if (m_eShaking != SHAKE::SHAKE_END) 
-	{
+	}
+	else if (m_eShaking != SHAKE::SHAKE_END) {
 		m_fDurationDelta += DeltaTime;
 		if (m_fDuration <= m_fDurationDelta) {
 			m_fDurationDelta = m_fDuration;
@@ -301,38 +341,59 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 		else {
 			m_fDurationDelta = 0.f;
 		}
-	 	XMStoreFloat3(&m_vShakePos,	DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakePos), XMVectorZero(), (_float)DeltaTime*3.f));
+		XMStoreFloat3(&m_vShakePos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakePos), XMVectorZero(), (_float)DeltaTime*3.f));
 		m_fDuration = 0.f;
 		m_fDirection = 0.f;
 		m_fSpd = 0.f;
 		m_eShaking = SHAKE::SHAKE_END;
 	}
-	_vector afterLook = m_pTransformCom->GetState(CTransform::STATE_LOOK);
-	_float3 euler;
-	m_pTransformCom->QuaternionToEuler(afterLook, euler);
-	_vector look = DirectX::XMQuaternionSlerp(preLook, afterLook, m_fCameraAngleLerpSpd * (_float)DeltaTime);
+
 
 	m_bShake = false;
 
 
-	if (euler.x >= XMConvertToRadians(85.f)) {
-		m_pTransformCom->SetLookUpVector(preLook);
-	}
-	else if (euler.x <= XMConvertToRadians(-85.f)) {
-		m_pTransformCom->SetLookUpVector(preLook);
+}
+
+void CCamera_Fly::ShakeY(_double DeltaTime)
+{
+	m_fYDurationDelta += DeltaTime;
+	if (m_fYDuration <= m_fYDurationDelta) {
+		if (m_iYCnt > 0) {
+			m_fYDurationDelta = 0.f;
+			m_fYDirection *= -1.f;
+			m_iYCnt--;
+		}
+		else {
+			XMStoreFloat3(&m_vShakeYPos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakeYPos), XMVectorZero(), (_float)DeltaTime*3.f));
+			m_fYDurationDelta = 0.f;
+			m_fYDirection = 0.f;
+			m_fYSpd = 0.f;
+		}
 	}
 	else {
-		m_pTransformCom->SetLookUpVector(XMVector3Normalize(look));
+		_vector up = m_pTransformCom->GetState(CTransform::STATE_UP);
+		XMStoreFloat3(&m_vShakeYPos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakeYPos), up, (_float)m_fYDurationDelta) * m_fYDirection);
 	}
+	m_bYShake = false;
+}
 
+void CCamera_Fly::ShakeFov(_double DeltaTime)
+{
+	m_fov = m_fov * (1 - DeltaTime * 5.f) + m_fDestFov * DeltaTime * 5.f;
+	if (m_FovShakeDurationDelta >= m_FovShakeDuration) {
+		m_fDestFov = m_constFov;
+		m_FovShakeDurationDelta = 0.f;
+		m_FovShakeDuration = 0.f;
+	}
+	else 
+		m_FovShakeDurationDelta += DeltaTime;
+	
+}
 
-	_vector cameraPos = m_pTransformCom->GetState(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vShakePos);
-	_vector lerpPos = DirectX::XMVectorLerp(cameraPos, vTargetCenterPos, m_fCameraMoveLerpSpd);
-	m_pTransformCom->SetState(CTransform::STATE_POSITION, lerpPos);
-
-
-	mat = XMMatrixTranslation(0.f, 0.f, -m_vDistance) * XMLoadFloat4x4(&m_pTransformCom->GetMatrix());
-	m_pTransformCom->SetMatrix(mat);
+void CCamera_Fly::ZoomFov(_float _duration, _float _destFov)
+{
+	m_fDestFov = _destFov;
+	m_FovShakeDuration = _duration;
 }
 
 CCamera_Fly * CCamera_Fly::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)

@@ -57,15 +57,15 @@ HRESULT CEffectPajang::Initialize(void* pArg)
 		//m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_fScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 
 
-		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
-		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
-		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+		_vector position = m_pTransform->GetState(CTransform::STATE_POSITION);
+		position = XMVectorSetY(position, XMVectorGetY(position) + 0.2f);
+		m_pTransform->SetState(CTransform::STATE_POSITION, position);
 
 		m_vScales = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
 
 		CStat* stat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 
-		m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vScales), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
+		m_pOBB = CObb::Create(position, XMLoadFloat3(&m_vScales), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 
 
 	}

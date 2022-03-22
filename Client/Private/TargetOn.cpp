@@ -101,7 +101,6 @@ void CTargetOn::Render()
 void CTargetOn::ReleaseThisUI()
 {
 	this->SetDead();
-	m_pThisUI->SetDead();
 }
 
 CTargetOn * CTargetOn::Create(CGameObject* player,CGameObject * pTarget)
@@ -116,5 +115,7 @@ CTargetOn * CTargetOn::Create(CGameObject* player,CGameObject * pTarget)
 
 void CTargetOn::Free()
 {
+	if(m_pThisUI)
+		m_pThisUI->SetDead();
 }
 

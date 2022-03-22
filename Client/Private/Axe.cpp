@@ -260,9 +260,10 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.6f);
 		}
-		if (keyFrame == 13)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
-
+		if (keyFrame == 13) {
+			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
+			CEventCheck::GetInstance()->ShakeUpDown(4, 0.03f);
+		}
 		break;
 	}
 	case Client::Player_State::RBCombo2: {
@@ -301,7 +302,7 @@ void CAxe::Set_TrailOnOff()
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
-
+			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f);
 		}
 		break;
 	}

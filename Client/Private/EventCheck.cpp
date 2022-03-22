@@ -89,6 +89,19 @@ void CEventCheck::ShakeCamera(CCamera_Fly::SHAKE _shake, _int _cnt, _float _dura
 		m_pCameraFly->ShakeCamera(_shake, _cnt, _duration, _spd);
 }
 
+void CEventCheck::ShakeUpDown(_int _cnt, _float _duration, _float _spd)
+{
+	if (m_pCameraFly)
+		m_pCameraFly->ShakeUpDown(_cnt, _duration, _spd);
+}
+
+void CEventCheck::ZoomFov(_float _duration, _float _destFov)
+{
+	if (m_pCameraFly)
+		m_pCameraFly->ZoomFov(_duration, _destFov);
+
+}
+
 void CEventCheck::SetUpEquip(string _equipName)
 {
 	if (m_pPlayerScript)

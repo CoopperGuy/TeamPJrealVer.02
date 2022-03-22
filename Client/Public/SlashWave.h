@@ -2,7 +2,7 @@
 #include "BasicEffect.h"
 
 BEGIN(Client)
-
+class CObb;
 class CSlashWave :
 	public CBasicEffect
 {
