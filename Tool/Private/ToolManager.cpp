@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/Boss_Ursa.yaml";
+static string strScene = "../../Assets/Scenes/CityMap.yaml";
 
 
 CToolManager::CToolManager()
