@@ -30,7 +30,10 @@ public:
 
 public:
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
-	
+private:
+	void Create_Trail();
+	void Set_TrailOnOff();
+
 private:
 	void Empty_queue();
 	void InCombat(_double dDeltaTime);
@@ -107,5 +110,10 @@ private:
 	
 	_double m_TimeAcc = 0.0;
 	CGameObject* pEffectObj = nullptr;
+private:
+	CGameObject*		m_pTrail = nullptr;
+	CVIBuffer_Trail*	m_pTrailBuffer = nullptr;
+	_float4x4			m_wpBoneMatrix;
+	_bool				m_DrawTrail = false;
 };
 END
