@@ -12,6 +12,7 @@ class CHpBar;
 class CQuickSlot;
 class CGold;
 class CSkillIcon;
+class CTargetOn;
 class CPlayer : public CCharacter
 {
 	enum Decompose{SCALE, ROTATE, POS};
@@ -73,6 +74,7 @@ public:
 	_float3 Get_CenterPosition();
 	void Collsion();
 	_bool GetUsableSkill() { return m_bUsableSkill; }
+	_float3 GetLockOnPosition();
 public:
 	void SetUpEquip(string Name);
 
@@ -87,6 +89,12 @@ private:
 private:
 	void UIInput();
 	void InputSkill();
+private:
+	void Ready_FrustumInProjSpace();
+	void Transform_ToWorldSpace();
+	void Make_Plane(_fvector* pPoints);
+	void SearchMonster();
+	_bool isInFrustum(_fvector vPosition, _float fRange = 0.f);
 
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
@@ -140,6 +148,12 @@ private:
 	_float3		 m_vPlayerPos	= {};
 
 private:
+	_float3			m_vPoint[8];
+	_float4			m_Plane[6];
+	
+	vector<CGameObject*> m_listMonsters;
+
+private:
 	const static _uint quickSlotSize = 1;
 
 private://hud
@@ -150,6 +164,7 @@ private://hud
 	CGold*		m_pGold = nullptr;
 	CQuickSlot*	m_pQuickSlot[quickSlotSize] = { nullptr, };
 	CSkillIcon* m_pSkillIcon = nullptr;
+	CTargetOn*	m_pTargetOn = nullptr;
 private:
 	CBasicCollider* m_pOBB = nullptr;
 private:

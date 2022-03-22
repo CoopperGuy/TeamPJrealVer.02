@@ -159,7 +159,7 @@ public:
 	_float3 GetOffset() { return m_Offset; }
 	_vector GetVecOffset() { return XMLoadFloat3(&m_Offset); }
 	string	GetBoneName() { return m_strBoneName; }
-
+	_vector* GetObbBox();
 private:
 	_bool	m_isAttachBone = false;
 	ID	m_CollisionType = ID::IDEND;

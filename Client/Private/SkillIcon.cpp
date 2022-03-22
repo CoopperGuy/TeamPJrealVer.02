@@ -11,6 +11,8 @@ CSkillIcon::CSkillIcon()
 
 HRESULT CSkillIcon::Initailze(CGameObject * pArg)
 {
+	if (pArg != nullptr)
+		m_pPlayer = static_cast<CEmptyGameObject*>(pArg);
 	CEngine* engine = CEngine::GetInstance();
 	for (_int i = 0; i < sizeOfUI; i++) {
 		string strName = "SkillIcon0" + to_string(i);
@@ -34,6 +36,12 @@ void CSkillIcon::Update(_double deltaTime)
 		if (m_tInfo[i].coolDelta > m_tInfo[i].coolTime)
 			m_tInfo[i].coolDelta = m_tInfo[i].coolTime;
 
+	}
+	if (m_pPlayer) {
+		if (m_tInfo[2].coolDelta < m_tInfo[2].skillDuration)
+			static_cast<CStat*>(m_pPlayer->GetComponent("Com_Stat"))->SetStatusEffect(CStat::STATUSEFFECT::BLOOD);
+		else 
+			static_cast<CStat*>(m_pPlayer->GetComponent("Com_Stat"))->ShutStatusEffect(CStat::STATUSEFFECT::BLOOD);
 	}
 }
 

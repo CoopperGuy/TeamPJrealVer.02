@@ -288,6 +288,8 @@ HRESULT CLoader::GameSceneLogo()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
 		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObject_TargetOn", "U_TargetOnUI")))
+		MSG_BOX("Failed To Create U_TargetOn Prefab");
 
 	_bool threadFinish = false;
 	while (!threadFinish) {

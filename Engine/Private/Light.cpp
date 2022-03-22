@@ -49,9 +49,11 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 	if (CLightManager::GetInstance()->GetNumLights() > 0) {
 		CLight* light = CLightManager::GetInstance()->GetLightFront();
 		m_pVIBuffer = light->GetVIBuffer();
+		m_bIsClone = true;
 	}
 	else {
 		m_pVIBuffer = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, WINCX, WINCY, "../../Assets/Shader/Shader_Rect_Viewport.fx");
+		m_bIsClone = false;
 	}
 	if (nullptr == m_pVIBuffer)
 		return E_FAIL;
@@ -218,7 +220,8 @@ CComponent * CLight::Clone(void * pArg)
 void CLight::Free()
 {
 	CLightManager::GetInstance()->RemoveLight(this);
-	SafeRelease(m_pVIBuffer);
+	if(!m_bIsClone)
+		SafeRelease(m_pVIBuffer);
 	//SafeRelease(m_pDeviceContext);
 	//SafeRelease(m_pDevice);
 }
