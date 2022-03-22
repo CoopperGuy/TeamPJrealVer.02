@@ -76,6 +76,9 @@ void CPlayer::Free()
 	//for (int i = 0; i < quickSlotSize; i++) {
 	//	SafeRelease(m_pQuickSlot[i]);
 	//}
+	if (m_pTargetOn) {
+		m_pTargetOn->SetDead();
+	}
 }
 
 HRESULT CPlayer::Initialize()
@@ -184,9 +187,7 @@ HRESULT CPlayer::Initialize()
 
 	//1ÀÓ
 	//cout << "PlayerATK:" << m_pStatus->GetStatInfo().atk << endl;
-
-	Ready_FrustumInProjSpace();
-
+	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	return S_OK;
 }
 
@@ -1134,28 +1135,13 @@ void CPlayer::InputSkill()
 	//}
 }
 
-void CPlayer::Ready_FrustumInProjSpace()
-{
-	m_vPoint[0] = _float3(-1.f, 1.f, 0.f);
-	m_vPoint[1] = _float3(1.f, 1.f, 0.f);
-	m_vPoint[2] = _float3(1.f, -1.f, 0.f);
-	m_vPoint[3] = _float3(-1.f, -1.f, 0.f);
-
-	m_vPoint[4] = _float3(-1.f, 1.f, -1.f);
-	m_vPoint[5] = _float3(1.f, 1.f, -1.f);
-	m_vPoint[6] = _float3(1.f, -1.f, -1.f);	
-	m_vPoint[7] = _float3(-1.f, -1.f, -1.f);
-}
-
 void CPlayer::Transform_ToWorldSpace()
 {
 
 	_vector		vPoint[8];
-	_vector*	tempPoint = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"))->GetObbBox();
-	for (int i = 0; i < 8; i++) {
+	_vector*	tempPoint = m_pBox->GetObbBox();
+	for (int i = 0; i < 8; i++) 
 		vPoint[i] = tempPoint[i];
-	}
-
 	Make_Plane(vPoint);
 }
 
