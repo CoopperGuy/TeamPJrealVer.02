@@ -4,6 +4,8 @@
 #include "EmptyEffect.h"
 #include "EffectMeteoExpolRing.h"
 #include "EffectMeteoFire.h"
+#include "EffectSmoke.h"
+#include "EffectMeteoExpolFire.h"
 USING(Client)
 
 CEffectMeteoFireBall::CEffectMeteoFireBall()
@@ -64,14 +66,14 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 	//	m_bDead = true;
 	//}
 
-	if (deaddt >=0.5f)
+	m_dMakeFB += deltaTime;
+	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
+	if (m_dMakeFB >= 0.15)
 	{
-		deaddt = 0;
-		m_bDead = true;
+		auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
+		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
+		m_dMakeFB = 0;
 	}
-
-	if (0.1 > XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-		m_bDead = true;
 
 	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
 	_float4x4 newWorld;
@@ -87,6 +89,19 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 void CEffectMeteoFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
+	{
+		this->SetDead();
+		m_pGameObject->SetDead();
+	}
+
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+	{
+		this->SetDead();
+		m_pGameObject->SetDead();
+	}
+
+
+	if (0.1 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
@@ -113,4 +128,8 @@ void CEffectMeteoFireBall::SetPos(_matrix _pmatrix)
 
 void CEffectMeteoFireBall::Set_Pos(_vector pPos)
 {
+	_vector postemp = {};
+	memcpy(&postemp, &pos, sizeof(XMVECTOR));
+
+	m_pTransform->SetState(CTransform::STATE_POSITION, postemp);
 }

@@ -58,6 +58,8 @@ private:
 	CMonHp*	m_pMonHp						= nullptr;
 	CEnemy* m_pElement[4] = {};
 
+
+	list<class CWaterEA*> m_pWaterEA = {};
 	class CEffectFly* m_pEffFly = nullptr;
 	class CEffectGrab* m_pEffGrab = nullptr;
 	class CEffectPajang* m_pEffPajang = nullptr;

@@ -23,6 +23,7 @@ public:
 
 
 private:
+	_double deaddt = 0;
 
 };
 
