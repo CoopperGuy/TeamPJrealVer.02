@@ -75,6 +75,9 @@ HRESULT CUrsa::Initialize(_float3 position)
 	m_pModel->SetAnimationLoop((_uint)Ursa::HIT, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::DIE, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::DEADBODY, false);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Start, false);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Land, false, true);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_End, false);
 
 	m_eState = IDLE01;
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
@@ -117,7 +120,8 @@ void CUrsa::Update(_double dDeltaTime)
 	}
 	Execute_Pattern(dDeltaTime);
 
-	Checking_Finished();
+	if(!m_bWheelWind)
+		Checking_Finished();
 
 	if(m_bCB)
 		SetUp_Combo();
@@ -172,7 +176,7 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 			m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
 	}
-	else if (m_fDist >= 3.5f)
+	else if (m_fDist >= 3.f)
 	{
 		m_bSuperFar	= true;
 		m_bFar		= false;
@@ -265,7 +269,10 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 			if (m_pStat->GetStatInfo().hp < Max * 0.4f)
 			{
 				if (m_iThir == 0)
+				{
 					Roar();
+					m_bWheelWind = true;
+				}
 				++m_iThir;
 				memset(m_bCombat, false, sizeof(m_bCombat));
 				m_bCombat[Third] = true;
@@ -319,6 +326,36 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 			m_pTransform->SetLook(vTargetLook);
 		}
 	}
+	else if (m_bWheelWind)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			m_QueState.push(WHEELWIND_Start);
+			m_QueState.push(WHEELWIND_Ing);
+			m_QueState.push(WHEELWIND_End);
+			m_eState = m_QueState.front();
+			m_QueState.pop();
+		}
+		else if (m_pModel->Get_isFinished())
+		{
+			if (m_eState == WHEELWIND_Start)
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+				m_bSkillDelay = true;
+			}
+		}
+
+		if (m_bSkillDelay)
+			m_dWheelWindTime += dDeltaTime;
+
+		if (m_dWheelWindTime > 5.0)
+		{
+			m_dWheelWindTime = 0.0;
+			m_bSkillDelay = false;
+			m_bWheelWind = false;
+		}
+	}
 	else
 	{
 		if (m_bClose)
@@ -354,13 +391,53 @@ void CUrsa::Second_Phase(_double dDeltaTime)
 		++m_iComboIndex;
 		m_bCB = true;
 		if (m_iComboIndex > 5)
+		{
+			m_bWheelWind = true;
 			m_iComboIndex = 0;
-
+		}
 	}
 }
 
 void CUrsa::Third_Phase(_double dDeltaTime)
 {
+	if (m_bWheelWind)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			m_QueState.push(WHEELWIND_Start);
+			m_QueState.push(WHEELWIND_Ing);
+			m_QueState.push(WHEELWIND_End);
+			m_eState = m_QueState.front();
+			m_QueState.pop();
+		}
+		else if (m_pModel->Get_isFinished())
+		{
+			if (m_eState == WHEELWIND_Start)
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+				m_bSkillDelay = true;
+			}
+		}
+
+		if (m_bSkillDelay)
+			m_dWheelWindTime += dDeltaTime;
+
+		if (m_dWheelWindTime > 5.0)
+		{
+			m_dWheelWindTime = 0.0;
+			m_bSkillDelay = false;
+			m_bWheelWind = false;
+		}
+	}
+	else if (m_QueState.empty() && !m_bFinishBlow)
+	{
+		++m_iComboIndex;
+		m_bCB = true;
+		if (m_iComboIndex > 5)
+			m_iComboIndex = 0;
+
+	}
 }
 
 void CUrsa::SetUp_Combo()

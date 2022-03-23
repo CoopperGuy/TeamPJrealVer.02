@@ -62,18 +62,19 @@ private:
 
 private:
 	Ursa m_eState = Ursa_END;
+	queue<Ursa> m_QueState;
 	
 	_float3 m_vTargetToLook;
 	_float3 m_vCenterPos;
-	queue<Ursa> m_QueState;
 
-	_float m_fDist = 0.f;
+	_float m_fDist		   = 0.f;
 	_double m_dPatternTime = 0.0;
+	_double m_dWheelWindTime = 0.0;
 
 	_uint m_iComboIndex = 0;
-	_uint m_iSec = 0;
-	_uint m_iThir = 0;
-	_uint m_iLast = 0;
+	_uint m_iSec		= 0;
+	_uint m_iThir		= 0;
+	_uint m_iLast		= 0;
 
 	_bool m_bCombat[Phase_End] = {};
 	_bool m_bCenter			   = false;
@@ -85,5 +86,8 @@ private:
 	_bool m_bFinishBlow		   = false;
 	_bool m_bDelay			   = false;
 	_bool m_bRoar			   = false;
+	_bool m_bWheelWind		   = false;
+	_bool m_bSkillDelay		   = false;
+	_bool m_bAddRand		   = false;
 };
 END
