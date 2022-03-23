@@ -6,7 +6,8 @@ BEGIN(Engine)
 
 class ENGINE_DLL CVIBuffer_RectInstance final : public CVIBuffer
 {
-	enum SHAPE { RING, CONE, SHAPE_END };
+	enum SHAPE { SPARK, CONE, SHAPE_END };
+
 private:
 	explicit CVIBuffer_RectInstance(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	explicit CVIBuffer_RectInstance(const CVIBuffer_RectInstance& rhs);
@@ -18,6 +19,13 @@ public:
 
 	HRESULT Update(_double TimeDelta);
 	HRESULT Render(_uint iPassIndex);
+
+private:
+	HRESULT Initialize_Spark();
+	HRESULT Initialize_Cone();
+
+public:
+	_float4& Get_Color() { return m_vColor; }
 
 public:
 	vector<VTXRECTINST*>&		GetInstanceMatrices() {
@@ -34,6 +42,8 @@ private:
 	string					m_shaderPath = "";
 
 	CTransform*				m_pTargetTransform = nullptr;
+
+	SHAPE					m_eShape = SHAPE_END;
 
 	_float4					m_vColor = { 0.5f, 0.5f, 0.5f, 0.f };
 	_double					m_dLifeTime = 0.0;
