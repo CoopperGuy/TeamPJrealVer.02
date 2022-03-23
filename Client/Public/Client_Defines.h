@@ -17,6 +17,7 @@ extern BOOL		g_Done;
 extern BOOL		g_Menu;
 extern BOOL		g_AnotherMenu;
 extern HINSTANCE g_hInst;
+extern double	g_TickLate;
 namespace Client {}
 using namespace Client;
 

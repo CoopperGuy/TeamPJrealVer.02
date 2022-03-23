@@ -539,6 +539,7 @@ void CSceneSerializer::SerializeUI(YAML::Emitter & out, CGameObject * obj)
 
 		_float4 color = text->GetColor();
 		_float2 scale = text->GetScale();
+		_bool	shaderCut = text->GetShaderCut();
 
 		out << YAML::Key << "Color";
 		out << YAML::Value << YAML::Flow;
@@ -550,6 +551,9 @@ void CSceneSerializer::SerializeUI(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::Key << "LayerDepth" << YAML::Value << text->GetLayerDepth();
 
 		out << YAML::Key << "IsCenter" << YAML::Value << text->GetIsCenter();
+
+		out << YAML::Key << "ShaderCut" << YAML::Value << shaderCut;
+
 
 		out << YAML::EndMap;
 
@@ -870,6 +874,11 @@ CGameObject* CSceneSerializer::DeserializeUI(YAML::Node& obj, _bool bSpawn, _uin
 			_bool	isCenter = text["IsCenter"].as<bool>();
 			pText->SetIsCenter(isCenter);
 		}
+		if (text["ShaderCut"]) {
+			_bool	isShaderCut = text["ShaderCut"].as<bool>();
+			pText->SetShader(isShaderCut);
+		}
+
 	}
 
 	return deserializedObject;

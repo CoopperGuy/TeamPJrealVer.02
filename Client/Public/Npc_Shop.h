@@ -25,11 +25,14 @@ private:
 	CEmptyGameObject*					m_pShopNPC = nullptr;
 	CTransform*							m_pNpcTransform = nullptr;
 	CShopHud*							m_pShopHud = nullptr;
+	CEmptyUI*							m_pShopList = nullptr;
 private:
 	_int								m_iCurSelectedItem = -1;
 	mutable _float						m_fAlretMakeDistance = 0.5f;
+	_float								m_fShopListYLength = 0.f;
 private:
 	_bool								m_bisCreated = false;
+	_bool								m_isActived = false;
 public:
 	static CNpc_Shop* Create(CGameObject* pTartget = nullptr);
 	virtual void Free() override;

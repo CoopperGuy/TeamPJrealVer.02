@@ -15,7 +15,7 @@ BOOL		g_First = false;
 BOOL		g_Done = false;
 BOOL		g_Menu = false;
 BOOL		g_AnotherMenu = false;
-FLOAT		g_TickLate = 1.f;
+_double		g_TickLate = 1.f;
 
 HINSTANCE g_hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -81,7 +81,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			if (WM_QUIT == msg.message || WM_DESTROY == msg.message)
 				break;
 		}
-
 		TimeAcc += pEngine->ComputeDeltaTime("Timer_Default");
 
 		if (TimeAcc > 1.0 / 60.0)

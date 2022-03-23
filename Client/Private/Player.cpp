@@ -91,6 +91,7 @@ HRESULT CPlayer::Initialize()
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	m_pStatus = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
@@ -155,13 +156,17 @@ HRESULT CPlayer::Initialize()
 	m_pSkillIcon = CSkillIcon::Create(m_pGameObject);
 	
 	CSkillIcon::SKILLINFO info;
+	info.coolTime = 7.5f;
+	info.level = 1;
+	info.Name = "storm";
+	m_pSkillIcon->SetSkillInfo(0, info);
 	info.coolTime = 15.f;
 	info.level = 1;
 	info.Name = "WhrilWind";
 	m_pSkillIcon->SetSkillInfo(1, info);
 	info.coolTime = 20.f;
 	info.skillDuration = 10.f;
-	info.Name = "";
+	info.Name = "Blood";
 	m_pSkillIcon->SetSkillInfo(2, info);
 	info.coolTime = 20.f;
 	info.Name = "guillotine";
@@ -182,12 +187,7 @@ HRESULT CPlayer::Initialize()
 	}
 
 	CEventCheck::GetInstance()->SetPlayer(this);
-	//playerModel->setBone(equipModel);
-
-
-	//1ÀÓ
-	//cout << "PlayerATK:" << m_pStatus->GetStatInfo().atk << endl;
-	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+	
 	return S_OK;
 }
 
@@ -204,7 +204,6 @@ void CPlayer::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
-	Transform_ToWorldSpace();
 
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
@@ -226,6 +225,8 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 	//#endif // _DEBUG
 	Collsion();
+
+	Transform_ToWorldSpace();
 	SearchMonster();
 }
 
@@ -848,7 +849,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 
 	m_pTransform->SetLook(vPlayerLook);
 
-	m_pController->move(vDir * fSpeed * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+	m_pController->move(vDir * fSpeed * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 }
 
 void CPlayer::Jump(_double dDeltaTime)
@@ -1033,9 +1034,13 @@ _bool CPlayer::IsGravity()
 	PxRaycastBuffer buf;
 	PxQueryFilterData filterData;
 	filterData.data.word1 = CPxManager::GROUP4;
+	filterData.data.word2 = CPxManager::GROUP4;
 	filterData.flags |= PxQueryFlag::eANY_HIT;
+	filterData.flags |= PxQueryFlag::ePREFILTER;
 	_bool isCollied = false;
-	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 0.06f, buf, filterData))
+	PxRigidActor* actor = m_pController->getActor();
+	
+	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
 	{
 		if (buf.getAnyHit(0).distance <= 0.05f)
 		{
@@ -1185,9 +1190,6 @@ void CPlayer::SearchMonster()
 			if (m_pTargetOn) {
 				m_pTargetOn->ReleaseThisUI();
 				m_pTargetOn = nullptr;
-				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
-			}
-			else {
 				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
 			}
 		}

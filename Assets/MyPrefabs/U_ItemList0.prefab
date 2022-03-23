@@ -6,14 +6,14 @@ GameObjects:
     Layer: EquipItemList
     Type: UI
     SortingOrder: 5
-    PassIndex: 6
+    PassIndex: 8
     Hovering: true
     Com_Transform:
       Position: [391, 180]
       Size: [300, 60]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
-      TextureMaskPath: ""
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
@@ -24,7 +24,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 0
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [436.087646, 184.894028]
@@ -40,7 +40,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 0
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [458.696625, 210.187317]
@@ -56,7 +56,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 9
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [272.608643, 178.149857]

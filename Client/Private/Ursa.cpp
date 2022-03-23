@@ -132,7 +132,7 @@ void CUrsa::Empty_queue()
 {
 	if (!m_QueState.empty())
 	{
-		_uint size = m_QueState.size();
+		_uint size = (_uint)m_QueState.size();
 		for (_uint i = 0; i < size; ++i)
 			m_QueState.pop();
 	}
@@ -172,7 +172,7 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
-		m_pController->move(vDir * 0.5f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+		m_pController->move(vDir * 0.5f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 	}
 }
 
