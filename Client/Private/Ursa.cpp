@@ -98,7 +98,7 @@ void CUrsa::Update(_double dDeltaTime)
 
 	if (m_bCombat[First])
 	{
-		if (!m_bCB || m_bCB && !m_bDelay)
+		if (!m_bCB && !m_bDelay)
 			Adjust_Dist(dDeltaTime);
 	}
 	Checking_Phase(dDeltaTime);
@@ -109,10 +109,10 @@ void CUrsa::Update(_double dDeltaTime)
 	if (m_pCollider) 
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 
-	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	Checking_Finished();
 	if(m_bCB)
 		SetUp_Combo();
+	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 }
 
@@ -179,19 +179,29 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 void CUrsa::Checking_Phase(_double dDeltaTime)
 {
 	_float Max = m_pStat->GetStatInfo().maxHp;
-	if (m_bDelay)
+	if (m_bFinishBlow)
 	{
-		m_dPatternTime += dDeltaTime;
+		if(m_bDelay)
+			m_dPatternTime += dDeltaTime;
+		
+		if (m_pModel->Get_isFinished())
+		{
+			m_bDelay = true;
+			m_eState = IDLE_CB;
+		}
+		
 		if (m_dPatternTime > 1.5)
 		{
 			m_dPatternTime = 0.0;
 			m_bCB = false;
+			m_bClose = false;
 			m_bDelay = false;
+			m_bFinishBlow = false;
 		}
 	}
 	if (m_pStat->GetStatInfo().hp < Max)
 	{
-		if(!m_bCB &&!m_bDelay)
+		if(!m_bCB)
 			Adjust_Dist(dDeltaTime);
 		m_bCombat[First] = true;
 		if (m_pStat->GetStatInfo().hp < Max * 0.7f)
@@ -241,15 +251,13 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 
 void CUrsa::First_Phase(_double dDeltaTime)
 {
-	if (m_QueState.empty() && !m_bDelay)
+	if (m_QueState.empty() && !m_bFinishBlow)
 	{
 		++m_iComboIndex;
 		m_bCB = true;
 		if (m_iComboIndex > 3)
-		{
 			m_iComboIndex = 0;
-			m_bClose = false;
-		}
+
 	}
 }
 
@@ -263,47 +271,51 @@ void CUrsa::Third_Phase(_double dDeltaTime)
 
 void CUrsa::SetUp_Combo()
 {
-	if (m_bCombat[First])
+	if (m_QueState.empty())
 	{
-		if (m_QueState.empty() && !m_bDelay)
+		if (!m_bFinishBlow)
 		{
-			switch (m_iComboIndex)
+			if (m_bCombat[First])
 			{
-			case 1:
-			m_QueState.push(Combo_1Start);
-			m_QueState.push(Combo_1Hold);
-			m_QueState.push(Combo_1);
-			m_QueState.push(Combo_1End);
-			m_QueState.push(Combo_2Start);
-			m_QueState.push(Combo_2End);
-			m_eState = m_QueState.front();
-			m_QueState.pop();
-			break;
-			case 2:
-			m_QueState.push(Combo_1Start);
-			m_QueState.push(Combo_1Hold);
-			m_QueState.push(Combo_1);
-			m_QueState.push(Combo_1End);
-			m_QueState.push(R_SLASH);
-			m_eState = m_QueState.front();
-			m_QueState.pop();
-			break;
-			case 3:
-			Empty_queue();
-			m_eState = Big_SLASH;
-			break;
-			default:
-				break;
+				switch (m_iComboIndex)
+				{
+				case 1:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_1End);
+					m_QueState.push(Combo_2Start);
+					m_QueState.push(Combo_2End);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					break;
+				case 2:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_1End);
+					m_QueState.push(R_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					break;
+				case 3:
+					m_QueState.push(Big_SLASH);
+					//m_eState = Big_SLASH;
+					break;
+				default:
+					break;
+				}
+
+			}
+			else if (m_bCombat[Second])
+			{
+
+			}
+			else if (m_bCombat[Third])
+			{
+
 			}
 		}
-	}
-	else if (m_bCombat[Second])
-	{
-
-	}
-	else if (m_bCombat[Third])
-	{
-
 	}
 }
 
@@ -315,8 +327,9 @@ void CUrsa::Checking_Finished()
 		{
 			m_eState = m_QueState.front();
 			m_QueState.pop();
+		
 			if (m_QueState.empty())
-				m_bDelay = true;
+				m_bFinishBlow = true;
 			
 		}
 	}

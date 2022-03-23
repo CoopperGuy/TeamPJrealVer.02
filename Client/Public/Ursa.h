@@ -76,6 +76,7 @@ private:
 	_bool m_bClose			   = false;
 	_bool m_bMove			   = false;
 	_bool m_bCB				   = false;
+	_bool m_bFinishBlow		   = false;
 	_bool m_bDelay			   = false;
 	
 };
