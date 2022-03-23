@@ -33,7 +33,7 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 		return E_FAIL;	
 
 	//m_iNumInstance = iNumInstance;
-	m_iNumInstance = 100;
+	m_iNumInstance = 50;
 	m_iNumVertexBuffers = 2;
 	m_iInstNum = m_iNumInstance;
 
@@ -142,45 +142,12 @@ HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
 {
 	if (m_pShader == nullptr)
 		m_pShader = make_unique<CShader>(m_shaderPath);
-
-
-	_float3 OffsetPosition = { 0.f, 0.f, 0.f };
 	
 	if (pArg)
 	{
-		m_pTargetTransform = (CTransform*)pArg;
-		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+		m_pTargetTransform = (CTransform*)pArg;		
 	}
-
-	m_dLifeTime = 5.0;
-	XMStoreFloat4(&m_vColor, DirectX::Colors::LightGray);
-
-	for (_uint i = 0; i < m_iNumInstance; ++i)
-	{
-		//m_fStartSize[i] = 0.01f + (rand() % 3 * 0.01f);
-		//m_fStartSpeed[i] = 0.1f + (rand() % 201 * 0.001f);
-
-
-		_vector vDir = XMVectorSet((rand() % 1000 - 500) * 0.001f, rand() % 10 * 0.01f, (rand() % 1000 - 500) * 0.001f, 0.f);
-		vDir = XMVector4Normalize(vDir);
-
-		VTXRECTINST*		pIV = new VTXRECTINST();
-		pIV->vRight = _float4(1.f , 0.f, 0.f, 0.f);
-		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
-		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
-		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
-		pIV->fStartSize = 0.05f + (rand() % 6 * 0.01f);
-		pIV->fStartSpeed = 0.05f + (rand() % 201 * 0.0005f);
-		XMStoreFloat4(&pIV->vDir, vDir);
-		//pIV->vDir = XMLoadFloat4(&vDir);
-		if (i < m_iInstNum)
-			pIV->iRenderEnable = 1;
-		else
-			pIV->iRenderEnable = 0;
-		m_InstanceMatrices.push_back(pIV);
-
-			
-	}
+		
 	return S_OK;
 }
 
@@ -197,8 +164,7 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	CPipeline*		pPipeLine = GET_INSTANCE(CPipeline);
 	
 	if (FAILED(m_pDeviceContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
-		return E_FAIL;
-	
+		return E_FAIL;	
 	
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
@@ -215,12 +181,12 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 		
 		// //billbord	
 		_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
-		_vector vAxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
-		_vector vRight = XMVector3Normalize(XMVector3Cross(vAxisY, vLook));
+		_vector vRight = XMVectorSet(cosf(m_InstanceMatrices[i]->fRadian), sinf(m_InstanceMatrices[i]->fRadian), 0.f, 0.f);
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
 
-		XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
-		XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight /** m_InstanceMatrices[i]->fStartSize * m_fSize*/);
+		XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp /** m_InstanceMatrices[i]->fStartSize * m_fSize*/);
 		XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
 	}	
 
@@ -281,6 +247,54 @@ HRESULT CVIBuffer_RectInstance::Render(_uint iPassIndex)
 	m_pDeviceContext->DrawIndexedInstanced(6, m_iNumInstance, 0, 0, 0);
 	
 	return S_OK;
+}
+
+HRESULT CVIBuffer_RectInstance::Initialize_Spark()
+{
+	for (auto pIv : m_InstanceMatrices)
+	{
+		if (pIv)
+			SafeDelete(pIv);
+	}
+	m_InstanceMatrices.clear();
+
+	_float3 OffsetPosition = { 0.f, 0.f, 0.f };
+	
+	if (m_pTargetTransform != nullptr)
+		XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+
+	m_dLifeTime = 5.0;
+	XMStoreFloat4(&m_vColor, DirectX::Colors::Red);
+	_uint j = m_iNumInstance / 4;
+
+	for (_uint i = 0; i < m_iNumInstance; ++i)
+	{
+		_uint k = i / j;
+		
+		VTXRECTINST*		pIV = new VTXRECTINST();
+		pIV->vRight = _float4(1.f, 0.f, 0.f, 0.f);
+		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
+		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
+		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		pIV->fStartSize = 0.1f + (rand() % 5 * 0.1f);
+		pIV->fStartSpeed = 0.1f + (rand() % 201 * 0.001f);
+		pIV->fRadian = _float((90 * k) + (rand() % 90));
+		XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
+
+		if (i < m_iInstNum)
+			pIV->iRenderEnable = 1;
+		else
+			pIV->iRenderEnable = 0;
+
+		m_InstanceMatrices.push_back(pIV);
+	}
+
+	return S_OK;
+}
+
+HRESULT CVIBuffer_RectInstance::Initialize_Cone()
+{
+	return E_NOTIMPL;
 }
 
 CVIBuffer_RectInstance * CVIBuffer_RectInstance::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, string pShaderFilePath, _uint iNumInstance)

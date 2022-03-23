@@ -423,11 +423,11 @@ void CInspector::UpdateEffect()
 	ImGui::Separator();
 	DrawModel();
 
-	/*ImGui::Separator();
-	DrawEffectImage();*/
-
 	ImGui::Separator();
-	DrawEffectSetting();
+	DrawEffectImage();
+
+	/*ImGui::Separator();
+	DrawEffectSetting();*/
 
 	ImGui::Separator();
 	DrawBasicCollider();
@@ -700,7 +700,7 @@ void CInspector::DrawImage()
 				}
 				ImGui::EndDragDropTarget();
 			}
-
+			
 			_float4& color = dynamic_cast<CVIBuffer_RectUI*>(pComponent)->GetColor();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
 			ImGui::TreePop();
@@ -715,12 +715,16 @@ void CInspector::DrawEffectImage()
 {
 	CComponent* pComponent;
 
-	if (pComponent = g_pObjFocused->GetComponent("Com_VIBuffer"))
+	if (pComponent = g_pObjFocused->GetComponent("Com_RectInstance"))
 	{
 		ImGui::Separator();
+		
+		_float4& color = dynamic_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Color();
+		ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
+		ImGui::TreePop();
 
 		bool bDelete = false;
-		bool open = ImGui::TreeNodeEx("TextureEffect");
+		bool open = ImGui::TreeNodeEx("RectInstance");
 		ImGui::SameLine(ImGui::GetWindowWidth() - 10);
 		if (ImGui::Button("X##RemoveComponent"))
 			bDelete = true;
