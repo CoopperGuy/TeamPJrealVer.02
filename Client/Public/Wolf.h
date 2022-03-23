@@ -31,18 +31,6 @@ public:
 	void RotateBody(_double deltaTime);
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
 
-public:
-	void SetGameObject(CGameObject* obj);
-	void SetTransform(CTransform* trans);
-	void SetCollision(CCollider* colli);
-	void SetNavigation(CNavigation* nav);
-	void SetModel(CModel* model);
-	void SettingCollider(CCollider* col);
-	void SetBasicCollider(CBasicCollider* BasicCol);
-	void SetStat(CStat* pstat);
-	void SetAttTarget(CGameObject* obj);
-	void SetIsEnd(_bool tf);
-
 	void SetAttack(_double dDeltaTime);
 
 private:

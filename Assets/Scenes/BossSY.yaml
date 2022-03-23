@@ -40,22 +40,3 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
-  - Name: Empty Object
-    UUID: 3890743706725207804
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 10.0198145, 2.32282472]
-      Rotation: [0, -0, 0]
-      Scale: [5, 5, 5]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
-      MeshFileName: Roof.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 100
