@@ -40,6 +40,7 @@ private:
 	_vector				mypos = {};
 	_vector playerpos = {};
 
+	_bool makeDeadEff = true;
 
 	_vector m_arrivePos = {};
 

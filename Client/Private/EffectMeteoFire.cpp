@@ -52,11 +52,6 @@ void CEffectMeteoFire::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 	
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
-	{
-		m_bDead = true;
-	}
-
 	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
 	_float4x4 newWorld;
 	_float4x4 world = m_pTransform->GetMatrix();
@@ -70,7 +65,7 @@ void CEffectMeteoFire::Update(_double deltaTime)
 
 void CEffectMeteoFire::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
