@@ -658,13 +658,29 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	{
 		out << YAML::Key << "Com_PointInstance";
 		out << YAML::BeginMap;
-		out << YAML::EndMap;
+		out << YAML::EndMap;		
 	}
 
 	if (obj->GetComponent("Com_RectInstance"))
 	{
+		CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(obj->GetComponent("Com_RectInstance"));
+
 		out << YAML::Key << "Com_RectInstance";
 		out << YAML::BeginMap;
+
+		out << YAML::Key << "Shape" << YAML::Value << pRectInst->Get_CurShape();
+		out << YAML::Key << "InstNum" << YAML::Value << pRectInst->Get_InstanceNum();
+
+		out << YAML::Key << "Color";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << pRectInst->Get_Color().x << pRectInst->Get_Color().y << pRectInst->Get_Color().z << 0.f << YAML::EndSeq;
+
+		out << YAML::Key << "Speed" << YAML::Value << pRectInst->Get_Speed();
+		out << YAML::Key << "LifeTime" << YAML::Value << pRectInst->Get_LifeTime();
+		out << YAML::Key << "Size" << YAML::Value << pRectInst->Get_Size();
+		out << YAML::Key << "StartRadian" << YAML::Value << pRectInst->Get_StartRadian();
+		out << YAML::Key << "RadiationAngle" << YAML::Value << pRectInst->Get_RadiationAngle();
+				
 		out << YAML::EndMap;
 	}
 
@@ -1018,6 +1034,41 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 	{
 		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_RectInstance", "Com_RectInstance", deserializedObject->GetComponent("Com_Transform")))
 			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_RectInstance");
+
+		_float4 vColor = { 0.f, 0.f, 0.f, 0.f };
+		_float fSpeed = RectInstanceCom["Speed"].as<float>();
+		_float fSize = RectInstanceCom["Size"].as<float>();
+		_float fStartRadian = RectInstanceCom["StartRadian"].as<float>();
+		_float fRadiationAngle = RectInstanceCom["RadiationAngle"].as<float>();
+		_float fLifeTime = RectInstanceCom["LifeTime"].as<float>();
+		_int iInstNum = RectInstanceCom["InstNum"].as<int>();
+		_int iShape = RectInstanceCom["Shape"].as<int>();
+		
+		auto sequence = RectInstanceCom["Color"];
+		vColor.x = sequence[0].as<float>();
+		vColor.y = sequence[1].as<float>();
+		vColor.z = sequence[2].as<float>();
+
+		CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(deserializedObject->GetComponent("Com_RectInstance"));
+
+		pRectInst->Set_Color(vColor);
+		pRectInst->Set_Speed(fSpeed);
+		pRectInst->Set_Size(fSize);
+		pRectInst->Set_StartRadian(fStartRadian);
+		pRectInst->Set_RadiationAngle(fRadiationAngle);
+		pRectInst->Set_LifeTime(fLifeTime);
+		pRectInst->Set_InstanceNum(iInstNum);
+
+		if (iShape == 0)
+		{
+			pRectInst->Set_Shape(CVIBuffer_RectInstance::RADIATION);
+			pRectInst->Initialize_Radiation();
+		}
+		else
+		{
+			pRectInst->Set_Shape(CVIBuffer_RectInstance::CONE);
+			pRectInst->Initialize_Cone();
+		}
 	}
 
 	auto EffectSetting = obj["Effect_Setting"];
@@ -1207,6 +1258,48 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 	{
 		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_PointInstance", "Com_PointInstance", deserializedObject->GetComponent("Com_Transform")))
 			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_PointInstance");
+	}
+
+	auto RectInstanceCom = obj["Com_RectInstance"];
+	if (RectInstanceCom)
+	{
+		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_RectInstance", "Com_RectInstance", deserializedObject->GetComponent("Com_Transform")))
+			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_RectInstance");
+
+		_float4 vColor = { 0.f, 0.f, 0.f, 0.f };
+		_float fSpeed = RectInstanceCom["Speed"].as<float>();
+		_float fSize = RectInstanceCom["Size"].as<float>();
+		_float fStartRadian = RectInstanceCom["StartRadian"].as<float>();
+		_float fRadiationAngle = RectInstanceCom["RadiationAngle"].as<float>();
+		_float fLifeTime = RectInstanceCom["LifeTime"].as<float>();
+		_int iShape = RectInstanceCom["Shape"].as<int>();
+		_int iInstNum = RectInstanceCom["InstNum"].as<int>();
+
+		auto sequence = RectInstanceCom["Color"];
+		vColor.x = sequence[0].as<float>();
+		vColor.y = sequence[1].as<float>();
+		vColor.z = sequence[2].as<float>();
+
+		CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(deserializedObject->GetComponent("Com_RectInstance"));
+
+		pRectInst->Set_Color(vColor);
+		pRectInst->Set_Speed(fSpeed);
+		pRectInst->Set_Size(fSize);
+		pRectInst->Set_StartRadian(fStartRadian);
+		pRectInst->Set_RadiationAngle(fRadiationAngle);
+		pRectInst->Set_LifeTime(fLifeTime);
+		pRectInst->Set_InstanceNum(iInstNum);
+
+		if (iShape == 0)
+		{
+			pRectInst->Set_Shape(CVIBuffer_RectInstance::RADIATION);
+			pRectInst->Initialize_Radiation();
+		}
+		else
+		{
+			pRectInst->Set_Shape(CVIBuffer_RectInstance::CONE);
+			pRectInst->Initialize_Cone();
+		}
 	}
 
 	auto EffectSetting = obj["Effect_Setting"];

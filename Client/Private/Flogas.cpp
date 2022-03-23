@@ -213,9 +213,12 @@ void CFlogas::Update(_double dDeltaTime)
 	/*PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
 
-	if (m_pTrailBuffer)
-		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
 
+	if (m_pTrailBuffer)
+	{
+		//m_pTrailBuffer->SetIsActive(true);
+		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix()));
+	}
 }
 
 void CFlogas::LateUpdate(_double dDeltaTime)
@@ -260,7 +263,7 @@ void CFlogas::Create_Trail()
 	pEffect->SetDistortionScale(4.f);
 	pEffect->SetDistortionBias(1.f);
 	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_WP_R"));
-	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
+	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix());
 	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
 	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
 }

@@ -97,9 +97,6 @@ HRESULT CVIBuffer_RectEffect::InitializePrototype()
 
 	SafeDeleteArray(pIndices);
 
-	if (m_pShader == nullptr)
-		m_pShader = make_shared<CShader>("../../Assets/Shader/Shader_Effect.fx");
-
 
 	return S_OK;
 }
@@ -108,6 +105,9 @@ HRESULT CVIBuffer_RectEffect::Initialize(void * pArg)
 {	
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
+
+	if (m_pShader == nullptr)
+		m_pShader = make_shared<CShader>("../../Assets/Shader/Shader_Effect.fx");
 
 
 	return S_OK;
