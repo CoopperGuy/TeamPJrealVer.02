@@ -19,9 +19,16 @@ public:
 	_bool IsBuySelected();
 public:
 	void SetActive(_bool isActive);
+	void SetShopLength(_float _length);
+	void SetOffset(_float _length);
 private:
 	CEmptyUI*		m_pThisUI = nullptr;
 	CEmptyUI*		m_pBuy = nullptr;
+	CEmptyUI*		m_pScrollBar = nullptr;
+	CEmptyUI*		m_pScrollBG = nullptr;
+	CEmptyUI*		m_pShopList = nullptr;
+ private:
+	_float			m_fShopLength = 0.f;
 public:
 	static CShopHud* Create(CGameObject*	pTarget = nullptr);
 	virtual void Free() override;

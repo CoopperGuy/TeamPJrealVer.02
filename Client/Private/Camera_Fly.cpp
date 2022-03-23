@@ -199,13 +199,15 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 	_vector vRayDir = XMVector3Normalize(dir);
 	PxRaycastBuffer buf;
 	PxQueryFilterData filterData;
-	filterData.data.word1 = CPxManager::GROUP1;
+	filterData.data.word0 = CPxManager::GROUP1;
 	filterData.data.word1 = CPxManager::GROUP4;
-	filterData.flags |= PxQueryFlag::eSTATIC;
+	filterData.data.word2 = CPxManager::GROUP4;
+	filterData.flags |= PxQueryFlag::eANY_HIT;
+	filterData.flags |= PxQueryFlag::ePREFILTER;
 	_vector length = XMVector3Length(dir);
-	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 100.f, buf, filterData))
+	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 100.f, buf, filterData, &CPxQueryFilters(nullptr, CPxManager::GROUP4)))
 	{
-		if ((XMVectorGetX(length) - buf.getAnyHit(0).distance) > 0.1f)
+		if (fabs((XMVectorGetX(length) - buf.getAnyHit(0).distance)) > 0.1f)
 		{
 			//cout << "camera Collied \n";
 			m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
@@ -229,7 +231,7 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 	PxExtendedVec3 tempPos = m_pTargetCollider->GetPosition();
 	_float3	physxPos = _float3((_float)tempPos.x, (_float)tempPos.y, (_float)tempPos.z);
 	_float3 lockOnPos = CEventCheck::GetInstance()->GetLockOnPos();
-	_vector lerpTargetCenterPos = XMVectorLerp(XMLoadFloat3(&physxPos), XMLoadFloat3(&lockOnPos), DeltaTime * 10.f);
+	_vector lerpTargetCenterPos = XMVectorLerp(XMLoadFloat3(&physxPos), XMLoadFloat3(&lockOnPos), (_float)DeltaTime * 10.f);
 	_vector vTargetCenterPos = lerpTargetCenterPos + XMLoadFloat3(&m_vShakePos);
 	_matrix mat = XMMatrixIdentity();
 	_long			MouseMove = 0;
@@ -303,7 +305,7 @@ void CCamera_Fly::ShakeX(_double DeltaTime)
 {
 	if (m_eShaking == SHAKE::SHAKE_ING)
 	{
-		m_fDurationDelta += DeltaTime;
+		m_fDurationDelta += (_float)DeltaTime;
 		if (m_fDuration <= m_fDurationDelta) {
 			if (m_iCnt > 0) {
 				m_fDurationDelta = 0.f;
@@ -324,7 +326,7 @@ void CCamera_Fly::ShakeX(_double DeltaTime)
 		}
 	}
 	else if (m_eShaking != SHAKE::SHAKE_END) {
-		m_fDurationDelta += DeltaTime;
+		m_fDurationDelta += (_float)DeltaTime;
 		if (m_fDuration <= m_fDurationDelta) {
 			m_fDurationDelta = m_fDuration;
 			XMStoreFloat3(&m_vShakePos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakePos), XMVectorZero(), (_float)DeltaTime*3.f * m_fSpd));
@@ -337,7 +339,7 @@ void CCamera_Fly::ShakeX(_double DeltaTime)
 	}
 	else {
 		if (m_fDurationDelta > 0.f)
-			m_fDurationDelta -= DeltaTime;
+			m_fDurationDelta -= (_float)DeltaTime;
 		else {
 			m_fDurationDelta = 0.f;
 		}
@@ -356,7 +358,7 @@ void CCamera_Fly::ShakeX(_double DeltaTime)
 
 void CCamera_Fly::ShakeY(_double DeltaTime)
 {
-	m_fYDurationDelta += DeltaTime;
+	m_fYDurationDelta += (_float)DeltaTime;
 	if (m_fYDuration <= m_fYDurationDelta) {
 		if (m_iYCnt > 0) {
 			m_fYDurationDelta = 0.f;
@@ -379,14 +381,14 @@ void CCamera_Fly::ShakeY(_double DeltaTime)
 
 void CCamera_Fly::ShakeFov(_double DeltaTime)
 {
-	m_fov = m_fov * (1 - DeltaTime * 5.f) + m_fDestFov * DeltaTime * 5.f;
+	m_fov = m_fov * (1 - (_float)DeltaTime * 5.f) + m_fDestFov * (_float)DeltaTime * 5.f;
 	if (m_FovShakeDurationDelta >= m_FovShakeDuration) {
 		m_fDestFov = m_constFov;
 		m_FovShakeDurationDelta = 0.f;
 		m_FovShakeDuration = 0.f;
 	}
 	else 
-		m_FovShakeDurationDelta += DeltaTime;
+		m_FovShakeDurationDelta += (_float)DeltaTime;
 	
 }
 

@@ -65,25 +65,25 @@ void CTargetOn::Update(_double deltaTime)
 	
 	_float2 offset = m_Child[TARGETS_UP]->GetTransformOffst();
 	if (offset.y <= -m_fAimOffset) {
-		offset.y += deltaTime * m_fAimOffset;
+		offset.y += (_float)deltaTime * m_fAimOffset;
 		m_Child[TARGETS_UP]->SetTransformOffst(offset.x, offset.y);
 	}
 	
 	offset = m_Child[TARGETS_DOWN]->GetTransformOffst();
 	if (offset.y >= m_fAimOffset) {
-		offset.y -= deltaTime * m_fAimOffset;
+		offset.y -= (_float)deltaTime * m_fAimOffset;
 		m_Child[TARGETS_DOWN]->SetTransformOffst(offset.x, offset.y);
 	}
 
 	offset = m_Child[TARGETS_LEFT]->GetTransformOffst();
 	if (offset.x <= -m_fAimOffset) {
-		offset.x += deltaTime * m_fAimOffset;
+		offset.x += (_float)deltaTime * m_fAimOffset;
 		m_Child[TARGETS_LEFT]->SetTransformOffst(offset.x, offset.y);
 	}
 
 	offset = m_Child[TARGETS_RIGHT]->GetTransformOffst();
 	if (offset.x >= m_fAimOffset) {
-		offset.x -= deltaTime * m_fAimOffset;
+		offset.x -= (_float)deltaTime * m_fAimOffset;
 		m_Child[TARGETS_RIGHT]->SetTransformOffst(offset.x, offset.y);
 	}
 

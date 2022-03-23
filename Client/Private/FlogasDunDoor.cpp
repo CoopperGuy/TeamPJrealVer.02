@@ -49,7 +49,7 @@ void CFlogasDunDoor::Update(_double deltaTime)
 				m_bOpenDoor = true;
 		}
 		if (m_bOpenDoor && MaxHight >= XMVectorGetY(pFlogasDunDoor)) {
-			doorY += 0.2f * deltaTime;
+			doorY += 0.2f * (_float)deltaTime;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
 
 		}
@@ -62,7 +62,7 @@ void CFlogasDunDoor::Update(_double deltaTime)
 		}
 		if (!m_bOpenDoor && MinHight <= XMVectorGetY(pFlogasDunDoor)) {
 			m_pAlretUI->SetActive(false);
-			doorY -= 0.2f * deltaTime;
+			doorY -= 0.2f * (_float)deltaTime;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
 		}
 	}

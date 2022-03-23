@@ -52,11 +52,11 @@ void CSlashWave::Update(_double dDeltaTime)
 		//m_pChildren->SetScale(_float3(m_pChildren->GetScale(CTransform::STATE_RIGHT) + (m_fScale-1.f)
 		//	, m_pChildren->GetScale(CTransform::STATE_UP) + (m_fScale - 1.f)
 		//		, m_pChildren->GetScale(CTransform::STATE_LOOK) + (m_fScale - 1.f)));
-		m_pChildren->SetScale(_float3(0.5 + (m_fScale-1.f)
-			, 0.1 + (m_fScale - 1.f)
-				, 0.2 + (m_fScale - 1.f)));
+		m_pChildren->SetScale(_float3(0.5f + (m_fScale-1.f)
+			, 0.1f + (m_fScale - 1.f)
+				, 0.2f + (m_fScale - 1.f)));
 		if(m_fScale < 1.5f)
-			m_fScale += dDeltaTime;
+			m_fScale += (_float)dDeltaTime;
 
 		
 		m_pOBB->SetPosision(effectPos);

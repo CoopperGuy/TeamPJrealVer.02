@@ -94,7 +94,7 @@ void CEffectSwordRing::Update(_double deltaTime)
 	}
 
 	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutEnable()) {
-		m_fDeadTime += deltaTime;
+		m_fDeadTime += (_float)deltaTime;
 		//if (0.15 >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeAlpha())
 		if (m_fDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 		{

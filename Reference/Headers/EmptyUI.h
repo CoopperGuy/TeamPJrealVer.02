@@ -32,7 +32,7 @@ public:
 	void SetPosition(_float x, _float y);
 	void SetClientPosition(_float x, _float y);
 	virtual void LinkTranformWithParent();
-
+	void SetSize(_float x, _float y);
 public:
 	void InteractMouse();
 	bool IsHovered() { return m_bHover; }
@@ -69,6 +69,7 @@ public:
 	_float	GetDegree() { return m_fDegree; }
 	_float2	GetTransformOffst() { return m_vTransformOffSet; }
 	_float2 GetPosition();
+	_float2	GetUISize();
 
 protected:
 	_bool m_bHover = false;

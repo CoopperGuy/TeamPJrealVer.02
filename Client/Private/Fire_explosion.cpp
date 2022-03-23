@@ -34,7 +34,7 @@ void CFire_explosion::Update(_double dDeltaTime)
 		//m_pThis->SetActive(true);
 		m_pEffectTrans->SetScale(_float3(m_fScale - 0.5f, m_fScale, 1.f));
 		m_pChildren->SetScale(_float3(m_fScale, m_fScale, 1.f));
-		m_fScale += dDeltaTime * 2.0;
+		m_fScale += (_float)dDeltaTime * 2.0f;
 	}
 }
 

@@ -849,7 +849,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 
 	m_pTransform->SetLook(vPlayerLook);
 
-	m_pController->move(vDir * fSpeed * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+	m_pController->move(vDir * fSpeed * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 }
 
 void CPlayer::Jump(_double dDeltaTime)
@@ -1034,9 +1034,13 @@ _bool CPlayer::IsGravity()
 	PxRaycastBuffer buf;
 	PxQueryFilterData filterData;
 	filterData.data.word1 = CPxManager::GROUP4;
+	filterData.data.word2 = CPxManager::GROUP4;
 	filterData.flags |= PxQueryFlag::eANY_HIT;
+	filterData.flags |= PxQueryFlag::ePREFILTER;
 	_bool isCollied = false;
-	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 0.06f, buf, filterData))
+	PxRigidActor* actor = m_pController->getActor();
+	
+	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
 	{
 		if (buf.getAnyHit(0).distance <= 0.05f)
 		{

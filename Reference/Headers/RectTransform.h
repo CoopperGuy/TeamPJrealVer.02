@@ -43,6 +43,7 @@ public:
 	void					SetClientPosition(_float x, _float y);
 public:
 	_float2					GetPosition();
+	_float2					GetUISize();
 private:
 	class CEngine*				m_pEngine = nullptr;
 	_float4x4				m_ProjMatrix;

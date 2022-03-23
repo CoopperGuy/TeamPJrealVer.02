@@ -6,6 +6,7 @@
 IMPLEMENT_SINGLETON(CPxManager)
 
 
+
 PxFilterFlags myFilterShader(PxFilterObjectAttributes attributes0, PxFilterData filterData0, PxFilterObjectAttributes attributes1, PxFilterData filterData1, PxPairFlags& pairFlags, const void* constantBlock, PxU32 constantBlockSize)
 {
 	//let triggers through
@@ -211,6 +212,18 @@ _bool CPxManager::Raycast(_vector origin, _vector unitDir, _float maxDistance, P
 _bool CPxManager::Raycast(PxVec3 origin, PxVec3 unitDir, _float maxDistance, PxRaycastBuffer & hit, PxQueryFilterData & filterData)
 {
 	return m_pScene->raycast(origin, unitDir, maxDistance, hit, PxHitFlag::eDEFAULT, filterData);
+}
+
+_bool CPxManager::Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer & hit, PxQueryFilterData & filterData, CPxQueryFilters * _callback)
+{
+	PxVec3 pxOrigin;
+	PxVec3 pxUnitDir;
+	PxReal pxMaxDistance = maxDistance;
+
+	memcpy(&pxOrigin, &origin, sizeof(PxVec3));
+	memcpy(&pxUnitDir, &unitDir, sizeof(PxVec3));
+
+	return m_pScene->raycast(pxOrigin, pxUnitDir, maxDistance, hit, PxHitFlag::eDEFAULT, filterData, _callback);
 }
 
 _bool CPxManager::Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer & hit, PxQueryFilterData & filterData, PxHitFlags hitFlags)

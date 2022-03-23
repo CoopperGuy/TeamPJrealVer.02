@@ -6,7 +6,7 @@ GameObjects:
     Layer: Default
     Type: UI
     SortingOrder: 6
-    PassIndex: 6
+    PassIndex: 8
     Hovering: true
     Com_Transform:
       Position: [250, 110.899994]
@@ -24,7 +24,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 0
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [169.999939, 95.7243347]
@@ -41,7 +41,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 1
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [112.608704, 110.899994]
@@ -58,7 +58,7 @@ GameObjects:
         Layer: Default
         Type: UI
         SortingOrder: 7
-        PassIndex: 0
+        PassIndex: 8
         Hovering: false
         Com_Transform:
           Position: [336.957947, 117.644684]

@@ -265,6 +265,15 @@ void CEmptyUI::LinkTranformWithParent()
 	}
 }
 
+void CEmptyUI::SetSize(_float x, _float y)
+{
+	CRectTransform::RECTTRANSFORMDESC _desc;
+	_desc = m_pRectTransformCom->GetTransformDesc();
+	_desc.sizeX = x;
+	_desc.sizeY = y;
+	m_pRectTransformCom->SetTransformMat(_desc);
+}
+
 void CEmptyUI::InteractMouse()
 {
 	if (m_isHovering) {
@@ -307,6 +316,11 @@ void CEmptyUI::SetisRender(_bool tf)
 _float2 CEmptyUI::GetPosition()
 {
 	return m_pRectTransformCom->GetPosition();
+}
+
+_float2 CEmptyUI::GetUISize()
+{
+	return m_pRectTransformCom->GetUISize();
 }
 
 HRESULT CEmptyUI::SetUpComponents()

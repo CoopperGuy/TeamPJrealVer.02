@@ -24,7 +24,7 @@ HRESULT CImpactShort::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPl
 
 void CImpactShort::Update(_double deltaTime)
 {
-	m_pEffectTrans->SetScale(_float3(m_DurationDelta * 2.f + 2.f, 0.5f, m_DurationDelta * 2.f + 2.f));
+	m_pEffectTrans->SetScale(_float3((_float)m_DurationDelta * 2.f + 2.f, 0.5f, (_float)m_DurationDelta * 2.f + 2.f));
 }
 
 void CImpactShort::LateUpdate(_double deltaTime)

@@ -30,7 +30,8 @@ HRESULT CNpc_Shop::Initailze(CGameObject * pArg)
 	if (pArg) {
 		m_pShopNPC = (CEmptyGameObject*)pArg;
 		m_pNpcTransform = static_cast<CTransform*>(m_pShopNPC->GetComponent("Com_Transform"));
-	/*	std::thread creatShop(SetupShopList, this);
+		m_pShopList = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE::SCENE_STATIC, "ShopList"));
+		/*	std::thread creatShop(SetupShopList, this);
 		creatShop.detach();*/
 		this->SetupShop();
 	}
@@ -64,11 +65,14 @@ void CNpc_Shop::Update(_double deltaTime)
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_ESCAPE)) {
 			g_AnotherMenu = false;
 			m_pShopHud->SetActive(false);
+			m_isActived = false;
 			for (auto& iter : m_ShopList) {
 				iter.first->SetActive(false);
 			}
 			CEventCheck::GetInstance()->isOpeningShop(false);
 			m_iCurSelectedItem = -1;
+			_float2 shopPos = m_pShopList->GetPosition();
+			m_pShopList->SetPosition(shopPos.x, 0.f);
 		}
 
 		_float distance;
@@ -79,9 +83,11 @@ void CNpc_Shop::Update(_double deltaTime)
 			if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 				g_AnotherMenu = true;
 				m_pShopHud->SetActive(true);
+				m_isActived = true;
 				for (auto& iter : m_ShopList) {
 					iter.first->SetActive(true);
 				}
+				m_pShopHud->SetOffset(m_fShopListYLength);
 				CEventCheck::GetInstance()->isOpeningShop(true);
 				m_iCurSelectedItem = -1;
 			}
@@ -93,6 +99,8 @@ void CNpc_Shop::Update(_double deltaTime)
 			if (m_pShopHud->IsBuySelected()) {
 				CEventCheck::GetInstance()->ContractShop(this);
 			}
+			if(m_isActived)
+				m_pShopHud->SetShopLength(m_fShopListYLength);
 		}
 
 	}
@@ -135,7 +143,9 @@ void CNpc_Shop::SetupShop()
 				_float2 pos = shopItemUI->GetPosition();
 				shopItemUI->SetPosition(pos.x, yPos);
 				yPos += 85.f;
+				m_pShopList->AddChild(shopItemUI);
 			}
+			m_fShopListYLength = yPos;
 		}
 	}
 

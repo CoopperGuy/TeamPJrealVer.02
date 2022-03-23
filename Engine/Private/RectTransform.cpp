@@ -164,3 +164,8 @@ _float2 CRectTransform::GetPosition()
 {
 	return _float2(m_TransformDesc.posX, m_TransformDesc.posY);
 }
+
+_float2 CRectTransform::GetUISize()
+{
+	return _float2(m_TransformDesc.sizeX, m_TransformDesc.sizeY);
+}

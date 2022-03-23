@@ -18,6 +18,7 @@ CText::CText(const CText & rhs)
 	, m_strText(rhs.m_strText)
 	, m_vColor(rhs.m_vColor)
 	, m_fLayerDepth(rhs.m_fLayerDepth)
+	, m_bisShaderCut(rhs.m_bisShaderCut)
 {
 }
 
@@ -74,7 +75,11 @@ HRESULT CText::Render()
 	CD3D11_RECT rt(LONG((desc.posX - (desc.sizeX / 2.f)) * xFactor), LONG((desc.posY - (desc.sizeY / 2.f)) * yFactor),
 		LONG((desc.posX + (desc.sizeX / 2.f)) * xFactor), LONG((desc.posY + (desc.sizeY / 2.f)) * yFactor));
 	_float2 vPos = { (float)rt.left, (float)rt.top };
-	
+	if (m_bisShaderCut) {
+		if (rt.top < 60 || rt.bottom > 660) {
+			rt.top = rt.bottom;
+		}
+	}
 	ComRef<ID3D11RasterizerState> scissorState = nullptr;
 	CD3D11_RASTERIZER_DESC rsDesc(D3D11_FILL_SOLID, D3D11_CULL_BACK, FALSE,
 		0, 0.f, 0.f, TRUE, TRUE, TRUE, FALSE);

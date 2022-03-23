@@ -23,7 +23,7 @@ void ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit)
 	if (FAILED(CEngine::GetInstance()->CreatePrefab(_prototypeTag, _name))) {
 		wstring path;
 		path.assign(_name.begin(), _name.end());
-		wstring errMsg = L"Failed To Create Pajang Prefab" + path;
+		wstring errMsg = L"Failed To Create Prefab" + path;
 		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
 	}
 	loader->SetCompleteBit(bit);
@@ -135,7 +135,7 @@ HRESULT CLoader::UpdateGauge(_double deltaTime)
 {
 	_float	percentage = m_pLoadingGauge->GetPercentage();
 	if (percentage < 90.f) {
-		m_pLoadingGauge->AddPercentage(1.f*deltaTime);
+		m_pLoadingGauge->AddPercentage(1.f*(_float)deltaTime);
 		//	cout << percentage << "\n";
 	}
 	return S_OK;
@@ -215,7 +215,7 @@ HRESULT CLoader::GameFlogasLoader()
 	t20.join();
 
 	std::thread t21(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
-	t21.detach();
+	t21.join();
 
 	_bool isFinish = false;
 	while (isFinish) {
@@ -311,7 +311,7 @@ HRESULT CLoader::GameSceneLogo()
 	std::thread tP5(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5);
 	tP5.detach();
 	std::thread tP6(ThreadPrefab, this, "Prototype_GameObject_TargetOn", "U_TargetOnUI", 6);
-	tP6.detach();
+	tP6.join();
 
 
 	_bool threadFinish = false;
@@ -326,7 +326,7 @@ HRESULT CLoader::GameSceneLogo()
 	while (m_pLoadingGauge->GetPercentage() < 95.f)
 		m_pLoadingGauge->AddPercentage(0.1f);
 	while (isFinish) {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (!(m_iCompleteBit & (1 << i))) {
 				isFinish = false;
 			}

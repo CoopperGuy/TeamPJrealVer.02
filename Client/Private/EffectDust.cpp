@@ -49,7 +49,7 @@ void CEffectDust::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	m_fFrame += 99.f*deltaTime;
+	m_fFrame += 99.f*(_float)deltaTime;
 
 	if (m_fFrame >= 99)
 		m_bDead = true;

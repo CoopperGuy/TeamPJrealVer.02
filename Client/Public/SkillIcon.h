@@ -11,7 +11,7 @@ class CSkillIcon :
 	enum SKILLIMAGE{SKILL_IMAGE,SKILL_BORDER,SKILL_END};
 public:
 	typedef struct tagSkillInfo {
-		_int   level = 1.f;
+		_int   level = 1;
 		_float coolTime = 10.f;
 		_float coolDelta = 0.f;
 		_float skillDuration = 0.f;

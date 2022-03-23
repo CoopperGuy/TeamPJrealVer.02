@@ -55,7 +55,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				vDist = XMVectorSetY(vDist, 0.f);
 				m_pTransform->SetLook(vDist);
 				memcpy(&vDir, &XMVector3Normalize(vDist), sizeof(_float3));
-				m_pController->move(vDir * 0.4f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+				m_pController->move(vDir * 0.4f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 			}
 			else
 				m_bDestination = true;

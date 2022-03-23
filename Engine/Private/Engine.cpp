@@ -747,6 +747,11 @@ _bool CEngine::Raycast(PxVec3 origin, PxVec3 unitDir, _float maxDistance, PxRayc
 	return m_pPxManager->Raycast(origin, unitDir, maxDistance, hit, filterData);
 }
 
+_bool CEngine::Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer & hit, PxQueryFilterData & filterData, CPxQueryFilters * _callback)
+{
+	return m_pPxManager->Raycast(origin, unitDir, maxDistance, hit, filterData, _callback);
+}
+
 _bool CEngine::Overlap(const _float3 & point, PxU32 layerMask, _float3 direciton)
 {
 	return m_pPxManager->Overlap(point, layerMask, direciton);
