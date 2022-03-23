@@ -186,7 +186,4 @@ CComponent * CVIBuffer_Cube::Clone(void * pArg)
 void CVIBuffer_Cube::Free()
 {
 	__super::Free();
-
-	if (m_pTexture)
-		SafeRelease(m_pTexture);
 }
