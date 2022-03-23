@@ -26,11 +26,13 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	//m_pEffectTrans->GoRight(0.05);
 	vPos += XMVector3Normalize(m_pTargetTrans->GetState(CTransform::STATE_RIGHT))  * -0.05f;
 
+
+	CTransform* pChildTrans = static_cast<CTransform*>(m_pThis->GetChildren().front()->GetComponent("Com_Transform"));
+	m_vChildScale = { pChildTrans->GetScale(CTransform::STATE_RIGHT),pChildTrans->GetScale(CTransform::STATE_UP), pChildTrans->GetScale(CTransform::STATE_LOOK) };
+
 	_vector pos = vTargetPos;
 	pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, pos);
-
-	m_vecScales = { m_pEffectTrans->GetScale(CTransform::STATE_RIGHT) , m_pEffectTrans->GetScale(CTransform::STATE_UP) , m_pEffectTrans->GetScale(CTransform::STATE_LOOK) };
 
 	CStat* stat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
 
@@ -46,15 +48,14 @@ void CSlashWave::Update(_double dDeltaTime)
 		m_pChildren->GetScale(CTransform::STATE_RIGHT);
 		m_pEffectTrans->GoStraight(dDeltaTime * 1.0);
 		m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, m_fScale));
+
+		m_pChildren->SetScale(_float3(m_vChildScale.x *m_fScale, m_vChildScale.y *m_fScale, m_vChildScale.z *m_fScale));
+		
+
 		_vector pos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 		_float3 effectPos;
 		XMStoreFloat3(&effectPos, pos);
-		//m_pChildren->SetScale(_float3(m_pChildren->GetScale(CTransform::STATE_RIGHT) + (m_fScale-1.f)
-		//	, m_pChildren->GetScale(CTransform::STATE_UP) + (m_fScale - 1.f)
-		//		, m_pChildren->GetScale(CTransform::STATE_LOOK) + (m_fScale - 1.f)));
-		m_pChildren->SetScale(_float3(0.5f + (m_fScale-1.f)
-			, 0.1f + (m_fScale - 1.f)
-				, 0.2f + (m_fScale - 1.f)));
+
 		if(m_fScale < 1.5f)
 			m_fScale += (_float)dDeltaTime;
 

@@ -50,7 +50,7 @@ HRESULT CUrsa::Initialize(_float3 position)
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
-	m_pModel->SetAnimationLoop((_uint)Ursa::CB_START, false);
+	m_pModel->SetAnimationLoop((_uint)Ursa::CB_Start, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::DASH_ATT, false, true);
 	m_pModel->SetAnimationLoop((_uint)Ursa::L_SLASH, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::R_SLASH, false, true);
@@ -93,27 +93,42 @@ void CUrsa::Update(_double dDeltaTime)
 		return;
 	//if (m_pStat->GetStatInfo().hp <= 0)
 	//	m_pGameObject->SetDead();
+
+	__super::Update(dDeltaTime);
+
 	m_fDist = SetDistance();
 
-
+	//TestAnimation(Flying_End);
+	Checking_Phase(dDeltaTime);
 	if (m_bCombat[First])
 	{
 		if (!m_bCB)
 			Adjust_Dist(dDeltaTime);
 	}
-	Checking_Phase(dDeltaTime);
-	Execute_Pattern(dDeltaTime);
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bCombat[First] = true;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+		Roar();
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	{
+		m_bCombat[Second] = true;
+		m_bCombat[First] = false;
+	}
+	Execute_Pattern(dDeltaTime);
+
+	Checking_Finished();
+
+	if(m_bCB)
+		SetUp_Combo();
+	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
+	m_pStat->SetSTATE(m_eCurSTATES);
 	if (m_pCollider) 
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 
-	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
-	Checking_Finished();
-	if(m_bCB)
-		SetUp_Combo();
-	m_pStat->SetSTATE(m_eCurSTATES);
+	//fall down
+	/*PxControllerFilters filters;
+	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -141,44 +156,100 @@ void CUrsa::Empty_queue()
 void CUrsa::Adjust_Dist(_double dDeltaTime)
 {
 	_int Drawing = rand() % 100;
-
-	if (m_fDist >= 6.5f)
-	{
-		m_bMove	 = true;
-		m_bFar	 = true;
-		m_bClose = false;
-	}
-	else if (m_fDist >= 1.f)
-	{
-		m_bMove	 = true;
-		m_bClose = false;
-	}
-	else
-	{
-		m_bClose = true;
-		m_bMove  = false;
-	}
-
 	_vector vLook, vTargetLook;
 	vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
 	vTargetLook = XMLoadFloat3(&m_vTargetToLook);
 	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 	PxControllerFilters filters;
-	if (m_bMove)
+
+	if (m_bRoar)
 	{
+		m_bFar = false;
+		m_bMove = false;
+		m_bClose = false;
+		vDir = OriginShift();
+		if (!m_bCenter)
+			m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
+
+	}
+	else if (m_fDist >= 3.5f)
+	{
+		m_bSuperFar	= true;
+		m_bFar		= false;
+		m_bMove		= false;
+		m_bClose	= false;
+	}
+	else if (m_fDist >= 2.f)
+	{
+		if (!m_bSuperFar)
+		{
+			m_bFar		= true;
+			m_bSuperFar = false;
+			m_bMove		= false;
+			m_bClose	= false;
+		}
+	}
+	else if (m_fDist >= 1.f)
+	{
+		if (!m_bFar && !m_bSuperFar)
+		{
+			m_bMove		= true;
+			m_bClose	= false;
+			m_bSuperFar = false;
+		}
+	}
+	else
+	{
+		if (!m_bFar && !m_bSuperFar)
+		{
+			m_bClose	= true;
+			m_bMove		= false;
+			m_bSuperFar = false;
+		}
+	}
+
+	if (m_bMove && !m_bFinishBlow)
+	{
+		
 		m_eState = RUN;
-	
+
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
-		m_pController->move(vDir * 0.5f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+		
+		m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
+
 	}
 }
 
 void CUrsa::Checking_Phase(_double dDeltaTime)
 {
 	_float Max = m_pStat->GetStatInfo().maxHp;
+	if (m_bFinishBlow)
+	{
+		if(m_bDelay)
+			m_dPatternTime += dDeltaTime;
+		
+		if (m_pModel->Get_isFinished())
+		{
+			m_bDelay = true;
+			m_eState = IDLE_CB;
+		}
+		
+		if (m_dPatternTime > 0.5)
+		{
+			m_dPatternTime = 0.0;
+			m_bSuperFar	   = false;
+			m_bFar		   = false;
+			m_bCB		   = false;
+			m_bClose	   = false;
+			m_bDelay	   = false;
+			m_bRoar		   = false;
+			m_bCenter	   = false;
+			m_bFinishBlow  = false;
+		}
+	}
 	if (m_pStat->GetStatInfo().hp < Max)
 	{
 		if(!m_bCB)
@@ -186,33 +257,67 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 		m_bCombat[First] = true;
 		if (m_pStat->GetStatInfo().hp < Max * 0.7f)
 		{
+			if (m_iSec == 0)
+				Roar();
+			++m_iSec;
 			memset(m_bCombat, false, sizeof(m_bCombat));
 			m_bCombat[Second] = true;
 			if (m_pStat->GetStatInfo().hp < Max * 0.4f)
 			{
+				if (m_iThir == 0)
+					Roar();
+				++m_iThir;
 				memset(m_bCombat, false, sizeof(m_bCombat));
 				m_bCombat[Third] = true;
 				if (m_pStat->GetStatInfo().hp < Max * 0.1f)
+					if (m_iLast == 0)
+						Roar();
+					++m_iLast;
 					memset(m_bCombat, false, sizeof(m_bCombat));
 					m_bCombat[Last] = true;
 			}
 		}
 	}
-	
 }
 
 void CUrsa::Execute_Pattern(_double dDeltaTime)
 {
-	if (m_bFar)
+	if (m_bRoar)
 	{
-		if (!m_bCombat[Last])
-			m_eState = DASH_ATT;
-		else
-			m_eState = DASH_ATTSpeedup;
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			++m_iComboIndex;
+			m_bCB = true;
+			if (m_iComboIndex == 1)
+				m_iComboIndex = 0;
+		}
+	}
+	else if (m_bSuperFar)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			m_QueState.push(Flying_Start);
+			m_QueState.push(Flying_Land);
+			m_QueState.push(Flying_End);
+		
+			_vector vTargetLook = XMLoadFloat3(&m_vTargetToLook);
+			vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+			m_pTransform->SetLook(vTargetLook);
+		}
+	}
+	else if (m_bFar)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			if (!m_bCombat[Last])
+				m_QueState.push(DASH_ATT);
+			else
+				m_QueState.push(DASH_ATTSpeedup);
 
-		if (m_pModel->Get_isFinished((_uint)m_eState))
-			m_bFar = false;
-
+			_vector vTargetLook = XMLoadFloat3(&m_vTargetToLook);
+			vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+			m_pTransform->SetLook(vTargetLook);
+		}
 	}
 	else
 	{
@@ -226,24 +331,32 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 
 			else if (m_bCombat[Third])
 				Third_Phase(dDeltaTime);
-
 		}
 	}
 }
 
 void CUrsa::First_Phase(_double dDeltaTime)
 {
-	if (m_QueState.empty())
+	if (m_QueState.empty() && !m_bFinishBlow)
 	{
 		++m_iComboIndex;
 		m_bCB = true;
 		if (m_iComboIndex > 3)
 			m_iComboIndex = 0;
+
 	}
 }
 
 void CUrsa::Second_Phase(_double dDeltaTime)
 {
+	if (m_QueState.empty() && !m_bFinishBlow)
+	{
+		++m_iComboIndex;
+		m_bCB = true;
+		if (m_iComboIndex > 5)
+			m_iComboIndex = 0;
+
+	}
 }
 
 void CUrsa::Third_Phase(_double dDeltaTime)
@@ -252,60 +365,166 @@ void CUrsa::Third_Phase(_double dDeltaTime)
 
 void CUrsa::SetUp_Combo()
 {
-	if (m_bCombat[First])
+	_vector vTargetLook = XMLoadFloat3(&m_vTargetToLook);
+	
+	if (m_bRoar)
 	{
-		if (m_QueState.empty() && m_bCB)
+		m_bCB = false;
+		m_bFinishBlow = false;
+		m_iComboIndex = 0;
+		m_QueState.push(ROAR_Start);
+		m_QueState.push(ROAR_ING);
+		m_QueState.push(ROAR_ING);
+		m_QueState.push(ROAR_End);
+	}
+	if (m_QueState.empty())
+	{
+		if (!m_bFinishBlow)
 		{
-			switch (m_iComboIndex)
+			if (m_bCombat[First])
 			{
-			case 1:
-			m_QueState.push(Combo_1Start);
-			m_QueState.push(Combo_1Hold);
-			m_QueState.push(Combo_1);
-			m_QueState.push(Combo_1End);
-			m_QueState.push(Combo_2Start);
-			m_QueState.push(Combo_2End);
-			m_eState = m_QueState.front();
-			m_QueState.pop();
-			break;
-			case 2:
-			m_QueState.push(Combo_1Start);
-			m_QueState.push(Combo_1Hold);
-			m_QueState.push(Combo_1);
-			m_QueState.push(Combo_1End);
-			m_QueState.push(R_SLASH);
-			m_eState = m_QueState.front();
-			m_QueState.pop();
-			break;
-			case 3:
-			Empty_queue();
-			m_eState = Big_SLASH;
-			break;
-			default:
-				break;
+				switch (m_iComboIndex)
+				{
+				case 1:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_2Start);
+					m_QueState.push(Combo_2End);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 2:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(R_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 3:
+					m_QueState.push(Big_SLASH);
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				default:
+					break;
+				}
+
 			}
+			else if (m_bCombat[Second])
+			{
+				switch (m_iComboIndex)
+				{
+				case 1:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_2Start);
+					m_QueState.push(Combo_3Start);
+					m_QueState.push(Combo_3End);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 2:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(R_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 3:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(L_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 4:
+					m_QueState.push(Big_SLASH);
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 5:
+					m_QueState.push(AXE_STAMP);
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				default:
+					break;
+				}
+			}
+			else if (m_bCombat[Third])
+			{
+
+			}	
 		}
-	}
-	else if (m_bCombat[Second])
-	{
-
-	}
-	else if (m_bCombat[Third])
-	{
-
 	}
 }
 
 void CUrsa::Checking_Finished()
 {
-	if (m_pModel->Get_isFinished())
+	if (m_bRoar)
 	{
-		if (m_QueState.empty())
-			m_bCB = false;
-		if (!m_QueState.empty())
+		if (m_bCenter)
 		{
-			m_eState = m_QueState.front();
-			m_QueState.pop();
+			if (m_pModel->Get_isFinished())
+			{
+				if (!m_QueState.empty())
+				{
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+
+				}
+				if (!None_Combat())
+				{
+					if (m_QueState.empty())
+						m_bFinishBlow = true;
+				}
+			}
+		}
+	}
+	else
+	{
+		if (m_pModel->Get_isFinished())
+		{
+			if (!m_QueState.empty())
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+
+			}
+			if (!None_Combat())
+			{
+				if (m_QueState.empty())
+					m_bFinishBlow = true;
+			}
+		}
+		else if (m_bFar && m_bSuperFar)
+		{
+			if (!m_QueState.empty())
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+
+			}
+			if (!None_Combat())
+			{
+				if (m_QueState.empty())
+					m_bFinishBlow = true;
+			}
 		}
 	}
 }
@@ -317,4 +536,77 @@ _float CUrsa::SetDistance()
 	vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	XMStoreFloat3(&m_vTargetToLook, vTargetPos - vPos);
 	return XMVectorGetX(XMVector3Length(vTargetPos - vPos));
+}
+
+_bool CUrsa::None_Combat()
+{
+	if (m_eState == IDLE01 || m_eState == IDLE02
+		|| m_eState == IDLE_CB || m_eState == RUN || m_eState == CB_Start)
+		return true;
+
+	else
+		return false;
+}
+
+void CUrsa::TestAnimation(Ursa eState)
+{
+	if(CEngine::GetInstance()->Get_DIKDown(DIK_O))
+		m_eState = eState;
+
+	if (m_pModel->Get_isFinished())
+		m_eState = IDLE01;
+}
+
+void CUrsa::Roar()
+{
+	Empty_queue();
+	if (m_eState == Combo_1Start || m_eState == Combo_1Hold || m_eState == Combo_1)
+	{
+		m_QueState.push(Combo_1End);
+	}
+	else if (m_eState == Combo_2Start)
+	{
+		m_QueState.push(Combo_2End);
+	}
+	else if (m_eState == Combo_3Start)
+	{
+		m_QueState.push(Combo_3End);
+	}
+	else if (m_eState == Combo_4Start)
+	{
+		m_QueState.push(Combo_4End);
+	}
+
+	m_bRoar = true;
+}
+
+PxVec3 CUrsa::OriginShift()
+{
+	_vector vCenter;
+	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
+	PxControllerFilters filters;
+	vCenter = (XMLoadFloat3(&m_vCenterPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
+	_float Length = XMVectorGetX(XMVector3Length(vCenter));
+
+	if (Length > 0.05f)
+	{
+		if (!m_bCenter)
+		{
+			m_eState = RUN;
+			vCenter = XMVectorSetY(vCenter, 0.f);
+			m_pTransform->SetLook(vCenter);
+			memcpy(&vDir, &XMVector3Normalize(vCenter), sizeof(_float3));
+		}
+	}
+	else
+	{
+		if (!m_bCenter)
+		{
+			//m_eState = IDLE_CB;
+			m_pTransform->SetLook(XMLoadFloat3(&m_vTargetToLook));
+		}
+		m_bCenter = true;
+	}
+
+	return vDir;
 }

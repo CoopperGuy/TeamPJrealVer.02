@@ -77,11 +77,16 @@ CGameObject* CGameObjectManager::AddGameObjectToPrefab(_uint iSceneIndex, string
 {
 	CGameObject*	pPrototype = FindPrototype(pPrototypeTag);
 	if (nullptr == pPrototype)
+	{
+		MSG_BOX("Failed To FindPrototype - AddGameObjectToPrefab");
 		return nullptr;
-
+	}
 	CGameObject*	pGameObject = pPrototype->PrefabClone(pArg); // PrefabClone
 	if (nullptr == pGameObject)
+	{
+		MSG_BOX("Failed To PrefabClone - AddGameObjectToPrefab");
 		return nullptr;
+	}
 
 	CLayer*		pLayer = FindLayer(iSceneIndex, pLayerTag);
 
@@ -89,7 +94,10 @@ CGameObject* CGameObjectManager::AddGameObjectToPrefab(_uint iSceneIndex, string
 	{
 		CLayer*		pNewLayer = CLayer::Create();
 		if (nullptr == pNewLayer)
+		{
+			MSG_BOX("Failed To CreateLayer - AddGameObjectToPrefab");
 			return nullptr;
+		}
 
 		pNewLayer->AddGameObjectInLayer(pGameObject);
 
@@ -103,11 +111,17 @@ CGameObject* CGameObjectManager::AddGameObjectToPrefab(_uint iSceneIndex, string
 	{
 		CGameObject*	pChildPrototype = FindPrototype(pChildPrototypeTag);
 		if (nullptr == pChildPrototype)
+		{
+			MSG_BOX("Failed To FindpChildPrototype - AddGameObjectToPrefab");
 			return nullptr;
+		}
 
 		CGameObject*	pChildGameObject = pChildPrototype->ChildrenPrefabClone(pGameObject, pArg);
 		if (nullptr == pChildGameObject)
+		{
+			MSG_BOX("Failed To ChildrenPrefabClone - AddGameObjectToPrefab");
 			return nullptr;
+		}
 
 		if (pLayer == nullptr)
 			pLayer = FindLayer(iSceneIndex, pLayerTag);

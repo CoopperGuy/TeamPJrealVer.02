@@ -9,7 +9,7 @@ class CUrsa : public CEnemy
 public:
 	enum Ursa 
 	{
-		IDLE02, IDLE01, IDLE_CB, RUN, CB_START, CASTING, DASH_ATT, L_SLASH, R_SLASH, Combo_1Start, Combo_1Hold, Combo_1, Combo_1End, Combo_2Start, Combo_2End,
+		IDLE02, IDLE01, IDLE_CB, RUN, CB_Start, ROAR_Casting, DASH_ATT, L_SLASH, R_SLASH, Combo_1Start, Combo_1Hold, Combo_1, Combo_1End, Combo_2Start, Combo_2End,
 		Combo_3Start, Combo_3End, Combo_4Start, Combo_4End, Big_SLASH, AXE_STAMP, PUMMEL_1,PUMMEL_2, ROAR_ING,ROAR_End, DASH_ATTSpeedup, WHEELWIND_Start, WHEELWIND_Ing,
 		WHEELWIND_End, ROAR_Start, HIT, DIE, DEADBODY,qqq,wwww,eee,err,assd,wwewe,qyyw,Flying_Start, Flying_Land, Flying_End, Ursa_END
 	};
@@ -33,12 +33,8 @@ public:
 	virtual void LateUpdate(_double dDeltaTime);
 	virtual void Render();
 
-public:
-	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
-	
 private:
 	void Empty_queue();
-
 	void Adjust_Dist(_double dDeltaTime);
 	void Checking_Phase(_double dDeltaTime);
 	void Execute_Pattern(_double dDeltaTime);
@@ -48,7 +44,12 @@ private:
 	void Last_Phase(_double dDeltaTime);
 	void SetUp_Combo();
 	void Checking_Finished();
+	void TestAnimation(Ursa eState);
+	void Roar();
+	PxVec3 OriginShift();
+
 	_float SetDistance();
+	_bool None_Combat();
 
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
@@ -70,12 +71,19 @@ private:
 	_double m_dPatternTime = 0.0;
 
 	_uint m_iComboIndex = 0;
+	_uint m_iSec = 0;
+	_uint m_iThir = 0;
+	_uint m_iLast = 0;
 
 	_bool m_bCombat[Phase_End] = {};
+	_bool m_bCenter			   = false;
 	_bool m_bFar			   = false;
+	_bool m_bSuperFar		   = false;
 	_bool m_bClose			   = false;
 	_bool m_bMove			   = false;
 	_bool m_bCB				   = false;
-	
+	_bool m_bFinishBlow		   = false;
+	_bool m_bDelay			   = false;
+	_bool m_bRoar			   = false;
 };
 END
