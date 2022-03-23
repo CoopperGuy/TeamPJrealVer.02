@@ -80,7 +80,10 @@ _uint CCollider::LateUpdate(double deltaTime)
 				{
 					//caluate RootAnimation Position
 					_vector rootScale, rootRotation, rootPosition;
-					XMMatrixDecompose(&rootScale, &rootRotation, &rootPosition, pModel->Get_BoneMatrix("Root"));
+					if(m_pMaster->GetName() != "Ursa")
+						XMMatrixDecompose(&rootScale, &rootRotation, &rootPosition, pModel->Get_BoneMatrix("Root"));
+					else
+						XMMatrixDecompose(&rootScale, &rootRotation, &rootPosition, pModel->Get_BoneWithoutOffset("Root"));
 					rootPosition = XMVectorSetY(rootPosition, 0.f);
 
 					// root animation correction when detected collision
@@ -111,7 +114,7 @@ _uint CCollider::LateUpdate(double deltaTime)
 
 						_vector frameGap = correctPos - XMLoadFloat3(&m_preFramePosition);
 						PxVec3 moveRoot = PxVec3(XMVectorGetX(frameGap), XMVectorGetY(frameGap), XMVectorGetZ(frameGap));
-						m_pController->move(moveRoot, 0.001f, (_float)deltaTime, nullptr);
+						m_pController->move(moveRoot, 0.00001f, (_float)deltaTime, nullptr);
 
 						XMStoreFloat4x4(&m_pxMat, m_pObjTransform->GetWorldMatrix());
 						PxExtendedVec3 centerPos = m_pController->getPosition();

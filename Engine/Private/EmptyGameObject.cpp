@@ -478,7 +478,7 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 				if (pModel)
 				{
 					_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
-					nowOBb->Update_State(boneMat * m_pTransformCom->GetWorldMatrix());
+					nowOBb->Update_State(boneMat * m_pRenderTransformCom->GetWorldMatrix());
 				}
 			}
 

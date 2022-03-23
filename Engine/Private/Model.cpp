@@ -1127,7 +1127,7 @@ HRESULT CModel::Update_CombinedTransformationMatrices(_double TimeDelta)
 {
 	if (m_Animations.empty() || m_iAnimationIndex >= m_Animations.size())
 		return E_FAIL;
-	m_bisChangedAnimation = false;
+	/*m_bisChangedAnimation = false;*/
 	m_isFinished = m_Animations[m_iAnimationIndex]->Update_TransformationMatrices(TimeDelta);
 	if (m_iAnimationIndex != m_iPrevAnimationIndex)
 	{
@@ -1138,10 +1138,9 @@ HRESULT CModel::Update_CombinedTransformationMatrices(_double TimeDelta)
 		if (m_fBlendTime > 0) {
 			m_bChanged = false;
 		}
-		else {
-			m_bisChangedAnimation = true;
+		else
 			pRender->SetMatrix(m_pTransform->GetWorldMatrix());
-		}
+		
 		_float ratio = (m_fBlendTime / m_fBlendDuration);
 		//if(!m_Animations[m_iPrevAnimationIndex]->GetLoop())
 			//m_Animations[m_iPrevAnimationIndex]->Update_TransformationMatrices(0.5f);
@@ -1159,6 +1158,7 @@ HRESULT CModel::Update_CombinedTransformationMatrices(_double TimeDelta)
 	}
 	else
 	{
+		m_bisChangedAnimation = false;
 		m_bBlend = false;
 		m_bChanged = false;
 	}

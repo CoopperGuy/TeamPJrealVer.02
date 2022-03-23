@@ -134,7 +134,7 @@ void CFlogas::Update(_double dDeltaTime)
 				makeEA = false;
 			}
 		}
-
+		
 		if (m_pStat->GetStatInfo().hp <= 0)
 		{
 			m_bStartBattle = false;
@@ -208,10 +208,6 @@ void CFlogas::Update(_double dDeltaTime)
 
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
-
-	//fall down
-	/*PxControllerFilters filters;
-	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
 
 	if (m_pTrailBuffer)
 		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
