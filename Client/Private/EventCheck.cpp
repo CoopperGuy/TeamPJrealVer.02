@@ -95,10 +95,10 @@ void CEventCheck::ShakeUpDown(_int _cnt, _float _duration, _float _spd)
 		m_pCameraFly->ShakeUpDown(_cnt, _duration, _spd);
 }
 
-void CEventCheck::ZoomFov(_float _duration, _float _destFov)
+void CEventCheck::ZoomFov(_float _duration, _float _destFov, _float _spd)
 {
 	if (m_pCameraFly)
-		m_pCameraFly->ZoomFov(_duration, _destFov);
+		m_pCameraFly->ZoomFov(_duration, _destFov, _spd);
 
 }
 

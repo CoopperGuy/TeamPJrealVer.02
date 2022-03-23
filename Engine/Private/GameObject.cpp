@@ -392,6 +392,9 @@ void CGameObject::Free()
 #endif
 	}
 	m_Components.clear();
+#ifdef _DEBUG
+	cout << GetName() << " : obj name " << this->getRefCnt() << " cnt" << "\n";
+#endif
 
 	m_pParent = nullptr;
 }

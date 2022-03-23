@@ -47,7 +47,9 @@ CMainApp * CMainApp::Create()
 }
 
 void CMainApp::Free()
-{
+{	
+	CEventCheck::GetInstance()->DestroyInstance();
+
 	ImGui_ImplDX11_Shutdown();
 	ImGui_ImplWin32_Shutdown();
 	ImGui::DestroyContext();
@@ -57,7 +59,6 @@ void CMainApp::Free()
 	SafeRelease(m_pEngine);
 	CEngine::ReleaseEngine();
 
-	CEventCheck::GetInstance()->DestroyInstance();
 }
 
 HRESULT CMainApp::Initialize()

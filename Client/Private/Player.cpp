@@ -91,6 +91,7 @@ HRESULT CPlayer::Initialize()
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	m_pStatus = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
@@ -186,12 +187,7 @@ HRESULT CPlayer::Initialize()
 	}
 
 	CEventCheck::GetInstance()->SetPlayer(this);
-	//playerModel->setBone(equipModel);
-
-
-	//1ÀÓ
-	//cout << "PlayerATK:" << m_pStatus->GetStatInfo().atk << endl;
-	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+	
 	return S_OK;
 }
 
@@ -208,7 +204,6 @@ void CPlayer::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
-	Transform_ToWorldSpace();
 
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
@@ -230,6 +225,8 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 	//#endif // _DEBUG
 	Collsion();
+
+	Transform_ToWorldSpace();
 	SearchMonster();
 }
 

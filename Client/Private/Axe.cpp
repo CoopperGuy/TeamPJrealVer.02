@@ -302,7 +302,7 @@ void CAxe::Set_TrailOnOff()
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
-			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f);
+			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f, 5.f);
 		}
 		break;
 	}

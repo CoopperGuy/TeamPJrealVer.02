@@ -390,10 +390,11 @@ void CCamera_Fly::ShakeFov(_double DeltaTime)
 	
 }
 
-void CCamera_Fly::ZoomFov(_float _duration, _float _destFov)
+void CCamera_Fly::ZoomFov(_float _duration, _float _destFov, _float _spd)
 {
 	m_fDestFov = _destFov;
 	m_FovShakeDuration = _duration;
+	m_fFovSpd = _spd;
 }
 
 CCamera_Fly * CCamera_Fly::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)

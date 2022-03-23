@@ -24,7 +24,7 @@ public:
 	void	ShakeLook(_fvector _look, _float _duration);
 	void	ShakePosition(_fvector _pos, _float _duration);
 	void	ShakeUpDown(_int _cnt, _float _duration, _float _spd);
-	void	ZoomFov(_float _duration, _float _destFov);
+	void	ZoomFov(_float _duration, _float _destFov, _float _spd);
 
 private:
 	void	PhysxCameraCollision(_double deltaTime);
@@ -47,7 +47,7 @@ private:
 
 private:
 	_float	m_fCameraAngleLerpSpd = 10.f;
-	_float	m_fCameraWheelSpd = 0.1f;
+	_float	m_fCameraWheelSpd = 0.03f;
 	_float	m_fCameraMoveLerpSpd = 0.3f;
 	_float	m_fCameraColliedSpd = 10.f;
 private:
@@ -72,6 +72,7 @@ private:
 	_float	m_FovShakeDuration = 0.f;
 	_float	m_FovShakeDurationDelta = 0.f;
 	_float	m_fDestFov = 0.f;
+	_float	m_fFovSpd = 5.f;
 	_bool	m_bFovShake = false;
 public:
 	static CCamera_Fly* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);

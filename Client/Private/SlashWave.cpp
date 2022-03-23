@@ -28,9 +28,9 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 	_vector pos = vTargetPos;
 	pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
-	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+	m_pEffectTrans->SetState(CTransform::STATE_POSITION, pos);
 
-	m_vecScales = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
+	m_vecScales = { m_pEffectTrans->GetScale(CTransform::STATE_RIGHT) , m_pEffectTrans->GetScale(CTransform::STATE_UP) , m_pEffectTrans->GetScale(CTransform::STATE_LOOK) };
 
 	CStat* stat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
 

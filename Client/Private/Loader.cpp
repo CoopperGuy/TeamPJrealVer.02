@@ -326,7 +326,7 @@ HRESULT CLoader::GameSceneLogo()
 	while (m_pLoadingGauge->GetPercentage() < 95.f)
 		m_pLoadingGauge->AddPercentage(0.1f);
 	while (isFinish) {
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			if (!(m_iCompleteBit & (1 << i))) {
 				isFinish = false;
 			}
