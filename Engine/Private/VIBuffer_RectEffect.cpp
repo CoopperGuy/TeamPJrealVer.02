@@ -106,7 +106,7 @@ HRESULT CVIBuffer_RectEffect::Initialize(void * pArg)
 		return E_FAIL;
 
 	if (m_pShader == nullptr)
-		m_pShader = make_unique<CShader>("../../Assets/Shader/Shader_Effect.fx");
+		m_pShader = make_shared<CShader>("../../Assets/Shader/Shader_Effect.fx");
 
 	return S_OK;
 }

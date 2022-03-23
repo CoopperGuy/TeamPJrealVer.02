@@ -426,8 +426,8 @@ void CInspector::UpdateEffect()
 	ImGui::Separator();
 	DrawEffectImage();
 
-	/*ImGui::Separator();
-	DrawEffectSetting();*/
+	ImGui::Separator();
+	DrawEffectSetting();
 
 	ImGui::Separator();
 	DrawBasicCollider();
@@ -718,11 +718,6 @@ void CInspector::DrawEffectImage()
 	if (pComponent = g_pObjFocused->GetComponent("Com_RectInstance"))
 	{
 		ImGui::Separator();
-		
-		_float4& color = dynamic_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Color();
-		ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
-		ImGui::TreePop();
-
 		bool bDelete = false;
 		bool open = ImGui::TreeNodeEx("RectInstance");
 		ImGui::SameLine(ImGui::GetWindowWidth() - 10);
@@ -731,35 +726,57 @@ void CInspector::DrawEffectImage()
 
 		if (open)
 		{
-			// TODO: Check if it has image source
-			string TextureFilePath = dynamic_cast<CVIBuffer_RectEffect*>(pComponent)->GetTextureFilePath().c_str();
-
-			if (TextureFilePath == "")
-				TextureFilePath = "None";
-			else
+			const char* items[] = { "Radiation", "Cone" };
+			int CurIdx = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_CurShape();
+			if (ImGui::Combo("Shape", &CurIdx, items, IM_ARRAYSIZE(items)))
 			{
-				char	szFileName[MAX_PATH] = "";
-
-				_splitpath(TextureFilePath.c_str(), nullptr, nullptr, szFileName, nullptr);
-				TextureFilePath = szFileName;
-			}
-
-			ImGui::Text("Diffuse :");
-			ImGui::SameLine();
-			ImGui::Text(TextureFilePath.c_str());
-			if (ImGui::BeginDragDropTarget())
-			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+				switch (CurIdx)
 				{
-					const char* FilePath = (const char*)(payload->Data);
-
-					dynamic_cast<CVIBuffer_RectEffect*>(pComponent)->SetTexture(FilePath);
+				case 0:
+					static_cast<CVIBuffer_RectInstance*>(pComponent)->Set_Shape(CVIBuffer_RectInstance::RADIATION);
+					break;
+				case 1:
+					static_cast<CVIBuffer_RectInstance*>(pComponent)->Set_Shape(CVIBuffer_RectInstance::CONE);
+					break;
 				}
-				ImGui::EndDragDropTarget();
 			}
 
-			/*_float4& color = dynamic_cast<CVIBuffer_RectUI*>(pComponent)->GetColor();
-			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);*/
+			_float4& color = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Color();
+			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
+			
+			_float& Speed = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Speed();
+			ImGui::DragFloat("Speed", &Speed, 0.1f, 0.f, 10.f);
+
+			_float& Size = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Size();
+			ImGui::DragFloat("Size", &Size, 0.1f, 0.f, 10.f);
+
+			_float& LifeTime = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_LifeTime();
+			ImGui::DragFloat("LifeTime", &LifeTime, 0.1f, 0.f, 100.f);
+
+			_int& InstNum = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_InstanceNum();
+			ImGui::DragInt("InstNum", &InstNum, 1, 0, 100);
+
+			_float& StartRadian = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_StartRadian();
+			ImGui::DragFloat("StartRadian", &StartRadian, 0.1f, 0.f, 360.f);
+
+			_float& RadiationAngle = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_RadiationAngle();
+			ImGui::DragFloat("RadiationAngle", &RadiationAngle, 0.1f, 0.f, 180.f);
+			
+			if (ImGui::Button("Apply"))
+			{
+				int CurIdx = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_CurShape();
+
+				switch (CurIdx)
+				{
+				case 0:
+					static_cast<CVIBuffer_RectInstance*>(pComponent)->Initialize_Radiation();
+					break;
+				case 1:
+					static_cast<CVIBuffer_RectInstance*>(pComponent)->Initialize_Cone();
+					break;
+				}
+			}
+
 			ImGui::TreePop();
 		}
 
