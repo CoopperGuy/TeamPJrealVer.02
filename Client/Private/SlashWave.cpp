@@ -36,7 +36,7 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 	CStat* stat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
 
-	m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vecScales), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
+	m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vChildScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 
 	return S_OK;
 }
