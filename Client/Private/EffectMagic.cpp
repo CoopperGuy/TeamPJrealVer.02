@@ -64,11 +64,14 @@ void CEffectMagic::Update(_double deltaTime)
 	}
 
 	if (makemeteo) {
-		_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+		if (m_makedt >= 0.095) {
+			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
-		CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, mypos), CEngine::GetInstance()->GetCurSceneNumber());
-		makemeteo = false;
+			auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
+			CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			m_makedt = 0;
+			makemeteo = false;
+		}
 	}
 
 

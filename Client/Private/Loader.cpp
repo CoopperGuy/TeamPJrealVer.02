@@ -199,7 +199,7 @@ HRESULT CLoader::GameFlogasLoader()
 	std::thread t15(ThreadPrefab, this, "Prototype_Effect_Smoke", "E_Smoke", 15);
 	t15.detach();
 
-	std::thread t16(ThreadPrefab, this, "Prototype_Effect_Fire_explosion", "E_MeteoExplo", 16);
+	std::thread t16(ThreadPrefab, this, "Prototype_Effect_Fire_explosion", "E_MeteoExplosion", 16);
 	t16.detach();
 
 	std::thread t17(ThreadPrefab, this, "Prototype_Effect_FireBoob", "E_FireBoob", 17);
@@ -395,63 +395,16 @@ HRESULT CLoader::GameSceneJUN()
 
 HRESULT CLoader::GameSceneSEO()
 {
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/DungeonTest.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestSeongyeon.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/BossSY.yaml", SCENE_SEO);
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_EA_Att_Fire", "E_EA_Att_Fire")))
-	//	MSG_BOX("Failed To Create Fire Prefab");
-
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 
-//	WaterEA Effect
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))
-	//	MSG_BOX("Failed To Create FireBall Prefab");
 
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
-	//	MSG_BOX("Failed To Create FireBall Prefab");
+	if (FAILED(GameFlogasLoader()))
+		MSG_BOX("Failed To Create Flogas Effect");
 
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-	//	MSG_BOX("Failed To Create O_WaterEA Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-	//	MSG_BOX("Failed To Create O_EAFire Prefab"); 
-
-	//if (FAILED(GameFlogasLoader()))
-	//	MSG_BOX("Failed To Create Flogas Effect");
-
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
-	//	MSG_BOX("Failed To Create E_MeteoTrail Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
-	//	MSG_BOX("Failed To Create E_MeteoFire Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
-	//	MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
-	//	MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
-	//	MSG_BOX("Failed To Create E_Meteo Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
-	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
-	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
-	//	MSG_BOX("Failed To Create Smoke Prefab");
-
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/CityMap.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeon_ex.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
 
 	m_isFinish = true;
