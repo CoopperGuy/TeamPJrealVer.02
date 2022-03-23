@@ -1,7 +1,10 @@
 #pragma once
 #include "Base.h"
-
+#include "PxQueryFilters.h"
 BEGIN(Engine)
+
+class CPxQueryFilters;
+
 class CCTCallBack : public PxControllerBehaviorCallback {
 	// Inherited via PxControllerBehaviorCallback
 	virtual PxControllerBehaviorFlags getBehaviorFlags(const PxShape & shape, const PxActor & actor) override;
@@ -82,6 +85,7 @@ public:
 public:
 	_bool					Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData);
 	_bool					Raycast(PxVec3 origin, PxVec3 unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData);
+	_bool					Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData, CPxQueryFilters* _callback);
 	_bool					Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData, PxHitFlags hitFlags);
 
 	_bool					Overlap(const _float3& point, PxU32 layerMask, _float3 direction);

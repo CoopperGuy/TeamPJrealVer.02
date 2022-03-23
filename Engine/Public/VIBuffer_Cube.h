@@ -19,9 +19,6 @@ public:
 	static CVIBuffer_Cube* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, string pShaderFilePath);
 	virtual CComponent* Clone(void* pArg) override;
 	virtual void Free() override;
-
-private:
-	CTexture* m_pTexture = nullptr;
 };
 
 END

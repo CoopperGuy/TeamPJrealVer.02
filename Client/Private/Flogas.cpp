@@ -209,9 +209,15 @@ void CFlogas::Update(_double dDeltaTime)
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 
-	if (m_pTrailBuffer)
-		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
+	//fall down
+	/*PxControllerFilters filters;
+	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
 
+	if (m_pTrailBuffer)
+	{
+		//m_pTrailBuffer->SetIsActive(true);
+		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix()));
+	}
 }
 
 void CFlogas::LateUpdate(_double dDeltaTime)
@@ -256,7 +262,7 @@ void CFlogas::Create_Trail()
 	pEffect->SetDistortionScale(4.f);
 	pEffect->SetDistortionBias(1.f);
 	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_WP_R"));
-	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
+	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix());
 	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
 	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
 }
@@ -327,7 +333,7 @@ void CFlogas::Empty_queue()
 {
 	if (!m_QueState.empty())
 	{
-		_uint size = m_QueState.size();
+		_uint size = (_uint)m_QueState.size();
 		for (_uint i = 0; i < size; ++i)
 			m_QueState.pop();
 	}
@@ -791,7 +797,7 @@ _bool CFlogas::OriginShift(_double dDeltaTime)
 			vCenter = XMVectorSetY(vCenter, 0.f);
 			m_pTransform->SetLook(vCenter);
 			memcpy(&vDir, &XMVector3Normalize(vCenter), sizeof(_float3));
-			m_pController->move(vDir * 1.f * dDeltaTime, 0.01f, (_float)dDeltaTime, nullptr);
+			m_pController->move(vDir * 1.f * (_float)dDeltaTime, 0.01f, (_float)dDeltaTime, nullptr);
 			return false;
 		}
 	}
@@ -882,9 +888,9 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			m_eCurSTATES = CStat::STATES_IDEL;
 		break;
 	case FIREWAVE: {
-		_float keyFrame = m_pModel->GetCurrentKeyFrame();
+		_int keyFrame = m_pModel->GetCurrentKeyFrame();
 		static bool make = true;
-		if (keyFrame >= 25.f && keyFrame <= 25.1f) {
+		if (keyFrame >= 25 && keyFrame <= 26) {
 			if (make) {
 				auto EffectBlackhole = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blackhole", "Effect_Blackhole");
 				CEngine::GetInstance()->AddScriptObject(m_pEffBlackhole = CEffectBlackhole::Create(EffectBlackhole), CEngine::GetInstance()->GetCurSceneNumber());

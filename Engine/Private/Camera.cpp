@@ -60,8 +60,7 @@ _uint CCamera::Update(_double TimeDelta)
 	{
 		_float2 winSize = m_pEngine->GetCurrentWindowSize();
 		m_pPipeline->Set_Transform(CPipeline::D3DTS_VIEW, m_pTransformCom->GetWorldMatrixInverse());
-		//m_pPipeline->Set_Transform(CPipeline::D3DTS_PROJ, XMMatrixPerspectiveFovLH(/*XM_PIDIV2*//*0.25f * 3.14f*/XMConvertToRadians(60.0f), winSize.x / winSize.y, 0.01f, 1000.f));
-		m_pPipeline->Set_Transform(CPipeline::D3DTS_PROJ, XMMatrixPerspectiveFovLH(/*XM_PIDIV2*//*0.25f * 3.14f*/XMConvertToRadians(60.0f), winSize.x / winSize.y, 0.01f, 300.f));
+		m_pPipeline->Set_Transform(CPipeline::D3DTS_PROJ, XMMatrixPerspectiveFovLH(XMConvertToRadians(m_fov), winSize.x / winSize.y, 0.01f, 300.f));
 	}
 
 	return _uint();

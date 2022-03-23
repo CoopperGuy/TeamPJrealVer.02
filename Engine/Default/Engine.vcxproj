@@ -238,6 +238,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClInclude Include="..\public\NPCInfo.h" />
     <ClInclude Include="..\Public\Pipeline.h" />
     <ClInclude Include="..\Public\PxManager.h" />
+    <ClInclude Include="..\public\PxQueryFilters.h" />
     <ClInclude Include="..\public\QuestData.h" />
     <ClInclude Include="..\public\QuestManager.h" />
     <ClInclude Include="..\Public\RectTransform.h" />
@@ -349,6 +350,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClCompile Include="..\private\NPCInfo.cpp" />
     <ClCompile Include="..\Private\Pipeline.cpp" />
     <ClCompile Include="..\Private\PxManager.cpp" />
+    <ClCompile Include="..\private\PxQueryFilters.cpp" />
     <ClCompile Include="..\private\QuestData.cpp" />
     <ClCompile Include="..\private\QuestManager.cpp" />
     <ClCompile Include="..\Private\RectTransform.cpp" />

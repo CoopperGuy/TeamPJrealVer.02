@@ -32,7 +32,7 @@ HRESULT CSkillIcon::Initailze(CGameObject * pArg)
 void CSkillIcon::Update(_double deltaTime)
 {
 	for (_int i = 0; i < sizeOfUI; i++) {
-		m_tInfo[i].coolDelta += deltaTime;
+		m_tInfo[i].coolDelta += (_float)deltaTime;
 		if (m_tInfo[i].coolDelta > m_tInfo[i].coolTime)
 			m_tInfo[i].coolDelta = m_tInfo[i].coolTime;
 

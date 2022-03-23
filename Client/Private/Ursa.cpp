@@ -147,7 +147,7 @@ void CUrsa::Empty_queue()
 {
 	if (!m_QueState.empty())
 	{
-		_uint size = m_QueState.size();
+		_uint size = (_uint)m_QueState.size();
 		for (_uint i = 0; i < size; ++i)
 			m_QueState.pop();
 	}
@@ -219,6 +219,7 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		memcpy(&vDir, &vLook, sizeof(_float3));
 		
 		m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
+
 	}
 }
 

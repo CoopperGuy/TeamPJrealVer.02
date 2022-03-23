@@ -603,6 +603,9 @@
     <ClInclude Include="..\Public\SceneSerializer.h">
       <Filter>01.Utility\01.Scene\SceneSerializer</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\PxQueryFilters.h">
+      <Filter>Others\PhysX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -883,6 +886,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\DmgVIBuffer.cpp">
       <Filter>01.Utility\02.GameObject\EmptyObject\UI\DmgFont</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\PxQueryFilters.cpp">
+      <Filter>Others\PhysX</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

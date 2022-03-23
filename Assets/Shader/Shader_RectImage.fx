@@ -49,7 +49,8 @@ struct VS_OUTITEM
 {
     float4 vPosition : SV_POSITION;
     float2 vTexUV : TEXCOORD0;
-    float2 vPos : TEXCOORD1;
+    float2 vMaskUV : TEXCOORD1;
+    float2 vPos : TEXCOORD2;
 };
 
 /* 정점의 스페이스 변환. (월드, 뷰, 투영행렬의 곱.)*/
@@ -109,6 +110,11 @@ VS_OUTITEM VS_MAIN_ITEMLIST(VS_IN In){
 
     Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
     Out.vTexUV = In.vTexUV;
+    if (g_Time < 1.f)
+        Out.vMaskUV.x = (In.vTexUV.x - 1.f);
+    else
+        Out.vMaskUV.x = (In.vTexUV.x - 1.f) / g_Time;
+    Out.vMaskUV.y = In.vTexUV.y;
     Out.vPos = mul(vector(In.vPosition, 1.f), g_WorldMatrix);
 
     return Out;
@@ -167,7 +173,8 @@ struct PS_INITEM
 {
     float4 vPosition : SV_POSITION;
     float2 vTexUV : TEXCOORD0;
-    float2 vPos : TEXCOORD1;
+    float2 vMaskUV : TEXCOORD1;
+    float2 vPos : TEXCOORD2;
 };
 
 SamplerState Sampler
@@ -299,8 +306,16 @@ float4 PS_MAIN_DISALPHA(PS_IN input) : SV_TARGET
 float4 PS_MAIN_ITEMLIST(PS_INITEM input) : SV_TARGET
 {
     float4 color = Map.Sample(Sampler, input.vTexUV);
-    if(input.vPos.y < 300.f && input.vPos.y > -300.f)
+    if (input.vPos.y < 300.f && input.vPos.y > -300.f)
+    {
+        if (g_isSelected || g_isHover)
+        {
+            color.a = color.r;
+            color.r = color.r - 0.3f;
+            color.gb = (color.r - 0.3f) * 0.5f;
+        }
         return color;
+    }
     else 
         discard;
     return color;
@@ -328,6 +343,16 @@ float4 PS_MAIN_SELECTEDTEXT(PS_IN input) : SV_Target
     {
         return 0;
     }
+    return color;
+}
+
+float4 PS_MAIN_SHOPIST(PS_INITEM input) : SV_TARGET
+{
+    float4 color = Map.Sample(Sampler, input.vTexUV);
+    if (input.vPos.y < 300.f && input.vPos.y > -300.f)
+        return color;
+    else
+        discard;
     return color;
 }
 
@@ -478,5 +503,16 @@ technique11		DefaultDevice
         VertexShader = compile vs_5_0 VS_MAIN_TEXT1();
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_SELECTEDTEXT1();
+    }
+
+    pass ShopList
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_ITEMLIST();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SHOPIST();
     }
 }

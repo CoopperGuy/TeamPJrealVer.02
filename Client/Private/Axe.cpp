@@ -208,7 +208,7 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(0.5f);
 		}
 		if(keyFrame == 2)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.03f, 3.f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
 		break;
 	}
 	case Client::Player_State::LBCombo2: {
@@ -220,7 +220,7 @@ void CAxe::Set_TrailOnOff()
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.1f);
 		}
 		if(keyFrame == 3)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.03f, 3.f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
 
 		break;
 	}
@@ -232,7 +232,7 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(0.35f);
 		}
 		if(keyFrame == 5)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.02f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.02f);
 		break;
 	}
 	case Client::Player_State::LBCombo4_0: {
@@ -246,7 +246,7 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(1.f);
 		}
 		if (keyFrame == 14) {
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround2");
 			CEngine::GetInstance()->AddScriptObject(CImpactGround::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 		}
@@ -260,16 +260,17 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.6f);
 		}
-		if (keyFrame == 13)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
-
+		if (keyFrame == 13) {
+			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
+			CEventCheck::GetInstance()->ShakeUpDown(4, 0.03f);
+		}
 		break;
 	}
 	case Client::Player_State::RBCombo2: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetDMGRatio(0.5f);
 		if (keyFrame >= 8) {
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4.f, 0.03f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.03f);
 		}
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_shoulderEffect", "E_shoulderEffect");
@@ -286,7 +287,7 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(0.7f);
 		}
 		if (keyFrame == 13)
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 5.f, 0.02f);
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 5, 0.02f);
 		break;
 	}
 	case Client::Player_State::RBCombo4: {
@@ -300,8 +301,8 @@ void CAxe::Set_TrailOnOff()
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6.f, 0.05f);
-
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
+			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f, 5.f);
 		}
 		break;
 	}

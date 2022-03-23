@@ -17,13 +17,13 @@
 #include "QuestData.h"
 #include "AlretManager.h"
 #include "Input_Device.h"
-
+#include "PxQueryFilters.h"
 
 
 BEGIN(Engine)
 
 class CQuestData;
-
+class CPxQueryFilters;
 class ENGINE_DLL CEngine final : public CBase
 {
 	DECLARE_SINGLETON(CEngine)private:
@@ -190,6 +190,7 @@ public:
 
 	_bool					Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData);
 	_bool					Raycast(PxVec3 origin, PxVec3 unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData);
+	_bool					Raycast(_vector origin, _vector unitDir, _float maxDistance, PxRaycastBuffer& hit, PxQueryFilterData& filterData, CPxQueryFilters* _callback);
 	_bool					Overlap(const _float3 & point, PxU32 layerMask,_float3 direciton);
 #pragma endregion
 

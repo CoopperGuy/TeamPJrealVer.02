@@ -32,14 +32,14 @@ struct VS_IN
     float4 vUp : INSTANCE1;
     float4 vLook : INSTANCE2;
     float4 vTranslation : INSTANCE3;
-   // uint iRenderEnable : INSTANCE4;
+    int iRenderEnable : INSTANCE4;
 };
 
 struct VS_OUT
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-   // uint iRenderEnable : TEXCOORD1;
+    int iRenderEnable : TEXCOORD1;
 };
 
 /* 정점의 스페이스 변환. (월드, 뷰, 투영행렬의 곱.)*/
@@ -56,7 +56,7 @@ VS_OUT VS_MAIN(VS_IN In)
 
 	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
 	Out.vTexUV = In.vTexUV;
-    //Out.iRenderEnable = In.iRenderEnable;
+    Out.iRenderEnable = In.iRenderEnable;
 
 	return Out;
 }
@@ -70,21 +70,25 @@ struct PS_IN
 {
 	float4	vPosition : SV_POSITION;
 	float2	vTexUV : TEXCOORD0;
-   // uint iRenderEnable : TEXCOORD1;
+    int iRenderEnable : TEXCOORD1;
 };
 
 vector	PS_MAIN(PS_IN In) : SV_TARGET
 {
 	vector		vColor = (vector)0;
 
-   // if (In.iRenderEnable == 0)
-        //discard;
+   if (In.iRenderEnable == 0)
+       discard;
 
-    vColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
-    vColor.a = vColor.r * g_Alpha;
-    vColor.rgb *= g_Color;
-    //vColor.argb = 1.f;
-	if (vColor.a < 0.3f)
+    vector vDiffuseColor = (vector) 0;
+
+    vDiffuseColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vColor.a = vDiffuseColor.r * g_Alpha;
+    vColor.rgb = vDiffuseColor.rgb * g_Color.rgb;
+    if (vColor.r > 0.99)
+        vColor.rgb += 1.f;
+
+	if (vColor.a < 0.5f)
 		discard;
 
 	return vColor;

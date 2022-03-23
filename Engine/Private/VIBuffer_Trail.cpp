@@ -13,14 +13,15 @@ CVIBuffer_Trail::CVIBuffer_Trail(ID3D11Device * pDevice, ID3D11DeviceContext * p
 
 CVIBuffer_Trail::CVIBuffer_Trail(const CVIBuffer_Trail & rhs)
 	: CVIBuffer(rhs)
-{
+{	
+	m_pShader = rhs.m_pShader;
 }
 
 HRESULT CVIBuffer_Trail::InitializePrototype()
 {
 	if (FAILED(__super::InitializePrototype()))
 		return E_FAIL;
-
+		
 #pragma region VERTEXBUFFER
 
 	m_iStride = sizeof(VTXTEX);
@@ -95,13 +96,36 @@ HRESULT CVIBuffer_Trail::InitializePrototype()
 
 	SafeDeleteArray(pIndices);
 
+	m_pShader = make_shared<CShader>("../../Assets/Shader/Shader_Effect.fx");
+
 	return S_OK;
 }
 
 HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 {
-	m_vecCatmullRom.reserve(1000);
+	m_isCloned = true;
+	m_pVB = nullptr;
+	ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
+			
+	m_pVertices = new VTXTEX[m_iNumVertices];
+	ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
 
+	for (_uint i = 0; i < m_iNumVertices; i += 2)
+	{
+		((VTXTEX*)m_pVertices)[i].vPosition = _float3(0.f, 0.f, 0.f);
+		((VTXTEX*)m_pVertices)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
+
+		((VTXTEX*)m_pVertices)[i + 1].vPosition = _float3(0.f, 0.f, 0.f);
+		((VTXTEX*)m_pVertices)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
+	}
+
+	/* For.D3D11_SUBRESOURCE_DATA */
+	m_VBSubResourceData.pSysMem = m_pVertices;
+
+	if (FAILED(m_pDevice->CreateBuffer(&m_VBDesc, &m_VBSubResourceData, &m_pVB)))
+		return E_FAIL;
+
+	m_vecCatmullRom.reserve(1000);
 
 	if (pArg)
 	{
@@ -125,7 +149,7 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 		m_pDeviceContext->Unmap(m_pVB.Get(), 0);
 	}
 
-	m_pShader = make_unique<CShader>("../../Assets/Shader/Shader_Effect.fx");	
+	
 
 	for (_int i = m_iNumVertices; i > 0; i--) {
 		m_vecCatmullRom.push_back(((VTXTEX*)m_pVertices)[i]);
@@ -304,4 +328,6 @@ void CVIBuffer_Trail::Free()
 {
 	__super::Free();
 	
+	if (true == m_isCloned)
+		SafeDeleteArray(m_pVertices);
 }

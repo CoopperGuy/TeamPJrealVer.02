@@ -2,7 +2,7 @@
 #include "BasicEffect.h"
 
 BEGIN(Client)
-
+class CObb;
 class CSlashWave :
 	public CBasicEffect
 {
@@ -25,6 +25,10 @@ private:
 	_float			m_fScale = 1.f;
 
 	_float3			m_vChildScale;
+
+private:
+	CObb*	m_pOBB = nullptr;
+
 public:
 	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget);
 	virtual void Free();

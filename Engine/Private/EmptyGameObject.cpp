@@ -106,11 +106,11 @@ HRESULT CEmptyGameObject::Initialize(void * pArg)
 
 HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 {
-#ifdef _DEBUG
-	_double start, end;
-
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//	_double start, end;
+//
+//	start = (_double)clock();
+//#endif // _DEBUG
 
 	__super::InitializePrefab(rhs, pArg);
 	for (int i = 0; i < 10; i++) {
@@ -139,16 +139,16 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 			return E_FAIL;
 	}
 
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "Transform time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
-
-#ifdef _DEBUG
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "Transform time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
+//
+//#ifdef _DEBUG
+//	start = (_double)clock();
+//#endif // _DEBUG
 	/*Component_Coiilder*/
 	{
 
@@ -188,15 +188,15 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 		}
 
 	}
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "Collider time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
-#ifdef _DEBUG
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "Collider time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
+//#ifdef _DEBUG
+//	start = (_double)clock();
+//#endif // _DEBUG
 	/*Component OBB*/
 	{
 		int i = 0;
@@ -212,15 +212,15 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 			i++;
 		} while (i < m_iNumOBBs);
 	}
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "OBB time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
-#ifdef _DEBUG
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "OBB time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
+//#ifdef _DEBUG
+//	start = (_double)clock();
+//#endif // _DEBUG
 	/*Component_VIBuffer*/
 	{
 		CVIBuffer_Rect* vibuffer = dynamic_cast<CVIBuffer_Rect*>(rhs->GetComponent("Com_VIBuffer"));
@@ -229,15 +229,15 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 			AddComponent("Com_VIBuffer", pCloneVIBuffer);
 		}
 	}
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "VIBuffer time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
-#ifdef _DEBUG
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "VIBuffer time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
+//#ifdef _DEBUG
+//	start = (_double)clock();
+//#endif // _DEBUG
 	/*Component_Model*/
 	{
 		CModel* pModel = static_cast<CModel*>(rhs->GetComponent("Com_Model"));
@@ -249,15 +249,15 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 			AddComponent("Com_Model", pCloneModel);
 		}
 	}
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "Model time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
-#ifdef _DEBUG
-	start = (_double)clock();
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "Model time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
+//#ifdef _DEBUG
+//	start = (_double)clock();
+//#endif // _DEBUG
 	/*Component_Stat*/
 	{
 		CStat* pStat = static_cast<CStat*>(rhs->GetComponent("Com_Stat"));
@@ -278,12 +278,12 @@ HRESULT CEmptyGameObject::InitializePrefab(CEmptyGameObject * rhs, void * pArg)
 			AddComponent("Com_NPCInfo", pCloneNPC);
 		}
 	}
-#ifdef _DEBUG
-
-	end = (((_double)clock()));
-
-	cout << "Stat time : " << (end - start) / CLOCKS_PER_SEC << "\n";
-#endif // _DEBUG
+//#ifdef _DEBUG
+//
+//	end = (((_double)clock()));
+//
+//	cout << "Stat time : " << (end - start) / CLOCKS_PER_SEC << "\n";
+//#endif // _DEBUG
 	return S_OK;
 }
 
