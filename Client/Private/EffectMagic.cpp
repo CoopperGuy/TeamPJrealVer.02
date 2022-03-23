@@ -38,9 +38,9 @@ HRESULT CEffectMagic::Initialize(void* pArg, _vector pos)
 
 		_int  startrand = rand() % 2;
 		if (0 == startrand)
-			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
 		else
-			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 6) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
+			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
 	}
 	return S_OK;
 }
@@ -64,11 +64,14 @@ void CEffectMagic::Update(_double deltaTime)
 	}
 
 	if (makemeteo) {
-		_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+		if (m_makedt >= 0.095) {
+			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
-		CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, mypos), CEngine::GetInstance()->GetCurSceneNumber());
-		makemeteo = false;
+			auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
+			CEngine::GetInstance()->AddScriptObject(CMeteoFireBall::Create(Meteo, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			m_makedt = 0;
+			makemeteo = false;
+		}
 	}
 
 

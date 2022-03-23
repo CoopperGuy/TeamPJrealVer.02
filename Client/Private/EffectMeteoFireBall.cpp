@@ -74,15 +74,6 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 		m_dMakeFB = 0;
 	}
-
-	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
-	_float4x4 newWorld;
-	_float4x4 world = m_pTransform->GetMatrix();
-	_vector scale, rotation, position;
-	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
-	XMStoreFloat4x4(&newWorld, viewInverse);
-	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
-	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
 }
 
 
