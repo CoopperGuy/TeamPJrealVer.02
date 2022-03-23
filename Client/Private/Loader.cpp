@@ -277,7 +277,7 @@ HRESULT CLoader::GameFlogasLoader()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
 		MSG_BOX("Failed To Create Smoke Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_Fire_explosion")))
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_MeteoExplosion")))
 		MSG_BOX("Failed To Create E_Fire_explosion Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
