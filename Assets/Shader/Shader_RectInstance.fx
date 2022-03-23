@@ -79,12 +79,15 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
 
    // if (In.iRenderEnable == 0)
         //discard;
+    vector vDiffuseColor = (vector) 0;
 
-    vColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
-    vColor.a = vColor.r * g_Alpha;
-    vColor.rgb *= g_Color;
-    //vColor.argb = 1.f;
-	if (vColor.a < 0.3f)
+    vDiffuseColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vColor.a = vDiffuseColor.r * g_Alpha;
+    vColor.rgb = vDiffuseColor.rgb + g_Color.rgb;
+    //if (vColor.r > 0.9)
+    //    vColor.rgb += 1.f;
+
+	if (vColor.a < 0.5f)
 		discard;
 
 	return vColor;
