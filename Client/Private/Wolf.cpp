@@ -48,7 +48,7 @@ HRESULT CWolf::Initialize(_float3 position)
 
 	SetUpAnimation();
 	m_pCurState = IDLE0;
-	
+	SetIdle();
 	m_pHpBar = CMonHpVIBuffer::Create(m_pGameObject);
 
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
@@ -72,14 +72,24 @@ void CWolf::Update(_double dDeltaTime)
 
 	__super::Update(dDeltaTime);
 
-	WolfLookPlayer();
+	WolfStateUpdate(dDeltaTime);
+
+	if (WolfAtt)
+	{
+		if (m_pCurState == THREATEN)
+		{
+			if (m_pModel->Get_isFinished())
+			{
+				m_pCurState = ZTTACK;
+			}
+		}
+	}
 	//SetAttack(dDeltaTime);
-	m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
 }
 void CWolf::LateUpdate(_double dDeltaTime)
 {
 	WolfSetAni(dDeltaTime);
-	WolfStateUpdate(dDeltaTime);
+	//WolfStateUpdate(dDeltaTime);
 
 	if (m_pStat->GetStatInfo().hp <= 0)
 	{
@@ -109,7 +119,7 @@ void CWolf::SetUpAnimation()
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::IDLE1, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::WALK, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::RUN, true, false);
-	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, true, false); // À§Çù
+	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, false, false); // À§Çù
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::ZTTACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::STRAIGHTATACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::DAMAGE, false, false);
@@ -160,14 +170,18 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
+	_float dis = 1.2f;
 
-	if (XMVectorGetX(TargetDistance) > 3.f || XMVectorGetZ(TargetDistance) > 3.f)
+	if (XMVectorGetX(TargetDistance) > dis || XMVectorGetZ(TargetDistance) > dis)
 		SetIdle();
+	else {
+		SetAtt();
+	//	WolfLookPlayer();
+		m_pCurState = THREATEN;
 
-	if (WolfIdle && m_pWolfState != DAMAGE && m_pWolfState != DIE && m_pWolfState != DEADBODY)
-	{
-		m_pWolfState = IDLE0;
 	}
+	if (WolfIdle && m_pWolfState != DAMAGE && m_pWolfState != DIE && m_pWolfState != DEADBODY)
+		m_pCurState = IDLE0;
 }
 
 void CWolf::WolfSetAni(_double dDeltaTime)
@@ -239,6 +253,8 @@ void CWolf::WolfLookPlayer()
 
 	m_pTransform->SetState(CTransform::STATE_RIGHT, vRight);
 	m_pTransform->SetState(CTransform::STATE_LOOK, vLook);
+
+	m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
 }
 void CWolf::SetAtt()
 {
