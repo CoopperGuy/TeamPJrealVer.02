@@ -654,6 +654,13 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::EndMap;
 	}
 
+	if (obj->GetComponent("Com_Decal"))
+	{
+		out << YAML::Key << "Com_Decal";
+		out << YAML::BeginMap;
+		out << YAML::EndMap;
+	}
+
 	if (obj->GetComponent("Com_PointInstance"))
 	{
 		out << YAML::Key << "Com_PointInstance";
@@ -1022,6 +1029,13 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		//pRectBuffer->SetTexture(DiffuseFilePath);
 	}
 
+	auto DecalCom = obj["Com_Decal"];
+	if (DecalCom)
+	{
+		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_Decal", "Com_Decal", deserializedObject->GetComponent("Com_Transform")))
+			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_Decal");
+	}
+
 	auto PointInstanceCom = obj["Com_PointInstance"];
 	if (PointInstanceCom)
 	{
@@ -1251,6 +1265,13 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 
 		CVIBuffer_RectEffect* pRectBuffer = dynamic_cast<CVIBuffer_RectEffect*>(deserializedObject->GetComponent("Com_VIBuffer"));
 		//pRectBuffer->SetTexture(DiffuseFilePath);
+	}
+
+	auto DecalCom = obj["Com_Decal"];
+	if (DecalCom)
+	{
+		if (deserializedObject->AddComponent(0, "Prototype_VIBuffer_Decal", "Com_Decal", deserializedObject->GetComponent("Com_Transform")))
+			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_Decal");
 	}
 
 	auto PointInstanceCom = obj["Com_PointInstance"];

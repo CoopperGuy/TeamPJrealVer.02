@@ -22,13 +22,6 @@ cbuffer Color
     float4 vColor;
 };
 
-SamplerState Sampler
-{
-    AddressU = mirror;
-    AddressV = mirror;
-};
-
-
 Texture2D Diffuse;
 
 struct VS_IN
@@ -65,7 +58,7 @@ struct PS_IN
 
 vector	PS_MAIN(PS_IN In) : SV_TARGET
 {
-    float4 diffuse = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 diffuse = Diffuse.Sample(g_DefaultSampler, In.vTexUV);
     if(diffuse.a < 0.1f)
         discard;
     float4 color = diffuse;
@@ -74,7 +67,7 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
 
 vector PS_MAIN_HPBAR(PS_IN In) : SV_TARGET
 {
-    float4 color = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 color = Diffuse.Sample(g_DefaultSampler, In.vTexUV);
     clip(color.a < 0.1f ? -1 : 1);
     if (In.vTexUV.x > g_Percentage && In.vTexUV.x < g_Back)
     {
@@ -89,7 +82,7 @@ vector PS_MAIN_HPBAR(PS_IN In) : SV_TARGET
 }
 vector PS_MAIN_DISABLE(PS_IN In) : SV_TARGET
 {
-    float4 diffuse = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 diffuse = Diffuse.Sample(g_DefaultSampler, In.vTexUV);
     float4 color = diffuse;
     color.a = (diffuse.r + diffuse.b + diffuse.g) / 3.f;
 
@@ -101,7 +94,7 @@ vector PS_MAIN_DISABLE(PS_IN In) : SV_TARGET
 
 vector PS_MAIN_DISABLE2(PS_IN In) : SV_TARGET
 {
-    float4 diffuse = Diffuse.Sample(Sampler, In.vTexUV);
+    float4 diffuse = Diffuse.Sample(g_DefaultSampler, In.vTexUV);
     float4 color = diffuse;
     float alpha = (color.r + color.g + color.b) / 3.f;
     color.a = alpha;

@@ -11,12 +11,6 @@ float g_fInvSamples = 1.f / 16.f;
 Texture2D		g_DepthTexture;
 Texture2D       g_NormalTexture;
 
-SamplerState	g_DefaultSampler
-{
-	AddressU = wrap;
-    AddressV = wrap;
-};
-
 float3 g_vRandom[16] =
 {
     float3(0.2024537f, 0.841204f, -0.9060141f),

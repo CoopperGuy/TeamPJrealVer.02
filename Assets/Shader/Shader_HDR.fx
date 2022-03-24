@@ -14,12 +14,6 @@ static const float Total = 6.2108;
 
 Texture2D		g_DiffuseTexture;
 
-SamplerState	g_DefaultSampler
-{
-	AddressU = clamp;
-    AddressV = clamp;
-};
-
 struct VS_IN
 {
 	float3 vPosition : POSITION; /* 로컬스페이스 */
@@ -59,14 +53,14 @@ PS_OUT PS_MAIN(PS_IN In)
 {
     PS_OUT Out = (PS_OUT) 0;
 
-    float4 vColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    float4 vColor = g_DiffuseTexture.Sample(g_ClampSampler, In.vTexUV);
     if(vColor.a == 0.f)
         discard;
 
     float3 HDR;       
     float Luminance = 0.08f;
     
-    HDR = pow(g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV), 2.2f) * fMiddleGray / (Luminance + 0.001f);
+    HDR = pow(g_DiffuseTexture.Sample(g_ClampSampler, In.vTexUV), 2.2f) * fMiddleGray / (Luminance + 0.001f);
     
     HDR *= (1.f + (HDR / (fWhiteCutoff * fWhiteCutoff)));
 
@@ -80,7 +74,7 @@ PS_OUT PS_MAIN(PS_IN In)
 float4 PS_MAIN_BIRGHT(PS_IN In) : SV_TARGET
 {
     float4 BrightColor = (float)0.f;
-    float4 FragColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    float4 FragColor = g_DiffuseTexture.Sample(g_ClampSampler, In.vTexUV);
 
     float BirghtNess = dot(FragColor.rgb, float3(0.2126f, 0.7152f, 0.0722f));
     if (BirghtNess > 0.99f)
