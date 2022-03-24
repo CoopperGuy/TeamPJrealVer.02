@@ -31,6 +31,8 @@ public:
 	void	LinkInventoryToHud(CInventory* inven) { m_pInven = inven; }
 public:
 	void	SetRightLeft(_bool right) { m_bisOpenRightLeft = right; }
+public:
+	void	RemoveItem(ITEMTYPE _type,_int _idx);
 private:
 	vector<CEmptyUI*>	m_pBackPackList;
 	vector<CEmptyUI*>	m_pBackPackButton;

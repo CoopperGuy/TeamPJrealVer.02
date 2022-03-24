@@ -1012,6 +1012,22 @@ _byte CEngine::Get_MouseButtonState(CInput_Device::MOUSEBUTTONSTATE eButtonState
 	return m_pInput_Device->Get_MouseButtonState(eButtonState);
 }
 
+_byte CEngine::Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState)
+{
+	if (m_pInput_Device == nullptr)
+		return 0;
+
+	return m_pInput_Device->Get_MouseButtonStateUp(eButtonState);
+}
+
+_byte CEngine::Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState)
+{
+	if (m_pInput_Device == nullptr)
+		return 0;
+
+	return m_pInput_Device->Get_MouseButtonStateDown(eButtonState);
+}
+
 PxScene * CEngine::GetScene()
 {
 	return m_pPxManager->GetScene();

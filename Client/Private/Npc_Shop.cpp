@@ -99,8 +99,6 @@ void CNpc_Shop::Update(_double deltaTime)
 			if (m_pShopHud->IsBuySelected()) {
 				CEventCheck::GetInstance()->ContractShop(this);
 			}
-			if(m_isActived)
-				m_pShopHud->SetShopLength(m_fShopListYLength);
 		}
 
 	}

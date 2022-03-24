@@ -87,7 +87,7 @@ void CBackPackHud::Update(_double deltaTime)
 				string name = m_pConsumHud->GetSelectedItemName();
 				CItem* item = m_pInven->GetItemByName(name, ITEMTYPE::CONSUM);
 				CEventCheck::GetInstance()->AddItemAtQuickSlot(item, idx);
-				m_pConsumHud->SetAddQuickSlotOpen(false);
+				CEventCheck::GetInstance()->OpenAddQuickSlot(false);
 			}
 						
 		}
@@ -113,6 +113,26 @@ void CBackPackHud::LateUpdate(_double deltaTime)
 
 void CBackPackHud::Render()
 {
+}
+
+void CBackPackHud::RemoveItem(ITEMTYPE _type, _int _idx)
+{
+	switch (_type)
+	{
+	case Engine::ITEMTYPE::EQUIP: {
+		//m_pEquipHud->RemoveEquipItem(_idx);
+	}
+		break;
+	case Engine::ITEMTYPE::CONSUM: {
+		m_pConsumHud->RemoveConsumItem(_idx);
+	}
+		break;
+	case Engine::ITEMTYPE::MATERIAL: {
+		m_pMaterialHud->RemoveMaterialItem(_idx);
+	}
+		break;
+
+	}
 }
 
 CBackPackHud * CBackPackHud::Create(CGameObject * pTarget)
