@@ -53,7 +53,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [-90.0000076, -0, 179.999893]
-      Scale: [0.00984504819, 0.00999999978, 0.00100000005]
+      Scale: [0.00984504726, 0.00999999978, 0.00100000005]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: SM_FX_GEZCylinder01.FBX
@@ -123,7 +123,7 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
   - Name: Empty Object
-    UUID: 980768066747928100
+    UUID: 4738565663322052938
     Active: true
     Layer: Default
     Instancing: false
@@ -131,18 +131,23 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [-0.0277467966, 0, 0]
+      Translation: [1.48628283, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
+    Com_Decal:
+      {}
     Com_RectInstance:
       Shape: 0
       InstNum: 100
       Color: [1, 1, 1, 0]
-      Speed: 1.79999995
+      Speed: 5
       LifeTime: 5
-      Size: 1.70000005
+      Size: 1
       StartRadian: 0
       RadiationAngle: 30
+      LerpColor: false
+      SrcColor: [0, 0, 0, 0]
+      DestColor: [1, 1, 1, 0]
     Effect_Setting:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
