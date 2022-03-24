@@ -588,7 +588,7 @@ vector PS_MAIN_MaskAlsoSPRITE(PS_IN_SPRITE In) : SV_TARGET
 
 	vDiffuseColor.a = vMask.a;
 
-	if (vDiffuseColor.a <= 0.1f)
+	if (vDiffuseColor.a <= 0.3f)
 	discard;
 
 	return vDiffuseColor;
