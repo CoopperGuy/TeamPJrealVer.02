@@ -7,7 +7,7 @@ class CPortalUI :
 	public IScriptObject
 {
 public:
-	enum SCENES {STAGE01,STAGE02,SCENES_END};
+	enum SCENES {STAGE01,STAGE02, STAGE03,SCENES_END};
 private:
 	explicit CPortalUI();
 	virtual ~CPortalUI() = default;
@@ -31,11 +31,19 @@ private:
 	CEmptyUI*		m_pEscape = nullptr;
 
 private:
-	CEmptyUI*		m_pPosition = nullptr;
-	CEmptyUI*		m_pScenes = nullptr;
+	CEmptyUI*				m_pPosition = nullptr;
+	vector<CEmptyUI*>		m_pScenes;
 private:
 	SCENES			m_eScenes = SCENES_END;
 	_bool			m_bIsActive = false;
+private:
+	_float			m_fCurScnensPosX = 640.f;
+	_float			m_fDestScnensPosX = 640.f;
+	_int			m_iCurIndex = 0;
+private:
+	mutable	_int	m_iMaxIdx = 1;
+	mutable	_int	m_iMinIdx = 0;
+
 public:
 	static CPortalUI* Create(CGameObject*	pTarget = nullptr);
 	virtual void Free() override;
