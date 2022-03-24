@@ -534,7 +534,7 @@ HRESULT CEmptyGameObject::Render(_uint iPassIndex)
 	if (buffer) {
 		static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Percentage", &m_fPercentage, sizeof(_float));
 		static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Back", &m_fBackPercentage, sizeof(_float));
-		static_cast<CVIBuffer*>(buffer)->Render(iPassIndex);
+		static_cast<CVIBuffer*>(buffer)->Render(m_iPassIndex);
 	}
 	CComponent* modelCom = GetComponent("Com_Model");
 	if (modelCom)

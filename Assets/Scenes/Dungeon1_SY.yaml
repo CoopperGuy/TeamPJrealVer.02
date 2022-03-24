@@ -9,9 +9,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.419081867, -1.68057692, 3.53722405]
-      Rotation: [0, 1.99993622, 0]
-      Scale: [17.2329998, 0.268000007, 10.0369997]
+      Translation: [0.419081867, -38.6448364, 3.53722405]
+      Rotation: [0, 1.99990833, 0]
+      Scale: [17.2330017, 0.268000007, 10.0369997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -40,3 +40,154 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
+  - Name: Empty Object
+    UUID: 2585132144265544502
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [-7.19999981, 0, 0]
+      Rotation: [9.91205597, 81.6211929, 0]
+      Scale: [1.95931077, 1.95901906, 1.99520016]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Boom.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 30
+  - Name: E_Blood
+    UUID: 11745698560819759489
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [9.91205597, 81.6211929, 0]
+      Scale: [1.00000286, 1.00023592, 0.999706864]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_003_TEX_KKJ.tga
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 2
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+    Children:
+      - 8994334767519753349
+      - 1772409693319515102
+  - Name: Empty Object
+    UUID: 8994334767519753349
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.699999988, 0.74000001, 0.699999988]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_007_TEX_CJH.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 2
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+  - Name: Empty Object
+    UUID: 1772409693319515102
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-0.200000003, 0.400000006, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1.21000004, 1.20000005, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_bloodse.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, -1.20000005, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 2
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5

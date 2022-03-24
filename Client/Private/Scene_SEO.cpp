@@ -36,7 +36,9 @@ HRESULT CScene_SEO::Render()
 
 HRESULT CScene_SEO::ReadyScript()
 {
-	CWolf::Create(nullptr);
+	//CWolf::Create(nullptr);
+	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+	m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
 
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
 	//_float3 Leftpos = { -6.5f,0.3f,-1.f };
