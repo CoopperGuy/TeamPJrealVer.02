@@ -27,9 +27,8 @@ CVIBuffer_RectInstance::CVIBuffer_RectInstance(const CVIBuffer_RectInstance & rh
 	, m_eShape(rhs.m_eShape)
 {
 	SafeAddRef(m_pVBInstance);
-
-	if (rhs.m_pShader != nullptr)
-		m_pShader = rhs.m_pShader;
+		
+	m_pShader = rhs.m_pShader;
 }
 
 HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uint iNumInstance)
@@ -37,7 +36,6 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 	if (FAILED(__super::InitializePrototype()))
 		return E_FAIL;	
 
-	//m_iNumInstance = iNumInstance;
 	m_iNumInstance = 100;
 	m_iNumVertexBuffers = 2;
 	m_iInstNum = m_iNumInstance;
@@ -45,8 +43,7 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 #pragma region VERTEXBUFFER
 
 	m_iStride = sizeof(VTXTEX);
-	m_iNumVertices = 4;
-	
+	m_iNumVertices = 4;	
 	
 	m_VBDesc.ByteWidth = m_iStride * m_iNumVertices;
 	m_VBDesc.Usage = D3D11_USAGE_IMMUTABLE;
@@ -138,18 +135,27 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 #pragma endregion 
 
 	m_shaderPath = pShaderFilePath;
+		
+	m_pShader = make_unique<CShader>(m_shaderPath);
+
 	return S_OK;
 }
 
 
 
 HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
-{
-	if (m_pShader == nullptr)
-		m_pShader = make_unique<CShader>(m_shaderPath);
-	
+{	
 	if (pArg)
 		m_pTargetTransform = (CTransform*)pArg;
+	
+	/*ZeroMemory(&m_VBInstanceDesc, sizeof(D3D11_BUFFER_DESC));
+	VTXRECTINST*			pInstanceVertices = new VTXRECTINST[m_iNumInstance];
+	m_VBInstanceSubResourceData.pSysMem = pInstanceVertices;
+
+	if (FAILED(m_pDevice->CreateBuffer(&m_VBInstanceDesc, &m_VBInstanceSubResourceData, &m_pVBInstance)))
+		return E_FAIL;
+
+	SafeDeleteArray(pInstanceVertices);*/
 
 	switch (m_eShape)
 	{
