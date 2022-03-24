@@ -74,7 +74,7 @@ void CWolf::Update(_double dDeltaTime)
 
 	WolfLookPlayer();
 	//SetAttack(dDeltaTime);
-	m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
+	//m_pTransform->RotateAxis(_vector{ 0.f,1.f,0.f }, 90.f);
 }
 void CWolf::LateUpdate(_double dDeltaTime)
 {

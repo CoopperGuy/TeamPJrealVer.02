@@ -3,6 +3,7 @@
 #include "Flogas.h"
 #include "WaterEA.h"
 #include "FlogasDunDoor.h"
+#include "Wolf.h"
 USING(Client)
 
 CScene_SEO::CScene_SEO(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -35,7 +36,9 @@ HRESULT CScene_SEO::Render()
 
 HRESULT CScene_SEO::ReadyScript()
 {
-	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
+	CWolf::Create(nullptr);
+
+	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
 	//_float3 Leftpos = { -6.5f,0.3f,-1.f };
 	//_float3 Rightpos = { 6.5f,0.3f,-1.f };
 	//m_pEngine->AddScriptObject(CWaterEA::Create(nullptr, Leftpos), SCENE_SEO);

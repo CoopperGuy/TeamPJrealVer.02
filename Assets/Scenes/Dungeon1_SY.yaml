@@ -10,8 +10,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0.419081867, -1.68057692, 3.53722405]
-      Rotation: [0, 1.99999964, 0]
-      Scale: [1.63300002, 1.26800013, 0.837000072]
+      Rotation: [0, 1.9999367, 0]
+      Scale: [17.2329998, 0.268000007, 10.0369997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -19,8 +19,8 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
-  - Name: Empty Object
-    UUID: 1780911086643692526
+  - Name: Light
+    UUID: 7857811009840935460
     Active: true
     Layer: Default
     Instancing: false

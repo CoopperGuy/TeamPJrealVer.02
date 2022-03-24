@@ -15,7 +15,7 @@ private:
 	virtual ~CWolf() = default;
 
 public:
-	static CWolf* Create(CGameObject* pObj, _float3 position = _float3{ 0.f,0.f,0.f });
+	static CWolf* Create(CGameObject * pObj, _float3 position = _float3{ 0.f,0.f,0.f });
 	virtual void Free() override;
 
 public:
@@ -26,11 +26,14 @@ public:
 	virtual void Update(_double dDeltaTime);
 	virtual void LateUpdate(_double dDeltaTime);
 	virtual void Render();
+	
+private:
+	void  SetUpAnimation();
+
 
 public:
 	void RotateBody(_double deltaTime);
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
-
 	void SetAttack(_double dDeltaTime);
 
 private:
@@ -45,7 +48,6 @@ public:
 
 public:
 	void SetWolfState(WOLFSTATE _pState) { m_pWolfState = _pState; }
-
 	void WolfSetAni(_double dDeltaTime);
 	void SetHit() { m_pWolfState = DAMAGE; }
 	void WolfLookPlayer();

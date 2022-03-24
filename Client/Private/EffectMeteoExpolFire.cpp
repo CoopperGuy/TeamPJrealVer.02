@@ -58,7 +58,6 @@ void CEffectMeteoExpolFire::LateUpdate(_double deltaTime)
 {
 	if (m_dDeadTime >= static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
 	{
-		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

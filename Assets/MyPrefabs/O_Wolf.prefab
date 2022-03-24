@@ -1,0 +1,49 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_Wolf
+    UUID: 16046188935930043936
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.100000001
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0.100000001, 0.100000001, 0]
+      Size: [0.5, 0.300000012, 0.300000012]
+      IsAttach: true
+      BoneName: Root
+      Offset: [0, 0.0900000036, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Wolf\
+      MeshFileName: Wolf.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [3.70331025, 0, 10, 10]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 10, 10]
+      Level: 1
+      Gold: 50
+    RenderGroup: 1
+    FrustumRange: 1
