@@ -75,6 +75,9 @@ HRESULT CUrsa::Initialize(_float3 position)
 	m_pModel->SetAnimationLoop((_uint)Ursa::HIT, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::DIE, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::DEADBODY, false);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Start, false);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Land, false, true);
+	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_End, false);
 
 	m_eState = IDLE01;
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
@@ -100,11 +103,11 @@ void CUrsa::Update(_double dDeltaTime)
 
 	//TestAnimation(Flying_End);
 	Checking_Phase(dDeltaTime);
-	if (m_bCombat[First])
-	{
-		if (!m_bCB)
-			Adjust_Dist(dDeltaTime);
-	}
+	//if (m_bCombat[First])
+	//{
+	//	if (!m_bCB)
+	//		Adjust_Dist(dDeltaTime);
+	//}
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bCombat[First] = true;
@@ -117,7 +120,8 @@ void CUrsa::Update(_double dDeltaTime)
 	}
 	Execute_Pattern(dDeltaTime);
 
-	Checking_Finished();
+	/*if(!m_bWheelWind && !m_bRoar)*/
+		Checking_Finished();
 
 	if(m_bCB)
 		SetUp_Combo();
@@ -155,13 +159,11 @@ void CUrsa::Empty_queue()
 
 void CUrsa::Adjust_Dist(_double dDeltaTime)
 {
-	_int Drawing = rand() % 100;
 	_vector vLook, vTargetLook;
 	vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
 	vTargetLook = XMLoadFloat3(&m_vTargetToLook);
 	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 	PxControllerFilters filters;
-
 	if (m_bRoar)
 	{
 		m_bFar = false;
@@ -172,21 +174,34 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 			m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
 	}
-	else if (m_fDist >= 3.5f)
+	else if (m_bWheelWind)
 	{
-		m_bSuperFar	= true;
-		m_bFar		= false;
-		m_bMove		= false;
-		m_bClose	= false;
+		if (m_eState == WHEELWIND_Ing)
+		{
+			if (m_fDist >= 1.f)
+			{
+				m_bMove = true;
+				m_bClose = false;
+			}
+			else
+				m_bClose = true;
+		}
+	}
+	else if (m_fDist >= 3.f)
+	{
+		m_bSuperFar = true;
+		m_bFar = false;
+		m_bMove = false;
+		m_bClose = false;
 	}
 	else if (m_fDist >= 2.f)
 	{
 		if (!m_bSuperFar)
 		{
-			m_bFar		= true;
+			m_bFar = true;
 			m_bSuperFar = false;
-			m_bMove		= false;
-			m_bClose	= false;
+			m_bMove = false;
+			m_bClose = false;
 		}
 	}
 	else if (m_fDist >= 1.f)
@@ -210,8 +225,8 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 
 	if (m_bMove && !m_bFinishBlow)
 	{
-		
-		m_eState = RUN;
+		if(!m_bWheelWind)
+			m_eState = RUN;
 
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
@@ -252,7 +267,7 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 	}
 	if (m_pStat->GetStatInfo().hp < Max)
 	{
-		if(!m_bCB)
+		if(!m_bCB || m_bWheelWind)
 			Adjust_Dist(dDeltaTime);
 		m_bCombat[First] = true;
 		if (m_pStat->GetStatInfo().hp < Max * 0.7f)
@@ -265,7 +280,10 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 			if (m_pStat->GetStatInfo().hp < Max * 0.4f)
 			{
 				if (m_iThir == 0)
+				{
 					Roar();
+					m_bWheelWind = true;
+				}
 				++m_iThir;
 				memset(m_bCombat, false, sizeof(m_bCombat));
 				m_bCombat[Third] = true;
@@ -273,7 +291,6 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 					if (m_iLast == 0)
 						Roar();
 					++m_iLast;
-					memset(m_bCombat, false, sizeof(m_bCombat));
 					m_bCombat[Last] = true;
 			}
 		}
@@ -319,6 +336,36 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 			m_pTransform->SetLook(vTargetLook);
 		}
 	}
+	else if (m_bWheelWind)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			m_QueState.push(WHEELWIND_Start);
+			m_QueState.push(WHEELWIND_Ing);
+			m_QueState.push(WHEELWIND_End);
+			m_eState = m_QueState.front();
+			m_QueState.pop();
+		}
+		else if (m_pModel->Get_isFinished())
+		{
+			if (m_eState == WHEELWIND_Start)
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+				m_bSkillDelay = true;
+			}
+		}
+
+		if (m_bSkillDelay)
+			m_dWheelWindTime += dDeltaTime;
+
+		if (m_dWheelWindTime > 5.0)
+		{
+			m_dWheelWindTime = 0.0;
+			m_bSkillDelay = false;
+			m_bWheelWind = false;
+		}
+	}
 	else
 	{
 		if (m_bClose)
@@ -354,19 +401,72 @@ void CUrsa::Second_Phase(_double dDeltaTime)
 		++m_iComboIndex;
 		m_bCB = true;
 		if (m_iComboIndex > 5)
+		{
 			m_iComboIndex = 0;
-
+		}
 	}
 }
 
 void CUrsa::Third_Phase(_double dDeltaTime)
 {
+	if (m_bWheelWind)
+	{
+		if (m_QueState.empty() && !m_bFinishBlow)
+		{
+			m_QueState.push(WHEELWIND_Start);
+			m_QueState.push(WHEELWIND_Ing);
+			m_QueState.push(WHEELWIND_End);
+			m_eState = m_QueState.front();
+			m_QueState.pop();
+		}
+		else if (m_pModel->Get_isFinished())
+		{
+			if (m_eState == WHEELWIND_Start)
+			{
+				m_eState = m_QueState.front();
+				m_QueState.pop();
+				m_bSkillDelay = true;
+			}
+		}
+
+		if (m_bSkillDelay)
+			m_dWheelWindTime += dDeltaTime;
+
+		if (m_dWheelWindTime > 5.0)
+		{
+			m_dWheelWindTime = 0.0;
+			m_bSkillDelay = false;
+			m_bWheelWind = false;
+		}
+	}
+	else if (m_QueState.empty() && !m_bFinishBlow)
+	{
+		++m_iComboIndex;
+		m_bCB = true;
+		if (m_bAddRand)
+		{
+			if (m_iComboIndex > 6)
+			{
+				m_iComboIndex = 0;
+				m_bWheelWind = true;
+				m_bAddRand = false;
+			}
+		}
+		else
+		{
+			if (m_iComboIndex > 5)
+			{
+				m_iComboIndex = 0;
+				m_bWheelWind = true;
+			}
+		}
+	}
 }
 
 void CUrsa::SetUp_Combo()
 {
 	_vector vTargetLook = XMLoadFloat3(&m_vTargetToLook);
-	
+	_int Drawing = rand() % 100;
 	if (m_bRoar)
 	{
 		m_bCB = false;
@@ -468,7 +568,76 @@ void CUrsa::SetUp_Combo()
 			}
 			else if (m_bCombat[Third])
 			{
-
+				if (Drawing <= 30)
+					m_bAddRand = true;
+				else
+					m_bAddRand = false;
+				switch (m_iComboIndex)
+				{
+				case 1:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(R_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 2:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(L_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 3:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_2Start);
+					m_QueState.push(Combo_3Start);
+					m_QueState.push(Combo_4Start);
+					m_QueState.push(Combo_4End);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 4:
+					if(m_bAddRand)
+						m_QueState.push(Big_SLASH);
+					else
+						m_QueState.push(AXE_STAMP);
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 5:
+					if (m_bAddRand)
+						m_QueState.push(AXE_STAMP);
+					else
+					{
+						m_QueState.push(PUMMEL_1);
+						m_QueState.push(PUMMEL_2);
+					}
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 6:
+					if (m_bAddRand)
+					{
+						m_QueState.push(PUMMEL_1);
+						m_QueState.push(PUMMEL_2);
+						vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+						m_pTransform->SetLook(vTargetLook);
+					}
+					break;
+				default:
+					break;
+				}
 			}	
 		}
 	}
@@ -500,11 +669,14 @@ void CUrsa::Checking_Finished()
 	{
 		if (m_pModel->Get_isFinished())
 		{
-			if (!m_QueState.empty())
+			if (!m_bWheelWind)
 			{
-				m_eState = m_QueState.front();
-				m_QueState.pop();
+				if (!m_QueState.empty())
+				{
+					m_eState = m_QueState.front();
+					m_QueState.pop();
 
+				}
 			}
 			if (!None_Combat())
 			{
