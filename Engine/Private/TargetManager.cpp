@@ -23,8 +23,8 @@ HRESULT CTargetManager::Initialize(ID3D11Device* pDevice, ID3D11DeviceContext * 
 	D3D11_TEXTURE2D_DESC		TextureDesc;
 	ZeroMemory(&TextureDesc, sizeof(TextureDesc));
 
-	TextureDesc.Width = WINCX * 10;
-	TextureDesc.Height = WINCY * 10;
+	TextureDesc.Width = WINCX * SHADOWRATIO;
+	TextureDesc.Height = WINCY * SHADOWRATIO;
 	TextureDesc.MipLevels = 1;
 	TextureDesc.ArraySize = 1;
 
@@ -191,8 +191,8 @@ HRESULT CTargetManager::Begin_ShadowRT(ID3D11DeviceContext * pDeviceContext, str
 	D3D11_VIEWPORT ViewPort;
 
 	ViewPort = m_BackBufferViewPort;
-	ViewPort.Width = WINCX * 10;
-	ViewPort.Height = WINCY * 10;
+	ViewPort.Width = WINCX * SHADOWRATIO;
+	ViewPort.Height = WINCY * SHADOWRATIO;
 
 	pDeviceContext->RSSetViewports(iNum, &ViewPort);
 

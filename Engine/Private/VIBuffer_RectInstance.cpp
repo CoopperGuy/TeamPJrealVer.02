@@ -25,6 +25,9 @@ CVIBuffer_RectInstance::CVIBuffer_RectInstance(const CVIBuffer_RectInstance & rh
 	, m_fStartRadian(rhs.m_fStartRadian)
 	, m_fRadiationAngle(rhs.m_fRadiationAngle)
 	, m_eShape(rhs.m_eShape)
+	, m_blerpColor(rhs.m_blerpColor)
+	, m_vSrcColor(rhs.m_vSrcColor)
+	, m_vDestColor(rhs.m_vDestColor)
 {
 	SafeAddRef(m_pVBInstance);
 		
@@ -247,6 +250,7 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	if (m_fLifeTime < m_fLifeTimeAcc)
 		m_fLifeTimeAcc = 0.f;
 
+
 	return S_OK;
 }
 
@@ -270,6 +274,11 @@ HRESULT CVIBuffer_RectInstance::Render(_uint iPassIndex)
 	_uint		iOffset[] = {
 		0, 0
 	};
+
+	if (m_blerpColor) {
+		_float timeRatio = (m_fLifeTimeAcc / m_fLifeTime) * 2.f;
+		XMStoreFloat4(&m_vColor, XMVectorLerp(XMLoadFloat4(&m_vSrcColor), XMLoadFloat4(&m_vDestColor), timeRatio));
+	}
 
 	m_pDeviceContext->IASetVertexBuffers(0, m_iNumVertexBuffers, pVBBuffers, iStrides, iOffset);
 	m_pDeviceContext->IASetIndexBuffer(m_pIB.Get(), m_eIndexFormat, 0);

@@ -688,6 +688,19 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::Key << "StartRadian" << YAML::Value << pRectInst->Get_StartRadian();
 		out << YAML::Key << "RadiationAngle" << YAML::Value << pRectInst->Get_RadiationAngle();
 				
+		out << YAML::Key << "LerpColor" << YAML::Value << pRectInst->Get_LerpColor();
+
+		_float4 srcColor = pRectInst->Get_SrcColor();
+		out << YAML::Key << "SrcColor";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << srcColor.x << srcColor.y << srcColor.z << srcColor.w << YAML::EndSeq;
+
+		_float4 destColor = pRectInst->Get_DestColor();
+		out << YAML::Key << "DestColor";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << destColor.x << destColor.y << destColor.z << destColor.w << YAML::EndSeq;
+
+
 		out << YAML::EndMap;
 	}
 
@@ -1050,6 +1063,8 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 			MSG_BOX("Failed to AddComponent Prototype_VIBuffer_RectInstance");
 
 		_float4 vColor = { 0.f, 0.f, 0.f, 0.f };
+		_float4 vSrcColor{};
+		_float4 vDestColor{};
 		_float fSpeed = RectInstanceCom["Speed"].as<float>();
 		_float fSize = RectInstanceCom["Size"].as<float>();
 		_float fStartRadian = RectInstanceCom["StartRadian"].as<float>();
@@ -1057,22 +1072,37 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		_float fLifeTime = RectInstanceCom["LifeTime"].as<float>();
 		_int iInstNum = RectInstanceCom["InstNum"].as<int>();
 		_int iShape = RectInstanceCom["Shape"].as<int>();
-		
+		_bool isLerp = RectInstanceCom["LerpColor"].as<bool>();
+
 		auto sequence = RectInstanceCom["Color"];
 		vColor.x = sequence[0].as<float>();
 		vColor.y = sequence[1].as<float>();
 		vColor.z = sequence[2].as<float>();
 
+		auto srcColor = RectInstanceCom["SrcColor"];
+		vSrcColor.x = srcColor[0].as<float>();
+		vSrcColor.y = srcColor[1].as<float>();
+		vSrcColor.z = srcColor[2].as<float>();
+		vSrcColor.w = 0.f;
+
+		auto destColor = RectInstanceCom["DestColor"];
+		vDestColor.x = destColor[0].as<float>();
+		vDestColor.y = destColor[1].as<float>();
+		vDestColor.z = destColor[2].as<float>();
+		vDestColor.w = 0.f;
+
 		CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(deserializedObject->GetComponent("Com_RectInstance"));
 
 		pRectInst->Set_Color(vColor);
+		pRectInst->Set_SrcColor(vSrcColor);
+		pRectInst->Set_DestColor(vDestColor);
 		pRectInst->Set_Speed(fSpeed);
 		pRectInst->Set_Size(fSize);
 		pRectInst->Set_StartRadian(fStartRadian);
 		pRectInst->Set_RadiationAngle(fRadiationAngle);
 		pRectInst->Set_LifeTime(fLifeTime);
 		pRectInst->Set_InstanceNum(iInstNum);
-
+		pRectInst->Set_lerpColor(isLerp);
 		if (iShape == 0)
 		{
 			pRectInst->Set_Shape(CVIBuffer_RectInstance::RADIATION);
