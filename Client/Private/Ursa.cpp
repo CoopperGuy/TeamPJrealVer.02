@@ -103,11 +103,11 @@ void CUrsa::Update(_double dDeltaTime)
 
 	//TestAnimation(Flying_End);
 	Checking_Phase(dDeltaTime);
-	if (m_bCombat[First])
-	{
-		if (!m_bCB)
-			Adjust_Dist(dDeltaTime);
-	}
+	//if (m_bCombat[First])
+	//{
+	//	if (!m_bCB)
+	//		Adjust_Dist(dDeltaTime);
+	//}
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bCombat[First] = true;
@@ -120,7 +120,7 @@ void CUrsa::Update(_double dDeltaTime)
 	}
 	Execute_Pattern(dDeltaTime);
 
-	if(!m_bWheelWind)
+	/*if(!m_bWheelWind && !m_bRoar)*/
 		Checking_Finished();
 
 	if(m_bCB)
@@ -159,7 +159,6 @@ void CUrsa::Empty_queue()
 
 void CUrsa::Adjust_Dist(_double dDeltaTime)
 {
-	_int Drawing = rand() % 100;
 	_vector vLook, vTargetLook;
 	vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
 	vTargetLook = XMLoadFloat3(&m_vTargetToLook);
@@ -280,7 +279,6 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 					if (m_iLast == 0)
 						Roar();
 					++m_iLast;
-					memset(m_bCombat, false, sizeof(m_bCombat));
 					m_bCombat[Last] = true;
 			}
 		}
@@ -392,7 +390,6 @@ void CUrsa::Second_Phase(_double dDeltaTime)
 		m_bCB = true;
 		if (m_iComboIndex > 5)
 		{
-			m_bWheelWind = true;
 			m_iComboIndex = 0;
 		}
 	}
@@ -434,16 +431,30 @@ void CUrsa::Third_Phase(_double dDeltaTime)
 	{
 		++m_iComboIndex;
 		m_bCB = true;
-		if (m_iComboIndex > 5)
-			m_iComboIndex = 0;
-
+		if (m_bAddRand)
+		{
+			if (m_iComboIndex > 6)
+			{
+				m_iComboIndex = 0;
+				m_bWheelWind = true;
+				m_bAddRand = false;
+			}
+		}
+		else
+		{
+			if (m_iComboIndex > 5)
+			{
+				m_iComboIndex = 0;
+				m_bWheelWind = true;
+			}
+		}
 	}
 }
 
 void CUrsa::SetUp_Combo()
 {
 	_vector vTargetLook = XMLoadFloat3(&m_vTargetToLook);
-	
+	_int Drawing = rand() % 100;
 	if (m_bRoar)
 	{
 		m_bCB = false;
@@ -545,7 +556,76 @@ void CUrsa::SetUp_Combo()
 			}
 			else if (m_bCombat[Third])
 			{
-
+				if (Drawing <= 30)
+					m_bAddRand = true;
+				else
+					m_bAddRand = false;
+				switch (m_iComboIndex)
+				{
+				case 1:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(R_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 2:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(L_SLASH);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 3:
+					m_QueState.push(Combo_1Start);
+					m_QueState.push(Combo_1Hold);
+					m_QueState.push(Combo_1);
+					m_QueState.push(Combo_2Start);
+					m_QueState.push(Combo_3Start);
+					m_QueState.push(Combo_4Start);
+					m_QueState.push(Combo_4End);
+					m_eState = m_QueState.front();
+					m_QueState.pop();
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 4:
+					if(m_bAddRand)
+						m_QueState.push(Big_SLASH);
+					else
+						m_QueState.push(AXE_STAMP);
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 5:
+					if (m_bAddRand)
+						m_QueState.push(AXE_STAMP);
+					else
+					{
+						m_QueState.push(PUMMEL_1);
+						m_QueState.push(PUMMEL_2);
+					}
+					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+					m_pTransform->SetLook(vTargetLook);
+					break;
+				case 6:
+					if (m_bAddRand)
+					{
+						m_QueState.push(PUMMEL_1);
+						m_QueState.push(PUMMEL_2);
+						vTargetLook = XMVectorSetY(vTargetLook, 0.f);
+						m_pTransform->SetLook(vTargetLook);
+					}
+					break;
+				default:
+					break;
+				}
 			}	
 		}
 	}
