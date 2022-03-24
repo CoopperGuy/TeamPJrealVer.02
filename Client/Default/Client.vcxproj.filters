@@ -366,7 +366,12 @@
     </ClInclude>
     <ClInclude Include="..\public\TargetOn.h">
       <Filter>04.UI\TargetOn</Filter>
-
+    </ClInclude>
+    <ClInclude Include="..\public\Scene_Stage3.h">
+      <Filter>01.Scenes\Scene_Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\TownPortal.h">
+      <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -720,6 +725,12 @@
     </ClCompile>
     <ClCompile Include="..\private\TargetOn.cpp">
       <Filter>04.UI\TargetOn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Scene_Stage3.cpp">
+      <Filter>01.Scenes\Scene_Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\TownPortal.cpp">
+      <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1096,9 +1107,15 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Ursa">
       <UniqueIdentifier>{93a0abd7-38e9-4bfc-96c3-1778de104aac}</UniqueIdentifier>
- </Filter>
+    </Filter>
     <Filter Include="04.UI\TargetOn">
       <UniqueIdentifier>{e3712d70-1560-4639-8c58-2dc8dc2165d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Scene_Stage3">
+      <UniqueIdentifier>{b4b9d465-6a82-4759-826b-e26eec11a0b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Portal\TownPortal">
+      <UniqueIdentifier>{cd9af9a0-6be8-46cf-9334-d15f103afa1e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
