@@ -10,7 +10,7 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0.419081867, -1.68057692, 3.53722405]
-      Rotation: [0, 1.9999367, 0]
+      Rotation: [0, 1.99993622, 0]
       Scale: [17.2329998, 0.268000007, 10.0369997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
