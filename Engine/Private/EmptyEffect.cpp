@@ -432,7 +432,7 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		for (_uint i = 0; i < iNumMaterials; ++i)
 		{
 			pModel->SetUp_TextureOnShader("g_DiffuseTexture", i, aiTextureType_DIFFUSE);
-
+			
 			if (m_pTexture[TEXTURE_MASK])
 				pModel->GetShader()->SetUp_TextureOnShader("g_MaskTexture", m_pTexture[TEXTURE_MASK]);
 
@@ -449,10 +449,15 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 	if (DecalCom)
 	{
 		CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(DecalCom);
-		ID3D11ShaderResourceView* pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Depth");
+
+		ID3D11ShaderResourceView* pDepthSRV;
+
+		if (m_pEngine->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
+			pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Decal_Depth");
+		else
+			pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Depth");
 		if (pDepthSRV == nullptr)
 			return E_FAIL;
-
 		pDecal->GetShader()->SetUp_TextureOnShader("g_DepthTexture", pDepthSRV);
 
 		_matrix WordlMatrixInv = m_pTransformCom->GetWorldMatrixInverse();
@@ -467,6 +472,15 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		projMatrix = XMMatrixInverse(nullptr, projMatrix);
 		pDecal->GetShader()->SetUp_ValueOnShader("g_ProjMatrixInv", &XMMatrixTranspose(projMatrix), sizeof(_float4x4));
 		
+		if (m_pTexture[TEXTURE_DIFFUSE])
+			pDecal->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", m_pTexture[TEXTURE_DIFFUSE]);
+
+		if (m_pTexture[TEXTURE_MASK])
+			pDecal->GetShader()->SetUp_TextureOnShader("g_MaskTexture", m_pTexture[TEXTURE_MASK]);
+
+		if (m_pTexture[TEXTURE_NOISE])
+			pDecal->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NOISE]);
+
 		pDecal->Render();
 	}
 

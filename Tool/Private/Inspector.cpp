@@ -403,6 +403,12 @@ void CInspector::UpdateEffect()
 				MSG_BOX("Failed to AddComponent");
 		}
 
+		if (ImGui::MenuItem("Decal"))
+		{
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_Decal", "Com_Decal", g_pObjFocused->GetComponent("Com_Transform"))))
+				MSG_BOX("Failed to AddComponent");
+		}
+
 		if (ImGui::MenuItem("OBB"))
 		{
 			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_OBBCollider", "Com_OBB", g_pObjFocused->GetComponent("Com_Transform"))))
@@ -787,17 +793,19 @@ void CInspector::DrawEffectImage()
 
 void CInspector::DrawEffectSetting()
 {
-	CComponent* pComponent = nullptr;
-	pComponent = g_pObjFocused->GetComponent("Com_VIBuffer");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_Model");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
+	//CComponent* pComponent = nullptr;
+	//pComponent = g_pObjFocused->GetComponent("Com_VIBuffer");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_Model");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_Decal");
 
-	if (pComponent)
-	{
+	//if (pComponent)
+	//{
 		ImGui::Separator();
 
 		bool bDelete = false;
@@ -999,7 +1007,7 @@ void CInspector::DrawEffectSetting()
 
 		if (bDelete)
 			g_pObjFocused->RemoveComponent("Com_VIBuffer");
-	}
+//	}
 }
 
 void CInspector::DrawTextUI()

@@ -45,24 +45,6 @@ Texture2D g_NoiseTexture;
 Texture2D g_NormalTexture;
 Texture2D g_HDRTexture;
 
-SamplerState g_DefaultSampler
-{
-    AddressU = wrap;
-    AddressV = wrap;
-};
-
-SamplerState g_BorderSampler
-{
-	AddressU = border;
-	AddressV = border;
-};
-
-SamplerState g_ClampSampler
-{
-    AddressU = clamp;
-    AddressV = clamp;
-};
-
 struct VS_IN
 {
     float3 vPosition : POSITION;

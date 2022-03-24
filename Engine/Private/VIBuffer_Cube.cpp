@@ -9,6 +9,7 @@ CVIBuffer_Cube::CVIBuffer_Cube(ID3D11Device * pDevice, ID3D11DeviceContext * pDe
 CVIBuffer_Cube::CVIBuffer_Cube(const CVIBuffer_Cube & rhs)
 	: CVIBuffer(rhs)
 {
+	m_pShader = rhs.m_pShader;
 }
 
 HRESULT CVIBuffer_Cube::InitializePrototype(string pShaderFilePath)
@@ -114,7 +115,7 @@ HRESULT CVIBuffer_Cube::InitializePrototype(string pShaderFilePath)
 	m_shaderPath = pShaderFilePath;
 
 	//m_shaderPath = "../../Assets/Shader/Shader_Sky.fx";
-	m_pShader = make_unique<CShader>(m_shaderPath);
+	m_pShader = make_shared<CShader>(m_shaderPath);
 
 	SafeDeleteArray(pIndices);
 
@@ -129,31 +130,12 @@ HRESULT CVIBuffer_Cube::Initialize(void * pArg)
 	{
 		__super::Initialize(pArg);
 	}
-
-	m_pShader = make_unique<CShader>(m_shaderPath);
-
-
-	/* Decal_Test */
-	/*char	szExt[MAX_PATH] = "";
-
-	string TextureFilePath = "../../Assets/Textures/Effect/Mask/fx_crack_008_TEX_CJH.tga";
-
-	_splitpath(TextureFilePath.c_str(), nullptr, nullptr, nullptr, szExt);
-
-	if (!strcmp(szExt, ".dds") || !strcmp(szExt, ".DDS"))
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_DDS, TextureFilePath);
-	else if (!strcmp(szExt, ".tga") || !strcmp(szExt, ".TGA") || !strcmp(szExt, ".Tga"))
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_TGA, TextureFilePath);
-	else
-		m_pTexture = CTexture::Create(m_pDevice, m_pDeviceContext, CTexture::TYPE_WIC, TextureFilePath);*/
-	
+			
 	return S_OK;
 }
 
 HRESULT CVIBuffer_Cube::Render(_uint iPassIndex)
 {
-	//m_pShader->SetUp_TextureOnShader("g_DiffuseTexture", m_pTexture);
-
 	__super::Render();
 
 	return S_OK;

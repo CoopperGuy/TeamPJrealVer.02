@@ -36,29 +36,7 @@ Texture2D g_DiffuseTexture;
 Texture2D depthMapTexture0;
 Texture2D depthMapTexture1;
 
-SamplerState g_DiffuseSampler
-{
-    Filter = min_mag_mip_linear;
-
-    AddressU = wrap;
-    AddressV = wrap;
-};
-
 Texture2D g_FilterTexture;
-SamplerState g_FilterSampler
-{
-    Filter = min_mag_mip_point;
-
-    AddressU = wrap;
-    AddressV = wrap;
-};
-SamplerState g_SamplerClamp
-{
-    Filter = min_mag_mip_point;
-
-    AddressU = clamp;
-    AddressV = clamp;
-};
 
 struct VS_IN
 {
@@ -225,7 +203,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     if ((saturate(projectTexCoord.x) == projectTexCoord.x) && (saturate(projectTexCoord.y) == projectTexCoord.y))
     {
-        depthValue = depthMapTexture0.Sample(g_SamplerClamp, projectTexCoord).x;
+        depthValue = depthMapTexture0.Sample(g_ClampSampler, projectTexCoord).x;
 
         lightDepthValue = In.lightViewPosition0.z / In.lightViewPosition0.w;
         lightDepthValue = lightDepthValue - bias;
@@ -268,7 +246,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     if ((saturate(projectTexCoord.x) == projectTexCoord.x) && (saturate(projectTexCoord.y) == projectTexCoord.y))
     {
-        depthValue = depthMapTexture1.Sample(g_SamplerClamp, projectTexCoord).x;
+        depthValue = depthMapTexture1.Sample(g_ClampSampler, projectTexCoord).x;
 
         lightDepthValue = In.lightViewPosition1.z / In.lightViewPosition1.w;
         lightDepthValue = lightDepthValue - bias;
@@ -297,7 +275,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     color = saturate(color);
         // 이 텍스처 좌표 위치에서 샘플러를 사용하여 텍스처에서 픽셀 색상을 샘플링합니다.
-    textureColor = g_DiffuseSourTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    textureColor = g_DiffuseSourTexture.Sample(g_DefaultSampler, In.vTexUV);
  
     // 빛과 텍스처 색상을 결합합니다.
     color = color * textureColor;

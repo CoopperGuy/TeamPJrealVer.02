@@ -40,30 +40,6 @@ Texture2D g_DiffuseTexture;
 Texture2D g_MaskTexture;
 Texture2D g_NoiseTexture;
 
-SamplerState g_DefaultSampler
-{
-    AddressU = wrap;
-    AddressV = wrap;
-};
-
-SamplerState	g_DiffuseSampler
-{
-	AddressU = mirror;
-	AddressV = mirror;
-};
-
-SamplerState g_BorderSampler
-{
-    AddressU = border;
-    AddressV = border;
-};
-
-SamplerState g_ClampSampler
-{
-    AddressU = clamp;
-    AddressV = clamp;
-};
-
 struct VS_IN
 {
 	float3	vPosition : POSITION; /* 로컬스페이스 */
@@ -238,7 +214,7 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
 {
     vector vColor = { 1, 0, 0, 1};
     
-    vColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
 
     if (vColor.a < 0.3f)
         discard;

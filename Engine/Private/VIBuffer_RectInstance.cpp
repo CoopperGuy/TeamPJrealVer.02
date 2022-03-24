@@ -12,10 +12,10 @@ CVIBuffer_RectInstance::CVIBuffer_RectInstance(ID3D11Device * pDevice, ID3D11Dev
 CVIBuffer_RectInstance::CVIBuffer_RectInstance(const CVIBuffer_RectInstance & rhs)
 	: CVIBuffer(rhs)
 	, m_VBInstanceDesc(rhs.m_VBInstanceDesc)
-	, m_VBInstanceSubResourceData(rhs.m_VBInstanceSubResourceData)
-	, m_pVBInstance(rhs.m_pVBInstance)
+	//, m_VBInstanceSubResourceData(rhs.m_VBInstanceSubResourceData)
+	//, m_pVBInstance(rhs.m_pVBInstance)
 	, m_iNumInstance(rhs.m_iNumInstance)
-	, m_InstanceMatrices(rhs.m_InstanceMatrices)
+	//, m_InstanceMatrices(rhs.m_InstanceMatrices)
 	, m_shaderPath(rhs.m_shaderPath)
 	, m_fLifeTime(rhs.m_fLifeTime)
 	, m_iInstNum(rhs.m_iInstNum)
@@ -26,7 +26,7 @@ CVIBuffer_RectInstance::CVIBuffer_RectInstance(const CVIBuffer_RectInstance & rh
 	, m_fRadiationAngle(rhs.m_fRadiationAngle)
 	, m_eShape(rhs.m_eShape)
 {
-	SafeAddRef(m_pVBInstance);
+	//SafeAddRef(m_pVBInstance);
 
 	if (rhs.m_pShader != nullptr)
 		m_pShader = rhs.m_pShader;
@@ -148,6 +148,14 @@ HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
 	if (m_pShader == nullptr)
 		m_pShader = make_unique<CShader>(m_shaderPath);
 	
+	VTXRECTINST*			pInstanceVertices = new VTXRECTINST[m_iNumInstance];
+	m_VBInstanceSubResourceData.pSysMem = pInstanceVertices;
+
+	if (FAILED(m_pDevice->CreateBuffer(&m_VBInstanceDesc, &m_VBInstanceSubResourceData, &m_pVBInstance)))
+		return E_FAIL;
+
+	SafeDeleteArray(pInstanceVertices);
+
 	if (pArg)
 		m_pTargetTransform = (CTransform*)pArg;
 
@@ -195,26 +203,29 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	{
 		if (m_InstanceMatrices[i]->iRenderEnable == 1)
 		{
-			if (m_fLifeTime < m_fLifeTimeAcc)
+			if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+			{
+				//billbord	
+				_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
+				_vector vRight = XMVectorSet(cosf(m_InstanceMatrices[i]->fRadian), sinf(m_InstanceMatrices[i]->fRadian), 0.f, 0.f);
+				_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+				vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+
+				XMStoreFloat4(&m_InstanceMatrices[i]->vDir, vRight);
+				XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
+				XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
+				XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
+			}
+
+			if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL && m_fLifeTime < m_fLifeTimeAcc)
 			{
 				_float3 OffsetPosition = { 0.f, 0.f, 0.f };
 				if (m_pTargetTransform != nullptr)
 					XMStoreFloat3(&OffsetPosition, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
 				m_InstanceMatrices[i]->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
 			}
-
 			else
-				XMStoreFloat4(&m_InstanceMatrices[i]->vPosition, XMLoadFloat4(&m_InstanceMatrices[i]->vPosition) + XMLoadFloat4(&m_InstanceMatrices[i]->vDir) * TimeDelta * m_InstanceMatrices[i]->fStartSpeed * m_fSpeed);
-
-			// //billbord	
-			_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
-			_vector vRight = XMVectorSet(cosf(m_InstanceMatrices[i]->fRadian), sinf(m_InstanceMatrices[i]->fRadian), 0.f, 0.f);
-			_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-			vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
-
-			XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
-			XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
-			XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
+				XMStoreFloat4(&m_InstanceMatrices[i]->vPosition, XMLoadFloat4(&m_InstanceMatrices[i]->vPosition) + XMLoadFloat4(&m_InstanceMatrices[i]->vDir) * TimeDelta * m_InstanceMatrices[i]->fStartSpeed * m_fSpeed);			
 		}
 
 		((VTXRECTINST*)SubResource.pData)[i] = *m_InstanceMatrices[i];
@@ -287,15 +298,32 @@ HRESULT CVIBuffer_RectInstance::Initialize_Radiation()
 	{
 		_uint IQuarter = i / iQuarterNum;
 		
-		VTXRECTINST*		pIV = new VTXRECTINST();
-		pIV->vRight = _float4(1.f, 0.f, 0.f, 0.f);
-		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
-		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
+		VTXRECTINST*		pIV = new VTXRECTINST();		
 		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
 		pIV->fStartSize = 0.1f + (rand() % 5 * 0.1f);
 		pIV->fStartSpeed = 0.1f + (rand() % 201 * 0.001f);
 		pIV->fRadian = XMConvertToRadians(_float((90 * IQuarter) + (rand() % 90)));
-		XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
+		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
+
+		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
+		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
+		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+
+		XMStoreFloat4(&pIV->vDir, vRight);
+
+		if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+		{
+			XMStoreFloat4(&pIV->vRight, vRight);
+			XMStoreFloat4(&pIV->vUp, vUp);
+			XMStoreFloat4(&pIV->vLook, vLook);
+		}
+		else
+		{
+			XMStoreFloat4(&pIV->vRight, vRight * pIV->fStartSize * m_fSize);
+			XMStoreFloat4(&pIV->vUp, vUp * pIV->fStartSize * m_fSize);
+			XMStoreFloat4(&pIV->vLook, vLook);
+		}
 
 		if (i < m_iInstNum)
 			pIV->iRenderEnable = 1;
@@ -325,15 +353,30 @@ HRESULT CVIBuffer_RectInstance::Initialize_Cone()
 	
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
-		VTXRECTINST*		pIV = new VTXRECTINST();
-		pIV->vRight = _float4(1.f, 0.f, 0.f, 0.f);
-		pIV->vUp = _float4(0.f, 1.f, 0.f, 0.f);
-		pIV->vLook = _float4(0.f, 0.f, 1.f, 0.f);
+		VTXRECTINST*		pIV = new VTXRECTINST();		
 		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
 		pIV->fStartSize = 0.1f + (rand() % 5 * 0.1f);
 		pIV->fStartSpeed = 0.1f + (rand() % 201 * 0.001f);
 		pIV->fRadian = XMConvertToRadians(float(m_fStartRadian + (rand() % ((_int)m_fRadiationAngle + 1) - ((_int)m_fRadiationAngle / 2))));
 		XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
+
+		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
+		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
+		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+
+		if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+		{
+			XMStoreFloat4(&pIV->vRight, vRight);
+			XMStoreFloat4(&pIV->vUp, vUp);
+			XMStoreFloat4(&pIV->vLook, vLook);
+		}
+		else
+		{
+			XMStoreFloat4(&pIV->vRight, vRight * pIV->fStartSize * m_fSize);
+			XMStoreFloat4(&pIV->vUp, vUp * pIV->fStartSize * m_fSize);
+			XMStoreFloat4(&pIV->vLook, vLook);
+		}
 
 		if (i < m_iInstNum)
 			pIV->iRenderEnable = 1;
