@@ -4,13 +4,13 @@
 BEGIN(Client)
 void CreatMonsterHPbarThread(CMonHpVIBuffer* script) {
 	CEmptyGameObject*	monHud = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("U_MonHpVIBuffer"));
-	CEmptyGameObject*	monHpBar = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("U_MonHpBar"));
-
+	CEmptyGameObject*	monHpBar = static_cast<CEmptyGameObject*>(monHud->GetChildren().front());
 	CEngine::GetInstance()->AddScriptObject(script, CEngine::GetInstance()->GetCurSceneNumber());
 
 	script->pushHuds(monHud, monHpBar);
-	script->pushBuffer(dynamic_cast<CVIBuffer_Rect*>(monHpBar->GetComponent("Com_VIBuffer")));
-	script->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")) , static_cast<CTransform*>(monHpBar->GetComponent("Com_Transform")));
+	script->pushBuffer(static_cast<CVIBuffer_Rect*>(monHud->GetComponent("Com_VIBuffer")));
+	script->pushBuffer(static_cast<CVIBuffer_Rect*>(monHpBar->GetComponent("Com_VIBuffer")));
+	script->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")) , nullptr);
 	script->SetIsEnd();
 
 }
@@ -44,8 +44,8 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 			if (m_fPercetage < m_fBackPercentage) {
 				m_fBackPercentage -= _float(0.05f*deltaTime);
 			}
-			m_pHudBuffer[0]->GetShader()->SetUp_ValueOnShader("g_Percentage", &m_fPercetage, sizeof(_float));
-			m_pHudBuffer[0]->GetShader()->SetUp_ValueOnShader("g_Back", &m_fBackPercentage, sizeof(_float));
+			m_pHpBar->SetPercentage(m_fPercetage);
+			m_pHpBar->SetBackPercentage(m_fBackPercentage);
 		}
 		if (m_pHudTrans) {
 			_vector hpPos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, 0.f, 1.f), m_pTargetTrans->GetWorldMatrix());
@@ -66,8 +66,7 @@ void CMonHpVIBuffer::LateUpdate(_double deltaTime)
 		if (pTarget) {
 			if (pTarget->isDead()) {
 				this->SetDead();
-				m_pHp->DeleteRealObject();
-				m_pHpBar->DeleteRealObject();
+				m_pHp->SetDead();
 			}
 		}
 	}

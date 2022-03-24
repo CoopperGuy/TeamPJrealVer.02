@@ -63,6 +63,9 @@ void CNpc_Shop::Update(_double deltaTime)
 			checkIdx++;
 		}
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_ESCAPE)) {
+			if (m_isActived) {
+				CEventCheck::GetInstance()->OffAllMenus();
+			}
 			g_AnotherMenu = false;
 			m_pShopHud->SetActive(false);
 			m_isActived = false;

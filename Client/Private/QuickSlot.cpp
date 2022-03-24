@@ -40,10 +40,12 @@ void CQuickSlot::Render()
 void CQuickSlot::RegistItem(CItem * _item, _int idx)
 {
 	m_iMyIdx = idx;
-	string path = itemImagePath + _item->GetItempInfo().imageName + ".dds";
-	m_childVIBuffer[QUICK_ICON]->UpdateTexture(path,CVIBuffer_RectUI::TEXTURE_DIFFUSE);
-	m_CurItem = _item;
-	CEventCheck::GetInstance()->SetAddQuickIcon(path, idx);
+	if (_item != nullptr) {
+		string path = itemImagePath + _item->GetItempInfo().imageName + ".dds";
+		m_childVIBuffer[QUICK_ICON]->UpdateTexture(path, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		m_CurItem = _item;
+		CEventCheck::GetInstance()->SetAddQuickIcon(path, idx);
+	}
 }
 
 void CQuickSlot::UseItem(CPlayer* _obj)

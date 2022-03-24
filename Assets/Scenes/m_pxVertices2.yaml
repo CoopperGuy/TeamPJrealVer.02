@@ -95,8 +95,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.55694079, -0.13206704, 1.43441713]
-      Rotation: [-168.683533, 88.3143387, -179.999985]
-      Scale: [0.0215094704, 0.222390324, 0.18418245]
+      Rotation: [-142.206467, 86.460083, -179.999985]
+      Scale: [0.0215007551, 0.222012416, 0.183015227]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -333,7 +333,7 @@ GameObjects:
     Com_Transform:
       Translation: [2, 0, 2]
       Rotation: [-90, -0, 0]
-      Scale: [0.499741048, 0.49999848, 0.50000006]
+      Scale: [0.499740988, 0.49999848, 0.50000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam3.fbx
@@ -362,6 +362,42 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+  - Name: MonHpVIBuffer
+    UUID: 6085631469789567160
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.38995612, 0, 0.240088522]
+      Rotation: [-142.206467, 86.460083, -179.999985]
+      Scale: [0.998939812, 0.0999568552, 0.995339334]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
+    RenderGroup: 3
+    FrustumRange: 5
+    Children:
+      - 2070677322930617097
+  - Name: VIHpbar
+    UUID: 2070677322930617097
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 1
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.999000013, 0.899999976, 1]
+    Com_VIBuffer:
+      Type: Rect
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+    RenderGroup: 1
+    FrustumRange: 5
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true
@@ -415,5 +451,5 @@ GameObjects:
       Exp: [0, 100000, 1000]
       Level: 100
       Gold: 10
-    RenderGroup: 1
+    RenderGroup: 3
     FrustumRange: 1

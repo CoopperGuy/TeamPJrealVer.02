@@ -38,6 +38,12 @@ void CEventCheck::SetBackPackHud(CBackPackHud * _backPack)
 		m_pBackPackHud = _backPack;
 }
 
+void CEventCheck::SetMenus(CMenuHud * _menu)
+{
+	if (_menu)
+		m_pMenus = _menu;
+}
+
 void CEventCheck::AddItemAtQuickSlot(CItem * item, _int idx)
 {
 	if (m_pPlayerScript)
@@ -107,6 +113,12 @@ void CEventCheck::SetUpEquip(string _equipName)
 {
 	if (m_pPlayerScript)
 		m_pPlayerScript->SetUpEquip(_equipName);
+}
+
+void CEventCheck::OffAllMenus()
+{
+	if (m_pMenus)
+		m_pMenus->OffAllMenus();
 }
 
 void CEventCheck::RemoveItem(ITEMTYPE _type, _int _idx)
