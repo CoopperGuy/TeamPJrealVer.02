@@ -215,19 +215,19 @@ HRESULT CVIBuffer_RectInstance::Update(_double TimeDelta)
 	{
 		if (m_InstanceMatrices[i]->iRenderEnable == 1)
 		{
-			if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
-			{
-				//billbord	
-				_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
-				_vector vRight = XMVectorSet(cosf(m_InstanceMatrices[i]->fRadian), sinf(m_InstanceMatrices[i]->fRadian), 0.f, 0.f);
-				_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-				vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+			//if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+			//{
+			//	//billbord	
+			//	_vector vLook = XMVector3Normalize(pEngine->GetCamPosition()) - XMLoadFloat4(&m_InstanceMatrices[i]->vPosition);
+			//	_vector vRight = XMVectorSet(cosf(m_InstanceMatrices[i]->fRadian), sinf(m_InstanceMatrices[i]->fRadian), 0.f, 0.f);
+			//	_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+			//	vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
 
-				XMStoreFloat4(&m_InstanceMatrices[i]->vDir, vRight);
-				XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
-				XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
-				XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
-			}
+			//	//XMStoreFloat4(&m_InstanceMatrices[i]->vDir, vRight);
+			//	XMStoreFloat4(&m_InstanceMatrices[i]->vRight, vRight * m_InstanceMatrices[i]->fStartSize * m_fSize);
+			//	XMStoreFloat4(&m_InstanceMatrices[i]->vUp, vUp * m_InstanceMatrices[i]->fStartSize * m_fSize);
+			//	XMStoreFloat4(&m_InstanceMatrices[i]->vLook, vLook);
+			//}
 
 			if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL && m_fLifeTime < m_fLifeTimeAcc)
 			{
@@ -327,21 +327,20 @@ HRESULT CVIBuffer_RectInstance::Initialize_Radiation()
 		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
 		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
-
 		XMStoreFloat4(&pIV->vDir, vRight);
 
-		if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+		/*if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 		{
 			XMStoreFloat4(&pIV->vRight, vRight);
 			XMStoreFloat4(&pIV->vUp, vUp);
 			XMStoreFloat4(&pIV->vLook, vLook);
 		}
 		else
-		{
+		{*/
 			XMStoreFloat4(&pIV->vRight, vRight * pIV->fStartSize * m_fSize);
 			XMStoreFloat4(&pIV->vUp, vUp * pIV->fStartSize * m_fSize);
 			XMStoreFloat4(&pIV->vLook, vLook);
-		}
+		//}
 
 		if (i < m_iInstNum)
 			pIV->iRenderEnable = 1;
@@ -376,25 +375,26 @@ HRESULT CVIBuffer_RectInstance::Initialize_Cone()
 		pIV->fStartSize = 0.1f + (rand() % 5 * 0.1f);
 		pIV->fStartSpeed = 0.1f + (rand() % 201 * 0.001f);
 		pIV->fRadian = XMConvertToRadians(float(m_fStartRadian + (rand() % ((_int)m_fRadiationAngle + 1) - ((_int)m_fRadiationAngle / 2))));
-		XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
+		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
 
 		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
 		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
 		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+		XMStoreFloat4(&pIV->vDir, vRight);
 
-		if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
+		/*if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 		{
 			XMStoreFloat4(&pIV->vRight, vRight);
 			XMStoreFloat4(&pIV->vUp, vUp);
 			XMStoreFloat4(&pIV->vLook, vLook);
 		}
 		else
-		{
+		{*/
 			XMStoreFloat4(&pIV->vRight, vRight * pIV->fStartSize * m_fSize);
 			XMStoreFloat4(&pIV->vUp, vUp * pIV->fStartSize * m_fSize);
 			XMStoreFloat4(&pIV->vLook, vLook);
-		}
+		//}
 
 		if (i < m_iInstNum)
 			pIV->iRenderEnable = 1;

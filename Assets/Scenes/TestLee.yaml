@@ -53,7 +53,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [-90.0000076, -0, 179.999893]
-      Scale: [0.00984504726, 0.00999999978, 0.00100000005]
+      Scale: [0.00984503888, 0.00999999978, 0.00100000005]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: SM_FX_GEZCylinder01.FBX
@@ -131,9 +131,9 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [1.48628283, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Translation: [-0.828292549, -1.86264515e-09, -4.65661287e-10]
+      Rotation: [0, -0, -5.87513132e-05]
+      Scale: [1, 0.99957186, 1]
     Com_Decal:
       {}
     Com_RectInstance:
@@ -141,7 +141,7 @@ GameObjects:
       InstNum: 100
       Color: [1, 1, 1, 0]
       Speed: 5
-      LifeTime: 5
+      LifeTime: 3.0999999
       Size: 1
       StartRadian: 0
       RadiationAngle: 30
