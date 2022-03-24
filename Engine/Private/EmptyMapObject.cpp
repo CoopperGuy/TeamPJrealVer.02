@@ -100,9 +100,6 @@ _uint CEmptyMapObject::LateUpdate(_double TimeDelta)
 	CComponent* pModel = GetComponent("Com_InsModel");
 	m_pModelCom = dynamic_cast<CInstanceModel*>(pModel);
 
-
-
-
 	return m_pRendererCom->AddRenderGroup(m_eRenderGroup, this);
 }
 
@@ -126,6 +123,7 @@ HRESULT CEmptyMapObject::Render(_uint iPassIndex)
 		for (_uint i = 0; i < iNumMaterials; ++i)
 		{
 			m_pModelCom->SetUp_TextureOnShader("g_DiffuseTexture", i, aiTextureType_DIFFUSE);
+			m_pModelCom->SetUp_TextureOnShader("g_NormalTexture", i, aiTextureType_NORMALS);
 			m_pModelCom->Render(i, iPassIndex);
 		}
 

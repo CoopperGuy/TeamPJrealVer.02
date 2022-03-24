@@ -12,8 +12,29 @@ BOOL MultisampleEnable;
 BOOL AntialiasedLineEnable;
 */
 
+SamplerState g_DefaultSampler
+{
+	Filter = min_mag_mip_linear;
 
+	AddressU = wrap;
+	AddressV = wrap;
+};
 
+SamplerState g_ClampSampler
+{
+	Filter = min_mag_mip_linear;
+
+	AddressU = clamp;
+	AddressV = clamp;
+};
+
+SamplerState g_BorderSampler
+{
+	Filter = min_mag_mip_linear;
+
+	AddressU = border;
+	AddressV = border;
+};
 
 RasterizerState Rasterizer_Wireframe
 {
@@ -51,7 +72,7 @@ RasterizerState Rasterizer_NoneCull
 };
 
 /*
-BOOL DepthEnable;5ddddwddddwwwwwwdwuuuuuuuuuuuuuu
+BOOL DepthEnable;
 D3D11_DEPTH_WRITE_MASK DepthWriteMask;
 D3D11_COMPARISON_FUNC DepthFunc;
 BOOL StencilEnable;

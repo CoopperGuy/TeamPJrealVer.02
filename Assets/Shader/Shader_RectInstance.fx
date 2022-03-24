@@ -17,12 +17,6 @@ cbuffer Color
 Texture2D		g_DiffuseTexture;
 Texture2D       g_MaskTexture;
 
-SamplerState	g_DiffuseSampler
-{
-	AddressU = mirror;
-	AddressV = mirror;
-};
-
 struct VS_IN
 {
 	float3	vPosition : POSITION; /* 로컬스페이스 */
@@ -82,7 +76,7 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
 
     vector vDiffuseColor = (vector) 0;
 
-    vDiffuseColor = g_MaskTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vDiffuseColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
     vColor.a = vDiffuseColor.r * g_Alpha;
     vColor.rgb = vDiffuseColor.rgb * g_Color.rgb;
     if (vColor.r > 0.99)

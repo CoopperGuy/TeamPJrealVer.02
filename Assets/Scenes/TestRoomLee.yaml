@@ -140,8 +140,8 @@ GameObjects:
       Gold: 10
     RenderGroup: 1
     FrustumRange: 1
-  - Name: Empty Object
-    UUID: 1925685104592272479
+  - Name: Decal
+    UUID: 13799061387310565508
     Active: true
     Layer: Default
     Instancing: false
@@ -149,14 +149,14 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0.183994472]
+      Translation: [0.40225929, 0.0277339369, -1.40108669]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_RectInstance:
+      Scale: [1, 0.400999993, 1]
+    Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Smoke2.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
