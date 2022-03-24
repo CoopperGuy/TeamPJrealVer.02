@@ -54,8 +54,22 @@ _uint CScene_Stage01::Update(_double TimeDelta)
 	__super::Update(TimeDelta);
 
 	if (m_pPortal->GetChangeScene()) {
-		if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE2, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
-			return E_FAIL;
+		SCENE scene = m_pPortal->GetCurScene();
+		switch (scene)
+		{
+		case Client::SCENE_STAGE1:
+			break;
+		case Client::SCENE_STAGE2:
+			if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE2, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
+				return E_FAIL;
+			break;
+		case Client::SCENE_STAGE3:
+			if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE3, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
+				return E_FAIL;
+			break;
+	
+		}
+
 	}
 
 

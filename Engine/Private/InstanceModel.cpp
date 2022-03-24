@@ -369,10 +369,10 @@ HRESULT CInstanceModel::Create_MeshContainer(aiMesh * pMesh, _uint* pStartVertex
 
 		/* 정점의 노멀를 가지고 온다. */
 		memcpy(&m_pVertices[*pStartVertexIndex].vNormal, &pMesh->mNormals[i], sizeof(_float3));
-		_vector		vNormal;
+		/*_vector		vNormal;
 		vNormal = XMLoadFloat3(&m_pVertices[*pStartVertexIndex].vNormal);
 		vNormal = XMVector3TransformCoord(vNormal, PivotMatrix);
-		XMStoreFloat3(&m_pVertices[*pStartVertexIndex].vNormal, vNormal);
+		XMStoreFloat3(&m_pVertices[*pStartVertexIndex].vNormal, vNormal);*/
 
 		/* 정점의 텍스쳐 유브이좌표를 가지고 온다. */
 		memcpy(&m_pVertices[*pStartVertexIndex].vTexUV, &pMesh->mTextureCoords[0][i], sizeof(_float2));

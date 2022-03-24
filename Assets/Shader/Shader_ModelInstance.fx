@@ -68,20 +68,6 @@ Texture2D depthMapTexture3;
 Texture2D depthMapTexture4;
 Texture2D depthMapTexture5;
 
-SamplerState	g_DiffuseSampler
-{
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-SamplerState g_SamplerClamp
-{
-	Filter = min_mag_mip_point;
-
-	AddressU = clamp;
-	AddressV = clamp;
-};
-
 struct VS_IN
 {
 	float3	vPosition : POSITION; /* 로컬스페이스 */
@@ -242,7 +228,7 @@ struct PS_OUT
 	vector	vDiffuse : SV_TARGET0;
 	vector	vNormal : SV_TARGET1;
 	vector vDepth : SV_TARGET2;
-
+    vector vDecalDepth : SV_TARGET4;
 };
 
 struct PS_OUT_LIGHT_DEPTH
@@ -283,7 +269,7 @@ PS_OUT	PS_MAIN(PS_IN In)
 
 	if ((saturate(projectTexCoord.x) == projectTexCoord.x) && (saturate(projectTexCoord.y) == projectTexCoord.y))
 	{
-		depthValue = depthMapTexture0.Sample(g_SamplerClamp, projectTexCoord).x;
+		depthValue = depthMapTexture0.Sample(g_ClampSampler, projectTexCoord).x;
 
 		lightDepthValue = In.lightViewPosition0.z / In.lightViewPosition0.w;
 		lightDepthValue = lightDepthValue - bias;
@@ -322,7 +308,7 @@ PS_OUT	PS_MAIN(PS_IN In)
 
 	color = saturate(color);
 	// 이 텍스처 좌표 위치에서 샘플러를 사용하여 텍스처에서 픽셀 색상을 샘플링합니다.
-	textureColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    textureColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
 
 	color = color * textureColor;
 
@@ -333,14 +319,15 @@ PS_OUT	PS_MAIN(PS_IN In)
 
 	Out.vDiffuse = color;
 
-	vector vNormalDesc = g_NormalTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    vector vNormalDesc = g_NormalTexture.Sample(g_DefaultSampler, In.vTexUV);
 	float3 vNormal = vNormalDesc.xyz * 2.f - 1.f;
 	float3x3 TBN = float3x3(In.vTangent, In.vBiNormal, In.vNormal);
 	vNormal = mul(vNormal, TBN);
 
-	Out.vNormal = vector(In.vNormal.xyz * 0.5f + 0.5f, 1.0f);
+    //Out.vNormal = vNormalDesc;
+    Out.vNormal = vector(In.vNormal.xyz * 0.5f + 0.5f, 1.0f);
 	Out.vDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);
-
+    Out.vDecalDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);
 	//Out.vDiffuse = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);	
 
 	//   Out.vDiffuse.a = (Out.vDiffuse.r + Out.vDiffuse.g + Out.vDiffuse.b / 3.f) * 0.5f;

@@ -47,9 +47,11 @@ HRESULT CRenderer::InitializePrototype()
 	/* Target_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Depth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
-	
+	/* Target_Decal_Depth*/
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DecalDepth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
+		return E_FAIL;
 	/* Target_Shadow_Depth*/
-	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * 10, (_uint)ViewportDesc.Height * 10, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * SHADOWRATIO, (_uint)ViewportDesc.Height * SHADOWRATIO, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
 		return E_FAIL;
 	
 	/* Target_Reflect*/
@@ -104,6 +106,8 @@ HRESULT CRenderer::InitializePrototype()
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Deferred", "Target_Specular2")))
 		return E_FAIL;
+	if (FAILED(m_pTargetManager->Add_MRT("MRT_Deferred", "Target_DecalDepth")))
+		return E_FAIL;
 	/* MRT_LightAcc */
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_LightAcc", "Target_Shade")))
 		return E_FAIL;
@@ -156,16 +160,16 @@ HRESULT CRenderer::InitializePrototype()
 	if (nullptr == m_pVIBuffer_SSAO)
 		return E_FAIL;
 
-	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Main", 0.f, 0.f, 200.f, 200.f)))
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Diffuse", 0.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Normal", 0.f, 200.f, 200.f, 200.f)))
 		return E_FAIL;	
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Depth", 0.f, 400.f, 200.f, 200.f)))
 		return E_FAIL; 
-	//if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Depth", 200.f, 0.f, 200.f, 200.f)))
-		//return E_FAIL;
-	/*if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_BlurY", 0.f, 200.f, 200.f, 200.f)))
-		return E_FAIL;*/
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular2", 200.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_DecalDepth", 200.f, 200.f, 200.f, 200.f)))
+		return E_FAIL;
 	
 	/*if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular", 200.f, 200.f, 200.f, 200.f)))
 		return E_FAIL;*/
@@ -219,8 +223,8 @@ HRESULT CRenderer::DrawRenderGroup()
 		return E_FAIL;
 
 #ifndef _DEBUG
-	//if (FAILED(RenderLightDepth()))
-	//	return E_FAIL;
+	if (FAILED(RenderLightDepth()))
+		return E_FAIL;
 #endif // !_DEBUG	
 
 	if (FAILED(RenderNonAlpha()))
@@ -254,7 +258,7 @@ HRESULT CRenderer::DrawRenderGroup()
 		//if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Bloom")))
 			//return E_FAIL;
 	}
-	if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Main")))
+	if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
 		return E_FAIL;
 
 	//CLightManager::GetInstance()->Render_DebugBuffer();
@@ -353,7 +357,7 @@ HRESULT CRenderer::RenderNonAlpha()
 	if (nullptr == m_pTargetManager)
 		return E_FAIL;
 
-	// Light depth¸¦ ±¸ÇÑ´Ù
+	// Light depthÂ¸Â¦ Â±Â¸Ã‡Ã‘Â´Ã™
 
 	//if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
 	//{

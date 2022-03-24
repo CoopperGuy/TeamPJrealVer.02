@@ -27,6 +27,8 @@ HRESULT CEl_Flogas::Initialize(string name)
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
+
+
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 	XMStoreFloat3(&m_vTargetPos, m_pTargetTransform->GetState(CTransform::STATE_POSITION));

@@ -11,14 +11,6 @@ static const float Total = 6.2108;
 
 Texture2D g_DiffuseTexture;
 
-SamplerState g_DefaultSampler
-{
-    AddressU = clamp;
-    AddressV = clamp;
-
-    Filter = min_mag_mip_linear;
-};
-
 struct VS_IN
 {
     float3 vPosition : POSITION; /* 로컬스페이스 */

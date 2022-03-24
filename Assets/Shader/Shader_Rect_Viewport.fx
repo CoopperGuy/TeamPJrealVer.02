@@ -40,12 +40,6 @@ Texture2D       g_BloomOriTexture;
 Texture2D       g_BloomTexture;
 Texture2D       g_SSAOTexture;
 
-SamplerState	g_DefaultSampler
-{
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
 struct VS_IN
 {
 	float3 vPosition : POSITION; /* 로컬스페이스 */
