@@ -868,7 +868,7 @@ vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
 	//if (vAlpha.a == 0)
 	//	discard;
 
-	//vDiffuseColor.a = vAlpha.a;
+	vDiffuseColor.a = vAlpha.a;
 	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
 	if (vDiffuseColor.a <= 0.1f)
 	discard;
