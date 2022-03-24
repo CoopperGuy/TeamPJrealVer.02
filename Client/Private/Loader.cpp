@@ -54,6 +54,9 @@ unsigned int APIENTRY ThreadMain(void* pArg)
 	case SCENE_STAGE2:
 		hr = pLoader->GameSceneStage02();
 		break;
+	case SCENE_STAGE3:
+		hr = pLoader->GameSceneStage03();
+		break;
 	case Client::SCENE_KIM:
 		hr = pLoader->GameSceneKIM();
 		break;
@@ -280,8 +283,8 @@ HRESULT CLoader::GameFlogasLoader()
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
 	//	MSG_BOX("Failed To Create Smoke Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_MeteoExplosion")))
-		MSG_BOX("Failed To Create E_Fire_explosion Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_MeteoExplosion")))
+	//	MSG_BOX("Failed To Create E_Fire_explosion Prefab");
 
 
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
@@ -330,6 +333,18 @@ HRESULT CLoader::GameSceneStage02()
 
 	if (FAILED(GameFlogasLoader()))
 		MSG_BOX("Failed To Create Flogas Effect");
+
+	m_isFinish = true;
+	return S_OK;
+}
+
+HRESULT CLoader::GameSceneStage03()
+{
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 0.f));
+
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_STAGE3);
 
 	m_isFinish = true;
 	return S_OK;

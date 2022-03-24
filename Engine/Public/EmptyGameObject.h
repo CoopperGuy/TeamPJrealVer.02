@@ -42,6 +42,8 @@ public:
 	void Set_Render(_uint index, _bool Render) { m_bRender[index] = Render; }
 	void SetNumOBB(_int obb) { m_iNumOBBs = obb; }
 	void SetRimLight(_bool bRimLight, _fvector _lightColor, _double _lifeTime);
+	void SetPercentage(_float _percentage) { m_fPercentage = _percentage; }
+	void SetBackPercentage(_float _backpercentage) { m_fBackPercentage = _backpercentage; }
 	//DirectX::Colors::Red;
 public:
 	_int&	GetRenderGroup() { return	(_int&)m_eRenderGroup; }
@@ -73,6 +75,10 @@ private:
 	_float4			m_vRimLightColor = { 1.f, 0.5f, 0.5f, 1.f };
 	_double			m_RimLightTimeAcc = 0.f;
 	_double			m_RimLightTime = 0.15f;
+private:
+	_float	m_fPercentage = 1.f;
+	_float	m_fBackPercentage = 1.f;
+
 private:
 	CRenderer::RENDER m_eRenderGroup		= CRenderer::RENDER_NONALPHA;
 

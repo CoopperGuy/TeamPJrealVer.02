@@ -64,7 +64,13 @@ _float CPortal::DistanceWithDirection()
 			m_pPortalUI->SetSCENES(CPortalUI::SCENES_END);
 			g_AnotherMenu = false;
 			break;
-		case Client::CPortalUI::SCENES_END:
+		case Client::CPortalUI::STAGE03:
+			m_eSceneNum = SCENE_STAGE3;
+			m_bChangeScene = true;
+			static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
+			m_pPortalUI->SetIsActive(false);
+			m_pPortalUI->SetSCENES(CPortalUI::SCENES_END);
+			g_AnotherMenu = false;
 			break;
 		}
 	}

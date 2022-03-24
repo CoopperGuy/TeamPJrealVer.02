@@ -63,7 +63,7 @@ HRESULT CEffectPajang::Initialize(void* pArg)
 
 		m_vScales = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
 
-		CStat* stat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
+		CStat* stat = static_cast<CStat*>(pTargetObj->GetComponent("Com_Stat"));
 
 		m_pOBB = CObb::Create(position, XMLoadFloat3(&m_vScales), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 

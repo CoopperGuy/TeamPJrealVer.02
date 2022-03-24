@@ -26,6 +26,7 @@
 
 #include "Obb.h"
 #include "WaterEA.h"
+#include "TownPortal.h"
 
 USING(Client)
 
@@ -165,8 +166,11 @@ void CFlogas::Update(_double dDeltaTime)
 				m_pMonHp = nullptr;
 			}
 			m_eState = DIE;
-			if (m_pModel->Get_isFinished(DIE))
+			if (m_pModel->Get_isFinished(DIE)) {
 				m_eState = DEADBODY;
+				if (m_pPortal == nullptr)
+					m_pPortal = CTownPortal::Create();
+			}
 		}
 
 	}
