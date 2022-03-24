@@ -999,7 +999,7 @@ technique11 DefaultDevice
 	{
 		SetRasterizerState(Rasterizer_NoneCull);
 		SetDepthStencilState(DepthStecil_Default, 0);
-		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(Blend_One, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_MAIN_FlogasUVMove();
 		GeometryShader = NULL;
