@@ -403,6 +403,12 @@ void CInspector::UpdateEffect()
 				MSG_BOX("Failed to AddComponent");
 		}
 
+		if (ImGui::MenuItem("Decal"))
+		{
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_Decal", "Com_Decal", g_pObjFocused->GetComponent("Com_Transform"))))
+				MSG_BOX("Failed to AddComponent");
+		}
+
 		if (ImGui::MenuItem("OBB"))
 		{
 			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_OBBCollider", "Com_OBB", g_pObjFocused->GetComponent("Com_Transform"))))
@@ -740,6 +746,16 @@ void CInspector::DrawEffectImage()
 					break;
 				}
 			}
+			_bool isLerp = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_LerpColor();
+			ImGui::Checkbox("Lerp Color", &isLerp);
+			static_cast<CVIBuffer_RectInstance*>(pComponent)->Set_lerpColor(isLerp);
+			if (isLerp) {
+				_float4& srcColor = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_SrcColor();
+				ImGui::ColorEdit4("srcColor##2f", (float*)&srcColor, ImGuiColorEditFlags_Float);
+
+				_float4& destColor = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_DestColor();
+				ImGui::ColorEdit4("destColor##2f", (float*)&destColor, ImGuiColorEditFlags_Float);
+			}
 
 			_float4& color = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Color();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
@@ -787,17 +803,19 @@ void CInspector::DrawEffectImage()
 
 void CInspector::DrawEffectSetting()
 {
-	CComponent* pComponent = nullptr;
-	pComponent = g_pObjFocused->GetComponent("Com_VIBuffer");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_Model");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
-	if (pComponent == nullptr)
-		pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
+	//CComponent* pComponent = nullptr;
+	//pComponent = g_pObjFocused->GetComponent("Com_VIBuffer");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_Model");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_PointInstance");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_RectInstance");
+	//if (pComponent == nullptr)
+	//	pComponent = g_pObjFocused->GetComponent("Com_Decal");
 
-	if (pComponent)
-	{
+	//if (pComponent)
+	//{
 		ImGui::Separator();
 
 		bool bDelete = false;
@@ -999,7 +1017,7 @@ void CInspector::DrawEffectSetting()
 
 		if (bDelete)
 			g_pObjFocused->RemoveComponent("Com_VIBuffer");
-	}
+//	}
 }
 
 void CInspector::DrawTextUI()
@@ -1030,6 +1048,10 @@ void CInspector::DrawTextUI()
 
 			_float4& color = pText->GetColor();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
+
+			_bool shaderCut = pText->GetShaderCut();
+			ImGui::Checkbox("ShaderCut", &shaderCut);
+			pText->SetShader(shaderCut);
 			ImGui::TreePop();
 		}
 

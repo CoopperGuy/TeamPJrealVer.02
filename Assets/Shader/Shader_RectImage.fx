@@ -120,6 +120,25 @@ VS_OUTITEM VS_MAIN_ITEMLIST(VS_IN In){
     return Out;
 }
 
+VS_OUTITEM VS_MAIN_PORTAL(VS_IN In)
+{
+
+    VS_OUTITEM Out = (VS_OUTITEM) 0;
+
+    matrix matWV, matWVP;
+
+    matWV = mul(g_WorldMatrix, g_ViewMatrix);
+    matWVP = mul(matWV, g_ProjMatrix);
+
+    Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+    Out.vTexUV = In.vTexUV;
+    Out.vPos = mul(vector(In.vPosition, 1.f), g_WorldMatrix);
+
+    return Out;
+}
+
+
+
 VS_OUT VS_MAIN_TEXT(VS_IN In)
 {
     VS_OUT Out = (VS_OUT) 0;
@@ -378,6 +397,25 @@ float4 PS_DEFAULT(PS_IN input) : SV_TARGET
     return vColor;
 }
 
+
+float4 PS_MAIN_QUICK(PS_IN input) : SV_Target
+{
+    float4 color = Map.Sample(Sampler, input.vTexUV);
+    float alpha = (color.r + color.g + color.b) / 3.f;
+    if (alpha < 0.5f)
+        discard;
+    return color;
+}
+
+float4 PS_MAIN_PORTAL(PS_INITEM input) : SV_Target
+{
+    float4 color = Map.Sample(Sampler, input.vTexUV);
+    if (input.vPos.x < 300.f && input.vPos.x > -300.f)
+        return color;
+    else
+        discard;
+    return color;
+}
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -505,14 +543,25 @@ technique11		DefaultDevice
         PixelShader = compile ps_5_0 PS_MAIN_SELECTEDTEXT1();
     }
 
-    pass ShopList
+    pass QuickList
     {
         SetRasterizerState(Rasterizer_Solid);
         SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
         SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
-        VertexShader = compile vs_5_0 VS_MAIN_ITEMLIST();
+        VertexShader = compile vs_5_0 VS_MAIN();
         GeometryShader = NULL;
-        PixelShader = compile ps_5_0 PS_MAIN_SHOPIST();
+        PixelShader = compile ps_5_0 PS_MAIN_QUICK();
+    }
+
+    pass PortalList
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_PORTAL();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_PORTAL();
     }
 }

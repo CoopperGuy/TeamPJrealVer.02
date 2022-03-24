@@ -1,0 +1,69 @@
+Scene: Untitled
+GameObjects:
+  - Name: ItemList0
+    UUID: 16234303881537577497
+    Active: false
+    Layer: EquipItemList
+    Type: UI
+    SortingOrder: 5
+    PassIndex: 8
+    Hovering: true
+    Com_Transform:
+      Position: [391, 180]
+      Size: [300, 60]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - Name: ItemName
+        UUID: 12539654670976204623
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 8
+        Hovering: false
+        Com_Transform:
+          Position: [436.087646, 184.894028]
+          Size: [247.396561, 50]
+        Com_Text:
+          Text: name
+          Color: [1, 1, 1, 1]
+          Scale: [1, 1]
+          LayerDepth: 0
+      - Name: ItemAmount
+        UUID: 8589850962027880787
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 8
+        Hovering: false
+        Com_Transform:
+          Position: [458.696625, 210.187317]
+          Size: [287.119202, 50]
+        Com_Text:
+          Text: Amount
+          Color: [1, 1, 1, 1]
+          Scale: [1, 1]
+          LayerDepth: 0
+      - Name: ItemImage
+        UUID: 18012050626418292236
+        Active: false
+        Layer: Default
+        Type: UI
+        SortingOrder: 7
+        PassIndex: 8
+        Hovering: false
+        Com_Transform:
+          Position: [272.608643, 178.149857]
+          Size: [50, 50]
+        Com_VIBuffer:
+          TexturePath: ""
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

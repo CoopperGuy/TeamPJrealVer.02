@@ -53,7 +53,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [-90.0000076, -0, 179.999893]
-      Scale: [0.00984506123, 0.00999999978, 0.00100000005]
+      Scale: [0.00984503888, 0.00999999978, 0.00100000005]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: SM_FX_GEZCylinder01.FBX
@@ -109,6 +109,55 @@ GameObjects:
       Distortion1: [0.100000001, 2.4000001]
       Distortion2: [0.100000001, 0]
       Distortion3: [0.100000001, 0.200000003]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+  - Name: Empty Object
+    UUID: 4738565663322052938
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.828292549, -1.86264515e-09, -4.65661287e-10]
+      Rotation: [0, -0, -5.87513132e-05]
+      Scale: [1, 0.99957186, 1]
+    Com_Decal:
+      {}
+    Com_RectInstance:
+      Shape: 0
+      InstNum: 100
+      Color: [1, 1, 1, 0]
+      Speed: 5
+      LifeTime: 3.0999999
+      Size: 1
+      StartRadian: 0
+      RadiationAngle: 30
+      LerpColor: false
+      SrcColor: [0, 0, 0, 0]
+      DestColor: [1, 1, 1, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: false

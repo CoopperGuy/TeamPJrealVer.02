@@ -68,7 +68,7 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 
 	m_dMakeFB += deltaTime;
 	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
-	if (m_dMakeFB >= 0.15)
+	if (m_dMakeFB >= 0.08)
 	{
 		auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
 		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, vPosition), CEngine::GetInstance()->GetCurSceneNumber());

@@ -476,9 +476,15 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 				string boneName = nowOBb->GetBoneName();
 				CComponent* pModel = GetComponent("Com_Model");
 				if (pModel)
-				{
-					_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
-					nowOBb->Update_State(boneMat * m_pRenderTransformCom->GetWorldMatrix());
+				{	
+					if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT) {
+						_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
+						nowOBb->Update_State(boneMat * m_pRenderTransformCom->GetWorldMatrix());
+					}
+					else {
+						_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
+						nowOBb->Update_State(boneMat * m_pTransformCom->GetWorldMatrix());
+					}
 				}
 			}
 
@@ -525,9 +531,11 @@ HRESULT CEmptyGameObject::Render(_uint iPassIndex)
 		return S_OK;
 
 	CComponent* buffer = GetComponent("Com_VIBuffer");
-	if (buffer)
-		dynamic_cast<CVIBuffer*>(buffer)->Render(iPassIndex);
-
+	if (buffer) {
+		static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Percentage", &m_fPercentage, sizeof(_float));
+		static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Back", &m_fBackPercentage, sizeof(_float));
+		static_cast<CVIBuffer*>(buffer)->Render(m_iPassIndex);
+	}
 	CComponent* modelCom = GetComponent("Com_Model");
 	if (modelCom)
 	{

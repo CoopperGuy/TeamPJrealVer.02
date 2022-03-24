@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: ItemList0
-    UUID: 16234303881537577497
+    UUID: 10862787032024955095
     Active: false
     Layer: EquipItemList
     Type: UI
@@ -19,7 +19,7 @@ GameObjects:
       Color: [0, 0, 0, 1]
     Children:
       - Name: ItemName
-        UUID: 12539654670976204623
+        UUID: 17835880790436402794
         Active: false
         Layer: Default
         Type: UI
@@ -34,8 +34,10 @@ GameObjects:
           Color: [1, 1, 1, 1]
           Scale: [1, 1]
           LayerDepth: 0
+          IsCenter: true
+          ShaderCut: true
       - Name: ItemAmount
-        UUID: 8589850962027880787
+        UUID: 7907804842490838021
         Active: false
         Layer: Default
         Type: UI
@@ -50,8 +52,10 @@ GameObjects:
           Color: [1, 1, 1, 1]
           Scale: [1, 1]
           LayerDepth: 0
+          IsCenter: true
+          ShaderCut: true
       - Name: ItemImage
-        UUID: 18012050626418292236
+        UUID: 10231276484630310759
         Active: false
         Layer: Default
         Type: UI

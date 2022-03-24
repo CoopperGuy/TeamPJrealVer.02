@@ -125,9 +125,9 @@ void CConsumItemHud::RemoveConsumItem(_uint idx)
 	m_fCurYSize -= m_constYScale;
 
 	for (; iter != m_pConsumItemList.end(); iter++) {
-		_float2 pos = (*iter).first->GetPosition();
-		pos.y -= m_constYScale;
-		(*iter).first->SetPosition(pos.x, pos.y);
+		_float2 offset = (*iter).first->GetTransformOffst();
+		offset.y -= m_constYScale;
+		(*iter).first->SetTransformOffst(offset.x, offset.y);
 	}
 
 
@@ -217,7 +217,10 @@ void CConsumItemHud::SetAddPosition(_float x)
 
 string CConsumItemHud::GetSelectedItemName()
 {
-	return m_pConsumItemList[m_iCurSelected].second.name->GetText();
+	if (m_iCurSelected > 0)
+		return m_pConsumItemList[m_iCurSelected].second.name->GetText();
+	else
+		return "";
 }
 
 

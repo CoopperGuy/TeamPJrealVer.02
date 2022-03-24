@@ -15,7 +15,7 @@ private:
 	virtual ~CWolf() = default;
 
 public:
-	static CWolf* Create(CGameObject* pObj, _float3 position = _float3{ 0.f,0.f,0.f });
+	static CWolf* Create(CGameObject * pObj, _float3 position = _float3{ 0.f,0.f,0.f });
 	virtual void Free() override;
 
 public:
@@ -26,24 +26,17 @@ public:
 	virtual void Update(_double dDeltaTime);
 	virtual void LateUpdate(_double dDeltaTime);
 	virtual void Render();
+	
+private:
+	void  SetUpAnimation();
+
 
 public:
 	void RotateBody(_double deltaTime);
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
-
-public:
-	void SetGameObject(CGameObject* obj);
-	void SetTransform(CTransform* trans);
-	void SetCollision(CCollider* colli);
-	void SetNavigation(CNavigation* nav);
-	void SetModel(CModel* model);
-	void SettingCollider(CCollider* col);
-	void SetBasicCollider(CBasicCollider* BasicCol);
-	void SetStat(CStat* pstat);
-	void SetAttTarget(CGameObject* obj);
-	void SetIsEnd(_bool tf);
-
 	void SetAttack(_double dDeltaTime);
+	void WolfAttflow(_double dDeltaTime);
+	void WolfAttflow();
 
 private:
 	WOLFSTATE	m_pWolfState = IDLE0;
@@ -57,7 +50,6 @@ public:
 
 public:
 	void SetWolfState(WOLFSTATE _pState) { m_pWolfState = _pState; }
-
 	void WolfSetAni(_double dDeltaTime);
 	void SetHit() { m_pWolfState = DAMAGE; }
 	void WolfLookPlayer();
@@ -66,6 +58,7 @@ public:
 	void SetIdle();
 	void Set_HpBar(CMonHpVIBuffer* _hp);
 	void Gravity(_double dDeltaTime);
+
 
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
@@ -79,6 +72,8 @@ private:
 private:
 	_float m_fJumpSpeed = 0.f;
 	_float m_fSpeed = 15.0f;
+
+	_float3 m_vTargetToLook;
 private:
 	class CStat* m_pStat = nullptr;
 	class CTransform* m_pTargetTransform = nullptr;

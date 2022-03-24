@@ -7,7 +7,7 @@ PxQueryHitType::Enum CPxQueryFilters::preFilter(const PxFilterData & filterData,
 {
 	if (actor == m_pActor)
 		return PxQueryHitType::eNONE;
-	if (filterData.word1 == filter || filterData.word2 == filter)
+	if (filterData.word1 & filter || filterData.word2 & filter)
 		return PxQueryHitType::eBLOCK;
 	return PxQueryHitType::eNONE;
 }

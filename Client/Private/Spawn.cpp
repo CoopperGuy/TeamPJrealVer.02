@@ -68,7 +68,7 @@ void CSpawn::SpawnObjects()
 	_float3 pos;
 	XMStoreFloat3(&pos, m_pSpawnPos->GetState(CTransform::STATE_POSITION));
 	if (info.prefabName == "WOLF") {
-		m_iSpawnScript = CWolf::Create(nullptr, pos);
+		m_iSpawnScript = CWolf::Create(nullptr,pos);
 	}
 	m_bisSpawned = true;
 }

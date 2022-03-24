@@ -237,6 +237,9 @@ public:
 	_bool Get_DIKUp(_ubyte _byKeyID);
 	_long Get_MouseMoveState(CInput_Device::MOUSEMOVESTATE eMoveState);
 	_byte Get_MouseButtonState(CInput_Device::MOUSEBUTTONSTATE eButtonState);
+	_byte Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState);
+	_byte Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState);
+
 #pragma endregion
 private:
 	class CTimerManager*			m_pTimerManager = nullptr;

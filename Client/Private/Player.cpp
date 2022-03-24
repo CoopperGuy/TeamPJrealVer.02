@@ -1029,7 +1029,7 @@ _bool CPlayer::Walk()
 
 _bool CPlayer::IsGravity()
 {
-	_vector vCamPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	_vector vPlayerPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	_vector vRayDir = XMVectorSet(0.f, -1.f, 0.f, 0.f);
 	PxRaycastBuffer buf;
 	PxQueryFilterData filterData;
@@ -1040,9 +1040,9 @@ _bool CPlayer::IsGravity()
 	_bool isCollied = false;
 	PxRigidActor* actor = m_pController->getActor();
 	
-	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
+	if (CEngine::GetInstance()->Raycast(vPlayerPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
 	{
-		if (buf.getAnyHit(0).distance <= 0.05f)
+		if (buf.getAnyHit(0).distance <= 0.0f)
 		{
 			//cout << "playe collid with terrain\n";
 			isCollied = false;

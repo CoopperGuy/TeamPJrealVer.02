@@ -16,13 +16,8 @@ cbuffer MatricesInv
 };
 
 Texture2D   g_DiffuseTexture;
+Texture2D   g_MaskTexture;
 Texture2D   g_DepthTexture;
-
-SamplerState	g_DiffuseSampler
-{
-	AddressU = wrap;
-	AddressV = wrap;
-};
 
 struct VS_IN
 {
@@ -79,10 +74,11 @@ struct PS_IN
 vector	PS_MAIN(PS_IN In) : SV_TARGET
 {
     float4 vColor = (float4) 0.f;
+    float4 vMask = (float4) 0.f;
 
     float2 uv = In.vProj.xy / In.vProj.w;
     uv = uv * float2(0.5f, -0.5f) + 0.5f;
-    float4 vPixelDepth = g_DepthTexture.Sample(g_DiffuseSampler, uv.xy);
+    float4 vPixelDepth = g_DepthTexture.Sample(g_DefaultSampler, uv.xy);
     float fViewZ = vPixelDepth.x * 300.f;
     
     vector vLocalPos = (vector) 0.f;
@@ -101,10 +97,15 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     clip(0.5f - ObjectAbsPos);
 
     float2 decaluv = vLocalPos.xz + 0.5f;
-    vColor = g_DiffuseTexture.Sample(g_DiffuseSampler, decaluv);
+    vMask = g_MaskTexture.Sample(g_DefaultSampler, decaluv);
+    vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
     
-    if (vColor.a <= 0.f)
+    if (vMask.r < 0.3f)
         discard;
+    //if (vMask.a <= 0.f)
+    //    discard;
+    if (vMask.r > 0.99f)
+        vColor.rgb += 0.1f;
 
     return vColor;
 }

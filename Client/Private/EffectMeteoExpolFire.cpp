@@ -2,6 +2,7 @@
 #include "Client_Struct.h"
 #include "..\Public\EffectMeteoExpolFire.h"
 #include "EmptyEffect.h"
+#include "EventCheck.h"
 #include "EffectMagicAf.h"
 USING(Client)
 

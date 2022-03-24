@@ -1,0 +1,31 @@
+Scene: Untitled
+GameObjects:
+  - Name: ScenePosition
+    UUID: 9838132120610020160
+    Active: true
+    Layer: PortalUI
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [50, 50]
+    Children:
+      - Name: Boss1
+        UUID: 3413066835145731984
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 3
+        PassIndex: 3
+        Hovering: true
+        Com_Transform:
+          Position: [640, 360]
+          Size: [400, 256]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_DG_K11_Nigraturis_SecondHalf.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]

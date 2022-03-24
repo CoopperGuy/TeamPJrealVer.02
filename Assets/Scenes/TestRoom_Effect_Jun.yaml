@@ -21,6 +21,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise01.dds
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0, 5, 0]
       Distortion1: [0.100000001, 0.200000003]
@@ -62,6 +63,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\04_SwirlDistort_Tx.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
+      TextureNormalPath: ""
       ScrollSpeedX: [4, 0, 0]
       ScrollSpeedY: [4, 4, 0]
       Distortion1: [0.100000001, 0.5]
@@ -86,10 +88,10 @@ GameObjects:
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 11
+    PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [1.138026, 1.28989744, 0.962560356]
+      Translation: [1.12864709, 1.28989744, 0.962560356]
       Rotation: [0, -0, 0]
       Scale: [0.400000006, 0.100000001, 0.200000003]
     Com_Model:
@@ -98,9 +100,10 @@ GameObjects:
       HasCollider: false
       EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
     Effect_Setting:
-      TextureDiffusePath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Smoke_007_TEX_HKB.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_wind_003_TEX_CJH.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0.5, 1.5, 0]
       Distortion1: [0.100000001, 0.200000003]
@@ -144,6 +147,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wind001_TEX_HKJ.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_smoke_006_TEX_CJH.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 1, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -183,6 +187,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ""
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2, 0]
       Distortion1: [0.100000001, 0.200000003]
@@ -222,6 +227,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_pajang_002_TEX_HKB.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire_003_TEX_CJH_tile.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [0, 2, 0]
       Distortion1: [0.100000001, 0.200000003]
@@ -249,15 +255,16 @@ GameObjects:
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [-1.53585112, 0.766852498, -0.200000003]
-      Rotation: [62.7297592, 24.3497658, -9.3713254e-07]
-      Scale: [0.940907657, 0.917330503, 0.782188594]
+      Translation: [0.278124869, 0.766852498, -0.200000003]
+      Rotation: [-8.14991856, -10.428091, 0]
+      Scale: [0.780292213, 0.828959703, 0.669355094]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall8x8.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Shock_004_Tex_KKJ.tga
       TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\FX_Shock_New04_Tx.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -278,44 +285,6 @@ GameObjects:
       SpriteSpeed: 15
     Children:
       - 6601677359937610046
-  - Name: FireBoob
-    UUID: 9943302790825733417
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 12
-    BillBord: true
-    Com_Transform:
-      Translation: [0.0331676304, 0.644084215, -1.43837917]
-      Rotation: [62.7297668, 24.3497658, -9.3713254e-07]
-      Scale: [2.95073843, 2.88568377, 0.000829566037]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fire_005_TEX_CJH.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Mask_002_1_TEX_KKJ.png
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1, 1, 2.29999995]
-      Distortion1: [0.100000001, 0]
-      Distortion2: [0.100000001, 0]
-      Distortion3: [0.100000001, 0]
-      DistortionScale: 1
-      DistortionBias: 0
-      FadeOut: true
-      FadeOutDuration: 1
-      FadeOutStratTime: 0.5
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 1
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 0
-    Children:
-      - 10873922865772192694
   - Name: TorchFire
     UUID: 6601677359937610046
     Active: true
@@ -334,6 +303,7 @@ GameObjects:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_TorchFire.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -352,62 +322,30 @@ GameObjects:
       SpriteNumY: 4
       SpriteTotal: 32
       SpriteSpeed: 10
-  - Name: Empty Object
-    UUID: 10873922865772192694
+  - Name: Element_Bomb
+    UUID: 1960447721169478958
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 1
-    BillBord: true
+    PassIndex: 11
+    BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0.100000001]
+      Translation: [1.91899729, 1.70648444, -1.45492387]
       Rotation: [0, -0, 0]
-      Scale: [2.99999976, 2.99999976, 1]
-    Com_VIBuffer:
-      {}
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
+      MeshFileName: TwistMesh.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fire_005_TEX_CJH.png
-      TextureNoisePath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [0, 0, 0]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0
-      DistortionBias: 0
-      FadeOut: true
-      FadeOutDuration: 1
-      FadeOutStratTime: 0.5
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 1
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-  - Name: Empty Object
-    UUID: 18410079341460320106
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 12
-    BillBord: true
-    Com_Transform:
-      Translation: [-3.8953228, 0, 0]
-      Rotation: [62.7297668, 24.3497658, -9.37132427e-07]
-      Scale: [0.997614503, 0.996997178, 0.997307241]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\T_Soft_Noise_Tile01.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Flogas\T_Soft_Noise_Tile01.dds
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [2, 2, 0]
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.5, 0.5, 0]
+      ScrollSpeedY: [0.5, 0.5, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
@@ -425,34 +363,72 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
     Children:
-      - 18137455429830491131
-      - 9057447106238238871
-      - 5935838995727998462
-  - Name: Empty Object
-    UUID: 18137455429830491131
+      - 5502899901288605207
+      - 17888228711785348147
+      - 17504197830417166847
+  - Name: Bomb_Center
+    UUID: 5502899901288605207
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 12
-    BillBord: false
+    PassIndex: 2
+    BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0.00999999978]
-      Rotation: [0, -0, 90.0000076]
-      Scale: [1, 1, 0.999790192]
+      Translation: [0, 0, 0.100000001]
+      Rotation: [0, -0, 0]
+      Scale: [2.14233541, 1.5, 1.52336407]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\T_Soft_Noise_Tile01.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Flogas\FX_NormalTile_020_TEX_KKJ.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\20.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\ExploSubMask_001.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 20
+  - Name: Empty Object
+    UUID: 17888228711785348147
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 5
+    BillBord: true
+    Com_Transform:
+      Translation: [-0.100000001, 0.0989300609, 0]
+      Rotation: [0, -0, 0]
+      Scale: [2.5, 2, 0.00100000005]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+      TextureNormalPath: ..\..\Assets\Textures\Effect\Noise\FX_Normal_01.png
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1, 1, 0]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -465,30 +441,31 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
   - Name: Empty Object
-    UUID: 9057447106238238871
+    UUID: 17504197830417166847
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 12
-    BillBord: false
+    PassIndex: 5
+    BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0.0109999999]
-      Rotation: [0, -0, -90]
-      Scale: [1, 1, 0.999810696]
+      Translation: [-0.100000001, 0.100000001, 0.200000003]
+      Rotation: [0, -0, 0]
+      Scale: [2.5, 2, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\FX_NormalTile_020_TEX_KKJ.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Flogas\T_Soft_Noise_Tile01.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
+      TextureNormalPath: ..\..\Assets\Textures\Effect\Mask\FX_pajang_002_TEX_HKB.png
       ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
+      ScrollSpeedY: [1, 1, 0]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -501,23 +478,24 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
   - Name: Empty Object
-    UUID: 5935838995727998462
+    UUID: 8400450724821270359
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 12
+    PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0.0130000003]
-      Rotation: [0, -0, -179.999893]
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\FX_NormalTile_020_TEX_KKJ.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Flogas\T_Soft_Noise_Tile01.dds
+      TextureDiffusePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]

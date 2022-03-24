@@ -54,6 +54,9 @@ unsigned int APIENTRY ThreadMain(void* pArg)
 	case SCENE_STAGE2:
 		hr = pLoader->GameSceneStage02();
 		break;
+	case SCENE_STAGE3:
+		hr = pLoader->GameSceneStage03();
+		break;
 	case Client::SCENE_KIM:
 		hr = pLoader->GameSceneKIM();
 		break;
@@ -151,7 +154,7 @@ HRESULT CLoader::GamePlayLoader()
 
 HRESULT CLoader::GameFlogasLoader()
 {
-	/*std::thread t0(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly" , 0);
+	std::thread t0(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly" , 0);
 	t0.detach();
 
 	std::thread t1(ThreadPrefab, this, "Prototype_Effect_BossFlyLaser", "E_Laser", 1);
@@ -217,83 +220,87 @@ HRESULT CLoader::GameFlogasLoader()
 	std::thread t21(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
 	t21.join();
 
-	_bool isFinish = false;
-	while (isFinish) {
+	_bool isNotFinish = true;
+	while (isNotFinish) {
 		for (int i = 0; i < 22; i++) {
-			if (!(m_iCompleteBit & (1 << i))) {
-				isFinish = false;
+			if ((m_iCompleteBit & (1 << i))) {
+				isNotFinish = false;
 			}
-		}			
-		isFinish = true;
+			else {
+				isNotFinish = true;
+				break;
+			}
+		}
 	}
 	
-	m_iCompleteBit = 0;*/
+	m_iCompleteBit = 0;
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFly", "E_BossFly")))
-		MSG_BOX("Failed To Create BossFly Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFly", "E_BossFly")))
+	//	MSG_BOX("Failed To Create BossFly Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFlyLaser", "E_Laser")))
-		MSG_BOX("Failed To Create BossFlyLaser Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFlyLaser", "E_Laser")))
+	//	MSG_BOX("Failed To Create BossFlyLaser Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Dust", "E_DustEffect")))
-		MSG_BOX("Failed To Create DustEffect Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Dust", "E_DustEffect")))
+	//	MSG_BOX("Failed To Create DustEffect Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_SwordRing", "E_SwordRing")))
-		MSG_BOX("Failed To Create ring Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_SwordRing", "E_SwordRing")))
+	//	MSG_BOX("Failed To Create ring Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blackhole", "E_Blackhole")))
-		MSG_BOX("Failed To Create Blackhole Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blackhole", "E_Blackhole")))
+	//	MSG_BOX("Failed To Create Blackhole Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Grab", "E_Grab")))
-		MSG_BOX("Failed To Create Grab Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Grab", "E_Grab")))
+	//	MSG_BOX("Failed To Create Grab Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Pajang", "E_Pajangs")))
-		MSG_BOX("Failed To Create Pajang Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Pajang", "E_Pajangs")))
+	//	MSG_BOX("Failed To Create Pajang Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireSlash", "E_FireSlash")))
-		MSG_BOX("Failed To Create FireSlash Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireSlash", "E_FireSlash")))
+	//	MSG_BOX("Failed To Create FireSlash Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
-		MSG_BOX("Failed To Create E_MeteoTrail Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
+	//	MSG_BOX("Failed To Create E_MeteoTrail Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
-		MSG_BOX("Failed To Create E_MeteoFire Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
+	//	MSG_BOX("Failed To Create E_MeteoFire Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
-		MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
+	//	MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
-		MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
+	//	MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
-		MSG_BOX("Failed To Create E_Meteo Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
+	//	MSG_BOX("Failed To Create E_Meteo Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
-		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
+	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
-		MSG_BOX("Failed To Create E_MeteoEnd Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
+	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
-		MSG_BOX("Failed To Create Smoke Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
+	//	MSG_BOX("Failed To Create Smoke Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_Fire_explosion")))
-		MSG_BOX("Failed To Create E_Fire_explosion Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_MeteoExplosion")))
+	//	MSG_BOX("Failed To Create E_Fire_explosion Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
-		MSG_BOX("Failed To Create E_FireBoob Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))
-		MSG_BOX("Failed To Create E_FireBoob Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
+	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
-		MSG_BOX("Failed To Create E_FireBoob Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))
+	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-		MSG_BOX("Failed To Create E_FireBoob Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
+	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-		MSG_BOX("Failed To Create E_FireBoob Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
+	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
+
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
+	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
 
 
 
@@ -331,6 +338,18 @@ HRESULT CLoader::GameSceneStage02()
 	return S_OK;
 }
 
+HRESULT CLoader::GameSceneStage03()
+{
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 0.f));
+
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_STAGE3);
+
+	m_isFinish = true;
+	return S_OK;
+}
+
 HRESULT CLoader::GameSceneLogo()
 {
 	std::thread t0(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0);
@@ -362,9 +381,6 @@ HRESULT CLoader::GameSceneLogo()
 
 	while (m_pLoadingGauge->GetPercentage() < 90.f)
 		m_pLoadingGauge->AddPercentage(0.1f);
-	////AddEffect
-	//if (FAILED(GameFlogasLoader()))
-	//	MSG_BOX("Failed To Create Flogas Effect");
 	
 	/*std::thread tP0(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0);
 	tP0.detach();
@@ -378,8 +394,7 @@ HRESULT CLoader::GameSceneLogo()
 	tP4.detach();
 	std::thread tP5(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5);
 	tP5.detach();
-	std::thread tP6(ThreadPrefab, this, "Prototype_GameObject_TargetOn", "U_TargetOnUI", 6);
-	tP6.join();*/
+*/
 
 
 
@@ -403,32 +418,39 @@ HRESULT CLoader::GameSceneLogo()
 
 
 
-
 	_bool threadFinish = false;
 	while (!threadFinish) {
 		for (_int i = 0; i < ThreadIndex; i++) {
-			if (m_isThreadFinish[i] == false)
+			if (m_isThreadFinish[i] == false) {
+				threadFinish = false;
 				break;
+			}
+			else {
+				threadFinish = true;
+			}
 		}
-		threadFinish = true;
 	}
 	while (m_pLoadingGauge->GetPercentage() < 95.f)
 		m_pLoadingGauge->AddPercentage(0.1f);
-	_bool isFinish = false;
-	//while (isFinish) {
-	//	for (int i = 0; i < 7; i++) {
-	//		if (!(m_iCompleteBit & (1 << i))) {
-	//			isFinish = false;
-	//		}
-	//	}
-	//	isFinish = true;
-	//}
+	/*_bool isNotFinish = true;
+	while (isNotFinish) {
+		for (int i = 0; i < 6; i++) {
+			if ((m_iCompleteBit & (1 << i))) {
+				isNotFinish = false;
+			}
+			else {
+				isNotFinish = true;
+				break;
+			}
+		}
+	}*/
+
+	m_iCompleteBit = 0;
 
 
 	m_pLoadingGauge->SetPercentage(100.f);
 	m_isFinish = true;
 
-	m_iCompleteBit = 0;
 
 
 	return S_OK;
@@ -471,9 +493,9 @@ HRESULT CLoader::GameSceneJUN()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -4.f));
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun2.yaml", SCENE_JUNG);
 
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");
@@ -487,14 +509,19 @@ HRESULT CLoader::GameSceneJUN()
 HRESULT CLoader::GameSceneSEO()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 5.f));
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_Blood")))
+		MSG_BOX("Failed To Create E_Blood Prefab");
 
-	if (FAILED(GameFlogasLoader()))
-		MSG_BOX("Failed To Create Flogas Effect");
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Wolf", "O_Wolf")))
+		MSG_BOX("Failed To Create O_Wolf Prefab");
+
+	//if (FAILED(GameFlogasLoader()))
+	//	MSG_BOX("Failed To Create Flogas Effect");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeon_ex.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
 

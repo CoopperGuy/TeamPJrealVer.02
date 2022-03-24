@@ -46,6 +46,7 @@ private:
 	void Checking_Finished();
 	void TestAnimation(Ursa eState);
 	void Roar();
+	void SetRotate();
 	PxVec3 OriginShift();
 
 	_float SetDistance();
@@ -72,11 +73,13 @@ private:
 	_double m_dWheelWindTime = 0.0;
 
 	_uint m_iComboIndex = 0;
+	_uint m_iFirst		= 0;
 	_uint m_iSec		= 0;
 	_uint m_iThir		= 0;
 	_uint m_iLast		= 0;
 
 	_bool m_bCombat[Phase_End] = {};
+	_bool m_bDeadMotion		   = false;
 	_bool m_bCenter			   = false;
 	_bool m_bFar			   = false;
 	_bool m_bSuperFar		   = false;
