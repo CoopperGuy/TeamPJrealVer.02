@@ -194,6 +194,20 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 		pCloneInstance->Set_Position(vPosition);
 	}
 
+	CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(rhs->GetComponent("Com_RectInstance"));
+	if (pVIBuffer)
+	{
+		CVIBuffer_RectInstance* pCloneRectInst = static_cast<CVIBuffer_RectInstance*>(pVIBuffer->Clone(m_pTransformCom));
+		AddComponent("Com_RectInstance", pCloneRectInst);
+	}
+
+	CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(rhs->GetComponent("Com_Decal"));
+	if (pDecal)
+	{
+		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pVIBuffer->Clone(m_pTransformCom));
+		AddComponent("Com_Decal", pCloneDecal);
+	}
+
 	/*for.DecalBuffer Component*/
 
 #pragma endregion
@@ -282,6 +296,20 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	{
 		CVIBuffer_RectEffect* pCloneVIBuffer = static_cast<CVIBuffer_RectEffect*>(pVIBuffer->Clone(m_pTransformCom));
 		AddComponent("Com_VIBuffer", pCloneVIBuffer);
+	}
+
+	CVIBuffer_RectInstance* pRectInst = static_cast<CVIBuffer_RectInstance*>(rhs->GetComponent("Com_RectInstance"));
+	if (pVIBuffer)
+	{
+		CVIBuffer_RectInstance* pCloneRectInst = static_cast<CVIBuffer_RectInstance*>(pVIBuffer->Clone(m_pTransformCom));
+		AddComponent("Com_RectInstance", pCloneRectInst);
+	}
+
+	CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(rhs->GetComponent("Com_Decal"));
+	if (pDecal)
+	{
+		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pVIBuffer->Clone(m_pTransformCom));
+		AddComponent("Com_Decal", pCloneDecal);
 	}
 
 	/*Component OBB*/
