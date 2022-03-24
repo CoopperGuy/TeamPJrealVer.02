@@ -256,8 +256,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [49.2628441, -80.4330902, 2.56851376e-06]
-      Scale: [0.780658424, 0.831048727, 0.670475602]
+      Rotation: [-3.57266974, 41.3543625, 0]
+      Scale: [0.778681338, 0.830587447, 0.668521345]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -346,11 +346,11 @@ GameObjects:
       TextureNormalPath: ""
       ScrollSpeedX: [0.5, 0.5, 0]
       ScrollSpeedY: [0.5, 0.5, 2.29999995]
-      Distortion1: [0.100000001, 0.100000001]
-      Distortion2: [0.100000001, 0.100000001]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.100000001
-      DistortionBias: 0.100000001
+      Distortion1: [0.200000003, 0.200000003]
+      Distortion2: [0.200000003, 0.300000012]
+      Distortion3: [0.200000003, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
