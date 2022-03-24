@@ -8,11 +8,11 @@ CEffectBlood::CEffectBlood()
 {
 }
 
-CEffectBlood * CEffectBlood::Create(void * pArg)
+CEffectBlood * CEffectBlood::Create(void * pArg, _vector pos)
 {
 	CEffectBlood*		pInstance = new CEffectBlood();
 
-	if (FAILED(pInstance->Initialize(pArg)))
+	if (FAILED(pInstance->Initialize(pArg, pos)))
 	{
 		MSG_BOX("Failed to Create CEffectBlood");
 		SafeRelease(pInstance);
@@ -23,18 +23,22 @@ CEffectBlood * CEffectBlood::Create(void * pArg)
 }
 
 
-HRESULT CEffectBlood::Initialize(void* pArg)
+HRESULT CEffectBlood::Initialize(void* pArg, _vector pos)
 {
 	if (pArg != nullptr) {
-		m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Blood");
+
+		m_pGameObject = (CGameObject*)pArg;
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
 
-		_vector pos = { 0.f,0.f,0.f };
-		memcpy(&pos, pArg, sizeof(_vector));
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
+		Startscail.x = m_pTransform->GetScale(CTransform::STATE_RIGHT);
+		Startscail.y = m_pTransform->GetScale(CTransform::STATE_UP);
+
 	}
 	return S_OK;
 }
@@ -44,24 +48,28 @@ void CEffectBlood::Update(_double deltaTime)
 	if (m_bDead)
 		return;
 
-	if (m_pGameObject)
-	{
-	//	_bool spriteend = static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd();
-	/*	if (spriteend)
-		{
-			m_bDead = true;
-		}*/
-	}
+	if (!m_pGameObject)
+		return;
+
+	m_dDeadTime += deltaTime;
+
+	Startscail.x += (_float)deltaTime*0.1;
+	Startscail.y += (_float)deltaTime *0.1;
+
+
+	m_pTransform->SetScale(_float3(Startscail));
+
+	if (m_pTransform->GetScale(CTransform::STATE_UP) >= 1.3f)
+		m_bDead = true;
 
 }
 
 void CEffectBlood::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
 	{
+		this->SetDead();
 		m_pGameObject->SetDead();
-		//이건잠시 막아둠 
-		/*__super::SetDead();*/
 	}
 }
 
