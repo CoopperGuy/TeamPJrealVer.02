@@ -49,6 +49,8 @@ HRESULT CWolf::Initialize(_float3 position)
 	SetUpAnimation();
 	m_pCurState = IDLE0;
 	SetIdle();
+
+
 	m_pHpBar = CMonHpVIBuffer::Create(m_pGameObject);
 
 	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());

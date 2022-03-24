@@ -54,9 +54,6 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 				m_pBarTrans->SetMatrix(m_pHudTrans->GetWorldMatrix());
 			}
 		}
-
-		
-	
 	}
 }
 
@@ -95,8 +92,7 @@ CMonHpVIBuffer * CMonHpVIBuffer::Create(CGameObject * pTarget)
 
 void CMonHpVIBuffer::Free()
 {
-	m_pHp->DeleteRealObject();
-	m_pHpBar->DeleteRealObject();
+
 
 }
 
