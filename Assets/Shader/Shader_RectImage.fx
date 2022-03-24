@@ -378,6 +378,15 @@ float4 PS_DEFAULT(PS_IN input) : SV_TARGET
     return vColor;
 }
 
+
+float4 PS_MAIN_QUICK(PS_IN input) : SV_Target
+{
+    float4 color = Map.Sample(Sampler, input.vTexUV);
+    float alpha = (color.r + color.g + color.b) / 3.f;
+    if (alpha < 0.5f)
+        discard;
+    return color;
+}
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -511,8 +520,8 @@ technique11		DefaultDevice
         SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
         SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
-        VertexShader = compile vs_5_0 VS_MAIN_ITEMLIST();
+        VertexShader = compile vs_5_0 VS_MAIN();
         GeometryShader = NULL;
-        PixelShader = compile ps_5_0 PS_MAIN_SHOPIST();
+        PixelShader = compile ps_5_0 PS_MAIN_QUICK();
     }
 }

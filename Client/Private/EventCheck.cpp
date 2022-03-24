@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "AddQuickslot.h"
 #include "Camera_Fly.h"
+#include "BackPackHud.h"
 USING(Client)
 
 IMPLEMENT_SINGLETON(CEventCheck);
@@ -106,6 +107,12 @@ void CEventCheck::SetUpEquip(string _equipName)
 {
 	if (m_pPlayerScript)
 		m_pPlayerScript->SetUpEquip(_equipName);
+}
+
+void CEventCheck::RemoveItem(ITEMTYPE _type, _int _idx)
+{
+	if (m_pBackPackHud)
+		m_pBackPackHud->RemoveItem(_type, _idx);
 }
 
 _float3 CEventCheck::GetLockOnPos()

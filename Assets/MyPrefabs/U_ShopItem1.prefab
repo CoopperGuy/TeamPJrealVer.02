@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: ShopItem
-    UUID: 144341852499243436
+    UUID: 1597704841940506257
     Active: false
     Layer: Default
     Type: UI
@@ -19,7 +19,7 @@ GameObjects:
       Color: [0, 0, 0, 1]
     Children:
       - Name: ShopItemName
-        UUID: 11984176675205383872
+        UUID: 12009972794004307782
         Active: false
         Layer: Default
         Type: UI
@@ -35,9 +35,8 @@ GameObjects:
           Scale: [0.75, 0.75]
           LayerDepth: 0
           IsCenter: false
-          ShaderCut: true
       - Name: ShopItemImage
-        UUID: 8768312201733430419
+        UUID: 7691390894199396891
         Active: false
         Layer: Default
         Type: UI
@@ -54,7 +53,7 @@ GameObjects:
           TextureAnyPath: ""
           Color: [0, 0, 0, 1]
       - Name: ShopItemPrice
-        UUID: 15064870921137192004
+        UUID: 2921233219953894625
         Active: false
         Layer: Default
         Type: UI
@@ -70,4 +69,3 @@ GameObjects:
           Scale: [0.5, 0.5]
           LayerDepth: 0
           IsCenter: false
-          ShaderCut: true

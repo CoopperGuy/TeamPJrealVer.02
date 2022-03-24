@@ -55,7 +55,7 @@ private:
 	_uint				m_iCompleteBit = 0;
 private:
 	CLoadingGauge*		m_pLoadingGauge = nullptr;
-
+	unordered_map<std::string, std::thread>	Threads;
 
 public:
 	static CLoader* Create(SCENE eScene);
