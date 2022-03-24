@@ -45,7 +45,7 @@ _uint CCamera_Fly::Update(_double TimeDelta)
 
 	PhysxCameraCollision(TimeDelta);
 
-	// ¸¶¿ì½º Áß¾Ó °íÁ¤
+	// ë§ˆìš°ìŠ¤ ì¤‘ì•™ ê³ ì •
 	if (g_Menu == false && g_AnotherMenu == false)
 	{
 		POINT		ptMouse = { g_iWinCX >> 1, g_iWinCY >> 1 };
@@ -53,7 +53,7 @@ _uint CCamera_Fly::Update(_double TimeDelta)
 		SetCursorPos(ptMouse.x, ptMouse.y);
 	}
 
-	//// Q || E ´©¸£¸é m_pTargetLookÀ» È¸Àü½Ã±ä´Ù
+	//// Q || E ëˆ„ë¥´ë©´ m_pTargetLookì„ íšŒì „ì‹œê¸´ë‹¤
 	if (!m_pTargetTransform)
 	{
 		if (GetActiveWindow() == g_hWnd && m_bRolling)
@@ -197,7 +197,8 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 	_vector vCamPos = m_pTransformCom->GetState(CTransform::STATE_POSITION);
 	_vector dir = vTargetCenterPos - vCamPos;
 	_vector vRayDir = XMVector3Normalize(dir);
-	PxRaycastHit	hitbuf[256];
+
+	PxRaycastHit    hitbuf[256];
 	PxRaycastBuffer buf(hitbuf, 256);
 	PxQueryFilterData filterData;
 	//.data.word0 = CPxManager::GROUP1;
@@ -205,6 +206,7 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 	filterData.data.word2 = CPxManager::GROUP4;
 	filterData.flags |= PxQueryFlag::eANY_HIT;
 	filterData.flags |= PxQueryFlag::ePREFILTER;
+
 	_int	flag = CPxManager::GROUP1 + CPxManager::GROUP4;
 	_vector length = XMVector3Length(dir);
 	if (CEngine::GetInstance()->Raycast(vCamPos, vRayDir, 100.f, buf, filterData, &CPxQueryFilters(nullptr, flag)))
@@ -217,11 +219,9 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 			if (m_vDistance <= 0.2f)
 				m_vDistance = 0.2f;
 		}
-		/*	else
-				cout << "camera No Collied \n";*/
+		/*    else
+		cout << "camera No Collied \n";*/
 	}
-	/*	m_fCameraCollisionDelta = 0;
-	}*/
 }
 
 HRESULT CCamera_Fly::SetUp_Components()

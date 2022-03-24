@@ -70,7 +70,7 @@ void CMeteoFireBall::Update(_double deltaTime)
 		mypos += XMVector3Normalize(vDirection) * _float(rand() % 8 + 3) * (_float)deltaTime;
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, mypos);
-		
+
 		//if (m_pMeteo)
 		//	m_pMeteo->Set_Pos(mypos);
 
@@ -98,25 +98,20 @@ void CMeteoFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
 	{
-		//if (makeDeadEff) {
+		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
 
-			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4.f, 0.08f);
+		auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
+		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
-			//auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
-			//CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+		auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoEnd", "E_MeteoEnd");
+		CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolRing::Create(EffectRing, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
-			//auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoEnd", "E_MeteoEnd");
-			//CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolRing::Create(EffectRing, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+		auto EffectAf = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter");
+		CEngine::GetInstance()->AddScriptObject(CEffectMagicAf::Create(EffectAf, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
-			//auto EffectAf = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter");
-			//CEngine::GetInstance()->AddScriptObject(CEffectMagicAf::Create(EffectAf, mypos), CEngine::GetInstance()->GetCurSceneNumber());
-
-			//auto EffectFireEnd = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire_explosion", "E_MeteoExplosion");
-			//CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolFire::Create(EffectFireEnd, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+		auto EffectFireEnd = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Fire_explosion", "E_MeteoExplosion");
+		CEngine::GetInstance()->AddScriptObject(CEffectMeteoExpolFire::Create(EffectFireEnd, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 		
-		//	makeDeadEff = false;
-			
-	//	}
 		if (m_pMeteo)
 			m_pMeteo->SetDead();
 
