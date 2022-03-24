@@ -258,9 +258,15 @@ HRESULT CRenderer::DrawRenderGroup()
 		//if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Bloom")))
 			//return E_FAIL;
 	}
-	if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
-		return E_FAIL;
 
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMLOCK)) {
+		m_bDebuger = !m_bDebuger;
+	}
+
+	if (m_bDebuger) {
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+			return E_FAIL;
+	}
 	//CLightManager::GetInstance()->Render_DebugBuffer();
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)

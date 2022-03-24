@@ -56,6 +56,7 @@ private:
 
 private:
 	_uint	m_iValue = 0;
+	_bool	m_bDebuger = false;
 };
 
 END
