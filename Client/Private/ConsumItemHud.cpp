@@ -217,7 +217,10 @@ void CConsumItemHud::SetAddPosition(_float x)
 
 string CConsumItemHud::GetSelectedItemName()
 {
-	return m_pConsumItemList[m_iCurSelected].second.name->GetText();
+	if (m_iCurSelected > 0)
+		return m_pConsumItemList[m_iCurSelected].second.name->GetText();
+	else
+		return "";
 }
 
 

@@ -4,6 +4,7 @@
 
 BEGIN(Client)
 class CMonHp;
+class CTownPortal;
 class CFlogas : public CEnemy
 {
 public:
@@ -115,5 +116,6 @@ private:
 	CVIBuffer_Trail*	m_pTrailBuffer = nullptr;
 	_float4x4			m_wpBoneMatrix;
 	_bool				m_DrawTrail = false;
+	CTownPortal*		m_pPortal = nullptr;
 };
 END
