@@ -97,6 +97,7 @@ using namespace physx;
 
 #define WINCX	1280
 #define WINCY	720
+#define SHADOWRATIO 1.f
 
 #include "Engine_Macro.h"
 #include "Engine_Typedef.h"

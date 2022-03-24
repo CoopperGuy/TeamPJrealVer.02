@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\Scene_Stage3.h"
 #include "Engine.h"
+#include "Ursa.h"
+
 USING(Client)
 
 CScene_Stage3::CScene_Stage3(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -35,6 +37,8 @@ HRESULT CScene_Stage3::Render()
 
 HRESULT CScene_Stage3::ReadyScript()
 {
+	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+
 	return S_OK;
 }
 

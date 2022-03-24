@@ -476,9 +476,15 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 				string boneName = nowOBb->GetBoneName();
 				CComponent* pModel = GetComponent("Com_Model");
 				if (pModel)
-				{
-					_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
-					nowOBb->Update_State(boneMat * m_pRenderTransformCom->GetWorldMatrix());
+				{	
+					if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT) {
+						_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
+						nowOBb->Update_State(boneMat * m_pRenderTransformCom->GetWorldMatrix());
+					}
+					else {
+						_matrix boneMat = static_cast<CModel*>(pModel)->Get_BoneWithoutOffset(boneName.c_str());
+						nowOBb->Update_State(boneMat * m_pTransformCom->GetWorldMatrix());
+					}
 				}
 			}
 

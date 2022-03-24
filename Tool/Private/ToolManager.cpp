@@ -24,7 +24,7 @@ USING(Tool)
 extern HINSTANCE hInst;
 
 
-static string strScene = "../../Assets/Scenes/PortalUI.yaml";
+static string strScene = "../../Assets/Scenes/m_pxVertices2.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

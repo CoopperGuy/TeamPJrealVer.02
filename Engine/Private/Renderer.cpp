@@ -49,7 +49,7 @@ HRESULT CRenderer::InitializePrototype()
 		return E_FAIL;
 	
 	/* Target_Shadow_Depth*/
-	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * 10, (_uint)ViewportDesc.Height * 10, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * SHADOWRATIO, (_uint)ViewportDesc.Height * SHADOWRATIO, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
 		return E_FAIL;
 	
 	/* Target_Reflect*/
@@ -219,8 +219,8 @@ HRESULT CRenderer::DrawRenderGroup()
 		return E_FAIL;
 
 #ifndef _DEBUG
-	//if (FAILED(RenderLightDepth()))
-	//	return E_FAIL;
+	if (FAILED(RenderLightDepth()))
+		return E_FAIL;
 #endif // !_DEBUG	
 
 	if (FAILED(RenderNonAlpha()))

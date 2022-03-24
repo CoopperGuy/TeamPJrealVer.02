@@ -740,6 +740,16 @@ void CInspector::DrawEffectImage()
 					break;
 				}
 			}
+			_bool isLerp = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_LerpColor();
+			ImGui::Checkbox("Lerp Color", &isLerp);
+			static_cast<CVIBuffer_RectInstance*>(pComponent)->Set_lerpColor(isLerp);
+			if (isLerp) {
+				_float4& srcColor = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_SrcColor();
+				ImGui::ColorEdit4("srcColor##2f", (float*)&srcColor, ImGuiColorEditFlags_Float);
+
+				_float4& destColor = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_DestColor();
+				ImGui::ColorEdit4("destColor##2f", (float*)&destColor, ImGuiColorEditFlags_Float);
+			}
 
 			_float4& color = static_cast<CVIBuffer_RectInstance*>(pComponent)->Get_Color();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
