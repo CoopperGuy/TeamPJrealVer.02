@@ -929,7 +929,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 	int renderGroup = 3;
 
 	GameObjectMutex.lock();
-	CGameObject* deserializedObject = m_pEngine->AddGameObject(0, "Prototype_EmptyEffect", layer);
+	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyEffect", layer);
 	GameObjectMutex.unlock();
 
 	if (obj["BillBord"])

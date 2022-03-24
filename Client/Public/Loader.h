@@ -37,6 +37,7 @@ public:
 	HRESULT	GameSceneLoader(string scene, SCENE sceneNum);
 	HRESULT GameSceneStage01();
 	HRESULT GameSceneStage02();
+	HRESULT	GameSceneStage03();
 	HRESULT GameSceneLogo();
 	HRESULT GameSceneKIM();
 	HRESULT GameSceneLEE();

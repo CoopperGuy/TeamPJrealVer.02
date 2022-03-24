@@ -72,6 +72,7 @@ GameObjects:
       Size: [50, 50]
     Children:
       - 3413066835145731984
+      - 15977328159391518690
   - Name: Boss1
     UUID: 3413066835145731984
     Active: false
@@ -79,7 +80,7 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 3
-    PassIndex: 3
+    PassIndex: 13
     Hovering: true
     Com_Transform:
       Position: [640, 360]
@@ -110,6 +111,24 @@ GameObjects:
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Continuty_2.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: Boss2
+    UUID: 15977328159391518690
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 13
+    Hovering: true
+    Com_Transform:
+      Position: [1280, 360]
+      Size: [400, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_DG_K11_Arena.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""

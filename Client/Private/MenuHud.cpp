@@ -2,6 +2,7 @@
 #include "..\Public\MenuHud.h"
 #include "BackPackHud.h"
 #include "QuestHud.h"
+#include "EventCheck.h"
 USING(Client)
 
 CMenuHud::CMenuHud()
@@ -19,6 +20,7 @@ HRESULT CMenuHud::Initailze(CGameObject * pArg)
 		m_pMenuButton.emplace_back(dynamic_cast<CEmptyUI*>(iter));
 	}
 	m_pThisUI->SetActive(false);
+	CEventCheck::GetInstance()->SetMenus(this);
 	return S_OK;
 }
 
@@ -100,6 +102,17 @@ void CMenuHud::LinkInventoryToHud(CInventory * inven)
 {
 	if(inven != nullptr)
 		m_pInven = inven;
+}
+
+void CMenuHud::OffAllMenus()
+{
+	g_Menu = false;
+	g_AnotherMenu = false;
+	m_bisActive = false;
+	m_pThisUI->SetActive(false);
+	for (int i = 0; i < (_int)MENU_END; i++) {
+		m_pMenuList[i]->SetActive(false);
+	}
 }
 
 CMenuHud * CMenuHud::Create(CGameObject * pTarget)

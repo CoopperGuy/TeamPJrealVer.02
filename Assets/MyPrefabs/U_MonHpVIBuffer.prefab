@@ -5,13 +5,31 @@ GameObjects:
     Active: true
     Layer: Default
     Type: Object
-    PassIndex: 1
+    PassIndex: 0
+    NumOBB: 0
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [-0.0650682971, -24.125, -7.67386936e-08]
-      Scale: [0.999056578, 0.100025706, 0.99927026]
+      Translation: [-1.38995612, 0, 0.240088522]
+      Rotation: [-142.206467, 86.460083, -179.999985]
+      Scale: [0.999015152, 0.099963136, 0.995561182]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
     RenderGroup: 3
-    FrustumRange: 1
+    FrustumRange: 5
+    Children:
+      - Name: VIHpbar
+        UUID: 2070677322930617097
+        Active: true
+        Layer: Default
+        Type: Object
+        PassIndex: 1
+        NumOBB: 0
+        Com_Transform:
+          Translation: [0, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [0.999000013, 0.899999976, 1]
+        Com_VIBuffer:
+          Type: Rect
+          TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+        RenderGroup: 1
+        FrustumRange: 5

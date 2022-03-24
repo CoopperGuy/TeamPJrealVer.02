@@ -47,11 +47,9 @@ HRESULT CRenderer::InitializePrototype()
 	/* Target_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Depth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
-
 	/* Target_Decal_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DecalDepth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
-
 	/* Target_Shadow_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * 10, (_uint)ViewportDesc.Height * 10, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
 		return E_FAIL;
@@ -359,7 +357,7 @@ HRESULT CRenderer::RenderNonAlpha()
 	if (nullptr == m_pTargetManager)
 		return E_FAIL;
 
-	// Light depth¸¦ ±¸ÇÑ´Ù
+	// Light depthÂ¸Â¦ Â±Â¸Ã‡Ã‘Â´Ã™
 
 	//if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
 	//{

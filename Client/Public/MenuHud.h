@@ -31,10 +31,12 @@ public:
 	void	MenuEmplace(CEmptyUI* ui) { m_pMenuButton.emplace_back(ui); }
 	void	AddInvenInBackPackHud(CInventory* inven);
 	void	LinkInventoryToHud(CInventory* inven);
+	void	OffAllMenus();
 public:
 	void SetInvenRightLeft(_bool right) { m_bRightOpenInven = right; }
 public:
 	_bool GetInvenRightLeft() { return m_bRightOpenInven; }
+
 private:
 	vector<CEmptyUI*>	m_pMenuButton;
 	CEmptyUI*			m_pMenuList[MENU_END] = { nullptr };
