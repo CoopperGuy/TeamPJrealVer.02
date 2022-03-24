@@ -347,7 +347,7 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 1
-    PassIndex: 8
+    PassIndex: 12
     Hovering: false
     Com_Transform:
       Position: [37.0359497, 659.909546]
@@ -493,7 +493,7 @@ GameObjects:
       Position: [557.809021, 360]
       Size: [64, 64]
     Com_VIBuffer:
-      TexturePath: ""
+      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
@@ -511,7 +511,7 @@ GameObjects:
       Position: [622.29303, 360]
       Size: [64, 64]
     Com_VIBuffer:
-      TexturePath: ""
+      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
@@ -529,7 +529,7 @@ GameObjects:
       Position: [686.776978, 360]
       Size: [64, 64]
     Com_VIBuffer:
-      TexturePath: ""
+      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
@@ -547,7 +547,7 @@ GameObjects:
       Position: [751.260986, 360]
       Size: [64, 64]
     Com_VIBuffer:
-      TexturePath: ""
+      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""

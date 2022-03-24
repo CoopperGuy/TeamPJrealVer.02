@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Inventory.h"
-
+#include "EventCheck.h"
 USING(Client)
 
 CInventory::CInventory()
@@ -17,12 +17,16 @@ void CInventory::Update(_double deltaTime)
 {
 	for (int i = 0; i < (_int)ITEMTYPE::TYPE_END; i++) {
 		auto iter = m_Inven[i].begin();
+		_uint j = 0; 
 		for (; iter != m_Inven[i].end();) {
 			if ((*iter).second->GetItempInfo().numOfItem == 0) {
+				ITEMTYPE type = (ITEMTYPE)i;
+				CEventCheck::GetInstance()->RemoveItem(type, j);
 				iter = m_Inven[i].erase(iter);
 			}
 			else {
 				iter++;
+				j++;
 			}
 		}
 	}

@@ -88,9 +88,9 @@ void CMaterialHud::RemoveMaterialItem(_uint idx)
 	m_fCurYSize -= m_constYScale;
 
 	for (; iter != m_pMaterialList.end(); iter++) {
-		_float2 pos = (*iter).first->GetPosition();
-		pos.y -= m_constYScale;
-		(*iter).first->SetPosition(pos.x, pos.y);
+		_float2 offset = (*iter).first->GetTransformOffst();
+		offset.y -= m_constYScale;
+		(*iter).first->SetTransformOffst(0.f, offset.y);
 	}
 
 

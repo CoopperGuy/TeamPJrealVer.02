@@ -18,8 +18,10 @@ HRESULT CAddQuickslot::Initailze(CGameObject * pArg)
 	m_pCloseButton = static_cast<CEmptyUI*>((*iter));
 
 	list<CGameObject*> child = m_pThisUI->GetChildren();
-	for (auto& c : child) {
-		m_vecBuffer.emplace_back(static_cast<CVIBuffer_RectUI*>(c->GetComponent("Com_VIBuffer")));
+	for (auto& iter : child) {
+		list<CGameObject*> grandChild = iter->GetChildren();
+		if(grandChild.size() > 0)
+			m_vecBuffer.emplace_back(static_cast<CVIBuffer_RectUI*>(grandChild.front()->GetComponent("Com_VIBuffer")));
 	}
 	CEventCheck::GetInstance()->SetAddQuick(this);
 	CEngine::GetInstance()->AddScriptObject(this, SCENE_STATIC);

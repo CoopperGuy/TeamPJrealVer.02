@@ -36,12 +36,12 @@ public:
 	void ShakeCamera(CCamera_Fly::SHAKE _shake, _int _cnt, _float _duration, _float _spd = 1.f);
 	void ShakeUpDown(_int _cnt, _float _duration, _float _spd = 1.f);
 	void ZoomFov(_float _duration, _float _destFov, _float _spd);
-
 public:
 	void SetUpEquip(string _equipName);
 public:
 	void SetCurBackPack(BACKPACKSTATE _state) { m_eBackState = _state; }
 	BACKPACKSTATE GetBackPackState() { return m_eBackState; }
+	void RemoveItem(ITEMTYPE _type, _int _idx);
 public:
 	_float3 GetLockOnPos();
 private:

@@ -1030,6 +1030,10 @@ void CInspector::DrawTextUI()
 
 			_float4& color = pText->GetColor();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
+
+			_bool shaderCut = pText->GetShaderCut();
+			ImGui::Checkbox("ShaderCut", &shaderCut);
+			pText->SetShader(shaderCut);
 			ImGui::TreePop();
 		}
 
