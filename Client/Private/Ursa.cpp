@@ -109,6 +109,7 @@ void CUrsa::Update(_double dDeltaTime)
 	//		Adjust_Dist(dDeltaTime);
 	//}
 
+
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bCombat[First] = true;
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
