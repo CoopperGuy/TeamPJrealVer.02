@@ -164,7 +164,6 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 	vTargetLook = XMLoadFloat3(&m_vTargetToLook);
 	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 	PxControllerFilters filters;
-
 	if (m_bRoar)
 	{
 		m_bFar = false;
@@ -175,21 +174,34 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 			m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
 	}
+	else if (m_bWheelWind)
+	{
+		if (m_eState == WHEELWIND_Ing)
+		{
+			if (m_fDist >= 1.f)
+			{
+				m_bMove = true;
+				m_bClose = false;
+			}
+			else
+				m_bClose = true;
+		}
+	}
 	else if (m_fDist >= 3.f)
 	{
-		m_bSuperFar	= true;
-		m_bFar		= false;
-		m_bMove		= false;
-		m_bClose	= false;
+		m_bSuperFar = true;
+		m_bFar = false;
+		m_bMove = false;
+		m_bClose = false;
 	}
 	else if (m_fDist >= 2.f)
 	{
 		if (!m_bSuperFar)
 		{
-			m_bFar		= true;
+			m_bFar = true;
 			m_bSuperFar = false;
-			m_bMove		= false;
-			m_bClose	= false;
+			m_bMove = false;
+			m_bClose = false;
 		}
 	}
 	else if (m_fDist >= 1.f)
@@ -213,8 +225,8 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 
 	if (m_bMove && !m_bFinishBlow)
 	{
-		
-		m_eState = RUN;
+		if(!m_bWheelWind)
+			m_eState = RUN;
 
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
@@ -255,7 +267,7 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 	}
 	if (m_pStat->GetStatInfo().hp < Max)
 	{
-		if(!m_bCB)
+		if(!m_bCB || m_bWheelWind)
 			Adjust_Dist(dDeltaTime);
 		m_bCombat[First] = true;
 		if (m_pStat->GetStatInfo().hp < Max * 0.7f)
@@ -657,11 +669,14 @@ void CUrsa::Checking_Finished()
 	{
 		if (m_pModel->Get_isFinished())
 		{
-			if (!m_QueState.empty())
+			if (!m_bWheelWind)
 			{
-				m_eState = m_QueState.front();
-				m_QueState.pop();
+				if (!m_QueState.empty())
+				{
+					m_eState = m_QueState.front();
+					m_QueState.pop();
 
+				}
 			}
 			if (!None_Combat())
 			{
