@@ -39,6 +39,7 @@
 #include "InstanceEffectFire.h"
 #pragma endregion
 
+#include "DropRock.h"
 USING(Client)
 
 
@@ -228,6 +229,7 @@ void CPlayer::Update(_double dDeltaTime)
 
 	Transform_ToWorldSpace();
 	SearchMonster();
+
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)

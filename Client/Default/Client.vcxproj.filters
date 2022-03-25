@@ -373,6 +373,12 @@
     <ClInclude Include="..\public\TownPortal.h">
       <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectBloodDecal.h">
+      <Filter>05.Effect\Blood</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\DropRock.h">
+      <Filter>02.GameObjects\Map\Rock</Filter>
+    </ClInclude>
     <ClInclude Include="..\public\SparkFlare.h">
       <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
     </ClInclude>
@@ -734,6 +740,12 @@
     </ClCompile>
     <ClCompile Include="..\private\TownPortal.cpp">
       <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectBloodDecal.cpp">
+      <Filter>05.Effect\Blood</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\DropRock.cpp">
+      <Filter>02.GameObjects\Map\Rock</Filter>
     </ClCompile>
     <ClCompile Include="..\private\SparkFlare.cpp">
       <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
@@ -1122,6 +1134,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Map\Portal\TownPortal">
       <UniqueIdentifier>{cd9af9a0-6be8-46cf-9334-d15f103afa1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Rock">
+      <UniqueIdentifier>{8d320425-a892-4679-b3f6-b18eec76453f}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\SparkFlare">
       <UniqueIdentifier>{f98f9085-81a3-442d-bca2-817724732e2d}</UniqueIdentifier>

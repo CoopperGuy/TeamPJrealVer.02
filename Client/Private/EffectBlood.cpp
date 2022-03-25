@@ -34,11 +34,21 @@ HRESULT CEffectBlood::Initialize(void* pArg, _vector pos)
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 0.2f);
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+		int random = rand() % 3;
+		float randomf = random / 10;
+		pos = XMVectorSetX(pos, XMVectorGetX(pos) + random);
+		pos = XMVectorSetY(pos, XMVectorGetY(pos) + randomf);
+		pos = XMVectorSetZ(pos, XMVectorGetZ(pos) + random);
 
 		Startscail.x = m_pTransform->GetScale(CTransform::STATE_RIGHT);
 		Startscail.y = m_pTransform->GetScale(CTransform::STATE_UP);
 
+		PosX = XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION));
+		PosY =XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
+
+
+
+		RandomNum = rand() % 3;
 	}
 	return S_OK;
 }
@@ -53,20 +63,31 @@ void CEffectBlood::Update(_double deltaTime)
 
 	m_dDeadTime += deltaTime;
 
-	Startscail.x += (_float)deltaTime*0.1;
-	Startscail.y += (_float)deltaTime *0.1;
+	_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
+	//PosX += cosf((RandomNum + 50) * 3.141592f / 180.f) * deltaTime;
+	//PosY -= sinf((RandomNum + 50)* 3.141592f / 180.f) * deltaTime;
 
-	m_pTransform->SetScale(_float3(Startscail));
+	//pos = XMVectorSetX(pos, PosX);
+	//pos = XMVectorSetY(pos, PosY);
+	
+	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+	//m_pTransform->SetScale(_float3(Startscail));
 
-	if (m_pTransform->GetScale(CTransform::STATE_UP) >= 1.3f)
-		m_bDead = true;
+	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+	_float4x4 newWorld;
+	_float4x4 world = m_pTransform->GetMatrix();
+	_vector scale, rotation, position;
+	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
+	XMStoreFloat4x4(&newWorld, viewInverse);
+	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
+	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
 
 }
 
 void CEffectBlood::LateUpdate(_double deltaTime)
 {
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration()<= m_dDeadTime)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

@@ -3,7 +3,7 @@ GameObjects:
   - Name: O_Wolf
     UUID: 16046188935930043936
     Active: true
-    Layer: Default
+    Layer: Layer_Monster
     Type: Object
     PassIndex: 0
     NumOBB: 2
