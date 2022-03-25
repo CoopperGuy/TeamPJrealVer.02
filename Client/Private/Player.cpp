@@ -230,12 +230,6 @@ void CPlayer::Update(_double dDeltaTime)
 	Transform_ToWorldSpace();
 	SearchMonster();
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-	{
-		CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
-		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(EffectBlood, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
-	}
-
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
