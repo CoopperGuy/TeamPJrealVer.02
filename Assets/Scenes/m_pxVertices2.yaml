@@ -95,8 +95,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.55694079, -0.13206704, 1.43441713]
-      Rotation: [-157.779587, 12.6652699, 180]
-      Scale: [0.0210634973, 0.218303844, 0.179430053]
+      Rotation: [175.176804, -42.5952835, 180]
+      Scale: [0.0203409642, 0.193815485, 0.174068764]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -173,7 +173,7 @@ GameObjects:
     Com_Transform:
       Translation: [2, 0, 2]
       Rotation: [-90, -0, 0]
-      Scale: [0.499726176, 0.49999848, 0.50000006]
+      Scale: [0.499722749, 0.49999848, 0.50000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam3.fbx
@@ -202,7 +202,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-  - Name: Empty Object
+  - Name: SpartParticle
     UUID: 6548545933346460148
     Active: true
     Layer: Default
@@ -211,21 +211,105 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [3.17323112, 0, 0]
+      Translation: [0.274112403, 6.51797194e-09, -0.0137290694]
+      Rotation: [11.163949, 2.86729074, 1.36240385e-06]
+      Scale: [0.999976158, 0.99999994, 0.99999553]
+    Com_RectInstance:
+      Shape: 0
+      InstNum: 100
+      Color: [1.00291455, 0.862708688, 0, 0]
+      Speed: 1
+      LifeTime: 1
+      Size: 10
+      StartRadian: 0
+      RadiationAngle: 30
+      LerpColor: true
+      SrcColor: [0.978260875, 0.552930057, 0, 0]
+      DestColor: [1, 0.826086938, 0, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+  - Name: Flare
+    UUID: 4844422747993476240
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [175.176804, -42.5952835, 180]
+      Scale: [0.200057194, 0.199857235, 0.199963614]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\DooDiffuse\FX_Flare_004_TEX_KKJ.tga
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Flare_004_TEX_HKB.tga
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 0.100000001
+      FadeOutStratTime: 0.100000001
+      FadeIn: true
+      FadeInDuration: 0.100000001
+      FadeInStratTime: 0
+      EffectDuration: 0.200000003
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+  - Name: Empty Object
+    UUID: 9403709492189874010
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_RectInstance:
       Shape: 0
-      InstNum: 1
-      Color: [1.19542718, -0.50417465, -0.290225297, 0]
-      Speed: 1
-      LifeTime: 4.5
-      Size: 3.0999999
+      InstNum: 100
+      Color: [0.963746846, 0.807260096, 0.416123331, 0]
+      Speed: 10
+      LifeTime: 0.200000003
+      Size: 0.200000003
       StartRadian: 0
       RadiationAngle: 30
       LerpColor: true
-      SrcColor: [0.753623188, 0.635617316, 0.365889519, 0]
-      DestColor: [1, 0, 0, 0]
+      SrcColor: [1, 0.956521749, 0, 0]
+      DestColor: [0.956521749, 0.777512908, 0.499054819, 0]
     Effect_Setting:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds

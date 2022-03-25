@@ -139,7 +139,7 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 
 	m_shaderPath = pShaderFilePath;
 		
-	m_pShader = make_unique<CShader>(m_shaderPath);
+	m_pShader = make_shared<CShader>(m_shaderPath);
 
 	return S_OK;
 }
@@ -147,10 +147,10 @@ HRESULT CVIBuffer_RectInstance::InitializePrototype(string pShaderFilePath, _uin
 
 
 HRESULT CVIBuffer_RectInstance::Initialize(void * pArg)
-{
+{	
 	if (m_pShader == nullptr)
-		m_pShader = make_unique<CShader>(m_shaderPath);
-	
+		m_pShader = make_shared<CShader>(m_shaderPath);
+
 	VTXRECTINST*			pInstanceVertices = new VTXRECTINST[m_iNumInstance];
 	m_VBInstanceSubResourceData.pSysMem = pInstanceVertices;
 
