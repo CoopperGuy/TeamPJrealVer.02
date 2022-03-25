@@ -13,9 +13,10 @@ CEl_Flogas::CEl_Flogas(CGameObject* pObj)
 {
 }
 
-HRESULT CEl_Flogas::Initialize(string name)
+HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 {
 	m_ScriptName = name;
+	m_pFlogas = pObj;
 
 	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), m_ScriptName);
 	if (m_pGameObject == nullptr)

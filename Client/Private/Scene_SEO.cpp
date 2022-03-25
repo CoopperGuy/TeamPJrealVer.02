@@ -38,7 +38,14 @@ HRESULT CScene_SEO::ReadyScript()
 {
 	//CWolf::Create(nullptr);
 	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+
+	_float3 one = { 4.f,0.f,4.f };
+	_float3 two = { 16.f,0.f,16.f };
+	_float3 three = { 28.f,0.f,28.f };
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
+	m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), SCENE_SEO);
+	m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);
+	m_pEngine->AddScriptObject(CWolf::Create(nullptr, three), SCENE_SEO);
 
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
 	//_float3 Leftpos = { -6.5f,0.3f,-1.f };

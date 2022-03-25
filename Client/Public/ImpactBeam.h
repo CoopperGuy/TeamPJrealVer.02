@@ -19,7 +19,7 @@ private:
 private:
 	vector<CTransform*>	m_Child;
 private:
-	_double			m_Duration = 0.44;
+	_double			m_Duration = 0.5;
 	_double			m_DurationDelta = 0;
 public:
 	static CImpactBeam* Create(CEmptyEffect* _pThisEffect, CGameObject* _pPlayerEffect);

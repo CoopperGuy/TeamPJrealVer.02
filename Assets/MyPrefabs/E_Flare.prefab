@@ -1,0 +1,85 @@
+Scene: Untitled
+GameObjects:
+  - Name: Flare
+    UUID: 720465848979937877
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 15
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [3.20991039, 45.0656281, -1.51100409e-07]
+      Scale: [0.19669123, 0.200422123, 0.197435185]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\DooDiffuse\FX_Flare_004_TEX_KKJ.tga
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDiffuse\FX_Flare_004_TEX_KKJ.tga
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 0.100000001
+      FadeOutStratTime: 0.100000001
+      FadeIn: true
+      FadeInDuration: 0.100000001
+      FadeInStratTime: 0
+      EffectDuration: 0.200000003
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+    Children:
+      - Name: SparkParticle
+        UUID: 2662012012864233753
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 1
+        BillBord: false
+        Com_Transform:
+          Translation: [0, 0, 0]
+          Rotation: [0, -0, 0]
+          Scale: [1, 1, 1]
+        Com_RectInstance:
+          Shape: 0
+          InstNum: 35
+          Color: [0.978260875, 0.209514856, 0, 0]
+          Speed: 1
+          LifeTime: 0.200000003
+          Size: 0.5
+          StartRadian: 0
+          RadiationAngle: 30
+          LerpColor: true
+          SrcColor: [0.978260875, 0.850661576, 0, 0]
+          DestColor: [0.978260875, 0.467863888, 0, 0]
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.800000012
+          DistortionBias: 0.5
+          FadeOut: false
+          FadeOutDuration: 0.5
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0.5
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5

@@ -34,9 +34,7 @@ private:
 public:
 	void RotateBody(_double deltaTime);
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
-	void SetAttack(_double dDeltaTime);
 	void WolfAttflow(_double dDeltaTime);
-	void WolfAttflow();
 
 private:
 	WOLFSTATE	m_pWolfState = IDLE0;
@@ -63,7 +61,6 @@ public:
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 private:
-	_bool m_bJump = false;
 	_bool m_bMove = true;
 	_bool WolfAtt = false;
 	_bool WolfIdle = false;
@@ -72,8 +69,11 @@ private:
 private:
 	_float m_fJumpSpeed = 0.f;
 	_float m_fSpeed = 15.0f;
-
 	_float3 m_vTargetToLook;
+
+	_int  m_iBlood =0;
+
+	_vector mypos = {};
 private:
 	class CStat* m_pStat = nullptr;
 	class CTransform* m_pTargetTransform = nullptr;

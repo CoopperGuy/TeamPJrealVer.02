@@ -199,10 +199,13 @@
     <ClInclude Include="..\public\ComboIcon.h" />
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
+    <ClInclude Include="..\Public\DropRock.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
+    <ClInclude Include="..\Public\EffectBloodDecal.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
+    <ClInclude Include="..\Public\Element_Bomb.h" />
     <ClInclude Include="..\Public\Fire_Boob.h" />
     <ClInclude Include="..\Public\Fire_explosion.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
@@ -279,6 +282,7 @@
     <ClInclude Include="..\public\SideQuestHud.h" />
     <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Skills.h" />
+    <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
@@ -337,9 +341,11 @@
     <ClCompile Include="..\private\ConsumItemHud.cpp" />
     <ClCompile Include="..\private\Character.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
+    <ClCompile Include="..\Private\DropRock.cpp" />
     <ClCompile Include="..\Private\EAFireBall.cpp" />
     <ClCompile Include="..\Private\EffectBlackhole.cpp" />
     <ClCompile Include="..\Private\EffectBlood.cpp" />
+    <ClCompile Include="..\Private\EffectBloodDecal.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
     <ClCompile Include="..\Private\EffectFireBall.cpp" />
@@ -359,6 +365,7 @@
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
+    <ClCompile Include="..\Private\Element_Bomb.cpp" />
     <ClCompile Include="..\private\ElfNPC.cpp" />
     <ClCompile Include="..\private\El_Flogas.cpp" />
     <ClCompile Include="..\Private\Enemy.cpp" />
@@ -417,6 +424,7 @@
     <ClCompile Include="..\private\SideQuestHud.cpp" />
     <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Skills.cpp" />
+    <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
