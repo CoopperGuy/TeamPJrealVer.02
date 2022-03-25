@@ -5,6 +5,7 @@
 #include "Transform.h"
 #include "MonHpVIBuffer.h"
 #include "EffectBlood.h"
+#include "EffectBloodDecal.h"
 CWolf::CWolf(CGameObject* pObj)
 	: CEnemy(pObj)
 {
@@ -66,11 +67,7 @@ void CWolf::Update(_double dDeltaTime)
 	if (m_bDead)
 		return;
 
-	if (m_pCurState == DIE || m_pWolfState == DIE)
-	{
-		m_bDead = true;
-		return;
-	}
+
 	if (!m_pGameObject)
 		return;
 
@@ -91,56 +88,56 @@ void CWolf::Update(_double dDeltaTime)
 
 	if (m_pOBBCom->Get_isHit()) {
 		m_pWolfState = DAMAGE;
-		m_bBlood = true;
 	}
 
 	//SetAttack(dDeltaTime);
 }
 void CWolf::LateUpdate(_double dDeltaTime)
 {
+	if (m_pStat->GetStatInfo().hp <= 0) {
+		m_pWolfState = DIE;
+		m_bDead = true;
+	}
+
 	if (!m_bDead) {
 		if (m_bMove)
 		{
 			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 			PxControllerFilters filters;
 			_vector vLook, vTargetLook;
+			_vector vDis;
 
 			//if (m_bLook) {
-				_vector vTargetPos, vPos;
-				vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-				vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
-				XMStoreFloat3(&m_vTargetToLook, vTargetPos - vPos);
+			_vector vTargetPos, vPos;
+			vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+			vDis= vTargetPos - vPos;
 
-				vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-				vTargetLook = XMLoadFloat3(&m_vTargetToLook);
+			vDis = XMVectorSetY(vDis, 0.f);
+			m_pTransform->SetLook(vDis);
 
 
-				vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
-				vLook = XMVectorSetY(vLook, 0.f);
-				m_pTransform->SetLook(vLook);
-				//m_bLook = false;
-			//}
-
-			memcpy(&vDir, &vLook, sizeof(_float3));
-			m_pController->move(vDir * 2.5f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+			memcpy(&vDir, &XMVector3Normalize(vDis), sizeof(_float3));
+			WolfLookPlayer();
+			m_pController->move(vDir * 1.8f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 		}
 		WolfSetAni(dDeltaTime);
 		//WolfStateUpdate(dDeltaTime);
 	}
 
-	if (m_pStat->GetStatInfo().hp <= 0)
-	{
-		m_pModel->SetUp_AnimationIndex(DIE);
+
+	if (m_bDead) {
+		//m_pWolfState = DIE;
+		//m_pModel->SetUp_AnimationIndex(DIE);
+		//m_pModel->Play_Animation(dDeltaTime);
+
 
 		if (m_pHpBar)
 			m_pHpBar->SetDead();
-
-		/*if (m_pModel->Get_isFinished()) {*/
-			m_pModel->Play_Animation(0);
-			this->SetDead();
-			m_pGameObject->SetDead();
-			m_pCollider->ReleaseController();
-		//}
+		//m_pModel->Play_Animation(0);
+		this->SetDead();
+		m_pGameObject->SetDead();
+		m_pCollider->ReleaseController();
 	}
 
 }
@@ -174,7 +171,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
-
+	_float dis = 1.3f;
 	switch (m_pWolfState)
 	{
 	case Client::CWolf::IDLE0: {
@@ -186,7 +183,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		WolfLookPlayer();
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
-			if(XMVectorGetX(TargetDistance) > 2.f || XMVectorGetZ(TargetDistance) > 2.f)
+			if (XMVectorGetX(TargetDistance) >dis || XMVectorGetZ(TargetDistance) >dis)
 				m_pWolfState = RUN;
 			else
 				m_pWolfState = STRAIGHTATACK;
@@ -216,22 +213,28 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 			if (keyFrame >= 30 && keyFrame <= 45)
 				m_bMove = true;
 			else {
-				WolfLookPlayer();
+				//WolfLookPlayer();
 				m_bMove = false;
 			}
 		}
 		break;
-	case Client::CWolf::DAMAGE:
-		if (m_bBlood) {
-			//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
-			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
-			m_bBlood = false;
+	case Client::CWolf::DAMAGE: {
+		if (m_iBlood<=1){
+			m_iBlood += 1;
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
+			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+	/*	CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, mypos), CEngine::GetInstance()->GetCurSceneNumber());*/
 		m_bMove = false;
-		if (m_pModel->Get_isFinished())
+		if (m_pModel->Get_isFinished()) {
 			m_pWolfState = THREATEN;
-		break;
-	case Client::CWolf::RUN: {
+			SetAtt();
+		}
+	}
+								break;
+	case Client::CWolf::RUN:
+	{
 		if (XMVectorGetX(TargetDistance) > 1.2f || XMVectorGetZ(TargetDistance) > 1.2f)
 			m_bMove = true;
 		else {
@@ -262,8 +265,10 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 
 	if (m_pWolfState != DAMAGE) {
 		if (m_pStat->GetStatInfo().maxHp > m_pStat->GetStatInfo().hp)
+		{
 			SetAtt();
-
+			m_iBlood = 0;
+		}
 		else {
 			if (WolfIdle && m_pWolfState != DIE && m_pWolfState != DEADBODY) {
 				SetIdle();

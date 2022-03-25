@@ -61,7 +61,6 @@ public:
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 private:
-	_bool m_bBlood = false;
 	_bool m_bMove = true;
 	_bool WolfAtt = false;
 	_bool WolfIdle = false;
@@ -72,6 +71,7 @@ private:
 	_float m_fSpeed = 15.0f;
 	_float3 m_vTargetToLook;
 
+	_int  m_iBlood =0;
 
 	_vector mypos = {};
 private:
