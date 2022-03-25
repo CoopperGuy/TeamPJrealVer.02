@@ -9,7 +9,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.419081867, -38.6448364, 3.53722405]
+      Translation: [0.419081867, -1.6448364, 3.53722405]
       Rotation: [0, 1.99990833, 0]
       Scale: [17.2330017, 0.268000007, 10.0369997]
     Com_Model:

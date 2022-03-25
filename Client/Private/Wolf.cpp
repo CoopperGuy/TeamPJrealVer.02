@@ -4,7 +4,7 @@
 #include "BasicCollider.h"
 #include "Transform.h"
 #include "MonHpVIBuffer.h"
-
+#include "EffectBlood.h"
 CWolf::CWolf(CGameObject* pObj)
 	: CEnemy(pObj)
 {
@@ -81,6 +81,8 @@ void CWolf::Update(_double dDeltaTime)
 
 	WolfStateUpdate(dDeltaTime);
 
+	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
 	if (WolfAtt)
 	{
 		m_pStat->SetSTATE(CStat::STATES_ATK);
@@ -90,27 +92,31 @@ void CWolf::Update(_double dDeltaTime)
 }
 void CWolf::LateUpdate(_double dDeltaTime)
 {
-
 	if (!m_bDead) {
 		if (m_bMove)
 		{
-			_vector vTargetPos, vPos;
-			vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
-			XMStoreFloat3(&m_vTargetToLook, vTargetPos - vPos);
-
-			_vector vLook, vTargetLook;
-			vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-			vTargetLook = XMLoadFloat3(&m_vTargetToLook);
-
-
 			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 			PxControllerFilters filters;
-			vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
-			vLook = XMVectorSetY(vLook, 0.f);
-			m_pTransform->SetLook(vLook);
+			_vector vLook, vTargetLook;
+
+			//if (m_bLook) {
+				_vector vTargetPos, vPos;
+				vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+				vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+				XMStoreFloat3(&m_vTargetToLook, vTargetPos - vPos);
+
+				vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
+				vTargetLook = XMLoadFloat3(&m_vTargetToLook);
+
+
+				vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
+				vLook = XMVectorSetY(vLook, 0.f);
+				m_pTransform->SetLook(vLook);
+				//m_bLook = false;
+			//}
+
 			memcpy(&vDir, &vLook, sizeof(_float3));
-			m_pController->move(vDir * 1.5f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+			m_pController->move(vDir * 2.5f * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 		}
 		WolfSetAni(dDeltaTime);
 		//WolfStateUpdate(dDeltaTime);
@@ -156,33 +162,11 @@ void CWolf::RotateBody(_double deltaTime)
 {
 }
 
-void CWolf::SetAttack(_double dDeltaTime)
-{
-	//if (!WolfAtt)
-		//return;
-
-	_vector vLook, vRight, vWolfLook;
-	vLook = m_pTargetTransform->GetState(CTransform::STATE_LOOK);
-	vRight = m_pTargetTransform->GetState(CTransform::STATE_RIGHT);
-	vWolfLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
-	PxControllerFilters filters;
-	_float fSpeed = 0.f;
-	_vector vUp = m_pTransform->GetState(CTransform::STATE::STATE_UP);
-
-
-	_vector WolfLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-	WolfLook = XMVectorLerp(WolfLook, vRight, 0.4f);
-	WolfLook = XMVectorSetY(WolfLook, 0.f);
-	memcpy(&vDir, &vWolfLook, sizeof(PxVec3));
-	fSpeed = 0.01f;
-
-	m_pTransform->SetLook(vWolfLook);
-
-}
-
 void CWolf::WolfAttflow(_double dDeltaTime)
 {
+	_vector PlayerTF = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
+
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 
 	switch (m_pWolfState)
@@ -196,7 +180,10 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		WolfLookPlayer();
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
-			m_pWolfState = STRAIGHTATACK;
+			if(XMVectorGetX(TargetDistance) > 2.f || XMVectorGetZ(TargetDistance) > 2.f)
+				m_pWolfState = RUN;
+			else
+				m_pWolfState = STRAIGHTATACK;
 		}
 		break;
 	}
@@ -229,12 +216,22 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		}
 		break;
 	case Client::CWolf::DAMAGE:
+		if (m_bBlood) {
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
+			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bBlood = false;
+		}
 		m_bMove = false;
 		if (m_pModel->Get_isFinished())
-			m_pWolfState = RUN;
+			m_pWolfState = THREATEN;
 		break;
 	case Client::CWolf::RUN: {
-		//m_bMove = true;
+		if (XMVectorGetX(TargetDistance) > 1.2f || XMVectorGetZ(TargetDistance) > 1.2f)
+			m_bMove = true;
+		else {
+			m_bMove = false;
+			m_pWolfState = THREATEN;
+		}
 		break;
 	}
 	}
@@ -254,31 +251,24 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
-	_float dis = 1.2f;
+	_float dis = 2.f;
 
-	if (m_pOBBCom->Get_isHit())
-		m_pWolfState == DAMAGE;
-
-	if (m_pWolfState == DAMAGE)
-	{
-		if (m_pModel->Get_isFinished())
-		{
-			m_pWolfState = THREATEN;
-		}
+	if (m_pOBBCom->Get_isHit()) {
+		m_pWolfState = DAMAGE;
+		m_bBlood = true;
 	}
 
 	if (m_pWolfState != DAMAGE) {
-		if (XMVectorGetX(TargetDistance) > dis || XMVectorGetZ(TargetDistance) > dis)
-			SetIdle();
-		else {
+		if (m_pStat->GetStatInfo().maxHp > m_pStat->GetStatInfo().hp)
 			SetAtt();
-			//	WolfLookPlayer();
-		}
-		if (WolfIdle && m_pWolfState != DIE && m_pWolfState != DEADBODY) {
-			SetIdle();
-			m_pWolfState = IDLE0;
-			m_pStat->SetSTATE(CStat::STATES_IDEL);
-			m_bMove = false;
+
+		else {
+			if (WolfIdle && m_pWolfState != DIE && m_pWolfState != DEADBODY) {
+				SetIdle();
+				m_pWolfState = IDLE0;
+				m_pStat->SetSTATE(CStat::STATES_IDEL);
+				m_bMove = false;
+			}
 		}
 	}
 }
