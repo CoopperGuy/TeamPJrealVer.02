@@ -30,11 +30,13 @@ private:
 
 	void Create_Trail();
 
+	_fmatrix Remove_Scale(_fmatrix _srcmatrix);
 public:
 	void Set_DrawTrail() { m_DrawTrail = true; }
 
 public:
 	void Set_TrailOnOff();
+
 
 private:
 	CGameObject*	pPlayer				= nullptr;
