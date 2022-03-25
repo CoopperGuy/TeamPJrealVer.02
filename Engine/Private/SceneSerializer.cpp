@@ -752,6 +752,7 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::Key << "SpriteNumY" << YAML::Value << pGameObj->GetSpriteY();
 	out << YAML::Key << "SpriteTotal" << YAML::Value << pGameObj->GetSpriteTotal();
 	out << YAML::Key << "SpriteSpeed" << YAML::Value << pGameObj->GetSpriteSpeed();
+	out << YAML::Key << "Alpha" << YAML::Value << pGameObj->GetAlpha();
 
 	out << YAML::EndMap;
 }
@@ -1210,6 +1211,10 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
 			pEffect->SetSpriteSpeed(fSpriteSpeed);
 		}
+		if (EffectSetting["Alpha"]) {
+			_float	fAlpha = EffectSetting["Alpha"].as<_float>();
+			pEffect->SetAlpha(fAlpha);
+		}
 	}
 
 	return deserializedObject;
@@ -1447,6 +1452,10 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		if (EffectSetting["SpriteSpeed"]) {
 			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
 			pEffect->SetSpriteSpeed(fSpriteSpeed);
+		}
+		if (EffectSetting["Alpha"]) {
+			_float	fAlpha = EffectSetting["Alpha"].as<_float>();
+			pEffect->SetAlpha(fAlpha);
 		}
 	}
 

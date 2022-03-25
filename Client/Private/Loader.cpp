@@ -220,9 +220,13 @@ HRESULT CLoader::GameFlogasLoader()
 	std::thread t21(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
 	t21.join();
 
+	std::thread t22(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
+	t22.join();
+	//E_Element_Bomb
+
 	_bool isNotFinish = true;
 	while (isNotFinish) {
-		for (int i = 0; i < 22; i++) {
+		for (int i = 0; i < 23; i++) {
 			if ((m_iCompleteBit & (1 << i))) {
 				isNotFinish = false;
 			}

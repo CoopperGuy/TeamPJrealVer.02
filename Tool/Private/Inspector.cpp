@@ -940,14 +940,17 @@ void CInspector::DrawEffectSetting()
 			_int iNumY = static_cast<CEmptyEffect*>(g_pObjFocused)->GetSpriteY();
 			_int iNumTotal = static_cast<CEmptyEffect*>(g_pObjFocused)->GetSpriteTotal();
 			_float fSpriteSpeed = static_cast<CEmptyEffect*>(g_pObjFocused)->GetSpriteSpeed();
+			_float fAlpha = static_cast<CEmptyEffect*>(g_pObjFocused)->GetAlpha();
 			ImGui::DragInt("SpriteNumX", &iNumX, 1.f, 0, 1);
 			ImGui::DragInt("SpriteNumY", &iNumY, 1.f, 0, 1);
 			ImGui::DragInt("SpriteTotal", &iNumTotal, 1.f, 0, 1);
 			ImGui::DragFloat("SpriteSpeed", &fSpriteSpeed, 0.1f, 0.f, 1.f);
+			ImGui::DragFloat("Alpha", &fAlpha, 0.1f, 0.f, 1.f);
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetSpriteX(iNumX);
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetSpriteY(iNumY);
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetSpriteTotal(iNumX * iNumY);
 			static_cast<CEmptyEffect*>(g_pObjFocused)->SetSpriteSpeed(fSpriteSpeed);
+			static_cast<CEmptyEffect*>(g_pObjFocused)->SetAlpha(fAlpha);
 
 			/* UV Animation Setting */
 			_float3 vScrollSpeedX = static_cast<CEmptyEffect*>(g_pObjFocused)->GetScrollSpeedX();

@@ -34,7 +34,7 @@ private:
 private:
 	_float			m_fDmg = 0.f;
 	_float			m_startSize = 0.1f;
-	_float			m_fAlpha = 1.f;
+	_float			m_fAlpha = 0.5f;
 	_float			m_fEffectSize = 1.f;
 private:
 	_bool isEnd = false;

@@ -94,10 +94,10 @@ HRESULT CFlogas::Initialize(_float3 position)
 	m_pMonHp = CMonHp::Create(m_pGameObject);
 	XMStoreFloat3(&m_vCenterPos, m_pTransform->GetState(CTransform::STATE_POSITION));
 
-	m_pElement[0] = CEl_Flogas::Create("El_Flogas01");
-	m_pElement[1] = CEl_Flogas::Create("El_Flogas02");
-	m_pElement[2] = CEl_Flogas::Create("El_Flogas03");
-	m_pElement[3] = CEl_Flogas::Create("El_Flogas04");
+	m_pElement[0] = CEl_Flogas::Create("El_Flogas01", this);
+	m_pElement[1] = CEl_Flogas::Create("El_Flogas02", this);
+	m_pElement[2] = CEl_Flogas::Create("El_Flogas03", this);
+	m_pElement[3] = CEl_Flogas::Create("El_Flogas04", this);
 	CEngine::GetInstance()->AddScriptObject(m_pElement[0], CEngine::GetInstance()->GetCurSceneNumber());
 	CEngine::GetInstance()->AddScriptObject(m_pElement[1], CEngine::GetInstance()->GetCurSceneNumber());
 	CEngine::GetInstance()->AddScriptObject(m_pElement[2], CEngine::GetInstance()->GetCurSceneNumber());
@@ -748,7 +748,7 @@ void CFlogas::Flying(_double dDeltaTime)
 		_uint iCheck = m_pElement[0]->Get_Destination() + m_pElement[1]->Get_Destination() + m_pElement[2]->Get_Destination()
 			+ m_pElement[3]->Get_Destination();
 
-		if (iCheck >= 3)
+		if (iCheck >= 4)
 		{
 			m_eState = FLYING_END;
 			for (_uint i = 0; i < 4; ++i)
