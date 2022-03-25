@@ -373,6 +373,9 @@
     <ClInclude Include="..\public\TownPortal.h">
       <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Element_Bomb.h">
+      <Filter>05.Effect\FlogasDungeon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -731,6 +734,9 @@
     </ClCompile>
     <ClCompile Include="..\private\TownPortal.cpp">
       <Filter>02.GameObjects\Map\Portal\TownPortal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Element_Bomb.cpp">
+      <Filter>05.Effect\FlogasDungeon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
