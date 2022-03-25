@@ -8,7 +8,7 @@ class CEl_Flogas : public CEnemy
 {
 public:
 	explicit CEl_Flogas();
-	explicit CEl_Flogas(CGameObject* pObj = nullptr);
+	explicit CEl_Flogas(CGameObject* pObj);
 	virtual ~CEl_Flogas() = default;
 
 public:
