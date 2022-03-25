@@ -463,7 +463,7 @@ HRESULT CLoader::GameSceneLogo()
 
 HRESULT CLoader::GameSceneKIM()
 {
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeonKIM.yaml", SCENE_KIM);
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 
