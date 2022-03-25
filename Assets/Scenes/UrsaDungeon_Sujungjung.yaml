@@ -9,15 +9,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-3, 24.7000008, -20]
+      Translation: [-4.71406651, 26.5687809, -24.8559017]
       Rotation: [0.000104238068, 87.899971, -141.498993]
       Scale: [0.999931633, 0.999806821, 0.999814332]
     Com_Light:
       Type: 0
       Range: 10
       Angle: 20
-      Diffuse: [0, 0, 0, 1]
-      Ambient: [1, 1, 1, 1]
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [0.0138626276, 0, 0.0797101259, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -1275,7 +1275,7 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-      Rotation: [-1.1121745e-05, 82.4875717, -1.12273501e-05]
+      Rotation: [-1.11222434e-05, 82.4875717, -1.12273501e-05]
       Scale: [1.5, 1.29999995, 0.99999851]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
@@ -1283,7 +1283,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-    Rotation: [-1.1121745e-05, 82.4875717, -1.12273501e-05]
+    Rotation: [-1.11222434e-05, 82.4875717, -1.12273501e-05]
     Scale: [1.5, 1.29999995, 0.99999851]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
     MeshFileName: Door3.fbx
@@ -1536,7 +1536,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-8.12945747, 0, -6.28831434]
+      Translation: [-6.90739775, 0, -6.67253113]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1545,7 +1545,7 @@ GameObjects:
       Size: [14, 12, 4]
       Angle:
         - 0
-        - 55.399868
+        - 47.3999786
         - 0
       RigidBody:
         Enabled: false
@@ -1646,7 +1646,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.29782748, 0, 3.21683025]
       Rotation: [90, -0, 0]
-      Scale: [0.299980909, 0.300000012, 0.300000012]
+      Scale: [0.299980789, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1654,7 +1654,7 @@ GameObjects:
       Equipment: false
     Translation: [-1.29782748, 0, 3.21683025]
     Rotation: [90, -0, 0]
-    Scale: [0.299980909, 0.300000012, 0.300000012]
+    Scale: [0.299980789, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1671,7 +1671,7 @@ GameObjects:
     Com_Transform:
       Translation: [-2.97619867, 0, 2.27278042]
       Rotation: [90, -0, 0]
-      Scale: [0.299972981, 0.300000012, 0.300000012]
+      Scale: [0.299972862, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1679,7 +1679,7 @@ GameObjects:
       Equipment: false
     Translation: [-2.97619867, 0, 2.27278042]
     Rotation: [90, -0, 0]
-    Scale: [0.299972981, 0.300000012, 0.300000012]
+    Scale: [0.299972862, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1696,7 +1696,7 @@ GameObjects:
     Com_Transform:
       Translation: [2.38819623, -0.00699390192, 1.11379468]
       Rotation: [90, -0, 0]
-      Scale: [0.299982965, 0.300000012, 0.300000012]
+      Scale: [0.299982846, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1704,7 +1704,7 @@ GameObjects:
       Equipment: false
     Translation: [2.38819623, -0.00699390192, 1.11379468]
     Rotation: [90, -0, 0]
-    Scale: [0.299982965, 0.300000012, 0.300000012]
+    Scale: [0.299982846, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1721,7 +1721,7 @@ GameObjects:
     Com_Transform:
       Translation: [-2.97583151, 1.37266554e-07, -3.1402936]
       Rotation: [90, -0, 0]
-      Scale: [0.299964935, 0.300000012, 0.300000012]
+      Scale: [0.299964815, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1729,7 +1729,7 @@ GameObjects:
       Equipment: false
     Translation: [-2.97583151, 1.37266554e-07, -3.1402936]
     Rotation: [90, -0, 0]
-    Scale: [0.299964935, 0.300000012, 0.300000012]
+    Scale: [0.299964815, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1746,7 +1746,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.89712811, 1.10119771e-07, -3.25622416]
       Rotation: [90, -0, 0]
-      Scale: [0.299919426, 0.300000012, 0.300000012]
+      Scale: [0.299919307, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1754,7 +1754,7 @@ GameObjects:
       Equipment: false
     Translation: [5.89712811, 1.10119771e-07, -3.25622416]
     Rotation: [90, -0, 0]
-    Scale: [0.299919426, 0.300000012, 0.300000012]
+    Scale: [0.299919307, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1771,7 +1771,7 @@ GameObjects:
     Com_Transform:
       Translation: [4.24012089, 7.08392704e-08, -4.04402351]
       Rotation: [90, -0, 0]
-      Scale: [0.299981803, 0.300000012, 0.300000012]
+      Scale: [0.299981683, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1779,7 +1779,7 @@ GameObjects:
       Equipment: false
     Translation: [4.24012089, 7.08392704e-08, -4.04402351]
     Rotation: [90, -0, 0]
-    Scale: [0.299981803, 0.300000012, 0.300000012]
+    Scale: [0.299981683, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1796,7 +1796,7 @@ GameObjects:
     Com_Transform:
       Translation: [-7.04490614, 0.0625032261, -2.38052249]
       Rotation: [90, -0, 0]
-      Scale: [0.299981087, 0.300000012, 0.300000012]
+      Scale: [0.299980968, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1804,7 +1804,7 @@ GameObjects:
       Equipment: false
     Translation: [-7.04490614, 0.0625032261, -2.38052249]
     Rotation: [90, -0, 0]
-    Scale: [0.299981087, 0.300000012, 0.300000012]
+    Scale: [0.299980968, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1821,7 +1821,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.142843485, -4.84576539e-08, -5.559834]
       Rotation: [90, -0, 0]
-      Scale: [0.299968123, 0.300000012, 0.300000012]
+      Scale: [0.299968004, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1829,7 +1829,7 @@ GameObjects:
       Equipment: false
     Translation: [0.142843485, -4.84576539e-08, -5.559834]
     Rotation: [90, -0, 0]
-    Scale: [0.299968123, 0.300000012, 0.300000012]
+    Scale: [0.299968004, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1871,7 +1871,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.667874455, -1.39228632e-07, 3.18518066]
       Rotation: [90, -0, 0]
-      Scale: [0.299923271, 0.300000012, 0.300000012]
+      Scale: [0.299923152, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1879,7 +1879,7 @@ GameObjects:
       Equipment: false
     Translation: [0.667874455, -1.39228632e-07, 3.18518066]
     Rotation: [90, -0, 0]
-    Scale: [0.299923271, 0.300000012, 0.300000012]
+    Scale: [0.299923152, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1896,7 +1896,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.12454319, 0.00708128279, 3.90228987]
       Rotation: [90, -0, 0]
-      Scale: [0.299831927, 0.300000012, 0.300000012]
+      Scale: [0.299831808, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi3.fbx
@@ -1904,7 +1904,7 @@ GameObjects:
       Equipment: false
     Translation: [6.12454319, 0.00708128279, 3.90228987]
     Rotation: [90, -0, 0]
-    Scale: [0.299831927, 0.300000012, 0.300000012]
+    Scale: [0.299831808, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi3.fbx
     HasCollider: false
@@ -1921,7 +1921,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.17473173, -1.37816713e-07, 4.51198959]
       Rotation: [90, -0, 0]
-      Scale: [0.29964292, 0.300000012, 0.300000012]
+      Scale: [0.299642801, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi3.fbx
@@ -1929,110 +1929,124 @@ GameObjects:
       Equipment: false
     Translation: [-5.17473173, -1.37816713e-07, 4.51198959]
     Rotation: [90, -0, 0]
-    Scale: [0.29964292, 0.300000012, 0.300000012]
+    Scale: [0.299642801, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi3.fbx
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 20
-  - Name: startPosWall
+  - Name: Wall1
+    UUID: 18351454581034083733
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.96734667, 0.0384896994, -6.97119188]
+      Rotation: [0, -49.1545448, 0]
+      Scale: [2, 1, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
+      MeshFileName: Wall2.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-4.96734667, 0.0384896994, -6.97119188]
+    Rotation: [0, -49.1545448, 0]
+    Scale: [2, 1, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
+    MeshFileName: Wall2.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 20
+  - Name: Empty Object
+    UUID: 9257618024338766183
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.5190475, 5.04982996, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon2\WallDeco\
+      MeshFileName: deco.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Empty Object
+    UUID: 10122384440198015755
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Empty Object
     UUID: 13432223403040471638
     Active: true
     Layer: Default
-    Instancing: true
+    Instancing: false
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [1.70904696, 2.5, -10.4025421]
-      Rotation: [0, -22.313343, 0]
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-      MeshFileName: wall2.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [1.70904696, 2.5, -10.4025421]
-    Rotation: [0, -22.313343, 0]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-    MeshFileName: wall2.fbx
-    HasCollider: false
     RenderGroup: 1
-    FrustumRange: 50
-  - Name: startPosWall
+    FrustumRange: 1
+  - Name: Empty Object
     UUID: 17369187119688605193
     Active: true
     Layer: Default
-    Instancing: true
+    Instancing: false
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-1.66575944, 2.5, -10.9123116]
-      Rotation: [-179.999893, 18.9814301, 179.999893]
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-      MeshFileName: wall2.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-1.66575944, 2.5, -10.9123116]
-    Rotation: [-179.999893, 18.9814301, 179.999893]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-    MeshFileName: wall2.fbx
-    HasCollider: false
     RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
+    FrustumRange: 1
+  - Name: Empty Object
     UUID: 5335734463051411708
     Active: true
     Layer: Default
-    Instancing: true
+    Instancing: false
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-2.41609502, -0.00512610376, -9.24516487]
-      Rotation: [0, -77.3564606, 0]
-      Scale: [1.60000038, 1.25, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-2.41609502, -0.00512610376, -9.24516487]
-    Rotation: [0, -77.3564606, 0]
-    Scale: [1.60000038, 1.25, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
+    FrustumRange: 1
+  - Name: Empty Object
     UUID: 10327822276609459910
     Active: true
     Layer: Default
-    Instancing: true
+    Instancing: false
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [2.411273, -0.0138498563, -9.39640331]
-      Rotation: [-179.997925, 89.8122253, -179.997925]
-      Scale: [1.69999993, 1.29999995, 0.999999762]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [2.411273, -0.0138498563, -9.39640331]
-    Rotation: [-179.997925, 89.8122253, -179.997925]
-    Scale: [1.69999993, 1.29999995, 0.999999762]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
   - Name: Empty Object
@@ -2061,6 +2075,153 @@ GameObjects:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight00
+    UUID: 9591119341027931885
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.44525576, 3.59304333, 0.314487159]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [0.869565248, 0.347935706, 0.0126023917, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight01
+    UUID: 18402465609043309090
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-8.4285059, 1.62370062, 0.146897197]
+      Rotation: [0, -0, 0]
+      Scale: [1.00974774, 1.01000023, 1.00999594]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [1, 0.298000008, 0.0500000007, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight02
+    UUID: 2845701914104731514
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.4256382, 3.15965843, -6.20872831]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [0.811594188, 0.352867037, 0.129999995, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight03
+    UUID: 9010213766952440677
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.895800412, -16.905756, 0.464306831]
+      Rotation: [0, -0, 0.125229046]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 20
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [0.869565248, 0.424371988, 0.0819155499, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight04
+    UUID: 7893375971510652456
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.36407089, 2.76308894, 6.86479092]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [0.905797124, 0.541651845, 0.144402459, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight05
+    UUID: 17357585609341508198
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.89538169, 2.14568448, -7.06969452]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [1, 0.298000008, 0.0500000007, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PointLight06
+    UUID: 10199848693329623773
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-4.39429903, 1.64949059, 7.55717897]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 5
+      Angle: 20
+      Diffuse: [1, 0, 0, 1]
+      Ambient: [1, 0.298361659, 0.0507246256, 1]
+      Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
   - Name: Tower
