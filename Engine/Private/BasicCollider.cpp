@@ -438,11 +438,13 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							return;
 						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
+							pTargetCollider->SetHit();
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 					}
+
 				}
 
 			}

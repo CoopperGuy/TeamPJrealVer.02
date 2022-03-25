@@ -88,6 +88,12 @@ void CWolf::Update(_double dDeltaTime)
 		m_pStat->SetSTATE(CStat::STATES_ATK);
 		WolfAttflow(dDeltaTime);
 	}
+
+	if (m_pOBBCom->Get_isHit()) {
+		m_pWolfState = DAMAGE;
+		m_bBlood = true;
+	}
+
 	//SetAttack(dDeltaTime);
 }
 void CWolf::LateUpdate(_double dDeltaTime)
@@ -217,8 +223,8 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		break;
 	case Client::CWolf::DAMAGE:
 		if (m_bBlood) {
-			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
-			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
+			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 			m_bBlood = false;
 		}
 		m_bMove = false;
@@ -253,10 +259,6 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 
 	_float dis = 2.f;
 
-	if (m_pOBBCom->Get_isHit()) {
-		m_pWolfState = DAMAGE;
-		m_bBlood = true;
-	}
 
 	if (m_pWolfState != DAMAGE) {
 		if (m_pStat->GetStatInfo().maxHp > m_pStat->GetStatInfo().hp)
