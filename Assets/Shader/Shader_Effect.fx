@@ -383,10 +383,12 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     //if (vAlpha.a <= 0.1f)
        //discard;
    vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
-   // vDiffuseColor.a = vAlpha.a;     
-   vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+   // vDiffuseColor.a = vAlpha.a;    
     if (vDiffuseColor.a <= 0.1f)
         discard;
+     
+   vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+
 
     return vDiffuseColor;
 }
