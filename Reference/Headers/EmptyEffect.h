@@ -51,6 +51,7 @@ public:
 	_float GetMoveSpd() { return m_fMoveSpd; }
 
 	_float GetSpriteSpeed() { return m_fSpriteSpeed; }
+	_float GetAlpha() { return m_fAlpha; }
 	_uint GetSpriteX() { return m_iSpriteNumX; }
 	_uint GetSpriteY() { return m_iSpriteNumY; }
 	_uint GetSpriteTotal() { return m_iSpriteNumTotal; }

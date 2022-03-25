@@ -534,7 +534,7 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
-    vDiffuseColor *= vMask;
+    vDiffuseColor *= vMask * g_fAlpha;
 
     if (vDiffuseColor.a <= 0.1f)
         discard;
@@ -872,7 +872,7 @@ vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
 
 	vDiffuseColor.a = vAlpha.a;
 	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
-	if (vDiffuseColor.a <= 0.1f)
+	if (vDiffuseColor.a <= 0.2f)
 		discard;
 
 	return vDiffuseColor;
