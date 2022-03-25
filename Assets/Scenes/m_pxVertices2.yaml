@@ -95,8 +95,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.55694079, -0.13206704, 1.43441713]
-      Rotation: [4.09078455, 72.3355026, 7.03406215e-07]
-      Scale: [0.0201441851, 0.193695068, 0.17340216]
+      Rotation: [-156.025375, -88.5604095, 179.999954]
+      Scale: [0.0200707912, 0.193763673, 0.173020333]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -173,7 +173,7 @@ GameObjects:
     Com_Transform:
       Translation: [2, 0, 2]
       Rotation: [-90, -0, 0]
-      Scale: [0.499722719, 0.49999848, 0.50000006]
+      Scale: [0.49972266, 0.49999848, 0.50000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam3.fbx
@@ -217,7 +217,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 100
-      Color: [0.986236334, 0.334970087, 0, 0]
+      Color: [1.01096344, 1.37350857, 0, 0]
       Speed: 10
       LifeTime: 1
       Size: 10
@@ -249,43 +249,6 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-  - Name: Flare
-    UUID: 4844422747993476240
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 1
-    BillBord: true
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [4.09078407, 72.3355026, 7.03406158e-07]
-      Scale: [0.198132008, 0.199737102, 0.199198425]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\DooDiffuse\FX_Flare_004_TEX_KKJ.tga
-      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Flare_004_TEX_HKB.tga
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0
-      DistortionBias: 0
-      FadeOut: true
-      FadeOutDuration: 0.100000001
-      FadeOutStratTime: 0.100000001
-      FadeIn: true
-      FadeInDuration: 0.100000001
-      FadeInStratTime: 0
-      EffectDuration: 0.200000003
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
   - Name: Empty Object
     UUID: 9403709492189874010
     Active: true
@@ -301,7 +264,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 100
-      Color: [0.963748276, 0.807265997, 0.41610691, 0]
+      Color: [0.963734388, 0.807208896, 0.416266114, 0]
       Speed: 10
       LifeTime: 0.200000003
       Size: 0.200000003
@@ -333,82 +296,6 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-  - Name: ComboPrefab
-    UUID: 15674719901323371035
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 0
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [564.868347, 100]
-      Size: [50, 50]
-    Children:
-      - 15152359326039882393
-      - 14513810758000967848
-      - 3554834587095759497
-  - Name: ComboAlret
-    UUID: 15152359326039882393
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 0
-    PassIndex: 5
-    Hovering: false
-    Com_Transform:
-      Position: [564.868347, 100]
-      Size: [173.885269, 82.134079]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Alret\Alert_Bg_Left_Blur.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-  - Name: ComboMouse
-    UUID: 14513810758000967848
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 0
-    PassIndex: 1
-    Hovering: false
-    Com_Transform:
-      Position: [512.121155, 99.9999695]
-      Size: [32, 32]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Alret\leftClick.png
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-  - Name: ComboEffect
-    UUID: 3554834587095759497
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 0
-    PassIndex: 7
-    Hovering: false
-    Shrink:
-      - 75
-      - 0
-      - -10
-    XShrink: true
-    YShrink: true
-    Com_Transform:
-      Position: [512.121338, 100]
-      Size: [50, 50]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Alret\Fx_StrongLight.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true
