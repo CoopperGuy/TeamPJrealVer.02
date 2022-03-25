@@ -256,8 +256,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [-5.24074602, -27.3641968, -4.80672327e-07]
-      Scale: [0.778036475, 0.822055995, 0.671516418]
+      Rotation: [-12.0735197, -10.3751068, 0]
+      Scale: [0.730937898, 0.870100021, 0.810611427]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -331,7 +331,7 @@ GameObjects:
     PassIndex: 11
     BillBord: false
     Com_Transform:
-      Translation: [1.91899729, 1.70648444, -1.45492387]
+      Translation: [-3.32048988, 1.70648587, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -340,17 +340,17 @@ GameObjects:
       HasCollider: false
       EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Flake_002_TEX_KKJ.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
       TextureNormalPath: ""
-      ScrollSpeedX: [0.5, 0.5, 0]
-      ScrollSpeedY: [0.5, 0.5, 0]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.100000001
-      DistortionBias: 0.5
+      ScrollSpeedX: [5, 5, 0.100000001]
+      ScrollSpeedY: [5, 5, 0.100000001]
+      Distortion1: [2, 0.100000001]
+      Distortion2: [2, 0.100000001]
+      Distortion3: [2, 0.100000001]
+      DistortionScale: 0.0500000007
+      DistortionBias: 0.0500000007
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -372,8 +372,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.91899729, 1.70648444, -1.35492384]
-      Rotation: [-5.24074554, -27.3641968, -4.80672384e-07]
-      Scale: [2.13638616, 1.48755193, 1.528265]
+      Rotation: [-12.0735197, -10.3751068, 0]
+      Scale: [2.00752687, 1.57440174, 1.84464431]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -409,8 +409,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.81899726, 1.80541444, -1.45492387]
-      Rotation: [-5.24074602, -27.3641968, -4.80672327e-07]
-      Scale: [2.49274921, 1.98332906, 0.00100319833]
+      Rotation: [-12.0735188, -10.3751078, 0]
+      Scale: [2.34219217, 2.09926367, 0.00121075439]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -446,8 +446,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.81899726, 1.80648446, -1.25492382]
-      Rotation: [-5.24074602, -27.3641968, -4.80672327e-07]
-      Scale: [2.49274921, 1.98332906, 1.00311232]
+      Rotation: [-12.0735188, -10.3751078, 0]
+      Scale: [2.34219217, 2.09926367, 1.21071339]
     Com_VIBuffer:
       {}
     Effect_Setting:

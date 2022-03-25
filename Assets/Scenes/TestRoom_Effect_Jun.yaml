@@ -256,8 +256,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [-8.14991856, -10.428091, 0]
-      Scale: [0.780292213, 0.828959703, 0.669355094]
+      Rotation: [8.18415928, 6.99988794, -1.07523036e-07]
+      Scale: [0.399043739, 0.399724782, 0.398473769]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -333,7 +333,7 @@ GameObjects:
     Com_Transform:
       Translation: [1.91899729, 1.70648444, -1.45492387]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [0.800000012, 0.800000012, 0.800000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
       MeshFileName: TwistMesh.fbx
@@ -341,16 +341,16 @@ GameObjects:
       EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Flogas\FX_Impact_016_TEX_Edit_JYW.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
       TextureNormalPath: ""
       ScrollSpeedX: [0.5, 0.5, 0]
       ScrollSpeedY: [0.5, 0.5, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      Distortion1: [2, 0.200000003]
+      Distortion2: [2, 0.300000012]
+      Distortion3: [2, 0.100000001]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -366,6 +366,7 @@ GameObjects:
       - 5502899901288605207
       - 17888228711785348147
       - 17504197830417166847
+      - 8400450724821270359
   - Name: Bomb_Center
     UUID: 5502899901288605207
     Active: true
@@ -375,7 +376,7 @@ GameObjects:
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0.100000001]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [2.14233541, 1.5, 1.52336407]
     Com_VIBuffer:
@@ -392,13 +393,13 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.100000001
       DistortionBias: 0.100000001
-      FadeOut: false
-      FadeOutDuration: 0
+      FadeOut: true
+      FadeOutDuration: 1
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 1
       SpriteNumX: 5
       SpriteNumY: 5
       SpriteTotal: 25
@@ -412,7 +413,7 @@ GameObjects:
     PassIndex: 5
     BillBord: true
     Com_Transform:
-      Translation: [-0.100000001, 0.0989300609, 0]
+      Translation: [-0.100000001, 0.0989300609, 0.100000001]
       Rotation: [0, -0, 0]
       Scale: [2.5, 2, 0.00100000005]
     Com_VIBuffer:
@@ -449,7 +450,7 @@ GameObjects:
     PassIndex: 5
     BillBord: true
     Com_Transform:
-      Translation: [-0.100000001, 0.100000001, 0.200000003]
+      Translation: [-0.100000001, 0.100000001, -0.109999999]
       Rotation: [0, -0, 0]
       Scale: [2.5, 2, 1]
     Com_VIBuffer:
@@ -483,26 +484,26 @@ GameObjects:
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 0
-    BillBord: false
+    PassIndex: 5
+    BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [0, 0.10375309, -0.100000001]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [2.5, 2, 1]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ""
-      TextureNoisePath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
+      ScrollSpeedY: [1, 1, 0]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0

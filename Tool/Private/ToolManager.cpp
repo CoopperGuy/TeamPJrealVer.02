@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/TestRoom_Effect_Jun2.yaml";
+static string strScene = "../../Assets/Scenes/TestRoom_Effect_Jun.yaml";
 
 
 CToolManager::CToolManager()
