@@ -64,7 +64,7 @@ public:
 	_bool Collision_AABB(CBasicCollider* pTargetColCompute_OBBlider);
 	_bool Collision_OBB(CBasicCollider* pTargetCollider);
 	_bool Collision_Sphere(CBasicCollider* pTargetCollider);
-
+	_bool Collision_OBBToReset(CBasicCollider* pMyCollider, CBasicCollider* pTargetCollider);
 public:
 	void Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLIDER>& _TargetObj);
 	_bool Collision_OBB(CBasicCollider* pMyCollider, CBasicCollider* pTargetCollider);
@@ -153,6 +153,7 @@ public:
 	void SetBoneName(string name) { m_strBoneName = name; }
 	void SetOffset(_float3 offset) { m_Offset = offset; }
 	void SetCollisionType(ID type) { m_CollisionType = type; }
+	void SetHit(_bool pHit) { m_isHit = pHit; }
 public:
 	_bool	GetIsAttachBone() { return m_isAttachBone; }
 	ID	GetCollisionType() { return m_CollisionType; }

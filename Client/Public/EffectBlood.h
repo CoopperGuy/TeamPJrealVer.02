@@ -27,6 +27,11 @@ private:
 	_float3 Startscail = {};
 	_float ScailX = 0.f;
 	_float ScailY = 0.f;
+
+	_float PosX = 0.f;
+	_float PosY = 0.f;
+
+	int RandomNum = 0;
 };
 
 END

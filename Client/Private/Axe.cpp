@@ -10,6 +10,7 @@
 #include "ImpactGround.h"
 #include "ImpactBeam.h"
 #include "ImpactShort.h"
+#include "SparkFlare.h"
 USING(Client)
 
 CAxe::CAxe()
@@ -126,8 +127,21 @@ void CAxe::Create_Trail()
 	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
 }
 
+_fmatrix CAxe::Remove_Scale(_fmatrix _srcmatrix)
+{
+	_matrix			NonScaleMatrix = (_srcmatrix);
+
+	NonScaleMatrix.r[0] = XMVector3Normalize(_srcmatrix.r[0]);
+	NonScaleMatrix.r[1] = XMVector3Normalize(_srcmatrix.r[1]);
+	NonScaleMatrix.r[2] = XMVector3Normalize(_srcmatrix.r[2]);
+
+	return NonScaleMatrix;
+}
+
 void CAxe::Set_TrailOnOff()
 {
+	CEngine* engine = CEngine::GetInstance();
+
 	CModel*	playerModel = static_cast<CModel*>(pPlayer->GetComponent("Com_Model"));
 	CStat*	playerStat = static_cast<CStat*>(pPlayer->GetComponent("Com_Stat"));
 	CTransform*	playerTrans = static_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
@@ -135,11 +149,18 @@ void CAxe::Set_TrailOnOff()
 	m_pTrailBuffer->SetIsActive(false);
 	playerStat->SetSTATE(CStat::STATES_IDEL);
 	_vector thisPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
+	_int flag = m_pOBB->GetCollisionFlag();
+	_matrix weponTransform = Remove_Scale(m_pTransform->GetWorldMatrix());
+
+
 	for (_int i = 0; i < (_int)Player_State::Player_End; i++) {
 		if (i == (_int)playerState)
 			continue;
 		m_effectCreate[i] = false;
 	}
+
+
 	switch (playerState)
 	{
 	case Client::Player_State::WakeUp_Bad:
@@ -206,6 +227,14 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.5f);
+		
+		}
+		if (keyFrame >= 2 && keyFrame <= 19) {
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if(keyFrame == 2)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
@@ -219,6 +248,13 @@ void CAxe::Set_TrailOnOff()
 			playerStat->SetDMGRatio(0.65f);
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.1f);
 		}
+		if (keyFrame >= 3 && keyFrame <= 24) {
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
+		}
 		if(keyFrame == 3)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
 
@@ -230,6 +266,11 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.35f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if(keyFrame == 5)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.02f);
@@ -244,6 +285,11 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(1.f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if (keyFrame == 14) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
@@ -259,6 +305,11 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.6f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if (keyFrame == 13) {
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
@@ -271,6 +322,11 @@ void CAxe::Set_TrailOnOff()
 		playerStat->SetDMGRatio(0.5f);
 		if (keyFrame >= 8) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.03f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_shoulderEffect", "E_shoulderEffect");
@@ -285,6 +341,11 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.7f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if (keyFrame == 13)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 5, 0.02f);
@@ -296,6 +357,11 @@ void CAxe::Set_TrailOnOff()
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(1.1f);
+			if (flag & CBasicCollider::COLLISION_FOUND) {
+				cout << flag << "\n";
+				CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+				engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+			}
 		}
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 18) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
@@ -322,10 +388,22 @@ void CAxe::Set_TrailOnOff()
 		break;
 	case Client::Player_State::LB3Combo4:
 		break;
-	case Client::Player_State::Leap_Start:
+	case Client::Player_State::Leap_Start: {
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame >= 2 && keyFrame <= 20) {
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
-	case Client::Player_State::Leap_End:
+	}
+	case Client::Player_State::Leap_End: {
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 0) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
+			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+			m_effectCreate[_int(playerState)] = true;
+		}
 		break;
+	}
 	case Client::Player_State::WhirlWind_Start: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 16) {
@@ -337,12 +415,18 @@ void CAxe::Set_TrailOnOff()
 		m_pTrailBuffer->SetIsActive(true);
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.5f);
+		if (flag & CBasicCollider::COLLISION_FOUND) {
+			cout << flag << "\n";
+			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+			engine->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+		}
 		break;
 	}
 	case Client::Player_State::WhirlWind_End: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 0 && keyFrame <= 9) {
 			m_pTrailBuffer->SetIsActive(true);
+
 		}
 		break;
 	}
@@ -361,6 +445,11 @@ void CAxe::Set_TrailOnOff()
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
 		}
+		if (flag & CBasicCollider::COLLISION_FOUND) {
+			cout << flag << "\n";
+			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+			engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+		}
 		break;
 	}
 	case Client::Player_State::Chop_ing2: {
@@ -372,6 +461,11 @@ void CAxe::Set_TrailOnOff()
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
+		}
+		if (flag & CBasicCollider::COLLISION_FOUND) {
+			cout << flag << "\n";
+			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
+			engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
 		}
 		break;
 	}
@@ -409,4 +503,6 @@ void CAxe::Set_TrailOnOff()
 	case Client::Player_State::Player_End:
 		break;
 	}
+
+	
 }

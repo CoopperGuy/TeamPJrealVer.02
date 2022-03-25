@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: ImpactShort
-    UUID: 10806176494829540660
+    UUID: 12203828954989584917
     Active: true
     Layer: Default
     Type: Effect
@@ -20,6 +20,7 @@ GameObjects:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Wind001_TEX_HKJ_Up.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_WindTile_011_TEX_KKJ.png
+      TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -28,9 +29,13 @@ GameObjects:
       DistortionScale: 0.200000003
       DistortionBias: 0.200000003
       FadeOut: true
-      FadeOutDuration: 0.1
+      FadeOutDuration: 0.100000001
       FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
+      FadeIn: true
+      FadeInDuration: 0.100000001
       FadeInStratTime: 0
-      EffectDuration: 0.1
+      EffectDuration: 0.200000003
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5

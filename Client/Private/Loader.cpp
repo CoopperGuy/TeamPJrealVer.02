@@ -420,7 +420,8 @@ HRESULT CLoader::GameSceneLogo()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
 		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 
-
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Flare", "E_Flare")))
+		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 
 	_bool threadFinish = false;
 	while (!threadFinish) {
@@ -521,12 +522,15 @@ HRESULT CLoader::GameSceneSEO()
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Wolf", "O_Wolf")))
 		MSG_BOX("Failed To Create O_Wolf Prefab");
 
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Rock", "O_Rock")))
+		MSG_BOX("Failed To Create Rock Prefab");
+
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");
 
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeon_ex.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeonSY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
 
 	m_isFinish = true;

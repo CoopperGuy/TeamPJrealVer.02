@@ -323,6 +323,49 @@ _bool CBasicCollider::Collision_Sphere(CBasicCollider * pTargetCollider)
 	return true;
 }
 
+_bool CBasicCollider::Collision_OBBToReset(CBasicCollider * pMyCollider, CBasicCollider * pTargetCollider)
+{
+	_vector			vSourPoint[8], vDestPoint[8];
+
+	for (_uint i = 0; i < 8; ++i)
+	{
+		vSourPoint[i] = XMVector3TransformCoord(XMLoadFloat3(&pMyCollider->m_vPoint[i]), XMLoadFloat4x4(&pMyCollider->m_TransformMatrix));
+		vDestPoint[i] = XMVector3TransformCoord(XMLoadFloat3(&pTargetCollider->m_vPoint[i]), XMLoadFloat4x4(&pTargetCollider->m_TransformMatrix));
+	}
+
+	OBBDESC		ObbDesc[2];
+	ObbDesc[0] = Compute_OBB(vSourPoint);
+	ObbDesc[1] = Compute_OBB(vDestPoint);
+
+	_float		fDistance[3] = { 0.0f };
+
+	for (_uint i = 0; i < 2; ++i)
+	{
+		for (_uint j = 0; j < 3; ++j)
+		{
+			fDistance[0] = fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[0].vCenterAxis[0]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j])))) +
+				fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[0].vCenterAxis[1]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j])))) +
+				fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[0].vCenterAxis[2]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j]))));
+
+			fDistance[1] = fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[1].vCenterAxis[0]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j])))) +
+				fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[1].vCenterAxis[1]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j])))) +
+				fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[1].vCenterAxis[2]), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j]))));
+
+			fDistance[2] = fabs(XMVectorGetX(XMVector3Dot(XMLoadFloat3(&ObbDesc[1].vCenter) - XMLoadFloat3(&ObbDesc[0].vCenter), XMLoadFloat3(&ObbDesc[i].vAlignAxis[j]))));
+
+			if (fDistance[0] + fDistance[1] < fDistance[2])
+			{
+				pMyCollider->m_isCollision = false;
+				pTargetCollider->m_isCollision = false;
+				pMyCollider->SetupCollisionFlag(false);
+				pTargetCollider->SetupCollisionFlag(false);
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 _bool CBasicCollider::Collision_OBB(CBasicCollider * pMyCollider, CBasicCollider * pTargetCollider)
 {
 	_vector			vSourPoint[8], vDestPoint[8];
@@ -357,7 +400,8 @@ _bool CBasicCollider::Collision_OBB(CBasicCollider * pMyCollider, CBasicCollider
 			{
 				pMyCollider->m_isCollision = false;
 				pTargetCollider->m_isCollision = false;
-				SetupCollisionFlag(false);
+				pMyCollider->SetupCollisionFlag(false);
+				pTargetCollider->SetupCollisionFlag(false);
 				return false;
 			}
 		}
@@ -365,7 +409,9 @@ _bool CBasicCollider::Collision_OBB(CBasicCollider * pMyCollider, CBasicCollider
 
 	pMyCollider->m_isCollision = true;
 	pTargetCollider->m_isCollision = true;
-	SetupCollisionFlag(true);
+	pMyCollider->SetupCollisionFlag(true);
+	pTargetCollider->SetupCollisionFlag(true);
+
 	return true;
 }
 
@@ -425,9 +471,6 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 
 			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
 				return;
-
-		
-
 			else
 			{
 				if (PlayerStat->GetSTATES() == CStat::STATES_ATK)
@@ -438,15 +481,20 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							return;
 						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
+							pTargetCollider->SetHit(true);
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 					}
+					else
+						pTargetCollider->SetHit(false);
+
 				}
-
+				else {
+					pTargetCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
+				}
 			}
-
 		}
 	}
 }
@@ -614,7 +662,6 @@ void CBasicCollider::SetupCollisionFlag(_bool tf)
 		default:
 			break;
 		}
-		cout << m_pMaster->GetName() << " : Collision Flag : " << m_CollisionFlag << "\n";
 		break;
 	}
 	case false: 
