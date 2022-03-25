@@ -9,7 +9,8 @@ CEl_Flogas::CEl_Flogas()
 {
 }
 
-CEl_Flogas::CEl_Flogas(CGameObject* pObj)
+CEl_Flogas::CEl_Flogas(CGameObject * pObj)
+	:CEnemy(pObj)
 {
 }
 
@@ -91,11 +92,11 @@ void CEl_Flogas::Render()
 {
 }
 
-CEl_Flogas * CEl_Flogas::Create(string name, CGameObject* pObj)
+CEl_Flogas * CEl_Flogas::Create(string name, CFlogas* pObj)
 {
-	CEl_Flogas*		pInstance = new CEl_Flogas(pObj);
+	CEl_Flogas*		pInstance = new CEl_Flogas();
 
-	if (FAILED(pInstance->Initialize(name)))
+	if (FAILED(pInstance->Initialize(name,pObj)))
 	{
 		MSG_BOX("Failed to Create CEl_Flogas");
 		SafeRelease(pInstance);
