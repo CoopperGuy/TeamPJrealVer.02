@@ -204,7 +204,7 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(rhs->GetComponent("Com_Decal"));
 	if (pDecal)
 	{
-		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pVIBuffer->Clone(m_pTransformCom));
+		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pDecal->Clone(m_pTransformCom));
 		AddComponent("Com_Decal", pCloneDecal);
 	}
 
@@ -308,7 +308,7 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(rhs->GetComponent("Com_Decal"));
 	if (pDecal)
 	{
-		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pVIBuffer->Clone(m_pTransformCom));
+		CVIBuffer_Cube* pCloneDecal = static_cast<CVIBuffer_Cube*>(pDecal->Clone(m_pTransformCom));
 		AddComponent("Com_Decal", pCloneDecal);
 	}
 
@@ -481,7 +481,7 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		ID3D11ShaderResourceView* pDepthSRV;
 
 		if (m_pEngine->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
-			pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Decal_Depth");
+			pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_DecalDepth");
 		else
 			pDepthSRV = m_pRendererCom->GetShaderResourceView("Target_Depth");
 		if (pDepthSRV == nullptr)
