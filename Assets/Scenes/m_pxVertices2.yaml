@@ -95,8 +95,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.55694079, -0.13206704, 1.43441713]
-      Rotation: [11.3099327, -0, 0]
-      Scale: [0.0203409642, 0.193815351, 0.174068779]
+      Rotation: [-156.025375, -88.5604095, 179.999954]
+      Scale: [0.0200707912, 0.193763673, 0.173020333]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -173,7 +173,7 @@ GameObjects:
     Com_Transform:
       Translation: [2, 0, 2]
       Rotation: [-90, -0, 0]
-      Scale: [0.499722719, 0.49999848, 0.50000006]
+      Scale: [0.49972266, 0.49999848, 0.50000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam3.fbx
@@ -224,8 +224,8 @@ GameObjects:
       StartRadian: 0
       RadiationAngle: 30
       LerpColor: true
-      SrcColor: [0.978260875, 0.552930057, 0, 0]
-      DestColor: [1, 0.826086938, 0, 0]
+      SrcColor: [0.978260875, 0, 0, 0]
+      DestColor: [1, 0.913043439, 0, 0]
     Effect_Setting:
       TextureDiffusePath: ""
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds

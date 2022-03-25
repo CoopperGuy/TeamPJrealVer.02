@@ -74,11 +74,10 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
    if (In.iRenderEnable == 0)
        discard;
 
-    vector vDiffuseColor = (vector) 0;
+    vector vMaskColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
 
-    vDiffuseColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
-    vColor.a = vDiffuseColor.r * g_Alpha;
-    vColor.rgb = vDiffuseColor.rgb * g_Color.rgb;
+    vColor.a = vMaskColor.r * g_Alpha;
+    vColor.rgb = vMaskColor.rgb * g_Color.rgb;
     if (vColor.r > 0.99)
         vColor.rgb += 1.f;
 
@@ -86,6 +85,25 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
 		discard;
 
 	return vColor;
+}
+
+
+
+vector PS_MAINLERP(PS_IN In) : SV_TARGET
+{
+    vector vColor = (vector) 0;
+
+    if (In.iRenderEnable == 0)
+        discard;
+    
+    vector vMaskColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
+    vColor.a = vMaskColor.r * g_Alpha;
+
+    vColor.rgb = (g_Color.rgb + 1.f) * vMaskColor.r;
+    if (vColor.a < 0.1f)
+        discard;
+
+    return vColor;
 }
 
 
@@ -102,4 +120,14 @@ technique11		DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN();
     }	
+    pass LerpPass
+    {
+        SetRasterizerState(Rasterizer_NoneCull);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAINLERP();
+    }
 }

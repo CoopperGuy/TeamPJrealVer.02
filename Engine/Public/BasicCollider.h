@@ -64,7 +64,7 @@ public:
 	_bool Collision_AABB(CBasicCollider* pTargetColCompute_OBBlider);
 	_bool Collision_OBB(CBasicCollider* pTargetCollider);
 	_bool Collision_Sphere(CBasicCollider* pTargetCollider);
-
+	_bool Collision_OBBToReset(CBasicCollider* pMyCollider, CBasicCollider* pTargetCollider);
 public:
 	void Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLIDER>& _TargetObj);
 	_bool Collision_OBB(CBasicCollider* pMyCollider, CBasicCollider* pTargetCollider);

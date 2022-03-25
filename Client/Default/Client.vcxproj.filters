@@ -379,6 +379,9 @@
     <ClInclude Include="..\Public\DropRock.h">
       <Filter>02.GameObjects\Map\Rock</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\SparkFlare.h">
+      <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -743,6 +746,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\DropRock.cpp">
       <Filter>02.GameObjects\Map\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SparkFlare.cpp">
+      <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1131,6 +1137,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Map\Rock">
       <UniqueIdentifier>{8d320425-a892-4679-b3f6-b18eec76453f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\SparkFlare">
+      <UniqueIdentifier>{f98f9085-81a3-442d-bca2-817724732e2d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

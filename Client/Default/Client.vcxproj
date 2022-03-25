@@ -281,6 +281,7 @@
     <ClInclude Include="..\public\SideQuestHud.h" />
     <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Skills.h" />
+    <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\public\TalkHud.h" />
@@ -421,6 +422,7 @@
     <ClCompile Include="..\private\SideQuestHud.cpp" />
     <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Skills.cpp" />
+    <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />

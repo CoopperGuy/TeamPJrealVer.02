@@ -382,13 +382,12 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
     //if (vAlpha.a <= 0.1f)
        //discard;
-   vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
-  
-     vDiffuseColor.a = vAlpha.a;    
-    if (vDiffuseColor.a <= 0.1f)
+    vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * g_fFadeAlpha * g_fAlpha;
+   // vDiffuseColor.a = vAlpha.a;    
+    if (vAlpha.a <= 0.1f)
         discard;
      
-   vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+   vDiffuseColor.a = vAlpha.a  ;
 
 
     return vDiffuseColor;
@@ -519,7 +518,7 @@ vector PS_MAIN_MESH_BOADER(PS_IN_TEST In) : SV_TARGET
 	// vDiffuseColor.a = vAlpha.a;     
 	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
 	if (vDiffuseColor.a <= 0.1f)
-	discard;
+	    discard;
 
 	return vDiffuseColor;
 }
@@ -879,6 +878,17 @@ vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
 	return vDiffuseColor;
 }
 
+vector PS_MAINNOAMSK(PS_IN In) : SV_TARGET
+{
+    float4 DiffuseColor = float4(0.f, 0.f, 0.f, 0.f);
+    DiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
+    DiffuseColor.a = (DiffuseColor.r + DiffuseColor.g + DiffuseColor.b) * g_fFadeAlpha;
+    if (DiffuseColor.a <= 0.01f)
+        discard;
+
+    return DiffuseColor;
+}
+
 technique11 DefaultDevice
 {
     pass DefaultPass
@@ -1041,4 +1051,15 @@ technique11 DefaultDevice
 	  GeometryShader = NULL;
 	  PixelShader = compile ps_5_0 PS_MAIN_MaskAlsoSPRITE();
   }
+
+    pass NoMaskEffect
+    {
+        SetRasterizerState(Rasterizer_NoneCull);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_One, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAINNOAMSK();
+    }
 }

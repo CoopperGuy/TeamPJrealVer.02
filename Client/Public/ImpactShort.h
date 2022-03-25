@@ -19,7 +19,7 @@ private:
 private:
 	CTransform*		m_pPlayerTrans = nullptr;
 private:
-	_double			m_Duration = 0.1;
+	_double			m_Duration = 0.5;
 	_double			m_DurationDelta = 0;
 public:
 	static CImpactShort* Create(CEmptyEffect* _pThisEffect, CGameObject* _pPlayerEffect);
