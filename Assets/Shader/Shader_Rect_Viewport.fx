@@ -38,6 +38,8 @@ Texture2D       g_SpecularTexture;
 Texture2D		g_ShadeTexture;
 Texture2D       g_BloomOriTexture;
 Texture2D       g_BloomTexture;
+Texture2D       g_BloomTexture2;
+Texture2D       g_BloomTexture3;
 Texture2D       g_SSAOTexture;
 
 struct VS_IN
@@ -264,6 +266,8 @@ float4 PS_MAIN_BLOOM(PS_IN In) : SV_TARGET0
 
     vector vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
     vector vBloomColor = g_BloomTexture.Sample(g_DefaultSampler, In.vTexUV);
+    vector vBloomColor2 = g_BloomTexture2.Sample(g_DefaultSampler, In.vTexUV);
+    vector vBloomColor3 = g_BloomTexture3.Sample(g_DefaultSampler, In.vTexUV);
     vector vBloomOri = g_BloomOriTexture.Sample(g_DefaultSampler, In.vTexUV);
     
     //if (vDiffuseColor.a == 0.f)
@@ -272,12 +276,16 @@ float4 PS_MAIN_BLOOM(PS_IN In) : SV_TARGET0
     //return vDiffuseColor;
 
     float4 vBloom = pow(pow(abs(vBloomColor), 2.2f) + pow(abs(vBloomOri), 2.2f), 1.f / 2.2f);
+    float4 vBloom2 = pow(pow(abs(vBloomColor2), 2.2f) + pow(abs(vBloomOri), 2.2f), 1.f / 2.2f);
+    float4 vBloom3 = pow(pow(abs(vBloomColor3), 2.2f) + pow(abs(vBloomOri), 2.2f), 1.f / 2.2f);
     float4 vOut = vDiffuseColor;
 
     vOut = pow(abs(vOut), 2.2f);
     vBloom = pow(abs(vBloom), 2.2f);
+    vBloom2 = pow(abs(vBloom), 2.2f);
+    vBloom3 = pow(abs(vBloom), 2.2f);
     
-    vOut += vBloom;
+    vOut += vBloom + vBloom2 + vBloom3;
     
     if(vOut.a <= 0.f)
         discard;

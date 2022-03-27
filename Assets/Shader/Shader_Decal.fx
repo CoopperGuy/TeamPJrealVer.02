@@ -15,6 +15,8 @@ cbuffer MatricesInv
     matrix g_ProjMatrixInv;
 };
 
+float g_fFadeAlpha;
+
 Texture2D   g_DiffuseTexture;
 Texture2D   g_MaskTexture;
 Texture2D   g_DepthTexture;
@@ -99,6 +101,8 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     float2 decaluv = vLocalPos.xz + 0.5f;
     vMask = g_MaskTexture.Sample(g_DefaultSampler, decaluv);
     vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
+    
+    vColor.a *= g_fFadeAlpha;
     
     if (vMask.r < 0.3f)
         discard;
