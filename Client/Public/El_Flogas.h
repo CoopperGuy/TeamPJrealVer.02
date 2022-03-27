@@ -6,6 +6,7 @@ BEGIN(Client)
 
 class CEl_Flogas : public CEnemy
 {
+	enum ELEMENT_STATE { RUN, IDLE, DIE, DEADBODY, EL_END };
 public:
 	explicit CEl_Flogas();
 	explicit CEl_Flogas(CGameObject* pObj);
@@ -26,7 +27,9 @@ private:
 	string		m_ScriptName		= {};
 	_float3     m_vTargetPos;
 	_float3		m_vOriginPos;
+	_float4x4	m_OriginWorld;
 
+	_double m_dExplosionTime = 0.0;
 	CFlogas* m_pFlogas = nullptr;
 };
 
