@@ -1,0 +1,9 @@
+Diffuse=CH_NPC_HumA_FC_Eye001_D_HJO
+Normal=T_Eye_Wet_Normal
+Emissive=CH_NPC_HumA_FC_Eyelash001_D_HJO
+Other[0]=CH_NPC_HumA_FC_Face001_D_HJO
+Other[1]=CH_NPC_HumA_FC_Face001_S
+Other[2]=CH_NPC_HumA_FC_Face001_N_HJO
+Other[3]=CH_MM_Default_D_HSI
+Other[4]=T_Default_Normal
+Other[5]=T_EV_DustPanner_01

@@ -22,6 +22,8 @@ public:
 	virtual void Free() override;
 
 private:
+	CComponent* m_pComponent = nullptr;
+
 	_double m_dDeadTime = 0;
 
 	_float3 Startscail = {};

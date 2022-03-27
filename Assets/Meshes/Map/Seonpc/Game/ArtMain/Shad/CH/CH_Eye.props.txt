@@ -1,0 +1,311 @@
+TwoSided = false
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[3] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/Character/Common/BC_CH_Eyes/Sphere_EYE_NORMALS.Sphere_EYE_NORMALS'
+    ReferencedTextures[1] = Texture2D'/Game/Character/Common/BC_CH_Eyes/EYE_NORMALS.EYE_NORMALS'
+    ReferencedTextures[2] = Texture2D'/Game/Character/Common/BC_CH_Eyes/EyeMidPlaneDisplacement_Example.EyeMidPlaneDisplacement_Example'
+}
+Expressions[174] =
+{
+    Expressions[17] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_8'
+    Expressions[18] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_75'
+    Expressions[19] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_7'
+    Expressions[23] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionStaticSwitchParameter_2'
+    Expressions[24] = MaterialExpressionTextureSample'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSample_11'
+    Expressions[25] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_74'
+    Expressions[27] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_73'
+    Expressions[28] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_72'
+    Expressions[36] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_71'
+    Expressions[38] = MaterialExpressionTextureSample'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSample_10'
+    Expressions[43] = MaterialExpressionTextureSample'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSample_9'
+    Expressions[44] = MaterialExpressionTextureSample'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSample_8'
+    Expressions[45] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_70'
+    Expressions[56] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_8'
+    Expressions[57] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_7'
+    Expressions[59] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_69'
+    Expressions[62] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_68'
+    Expressions[65] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_67'
+    Expressions[68] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_66'
+    Expressions[69] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_65'
+    Expressions[70] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_64'
+    Expressions[71] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_9'
+    Expressions[72] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_6'
+    Expressions[73] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_62'
+    Expressions[74] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_61'
+    Expressions[76] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_60'
+    Expressions[77] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_59'
+    Expressions[78] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_58'
+    Expressions[79] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_57'
+    Expressions[83] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_56'
+    Expressions[84] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_55'
+    Expressions[85] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_6'
+    Expressions[87] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_54'
+    Expressions[88] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_53'
+    Expressions[94] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_3'
+    Expressions[95] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_4'
+    Expressions[98] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_6'
+    Expressions[99] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_7'
+    Expressions[103] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_10'
+    Expressions[107] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_2'
+    Expressions[109] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_3'
+    Expressions[114] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_0'
+    Expressions[115] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_2'
+    Expressions[116] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_2'
+    Expressions[117] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_5'
+    Expressions[118] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_1'
+    Expressions[123] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_8'
+    Expressions[124] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_11'
+    Expressions[125] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_13'
+    Expressions[140] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_0'
+    Expressions[142] = MaterialExpressionTextureSampleParameter2D'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionTextureSampleParameter2D_1'
+    Expressions[153] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_4'
+    Expressions[154] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_5'
+    Expressions[155] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionVectorParameter_0'
+    Expressions[158] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionScalarParameter_12'
+    Expressions[159] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionStaticSwitchParameter_0'
+    Expressions[165] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/CH/CH_Eye.MaterialExpressionStaticSwitchParameter_1'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Masked (1)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[6] =
+{
+    CollectedTextureParameters[0] =
+    {
+        Texture = Texture2D'/Game/Character/Common/BC_CH_Eyes/EyeScleraBaseColor_Example_2.EyeScleraBaseColor_Example_2'
+        Name = Sclera_BaseColor
+        Group = Sclera
+    }
+    CollectedTextureParameters[1] =
+    {
+        Texture = Texture2D'/Game/Character/Common/BC_CH_Eyes/EyeIrisBaseColor_Example_2.EyeIrisBaseColor_Example_2'
+        Name = Iris_BaseColor
+        Group = Iris
+    }
+    CollectedTextureParameters[2] =
+    {
+        Texture = Texture2D'/Game/Character/Common/BC_CH_Eyes/T_Eye_Wet_Normal.T_Eye_Wet_Normal'
+        Name = Normal_Texture
+        Group = Normal
+    }
+    CollectedTextureParameters[3] =
+    {
+        Texture = Texture2D'/Game/ArtMain/DefaultData/BO_Tex/CH_MM_EyeIris_M_KTK.CH_MM_EyeIris_M_KTK'
+        Name = IrisMask_Left
+        Group = Customize
+    }
+    CollectedTextureParameters[4] =
+    {
+        Texture = Texture2D'/Game/ArtMain/DefaultData/BO_Tex/CH_MM_EyeIris_M_KTK.CH_MM_EyeIris_M_KTK'
+        Name = IrisMask_Right
+        Group = Customize
+    }
+    CollectedTextureParameters[5] =
+    {
+        Texture = Texture2D'/Game/ArtMain/DefaultData/BO_Tex/CH_MM_EyeGlint_D_HSI.CH_MM_EyeGlint_D_HSI'
+        Name = Glint
+        Group = Env_Reflection
+    }
+}
+CollectedScalarParameters[36] =
+{
+    CollectedScalarParameters[0] =
+    {
+        Value = 0
+        Name = CubeMap_Rotation
+        Group = Env_Reflection
+    }
+    CollectedScalarParameters[1] = { Value=2.4, Name=Normal_UV_Scale, Group=Normal }
+    CollectedScalarParameters[2] = { Value=2.15, Name=Limbus_DarkScale, Group=Limbus }
+    CollectedScalarParameters[3] = { Value=8, Name=Limbus_Pow, Group=Limbus }
+    CollectedScalarParameters[4] =
+    {
+        Value = 0.045
+        Name = Limbus_UV_Width_Shading
+        Group = Limbus
+    }
+    CollectedScalarParameters[5] = { Value=0.658, Name=Iris_PupilScale, Group=Iris }
+    CollectedScalarParameters[6] =
+    {
+        Value = 0.111628
+        Name = Iris_Concavity Scale
+        Group = Iris
+    }
+    CollectedScalarParameters[7] =
+    {
+        Value = 0.276744
+        Name = Iris_Concavity Power
+        Group = Iris
+    }
+    CollectedScalarParameters[8] =
+    {
+        Value = 0.6
+        Name = Iris_Pupil_DepthScale
+        Group = Iris
+    }
+    CollectedScalarParameters[9] =
+    {
+        Value = 0.035
+        Name = Limbus_UV_Width_Color
+        Group = Limbus
+    }
+    CollectedScalarParameters[10] = { Value=0.3, Name=Scelera_Specular, Group=Sclera }
+    CollectedScalarParameters[11] = { Value=0.3, Name=Iris_Specular, Group=Iris }
+    CollectedScalarParameters[12] =
+    {
+        Value = 0.95
+        Name = Normal_Intensity_Sclera
+        Group = Normal
+    }
+    CollectedScalarParameters[13] = { Value=0.1, Name=Sclera_Rougness, Group=Sclera }
+    CollectedScalarParameters[14] = { Value=0.1, Name=Iris_Roughness, Group=Iris }
+    CollectedScalarParameters[15] = { Value=0.267, Name=Iris_Size, Group=Customize }
+    CollectedScalarParameters[16] =
+    {
+        Value = 0.3
+        Name = Iris_Refraction_Intensity
+        Group = Iris
+    }
+    CollectedScalarParameters[17] =
+    {
+        Value = 1.165
+        Name = Iris_Pupil_Inward_Value
+        Group = Iris
+    }
+    CollectedScalarParameters[18] = { Value=1, Name=Iris_CenterScale, Group=Iris }
+    CollectedScalarParameters[19] = { Value=0.9, Name=Sclera_Brightness, Group=Sclera }
+    CollectedScalarParameters[20] = { Value=1, Name=Iris_Brightness, Group=Iris }
+    CollectedScalarParameters[21] =
+    {
+        Value = 0.345133
+        Name = EyeCorner_ShadowHardness
+        Group = EyeCorner
+    }
+    CollectedScalarParameters[22] =
+    {
+        Value = 0.65
+        Name = EyeCorner_ShadowRadius
+        Group = EyeCorner
+    }
+    CollectedScalarParameters[23] =
+    {
+        Value = 0
+        Name = CubeMap_Value_Min
+        Group = Env_Reflection
+    }
+    CollectedScalarParameters[24] =
+    {
+        Value = 1
+        Name = CubeMap_Value_Max
+        Group = Env_Reflection
+    }
+    CollectedScalarParameters[25] =
+    {
+        Value = 1
+        Name = Normal_Intensity_Iris
+        Group = Normal
+    }
+    CollectedScalarParameters[26] =
+    {
+        Value = 0
+        Name = Specular_Mask_Amount
+        Group = Final_Spacular
+    }
+    CollectedScalarParameters[27] =
+    {
+        Value = 1
+        Name = Specular_Mask_Contrast
+        Group = Final_Spacular
+    }
+    CollectedScalarParameters[28] = { Value=1, Name=OddEye_On, Group=Lens }
+    CollectedScalarParameters[29] = { Value=0, Name=Iris_CenterScale_V, Group=Iris }
+    CollectedScalarParameters[30] = { Value=0, Name=Iris_CenterScale_U, Group=Iris }
+    CollectedScalarParameters[31] = { Value=1.05, Name=Lens_Size, Group=Lens }
+    CollectedScalarParameters[32] =
+    {
+        Value = 0.75
+        Name = Glint_Power
+        Group = Env_Reflection
+    }
+    CollectedScalarParameters[33] = { Value=0, Name=Lens_Position_U, Group=Lens }
+    CollectedScalarParameters[34] = { Value=0, Name=Lens_Position_V, Group=Lens }
+    CollectedScalarParameters[35] = { Value=0.8, Name=Lens_Opacity, Group=Lens }
+}
+CollectedVectorParameters[8] =
+{
+    CollectedVectorParameters[0] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = CubeMap_ColorBlend
+        Group = Env_Reflection
+    }
+    CollectedVectorParameters[1] =
+    {
+        Value = { R=0, G=0, B=1, A=1 }
+        Name = CubeMap_RotationAxis
+        Group = Env_Reflection
+    }
+    CollectedVectorParameters[2] =
+    {
+        Value = { R=0.23, G=0.083042, B=0.031906, A=1 }
+        Name = EyeCorner_DarknessColor
+        Group = EyeCorner
+    }
+    CollectedVectorParameters[3] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = Iris_Color
+        Group = Customize
+    }
+    CollectedVectorParameters[4] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = Eyeball_Color
+        Group = Customize
+    }
+    CollectedVectorParameters[5] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = Lens_Color_Left
+        Group = Customize
+    }
+    CollectedVectorParameters[6] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = Lens_Color_Right
+        Group = Customize
+    }
+    CollectedVectorParameters[7] =
+    {
+        Value = { R=0, G=0, B=0, A=0 }
+        Name = Pupil_Color
+        Group = Iris
+    }
+}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

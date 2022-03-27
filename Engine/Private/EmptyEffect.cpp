@@ -480,6 +480,8 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 	{
 		CVIBuffer_Cube* pDecal = static_cast<CVIBuffer_Cube*>(DecalCom);
 
+		SetUp_ValueOnShader("Com_Decal");
+
 		ID3D11ShaderResourceView* pDepthSRV;
 
 		if (m_pEngine->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)

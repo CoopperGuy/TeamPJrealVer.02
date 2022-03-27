@@ -47,9 +47,11 @@ HRESULT CRenderer::InitializePrototype()
 	/* Target_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Depth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
+
 	/* Target_Decal_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DecalDepth", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
+
 	/* Target_Shadow_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * SHADOWRATIO, (_uint)ViewportDesc.Height * SHADOWRATIO, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
 		return E_FAIL;
@@ -75,8 +77,8 @@ HRESULT CRenderer::InitializePrototype()
 
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Bright", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
-
-	/* Target_Bloom */
+#pragma region Bloom RenderTarget
+	/* Target_Bloom x4 */
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DownTexture", (_uint)ViewportDesc.Width / m_iValue, (_uint)ViewportDesc.Height / m_iValue, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
 
@@ -85,7 +87,27 @@ HRESULT CRenderer::InitializePrototype()
 
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_BlurY", (_uint)ViewportDesc.Width / m_iValue, (_uint)ViewportDesc.Height / m_iValue, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
-	
+
+	/* Target_Bloom x8 */
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DownTexture2", (_uint)ViewportDesc.Width / (m_iValue * 2), (_uint)ViewportDesc.Height / (m_iValue * 2), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_BlurX2", (_uint)ViewportDesc.Width / (m_iValue * 2), (_uint)ViewportDesc.Height / (m_iValue * 2), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_BlurY2", (_uint)ViewportDesc.Width / (m_iValue * 2), (_uint)ViewportDesc.Height / (m_iValue * 2), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+
+	/* Target_Bloom x16 */
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_DownTexture3", (_uint)ViewportDesc.Width / (m_iValue * 4), (_uint)ViewportDesc.Height / (m_iValue * 4), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_BlurX3", (_uint)ViewportDesc.Width / (m_iValue * 4), (_uint)ViewportDesc.Height / (m_iValue * 4), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+
+	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_BlurY3", (_uint)ViewportDesc.Width / (m_iValue * 4), (_uint)ViewportDesc.Height / (m_iValue * 4), DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
+		return E_FAIL;
+#pragma endregion
 	/* Target_SSAO */
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_SSAO", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
@@ -267,7 +289,21 @@ HRESULT CRenderer::DrawRenderGroup()
 		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
 			return E_FAIL;
 	}
-	//CLightManager::GetInstance()->Render_DebugBuffer();
+	
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_LBRACKET)) {
+		m_fBrightIntensity += 0.01f;
+
+		if (m_fBrightIntensity > 1.f)
+			m_fBrightIntensity = 1.f;
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_RBRACKET)) {
+		m_fBrightIntensity -= 0.01f;
+
+		if (m_fBrightIntensity < 0.f)
+			m_fBrightIntensity = 0.f;
+	}
+	
+
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
@@ -535,6 +571,7 @@ HRESULT CRenderer::Render_Shader()
 		return E_FAIL;
 
 	m_pVIBuffer_HDR->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_HDR->GetShader()->SetUp_ValueOnShader("g_BrightIntensity", &m_fBrightIntensity, sizeof(_float));
 
 	m_pVIBuffer_HDR->Render(1);
 
@@ -552,16 +589,26 @@ HRESULT CRenderer::Render_Shader()
 		return E_FAIL;
 
 	ID3D11ShaderResourceView*	pBloomOriSRV = m_pTargetManager->GetShaderResourceView("Target_Bright");
-	if (nullptr == pDiffuseSRV)
+	if (nullptr == pBloomOriSRV)
 		return E_FAIL;
 
 	ID3D11ShaderResourceView*	pBloomSRV = m_pTargetManager->GetShaderResourceView("Target_BlurY");
-	if (nullptr == pDiffuseSRV)
+	if (nullptr == pBloomSRV)
+		return E_FAIL;
+
+	ID3D11ShaderResourceView*	pBloomSRV2 = m_pTargetManager->GetShaderResourceView("Target_BlurY2");
+	if (nullptr == pBloomSRV2)
+		return E_FAIL;
+
+	ID3D11ShaderResourceView*	pBloomSRV3 = m_pTargetManager->GetShaderResourceView("Target_BlurY3");
+	if (nullptr == pBloomSRV3)
 		return E_FAIL;
 
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomOriTexture", pBloomOriSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture", pBloomSRV);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture2", pBloomSRV2);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture3", pBloomSRV3);
 
 	m_pVIBuffer->Render(5);
 
@@ -572,6 +619,8 @@ HRESULT CRenderer::Render_Shader()
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomOriTexture", pBloomOriSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture", pBloomSRV);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture2", pBloomSRV2);
+	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture3", pBloomSRV3);
 
 	m_pVIBuffer->Render(5);
 
@@ -580,7 +629,9 @@ HRESULT CRenderer::Render_Shader()
 
 HRESULT CRenderer::Render_Bloom()
 {	
+#pragma region Bloom x4
 	_uint iNum = 1;
+	_float fRatio = 4.f;
 
 	D3D11_VIEWPORT BackViewPort;
 	D3D11_VIEWPORT DownViewPort;
@@ -609,8 +660,9 @@ HRESULT CRenderer::Render_Bloom()
 	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_DownTexture");
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
-
+	
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
 
 	m_pVIBuffer_Bloom->Render(1);
 
@@ -622,14 +674,103 @@ HRESULT CRenderer::Render_Bloom()
 		return E_FAIL;
 
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
 
 	m_pVIBuffer_Bloom->Render(2);
 
 	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 		return E_FAIL;
+#pragma endregion
+
+#pragma region Bloom x8
+	fRatio = 8.f;
+	DownViewPort.Width = BackViewPort.Width / ((_float)m_iValue * 2);
+	DownViewPort.Height = BackViewPort.Height / ((_float)m_iValue * 2);
+
+	m_pDeviceContext->RSSetViewports(iNum, &DownViewPort);
+
+	// DownSample
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture2");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Bright");
+	
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+
+	m_pVIBuffer_Bloom->Render(0);
+
+	// BlurX
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_BlurX2");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_DownTexture2");
+	if (nullptr == pDiffuseSRV)
+		return E_FAIL;
+
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
+
+	m_pVIBuffer_Bloom->Render(1);
+
+	// BlurY
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_BlurY2");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_BlurX2");
+	if (nullptr == pDiffuseSRV)
+		return E_FAIL;
+
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
+
+	m_pVIBuffer_Bloom->Render(2);
+
+	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
+		return E_FAIL;
+#pragma endregion
+
+#pragma region Bloom x16
+	fRatio = 16.f;
+	DownViewPort.Width = BackViewPort.Width / ((_float)m_iValue * 4);
+	DownViewPort.Height = BackViewPort.Height / ((_float)m_iValue * 4);
+
+	m_pDeviceContext->RSSetViewports(iNum, &DownViewPort);
+
+	// DownSample
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture3");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Bright");
+	
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+
+	m_pVIBuffer_Bloom->Render(0);
+
+	// BlurX
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_BlurX3");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_DownTexture3");
+	if (nullptr == pDiffuseSRV)
+		return E_FAIL;
+
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
+
+	m_pVIBuffer_Bloom->Render(1);
+
+	// BlurY
+	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_BlurY3");
+
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_BlurX3");
+	if (nullptr == pDiffuseSRV)
+		return E_FAIL;
+
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
+
+	m_pVIBuffer_Bloom->Render(2);
+
+	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
+		return E_FAIL;
+#pragma endregion
 
 	m_pDeviceContext->RSSetViewports(iNum, &BackViewPort);
-	
 
 	return S_OK;
 }

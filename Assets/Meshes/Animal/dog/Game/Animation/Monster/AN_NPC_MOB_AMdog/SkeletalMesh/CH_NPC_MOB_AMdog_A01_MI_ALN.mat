@@ -1,0 +1,8 @@
+Diffuse=CH_NPC_MOB_AMDog_A01_D_ALN
+Normal=CH_NPC_MOB_AMDog_A01_N_ALN
+Other[0]=CH_NPC_MOB_AMDog_A01_A
+Other[1]=CH_NPC_MOB_AMDog_A01_S
+Other[2]=CH_MM_ColorVariationMask_V_HSI
+Other[3]=CH_MM_Default_D_HSI
+Other[4]=T_Default_Normal
+Other[5]=CH_MM_Default_D_DX5
