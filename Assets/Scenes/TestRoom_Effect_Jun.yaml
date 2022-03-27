@@ -90,12 +90,12 @@ GameObjects:
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 0
+    PassIndex: 11
     BillBord: false
     Com_Transform:
       Translation: [1.12864709, 1.28989744, 0.962560356]
       Rotation: [0, -0, 0]
-      Scale: [0.400000006, 0.100000001, 0.200000003]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
       MeshFileName: longMesh_01.fbx
@@ -106,20 +106,20 @@ GameObjects:
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_wind_003_TEX_CJH.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
       TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [0.5, 1.5, 0]
+      ScrollSpeedX: [1, 1, 1]
+      ScrollSpeedY: [1, 1, 0]
       Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.200000003]
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: true
-      FadeOutDuration: 1.70000005
-      FadeOutStratTime: 1.20000005
-      FadeIn: true
+      FadeOut: false
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
       FadeInDuration: 1
       FadeInStratTime: 0
-      EffectDuration: 1.70000005
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [49.1125259, -24.7711601, 0]
-      Scale: [0.342038065, 0.399407506, 0.351510465]
+      Rotation: [64.7981262, -25.6992359, 9.47497369e-07]
+      Scale: [0.325101674, 0.334662497, 0.317436635]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -591,25 +591,22 @@ GameObjects:
     Children:
       - 1960447721169478958
   - Name: Empty Object
-    UUID: 12647460027806975670
+    UUID: 15685303154479368445
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 0
-    BillBord: false
+    PassIndex: 1
+    BillBord: true
     Com_Transform:
-      Translation: [1.51898718, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Effect_HalfCircle.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_004.dds
+      Translation: [1.32496727, -0.0181664918, -0.444133639]
+      Rotation: [64.7981186, -25.6992378, 9.47497369e-07]
+      Scale: [0.951272905, 0.83908391, 0.905182719]
+    Com_VIBuffer:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_004.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Circle_mask01.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -617,17 +614,74 @@ GameObjects:
       Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: true
+      FadeOutDuration: 1
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 1
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
       Alpha: 1
+  - Name: Empty Object
+    UUID: 12030282174379842633
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, -2]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Decal:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_CircleWave_002_TEX_HKB.tga
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0, 0, 0]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
+  - Name: Empty Object
+    UUID: 2756645503524824647
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\SideWalk\
+      MeshFileName: Sidewalk.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

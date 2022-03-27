@@ -222,7 +222,6 @@ HRESULT CLoader::GameFlogasLoader()
 
 	std::thread t22(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
 	t22.join();
-	//E_Element_Bomb
 
 	_bool isNotFinish = true;
 	while (isNotFinish) {
@@ -500,7 +499,7 @@ HRESULT CLoader::GameSceneJUN()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
 
 	if (FAILED(GameFlogasLoader()))
 		MSG_BOX("Failed To Create Flogas Effect");

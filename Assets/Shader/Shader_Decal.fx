@@ -114,8 +114,6 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     return vColor;
 }
 
-
-
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -128,4 +126,5 @@ technique11		DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN();
 	}	
+
 }
