@@ -1,0 +1,39 @@
+Scene: Untitled
+GameObjects:
+  - Name: AuraEffect
+    UUID: 4172193352215827146
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-0.361666203, 0.308779806, 0.419353843]
+      Rotation: [1.80648267, -9.87673855, 2.70818052e-08]
+      Scale: [0.899448395, 0.899436474, 0.900537491]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Spark.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura.jpg
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.5, 2, 0]
+      ScrollSpeedY: [0.5, 2, 0]
+      Distortion1: [0.5, 0.300000012]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0, 0.5]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: true
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1

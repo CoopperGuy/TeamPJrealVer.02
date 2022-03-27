@@ -385,6 +385,15 @@
     <ClInclude Include="..\public\SparkFlare.h">
       <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Winds.h">
+      <Filter>05.Effect\PlayerEffect\Winds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ChargeAxe.h">
+      <Filter>05.Effect\PlayerEffect\Charge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\AuraEffect.h">
+      <Filter>05.Effect\PlayerEffect\AuraEffect</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\EffectRockDust.h">
       <Filter>05.Effect\Instance\RockDust</Filter>
     </ClInclude>
@@ -758,6 +767,15 @@
     </ClCompile>
     <ClCompile Include="..\private\SparkFlare.cpp">
       <Filter>05.Effect\PlayerEffect\SparkFlare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Winds.cpp">
+      <Filter>05.Effect\PlayerEffect\Winds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ChargeAxe.cpp">
+      <Filter>05.Effect\PlayerEffect\Charge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\AuraEffect.cpp">
+      <Filter>05.Effect\PlayerEffect\AuraEffect</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectRockDust.cpp">
       <Filter>05.Effect\Instance\RockDust</Filter>
@@ -1152,6 +1170,15 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\SparkFlare">
       <UniqueIdentifier>{f98f9085-81a3-442d-bca2-817724732e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\Winds">
+      <UniqueIdentifier>{35761ae9-ae77-49b4-be0b-47f199f079b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\Charge">
+      <UniqueIdentifier>{873cd8dc-9c2c-425b-bb61-2215f9461b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\AuraEffect">
+      <UniqueIdentifier>{a6f523b4-a235-4b65-abe0-95078fca832e}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Effect\Instance\RockDust">
       <UniqueIdentifier>{9cd9a968-a044-4812-891a-e208a8af8dbb}</UniqueIdentifier>
