@@ -24,7 +24,9 @@ using namespace Client;
 #include "Engine.h"
 
 #include <thread>
-
+#include <functional>
+#include <future>
+#include <condition_variable>
 
 #define NO_EVENT 0
 #define CHANGE	 0

@@ -291,6 +291,7 @@
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TargetOn.h" />
     <ClInclude Include="..\public\TestMonster.h" />
+    <ClInclude Include="..\public\ThreadLoader.h" />
     <ClInclude Include="..\public\TownPortal.h" />
     <ClInclude Include="..\Public\Ursa.h" />
     <ClInclude Include="..\Public\WaterEA.h" />
@@ -437,6 +438,7 @@
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TargetOn.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />
+    <ClCompile Include="..\private\ThreadLoader.cpp" />
     <ClCompile Include="..\private\TownPortal.cpp" />
     <ClCompile Include="..\Private\Ursa.cpp" />
     <ClCompile Include="..\Private\WaterEA.cpp" />
