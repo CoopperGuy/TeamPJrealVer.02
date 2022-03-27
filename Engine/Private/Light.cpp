@@ -73,7 +73,6 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 		
 		//m_pRenderTarget = m_pTargetManager->Find_RenderTarget(m_targetName);
 		m_pRenderTarget = m_pTargetManager->Find_RenderTarget("Target_ShadowDepth");
-		cout << "direction created\n";
 	}
 
 	CLightManager::GetInstance()->AddLight(this);
