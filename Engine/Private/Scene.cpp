@@ -2,6 +2,10 @@
 #include "..\Public\Scene.h"
 #include "Engine.h"
 
+USING(Engine)
+
+_bool CScene::m_bIsClearEnd = false;
+
 CScene::CScene(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iSceneIndex)
 	: m_pDevice(pDevice)
 	, m_pDeviceContext(pDeviceContext)
@@ -12,6 +16,7 @@ CScene::CScene(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _ui
 
 HRESULT CScene::Initialize()
 {
+	m_bIsClearEnd = false;
 	return S_OK;
 }
 
@@ -27,13 +32,11 @@ HRESULT CScene::Render()
 
 void CScene::Clear()
 {
-	CEngine*		pEngine = GET_INSTANCE(CEngine);
+	m_pEngine->ClearGameObjectManager(m_iSceneIndex);
+	m_pEngine->ClearComponentManager(m_iSceneIndex);
+	m_pEngine->ClearScriptObject(m_iSceneIndex);
 
-	pEngine->ClearGameObjectManager(m_iSceneIndex);
-	pEngine->ClearComponentManager(m_iSceneIndex);
-	pEngine->ClearScriptObject(m_iSceneIndex);
-
-	RELEASE_INSTANCE(CEngine);
+	m_bIsClearEnd = true;
 }
 
 void CScene::Free()
