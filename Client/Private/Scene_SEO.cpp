@@ -16,9 +16,6 @@ HRESULT CScene_SEO::Initialize()
 	__super::Initialize();
 
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_SEO);
-
-	CEngine::GetInstance()->AddGameObject(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Sky", "Layer_Sky");
-
 	ReadyScript();
 
 	return S_OK;
@@ -39,9 +36,9 @@ HRESULT CScene_SEO::ReadyScript()
 	//CWolf::Create(nullptr);
 	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 
-	_float3 one = { 4.f,0.f,4.f };
-	_float3 two = { 16.f,0.f,16.f };
-	_float3 three = { 28.f,0.f,28.f };
+	_float3 one = { 4.f,2.f,4.f };
+	_float3 two = { 16.f,2.f,16.f };
+	_float3 three = { 28.f,2.f,28.f };
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), SCENE_SEO);
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);

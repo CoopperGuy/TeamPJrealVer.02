@@ -11,6 +11,7 @@ static const float Weight[13] =
 };
 
 static const float Total = 6.2108;
+float g_BrightIntensity;
 
 Texture2D		g_DiffuseTexture;
 
@@ -77,7 +78,7 @@ float4 PS_MAIN_BIRGHT(PS_IN In) : SV_TARGET
     float4 FragColor = g_DiffuseTexture.Sample(g_ClampSampler, In.vTexUV);
 
     float BirghtNess = dot(FragColor.rgb, float3(0.2126f, 0.7152f, 0.0722f));
-    if (BirghtNess > 0.99f)
+    if (BirghtNess > g_BrightIntensity)
        BrightColor = float4(FragColor.rgb, 1.f);
     
     return BrightColor;

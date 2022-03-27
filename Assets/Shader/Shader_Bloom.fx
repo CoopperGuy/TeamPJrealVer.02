@@ -9,6 +9,8 @@ static const float Weight[13] =
 
 static const float Total = 6.2108;
 
+float g_fRatio;
+
 Texture2D g_DiffuseTexture;
 
 struct VS_IN
@@ -55,7 +57,7 @@ VS_OUT_BLUR VS_MAIN_BLURX(VS_IN In)
     Out.vPosition = vector(In.vPosition, 1.f);
     Out.vTexUV = In.vTexUV;
 
-    float texelSize = 1.f / 1280.f / 4.f;
+    float texelSize = 1.f / (1280.f / g_fRatio);
 
     Out.texCoord1 = In.vTexUV + float2(texelSize * -4.0f, 0.0f);
     Out.texCoord2 = In.vTexUV + float2(texelSize * -3.0f, 0.0f);
@@ -77,7 +79,7 @@ VS_OUT_BLUR VS_MAIN_BLURY(VS_IN In)
     Out.vPosition = vector(In.vPosition, 1.f);
     Out.vTexUV = In.vTexUV;
 
-    float texelSize = 1.f / 720.f / 4.f;
+    float texelSize = 1.f / (720.f / g_fRatio);
 
     Out.texCoord1 = In.vTexUV + float2(0.0f, texelSize * -4.0f);
     Out.texCoord2 = In.vTexUV + float2(0.0f, texelSize * -3.0f);
@@ -140,9 +142,9 @@ vector PS_MAIN_TEST(PS_IN In) : SV_TARGET
 
     float uv = 0;
 
-    float tu = 1.f / 1280.f;
+    float tu = 1.f / (1280.f / g_fRatio);
 
-    for (int i = -6; i < 6; ++i)
+    for (int i = -6; i <= 6; ++i)
     {
         uv = In.vTexUV + float2(tu * i, 0);
         vColor += mul(Weight[6 + i], g_DiffuseTexture.Sample(g_DefaultSampler, uv));
@@ -159,9 +161,9 @@ vector PS_MAIN_TEST2(PS_IN In) : SV_TARGET
 
     float uv = 0;
 
-    float tu = 1.f / 720.f;
+    float tu = 1.f / (720.f / g_fRatio);
 
-    for (int i = -6; i < 6; ++i)
+    for (int i = -6; i <= 6; ++i)
     {
         uv = In.vTexUV + float2(0, tu * i);
         vColor += mul(Weight[6 + i], g_DiffuseTexture.Sample(g_DefaultSampler, uv));

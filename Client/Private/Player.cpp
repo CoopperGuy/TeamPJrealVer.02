@@ -230,6 +230,12 @@ void CPlayer::Update(_double dDeltaTime)
 	Transform_ToWorldSpace();
 	SearchMonster();
 
+	if (CEngine::GetInstance()->IsKeyDown(VK_F8))
+	{
+		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
+		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)

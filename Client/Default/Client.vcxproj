@@ -206,6 +206,7 @@
     <ClInclude Include="..\Public\EffectBloodDecal.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\EffectRockDust.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\Element_Bomb.h" />
     <ClInclude Include="..\Public\Fire_Boob.h" />
@@ -367,6 +368,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
+    <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
