@@ -15,7 +15,6 @@ HRESULT CSparkFlare::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 	m_pPlayerTrans = static_cast<CTransform*>(m_pTargetObj->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThisEffect->GetComponent("Com_Transform"));
 
-	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
 }
 
