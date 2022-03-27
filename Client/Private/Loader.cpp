@@ -177,12 +177,12 @@ HRESULT CLoader::GameFlogasLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB", 14);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Smoke", "E_Smoke", 15);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Fire_explosion", "E_MeteoExplosion", 16);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireBoob", "E_FireBoob", 17);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Bomb_Center", "E_Bomb_Center", 17);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Fire", "E_EAFire", 18);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireBall", "E_EAFireBall", 19);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_WaterEA", "O_WaterEA", 20);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 22);
+	//m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 22);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 23);
 
 	for (auto& f : futures) {
@@ -319,7 +319,7 @@ HRESULT CLoader::GameSceneJUN()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -4.f));
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_JUNG);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);

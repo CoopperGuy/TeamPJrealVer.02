@@ -1,0 +1,151 @@
+Scene: Untitled
+GameObjects:
+  - Name: Bomb_Center
+    UUID: 5502899901288605207
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [-1.05423212, 0.316382021, 0]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.999585211, 0.999507368, 0.800000191]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\20.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\ExploSubMask_001.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.100000001]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 2
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 20
+      Alpha: 0.5
+    Children:
+      - Name: Bomb1
+        UUID: 17888228711785348147
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 5
+        BillBord: true
+        Com_Transform:
+          Translation: [0, 0.00807444751, 0.100000001]
+          Rotation: [0, -0, 0]
+          Scale: [1.5, 1.5, 0.00100000005]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+          TextureNormalPath: ..\..\Assets\Textures\Effect\Noise\FX_Normal_01.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1, 1, 0]
+          Distortion1: [0.100000001, 0.100000001]
+          Distortion2: [0.100000001, 0.100000001]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.100000001
+          DistortionBias: 0.100000001
+          FadeOut: true
+          FadeOutDuration: 2
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 2
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1
+      - Name: Bomb2
+        UUID: 17504197830417166847
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 5
+        BillBord: true
+        Com_Transform:
+          Translation: [0, 0, -0.100000001]
+          Rotation: [0, -0, 0]
+          Scale: [1.5, 1.5, 0.00100000005]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Diffuse\FX_Impact_006_TEX_KKJ.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
+          TextureNormalPath: ..\..\Assets\Textures\Effect\Mask\FX_pajang_002_TEX_HKB.png
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1, 1, 0]
+          Distortion1: [0.100000001, 0.100000001]
+          Distortion2: [0.100000001, 0.100000001]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.100000001
+          DistortionBias: 0.100000001
+          FadeOut: true
+          FadeOutDuration: 2
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 2
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1
+      - Name: Bomb3
+        UUID: 8400450724821270359
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 5
+        BillBord: true
+        Com_Transform:
+          Translation: [0, 0, -0.109999999]
+          Rotation: [0, -0, 0]
+          Scale: [1.5, 1.5, 0.00100000005]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1, 1, 0]
+          Distortion1: [0.100000001, 0.100000001]
+          Distortion2: [0.100000001, 0.100000001]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.100000001
+          DistortionBias: 0.100000001
+          FadeOut: true
+          FadeOutDuration: 2
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 2
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1

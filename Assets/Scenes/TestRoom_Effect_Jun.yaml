@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [64.7981262, -25.6992359, 9.47497369e-07]
-      Scale: [0.325101674, 0.334662497, 0.317436635]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.324747294, 0.334167272, 0.317325801]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -371,11 +371,6 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       Alpha: 0.5
-    Children:
-      - 5502899901288605207
-      - 17888228711785348147
-      - 17504197830417166847
-      - 8400450724821270359
   - Name: Bomb_Center
     UUID: 5502899901288605207
     Active: true
@@ -385,9 +380,9 @@ GameObjects:
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [0.699999988, 0.699999988, 0.800000012]
+      Translation: [-1.05423212, 0.316382021, 0]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.999585211, 0.999507368, 0.800000191]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -403,18 +398,22 @@ GameObjects:
       DistortionScale: 0.100000001
       DistortionBias: 0.100000001
       FadeOut: true
-      FadeOutDuration: 1
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 2
       SpriteNumX: 5
       SpriteNumY: 5
       SpriteTotal: 25
       SpriteSpeed: 20
-      Alpha: 0.699999988
-  - Name: Empty Object
+      Alpha: 0.5
+    Children:
+      - 17888228711785348147
+      - 17504197830417166847
+      - 8400450724821270359
+  - Name: Bomb1
     UUID: 17888228711785348147
     Active: true
     Layer: Default
@@ -425,7 +424,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0.00807444751, 0.100000001]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 0.00100000005]
+      Scale: [1.5, 1.5, 0.00100000005]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -440,19 +439,19 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.100000001
       DistortionBias: 0.100000001
-      FadeOut: false
-      FadeOutDuration: 0
+      FadeOut: true
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
       Alpha: 1
-  - Name: Empty Object
+  - Name: Bomb2
     UUID: 17504197830417166847
     Active: true
     Layer: Default
@@ -463,7 +462,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, -0.100000001]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 0.00100000005]
+      Scale: [1.5, 1.5, 0.00100000005]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -478,19 +477,19 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.100000001
       DistortionBias: 0.100000001
-      FadeOut: false
-      FadeOutDuration: 0
+      FadeOut: true
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
       Alpha: 1
-  - Name: Empty Object
+  - Name: Bomb3
     UUID: 8400450724821270359
     Active: true
     Layer: Default
@@ -501,7 +500,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, -0.109999999]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 0.00100000005]
+      Scale: [1.5, 1.5, 0.00100000005]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -517,12 +516,12 @@ GameObjects:
       DistortionScale: 0.100000001
       DistortionBias: 0.100000001
       FadeOut: true
-      FadeOutDuration: 1
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
@@ -600,8 +599,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.32496727, -0.0181664918, -0.444133639]
-      Rotation: [64.7981186, -25.6992378, 9.47497369e-07]
-      Scale: [0.951272905, 0.83908391, 0.905182719]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.950249493, 0.837848306, 0.904867828]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -628,60 +627,3 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       Alpha: 1
-  - Name: Empty Object
-    UUID: 12030282174379842633
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 0
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 0, -2]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Decal:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_CircleWave_002_TEX_HKB.tga
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [0, 0, 0]
-      Distortion1: [0.100000001, 0.100000001]
-      Distortion2: [0.100000001, 0.100000001]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: true
-      FadeOutDuration: 5
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 5
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      Alpha: 1
-  - Name: Empty Object
-    UUID: 2756645503524824647
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\SideWalk\
-      MeshFileName: Sidewalk.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 1

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Fire_explosion.h"
-#include "Fire_Boob.h"
+
 USING(Client)
 
 CFire_explosion::CFire_explosion()
@@ -21,8 +21,8 @@ HRESULT CFire_explosion::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	//_vector vPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	//vPos += XMVector3Normalize(m_pTargetTrans->GetState(CTransform::STATE_LOOK))  * 0.05f;
 	//m_pEffectTrans->SetState(CTransform::STATE_POSITION, vPos);
-	CEmptyEffect* pBoob = static_cast<CEmptyEffect*>(CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBoob", "FireBoob"));
-	CEngine::GetInstance()->AddScriptObject(CFire_Boob::Create(pBoob, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
+	//CEmptyEffect* pBoob = static_cast<CEmptyEffect*>(CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBoob", "FireBoob"));
+	//CEngine::GetInstance()->AddScriptObject(CFire_Boob::Create(pBoob, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
 
 	return S_OK;
 }

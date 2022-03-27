@@ -22,6 +22,8 @@ public:
 	static CEl_Flogas* Create(string name, class CFlogas* pObj = nullptr);
 	virtual void Free() override;
 
+public:
+	_bool Get_DeadMotion() { return m_bDeadMotion; }
 private:
 	CTransform* m_pTargetTransform	= nullptr;
 	string		m_ScriptName		= {};
@@ -31,6 +33,7 @@ private:
 
 	_double m_dExplosionTime = 0.0;
 	CFlogas* m_pFlogas = nullptr;
+	_bool m_bDeadMotion = false;
 };
 
 END

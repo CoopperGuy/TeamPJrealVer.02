@@ -75,12 +75,14 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				if (m_dExplosionTime <= 0.0)
 				{
 					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
-					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
+					cout <<" Create Bomb " << "\n";
 				}
 				m_dExplosionTime += dDeltaTime;
 
 				if (m_dExplosionTime > 4.0)
 				{
+					m_bDeadMotion = true;
 					m_bExplosion = false;
 					m_dExplosionTime = 0.0;
 					m_pModel->SetUp_AnimationIndex(DIE);
@@ -88,18 +90,22 @@ void CEl_Flogas::Update(_double dDeltaTime)
 			}
 			else
 			{
-				m_pTransform->SetScale(_float3(1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime));
-				if (m_pModel->Get_isFinished())
+				if (m_bDeadMotion)
 				{
-					m_bDestination = false;
-					m_pModel->SetUp_AnimationIndex(DEADBODY);
-					m_pGameObject->SetActive(false);
+					m_pTransform->SetScale(_float3(1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime));
+					if (m_pModel->Get_isFinished(DIE))
+					{
+						m_bDestination = false;
+						m_pModel->SetUp_AnimationIndex(DEADBODY);
+						m_pGameObject->SetActive(false);
+					}
 				}
 			}
 		}
 	}
 	else
 	{
+		m_bDeadMotion = false;
 		m_pTransform->SetMatrix(m_OriginWorld);
 		m_pCollider->SetPosition(m_vOriginPos);
 	}
