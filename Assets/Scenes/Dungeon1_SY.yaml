@@ -216,7 +216,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [90, -0, 0]
-      Scale: [1.49994278, 1.5, 1.5]
+      Scale: [1.49994266, 1.5, 1.5]
     Com_VIBuffer:
       {}
     Com_Decal:
@@ -256,7 +256,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [90, -0, 0]
-      Scale: [0.99885112, 1, 1]
+      Scale: [0.998851061, 1, 1]
     Com_VIBuffer:
       {}
     Com_Decal:

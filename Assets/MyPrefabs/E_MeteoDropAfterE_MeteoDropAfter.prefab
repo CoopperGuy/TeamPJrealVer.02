@@ -1,21 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_MeteoDropArea
-    UUID: 17889139092745750975
+  - Name: E_MeteoDropAfterE_MeteoDropAfter
+    UUID: 822454072225148244
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, -2.38265753]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Decal:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]

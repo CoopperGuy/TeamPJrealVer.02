@@ -59,3 +59,66 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 50
+  - Name: Empty Object
+    UUID: 3262946885560902784
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -0.0175637305, -4.43952131]
+      Rotation: [0, -0, 0]
+      Scale: [3.70357823, 1, 3.11460805]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -0.0175637305, -4.43952131]
+    Rotation: [0, -0, 0]
+    Scale: [3.70357823, 1, 3.11460805]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: E_MeteoDropArea
+    UUID: 17889139092745750975
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, -2.38265753]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Decal:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 2
+      FadeIn: true
+      FadeInDuration: 1
+      FadeInStratTime: 0
+      EffectDuration: 3
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
