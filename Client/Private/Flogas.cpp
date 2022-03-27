@@ -181,10 +181,10 @@ void CFlogas::Update(_double dDeltaTime)
 		m_bStartBattle = true;
 	}
 
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	//{
-	//	m_bPhaseSecond = true;
-	//}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	{
+		m_bPhaseSecond = true;
+	}
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
 	//{
 	//	m_bDeadMotion = true;
@@ -952,8 +952,8 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
-				//auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
-				//CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
+				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
 				m_bMakeEffect = false;
 			}
 
