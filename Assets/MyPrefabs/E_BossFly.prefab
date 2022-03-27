@@ -5,7 +5,7 @@ GameObjects:
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 11
+    PassIndex: 6
     BillBord: false
     Com_Transform:
       Translation: [0, -1.37941146, 0]
@@ -15,19 +15,19 @@ GameObjects:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: cylinder_twist.fbx
       HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\003.dds
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wind001_TEX_HKJ.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_smoke_006_TEX_CJH.tga
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\teaa.dds
       TextureNormalPath: ""
-      ScrollSpeedX: [0.800000012, 0, 0]
-      ScrollSpeedY: [1.70000005, 0.800000012, 2.29999995]
+      ScrollSpeedX: [0.800000012, 0.400000006, 0]
+      ScrollSpeedY: [1, 0, 2.29999995]
       Distortion1: [0.200000003, 0.300000012]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.100000001
-      DistortionBias: 0.400000006
+      DistortionScale: 0.5
+      DistortionBias: 0.699999988
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -39,36 +39,36 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      Alpha: 0.699999988
     Children:
       - Name: Circle
         UUID: 15749405828150755439
         Active: true
         Layer: Default
         Type: Effect
-        PassIndex: 4
+        PassIndex: 1
         BillBord: false
         Com_Transform:
           Translation: [-0.0486830473, 0.0500000007, -0.100185335]
           Rotation: [0, -0, 0]
-          Scale: [18, 1, 18]
+          Scale: [20, 1, 20]
         Com_Model:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: Circle.fbx
           HasCollider: false
-          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\020.dds
         Effect_Setting:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_wind_004_TEX_CJH.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test.jpg
           TextureNormalPath: ..\..\Assets\Textures\Effect\Normal\Test.dds
-          ScrollSpeedX: [-0.300000012, -0.200000003, 0]
-          ScrollSpeedY: [-0.200000003, 0, 2.29999995]
+          ScrollSpeedX: [0.200000003, -0.200000003, 0]
+          ScrollSpeedY: [-0.200000003, -0.300000012, 2.29999995]
           Distortion1: [0.200000003, 0.800000012]
           Distortion2: [0.400000006, 0.300000012]
           Distortion3: [0.100000001, 0.800000012]
-          DistortionScale: 0.800000012
-          DistortionBias: 0.400000006
+          DistortionScale: 0.400000006
+          DistortionBias: 0.300000012
           FadeOut: false
           FadeOutDuration: 0
           FadeOutStratTime: 0
@@ -80,7 +80,7 @@ GameObjects:
           SpriteNumY: 0
           SpriteTotal: 0
           SpriteSpeed: 5
-          Alpha: 1
+          Alpha: 0.600000024
       - Name: dome
         UUID: 11763209857370163464
         Active: true
@@ -96,7 +96,7 @@ GameObjects:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: dome.fbx
           HasCollider: false
-          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
         Effect_Setting:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\teaa.dds

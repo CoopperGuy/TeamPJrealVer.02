@@ -22,6 +22,7 @@
 #include "EffectMagic.h"
 #include "MeteoFireBall.h"
 #include "Fire_explosion.h"
+#include "FlyLight.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -952,8 +953,10 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
-				auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				//auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
+				//CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				/*auto EffectLight = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FlyEffLight", "O_FlogasLighte");
+				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLight = CFlyLight::Create(EffectLight), CEngine::GetInstance()->GetCurSceneNumber());*/
 				m_bMakeEffect = false;
 			}
 
@@ -967,6 +970,8 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			m_pEffFly->SetAnimationEnd();
 		if (m_pEffFlyLaser)
 			m_pEffFlyLaser->SetDead();
+		if (m_pEffFlyLight)
+			m_pEffFlyLight->SetDead();
 		break;
 	case FLYING_END2:
 		break;

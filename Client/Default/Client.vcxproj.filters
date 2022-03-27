@@ -397,6 +397,9 @@
     <ClInclude Include="..\Public\EffectRockDust.h">
       <Filter>05.Effect\Instance\RockDust</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\FlyLight.h">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -779,6 +782,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Scene_GamePlay.cpp">
       <Filter>01.Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\FlyLight.cpp">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

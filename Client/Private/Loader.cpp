@@ -222,11 +222,14 @@ HRESULT CLoader::GameFlogasLoader()
 
 	std::thread t22(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
 	t22.join();
+
+	std::thread t23(ThreadPrefab, this, "Prototype_GameObecjt_FlyEffLight", "O_FlogasLighte", 23);
+	t23.join();
 	//E_Element_Bomb
 
 	_bool isNotFinish = true;
 	while (isNotFinish) {
-		for (int i = 0; i < 23; i++) {
+		for (int i = 0; i < 24; i++) {
 			if ((m_iCompleteBit & (1 << i))) {
 				isNotFinish = false;
 			}
@@ -523,7 +526,7 @@ HRESULT CLoader::GameSceneJUN()
 HRESULT CLoader::GameSceneSEO()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, -4.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, -4.f));
 
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
 	//	MSG_BOX("Failed To Create E_Blood Prefab");
