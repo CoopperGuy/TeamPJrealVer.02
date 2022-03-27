@@ -38,7 +38,7 @@ HRESULT CScene_Kim::Render()
 
 HRESULT CScene_Kim::ReadyScript()
 {
-	CEngine::GetInstance()->AddScriptObject(CTestMonster::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	//CEngine::GetInstance()->AddScriptObject(CTestMonster::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
 }
 

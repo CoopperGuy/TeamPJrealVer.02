@@ -486,6 +486,8 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
+						else
+							pTargetCollider->SetHit(false);
 					}
 					else
 						pTargetCollider->SetHit(false);
@@ -538,14 +540,14 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
 						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
 						{
-							m_isHit = true;
+							pTargetCollider->SetHit(true);
 							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 					}
 				}
 				else
-					m_isHit = false;
+					pTargetCollider->SetHit(false);
 			}
 		}
 	}

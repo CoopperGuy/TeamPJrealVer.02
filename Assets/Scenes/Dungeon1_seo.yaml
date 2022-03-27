@@ -1,0 +1,86 @@
+Scene: Untitled
+GameObjects:
+  - Name: Direction
+    UUID: 14881628268781159922
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [18.5160007, 31.0380001, -10.6990004]
+      Rotation: [42.2999382, -51.9998665, -4.09997034]
+      Scale: [0.999966085, 0.999988437, 0.999958873]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [0.268115938, 0.268115938, 0.268115938, 1]
+      Ambient: [0.557971001, 0.55797112, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Roof
+    UUID: 12439306000784340327
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 7
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 1.79999995, -5.58133888]
+      Rotation: [0, -0, 0]
+      Scale: [4.67603016, 1, 3.69376755]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Roof\
+      MeshFileName: Roof.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 500
+  - Name: DecoFloor
+    UUID: 1361245669408703193
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.129999995, -1.02199996, -4.74100018]
+      Rotation: [0, 1.99999964, 0]
+      Scale: [1.63300002, 1.26800013, 0.837000072]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: sagak.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Badak
+    UUID: 3262946885560902784
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -0.0067692399, -4.43952131]
+      Rotation: [0, -0, 0]
+      Scale: [3.70357823, 0.199000001, 3.11460805]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor3.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -0.0067692399, -4.43952131]
+    Rotation: [0, -0, 0]
+    Scale: [3.70357823, 0.199000001, 3.11460805]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor3.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 300

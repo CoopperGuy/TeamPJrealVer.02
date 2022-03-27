@@ -41,11 +41,12 @@ HRESULT CEnemy::Initialize()
 
 void CEnemy::Update(_double deltaTime)
 {
-
+	__super::Update(deltaTime);
 }
 
 void CEnemy::LateUpdate(_double deltaTime)
 {
+	__super::LateUpdate(deltaTime);
 }
 
 void CEnemy::Render()

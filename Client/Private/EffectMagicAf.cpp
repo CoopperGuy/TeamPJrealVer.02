@@ -51,16 +51,12 @@ void CEffectMagicAf::Update(_double deltaTime)
 	
 	m_dFadeoutDu += deltaTime;
 
-	if (m_dFadeoutDu >=static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
-	{
-		m_bDead = true;
-	}
 }
 
 
 void CEffectMagicAf::LateUpdate(_double deltaTime)
 {
-	if (m_bDead)
+	if (m_dFadeoutDu >= static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

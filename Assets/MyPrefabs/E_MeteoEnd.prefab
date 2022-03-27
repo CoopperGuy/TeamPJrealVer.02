@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoEnd
-    UUID: 5763748172793368558
+    UUID: 12888008211868092643
     Active: true
     Layer: Default
     Type: Effect
@@ -9,17 +9,18 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [9.18636322, 5.62876892, -5.36193348e-08]
-      Scale: [1.293046, 0.99604553, 0.999652088]
+      Rotation: [45.7902718, -3.35851645, -6.41430745e-07]
+      Scale: [1.29114747, 0.994256496, 0.997342825]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_lens_001_TEX_CJH.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_WaterWave_Mask_001_Tex_HKB.png
       TextureNoisePath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
+      TextureNormalPath: ""
+      ScrollSpeedX: [-0.5, -0.899999976, 0]
+      ScrollSpeedY: [-1.10000002, -0.400000006, 2.29999995]
+      Distortion1: [-0.300000012, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0
@@ -31,3 +32,8 @@ GameObjects:
       FadeInDuration: 2
       FadeInStratTime: 0
       EffectDuration: 3
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 0.300000012

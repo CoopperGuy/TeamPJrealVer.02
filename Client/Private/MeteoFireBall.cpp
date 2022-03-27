@@ -75,7 +75,7 @@ void CMeteoFireBall::Update(_double deltaTime)
 		//	m_pMeteo->Set_Pos(mypos);
 
 		makedt += deltaTime;
-		if (makedt >= 0.2)
+		if (makedt >= 0.02)
 		{
 			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Meteo", "E_Meteo");
@@ -83,13 +83,15 @@ void CMeteoFireBall::Update(_double deltaTime)
 			makedt = 0;
 		}
 	}
-	else
+	else {
 		m_bDead = true;
-
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.1f);
+	}
 	if (m_pOBB->Get_isHit())
+	{
 		m_bDead = true;
-
-
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.1f);
+	}
 
 
 }
@@ -98,8 +100,6 @@ void CMeteoFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_bDead)
 	{
-		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
-
 		auto EffectSmoke = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Smoke", "E_Smoke");
 		CEngine::GetInstance()->AddScriptObject(CEffectSmoke::Create(EffectSmoke, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
