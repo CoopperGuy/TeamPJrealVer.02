@@ -84,8 +84,8 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 300
-  - Name: E_MeteoDropArea
-    UUID: 17889139092745750975
+  - Name: E_MeteoDropAfter
+    UUID: 3955735658191777764
     Active: true
     Layer: Default
     Instancing: false
@@ -93,14 +93,14 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, -2.38265753]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]

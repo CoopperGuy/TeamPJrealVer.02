@@ -927,7 +927,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 
 			if (m_iMakeMeteo <= 8)
 			{
-				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
+				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(0, "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectMagic, pos), CEngine::GetInstance()->GetCurSceneNumber());
 
 				/*auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
