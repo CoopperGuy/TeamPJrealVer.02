@@ -380,10 +380,14 @@ HRESULT CModel::Bind_Buffers(_uint iPassIndex, CTransform * pTarget)
 		}
 		else
 		{
-			_uint lightIndex = CLightManager::GetInstance()->GetCurrentIndex();
-			m_pShader->SetUp_ValueOnShader("g_LightViewMatrix", &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(lightIndex)), sizeof(_matrix));
-			m_pShader->SetUp_ValueOnShader("g_LightProjMatrix", &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(lightIndex)), sizeof(_matrix));
-			m_pShader->SetUp_ValueOnShader("lightPosition", &CLightManager::GetInstance()->GetPosition(lightIndex), sizeof(_float3));
+			_uint iNumLight = CLightManager::GetInstance()->GetNumRenderLights();
+			if (iNumLight > 0)
+			{
+				_uint lightIndex = CLightManager::GetInstance()->GetCurrentIndex();
+				m_pShader->SetUp_ValueOnShader("g_LightViewMatrix", &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(lightIndex)), sizeof(_matrix));
+				m_pShader->SetUp_ValueOnShader("g_LightProjMatrix", &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(lightIndex)), sizeof(_matrix));
+				m_pShader->SetUp_ValueOnShader("lightPosition", &CLightManager::GetInstance()->GetPosition(lightIndex), sizeof(_float3));
+			}
 		}
 	}
 	else
