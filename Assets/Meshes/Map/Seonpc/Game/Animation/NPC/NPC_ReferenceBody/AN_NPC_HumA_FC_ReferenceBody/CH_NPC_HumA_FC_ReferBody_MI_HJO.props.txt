@@ -1,0 +1,128 @@
+Parent = MaterialInstanceConstant'/Game/Animation/PC/PC_ReferenceBody/AN_PC_HumH_F_ReferenceBody/AN_PC_HumH_F_preset/CH_PC_HumH_F_CM_Body_MI_KTK.CH_PC_HumH_F_CM_Body_MI_KTK'
+ScalarParameterValues[5] =
+{
+    ScalarParameterValues[0] =
+    {
+        ParameterInfo = { Name=Skin_Brightness }
+        ParameterValue = 1
+        ParameterName = None
+    }
+    ScalarParameterValues[1] =
+    {
+        ParameterInfo = { Name=Skin_Power }
+        ParameterValue = 1.27535
+        ParameterName = None
+    }
+    ScalarParameterValues[2] =
+    {
+        ParameterInfo = { Name=Skin_Roughness }
+        ParameterValue = 1
+        ParameterName = None
+    }
+    ScalarParameterValues[3] =
+    {
+        ParameterInfo = { Name=Skin_Roughness_Black }
+        ParameterValue = 0.375106
+        ParameterName = None
+    }
+    ScalarParameterValues[4] =
+    {
+        ParameterInfo = { Name=RefractionDepthBias }
+        ParameterValue = 0
+        ParameterName = None
+    }
+}
+TextureParameterValues[3] =
+{
+    TextureParameterValues[0] =
+    {
+        ParameterInfo = { Name=Tex_BaseColor }
+        ParameterValue = Texture2D'/Game/Animation/PC/PC_ReferenceBody/AN_PC_HumH_F_ReferenceBody/AN_PC_HumH_F_preset/CH_PC_HumH_F_CM_Body_D_BJH.CH_PC_HumH_F_CM_Body_D_BJH'
+        ParameterName = None
+    }
+    TextureParameterValues[1] =
+    {
+        ParameterInfo = { Name=Tex_Normal }
+        ParameterValue = Texture2D'/Game/Animation/PC/PC_ReferenceBody/AN_PC_HumH_F_ReferenceBody/AN_PC_HumH_F_preset/CH_PC_HumH_F_CM_Body_MuscleLess_N_BJH.CH_PC_HumH_F_CM_Body_MuscleLess_N_BJH'
+        ParameterName = None
+    }
+    TextureParameterValues[2] =
+    {
+        ParameterInfo = { Name=Tex_Skin_Mask }
+        ParameterValue = Texture2D'/Game/Animation/PC/PC_ReferenceBody/AN_PC_HumH_F_ReferenceBody/AN_PC_HumH_F_preset/CH_PC_HumH_F_CM_Body_S.CH_PC_HumH_F_CM_Body_S'
+        ParameterName = None
+    }
+}
+VectorParameterValues[1] =
+{
+    VectorParameterValues[0] =
+    {
+        ParameterInfo = { Name=Skin_ColorBlend }
+        ParameterValue = { R=1, G=0.977181, B=0.96706, A=0 }
+        ParameterName = None
+    }
+}
+BasePropertyOverrides =
+{
+    bOverride_BlendMode = false
+    BlendMode = BLEND_Masked (1)
+    bOverride_TwoSided = false
+    TwoSided = false
+    bOverride_OpacityMaskClipValue = false
+    OpacityMaskClipValue = 0.3333
+}
+StaticParameters =
+{
+    StaticSwitchParameters[0] = {}
+    StaticComponentMaskParameters[0] = {}
+    TerrainLayerWeightParameters[0] = {}
+    MaterialLayersParameters[0] = {}
+}
+RuntimeVirtualTextureParameterValues[0] = {}
+FontParameterValues[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[6] =
+{
+    TextureStreamingData[0] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_MM_Black_CM_D_KTK
+    }
+    TextureStreamingData[1] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_PC_HumH_F_CM_Body_D_BJH
+    }
+    TextureStreamingData[2] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_PC_HumH_F_CM_Body_Muscle_N_BC
+    }
+    TextureStreamingData[3] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_PC_HumH_F_CM_Body_MuscleLess_N_BJH
+    }
+    TextureStreamingData[4] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_PC_HumH_F_CM_Body_S
+    }
+    TextureStreamingData[5] =
+    {
+        SamplingScale = 2
+        UVChannelIndex = 0
+        TextureName = Good64x64TilingNoiseHighFreq
+    }
+}

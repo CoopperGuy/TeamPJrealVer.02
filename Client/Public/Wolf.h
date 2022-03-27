@@ -57,6 +57,8 @@ public:
 	void Set_HpBar(CMonHpVIBuffer* _hp);
 	void Gravity(_double dDeltaTime);
 
+	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
+
 
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);

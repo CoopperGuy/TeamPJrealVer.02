@@ -1,0 +1,78 @@
+Parent = MaterialInstanceConstant'/Game/Animation/NPC/NPC_ReferenceBody/AN_NPC_HumA_FC_ReferenceBody/CH_NPC_HumA_FC_Face001_MI_G_HJO.CH_NPC_HumA_FC_Face001_MI_G_HJO'
+ScalarParameterValues[3] =
+{
+    ScalarParameterValues[0] =
+    {
+        ParameterInfo = { Name=Opacity_Mask_Black }
+        ParameterValue = 0
+        ParameterName = None
+    }
+    ScalarParameterValues[1] =
+    {
+        ParameterInfo = { Name=Opacity_Mask_White }
+        ParameterValue = 0.239226
+        ParameterName = None
+    }
+    ScalarParameterValues[2] =
+    {
+        ParameterInfo = { Name=RefractionDepthBias }
+        ParameterValue = 0
+        ParameterName = None
+    }
+}
+TextureParameterValues[3] =
+{
+    TextureParameterValues[0] =
+    {
+        ParameterInfo = { Name=Tex_BaseColor }
+        ParameterValue = Texture2D'/Game/Animation/NPC/NPC_ReferenceBody/AN_NPC_HumA_FC_ReferenceBody/CH_NPC_HumA_FC_Eye001_D_HJO.CH_NPC_HumA_FC_Eye001_D_HJO'
+        ParameterName = None
+    }
+    TextureParameterValues[1] =
+    {
+        ParameterInfo = { Name=Tex_Emissive Mask }
+        ParameterValue = Texture2D'/Game/Animation/NPC/NPC_ReferenceBody/AN_NPC_HumA_FC_ReferenceBody/CH_NPC_HumA_FC_Eyelash001_D_HJO.CH_NPC_HumA_FC_Eyelash001_D_HJO'
+        ParameterName = None
+    }
+    TextureParameterValues[2] =
+    {
+        ParameterInfo = { Name=Tex_Normal }
+        ParameterValue = Texture2D'/Game/Character/Common/BC_CH_Eyes/T_Eye_Wet_Normal.T_Eye_Wet_Normal'
+        ParameterName = None
+    }
+}
+VectorParameterValues[1] =
+{
+    VectorParameterValues[0] =
+    {
+        ParameterInfo = { Name=Emissive Color }
+        ParameterValue = { R=2.96104, G=2.55257, B=3, A=0 }
+        ParameterName = None
+    }
+}
+BasePropertyOverrides =
+{
+    bOverride_BlendMode = false
+    BlendMode = BLEND_Opaque (0)
+    bOverride_TwoSided = false
+    TwoSided = false
+    bOverride_OpacityMaskClipValue = false
+    OpacityMaskClipValue = 0
+}
+StaticParameters =
+{
+    StaticSwitchParameters[0] = {}
+    StaticComponentMaskParameters[0] = {}
+    TerrainLayerWeightParameters[0] = {}
+    MaterialLayersParameters[0] = {}
+}
+RuntimeVirtualTextureParameterValues[0] = {}
+FontParameterValues[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

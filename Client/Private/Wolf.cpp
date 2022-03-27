@@ -44,7 +44,7 @@ HRESULT CWolf::Initialize(_float3 position)
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pStat->SetSTATE(CStat::STATES_IDEL);
 
-	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,0.f,position.z });
+	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,3.f,position.z });
 	m_pCollider->SetPosition(_float3(0, 0, 0));
 
 	SetUpAnimation();
@@ -111,7 +111,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 			_vector vTargetPos, vPos;
 			vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
-			vDis= vTargetPos - vPos;
+			vDis = vTargetPos - vPos;
 
 			vDis = XMVectorSetY(vDis, 0.f);
 			m_pTransform->SetLook(vDis);
@@ -183,7 +183,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		WolfLookPlayer();
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
-			if (XMVectorGetX(TargetDistance) >dis || XMVectorGetZ(TargetDistance) >dis)
+			if (XMVectorGetX(TargetDistance) > dis || XMVectorGetZ(TargetDistance) > dis)
 				m_pWolfState = RUN;
 			else
 				m_pWolfState = STRAIGHTATACK;
@@ -219,13 +219,18 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		}
 		break;
 	case Client::CWolf::DAMAGE: {
-		if (m_iBlood<=1){
+		if (m_iBlood <= 1) {
 			m_iBlood += 1;
-			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_Blood");
+			_matrix pos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
+
+			
+			
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
 			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			
+			CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 		}
-	/*	CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, mypos), CEngine::GetInstance()->GetCurSceneNumber());*/
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
 			m_pWolfState = THREATEN;
@@ -374,4 +379,12 @@ void CWolf::Gravity(_double dDeltaTime)
 	PxControllerFilters filters;
 	if (m_pController)
 		m_pController->move(PxVec3(0.0f, -1.f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);
+}
+_fmatrix CWolf::Remove_ScaleRotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
 }

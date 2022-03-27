@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Blood
-    UUID: 6988520196843046623
+    UUID: 16533228143661620560
     Active: true
     Layer: Default
     Type: Effect
@@ -9,8 +9,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [-171.655563, -69.1025162, 180]
-      Scale: [1.498489797, 1.49888131, 1.996746063]
+      Rotation: [20.6697197, -1.60999036, -5.33818749e-08]
+      Scale: [0.999805152, 0.99986881, 0.999529302]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,40 +36,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-    Children:
-      - Name: Empty Object
-        UUID: 11185295075021569558
-        Active: true
-        Layer: Default
-        Type: Effect
-        PassIndex: 1
-        BillBord: true
-        Com_Transform:
-          Translation: [-0.0392054617, 0.205736041, 0.00579789281]
-          Rotation: [0, -0, 0]
-          Scale: [1.5, 1.5, 1]
-        Com_VIBuffer:
-          {}
-        Effect_Setting:
-          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
-          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_bloodse.png
-          TextureNoisePath: ""
-          TextureNormalPath: ""
-          ScrollSpeedX: [0, -1.20000005, 0]
-          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-          Distortion1: [0.100000001, 0.200000003]
-          Distortion2: [0.100000001, 0.300000012]
-          Distortion3: [0.100000001, 0.100000001]
-          DistortionScale: 0.800000012
-          DistortionBias: 0.5
-          FadeOut: true
-          FadeOutDuration: 0.5
-          FadeOutStratTime: 0
-          FadeIn: false
-          FadeInDuration: 0
-          FadeInStratTime: 0
-          EffectDuration: 0.5
-          SpriteNumX: 0
-          SpriteNumY: 0
-          SpriteTotal: 0
-          SpriteSpeed: 5
+      Alpha: 1
