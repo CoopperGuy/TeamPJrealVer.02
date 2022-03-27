@@ -31,6 +31,10 @@ HRESULT CEffectBloodDecal::Initialize(void* pArg, _vector pos)
 		if (m_pGameObject == nullptr)
 			return E_FAIL;
 
+		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+
+		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
 	}
 	return S_OK;
 }
@@ -45,14 +49,12 @@ void CEffectBloodDecal::Update(_double deltaTime)
 
 	m_dDeadTime += deltaTime;
 
-	if (m_pTransform->GetScale(CTransform::STATE_UP) >= 1.3f)
-		m_bDead = true;
 
 }
 
 void CEffectBloodDecal::LateUpdate(_double deltaTime)
 {
-	if (m_dDeadTime>=10.f)
+	if (m_dDeadTime>=static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

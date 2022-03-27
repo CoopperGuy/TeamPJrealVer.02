@@ -1,0 +1,78 @@
+TwoSided = true
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[2] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/ArtMain/DefaultData/Textures/Dot_Tex.Dot_Tex'
+    ReferencedTextures[1] = Texture2D'/Game/ArtMain/DefaultData/Textures/Fur_Mask_Tex.Fur_Mask_Tex'
+}
+Expressions[37] =
+{
+    Expressions[4] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_0'
+    Expressions[6] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_1'
+    Expressions[8] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionVectorParameter_0'
+    Expressions[11] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_2'
+    Expressions[12] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_3'
+    Expressions[19] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_7'
+    Expressions[20] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_8'
+    Expressions[22] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_9'
+    Expressions[25] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_10'
+    Expressions[26] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionScalarParameter_11'
+    Expressions[34] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/SkyBox/BU_NightSky.MaterialExpressionVectorParameter_1'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Additive (3)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[0] = {}
+CollectedScalarParameters[9] =
+{
+    CollectedScalarParameters[0] = { Value=1, Name=Stars_Tile, Group=Stars }
+    CollectedScalarParameters[1] = { Value=1, Name=Stars_Contrast, Group=Stars }
+    CollectedScalarParameters[2] = { Value=0, Name=Moon_Position_U, Group=Moon }
+    CollectedScalarParameters[3] = { Value=0, Name=Moon_Position_V, Group=Moon }
+    CollectedScalarParameters[4] = { Value=1, Name=Moon_Size, Group=Moon }
+    CollectedScalarParameters[5] = { Value=0, Name=Moon_Rotate, Group=Moon }
+    CollectedScalarParameters[6] = { Value=1, Name=Stars_MoveSpeed, Group=Stars }
+    CollectedScalarParameters[7] = { Value=1, Name=Stars_Toggle, Group=Switch }
+    CollectedScalarParameters[8] = { Value=1, Name=Moon_Toggle, Group=Switch }
+}
+CollectedVectorParameters[2] =
+{
+    CollectedVectorParameters[0] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = Stars_Color
+        Group = Stars
+    }
+    CollectedVectorParameters[1] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = Moon_Color
+        Group = Moon
+    }
+}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

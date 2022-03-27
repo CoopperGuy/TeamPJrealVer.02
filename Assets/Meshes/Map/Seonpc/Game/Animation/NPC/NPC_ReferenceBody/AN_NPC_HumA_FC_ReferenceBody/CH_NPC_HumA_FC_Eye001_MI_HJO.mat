@@ -1,0 +1,7 @@
+Diffuse=EyeIrisBaseColor_Example_2
+Normal=T_Eye_Wet_Normal
+Cube=DefaultDiffuse
+Other[0]=EyeScleraBaseColor_Example_2
+Other[1]=Sphere_EYE_NORMALS
+Other[2]=EYE_NORMALS
+Other[3]=EyeMidPlaneDisplacement_Example

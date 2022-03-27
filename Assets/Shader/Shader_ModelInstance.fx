@@ -317,15 +317,15 @@ PS_OUT	PS_MAIN(PS_IN In)
 		discard;
 
 
-	Out.vDiffuse = color;
 
     vector vNormalDesc = g_NormalTexture.Sample(g_DefaultSampler, In.vTexUV);
 	float3 vNormal = vNormalDesc.xyz * 2.f - 1.f;
 	float3x3 TBN = float3x3(In.vTangent, In.vBiNormal, In.vNormal);
 	vNormal = mul(vNormal, TBN);
 
+	Out.vDiffuse = color;
     //Out.vNormal = vNormalDesc;
-    Out.vNormal = vector(In.vNormal.xyz * 0.5f + 0.5f, 1.0f);
+    Out.vNormal = vector(vNormal.xyz * 0.5f + 0.5f, 1.0f);
 	Out.vDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);
     Out.vDecalDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);
 	//Out.vDiffuse = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);	

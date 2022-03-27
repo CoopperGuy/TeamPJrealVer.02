@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\DropRock.h"
 #include "PortalUI.h"
+#include "EffectRockDust.h"
+#include "EventCheck.h"
 USING(Client)
 
 CDropRock::CDropRock()
@@ -61,12 +63,19 @@ void CDropRock::Update(_double deltaTime)
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ PosX,PosY,PosZ });
 
+	MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
 }
 
 void CDropRock::LateUpdate(_double deltaTime)
 {
 	if (0>=XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
+		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
+
+		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_InsDust");
+		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

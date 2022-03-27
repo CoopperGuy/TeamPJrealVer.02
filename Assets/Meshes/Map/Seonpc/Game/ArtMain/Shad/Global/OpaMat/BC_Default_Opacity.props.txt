@@ -1,0 +1,261 @@
+TwoSided = false
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[3] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/ArtMain/DefaultData/BO_Tex/CH_MM_Default_D_HSI.CH_MM_Default_D_HSI'
+    ReferencedTextures[1] = Texture2D'/Game/ArtMain/DefaultData/Textures/T_Default_Normal.T_Default_Normal'
+    ReferencedTextures[2] = Texture2D'/Game/ArtMain/DefaultData/Textures/T_EV_DustPanner_01.T_EV_DustPanner_01'
+}
+Expressions[120] =
+{
+    Expressions[4] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_9'
+    Expressions[6] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_1'
+    Expressions[7] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_5'
+    Expressions[8] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_6'
+    Expressions[21] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionVectorParameter_2'
+    Expressions[25] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_55'
+    Expressions[28] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionVectorParameter_4'
+    Expressions[31] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_1'
+    Expressions[33] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_4'
+    Expressions[36] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_80'
+    Expressions[37] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_79'
+    Expressions[39] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_78'
+    Expressions[41] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_77'
+    Expressions[42] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_76'
+    Expressions[44] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_75'
+    Expressions[45] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_74'
+    Expressions[47] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_73'
+    Expressions[48] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_72'
+    Expressions[51] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_0'
+    Expressions[53] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_88'
+    Expressions[54] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_87'
+    Expressions[58] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_7'
+    Expressions[59] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_24'
+    Expressions[61] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_18'
+    Expressions[62] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_13'
+    Expressions[64] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_21'
+    Expressions[65] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_22'
+    Expressions[66] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_5'
+    Expressions[67] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionVectorParameter_3'
+    Expressions[71] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_25'
+    Expressions[74] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_28'
+    Expressions[77] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_2'
+    Expressions[79] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_29'
+    Expressions[81] = MaterialExpressionVectorParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionVectorParameter_5'
+    Expressions[83] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_0'
+    Expressions[86] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_1'
+    Expressions[89] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_3'
+    Expressions[90] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_2'
+    Expressions[94] = MaterialExpressionStaticBoolParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticBoolParameter_6'
+    Expressions[96] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_3'
+    Expressions[104] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_5'
+    Expressions[111] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_6'
+    Expressions[112] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_7'
+    Expressions[115] = MaterialExpressionStaticSwitchParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionStaticSwitchParameter_2'
+    Expressions[117] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_4'
+    Expressions[118] = MaterialExpressionScalarParameter'/Game/ArtMain/Shad/Global/OpaMat/BC_Default_Opacity.MaterialExpressionScalarParameter_8'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Additive (3)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[0] = {}
+CollectedScalarParameters[29] =
+{
+    CollectedScalarParameters[0] = { Value=1, Name=Default_Normal Depth, Group=Normal }
+    CollectedScalarParameters[1] =
+    {
+        Value = 0
+        Name = Default_Metallic Min
+        Group = Base Shading
+    }
+    CollectedScalarParameters[2] =
+    {
+        Value = 1
+        Name = Default_Metallic Max
+        Group = Base Shading
+    }
+    CollectedScalarParameters[3] =
+    {
+        Value = 0
+        Name = Default_Metallic Intensity
+        Group = Base Shading
+    }
+    CollectedScalarParameters[4] =
+    {
+        Value = 0
+        Name = Default_Roughness Min
+        Group = Base Shading
+    }
+    CollectedScalarParameters[5] =
+    {
+        Value = 1
+        Name = Default_Roughness Max
+        Group = Base Shading
+    }
+    CollectedScalarParameters[6] =
+    {
+        Value = 0.8
+        Name = Default_Roughness Intensity
+        Group = Base Shading
+    }
+    CollectedScalarParameters[7] =
+    {
+        Value = 0.1
+        Name = Default_Specular Intensity
+        Group = Base Shading
+    }
+    CollectedScalarParameters[8] =
+    {
+        Value = 1
+        Name = Default_Specular Max
+        Group = Base Shading
+    }
+    CollectedScalarParameters[9] =
+    {
+        Value = 0
+        Name = Default_Specular Min
+        Group = Base Shading
+    }
+    CollectedScalarParameters[10] = { Value=1, Name=Opacity_Mask_White, Group=Opacity }
+    CollectedScalarParameters[11] = { Value=0, Name=Opacity_Mask_Black, Group=Opacity }
+    CollectedScalarParameters[12] =
+    {
+        Value = 0.5
+        Name = Reflection_Amount
+        Group = Reflaction
+    }
+    CollectedScalarParameters[13] = { Value=6, Name=Fresnel_Exp, Group=Opacity }
+    CollectedScalarParameters[14] =
+    {
+        Value = 0
+        Name = Fresnel_BaseReflectFractionIn
+        Group = Opacity
+    }
+    CollectedScalarParameters[15] = { Value=0, Name=Fresnel_Min, Group=Opacity }
+    CollectedScalarParameters[16] = { Value=1, Name=Fresnel_Max, Group=Opacity }
+    CollectedScalarParameters[17] =
+    {
+        Value = 0.95
+        Name = Reflection_In_Amount
+        Group = Reflaction
+    }
+    CollectedScalarParameters[18] =
+    {
+        Value = 2
+        Name = VolumeSphere_Amount
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[19] =
+    {
+        Value = 100
+        Name = VolumeSphere_Radius
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[20] =
+    {
+        Value = 64
+        Name = VolumePixelDepth_FadeDistance
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[21] =
+    {
+        Value = 8
+        Name = VolumePixelDepth_Falloff
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[22] =
+    {
+        Value = 500
+        Name = VolumePixelDepth_CameraDistance
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[23] =
+    {
+        Value = 0.25
+        Name = VolumePixelDepth_Opacity
+        Group = OpacityVolume
+    }
+    CollectedScalarParameters[24] =
+    {
+        Value = -0.01
+        Name = BackFaceHide_Bias
+        Group = Opacity
+    }
+    CollectedScalarParameters[25] =
+    {
+        Value = 10240
+        Name = BackFaceHide_Divide
+        Group = Opacity
+    }
+    CollectedScalarParameters[26] =
+    {
+        Value = -0.01
+        Name = BackFaceHide_addBias
+        Group = Opacity
+    }
+    CollectedScalarParameters[27] =
+    {
+        Value = 1
+        Name = Fresnel_Exp_Emissive
+        Group = Emissive
+    }
+    CollectedScalarParameters[28] =
+    {
+        Value = 2
+        Name = Fresnel_BaseReflectFractionIn_Emissive
+        Group = Emissive
+    }
+}
+CollectedVectorParameters[4] =
+{
+    CollectedVectorParameters[0] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = BaseColor Default ColorBlend
+        Group = Base Shading
+    }
+    CollectedVectorParameters[1] =
+    {
+        Value = { R=0, G=0, B=0, A=0 }
+        Name = Emissive Color
+        Group = Emissive
+    }
+    CollectedVectorParameters[2] =
+    {
+        Value = { R=0.545, G=0.545, B=0.545, A=1 }
+        Name = Base_Color
+        Group = Base Shading
+    }
+    CollectedVectorParameters[3] =
+    {
+        Value = { R=0, G=0, B=0, A=0 }
+        Name = VolumeSphere_Location
+        Group = OpacityVolume
+    }
+}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

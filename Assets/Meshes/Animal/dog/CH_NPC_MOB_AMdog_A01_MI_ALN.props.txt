@@ -1,0 +1,104 @@
+Parent = MaterialInstanceConstant'/Game/ArtMain/Shad/CH/CH_Master_MI/CH_UAM_ADNS.CH_UAM_ADNS'
+ScalarParameterValues[1] =
+{
+    ScalarParameterValues[0] =
+    {
+        ParameterInfo = { Name=RefractionDepthBias }
+        ParameterValue = 0
+        ParameterName = None
+    }
+}
+TextureParameterValues[4] =
+{
+    TextureParameterValues[0] =
+    {
+        ParameterInfo = { Name=Tex_Area Mask }
+        ParameterValue = Texture2D'/Game/Animation/Monster/AN_NPC_MOB_AMdog/SkeletalMesh/CH_NPC_MOB_AMDog_A01_A.CH_NPC_MOB_AMDog_A01_A'
+        ParameterName = None
+    }
+    TextureParameterValues[1] =
+    {
+        ParameterInfo = { Name=Tex_BaseColor }
+        ParameterValue = Texture2D'/Game/Animation/Monster/AN_NPC_MOB_AMdog/SkeletalMesh/CH_NPC_MOB_AMDog_A01_D_ALN.CH_NPC_MOB_AMDog_A01_D_ALN'
+        ParameterName = None
+    }
+    TextureParameterValues[2] =
+    {
+        ParameterInfo = { Name=Tex_Normal }
+        ParameterValue = Texture2D'/Game/Animation/Monster/AN_NPC_MOB_AMdog/SkeletalMesh/CH_NPC_MOB_AMDog_A01_N_ALN.CH_NPC_MOB_AMDog_A01_N_ALN'
+        ParameterName = None
+    }
+    TextureParameterValues[3] =
+    {
+        ParameterInfo = { Name=Tex_Shade Mask }
+        ParameterValue = Texture2D'/Game/Animation/Monster/AN_NPC_MOB_AMdog/SkeletalMesh/CH_NPC_MOB_AMDog_A01_S.CH_NPC_MOB_AMDog_A01_S'
+        ParameterName = None
+    }
+}
+VectorParameterValues[1] =
+{
+    VectorParameterValues[0] =
+    {
+        ParameterInfo = { Name=BaseColor Reather ColorBlend }
+        ParameterValue = { R=0.833333, G=0.801337, B=0.728806, A=0 }
+        ParameterName = None
+    }
+}
+BasePropertyOverrides =
+{
+    bOverride_BlendMode = false
+    BlendMode = BLEND_Masked (1)
+    bOverride_TwoSided = false
+    TwoSided = true
+    bOverride_OpacityMaskClipValue = false
+    OpacityMaskClipValue = 0.3333
+}
+StaticParameters =
+{
+    StaticSwitchParameters[0] = {}
+    StaticComponentMaskParameters[0] = {}
+    TerrainLayerWeightParameters[0] = {}
+    MaterialLayersParameters[0] = {}
+}
+RuntimeVirtualTextureParameterValues[0] = {}
+FontParameterValues[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[5] =
+{
+    TextureStreamingData[0] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_NPC_MOB_AMDog_A01_A
+    }
+    TextureStreamingData[1] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_NPC_MOB_AMDog_A01_N_ALN
+    }
+    TextureStreamingData[2] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = CH_NPC_MOB_AMDog_A01_S
+    }
+    TextureStreamingData[3] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = Good64x64TilingNoiseHighFreq
+    }
+    TextureStreamingData[4] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = LV_MM_Black_D_HSI
+    }
+}

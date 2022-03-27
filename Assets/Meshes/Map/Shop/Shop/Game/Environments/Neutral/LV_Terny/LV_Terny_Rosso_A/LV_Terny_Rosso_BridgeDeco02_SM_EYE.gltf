@@ -1,0 +1,385 @@
+{
+  "asset" : {
+    "generator" : "UE Viewer (umodel) build 1585",
+    "version" : "2.0"
+  },
+  "scene" : 0,
+  "scenes" : [
+    {
+      "nodes" : [ 0 ]
+    }
+  ],
+  "nodes" : [
+    {
+      "name" : "LV_Terny_Rosso_BridgeDeco02_SM_EYE",
+      "mesh" : 0
+    }
+  ],
+  "materials" : [
+    {
+      "name" : "LV_Terny_Rosso_Border01_MI_EYE",
+      "pbrMetallicRoughness" : {
+        "baseColorFactor" : [ 0.3, 0.3, 0.3, 1.0 ],
+        "metallicFactor" : 0.1,
+        "roughnessFactor" : 0.5
+      }
+    },
+    {
+      "name" : "LV_Terny_Roof02_MI_EYE",
+      "pbrMetallicRoughness" : {
+        "baseColorFactor" : [ 0.9, 0.3, 0.3, 1.0 ],
+        "metallicFactor" : 0.1,
+        "roughnessFactor" : 0.5
+      }
+    },
+    {
+      "name" : "LV_Terny_Rosso_Wall03_MI_EYE",
+      "pbrMetallicRoughness" : {
+        "baseColorFactor" : [ 0.3, 0.9, 0.3, 1.0 ],
+        "metallicFactor" : 0.1,
+        "roughnessFactor" : 0.5
+      }
+    },
+    {
+      "name" : "LV_Terny_Rosso_Wall01_MI_EYE",
+      "pbrMetallicRoughness" : {
+        "baseColorFactor" : [ 0.3, 0.3, 0.9, 1.0 ],
+        "metallicFactor" : 0.1,
+        "roughnessFactor" : 0.5
+      }
+    }
+  ],
+  "meshes" : [
+    {
+      "primitives" : [
+        {
+          "attributes" : {
+            "POSITION" : 1,
+            "NORMAL" : 2,
+            "TANGENT" : 3,
+            "TEXCOORD_0" : 4,
+            "TEXCOORD_1" : 5
+          },
+          "indices" : 0,
+          "material" : 0
+        },
+        {
+          "attributes" : {
+            "POSITION" : 7,
+            "NORMAL" : 8,
+            "TANGENT" : 9,
+            "TEXCOORD_0" : 10,
+            "TEXCOORD_1" : 11
+          },
+          "indices" : 6,
+          "material" : 1
+        },
+        {
+          "attributes" : {
+            "POSITION" : 13,
+            "NORMAL" : 14,
+            "TANGENT" : 15,
+            "TEXCOORD_0" : 16,
+            "TEXCOORD_1" : 17
+          },
+          "indices" : 12,
+          "material" : 2
+        },
+        {
+          "attributes" : {
+            "POSITION" : 19,
+            "NORMAL" : 20,
+            "TANGENT" : 21,
+            "TEXCOORD_0" : 22,
+            "TEXCOORD_1" : 23
+          },
+          "indices" : 18,
+          "material" : 3
+        }
+      ],
+      "name" : "LV_Terny_Rosso_BridgeDeco02_SM_EYE"
+    }
+  ],
+  "buffers" : [
+    {
+      "uri" : "LV_Terny_Rosso_BridgeDeco02_SM_EYE.bin",
+      "byteLength" : 167616
+    }
+  ],
+  "bufferViews" : [
+    {
+      "buffer" : 0,
+      "byteOffset" : 0,
+      "byteLength" : 3708
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 3708,
+      "byteLength" : 10440
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 14148,
+      "byteLength" : 10440
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 24588,
+      "byteLength" : 13920
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 38508,
+      "byteLength" : 6960
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 45468,
+      "byteLength" : 6960
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 52428,
+      "byteLength" : 3108
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 55536,
+      "byteLength" : 9936
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 65472,
+      "byteLength" : 9936
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 75408,
+      "byteLength" : 13248
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 88656,
+      "byteLength" : 6624
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 95280,
+      "byteLength" : 6624
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 101904,
+      "byteLength" : 5184
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 107088,
+      "byteLength" : 11472
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 118560,
+      "byteLength" : 11472
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 130032,
+      "byteLength" : 15296
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 145328,
+      "byteLength" : 7648
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 152976,
+      "byteLength" : 7648
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 160624,
+      "byteLength" : 384
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 161008,
+      "byteLength" : 1416
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 162424,
+      "byteLength" : 1416
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 163840,
+      "byteLength" : 1888
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 165728,
+      "byteLength" : 944
+    },
+    {
+      "buffer" : 0,
+      "byteOffset" : 166672,
+      "byteLength" : 944
+    }
+  ],
+  "accessors" : [
+    {
+      "bufferView" : 0,
+      "componentType" : 5123,
+      "count" : 1854,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 1,
+      "min" : [ -2.4, 1.16211, 3.10022e-07 ],
+      "max" : [ 2.4, 2.32106, 1.4729 ],
+      "componentType" : 5126,
+      "count" : 870,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 2,
+      "componentType" : 5126,
+      "count" : 870,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 3,
+      "componentType" : 5126,
+      "count" : 870,
+      "type" : "VEC4"
+    },
+    {
+      "bufferView" : 4,
+      "componentType" : 5126,
+      "count" : 870,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 5,
+      "componentType" : 5126,
+      "count" : 870,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 6,
+      "componentType" : 5123,
+      "count" : 1554,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 7,
+      "min" : [ -2.4, 1.3143, 0.541297 ],
+      "max" : [ 2.4, 2.08531, 1.4713 ],
+      "componentType" : 5126,
+      "count" : 828,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 8,
+      "componentType" : 5126,
+      "count" : 828,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 9,
+      "componentType" : 5126,
+      "count" : 828,
+      "type" : "VEC4"
+    },
+    {
+      "bufferView" : 10,
+      "componentType" : 5126,
+      "count" : 828,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 11,
+      "componentType" : 5126,
+      "count" : 828,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 12,
+      "componentType" : 5123,
+      "count" : 2592,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 13,
+      "min" : [ -2.4, -0.268556, 1.156 ],
+      "max" : [ 2.4, 1.43066, 1.27839 ],
+      "componentType" : 5126,
+      "count" : 956,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 14,
+      "componentType" : 5126,
+      "count" : 956,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 15,
+      "componentType" : 5126,
+      "count" : 956,
+      "type" : "VEC4"
+    },
+    {
+      "bufferView" : 16,
+      "componentType" : 5126,
+      "count" : 956,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 17,
+      "componentType" : 5126,
+      "count" : 956,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 18,
+      "componentType" : 5123,
+      "count" : 192,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 19,
+      "min" : [ -2.40001, -0.268557, 2.17143e-07 ],
+      "max" : [ 2.4, -5.12869e-08, 1.2269 ],
+      "componentType" : 5126,
+      "count" : 118,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 20,
+      "componentType" : 5126,
+      "count" : 118,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 21,
+      "componentType" : 5126,
+      "count" : 118,
+      "type" : "VEC4"
+    },
+    {
+      "bufferView" : 22,
+      "componentType" : 5126,
+      "count" : 118,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 23,
+      "componentType" : 5126,
+      "count" : 118,
+      "type" : "VEC2"
+    }
+  ]
+}
