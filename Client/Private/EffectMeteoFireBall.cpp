@@ -85,14 +85,14 @@ void CEffectMeteoFireBall::LateUpdate(_double deltaTime)
 		m_pGameObject->SetDead();
 	}
 
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+	if (deaddt>= 0.22f)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
 
 
-	if (0.1 >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	if (0.1f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

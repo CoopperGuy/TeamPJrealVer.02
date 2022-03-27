@@ -48,6 +48,7 @@ private:
 	void Flying(_double dDeltaTime);
 	
 	void OrganizeEffect(Flogas eState);
+	void Hit();
 
 	_float SetDistance();
 	_bool OriginShift(_double dDeltaTime);
@@ -92,6 +93,7 @@ private:
 	_bool m_bChanged		= false;
 	_bool m_bMakeEffect = false;
 	_bool m_bMakeFirewave = false;
+	_bool m_bMakeBlood = false;
 
 	_float m_fDist			 = 0.f;
 	_double m_dSpecialDelay  = 3.f;
@@ -105,6 +107,8 @@ private:
 	_uint m_iFlyingCount	 = 0;
 	_uint m_iOnePatternCount = 0;
 	_uint m_iMakeMeteo = 0;
+	_uint m_iBlood = 0;
+
 
 	_float3 m_vTargetToLook;
 	_float3 m_vCenterPos;
@@ -118,5 +122,6 @@ private:
 	_float4x4			m_wpBoneMatrix;
 	_bool				m_DrawTrail = false;
 	CTownPortal*		m_pPortal = nullptr;
+	CBasicCollider*		m_pOBB = nullptr;
 };
 END

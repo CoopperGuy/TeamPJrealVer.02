@@ -45,3 +45,12 @@ _vector CCharacter::GetBonePosition(BONEDESC * pBone)
 
 	return t;
 }
+
+void CCharacter::Update(_double deltaTime)
+{
+	
+}
+
+void CCharacter::LateUpdate(_double deltaTime)
+{
+}

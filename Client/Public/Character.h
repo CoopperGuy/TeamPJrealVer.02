@@ -32,6 +32,12 @@ protected:
 	PxController*	m_pController = nullptr;
 public:
 	CModel*			m_pModel = nullptr;
+
+	// Inherited via IScriptObject
+	virtual void Update(_double deltaTime) override;
+
+	// Inherited via IScriptObject
+	virtual void LateUpdate(_double deltaTime) override;
 };
 
 END

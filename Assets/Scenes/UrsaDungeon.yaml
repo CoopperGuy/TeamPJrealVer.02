@@ -1,6 +1,6 @@
 Scene: Untitled
 GameObjects:
-  - Name: light
+  - Name: Direction
     UUID: 463561755303631127
     Active: true
     Layer: Default
