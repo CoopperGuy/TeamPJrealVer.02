@@ -337,8 +337,16 @@ HRESULT CLoader::GameSceneSEO()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, -4.f));
 
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
-	//	MSG_BOX("Failed To Create E_Blood Prefab");
+	m_ThreadLoader = new CThreadLoader(6);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Blood", "E_IIBlood", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BloodDecal", "E_BloodDecal", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 0);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO, 0);
+
+	/*if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
+		MSG_BOX("Failed To Create E_Blood Prefab");
 
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BloodDecal", "E_BloodDecal")))
 	//	MSG_BOX("Failed To Create BloodDecal Prefab");
@@ -352,13 +360,18 @@ HRESULT CLoader::GameSceneSEO()
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Rock", "O_Rock")))
 	//	MSG_BOX("Failed To Create Rock Prefab");
 
+
 	if (FAILED(GameFlogasLoader()))
 		MSG_BOX("Failed To Create Flogas Effect");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/CityMap.yaml", SCENE_SEO);
+
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO);
+
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
+
+	SafeRelease(m_ThreadLoader);
 
 	m_isFinish = true;
 
