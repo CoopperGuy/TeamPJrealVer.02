@@ -136,8 +136,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.68122411, -3.21823137e-07, -0.665211558]
-      Rotation: [19.0837841, 46.5234871, 0]
-      Scale: [0.18402575, 0.185143471, 0.202306986]
+      Rotation: [-118.189697, 78.4992294, -179.999985]
+      Scale: [0.19718039, 0.197259456, 0.229548931]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -174,8 +174,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.88122892, 0.308779508, 0.522710443]
-      Rotation: [19.083786, 46.5234909, 0]
-      Scale: [0.898513377, 0.898837149, 0.905062139]
+      Rotation: [-118.189697, 78.4992294, -179.999985]
+      Scale: [0.963959098, 0.957162678, 1.02747858]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -213,7 +213,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867716]
+      Scale: [1, 1.10000002, 1.0986768]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
@@ -238,6 +238,44 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0.5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
+  - Name: DecalTest
+    UUID: 16470094205010690303
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0.264552534, -0.00911124796, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Decal:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDecal\FX_Crack_003.png
+      TextureNoisePath: ""
+      TextureNormalPath: ..\..\Assets\Textures\Effect\DooDecal\FX_CrackNormal_008_TEX_PYS.png
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0

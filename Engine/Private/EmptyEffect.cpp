@@ -516,7 +516,7 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		if (m_pTexture[TEXTURE_NOISE])
 			pDecal->GetShader()->SetUp_TextureOnShader("g_NoiseTexture", m_pTexture[TEXTURE_NOISE]);
 
-		pDecal->Render();
+		pDecal->Render(m_iPassIndex);
 	}
 
 	/* Render PointInstance */

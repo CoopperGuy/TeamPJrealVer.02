@@ -76,6 +76,13 @@ HRESULT CEffectFly::Initialize(void* pArg)
 		//{
 		//	MSG_BOX("Failed to AddComponent");
 		//}
+		/*desc.eType = LIGHTDESC::LIGHT_POINT;
+		CComponent* pLight = CLight::Create(CEngine::GetInstance()->GetDevice(), CEngine::GetInstance()->GetDeviceContext(), desc, tr);
+
+		if (FAILED(m_pGameObject->AddComponent("Com_Light", pLight)))
+		{
+			MSG_BOX("Failed to AddComponent");
+		}*/
 
 	}
 	return S_OK;

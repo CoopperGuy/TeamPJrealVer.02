@@ -188,10 +188,14 @@ HRESULT CInstanceModel::Bind_Buffers(_uint iPassIndex, void* pArg)
 	}
 	else
 	{
-		_uint lightIndex = CLightManager::GetInstance()->GetCurrentIndex();
-		SetUp_ValueOnShader("g_LightViewMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(lightIndex)), sizeof(_matrix));
-		SetUp_ValueOnShader("g_LightProjMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(lightIndex)), sizeof(_matrix));
-		SetUp_ValueOnShader("lightPosition0", &CLightManager::GetInstance()->GetPosition(lightIndex), sizeof(_float3));
+		_uint iNumLight = CLightManager::GetInstance()->GetNumRenderLights();
+		if (iNumLight > 0)
+		{
+			_uint lightIndex = CLightManager::GetInstance()->GetCurrentIndex();
+			SetUp_ValueOnShader("g_LightViewMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetViewMatrix(lightIndex)), sizeof(_matrix));
+			SetUp_ValueOnShader("g_LightProjMatrix0", &XMMatrixTranspose(CLightManager::GetInstance()->GetProjMatrix(lightIndex)), sizeof(_matrix));
+			SetUp_ValueOnShader("lightPosition0", &CLightManager::GetInstance()->GetPosition(lightIndex), sizeof(_float3));
+		}
 	}
 
 

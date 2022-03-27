@@ -136,7 +136,7 @@ HRESULT CVIBuffer_Cube::Initialize(void * pArg)
 
 HRESULT CVIBuffer_Cube::Render(_uint iPassIndex)
 {
-	__super::Render();
+	__super::Render(iPassIndex);
 
 	return S_OK;
 }
