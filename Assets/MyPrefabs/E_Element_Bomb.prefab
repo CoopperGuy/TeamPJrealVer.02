@@ -39,7 +39,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      Alpha: 0.5
     Children:
       - Name: Element_Bomb
         UUID: 1960447721169478958
@@ -58,7 +58,7 @@ GameObjects:
           HasCollider: false
           EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
         Effect_Setting:
-          TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
+          TextureDiffusePath: ""
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
           TextureNormalPath: ""
@@ -80,4 +80,4 @@ GameObjects:
           SpriteNumY: 0
           SpriteTotal: 0
           SpriteSpeed: 5
-          Alpha: 1
+          Alpha: 0.5

@@ -23,7 +23,7 @@ Texture2D   g_DepthTexture;
 
 struct VS_IN
 {
-	float3 vPosition : POSITION; /* ·ÎÄÃ½ºÆäÀÌ½º */
+	float3 vPosition : POSITION; /* ë¡œì»¬ìŠ¤í˜ì´ìŠ¤ */
 	float3 vTexUV : TEXCOORD0;
 
 };
@@ -35,7 +35,7 @@ struct VS_OUT
     float4 vProj : TEXCOORD1;
 };
 
-/* Á¤Á¡ÀÇ ½ºÆäÀÌ½º º¯È¯. (¿ùµå, ºä, Åõ¿µÇà·ÄÀÇ °ö.)*/
+/* ì •ì ì˜ ìŠ¤í˜ì´ìŠ¤ ë³€í™˜. (ì›”ë“œ, ë·°, íˆ¬ì˜í–‰ë ¬ì˜ ê³±.)*/
 VS_OUT VS_MAIN(VS_IN In)
 {
 	VS_OUT		Out = (VS_OUT)0;
@@ -114,7 +114,6 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     return vColor;
 }
 
-
 vector PS_MAIN_REDUP(PS_IN In) : SV_TARGET
 {
     float4 vColor = (float4) 0.f;
@@ -167,6 +166,7 @@ technique11		DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN();
 	}	
+  
     pass RedUpPass
     {
         SetRasterizerState(Rasterizer_Solid);
@@ -177,4 +177,5 @@ technique11		DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_REDUP();
     }
+
 }

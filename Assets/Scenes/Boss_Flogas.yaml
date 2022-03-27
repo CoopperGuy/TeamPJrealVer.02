@@ -3,12 +3,13 @@ GameObjects:
   - Name: Flogas
     UUID: 13424981851195139762
     Active: true
-    Layer: Layer_Flogas
+    Layer: Layer_Monster
     Instancing: false
     Type: Object
     PassIndex: 0
+    NumOBB: 2
     Com_Transform:
-      Translation: [0, 0, -4.7]
+      Translation: [0, 0, -4.69999981]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -26,15 +27,26 @@ GameObjects:
         Kinematic: false
         CharacterController: true
     Com_OBB:
-      Center: [0, 0.5, 0]
-      Size: [0.300000012, 0.300000012, 0.25]
+      Center: [0, 0.100000001, 0]
+      Size: [0.400000006, 0.699999988, 0.400000006]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0.449999988, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.649999976, 0.300000012, 0.100000001]
+      IsAttach: true
+      BoneName: BN_WP_R
+      Offset: [-0.300000012, 0, 0]
+      CollisionType: 3
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Flogas\
       MeshFileName: Flogas.fbx
       HasCollider: false
       Equipment: false
     Com_Stat:
-      Hp: [0, 0, 4000, 100]
+      Hp: [4000, 0, 4000, 100]
       HpRegen: [0, 0]
       Atk: [200, 0, 5]
       Arm: [40, 0, 1]
@@ -54,7 +66,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.5, 0, -0.600000024]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.5, 1.5, 1.5]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -81,6 +93,14 @@ GameObjects:
       MeshFileName: Element_Flogas.fbx
       HasCollider: false
       Equipment: false
+    Com_Stat:
+      Hp: [100, 0, 100, 100]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0, 0, 0]
+      Arm: [1, 0, 1]
+      Exp: [0, 100, 100]
+      Level: 1
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas02
@@ -94,7 +114,7 @@ GameObjects:
     Com_Transform:
       Translation: [6, 0, -1]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.5, 1.5, 1.5]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -121,6 +141,14 @@ GameObjects:
       MeshFileName: Element_Flogas.fbx
       HasCollider: false
       Equipment: false
+    Com_Stat:
+      Hp: [100, 0, 100, 100]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0, 0, 0]
+      Arm: [1, 0, 1]
+      Exp: [0, 100, 100]
+      Level: 1
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas03
@@ -134,7 +162,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.80000019, 0, -8.5]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.5, 1.5, 1.5]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -161,6 +189,14 @@ GameObjects:
       MeshFileName: Element_Flogas.fbx
       HasCollider: false
       Equipment: false
+    Com_Stat:
+      Hp: [100, 0, 100, 100]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0, 0, 0]
+      Arm: [1, 0, 1]
+      Exp: [0, 100, 100]
+      Level: 1
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas04
@@ -174,7 +210,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.80000019, 0, -8.80000019]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.5, 1.5, 1.5]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -201,5 +237,13 @@ GameObjects:
       MeshFileName: Element_Flogas.fbx
       HasCollider: false
       Equipment: false
+    Com_Stat:
+      Hp: [100, 0, 100, 100]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0, 0, 0]
+      Arm: [1, 0, 1]
+      Exp: [0, 100, 100]
+      Level: 1
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
