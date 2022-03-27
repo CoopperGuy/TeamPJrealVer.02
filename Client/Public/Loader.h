@@ -3,7 +3,7 @@
 /* 다음레벨에 대한 리소스 원형, 객체 우넌형을 준비하낟. */
 #include "Client_Defines.h"
 #include "Base.h"
-
+#include "ThreadLoader.h"
 BEGIN(Client)
 class CLoadingGauge;
 class CLoader final : public CBase
@@ -57,6 +57,8 @@ private:
 private:
 	CLoadingGauge*		m_pLoadingGauge = nullptr;
 	unordered_map<std::string, std::thread>	Threads;
+private:
+	CThreadLoader*		m_ThreadLoader;
 
 public:
 	static CLoader* Create(SCENE eScene);

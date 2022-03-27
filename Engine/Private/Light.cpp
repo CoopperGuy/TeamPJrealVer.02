@@ -50,10 +50,12 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 		CLight* light = CLightManager::GetInstance()->GetLightFront();
 		m_pVIBuffer = light->GetVIBuffer();
 		m_bIsClone = true;
+
 	}
 	else {
 		m_pVIBuffer = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, WINCX, WINCY, "../../Assets/Shader/Shader_Rect_Viewport.fx");
 		m_bIsClone = false;
+
 	}
 	if (nullptr == m_pVIBuffer)
 		return E_FAIL;

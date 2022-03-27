@@ -19,7 +19,8 @@ HRESULT CScriptObjectManager::ReserveManager(_uint iNumScenes)
 void CScriptObjectManager::Update(_double deltaTime)
 {
 	for (_uint i = 0; i < m_iNumScenes; i++) {
-		for (auto& iter = m_ScriptObjects[i].begin(); iter != m_ScriptObjects[i].end();) {
+		auto iter = m_ScriptObjects[i].begin();
+		for (; iter != m_ScriptObjects[i].end();) {
 			if ((*iter)->IsDead())
 			{
 				SafeRelease(*iter);

@@ -32,7 +32,7 @@ void CImpactBeam::Update(_double deltaTime)
 	_float delta = (_float)m_DurationDelta;
 	m_pEffectTrans->SetScale(_float3(delta * 1.25f + 0.5f, delta * 2.f + 0.5f, delta * 1.25f + 0.5f));
 	m_Child[0]->SetScale(_float3(delta * 7.f, 0.5f, delta * 7.f));
-	m_Child[1]->SetScale(_float3(delta * 2.f + 0.5f, delta * 2.f + 0.5f, delta * 2.f + 0.5f));
+	m_Child[1]->SetScale(_float3(delta * 1.5f + 0.5f, delta * 1.5f + 0.5f, delta * 1.5f + 0.5f));
 
 }
 

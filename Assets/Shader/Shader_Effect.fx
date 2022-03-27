@@ -157,6 +157,36 @@ VS_OUT_TEST VS_MAIN_TESTUVMOVE(VS_IN In)
     return Out;
 }
 
+VS_OUT_TEST VS_MAIN_TESTUVMOVEX(VS_IN In)
+{
+    VS_OUT_TEST Out = (VS_OUT_TEST) 0;
+
+    matrix matWV, matWVP;
+
+    matWV = mul(g_WorldMatrix, g_ViewMatrix);
+    matWVP = mul(matWV, g_ProjMatrix);
+
+    Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+
+    /* TexUV */    
+    Out.vTexUV.x = In.vTexUV.x + cos(g_ProcessTime * g_UVSpd);
+    Out.vTexUV.y = In.vTexUV.y;
+
+    Out.vTexCoord1 = In.vTexUV * g_vScale.x;
+    Out.vTexCoord1.x = Out.vTexCoord1.x + (g_fFrameTime * g_vScrollSpeedX.x);
+    Out.vTexCoord1.y = Out.vTexCoord1.y + (g_fFrameTime * g_vScrollSpeedY.x);
+
+    Out.vTexCoord2 = In.vTexUV * g_vScale.y;
+    Out.vTexCoord2.x = Out.vTexCoord2.x + (g_fFrameTime * g_vScrollSpeedX.y);
+    Out.vTexCoord2.y = Out.vTexCoord2.y + (g_fFrameTime * g_vScrollSpeedY.y);
+
+    Out.vTexCoord3 = In.vTexUV * g_vScale.z;
+    Out.vTexCoord3.x = Out.vTexCoord3.x + (g_fFrameTime * g_vScrollSpeedX.z);
+    Out.vTexCoord3.y = Out.vTexCoord3.y + (g_fFrameTime * g_vScrollSpeedY.z);
+
+    return Out;
+}
+
 VS_OUT_TEST VS_MAIN_UVHALF(VS_IN In)
 {
     VS_OUT_TEST Out = (VS_OUT_TEST) 0;
@@ -1052,7 +1082,7 @@ technique11 DefaultDevice
 	  PixelShader = compile ps_5_0 PS_MAIN_MaskAlsoSPRITE();
   }
 
-    pass NoMaskEffect
+    pass NoMaskEffect//15
     {
         SetRasterizerState(Rasterizer_NoneCull);
         SetDepthStencilState(DepthStecil_Default, 0);
@@ -1062,4 +1092,16 @@ technique11 DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAINNOAMSK();
     }
+
+    pass MeshEffectMoveRedX //16
+    {
+        SetRasterizerState(Rasterizer_NoneCull);
+        SetDepthStencilState(DepthStecil_Default, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_TESTUVMOVEX();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_MESHREDUP();
+    }
+
 }

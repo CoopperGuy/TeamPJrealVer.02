@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "FlogasDunDoor.h"
 
+
 CLoader::CLoader()
 {
 }
@@ -19,7 +20,7 @@ void ThreadTest(CLoader*	loader, string path, SCENE sceneNum, _int threadIdx) {
 	loader->SetFinish(threadIdx);
 }
 
-void ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit) {
+_int ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit) {
 	if (FAILED(CEngine::GetInstance()->CreatePrefab(_prototypeTag, _name))) {
 		wstring path;
 		path.assign(_name.begin(), _name.end());
@@ -27,6 +28,8 @@ void ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit)
 		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
 	}
 	loader->SetCompleteBit(bit);
+
+	return bit;
 }
 
 unsigned int APIENTRY ThreadMain(void* pArg)
@@ -154,157 +157,42 @@ HRESULT CLoader::GamePlayLoader()
 
 HRESULT CLoader::GameFlogasLoader()
 {
-	std::thread t0(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly" , 0);
-	t0.detach();
+	m_ThreadLoader = new CThreadLoader(23);
 
-	std::thread t1(ThreadPrefab, this, "Prototype_Effect_BossFlyLaser", "E_Laser", 1);
-	t1.detach();
+	std::vector<std::future<_int>> futures;
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BossFlyLaser", "E_Laser", 1);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Dust", "E_DustEffect", 2);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordRing", "E_SwordRing", 3);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Blackhole", "E_Blackhole", 4);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Grab", "E_Grab", 5);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Pajang", "E_Pajangs", 6);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireSlash", "E_FireSlash", 7);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_MeteoTrail", "E_MeteoTrail", 8);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_MeteoFire", "E_MeteoFire", 9);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea", 10);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter", 11);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Meteo", "E_Meteo", 12);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_MeteoEnd", "E_MeteoEnd", 13);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB", 14);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Smoke", "E_Smoke", 15);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Fire_explosion", "E_MeteoExplosion", 16);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireBoob", "E_FireBoob", 17);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Fire", "E_EAFire", 18);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireBall", "E_EAFireBall", 19);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_WaterEA", "O_WaterEA", 20);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 22);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 23);
 
-	std::thread t2(ThreadPrefab, this, "Prototype_Effect_Dust", "E_DustEffect", 2);
-	t2.detach();
-
-	std::thread t3(ThreadPrefab, this, "Prototype_Effect_SwordRing", "E_SwordRing", 3);
-	t3.detach();
-
-	std::thread t4(ThreadPrefab, this, "Prototype_Effect_Blackhole", "E_Blackhole", 4);
-	t4.detach();
-
-	std::thread t5(ThreadPrefab, this, "Prototype_Effect_Grab", "E_Grab", 5);
-	t5.detach();
-
-	std::thread t6(ThreadPrefab, this, "Prototype_Effect_Pajang", "E_Pajangs", 6);
-	t6.detach();
-
-	std::thread t7(ThreadPrefab, this, "Prototype_Effect_FireSlash", "E_FireSlash", 7);
-	t7.detach();
-
-	std::thread t8(ThreadPrefab, this, "Prototype_Effect_MeteoTrail", "E_MeteoTrail", 8);
-	t8.detach();
-
-	std::thread t9(ThreadPrefab, this, "Prototype_Effect_MeteoFire", "E_MeteoFire", 9);
-	t9.detach();
-
-	std::thread t10(ThreadPrefab, this, "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea", 10);
-	t10.join();
-
-	std::thread t11(ThreadPrefab, this, "Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter",11);
-	t11.detach();
-
-	std::thread t12(ThreadPrefab, this, "Prototype_Effect_Meteo", "E_Meteo", 12);
-	t12.detach();
-
-	std::thread t13(ThreadPrefab, this, "Prototype_Effect_MeteoEnd", "E_MeteoEnd", 13);
-	t13.detach();
-
-	std::thread t14(ThreadPrefab, this, "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB", 14);
-	t14.detach();
-
-	std::thread t15(ThreadPrefab, this, "Prototype_Effect_Smoke", "E_Smoke", 15);
-	t15.detach();
-
-	std::thread t16(ThreadPrefab, this, "Prototype_Effect_Fire_explosion", "E_MeteoExplosion", 16);
-	t16.detach();
-
-	std::thread t17(ThreadPrefab, this, "Prototype_Effect_FireBoob", "E_FireBoob", 17);
-	t17.detach();
-
-	std::thread t18(ThreadPrefab, this, "Prototype_Effect_Fire", "E_EAFire", 18);
-	t18.detach();
-
-	std::thread t19(ThreadPrefab, this, "Prototype_Effect_FireBall", "E_EAFireBall", 19);
-	t19.detach();
-
-	std::thread t20(ThreadPrefab, this, "Prototype_GameObecjt_WaterEA", "O_WaterEA", 20);
-	t20.join();
-
-	std::thread t21(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
-	t21.join();
-
-	std::thread t22(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
-	t22.join();
-
-	_bool isNotFinish = true;
-	while (isNotFinish) {
-		for (int i = 0; i < 23; i++) {
-			if ((m_iCompleteBit & (1 << i))) {
-				isNotFinish = false;
-			}
-			else {
-				isNotFinish = true;
-				break;
-			}
-		}
+	for (auto& f : futures) {
+		cout << "return result : " << f.get();
 	}
-	
+
+
 	m_iCompleteBit = 0;
 
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFly", "E_BossFly")))
-	//	MSG_BOX("Failed To Create BossFly Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BossFlyLaser", "E_Laser")))
-	//	MSG_BOX("Failed To Create BossFlyLaser Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Dust", "E_DustEffect")))
-	//	MSG_BOX("Failed To Create DustEffect Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_SwordRing", "E_SwordRing")))
-	//	MSG_BOX("Failed To Create ring Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blackhole", "E_Blackhole")))
-	//	MSG_BOX("Failed To Create Blackhole Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Grab", "E_Grab")))
-	//	MSG_BOX("Failed To Create Grab Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Pajang", "E_Pajangs")))
-	//	MSG_BOX("Failed To Create Pajang Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireSlash", "E_FireSlash")))
-	//	MSG_BOX("Failed To Create FireSlash Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoTrail", "E_MeteoTrail")))
-	//	MSG_BOX("Failed To Create E_MeteoTrail Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoFire", "E_MeteoFire")))
-	//	MSG_BOX("Failed To Create E_MeteoFire Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropArea", "E_MeteoDropArea")))
-	//	MSG_BOX("Failed To Create E_MeteoDropArea Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoDropAf", "E_MeteoDropAfter")))
-	//	MSG_BOX("Failed To Create E_MeteoDropAfter Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Meteo", "E_Meteo")))
-	//	MSG_BOX("Failed To Create E_Meteo Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_MeteoEnd", "E_MeteoEnd")))
-	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB")))
-	//	MSG_BOX("Failed To Create E_MeteoEnd Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Smoke", "E_Smoke")))
-	//	MSG_BOX("Failed To Create Smoke Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire_explosion", "E_MeteoExplosion")))
-	//	MSG_BOX("Failed To Create E_Fire_explosion Prefab");
-
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBoob", "E_FireBoob")))
-	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Fire", "E_EAFire")))
-	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_FireBall", "E_EAFireBall")))
-	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_WaterEA", "O_WaterEA")))
-	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
-
-	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_EAFire", "O_EAFire")))
-	//	MSG_BOX("Failed To Create E_FireBoob Prefab");
-
+	SafeRelease(m_ThreadLoader);
 
 
 	return S_OK;
@@ -355,103 +243,39 @@ HRESULT CLoader::GameSceneStage03()
 
 HRESULT CLoader::GameSceneLogo()
 {
-	std::thread t0(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0);
-	t0.detach();
+	m_ThreadLoader = new CThreadLoader(16);
+	std::vector<std::future<_int>> futures;
 
-	std::thread t1(ThreadTest, this, "../../Assets/Scenes/MainUI.yaml", SCENE_STATIC, 1);
-	t1.detach();
-
-	std::thread t2(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml", SCENE_STATIC, 2);
-	t2.detach();
-
-	std::thread t3(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3);
-	t3.detach();
-
-	std::thread t4(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4);
-	t4.detach();
-
-	std::thread t5(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5);
-	t5.detach();
-
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Player.yaml", SCENE_STATIC);
-	while (m_pLoadingGauge->GetPercentage() < 30.f)
-		m_pLoadingGauge->AddPercentage(0.1f);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Equip.yaml", SCENE_STATIC);
-	while (m_pLoadingGauge->GetPercentage() < 80.f)
-		m_pLoadingGauge->AddPercentage(0.1f);
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/MainUI.yaml", SCENE_STATIC, 1));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml", SCENE_STATIC, 2));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 4));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Player.yaml", SCENE_STATIC, 6));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Equip.yaml", SCENE_STATIC, 7));
 
 	CEngine::GetInstance()->DeserializePrefab();
 
-	while (m_pLoadingGauge->GetPercentage() < 90.f)
-		m_pLoadingGauge->AddPercentage(0.1f);
-	
-	/*std::thread tP0(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0);
-	tP0.detach();
-	std::thread tP1(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1);
-	tP1.detach();
-	std::thread tP2(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2);
-	tP2.detach();
-	std::thread tP3(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3);
-	tP3.detach();
-	std::thread tP4(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4);
-	tP4.detach();
-	std::thread tP5(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5);
-	tP5.detach();
-*/
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Flare", "E_Flare", 6);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Wind", "E_Winds", 7);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ChargeEffect", "E_ChargeEffect", 8);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_AuraEffect", "E_AuraEffect", 9);
 
-
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObject_OBBs", "O_OBBs")))
-		MSG_BOX("Failed To Create Pajang Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObject_DMGFont", "U_DamageVIBuffer")))
-		MSG_BOX("Failed To Create U_DamageVIBuffer Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_shoulderEffect", "E_shoulderEffect")))
-		MSG_BOX("Failed To Create E_shoulderEffect Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactGround", "E_ImpactGround2")))
-		MSG_BOX("Failed To Create E_ImpactGround2 Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactBeam", "E_ImpactBeam00")))
-		MSG_BOX("Failed To Create E_ImpactBeam00 Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ImpactShort", "E_ImpactShort")))
-		MSG_BOX("Failed To Create E_ImpactShort Prefab");
-
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Flare", "E_Flare")))
-		MSG_BOX("Failed To Create E_ImpactShort Prefab");
-
-	_bool threadFinish = false;
-	while (!threadFinish) {
-		for (_int i = 0; i < ThreadIndex; i++) {
-			if (m_isThreadFinish[i] == false) {
-				threadFinish = false;
-				break;
-			}
-			else {
-				threadFinish = true;
-			}
-		}
+	for (auto& f : futures) {
+		cout << "return result : " << f.get();
 	}
-	while (m_pLoadingGauge->GetPercentage() < 95.f)
-		m_pLoadingGauge->AddPercentage(0.1f);
-	/*_bool isNotFinish = true;
-	while (isNotFinish) {
-		for (int i = 0; i < 6; i++) {
-			if ((m_iCompleteBit & (1 << i))) {
-				isNotFinish = false;
-			}
-			else {
-				isNotFinish = true;
-				break;
-			}
-		}
-	}*/
-
+	
 	m_iCompleteBit = 0;
 
 
+	SafeRelease(m_ThreadLoader);
 	m_pLoadingGauge->SetPercentage(100.f);
 	m_isFinish = true;
 
@@ -462,7 +286,7 @@ HRESULT CLoader::GameSceneLogo()
 
 HRESULT CLoader::GameSceneKIM()
 {
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeonKIM.yaml", SCENE_KIM);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 
@@ -499,7 +323,7 @@ HRESULT CLoader::GameSceneJUN()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG);
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG);
 
 	if (FAILED(GameFlogasLoader()))
 		MSG_BOX("Failed To Create Flogas Effect");
