@@ -21,6 +21,8 @@ protected:
 	ID3D11Device*				m_pDevice = nullptr;
 	ID3D11DeviceContext*		m_pDeviceContext = nullptr;
 	class CEngine*				m_pEngine = nullptr;
+protected:
+	static	_bool				m_bIsClearEnd;
 public:
 	virtual void Free() override;
 };

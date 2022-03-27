@@ -366,8 +366,6 @@ void CGameObjectManager::Clear(_uint iSceneIndex)
 	for (auto& iter : m_pGameObjects[iSceneIndex]) {
 		if (iter.second != nullptr)
 			SafeRelease(iter.second);
-		cout << iter.first << " < deleted Layer Address is " << iter.second << "\n";
-
 	}
 
 	m_pGameObjects[iSceneIndex].clear();

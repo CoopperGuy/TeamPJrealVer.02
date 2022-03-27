@@ -411,9 +411,6 @@
     <ClCompile Include="..\Private\Scene_Logo.cpp">
       <Filter>01.Scenes\Logo</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\Scene_GamePlay.cpp">
-      <Filter>01.Scenes\GamePlay</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\Loader.cpp">
       <Filter>01.Scenes\Loading\Loader</Filter>
     </ClCompile>
@@ -779,6 +776,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\EffectRockDust.cpp">
       <Filter>05.Effect\Instance\RockDust</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Scene_GamePlay.cpp">
+      <Filter>01.Scenes\GamePlay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
