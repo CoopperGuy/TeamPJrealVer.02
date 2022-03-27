@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\El_Flogas.h"
 #include "Flogas.h"
-
+#include "Element_Bomb.h"
 
 USING(Client)
 
@@ -26,7 +26,10 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 	XMStoreFloat3(&m_vOriginPos, m_pTransform->GetState(CTransform::STATE_POSITION));
+	m_OriginWorld = m_pTransform->GetMatrix();
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
+
+	m_pModel->SetAnimationLoop((_uint)ELEMENT_STATE::DIE, false);
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
 
@@ -34,7 +37,7 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 	XMStoreFloat3(&m_vTargetPos, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
-	m_pModel->SetUp_AnimationIndex(0);
+	m_pModel->SetUp_AnimationIndex(IDLE);
 	m_pGameObject->SetActive(false);
 	return S_OK;
 }
@@ -55,7 +58,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 		{
 			if (fLen > 1.f)
 			{
-				m_pModel->SetUp_AnimationIndex(0);
+				m_pModel->SetUp_AnimationIndex(RUN);
 				vDist = XMVectorSetY(vDist, 0.f);
 				m_pTransform->SetLook(vDist);
 				memcpy(&vDir, &XMVector3Normalize(vDist), sizeof(_float3));
@@ -66,19 +69,38 @@ void CEl_Flogas::Update(_double dDeltaTime)
 		}
 		else
 		{
-			m_pModel->SetUp_AnimationIndex(1);
 			if (m_bExplosion)
 			{
-				//터지는 이펙트 추가//
-				m_pGameObject->SetActive(false);
-				m_bDestination = false;
-				m_bExplosion = false;
+				m_pModel->SetUp_AnimationIndex(IDLE);
+				if (m_dExplosionTime <= 0.0)
+				{
+					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
+					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+				}
+				m_dExplosionTime += dDeltaTime;
+
+				if (m_dExplosionTime > 4.0)
+				{
+					m_bExplosion = false;
+					m_dExplosionTime = 0.0;
+					m_pModel->SetUp_AnimationIndex(DIE);
+				}
+			}
+			else
+			{
+				m_pTransform->SetScale(_float3(1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime));
+				if (m_pModel->Get_isFinished())
+				{
+					m_bDestination = false;
+					m_pModel->SetUp_AnimationIndex(DEADBODY);
+					m_pGameObject->SetActive(false);
+				}
 			}
 		}
 	}
 	else
 	{
-		m_pTransform->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&m_vOriginPos));
+		m_pTransform->SetMatrix(m_OriginWorld);
 		m_pCollider->SetPosition(m_vOriginPos);
 	}
 }
