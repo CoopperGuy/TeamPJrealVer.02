@@ -397,6 +397,9 @@
     <ClInclude Include="..\Public\EffectRockDust.h">
       <Filter>05.Effect\Instance\RockDust</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\FlyLight.h">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
+    </ClInclude>
     <ClInclude Include="..\public\ThreadLoader.h">
       <Filter>97.Manager\ThreadPool</Filter>
     </ClInclude>
@@ -782,6 +785,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Scene_GamePlay.cpp">
       <Filter>01.Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\FlyLight.cpp">
+      <Filter>05.Effect\FlogasDungeon\Fly</Filter>
     </ClCompile>
     <ClCompile Include="..\private\ThreadLoader.cpp">
       <Filter>97.Manager\ThreadPool</Filter>

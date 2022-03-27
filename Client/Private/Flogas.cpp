@@ -22,6 +22,7 @@
 #include "EffectMagic.h"
 #include "MeteoFireBall.h"
 #include "Fire_explosion.h"
+#include "FlyLight.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -181,10 +182,10 @@ void CFlogas::Update(_double dDeltaTime)
 		m_bStartBattle = true;
 	}
 
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	//{
-	//	m_bPhaseSecond = true;
-	//}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	{
+		m_bPhaseSecond = true;
+	}
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
 	//{
 	//	m_bDeadMotion = true;
@@ -214,8 +215,8 @@ void CFlogas::Update(_double dDeltaTime)
 	m_pStat->SetSTATE(m_eCurSTATES);
 
 	//fall down
-	/*PxControllerFilters filters;
-	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
+	PxControllerFilters filters;
+	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);
 
 	if (m_pTrailBuffer)
 	{
@@ -926,7 +927,7 @@ void CFlogas::OrganizeEffect(Flogas eState)
 
 			if (m_iMakeMeteo <= 8)
 			{
-				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
+				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(0, "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectMagic, pos), CEngine::GetInstance()->GetCurSceneNumber());
 
 				/*auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");
@@ -952,8 +953,10 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
-				auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				//auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
+				//CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				/*auto EffectLight = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FlyEffLight", "O_FlogasLighte");
+				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLight = CFlyLight::Create(EffectLight), CEngine::GetInstance()->GetCurSceneNumber());*/
 				m_bMakeEffect = false;
 			}
 
@@ -967,6 +970,8 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			m_pEffFly->SetAnimationEnd();
 		if (m_pEffFlyLaser)
 			m_pEffFlyLaser->SetDead();
+		if (m_pEffFlyLight)
+			m_pEffFlyLight->SetDead();
 		break;
 	case FLYING_END2:
 		break;

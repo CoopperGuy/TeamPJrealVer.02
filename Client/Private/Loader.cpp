@@ -182,13 +182,11 @@ HRESULT CLoader::GameFlogasLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_FireBall", "E_EAFireBall", 19);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_WaterEA", "O_WaterEA", 20);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 22);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 23);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
 
 	for (auto& f : futures) {
 		cout << "return result : " << f.get();
 	}
-
 
 	m_iCompleteBit = 0;
 
@@ -337,7 +335,7 @@ HRESULT CLoader::GameSceneJUN()
 HRESULT CLoader::GameSceneSEO()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 5.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, -4.f));
 
 	m_ThreadLoader = new CThreadLoader(6);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Blood", "E_IIBlood", 0);
@@ -350,24 +348,27 @@ HRESULT CLoader::GameSceneSEO()
 	/*if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
 		MSG_BOX("Failed To Create E_Blood Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BloodDecal", "E_BloodDecal")))
-		MSG_BOX("Failed To Create BloodDecal Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BloodDecal", "E_BloodDecal")))
+	//	MSG_BOX("Failed To Create BloodDecal Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_RockDust", "E_InsDust")))
-		MSG_BOX("Failed To Create InsDust Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_RockDust", "E_InsDust")))
+	//	MSG_BOX("Failed To Create InsDust Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Wolf", "O_Wolf")))
-		MSG_BOX("Failed To Create O_Wolf Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Wolf", "O_Wolf")))
+	//	MSG_BOX("Failed To Create O_Wolf Prefab");
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Rock", "O_Rock")))
-		MSG_BOX("Failed To Create Rock Prefab");*/
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_GameObecjt_Rock", "O_Rock")))
+	//	MSG_BOX("Failed To Create Rock Prefab");
 
-	//if (FAILED(GameFlogasLoader()))
-	//	MSG_BOX("Failed To Create Flogas Effect");
+
+	if (FAILED(GameFlogasLoader()))
+		MSG_BOX("Failed To Create Flogas Effect");
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/CityMap.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO);
+
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO);
+
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
 
 	SafeRelease(m_ThreadLoader);

@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Laser
-    UUID: 8345515792458937076
+    UUID: 4126019004797667820
     Active: true
     Layer: EffectLaser
     Type: Effect
-    PassIndex: 1
+    PassIndex: 11
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 3.5]
-      Rotation: [-38.218647, -0, 0]
-      Scale: [2, 2.79500008, 2]
+      Translation: [-1.0705173, -0.37150991, 3.81370378]
+      Rotation: [-38.2186508, -0, 0]
+      Scale: [1.50100005, 2.70000005, 2]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: TwistCross2.fbx
@@ -20,25 +20,38 @@ GameObjects:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave_001_Tex_Pys_03.png
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      TextureNormalPath: ""
       ScrollSpeedX: [1.20000005, 1.79999995, 0]
       ScrollSpeedY: [0.800000012, 0.200000003, 2.29999995]
       Distortion1: [0.300000012, -0.300000012]
       Distortion2: [-1.10000002, -0.400000006]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      DistortionScale: 0.100000001
+      DistortionBias: 0.300000012
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
     Children:
       - Name: Laser
-        UUID: 10614726811339919294
+        UUID: 11886345626830572042
         Active: true
         Layer: EffectLaser
         Type: Effect
-        PassIndex: 1
+        PassIndex: 11
         BillBord: false
         Com_Transform:
-          Translation: [4.6690712, 3.87097216, -3.12838936]
+          Translation: [4.04994774, 3.56356883, -2.83832812]
           Rotation: [149.016052, -0.987437963, -110.937836]
-          Scale: [1.99999475, 2.79498386, 1.99999142]
+          Scale: [1.5, 2.70000005, 2]
         Com_Model:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: TwistCross2.fbx
@@ -48,24 +61,37 @@ GameObjects:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave_001_Tex_Pys_03.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+          TextureNormalPath: ""
           ScrollSpeedX: [1.20000005, 1.79999995, 0]
           ScrollSpeedY: [0.800000012, 0.200000003, 2.29999995]
           Distortion1: [0.300000012, -0.300000012]
           Distortion2: [-1.10000002, -0.400000006]
           Distortion3: [0.100000001, 0.100000001]
-          DistortionScale: 0.800000012
+          DistortionScale: 0.100000001
           DistortionBias: 0.5
+          FadeOut: false
+          FadeOutDuration: 0
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1
       - Name: Laser
-        UUID: 3578426926771297701
+        UUID: 7524340800782942689
         Active: true
         Layer: EffectLaser
         Type: Effect
-        PassIndex: 1
+        PassIndex: 11
         BillBord: false
         Com_Transform:
-          Translation: [-2.83121896, 3.15300441, -4.00740194]
-          Rotation: [88.3690338, -43.0496101, -134.767227]
-          Scale: [1.99995172, 2.7949903, 1.99999893]
+          Translation: [-3.05525303, 2.92714143, -3.7102294]
+          Rotation: [88.3690338, -43.0494728, -134.767227]
+          Scale: [1.49999464, 2.69999957, 1.99999428]
         Com_Model:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: TwistCross2.fbx
@@ -75,24 +101,37 @@ GameObjects:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave_001_Tex_Pys_03.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+          TextureNormalPath: ""
           ScrollSpeedX: [0.800000012, 0.200000003, 2.29999995]
           ScrollSpeedY: [0.300000012, -0.300000012, 1.83640164e-40]
           Distortion1: [-1.10000002, -0.400000006]
           Distortion2: [0.100000001, 0.100000001]
           Distortion3: [0.100000001, 0.100000001]
-          DistortionScale: 0.800000012
+          DistortionScale: 0.200000003
           DistortionBias: 0.5
+          FadeOut: false
+          FadeOutDuration: 0
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1
       - Name: Laser
-        UUID: 4089186693547591415
+        UUID: 16454596254364026786
         Active: true
         Layer: EffectLaser
         Type: Effect
-        PassIndex: 1
+        PassIndex: 11
         BillBord: false
         Com_Transform:
-          Translation: [-0.0354394913, 5.22180557, -6.14679146]
+          Translation: [0.176520467, 5.02112055, -5.51900148]
           Rotation: [84.6245193, -0, 0]
-          Scale: [1.99999905, 2.79499602, 1.99999976]
+          Scale: [1.5, 2.70000005, 1.99999988]
         Com_Model:
           MeshFilePath: ..\..\Assets\Meshes\Effect\
           MeshFileName: TwistCross2.fbx
@@ -102,6 +141,7 @@ GameObjects:
           TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.png
           TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wave_001_Tex_Pys_03.png
           TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+          TextureNormalPath: ""
           ScrollSpeedX: [1.20000005, 1.79999995, 0]
           ScrollSpeedY: [0.800000012, 0.200000003, 2.29999995]
           Distortion1: [0.300000012, -0.300000012]
@@ -109,3 +149,15 @@ GameObjects:
           Distortion3: [0.100000001, 0.100000001]
           DistortionScale: 0.800000012
           DistortionBias: 0.5
+          FadeOut: false
+          FadeOutDuration: 0
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          Alpha: 1

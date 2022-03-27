@@ -66,6 +66,7 @@ private:
 	list<class CWaterEA*> m_pWaterEA = {};
 	class CEffectFly* m_pEffFly = nullptr;
 	class CEffectGrab* m_pEffGrab = nullptr;
+	class CFlyLight* m_pEffFlyLight = nullptr;
 	class CEffectPajang* m_pEffPajang = nullptr;
 	class CEffectFlyLaser* m_pEffFlyLaser = nullptr;
 	class CEffectBlackhole* m_pEffBlackhole = nullptr;
