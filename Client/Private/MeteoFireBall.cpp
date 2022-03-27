@@ -75,7 +75,7 @@ void CMeteoFireBall::Update(_double deltaTime)
 		//	m_pMeteo->Set_Pos(mypos);
 
 		makedt += deltaTime;
-		if (makedt >= 0.2)
+		if (makedt >= 0.05)
 		{
 			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 			auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Meteo", "E_Meteo");

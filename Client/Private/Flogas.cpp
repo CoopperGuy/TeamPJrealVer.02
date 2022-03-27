@@ -214,8 +214,8 @@ void CFlogas::Update(_double dDeltaTime)
 	m_pStat->SetSTATE(m_eCurSTATES);
 
 	//fall down
-	/*PxControllerFilters filters;
-	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
+	PxControllerFilters filters;
+	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);
 
 	if (m_pTrailBuffer)
 	{
@@ -952,8 +952,8 @@ void CFlogas::OrganizeEffect(Flogas eState)
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
-				auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
+				//auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
+				//CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
 				m_bMakeEffect = false;
 			}
 

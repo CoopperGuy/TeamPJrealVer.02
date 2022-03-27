@@ -1,15 +1,15 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Meteo
-    UUID: 4477987580313695556
+    UUID: 10368357240929622203
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
-    BillBord: false
+    BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
+      Rotation: [11.3099318, -0, 0]
       Scale: [1.5, 1.5, 1]
     Com_VIBuffer:
       {}
@@ -36,3 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 50
+      Alpha: 1

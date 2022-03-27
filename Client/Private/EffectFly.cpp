@@ -43,7 +43,7 @@ HRESULT CEffectFly::Initialize(void* pArg)
 
 		_vector pos = {};
 		memcpy(&pos, &pTargetTransform->GetState(CTransform::STATE_POSITION), sizeof(_vector));
-		pos = XMVectorSetY(pos, XMVectorGetY(pos) + 3.f);
+		//pos = XMVectorSetY(pos, XMVectorGetY(pos) + 3.f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 	}
 	return S_OK;
