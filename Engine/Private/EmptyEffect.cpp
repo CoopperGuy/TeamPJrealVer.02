@@ -365,7 +365,10 @@ _uint CEmptyEffect::LateUpdate(_double TimeDelta)
 {
 	if (nullptr == m_pRendererCom)
 		return -1;
-		
+	
+	m_fProcessTime += (_float)TimeDelta;
+
+
 
 	if (m_pParent)
 	{
@@ -579,6 +582,9 @@ void CEmptyEffect::SetUp_ValueOnShader(string ComponentTag)
 		return;
 	}
 	
+	if (m_fProcessTime > XMConvertToRadians(360.f))
+		m_fProcessTime = 0.f;
+
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_WorldMatrix", &XMMatrixTranspose(m_pTransformCom->GetWorldMatrix()), sizeof(_matrix));
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_ViewMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW)), sizeof(_matrix));
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_ProjMatrix", &XMMatrixTranspose(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ)), sizeof(_matrix));
@@ -601,11 +607,17 @@ void CEmptyEffect::SetUp_ValueOnShader(string ComponentTag)
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNumX", &m_iSpriteNumX, sizeof(_uint));
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNumY", &m_iSpriteNumY, sizeof(_uint));
 
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_UVSpd", &m_fMoveSpd, sizeof(_float));
+
 }
 
 void CEmptyEffect::SetUp_ValueOnModelShader()
 {
 	CComponent* pModel = GetComponent("Com_Model");
+
+	if (m_fProcessTime > XMConvertToRadians(360.f))
+		m_fProcessTime = 0.f;
 
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fFrameTime", &m_fFrameTime, sizeof(_float));
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_vScrollSpeedX", &m_vScrollSpeedX, sizeof(_float3));
@@ -619,10 +631,8 @@ void CEmptyEffect::SetUp_ValueOnModelShader()
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fFadeAlpha", &m_fFadeAlpha, sizeof(_float));
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fAlpha", &m_fAlpha, sizeof(_float));
 
-	if(CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
-		static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fFrameTime, sizeof(_float));
-	else
-		static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));
+
+	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_UVSpd", &m_fMoveSpd, sizeof(_float));
 }
 

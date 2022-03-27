@@ -95,8 +95,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.55694079, -0.13206704, 1.43441713]
-      Rotation: [-156.025375, -88.5604095, 179.999954]
-      Scale: [0.0200707912, 0.193763673, 0.173020333]
+      Rotation: [7.739151, -19.8973255, 0]
+      Scale: [0.0184327047, 0.179167718, 0.174637258]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -122,6 +122,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
   - Name: shoulderEffect
     UUID: 16360291868176570978
     Active: true
@@ -162,6 +163,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
   - Name: Empty Object
     UUID: 871248331654702282
     Active: true
@@ -173,7 +175,7 @@ GameObjects:
     Com_Transform:
       Translation: [2, 0, 2]
       Rotation: [-90, -0, 0]
-      Scale: [0.49972266, 0.49999848, 0.50000006]
+      Scale: [0.499721825, 0.49999848, 0.50000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam3.fbx
@@ -202,6 +204,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
   - Name: SpartParticle
     UUID: 6548545933346460148
     Active: true
@@ -217,7 +220,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 100
-      Color: [0.986987293, 0.662579715, 0, 0]
+      Color: [1.00869751, 1.27833772, 0, 0]
       Speed: 1
       LifeTime: 1
       Size: 10
@@ -249,6 +252,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
   - Name: Flare
     UUID: 4844422747993476240
     Active: true
@@ -259,8 +263,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.200057209, 0.199857235, 0.199963614]
+      Rotation: [7.739151, -19.8973255, 0]
+      Scale: [0.18380861, 0.184949234, 0.202053934]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -286,6 +290,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
   - Name: Empty Object
     UUID: 9403709492189874010
     Active: true
@@ -301,7 +306,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 100
-      Color: [1, 0.956521749, 0, 0]
+      Color: [0.956521332, 0.77751112, 0.499059826, 0]
       Speed: 10
       LifeTime: 0.200000003
       Size: 0.200000003
@@ -333,6 +338,127 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1
+  - Name: AuraEffect
+    UUID: 4172193352215827146
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-0.361666203, 0.308779806, 0.419353843]
+      Rotation: [7.739151, -19.8973236, 0]
+      Scale: [0.89745611, 0.897895455, 0.90395093]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Spark.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura.jpg
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.5, 2, 0]
+      ScrollSpeedY: [0.5, 2, 0]
+      Distortion1: [0.5, 0.300000012]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0, 0.5]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: true
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
+  - Name: Winds
+    UUID: 14551009718490616253
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [2.77998614, 0, 0.603386521]
+      Rotation: [0, -0, -90]
+      Scale: [1, 1.10000002, 1.09870398]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: untitled.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Trun_FX_Trail02_Tex_HKJ.jpg
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test2.jpg
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
+  - Name: ChargeEffect
+    UUID: 1296769625081533315
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 7
+    BillBord: false
+    Com_Transform:
+      Translation: [0.952855527, 0.472428411, -0.977482796]
+      Rotation: [0, -0, 0]
+      Scale: [0.100000001, 0.100000001, 0.100000001]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: TwistMesh3.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Trail_TEX_020_CJH.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AuraTile_001_TEX_KKJ1.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 0.300000012
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.300000012
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      Alpha: 1
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true

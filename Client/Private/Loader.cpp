@@ -421,7 +421,16 @@ HRESULT CLoader::GameSceneLogo()
 		MSG_BOX("Failed To Create E_ImpactShort Prefab");
 
 	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Flare", "E_Flare")))
-		MSG_BOX("Failed To Create E_ImpactShort Prefab");
+		MSG_BOX("Failed To Create E_Flare Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Wind", "E_Winds")))
+		MSG_BOX("Failed To Create E_Winds Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_ChargeEffect", "E_ChargeEffect")))
+		MSG_BOX("Failed To Create E_ChargeEffect Prefab");
+
+	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_AuraEffect", "E_AuraEffect")))
+		MSG_BOX("Failed To Create E_AuraEffect Prefab");
 
 	_bool threadFinish = false;
 	while (!threadFinish) {
@@ -463,7 +472,7 @@ HRESULT CLoader::GameSceneLogo()
 
 HRESULT CLoader::GameSceneKIM()
 {
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/UrsaDungeonKIM.yaml", SCENE_KIM);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
 

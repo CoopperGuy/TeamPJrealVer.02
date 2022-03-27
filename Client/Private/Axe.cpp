@@ -11,6 +11,9 @@
 #include "ImpactBeam.h"
 #include "ImpactShort.h"
 #include "SparkFlare.h"
+#include "Winds.h"
+#include "ChargeAxe.h"
+#include "AuraEffect.h"
 USING(Client)
 
 CAxe::CAxe()
@@ -138,6 +141,17 @@ _fmatrix CAxe::Remove_Scale(_fmatrix _srcmatrix)
 	return NonScaleMatrix;
 }
 
+
+_fmatrix CAxe::Remove_ScaleRotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
+}
+
+
 void CAxe::Set_TrailOnOff()
 {
 	CEngine* engine = CEngine::GetInstance();
@@ -151,7 +165,7 @@ void CAxe::Set_TrailOnOff()
 	_vector thisPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	_int flag = m_pOBB->GetCollisionFlag();
-	_matrix weponTransform = Remove_Scale(m_pTransform->GetWorldMatrix());
+	_matrix weponTransform = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
 
 
 	for (_int i = 0; i < (_int)Player_State::Player_End; i++) {
@@ -223,7 +237,7 @@ void CAxe::Set_TrailOnOff()
 		break;
 	case Client::Player_State::LBCombo1: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		if (keyFrame >= 2 && keyFrame <= 23) {
+		if (keyFrame >= 2 && keyFrame <= 20) {
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
 			playerStat->SetDMGRatio(0.5f);
@@ -277,6 +291,11 @@ void CAxe::Set_TrailOnOff()
 		break;
 	}
 	case Client::Player_State::LBCombo4_0: {
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame == 0) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
+			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, pAxe), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 		break;
 	}
 	case Client::Player_State::LBCombo4_1: {
@@ -353,6 +372,10 @@ void CAxe::Set_TrailOnOff()
 	}
 	case Client::Player_State::RBCombo4: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame == 0) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
+			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, pAxe), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 		if (keyFrame >= 12 && keyFrame <= 22) {
 			m_pTrailBuffer->SetIsActive(true);
 			playerStat->SetSTATE(CStat::STATES_ATK);
@@ -416,9 +439,13 @@ void CAxe::Set_TrailOnOff()
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(0.5f);
 		if (flag & CBasicCollider::COLLISION_FOUND) {
-			cout << flag << "\n";
 			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
 			engine->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+		}
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame == 0) {
+			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Wind", "E_Winds");
+			engine->AddScriptObject(CWinds::Create((CEmptyEffect*)pGameObject, pPlayer), engine->GetCurSceneNumber());
 		}
 		break;
 	}
@@ -430,8 +457,14 @@ void CAxe::Set_TrailOnOff()
 		}
 		break;
 	}
-	case Client::Player_State::WarCry:
+	case Client::Player_State::WarCry:{
+		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame == 0 ) {
+			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_AuraEffect", "E_AuraEffect");
+			engine->AddScriptObject(CAuraEffect::Create((CEmptyEffect*)pGameObject, pPlayer), engine->GetCurSceneNumber());
+		}
 		break;
+	}
 	case Client::Player_State::Chop_Start: {
 		break;
 	}
