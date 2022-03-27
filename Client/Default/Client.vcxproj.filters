@@ -397,6 +397,9 @@
     <ClInclude Include="..\Public\EffectRockDust.h">
       <Filter>05.Effect\Instance\RockDust</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ThreadLoader.h">
+      <Filter>97.Manager\ThreadPool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -779,6 +782,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Scene_GamePlay.cpp">
       <Filter>01.Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ThreadLoader.cpp">
+      <Filter>97.Manager\ThreadPool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1182,6 +1188,9 @@
     </Filter>
     <Filter Include="05.Effect\Instance\RockDust">
       <UniqueIdentifier>{9cd9a968-a044-4812-891a-e208a8af8dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\ThreadPool">
+      <UniqueIdentifier>{d9fbb0a9-0f8d-454d-8ef7-21d4bb5c9b71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
