@@ -23,6 +23,8 @@
 #include "MeteoFireBall.h"
 #include "Fire_explosion.h"
 #include "FlyLight.h"
+#include "EffectBlood.h"
+#include "EffectBloodDecal.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -68,7 +70,7 @@ HRESULT CFlogas::Initialize(_float3 position)
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
-
+	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
@@ -136,7 +138,7 @@ void CFlogas::Update(_double dDeltaTime)
 				makeEA = false;
 			}
 		}
-		
+
 		if (m_pStat->GetStatInfo().hp <= 0)
 		{
 			m_bStartBattle = false;
@@ -223,6 +225,7 @@ void CFlogas::Update(_double dDeltaTime)
 		//m_pTrailBuffer->SetIsActive(true);
 		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix()));
 	}
+	Hit();
 }
 
 void CFlogas::LateUpdate(_double dDeltaTime)
@@ -232,6 +235,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
 	OrganizeEffect(m_eState);
+
 
 	if (m_bDeadMotion)
 	{
@@ -977,6 +981,17 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		break;
 	}
 	m_pTrailBuffer->SetIsActive(m_DrawTrail);
+}
+
+void CFlogas::Hit()
+{
+	if (m_pOBB->Get_isHit()) {
+		//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
+		//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+	
 }
 
 

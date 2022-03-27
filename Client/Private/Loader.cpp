@@ -346,10 +346,10 @@ HRESULT CLoader::GameSceneSEO()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 0);
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_SY.yaml", SCENE_SEO, 0);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO, 0);
 
-	if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
-		MSG_BOX("Failed To Create E_Blood Prefab");
+	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_Blood", "E_IIBlood")))
+	//	MSG_BOX("Failed To Create E_Blood Prefab");
 
 	//if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Effect_BloodDecal", "E_BloodDecal")))
 	//	MSG_BOX("Failed To Create BloodDecal Prefab");
@@ -370,7 +370,7 @@ HRESULT CLoader::GameSceneSEO()
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/CityMap.yaml", SCENE_SEO);
 
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_SEO);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO);
+//	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO);
 
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_SEO);
 

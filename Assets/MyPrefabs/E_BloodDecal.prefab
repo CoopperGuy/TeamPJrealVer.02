@@ -1,20 +1,20 @@
 Scene: Untitled
 GameObjects:
   - Name: E_BloodDecal
-    UUID: 2990558734825863845
+    UUID: 9928841288284857122
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [0, 3, 0]
-      Rotation: [0, 0, 0]
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
       Scale: [1.00044823, 0.999479592, 1.0000211]
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_005_TEX_CJH_1.png
       TextureNoisePath: ""
       TextureNormalPath: ..\..\Assets\Textures\Effect\Normal\Test.dds
@@ -26,13 +26,14 @@ GameObjects:
       DistortionScale: 7.69999981
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 5
-      FadeOutStratTime: 5
+      FadeOutDuration: 3
+      FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 3
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
+      Alpha: 1

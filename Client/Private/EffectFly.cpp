@@ -51,31 +51,31 @@ HRESULT CEffectFly::Initialize(void* pArg)
 
 
 
-		CTransform* tr = nullptr;
-		//memcpy(&tr, &pTargetTransform, sizeof(CTransform));
-		tr = pTargetTransform;
+		//CTransform* tr = nullptr;
+		////memcpy(&tr, &pTargetTransform, sizeof(CTransform));
+		//tr = pTargetTransform;
 
-		_matrix mat = XMMatrixIdentity();
+		//_matrix mat = XMMatrixIdentity();
 	
-		mat = XMMatrixTranslation(0.f, 3.f,0.f);
+		//mat = XMMatrixTranslation(0.f, 3.f,0.f);
 
-		tr->SetMatrix(mat);
+		//tr->SetMatrix(mat);
 
-		LIGHTDESC desc;
-		desc.vLightPos = _float4(posx, 3.f, posz, 1.f);
-		desc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
-		desc.vAmbient = _float4(1.0f, 0.293f, 0.043f, 1.f);
-		desc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
-		desc.fLightRange = 10.f;
-		desc.fLightAngle = 20.f;
+		//LIGHTDESC desc;
+		//desc.vLightPos = _float4(posx, 3.f, posz, 1.f);
+		//desc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
+		//desc.vAmbient = _float4(1.0f, 0.293f, 0.043f, 1.f);
+		//desc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
+		//desc.fLightRange = 10.f;
+		//desc.fLightAngle = 20.f;
 
-		desc.eType = LIGHTDESC::LIGHT_POINT;
-		CComponent* pLight = CLight::Create(CEngine::GetInstance()->GetDevice(), CEngine::GetInstance()->GetDeviceContext(), desc, tr);
+		//desc.eType = LIGHTDESC::LIGHT_POINT;
+		//CComponent* pLight = CLight::Create(CEngine::GetInstance()->GetDevice(), CEngine::GetInstance()->GetDeviceContext(), desc, tr);
 
-		if (FAILED(m_pGameObject->AddComponent("Com_Light", pLight)))
-		{
-			MSG_BOX("Failed to AddComponent");
-		}
+		//if (FAILED(m_pGameObject->AddComponent("Com_Light", pLight)))
+		//{
+		//	MSG_BOX("Failed to AddComponent");
+		//}
 
 	}
 	return S_OK;

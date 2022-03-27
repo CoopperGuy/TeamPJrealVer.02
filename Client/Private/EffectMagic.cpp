@@ -64,7 +64,7 @@ void CEffectMagic::Update(_double deltaTime)
 	}
 
 	if (makemeteo) {
-		if (m_makedt >= 0.095) {
+		if (m_makedt >= 0.02) {
 			_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 			auto Meteo = CEngine::GetInstance()->AddGameObjectToPrefab(0, "Prototype_GameObecjt_MeteoOBB", "O_MeteoOBB");

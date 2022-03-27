@@ -37,6 +37,8 @@
 
 #pragma region Effect
 #include "InstanceEffectFire.h"
+#include "EffectBlood.h"
+#include "EffectBloodDecal.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -205,6 +207,7 @@ void CPlayer::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
+	__super::LateUpdate(dDeltaTime);
 
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
@@ -234,6 +237,13 @@ void CPlayer::Update(_double dDeltaTime)
 	{
 		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
 		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
+	if (m_pOBB->Get_isHit()) {
+		//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
+		//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 	}
 
 }
