@@ -1158,9 +1158,9 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		vDistortion3.x = sequence[0].as<float>();
 		vDistortion3.y = sequence[1].as<float>();
 
-		if (RectInstanceCom["OffsetColor"])
+		if (EffectSetting["OffsetColor"])
 		{
-			sequence = RectInstanceCom["OffsetColor"];
+			sequence = EffectSetting["OffsetColor"];
 			vOffsetColor.x = sequence[0].as<float>();
 			vOffsetColor.y = sequence[1].as<float>();
 			vOffsetColor.z = sequence[2].as<float>();
@@ -1411,9 +1411,9 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		vDistortion3.x = sequence[0].as<float>();
 		vDistortion3.y = sequence[1].as<float>();
 
-		if (RectInstanceCom["OffsetColor"])
+		if (EffectSetting["OffsetColor"])
 		{
-			sequence = RectInstanceCom["OffsetColor"];
+			sequence = EffectSetting["OffsetColor"];
 			vOffsetColor.x = sequence[0].as<float>();
 			vOffsetColor.y = sequence[1].as<float>();
 			vOffsetColor.z = sequence[2].as<float>();
