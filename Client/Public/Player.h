@@ -133,6 +133,8 @@ private:
 	_bool m_bEvade			= false;
 	_bool m_bUsableSkill	= false;
 
+	_bool m_bDissolve = false;
+	_float m_fDissolveAcc = 0.f;
 private:
 	_uint m_iIndex							= 0;
 	_double m_RootTime						= 0.f;

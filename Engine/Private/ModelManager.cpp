@@ -162,7 +162,7 @@ void CModelManager::CloneModelThreadIns(CGameObject * pObj, string pMeshFilePath
 		m_pDissolveTex = CTexture::Create(CEngine::GetInstance()->GetDevice(),
 			CEngine::GetInstance()->GetDeviceContext(),
 			CTexture::TYPE_TGA,
-			"..\\..\\Assets\\Textures\\Dissolve\\Dissolve.tga");
+			"..\\..\\Assets\\Textures\\Dissolve\\Dissolve.DDS");
 	}
 	CTransform*	transform;
 	_matrix pivotMatrix = XMMatrixIdentity();
