@@ -217,6 +217,22 @@ void CPlayer::Update(_double dDeltaTime)
 	m_pState->Update(dDeltaTime, *this);
 	this->UIInput();
 	
+	//////////////////Dissolve Test///////////////////////////////
+	if (m_bDissolve)
+	{
+		m_fDissolveAcc += (_float)dDeltaTime;
+		if (m_fDissolveAcc > 1.f)
+			m_fDissolveAcc = 1.f;
+	}
+	else
+	{
+		m_fDissolveAcc -= (_float)dDeltaTime;
+		if (m_fDissolveAcc < 0.f)
+			m_fDissolveAcc = 0.f;
+	}
+	m_pModel->SetDissolve(m_fDissolveAcc);
+	///////////////////////////////////////////////////////////////
+
 	//#ifdef _DEBUG
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
@@ -1172,9 +1188,10 @@ void CPlayer::InputSkill()
 		}
 	}
 
-	//if (CEngine::GetInstance()->IsKeyDown('5')) {
-	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
-	//}
+	if (CEngine::GetInstance()->IsKeyDown('5')) {
+		m_bDissolve = !m_bDissolve;
+		//static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
+	}
 	//if (CEngine::GetInstance()->IsKeyDown('6')) {
 	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
 	//}
@@ -1182,7 +1199,7 @@ void CPlayer::InputSkill()
 
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD0)) {
 	//	CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Wolf", "Wolf");
-	//}
+	//}	
 }
 
 void CPlayer::Transform_ToWorldSpace()

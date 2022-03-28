@@ -293,6 +293,7 @@ PS_OUT PS_MAIN(PS_IN In)
     float bias;
     float4 color;
     float4 diffuseColor;
+    float4 dissolveColor;
     float2 projectTexCoord;
     float depthValue;
     float lightDepthValue;
@@ -328,20 +329,24 @@ PS_OUT PS_MAIN(PS_IN In)
     // 이 텍스처 좌표 위치에서 샘플러를 사용하여 텍스처에서 픽셀 색상을 샘플링합니다.
     textureColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
     float3 Emission = g_EmissiveTexture.Sample(g_DiffuseSampler, In.vTexUV);
-    
-    //float4 dissolveColor = g_DissolveTexture.Sample(g_DiffuseSampler, In.vTexUV);
+    dissolveColor = g_DissolveTexture.Sample(g_DiffuseSampler, In.vTexUV);
+        
     // 빛과 텍스처 색상을 결합합니다.
     color = color * textureColor + (float4(Emission, 0.f) * float4(1.0f, 1.0f, 1.0f, 0.f));
 
-    //if (dissolveColor.r < g_fDissolve)
-    //{
-    //    if (dissolveColor.r > g_fDissolve - 0.2f && g_fDissolve != 1.f)    // Edge부분 체크
-    //        color = float4(1.f, 0.f, 0.f, 0.8f);
-    //    else
-    //        color.a = 0.0f;     // 확실히 없어질 곳
-    //}
+    if (dissolveColor.r < g_fDissolve)
+    {
+        //if (dissolveColor.r > g_fDissolve - 0.1f && g_fDissolve != 1.f)
+        //    color = float4(1.f, 0.2f, 0.2f, 0.8f);
+        if (dissolveColor.r > g_fDissolve - 0.1f && g_fDissolve != 1.f)    // Edge부분 체크
+        {
+            color = float4(1.f, 0.2f, 0.2f, 0.8f);
+        }
+        else
+            color.a = 0.0f; // 확실히 없어질 곳
+    }
 
-    if(color.a < 0.8f)
+    if(color.a <= 0.f)
         discard;
     
     vector vNormalDesc = g_NormalTexture.Sample(g_DiffuseSampler, In.vTexUV);
