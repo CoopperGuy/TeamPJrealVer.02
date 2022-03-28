@@ -15,12 +15,12 @@ HRESULT CSceneManager::SetUpCurrentScene(CScene * pCurrentScene, _uint sceneNum)
 
 	if (nullptr != m_pCurrentScene)
 		m_pCurrentScene->Clear();
-
 	if (0 != SafeRelease(m_pCurrentScene))
 		return E_FAIL;
-
-	m_pCurrentScene = pCurrentScene;
 	
+	m_pCurrentScene = pCurrentScene;
+	m_pCurrentScene->StartLoader();
+
 	return S_OK;
 }
 

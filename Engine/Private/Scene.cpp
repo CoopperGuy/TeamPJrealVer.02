@@ -30,6 +30,10 @@ HRESULT CScene::Render()
 	return S_OK;
 }
 
+void CScene::StartLoader()
+{
+}
+
 void CScene::Clear()
 {
 	m_pEngine->ClearGameObjectManager(m_iSceneIndex);

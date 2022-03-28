@@ -46,7 +46,7 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 
 	//m_pDeviceContext->RSGetViewports(&iNumViewports, &ViewportDesc);
 
-	if (CLightManager::GetInstance()->GetNumLights() > 0) {
+	if (m_LightDesc.eType == LIGHTDESC::LIGHT_POINT) {
 		CLight* light = CLightManager::GetInstance()->GetLightFront();
 		m_pVIBuffer = light->GetVIBuffer();
 		m_bIsClone = true;
@@ -73,7 +73,7 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 		
 		//m_pRenderTarget = m_pTargetManager->Find_RenderTarget(m_targetName);
 		m_pRenderTarget = m_pTargetManager->Find_RenderTarget("Target_ShadowDepth");
-		cout << "Direction Created \n";
+		//cout << "Direction Created \n";
 	}
 
 	CLightManager::GetInstance()->AddLight(this);

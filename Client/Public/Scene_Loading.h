@@ -14,7 +14,7 @@ public:
 	virtual HRESULT Initialize(SCENE eScene);
 	virtual _uint Update(_double TimeDelta)  override;
 	virtual HRESULT Render() override;
-
+	virtual void StartLoader();
 private:
 	class CLoader*			m_pLoader = nullptr;
 private:

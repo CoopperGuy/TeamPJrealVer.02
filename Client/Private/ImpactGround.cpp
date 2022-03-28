@@ -43,9 +43,7 @@ void CImpactGround::LateUpdate(_double deltaTime)
 		this->SetDead();
 		m_pThisEffect->SetDead();
 	}
-	for (auto& iter : m_ModelList) {
-		
-	}
+
 }
 
 CImpactGround * CImpactGround::Create(CEmptyEffect * _pThisEffect, CGameObject * _pPlayerEffect)
