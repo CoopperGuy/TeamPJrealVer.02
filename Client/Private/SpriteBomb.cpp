@@ -7,7 +7,7 @@ CSpriteBomb::CSpriteBomb()
 {
 }
 
-HRESULT CSpriteBomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, _fvector sortvalue)
+HRESULT CSpriteBomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 {
 	m_pThis = pThis;
 	CTransform* pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
@@ -17,10 +17,10 @@ HRESULT CSpriteBomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, _fvec
 	XMStoreFloat3(&vTargetPos, pTargetTrans->GetState(CTransform::STATE_POSITION));
 	m_fScale = m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
 	vTargetPos.y = 0.5f;
-	_float X = XMVectorGetX(sortvalue);
-	_float Z = XMVectorGetZ(sortvalue);
-	vTargetPos.x += X;
-	vTargetPos.z += Z;
+	//_float X = XMVectorGetX(sortvalue);
+	//_float Z = XMVectorGetZ(sortvalue);
+	//vTargetPos.x += X;
+	//vTargetPos.z += Z;
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&vTargetPos));
 
 	return S_OK;
@@ -44,11 +44,11 @@ void CSpriteBomb::LateUpdate(_double dDeltaTime)
 
 
 
-CBasicEffect * CSpriteBomb::Create(CEmptyEffect* pThis, CGameObject* pTarget, _fvector sortvalue)
+CBasicEffect * CSpriteBomb::Create(CEmptyEffect* pThis, CGameObject* pTarget)
 {
 	CSpriteBomb*		pInstance = new CSpriteBomb();
 
-	if (FAILED(pInstance->Initialize(pThis, pTarget, sortvalue)))
+	if (FAILED(pInstance->Initialize(pThis, pTarget)))
 	{
 		MSG_BOX("Failed to Create CSpriteBomb");
 		SafeRelease(pInstance);

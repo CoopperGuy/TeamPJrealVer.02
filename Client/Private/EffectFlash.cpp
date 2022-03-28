@@ -35,7 +35,7 @@ void CEffectFlash::LateUpdate(_double deltaTime)
 	m_DurationDelta += (_float)deltaTime;
 	if (m_DurationDelta > m_pThis->GetFadeOutDuration()) 
 	{
-		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Sprite_Fire", "Prototype_E_Sprite_Fire");
+		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Sprite_Fire", "E_Sprite_Fire");
 		CEngine::GetInstance()->AddScriptObject(CSpriteFire::Create((CEmptyEffect*)pGameObject, m_pThis, m_pEl), CEngine::GetInstance()->GetCurSceneNumber());
 		this->SetDead();
 		m_pThis->SetDead();

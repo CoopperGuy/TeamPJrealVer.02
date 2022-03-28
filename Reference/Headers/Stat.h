@@ -101,6 +101,8 @@ private:
 	_bool	m_bisSlow = false;
 	_double	m_slowDelta = 0;
 	_double m_slowTime = 0.2;
+private:
+	string	m_strItemName;
 public:
 	static CStat*	Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	virtual CComponent * Clone(void * pArg) override;
