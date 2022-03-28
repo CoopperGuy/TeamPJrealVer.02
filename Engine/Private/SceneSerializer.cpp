@@ -1245,7 +1245,11 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		deserializedObject->SetPassIndex(renderIndex);
 	}
 
-	deserializedObject->SetInfo(name, layer, uuid, active, 0);
+	if (obj["BillBord"])
+	{
+		auto billBord = obj["BillBord"].as<_bool>();
+		static_cast<CEmptyEffect*>(deserializedObject)->SetBillBord(billBord);
+	}
 
 	auto transformCom = obj["Com_Transform"];
 	if (transformCom)

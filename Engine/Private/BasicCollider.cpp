@@ -535,10 +535,13 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 			if (MyStat->GetSTATES() == CStat::STATES_ATK) {
 				if (pMyCollider->Collision_OBB(pMyCollider, pTargetCollider))
 				{
-					if (TargetpStat->GetStatInfo().isImmortal == true)
-						return;
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
 						pTargetCollider->SetHit(true);
+						if (TargetpStat->GetStatInfo().isImmortal == true) {
+							TargetpStat->SetSlow(true);
+							return;
+						}
+
 						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
 						{
 							

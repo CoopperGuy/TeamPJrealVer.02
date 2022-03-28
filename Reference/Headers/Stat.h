@@ -50,8 +50,10 @@ public:
 	void SetCritical(_float critical) { m_tStat.critical = critical; }
 	void SetStatusEffect(STATUSEFFECT _effect) { m_StatusEffect = STATUSEFFECT(m_StatusEffect | _effect); }
 	void ShutStatusEffect(STATUSEFFECT _effect) { m_StatusEffect &= ~_effect; }
+	void SetSlow(_bool _isSlow) { m_bisSlow = _isSlow; }
 public:
 	_bool GetIsImmortal() { return m_tStat.isImmortal; }
+	_bool GetIsSlow() { return m_bisSlow; }
 	STAT GetStatInfo() { return m_tStat; }
 	STATES GetSTATES() { return m_eState; }
 	_float GetHpPercentage() { return m_tStat.hp / m_tStat.maxHp; }
@@ -95,6 +97,10 @@ private:
 private:
 	_float	m_fmagnification = 1.f;
 	_float	m_fDMGRatio = 1.f;
+private:
+	_bool	m_bisSlow = false;
+	_double	m_slowDelta = 0;
+	_double m_slowTime = 0.2;
 public:
 	static CStat*	Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext);
 	virtual CComponent * Clone(void * pArg) override;
