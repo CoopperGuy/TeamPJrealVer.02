@@ -1000,7 +1000,7 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-      Rotation: [-1.11217014e-05, 82.4875717, -1.12273501e-05]
+      Rotation: [-1.11216987e-05, 82.4875717, -1.12273501e-05]
       Scale: [1.5, 1.29999995, 0.99999851]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
@@ -1008,7 +1008,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-    Rotation: [-1.11217014e-05, 82.4875717, -1.12273501e-05]
+    Rotation: [-1.11216987e-05, 82.4875717, -1.12273501e-05]
     Scale: [1.5, 1.29999995, 0.99999851]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
     MeshFileName: Door3.fbx

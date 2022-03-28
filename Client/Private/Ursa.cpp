@@ -897,11 +897,12 @@ void CUrsa::OrganizeEffect()
 		if (keyFrame == 19 && i <= 1) {
 			++i;
 			_matrix Translation;
+			_matrix UrsaAxeR = m_pModel->Get_BoneWithoutOffset("BN_Axe_R");
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), 1.5f, XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
-			Translation = m_pTransform->Remove_Scale(Translation);
+			UrsaAxeR = Remove_ScaleRotation(Translation * UrsaAxeR* m_pTransform->GetWorldMatrix());
 
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, Translation * UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;
@@ -911,8 +912,13 @@ void CUrsa::OrganizeEffect()
 			int i = 0;
 		if (keyFrame == 39 && i<=1) {
 			++i;
+			_matrix Translation;
+			_matrix UrsaAxeL = m_pModel->Get_BoneWithoutOffset("BN_Axe_L");
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), 1.5f, XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+			UrsaAxeR = Remove_ScaleRotation(Translation * UrsaAxeL* m_pTransform->GetWorldMatrix());
+
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;
