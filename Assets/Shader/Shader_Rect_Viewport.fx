@@ -373,7 +373,7 @@ technique11		DefaultDevice
     {
         SetRasterizerState(Rasterizer_Solid);
         SetDepthStencilState(DepthStecil_NotZTest, 0);
-        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+        SetBlendState(Blend_None, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
         VertexShader = compile vs_5_0 VS_MAIN_VIEWPORT();
         GeometryShader = NULL;
