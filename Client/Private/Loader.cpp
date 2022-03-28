@@ -300,12 +300,7 @@ HRESULT CLoader::GameSceneLogo()
 
 	m_ThreadLoader->Start_Thread();
 
-	/*for (auto& f : futures) {
-		cout << "return result : " << f.get() << "\n";
-	}
-	*/
 	m_iCompleteBit = 0;
-
 
 
 	while (!m_isFinish) {

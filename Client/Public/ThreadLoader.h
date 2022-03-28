@@ -53,7 +53,7 @@ inline std::future<typename std::result_of<F(Args...)>::type> CThreadLoader::Enq
 
 	m_fMax_Jobs++;
 	return job_result_future;
-		
+
 }
 
 END
