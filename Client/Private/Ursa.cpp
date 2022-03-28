@@ -6,6 +6,11 @@
 
 #include "Obb.h"
 
+#pragma region MyRegion
+#include "EffectSoilDust.h"
+#pragma endregion
+
+
 
 USING(Client)
 
@@ -101,28 +106,38 @@ void CUrsa::Update(_double dDeltaTime)
 
 	m_fDist = SetDistance();
 
-	//TestAnimation(Flying_End);
-	Checking_Phase(dDeltaTime);
-	//if (m_bCombat[First])
-	//{
-	//	if (!m_bCB)
-	//		Adjust_Dist(dDeltaTime);
-	//}
+	//////////TestAnimation(Flying_End);
+	////////Checking_Phase(dDeltaTime);
+	//////////if (m_bCombat[First])
+	//////////{
+	//////////	if (!m_bCB)
+	//////////		Adjust_Dist(dDeltaTime);
+	//////////}
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bCombat[First] = true;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		Roar();
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bCombat[Second] = true;
-		m_bCombat[First] = false;
-	}
-	Execute_Pattern(dDeltaTime);
+	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	////////	m_bCombat[First] = true;
+	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	////////	Roar();
+	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	////////{
+	////////	m_bCombat[Second] = true;
+	////////	m_bCombat[First] = false;
+	////////}
+	////////Execute_Pattern(dDeltaTime);
 
-	/*if(!m_bWheelWind && !m_bRoar)*/
-		Checking_Finished();
+	/////////*if(!m_bWheelWind && !m_bRoar)*/
+	////////	Checking_Finished();
+
+
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+		m_eState = IDLE01;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
+		m_eState = Combo_1;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
+		m_eState = Combo_2Start;
+
+
 
 	if(m_bCB)
 		SetUp_Combo();
@@ -148,6 +163,7 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 
 	m_pModel->Play_Animation(dDeltaTime);
 
+	OrganizeEffect();
 }
 
 void CUrsa::Render()
@@ -840,6 +856,125 @@ void CUrsa::SetRotate()
 	}
 }
 
+void CUrsa::OrganizeEffect()
+{
+	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	_matrix UrsaAxeR = m_pModel->Get_BoneWithoutOffset("BN_Axe_R");
+	UrsaAxeR = Remove_ScaleRotation(UrsaAxeR* m_pTransform->GetWorldMatrix());
+
+	_matrix UrsaAxeL = m_pModel->Get_BoneWithoutOffset("BN_Axe_L");
+	UrsaAxeL = Remove_ScaleRotation(UrsaAxeL* m_pTransform->GetWorldMatrix());
+
+	_matrix RemoveWorldMatrix = m_pTransform->Remove_Scale(m_pTransform->GetWorldMatrix());
+
+	switch (m_eState)
+	{
+	case Client::CUrsa::IDLE02:
+		break;
+	case Client::CUrsa::IDLE01:
+		break;
+	case Client::CUrsa::IDLE_CB:
+		break;
+	case Client::CUrsa::RUN:
+		break;
+	case Client::CUrsa::CB_Start:
+		break;
+	case Client::CUrsa::ROAR_Casting:
+		break;
+	case Client::CUrsa::DASH_ATT:
+		break;
+	case Client::CUrsa::L_SLASH:
+		break;
+	case Client::CUrsa::R_SLASH:
+		break;
+	case Client::CUrsa::Combo_1Start:
+		break;
+	case Client::CUrsa::Combo_1Hold:
+		break;
+	case Client::CUrsa::Combo_1: {
+		int i = 0;
+		if (keyFrame == 19 && i <= 1) {
+			++i;
+			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+	}
+		break;
+	case Client::CUrsa::Combo_1End:
+		break;
+	case Client::CUrsa::Combo_2Start: {
+			int i = 0;
+		if (keyFrame == 39 && i<=1) {
+			++i;
+			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+	}
+		break;
+	case Client::CUrsa::Combo_2End:
+		break;
+	case Client::CUrsa::Combo_3Start:
+		break;
+	case Client::CUrsa::Combo_3End:
+		break;
+	case Client::CUrsa::Combo_4Start:
+		break;
+	case Client::CUrsa::Combo_4End:
+		break;
+	case Client::CUrsa::Big_SLASH:
+		break;
+	case Client::CUrsa::AXE_STAMP:
+		break;
+	case Client::CUrsa::PUMMEL_1:
+		break;
+	case Client::CUrsa::PUMMEL_2:
+		break;
+	case Client::CUrsa::ROAR_ING:
+		break;
+	case Client::CUrsa::ROAR_End:
+		break;
+	case Client::CUrsa::DASH_ATTSpeedup:
+		break;
+	case Client::CUrsa::WHEELWIND_Start:
+		break;
+	case Client::CUrsa::WHEELWIND_Ing:
+		break;
+	case Client::CUrsa::WHEELWIND_End:
+		break;
+	case Client::CUrsa::ROAR_Start:
+		break;
+	case Client::CUrsa::HIT:
+		break;
+	case Client::CUrsa::DIE:
+		break;
+	case Client::CUrsa::DEADBODY:
+		break;
+	case Client::CUrsa::qqq:
+		break;
+	case Client::CUrsa::wwww:
+		break;
+	case Client::CUrsa::eee:
+		break;
+	case Client::CUrsa::err:
+		break;
+	case Client::CUrsa::assd:
+		break;
+	case Client::CUrsa::wwewe:
+		break;
+	case Client::CUrsa::qyyw:
+		break;
+	case Client::CUrsa::Flying_Start:
+		break;
+	case Client::CUrsa::Flying_Land:
+		break;
+	case Client::CUrsa::Flying_End:
+		break;
+	case Client::CUrsa::Ursa_END:
+		break;
+	}
+}
+
 PxVec3 CUrsa::OriginShift()
 {
 	_vector vCenter;
@@ -869,4 +1004,35 @@ PxVec3 CUrsa::OriginShift()
 	}
 
 	return vDir;
+}
+
+_fmatrix CUrsa::Remove_Rotation(_fmatrix TransformMatrix)
+{
+	_matrix			NonRotateMatrix = XMMatrixIdentity();
+
+	NonRotateMatrix.r[3] = TransformMatrix.r[3];
+
+	return NonRotateMatrix;
+}
+
+_fmatrix CUrsa::Remove_Scale(_fmatrix _srcmatrix)
+{
+	_matrix			NonScaleMatrix = (_srcmatrix);
+
+	NonScaleMatrix.r[0] = XMVector3Normalize(_srcmatrix.r[0]);
+	NonScaleMatrix.r[1] = XMVector3Normalize(_srcmatrix.r[1]);
+	NonScaleMatrix.r[2] = XMVector3Normalize(_srcmatrix.r[2]);
+
+	return NonScaleMatrix;
+}
+
+_fmatrix CUrsa::Remove_ScaleRotation(_fmatrix _srcmatrix)
+{
+	_matrix			NonScaleMatrix = Remove_Rotation(_srcmatrix);
+
+	NonScaleMatrix.r[0] = XMVector3Normalize(_srcmatrix.r[0]);
+	NonScaleMatrix.r[1] = XMVector3Normalize(_srcmatrix.r[1]);
+	NonScaleMatrix.r[2] = XMVector3Normalize(_srcmatrix.r[2]);
+
+	return NonScaleMatrix;
 }

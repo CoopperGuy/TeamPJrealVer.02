@@ -51,7 +51,7 @@ void CEffectSoilDust::Update(_double deltaTime)
 
 void CEffectSoilDust::LateUpdate(_double deltaTime)
 {
-	if (m_dDeadTime>=static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

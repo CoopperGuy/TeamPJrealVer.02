@@ -35,6 +35,7 @@ public:
 	HRESULT	UpdateGauge(_double deltaTime);
 	HRESULT GamePlayLoader();
 	HRESULT GameFlogasLoader();
+	HRESULT GameUrsaLoader();
 	HRESULT	GameTestLoader();
 	HRESULT	GameSceneLoader(string scene, SCENE sceneNum);
 	HRESULT GameSceneStage01();

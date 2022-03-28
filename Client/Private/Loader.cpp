@@ -202,6 +202,16 @@ HRESULT CLoader::GameFlogasLoader()
 	return S_OK;
 }
 
+HRESULT CLoader::GameUrsaLoader()
+{
+	std::vector<std::future<_int>> futures;
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_UrsaeDust", 1);
+	m_iCompleteBit = 0;
+
+	return S_OK;
+}
+
 HRESULT CLoader::GameTestLoader()
 {
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/FieldMapGround.yaml", SCENE_TEST);
@@ -410,8 +420,11 @@ HRESULT CLoader::GameSceneSEO()
 
 
 
-	if (FAILED(GameFlogasLoader()))
-		MSG_BOX("Failed To Create Flogas Effect");
+		//if (FAILED(GameFlogasLoader()))
+		//	MSG_BOX("Failed To Create Flogas Effect");
+
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
 
 	m_ThreadLoader->Start_Thread();
 
