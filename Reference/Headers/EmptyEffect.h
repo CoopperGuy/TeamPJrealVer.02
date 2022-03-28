@@ -50,6 +50,7 @@ public:
 	_float GetProcessTime() { return m_fProcessTime; }
 	_float GetMoveSpd() { return m_fMoveSpd; }
 
+	_float GetSpriteNum() { return m_fSpriteNum; }
 	_float GetSpriteSpeed() { return m_fSpriteSpeed; }
 	_float GetAlpha() { return m_fAlpha; }
 	_uint GetSpriteX() { return m_iSpriteNumX; }

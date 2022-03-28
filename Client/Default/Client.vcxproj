@@ -205,6 +205,7 @@
     <ClInclude Include="..\Public\DropRock.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
     <ClInclude Include="..\Public\EffectBloodDecal.h" />
+    <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
@@ -293,6 +294,8 @@
     <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
+    <ClInclude Include="..\Public\SpriteBomb.h" />
+    <ClInclude Include="..\Public\SpriteFire.h" />
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TargetOn.h" />
     <ClInclude Include="..\public\TestMonster.h" />
@@ -362,6 +365,7 @@
     <ClCompile Include="..\Private\EffectDust.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
     <ClCompile Include="..\Private\EffectFireBall.cpp" />
+    <ClCompile Include="..\Private\EffectFlash.cpp" />
     <ClCompile Include="..\Private\EffectFly.cpp" />
     <ClCompile Include="..\Private\EffectFlyLaser.cpp" />
     <ClCompile Include="..\Private\EffectGrab.cpp" />
@@ -445,6 +449,8 @@
     <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />
+    <ClCompile Include="..\Private\SpriteBomb.cpp" />
+    <ClCompile Include="..\Private\SpriteFire.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TargetOn.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />

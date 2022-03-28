@@ -2,6 +2,8 @@
 #include "..\Public\El_Flogas.h"
 #include "Flogas.h"
 #include "Element_Bomb.h"
+#include "SpriteFire.h"
+#include "EffectFlash.h"
 
 USING(Client)
 
@@ -16,6 +18,26 @@ CEl_Flogas::CEl_Flogas(CGameObject * pObj)
 
 HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 {
+	if (name == "El_Flogas01")
+	{
+		m_bRight = true;
+		m_bFront = true;
+	}
+	else if (name == "El_Flogas02")
+	{
+		m_bRight = false;
+		m_bFront = true;
+	}
+	else if (name == "El_Flogas03")
+	{
+		m_bRight = true;
+		m_bFront = false;
+	}
+	else if (name == "El_Flogas04")
+	{
+		m_bRight = false;
+		m_bFront = false;
+	}
 	m_ScriptName = name;
 	m_pFlogas = pObj;
 
@@ -76,10 +98,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				{
 					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
 					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
-					//cout <<" Create Bomb " << "\n";
 				}
 				m_dExplosionTime += dDeltaTime;
-
+				m_fScale += (_float)dDeltaTime * 0.1f;
+				m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
 				if (m_dExplosionTime > 4.0)
 				{
 					m_bDeadMotion = true;
@@ -92,9 +114,14 @@ void CEl_Flogas::Update(_double dDeltaTime)
 			{
 				if (m_bDeadMotion)
 				{
-					m_pTransform->SetScale(_float3(1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime, 1.5f - (_float)dDeltaTime));
+					m_fScale -= (_float)dDeltaTime;
+					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
 					if (m_pModel->Get_isFinished(DIE))
 					{
+						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
+						CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+						pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Sprite_Fire", "Prototype_E_Sprite_Fire");
+						CEngine::GetInstance()->AddScriptObject(CSpriteFire::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
 						m_bDestination = false;
 						m_pModel->SetUp_AnimationIndex(DEADBODY);
 						m_pGameObject->SetActive(false);
@@ -105,6 +132,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 	}
 	else
 	{
+		m_fScale = 1.5f;
 		m_bDeadMotion = false;
 		m_pTransform->SetMatrix(m_OriginWorld);
 		m_pCollider->SetPosition(m_vOriginPos);

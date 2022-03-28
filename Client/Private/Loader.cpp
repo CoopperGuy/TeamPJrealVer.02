@@ -191,10 +191,10 @@ HRESULT CLoader::GameFlogasLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_WaterEA", "O_WaterEA", 20);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_EAFire", "O_EAFire", 21);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ElementBomb", "E_Element_Bomb", 22);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Bomb_Sprite", "E_Bomb_Sprite", 23);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Flash", "E_Flash", 24);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Sprite_Fire", "E_Sprite_Fire", 25);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FlogasEffLight", "O_FlogasLighte", 23);
-
-
-	
 
 	m_iCompleteBit = 0;
 
