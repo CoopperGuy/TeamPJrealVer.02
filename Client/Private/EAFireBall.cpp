@@ -34,7 +34,7 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
 	m_Targetpos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 
-	if (XMVectorGetY(m_Targetpos) <= 1.f)
+	if (XMVectorGetY(m_Targetpos) >= 0.f)
 		m_Targetpos = XMVectorSetY(m_Targetpos, 0.f);
 
 	LookAt(m_pTargetTransform->GetState(CTransform::STATE_POSITION));

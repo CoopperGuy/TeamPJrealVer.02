@@ -1,20 +1,20 @@
 Scene: Untitled
 GameObjects:
-  - Name: Empty Object
-    UUID: 15173079792411371195
+  - Name: E_UrsaDust2
+    UUID: 1837035002896329615
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: false
     Com_Transform:
-      Translation: [-0.575269282, 0.0621358044, 0]
-      Rotation: [0, -0, -0.000104273429]
-      Scale: [2, 1, 1]
+      Translation: [0.100000001, 0.095413208, 0.047065109]
+      Rotation: [0, -0, 0]
+      Scale: [2.4000001, 0.800000012, 2]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\WispySmoke02_8x8.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke3.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -35,5 +35,5 @@ GameObjects:
       SpriteNumX: 8
       SpriteNumY: 8
       SpriteTotal: 64
-      SpriteSpeed: 50
+      SpriteSpeed: 70
       Alpha: 1
