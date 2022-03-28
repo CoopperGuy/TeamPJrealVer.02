@@ -114,6 +114,8 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	m_tStat.hp -= dmg;
 	if (m_tStat.hp <= 0.f) {
 		m_tStat.isDead = true;
+		enemyStat->EarnExp(this);
+		enemyStat->EarnGold(m_tStat.gold);
 		return true;
 	}
 	return false;
@@ -162,10 +164,12 @@ void CStat::EarnGold(_int _gold)
 void CStat::EarnExp(CStat * enemyStat)
 {
 	STAT enemyStatus = enemyStat->GetStatInfo();
-	m_tStat.exp += enemyStatus.exp;
+	m_tStat.exp += enemyStatus.maxExp;
 	while (m_tStat.exp >= m_tStat.maxExp) {
 		m_tStat.level++;
 		m_tStat.exp -= m_tStat.maxExp;
+		SetLevelStat();
+		m_tStat.hp = m_tStat.maxHp;
 	}
 }
 
