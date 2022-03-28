@@ -1246,7 +1246,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 	CGameObject* deserializedObject = m_pEngine->ClonePrototype("Prototype_EmptyEffect", pPrototypeTag);
 	GameObjectMutex.unlock();
 
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
+	deserializedObject->SetPrefabInfo(name, layer, uuid, active, curScene);
 
 	if (obj["PassIndex"])
 	{
@@ -1514,7 +1514,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 		deserializedObject->SetPassIndex(renderIndex);
 	}
 
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
+	deserializedObject->SetPrefabInfo(name, layer, uuid, active, curScene);
 
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetRenderGroup((CRenderer::RENDER)renderGroup);
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetFrustum(FrustumRange);
@@ -2415,9 +2415,9 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 			if (obj["Type"].as<string>() == "UI")
 				return E_FAIL;
 			else if (obj["Type"].as<string>() == "Effect")
-				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, true, curScene);
+				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, true, 0);
 			else
-				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, true, curScene);
+				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, true, 0);
 
 			auto children = obj["Children"];
 			if (children)

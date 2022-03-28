@@ -3,15 +3,7 @@
 
 BEGIN(Client)
 void CreatMonsterHPbarThread(CMonHpVIBuffer* script) {
-	CEmptyGameObject*	monHud = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("U_MonHpVIBuffer"));
-	CEmptyGameObject*	monHpBar = static_cast<CEmptyGameObject*>(monHud->GetChildren().front());
-	CEngine::GetInstance()->AddScriptObject(script, CEngine::GetInstance()->GetCurSceneNumber());
-
-	script->pushHuds(monHud, monHpBar);
-	script->pushBuffer(static_cast<CVIBuffer_Rect*>(monHud->GetComponent("Com_VIBuffer")));
-	script->pushBuffer(static_cast<CVIBuffer_Rect*>(monHpBar->GetComponent("Com_VIBuffer")));
-	script->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")) , nullptr);
-	script->SetIsEnd();
+	
 
 }
 END
@@ -29,8 +21,18 @@ HRESULT CMonHpVIBuffer::Initailze(CGameObject * pArg)
 		m_pTargetStat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
 		m_pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	}
-	std::thread createHpbar(CreatMonsterHPbarThread, this);
-	createHpbar.detach();
+	/*std::thread createHpbar(CreatMonsterHPbarThread, this);
+	createHpbar.detach();*/
+	CEmptyGameObject*	monHud = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("U_MonHpVIBuffer"));
+	CEmptyGameObject*	monHpBar = static_cast<CEmptyGameObject*>(monHud->GetChildren().front());
+	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+
+	this->pushHuds(monHud, monHpBar);
+	this->pushBuffer(static_cast<CVIBuffer_Rect*>(monHud->GetComponent("Com_VIBuffer")));
+	this->pushBuffer(static_cast<CVIBuffer_Rect*>(monHpBar->GetComponent("Com_VIBuffer")));
+	this->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")), nullptr);
+	this->SetIsEnd();
+
 	return S_OK;
 }
 
