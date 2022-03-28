@@ -159,7 +159,7 @@ HRESULT CLoader::GamePlayLoader()
 
 HRESULT CLoader::GameFlogasLoader()
 {
-	m_ThreadLoader = new CThreadLoader(23);
+	m_ThreadLoader = new CThreadLoader(5);
 
 	std::vector<std::future<_int>> futures;
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly", 0);
