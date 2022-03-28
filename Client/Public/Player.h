@@ -86,6 +86,8 @@ private:
 	_vector SetEvadeDist();
 	_bool Walk();
 	_bool IsGravity();
+	void CreateBlood();
+	void SlowMotion(_double deltaTime);
 private:
 	void UIInput();
 	void InputSkill();
@@ -139,7 +141,9 @@ private:
 	//skill
 	_int m_iSkill[(_uint)Skill::Max_Slot]	= {};
 	_int m_iSkillIndex						= 0;
-
+private:
+	_double m_slowDelta = 0;
+	_double m_slowTime = 0.1;
 private:
 	_float4x4 m_matRoot			= {};
 	_float4x4 m_matWorld		= {};

@@ -272,14 +272,14 @@ HRESULT CLoader::GameSceneLogo()
 
 	CEngine::GetInstance()->DeserializePrefab();
 
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Player.yaml", SCENE_STATIC, 6));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Equip.yaml", SCENE_STATIC, 7));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/MainUI.yaml", SCENE_STATIC, 1));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml", SCENE_STATIC, 2));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Player.yaml", SCENE_STATIC, 6));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Equip.yaml", SCENE_STATIC, 7));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
 
@@ -293,8 +293,8 @@ HRESULT CLoader::GameSceneLogo()
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_AuraEffect", "E_AuraEffect", 9));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BloodDecal", "E_BloodDecal", 10));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DecalCrash", "E_DecalCrash", 11));
-    futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IBlood", "E_IBlood", 12));
-    futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IBlood", "E_IBlood", 12));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -319,11 +319,11 @@ HRESULT CLoader::GameSceneKIM()
 {
 
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.f, 0.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 2.f));
 
 	std::vector<std::future<_int>> futures;
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 0));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_WaterEA", "WaterEA", 1));
 
 	m_ThreadLoader->Start_Thread();

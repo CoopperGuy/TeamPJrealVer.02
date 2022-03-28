@@ -16,6 +16,7 @@ cbuffer MatricesInv
 };
 
 float g_fFadeAlpha;
+float4 g_vOffsetColor;
 
 Texture2D   g_DiffuseTexture;
 Texture2D   g_MaskTexture;
@@ -25,7 +26,6 @@ struct VS_IN
 {
 	float3 vPosition : POSITION; /* 로컬스페이스 */
 	float3 vTexUV : TEXCOORD0;
-
 };
 
 struct VS_OUT
@@ -102,14 +102,16 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     vMask = g_MaskTexture.Sample(g_DefaultSampler, decaluv);
     vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
     
-    vColor.a *= g_fFadeAlpha;
-    
-    if (vMask.r < 0.3f)
+    vMask.a = (vMask.r + vMask.g + vMask.b) / 3.f;
+    if (vMask.a < 0.1f)
         discard;
-    //if (vMask.a <= 0.f)
-    //    discard;
+
+    vColor.rgb += g_vOffsetColor.rgb;
+    vColor.a = vMask.a + g_vOffsetColor.a;
+    vColor.a *= g_fFadeAlpha;    
+        
     if (vMask.r > 0.99f)
-        vColor.rgb += 0.1f;
+        vColor.rgb += 0.5f;
 
     return vColor;
 }

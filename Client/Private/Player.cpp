@@ -207,8 +207,6 @@ void CPlayer::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
-	__super::LateUpdate(dDeltaTime);
-
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
 		PlayerMove(dDeltaTime);
@@ -218,47 +216,23 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 	m_pState->Update(dDeltaTime, *this);
 	this->UIInput();
-	if (m_pGold) {
-		string gold = to_string(m_pStatus->GetStatInfo().gold);
-		m_pGold->UpdateGoldString(gold);
-	}
-
+	
 	//#ifdef _DEBUG
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}
 	//#endif // _DEBUG
 	Collsion();
-
 	Transform_ToWorldSpace();
 	SearchMonster();
-
-	if (CEngine::GetInstance()->IsKeyDown(VK_F8))
-	{
-		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
-		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
-	}
-
-	if (m_pOBB->Get_isHit()) {
-
-		_matrix Translation;
-		_int random = rand() % 4;
-		random += 1;
-		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
-		Translation = m_pTransform->Remove_Scale(Translation);
-
-
-		CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
-		CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
-
-		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
-	}
-
+	CreateBlood();
+	SlowMotion(dDeltaTime);
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
 {
+	__super::LateUpdate(dDeltaTime);
+
 	if (CEngine::GetInstance()->GetCurSceneNumber() < SCENE_STAGE1) {
 		m_pGameObject->SetActive(false);
 		return;
@@ -1086,6 +1060,45 @@ _bool CPlayer::IsGravity()
 	return isCollied;
 }
 
+void CPlayer::CreateBlood()
+{
+	if (CEngine::GetInstance()->IsKeyDown(VK_F8))
+	{
+		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
+		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
+	if (m_pOBB->Get_isHit()) {
+
+		_matrix Translation;
+		_int random = rand() % 4;
+		random += 1;
+		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		Translation = m_pTransform->Remove_Scale(Translation);
+
+
+		CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+		CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+
+		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+}
+
+void CPlayer::SlowMotion(_double deltaTime)
+{
+	_bool isSlow = m_pStatus->GetIsSlow();
+	if (isSlow == true) {
+		g_TickLate = 0.5f;
+		m_slowDelta += deltaTime;
+		if (m_slowTime < m_slowDelta) {
+			m_slowDelta = 0;
+			m_pStatus->SetSlow(false);
+			g_TickLate = 1.f;
+		}
+	}
+}
+
 void CPlayer::UIInput()
 {
 	_int i = -1;
@@ -1101,6 +1114,11 @@ void CPlayer::UIInput()
 	if (i >= 0) {
 		if (quickSlotSize > i)
 			m_pQuickSlot[i]->UseItem(this);
+	}
+
+	if (m_pGold) {
+		string gold = to_string(m_pStatus->GetStatInfo().gold);
+		m_pGold->UpdateGoldString(gold);
 	}
 }
 void CPlayer::InputSkill()

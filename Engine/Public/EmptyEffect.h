@@ -50,9 +50,9 @@ public:
 	_float GetProcessTime() { return m_fProcessTime; }
 	_float GetMoveSpd() { return m_fMoveSpd; }
 
+	_float4 GetOffsetColor() { return m_vOffsetColor; }
 	_float GetSpriteNum() { return m_fSpriteNum; }
 	_float GetSpriteSpeed() { return m_fSpriteSpeed; }
-	_float GetAlpha() { return m_fAlpha; }
 	_uint GetSpriteX() { return m_iSpriteNumX; }
 	_uint GetSpriteY() { return m_iSpriteNumY; }
 	_uint GetSpriteTotal() { return m_iSpriteNumTotal; }
@@ -81,7 +81,7 @@ public:
 	void SetFadeInEnable(_bool bFadeIn) { m_bFadeIn = bFadeIn; }
 	void SetFadeInStartTime(_float fFadeInStratTime) { m_fFadeInStratTime = fFadeInStratTime; }
 	void SetFadeInDuration(_float fFadeInDuration) { m_fFadeInDuration = fFadeInDuration; }
-	void SetAlpha(_float fAlpha) { m_fAlpha = fAlpha; }
+	void SetOffsetColor(_float4 vOffsetColor) { m_vOffsetColor = vOffsetColor; }
 
 	void SetBillBord(_bool billbord) { m_bBillBord = billbord; }
 	void SetLinkTarget(_bool bLinkTarget) { m_bLinkTarget = bLinkTarget; }
@@ -127,10 +127,10 @@ private:
 	_float	m_fDistortionBias = 0.5f;
 
 /* Effect Option */
+	_float4 m_vOffsetColor = { 0.f, 0.f, 0.f, 0.f };
 	_float	m_fEffectFrameTime = 0.f;
 	_float	m_fEffectDuration = 0.f;
 	_float	m_fFadeAlpha = 1.f;
-	_float  m_fAlpha = 1.f;
 	_float3 m_vZoomScale = { 1.f, 1.f, 1.f };
 
 	_bool	m_bFadeOut = false;
