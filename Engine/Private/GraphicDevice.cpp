@@ -411,6 +411,9 @@ HRESULT CGraphicDevice::ReadyViewport(_uint iWidth, _uint iHeight)
 
 void CGraphicDevice::Free()
 {
+	cout << m_pDevice.Reset() << endl;
+	cout << m_pDeviceContext.Reset() << endl;
+
 	//SafeDelete(texture);
 	//SafeDelete(debug);
 	//if (m_pDeviceContext) m_pDeviceContext->ClearState();

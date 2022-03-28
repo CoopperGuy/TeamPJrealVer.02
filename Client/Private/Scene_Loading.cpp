@@ -40,7 +40,8 @@ _uint CScene_Loading::Update(_double TimeDelta)
 
 	if (m_pLoader != nullptr) {
 
-		if (true == m_pLoader->Get_Finish())
+		_bool isFinish = m_pLoader->Get_Finish();
+		if (isFinish == true)
 		{
 			CEngine*		pEngine = GET_INSTANCE(CEngine);
 
@@ -110,12 +111,13 @@ _uint CScene_Loading::Update(_double TimeDelta)
 			RELEASE_INSTANCE(CEngine);
 		}
 		else {
-			if(m_bIsClearEnd)
-				m_pLoader->UpdateGauge(TimeDelta);
+			m_pLoader->UpdateGauge(TimeDelta);
 		}
 	}
 	else {
-		m_pLoader = CLoader::Create(m_eNextSCENE);
+		if (m_bIsClearEnd) {
+			m_bIsClearEnd = false;
+		}
 	}
 	return _uint();
 }
@@ -125,6 +127,11 @@ HRESULT CScene_Loading::Render()
 	__super::Render();
 
 	return S_OK;
+}
+
+void CScene_Loading::StartLoader()
+{
+	m_pLoader = CLoader::Create(m_eNextSCENE);
 }
 
 CScene_Loading * CScene_Loading::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, SCENE eNextScene, _uint iSceneIndex)

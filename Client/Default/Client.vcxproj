@@ -200,6 +200,7 @@
     <ClInclude Include="..\public\ComboHud.h" />
     <ClInclude Include="..\public\ComboIcon.h" />
     <ClInclude Include="..\public\ConsumItemHud.h" />
+    <ClInclude Include="..\public\DecalCrash.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\DropRock.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
@@ -351,6 +352,7 @@
     <ClCompile Include="..\private\ComboIcon.cpp" />
     <ClCompile Include="..\private\ConsumItemHud.cpp" />
     <ClCompile Include="..\private\Character.cpp" />
+    <ClCompile Include="..\private\DecalCrash.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
     <ClCompile Include="..\Private\DropRock.cpp" />
     <ClCompile Include="..\Private\EAFireBall.cpp" />

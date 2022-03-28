@@ -52,7 +52,7 @@ void CComponentManager::Clear(_uint iSceneIndex)
 
 	for (auto& Pair : m_pPrototypes[iSceneIndex]) {
 		SafeRelease(Pair.second);
-		cout << Pair.first << " < deleted Com Address is " << Pair.second << "\n";
+		//cout << Pair.first << " < deleted Com Address is " << Pair.second << "\n";
 	}
 
 	m_pPrototypes[iSceneIndex].clear();
@@ -74,11 +74,11 @@ void CComponentManager::Free()
 	{
 		for (auto& Pair : m_pPrototypes[i]) {
 			SafeRelease(Pair.second);
-#ifdef _DEBUG
-			if(Pair.second)
-				cout << Pair.first << "  is refCnt " << Pair.second->getRefCnt() << "\n";
-
-#endif // _DEBUG
+//#ifdef _DEBUG
+//			if(Pair.second)
+//				cout << Pair.first << "  is refCnt " << Pair.second->getRefCnt() << "\n";
+//
+//#endif // _DEBUG
 
 		}
 		m_pPrototypes[i].clear();
