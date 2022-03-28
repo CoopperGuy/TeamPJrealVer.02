@@ -71,7 +71,7 @@ void CScriptObjectManager::Free()
 	for (_uint i = 0; i < m_iNumScenes; i++) {
 		for (auto& obj : m_ScriptObjects[i]) {
 			SafeRelease(obj);
-			cout << "script clear " << obj << "\n";
+			//cout << "script clear " << obj << "\n";
 		}
 		m_ScriptObjects[i].clear();
 	}

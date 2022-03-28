@@ -26,6 +26,8 @@ public:
 		return m_isFinish;
 	}
 public:
+	_bool Get_IsEnd();
+public:
 	void SetFinish(_int idx) { m_isThreadFinish[idx] = true; }
 	void SetCompleteBit(_uint _bits) { m_iCompleteBit |= (1<<_bits); }
 public:
@@ -58,7 +60,7 @@ private:
 	CLoadingGauge*		m_pLoadingGauge = nullptr;
 	unordered_map<std::string, std::thread>	Threads;
 private:
-	CThreadLoader*		m_ThreadLoader;
+	CThreadLoader*		m_ThreadLoader = nullptr;
 
 public:
 	static CLoader* Create(SCENE eScene);

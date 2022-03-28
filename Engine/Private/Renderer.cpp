@@ -156,7 +156,8 @@ HRESULT CRenderer::InitializePrototype()
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Main", "Target_Main")))
 		return E_FAIL;
-	
+	if (FAILED(m_pTargetManager->Add_MRT("MRT_Trail", "Target_Trail")))
+		return E_FAIL;
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
@@ -182,6 +183,8 @@ HRESULT CRenderer::InitializePrototype()
 	if (nullptr == m_pVIBuffer_SSAO)
 		return E_FAIL;
 
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Trail", 0.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Diffuse", 0.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Normal", 0.f, 200.f, 200.f, 200.f)))
@@ -193,14 +196,6 @@ HRESULT CRenderer::InitializePrototype()
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_DecalDepth", 200.f, 200.f, 200.f, 200.f)))
 		return E_FAIL;
 	
-	/*if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular", 200.f, 200.f, 200.f, 200.f)))
-		return E_FAIL;*/
-
-	//if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Shadow0", 0.f, 600.f, 200.f, 200.f)))
-	//	return E_FAIL;
-	//if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Shadow1", 0.f, 800.f, 200.f, 200.f)))
-	//	return E_FAIL;
-
 	m_pTargetManager->Initialize(m_pDevice, m_pDeviceContext);
 
 	return S_OK;
@@ -286,7 +281,9 @@ HRESULT CRenderer::DrawRenderGroup()
 	}
 
 	if (m_bDebuger) {
-		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+		/*if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+			return E_FAIL;*/
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Trail")))
 			return E_FAIL;
 	}
 	
@@ -581,7 +578,7 @@ HRESULT CRenderer::Render_Shader()
 	Render_Bloom();
 	
 	
-	// Draw Trail
+	//// Draw Trail
 	m_pTargetManager->Begin_SingleRT(m_pDeviceContext, "Target_Trail");
 
 	 pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_HDR");
@@ -621,6 +618,7 @@ HRESULT CRenderer::Render_Shader()
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture", pBloomSRV);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture2", pBloomSRV2);
 	m_pVIBuffer->GetShader()->SetUp_TextureOnShader("g_BloomTexture3", pBloomSRV3);
+	//pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Trail");
 
 	m_pVIBuffer->Render(5);
 

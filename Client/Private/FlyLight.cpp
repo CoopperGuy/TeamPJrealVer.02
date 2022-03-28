@@ -47,7 +47,7 @@ HRESULT CFlyLight::Initialize(void* pArg)
 			MSG_BOX("Failed to AddComponent");
 
 
-		cout << XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) << endl;
+		//cout << XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) << endl;
 
 	}
 	return S_OK;
