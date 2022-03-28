@@ -352,9 +352,6 @@
     <ClInclude Include="..\Public\SlashWave.h">
       <Filter>05.Effect\FlogasDungeon\FireSlash</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\Fire_explosion.h">
-      <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\Ursa.h">
       <Filter>02.GameObjects\Character\Enemy\Ursa</Filter>
     </ClInclude>
@@ -402,6 +399,18 @@
     </ClInclude>
     <ClInclude Include="..\Public\Bomb_Center.h">
       <Filter>05.Effect\FlogasDungeon\ElementBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectFlash.h">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SpriteFire.h">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteFire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fire_explosion.h">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SpriteBomb.h">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteBomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -738,9 +747,6 @@
     <ClCompile Include="..\Private\SlashWave.cpp">
       <Filter>05.Effect\FlogasDungeon\FireSlash</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\Fire_explosion.cpp">
-      <Filter>05.Effect\FlogasDungeon\FireExplosion</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\Ursa.cpp">
       <Filter>02.GameObjects\Character\Enemy\Ursa</Filter>
     </ClCompile>
@@ -791,6 +797,18 @@
     </ClCompile>
     <ClCompile Include="..\Private\Bomb_Center.cpp">
       <Filter>05.Effect\FlogasDungeon\ElementBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectFlash.cpp">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SpriteFire.cpp">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteFire</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Fire_explosion.cpp">
+      <Filter>05.Effect\FlogasDungeon\FIREFIST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SpriteBomb.cpp">
+      <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteBomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1200,6 +1218,15 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\ElementBomb">
       <UniqueIdentifier>{7e7a44ff-f87e-470c-b554-b0d6141be628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\Flash">
+      <UniqueIdentifier>{8ad35148-0ca4-4960-a4c2-d3a5b88ddbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteFire">
+      <UniqueIdentifier>{07188ae7-a255-4325-bf94-62f29369b6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteBomb">
+      <UniqueIdentifier>{4cc6552e-0aef-468f-9d78-146317cfc98c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
