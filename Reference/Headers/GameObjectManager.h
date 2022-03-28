@@ -29,8 +29,8 @@ public:
 	CGameObject* AddGameObject(_uint iSceneIndex, string sPrototypeTag, string pLayerTag, void* pArg);
 	list<class CGameObject*> GetGameObjectInLayer(_uint iSceneIndex, string pLayerTag);
 	unordered_map<string, CLayer*>* GetLayers() { return m_pGameObjects; }
-	void AddGameObjectWithUUID(uint64_t uuid, CGameObject* pObj, _uint iSceneIndex) { m_pUUIDObjects[iSceneIndex].insert({ uuid, pObj }); }
-	void AddGameObjectWithName(string name, CGameObject* pObj, _uint iSceneIndex) { m_pNameObjects[iSceneIndex].insert({ name, pObj }); }
+	void AddGameObjectWithUUID(uint64_t uuid, CGameObject* pObj, _uint iSceneIndex) { m_pUUIDObjects[iSceneIndex].emplace(make_pair(uuid, pObj)); }
+	void AddGameObjectWithName(string name, CGameObject* pObj, _uint iSceneIndex) { m_pNameObjects[iSceneIndex].emplace(make_pair(name, pObj)); }
 
 	void AddOBBCollsionList(ID Type, CGameObject* _pGameObject, CBasicCollider* _obb);
 

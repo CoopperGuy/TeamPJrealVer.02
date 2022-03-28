@@ -257,6 +257,8 @@ void CGameObjectManager::CollsionCheck()
 	//일단 여기는 플레이어 ATT 상태에서만 들어옴 
 	if (m_pColliderList[(_int)ID::PLAYER].empty())
 		return;
+	if (m_pGameObject == nullptr)
+		return;
 
 	CBasicCollider* m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 

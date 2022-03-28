@@ -1244,9 +1244,9 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->ClonePrototype("Prototype_EmptyEffect", pPrototypeTag);
+	deserializedObject->SetPrefabInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
 
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 
 	if (obj["PassIndex"])
 	{
@@ -1504,8 +1504,11 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 	if (obj["FrustumRange"])
 		FrustumRange = obj["FrustumRange"].as<_float>();
 
+
+
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->ClonePrototype("Prototype_EmptyGameObject", pPrototypeTag);
+	deserializedObject->SetPrefabInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
 
 	if (obj["PassIndex"])
@@ -1513,8 +1516,6 @@ CGameObject * CSceneSerializer::DeserializePrototypeGameObject(string pPrototype
 		auto renderIndex = obj["PassIndex"].as<_int>();
 		deserializedObject->SetPassIndex(renderIndex);
 	}
-
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetRenderGroup((CRenderer::RENDER)renderGroup);
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetFrustum(FrustumRange);
@@ -2415,9 +2416,9 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 			if (obj["Type"].as<string>() == "UI")
 				return E_FAIL;
 			else if (obj["Type"].as<string>() == "Effect")
-				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, true, curScene);
+				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, false, 0);
 			else
-				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, true, curScene);
+				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, false, 0);
 
 			auto children = obj["Children"];
 			if (children)
@@ -2434,12 +2435,12 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 					else if (child["Type"].as<string>() == "Effect")
 					{						
 						deserializedPrototype->AddChildPrototypeTag(pPrototypeTag + to_string(iNumChild));
-						pChildObj = DeserializePrototypeEffect(pPrototypeTag + to_string(iNumChild), child, true, curScene);
+						pChildObj = DeserializePrototypeEffect(pPrototypeTag + to_string(iNumChild), child, false, curScene);
 					}
 					else
 					{
 						deserializedPrototype->AddChildPrototypeTag(pPrototypeTag + to_string(iNumChild));
-						pChildObj = DeserializePrototypeGameObject(pPrototypeTag + to_string(iNumChild), child, true, curScene);
+						pChildObj = DeserializePrototypeGameObject(pPrototypeTag + to_string(iNumChild), child, false, curScene);
 					}
 
 					iNumChild++;
