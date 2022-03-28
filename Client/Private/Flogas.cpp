@@ -738,6 +738,7 @@ void CFlogas::Flying(_double dDeltaTime)
 
 		if (iCheck >= 4)
 		{
+			
 			m_eState = FLYING_END;
 			for (_uint i = 0; i < 4; ++i)
 				m_pElement[i]->SetExplosion(true);
