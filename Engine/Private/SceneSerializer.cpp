@@ -754,7 +754,10 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::Key << "SpriteNumY" << YAML::Value << pGameObj->GetSpriteY();
 	out << YAML::Key << "SpriteTotal" << YAML::Value << pGameObj->GetSpriteTotal();
 	out << YAML::Key << "SpriteSpeed" << YAML::Value << pGameObj->GetSpriteSpeed();
-	out << YAML::Key << "Alpha" << YAML::Value << pGameObj->GetAlpha();
+	//out << YAML::Key << "Alpha" << YAML::Value << pGameObj->GetAlpha();
+	out << YAML::Key << "OffsetColor";
+	out << YAML::Value << YAML::Flow;
+	out << YAML::BeginSeq << pGameObj->GetOffsetColor().x << pGameObj->GetOffsetColor().y << pGameObj->GetOffsetColor().z << pGameObj->GetOffsetColor().w << YAML::EndSeq;
 
 	out << YAML::EndMap;
 }
@@ -1128,6 +1131,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		if (EffectSetting["TextureNormalPath"])
 			NormalFilePath = EffectSetting["TextureNormalPath"].as<string>();
 
+		_float4 vOffsetColor = { 0.f, 0.f, 0.f, 0.f };
 		_float3 vScrollSpeedX;
 		_float3 vScrollSpeedY;
 		_float2 vDistortion1;
@@ -1154,6 +1158,15 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		vDistortion3.x = sequence[0].as<float>();
 		vDistortion3.y = sequence[1].as<float>();
 
+		if (RectInstanceCom["OffsetColor"])
+		{
+			sequence = RectInstanceCom["OffsetColor"];
+			vOffsetColor.x = sequence[0].as<float>();
+			vOffsetColor.y = sequence[1].as<float>();
+			vOffsetColor.z = sequence[2].as<float>();
+			vOffsetColor.w = sequence[3].as<float>();
+		}
+
 		CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(deserializedObject);
 
 		pEffect->SetTexture(DiffuseFilePath, CEmptyEffect::TEXTURE_DIFFUSE);
@@ -1167,7 +1180,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		pEffect->setDistortion(2, vDistortion3);
 		pEffect->SetDistortionScale(fDistortionScale);
 		pEffect->SetDistortionBias(fDistortionBias);
-
+		pEffect->SetOffsetColor(vOffsetColor);
 
 		if (EffectSetting["FadeOut"]) {
 			_bool	FadeOut = EffectSetting["FadeOut"].as<_bool>();
@@ -1212,11 +1225,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		if (EffectSetting["SpriteSpeed"]) {
 			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
 			pEffect->SetSpriteSpeed(fSpriteSpeed);
-		}
-		if (EffectSetting["Alpha"]) {
-			_float	fAlpha = EffectSetting["Alpha"].as<_float>();
-			pEffect->SetAlpha(fAlpha);
-		}
+		}		
 	}
 
 	return deserializedObject;
@@ -1374,6 +1383,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		if (EffectSetting["TextureNormalPath"])
 			NormalFilePath = EffectSetting["TextureNormalPath"].as<string>();
 
+		_float4 vOffsetColor = { 0.f, 0.f, 0.f, 0.f };
 		_float3 vScrollSpeedX;
 		_float3 vScrollSpeedY;
 		_float2 vDistortion1;
@@ -1401,6 +1411,15 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		vDistortion3.x = sequence[0].as<float>();
 		vDistortion3.y = sequence[1].as<float>();
 
+		if (RectInstanceCom["OffsetColor"])
+		{
+			sequence = RectInstanceCom["OffsetColor"];
+			vOffsetColor.x = sequence[0].as<float>();
+			vOffsetColor.y = sequence[1].as<float>();
+			vOffsetColor.z = sequence[2].as<float>();
+			vOffsetColor.w = sequence[3].as<float>();
+		}
+
 		CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(deserializedObject);
 
 		pEffect->SetTexture(DiffuseFilePath, CEmptyEffect::TEXTURE_DIFFUSE);
@@ -1414,7 +1433,9 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		pEffect->setDistortion(2, vDistortion3);
 		pEffect->SetDistortionScale(fDistortionScale);
 		pEffect->SetDistortionBias(fDistortionBias);
-		
+		pEffect->SetOffsetColor(vOffsetColor);
+
+
 		if (EffectSetting["FadeOut"]) {
 			_bool	FadeOut = EffectSetting["FadeOut"].as<_bool>();
 			pEffect->SetFadeOutEnable(FadeOut);
@@ -1458,10 +1479,6 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		if (EffectSetting["SpriteSpeed"]) {
 			_float	fSpriteSpeed = EffectSetting["SpriteSpeed"].as<_float>();
 			pEffect->SetSpriteSpeed(fSpriteSpeed);
-		}
-		if (EffectSetting["Alpha"]) {
-			_float	fAlpha = EffectSetting["Alpha"].as<_float>();
-			pEffect->SetAlpha(fAlpha);
 		}
 	}
 

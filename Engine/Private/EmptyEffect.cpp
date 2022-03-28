@@ -14,6 +14,7 @@ CEmptyEffect::CEmptyEffect(ID3D11Device * pDevice, ID3D11DeviceContext * pDevice
 
 CEmptyEffect::CEmptyEffect(const CEmptyEffect & rhs)
 	: CGameObject(rhs)
+	, m_vOffsetColor(rhs.m_vOffsetColor)
 {
 }
 
@@ -132,7 +133,6 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
-	m_fAlpha = rhs->m_fAlpha;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
@@ -244,7 +244,6 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
-	m_fAlpha = rhs->m_fAlpha;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
@@ -602,7 +601,7 @@ void CEmptyEffect::SetUp_ValueOnShader(string ComponentTag)
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_fDistortionBias", &m_fDistortionBias, sizeof(_float));
 
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_fFadeAlpha", &m_fFadeAlpha, sizeof(_float));
-	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_fAlpha", &m_fAlpha, sizeof(_float));
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_vOffsetColor", &m_vOffsetColor, sizeof(_float4));
 	
 	_uint iSpriteNum = (_uint)m_fSpriteNum;
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNum", &iSpriteNum, sizeof(_uint));
@@ -631,7 +630,7 @@ void CEmptyEffect::SetUp_ValueOnModelShader()
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fDistortionBias", &m_fDistortionBias, sizeof(_float));
 
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fFadeAlpha", &m_fFadeAlpha, sizeof(_float));
-	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_fAlpha", &m_fAlpha, sizeof(_float));
+	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_vOffsetColor", &m_vOffsetColor, sizeof(_float4));
 
 
 	static_cast<CModel*>(pModel)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));

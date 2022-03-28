@@ -32,8 +32,8 @@ cbuffer DistortionBuffer
 
 cbuffer EffectBuffer
 {
+    float4 g_vOffsetColor;
     float g_fFadeAlpha;
-    float g_fAlpha;
     uint g_iSpriteNum;
 	uint g_iSpriteNumX;
 	uint g_iSpriteNumY;
@@ -402,24 +402,20 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
     
     vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
-
     fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
-
     vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
-
+    
     vDiffuseColor = g_DiffuseTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
-
     vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
-    //if (vAlpha.a <= 0.1f)
-       //discard;
-    vAlpha.a = ((vAlpha.r + vAlpha.g + vAlpha.b) / 3.f) * g_fFadeAlpha * g_fAlpha;
-   // vDiffuseColor.a = vAlpha.a;    
-    if (vAlpha.a <= 0.1f)
+    
+    vAlpha.a = ((vAlpha.r + vAlpha.g + vAlpha.b) / 3.f);
+    if (vAlpha.a <= 0.f)
         discard;
-     
-   vDiffuseColor.a = vAlpha.a  ;
 
-
+    vDiffuseColor.rgb += g_vOffsetColor.rgb;
+    vDiffuseColor.a = vAlpha + g_vOffsetColor.a;
+    vDiffuseColor.a *= g_fFadeAlpha;
+        
     return vDiffuseColor;
 }
 
@@ -456,7 +452,7 @@ vector PS_MAIN_RectTexture(PS_IN_TEST In) : SV_TARGET
 	
 	vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
    
-	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
 	if (vDiffuseColor.a <= 0.1f)
 		discard;
 
@@ -501,7 +497,7 @@ vector PS_MAIN_MESH(PS_IN_TEST In) : SV_TARGET
        //discard;
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
    // vDiffuseColor.a = vAlpha.a;     
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     if (vDiffuseColor.a <= 0.1f)
         discard;
 
@@ -564,7 +560,7 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
-    vDiffuseColor *= vMask * g_fAlpha;
+    vDiffuseColor *= vMask;
 
     if (vDiffuseColor.a <= 0.2f)
         discard;
@@ -671,7 +667,7 @@ vector PS_MAIN_MESHALPHA(PS_IN_TEST In) : SV_TARGET
        //discard;
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
    // vDiffuseColor.a = vAlpha.a;     
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     vDiffuseColor.rgb = vDiffuseColor.rgb * vAlpha.a;
     if (vDiffuseColor.a <= 0.1f)
         discard;
@@ -713,7 +709,7 @@ vector PS_MAIN_MESHUP(PS_IN_TEST In) : SV_TARGET
     
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * 1.5f;
 
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     if (vDiffuseColor.a <= 0.1f)
         discard;
 
@@ -754,7 +750,7 @@ vector PS_MAIN_MESHREDUP(PS_IN_TEST In) : SV_TARGET
     
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * 1.5f;
 
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     vDiffuseColor.r = 1.f;
     vDiffuseColor.gb = vAlpha.g;
     if (vDiffuseColor.a <= 0.1f)
@@ -796,7 +792,7 @@ vector PS_MAIN_MESHRED(PS_IN_TEST In) : SV_TARGET
     
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b);
 
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     vDiffuseColor.r = 1.f;
     vDiffuseColor.gb = vAlpha.g;
     if (vDiffuseColor.a <= 0.1f)
@@ -841,7 +837,7 @@ vector PS_MAIN_MESH_FlogasWave(PS_IN_TEST In) : SV_TARGET
 	vAlpha = g_MaskTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
 	vAlpha.a = vAlpha.g;
 	vDiffuseColor.a = vAlpha.a;     
-	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
 	//vDiffuseColor.b = vAlpha.r;
 	if (vDiffuseColor.a <= 0.1f)
 		discard;
@@ -901,7 +897,7 @@ vector PS_MAIN_MESH_FlogasFire(PS_IN_TEST In) : SV_TARGET
 		discard;
 
 	vDiffuseColor.a = vAlpha.a;
-	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha * g_fAlpha;
+	vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
 	if (vDiffuseColor.a <= 0.2f)
 		discard;
 
