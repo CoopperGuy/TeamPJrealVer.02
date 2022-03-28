@@ -47,6 +47,7 @@ void CEffectEAFire::Update(_double deltaTime)
 		return;
 
 	m_dMakeFB += deltaTime;
+	dead += deltaTime;
 	vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 	if (m_dMakeFB >= 0.15)
 	{
@@ -54,6 +55,15 @@ void CEffectEAFire::Update(_double deltaTime)
 		CEngine::GetInstance()->AddScriptObject(CEffectFireBall::Create(EffectFireBall, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 		m_dMakeFB = 0;
 	}
+
+	_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+	_float4x4 newWorld;
+	_float4x4 world = m_pTransform->GetMatrix();
+	_vector scale, rotation, position;
+	XMMatrixDecompose(&scale, &rotation, &position, m_pTransform->GetWorldMatrix());
+	XMStoreFloat4x4(&newWorld, viewInverse);
+	memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
+	m_pTransform->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
 
 }
 
@@ -65,6 +75,7 @@ void CEffectEAFire::LateUpdate(_double deltaTime)
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
+
 	if (m_bDead)
 	{
 		this->SetDead();

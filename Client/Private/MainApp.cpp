@@ -254,7 +254,7 @@ HRESULT CMainApp::OpenScene(SCENE eScene)
 {
 	CScene*			pScene = CScene_Loading::Create(m_pDevice, m_pDeviceContext, eScene, (_uint)SCENE_LOADING);
 
-
+	pScene->SetIsClear(true);
 	if (FAILED(m_pEngine->SetUpCurrentScene(pScene, (_uint)SCENE_LOGO)))
 		return E_FAIL;
 

@@ -121,8 +121,8 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 				deserializedObject = DeserializeEffect(obj, false, curScene);
 			else
 				deserializedObject = DeserializeObject(obj, false, curScene);
-			if(deserializedObject)
-				cout << deserializedObject->GetName() << "is created \n";
+		/*	if(deserializedObject)
+				cout << deserializedObject->GetName() << "is created \n";*/	
 		}
 	}
 

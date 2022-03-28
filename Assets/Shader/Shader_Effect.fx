@@ -412,7 +412,7 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     vAlpha = g_MaskTexture.Sample(g_ClampSampler, vNoiseCoord.xy);
     //if (vAlpha.a <= 0.1f)
        //discard;
-    vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * g_fFadeAlpha * g_fAlpha;
+    vAlpha.a = ((vAlpha.r + vAlpha.g + vAlpha.b) / 3.f) * g_fFadeAlpha * g_fAlpha;
    // vDiffuseColor.a = vAlpha.a;    
     if (vAlpha.a <= 0.1f)
         discard;
@@ -615,8 +615,8 @@ vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
     
     float4 vNoise = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexUV);
 
-    uv.x += vNoise.x * 0.1f;
-    uv.y -= vNoise.y * 0.1f;
+    uv.x += vNoise.x * 0.2f;
+    uv.y -= vNoise.y * 0.2f;
 
     float4 vDiffuse = g_HDRTexture.Sample(g_DefaultSampler, uv/* + 0.01f*/);
     float4 vColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);

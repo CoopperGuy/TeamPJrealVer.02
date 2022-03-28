@@ -36,7 +36,7 @@ void CModelManager::Free()
 	// Delete prototypes
 	for (auto& model : m_mapModel) {
 		SafeRelease(model.second);
-		cout << "model delete " << model.second << "\n";
+		//cout << "model delete " << model.second << "\n";
 	}
 
 	m_mapModel.clear();

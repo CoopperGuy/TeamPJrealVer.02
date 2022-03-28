@@ -34,7 +34,11 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 	m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
 	m_Targetpos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 
+	if (XMVectorGetY(m_Targetpos) <= 1.f)
+		m_Targetpos = XMVectorSetY(m_Targetpos, 0.f);
+
 	LookAt(m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+
 
 	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
 	CEngine::GetInstance()->AddScriptObject(m_pEffFire = CEffectEAFire::Create(EffectFireBall, mypos), CEngine::GetInstance()->GetCurSceneNumber());
@@ -62,6 +66,10 @@ void CEAFireBall::Update(_double deltaTime)
 
 		_matrix myPos = m_pTransform->GetWorldMatrix();
 		myPos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
+
+
+		test += deltaTime;
+
 
 		if (m_pEffFire)
 			m_pEffFire->Set_Pos(vPosition);
@@ -101,6 +109,8 @@ void CEAFireBall::LateUpdate(_double deltaTime)
 
 	else if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
+		cout << test << endl;
+
 		if (m_pEffFire)
 			m_pEffFire->SetDead();
 		this->SetDead();

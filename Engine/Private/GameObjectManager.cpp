@@ -342,7 +342,7 @@ void CGameObjectManager::Free()
 
 	for (auto& Pair : m_pPrototypes) {
 		SafeRelease(Pair.second);
-		cout << "m_pPrototypes" << Pair.second << "\n";
+		//cout << "m_pPrototypes" << Pair.second << "\n";
 	}
 	for (int i = 0; i < (_int)ID::IDEND; ++i)
 	{

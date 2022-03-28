@@ -157,7 +157,7 @@ HRESULT CPlayer::Initialize()
 	m_pHpBar = CHpBar::Create(m_pGameObject);
 	m_pLevelFlag = LevelFlag::Create(m_pGameObject);
 	m_pSkillIcon = CSkillIcon::Create(m_pGameObject);
-	
+
 	CSkillIcon::SKILLINFO info;
 	info.coolTime = 7.5f;
 	info.level = 1;
@@ -190,7 +190,7 @@ HRESULT CPlayer::Initialize()
 	}
 
 	CEventCheck::GetInstance()->SetPlayer(this);
-	
+
 	return S_OK;
 }
 
@@ -240,8 +240,17 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 
 	if (m_pOBB->Get_isHit()) {
-		//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
-		//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+
+		_matrix Translation;
+		_int random = rand() % 4;
+		random += 1;
+		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		Translation = m_pTransform->Remove_Scale(Translation);
+
+
+		CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+		CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+
 		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
 		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 	}
@@ -333,7 +342,7 @@ void CPlayer::Collsion()
 
 _float3 CPlayer::GetLockOnPosition()
 {
-	if(m_listMonsters.size() > 0)
+	if (m_listMonsters.size() > 0)
 		return m_listMonsters.front()->GetCollisionPosition();
 	return m_pGameObject->GetCollisionPosition();
 }
@@ -942,7 +951,7 @@ void CPlayer::Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial)
 		if (m_pEquip[(_uint)eEquipType]->Get_GameObj()->GetActive())
 		{
 			//if(eEquipType != Equip::Armor)
-				static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
+			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
 		}
 		else
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, true);
@@ -1057,7 +1066,7 @@ _bool CPlayer::IsGravity()
 	filterData.flags |= PxQueryFlag::ePREFILTER;
 	_bool isCollied = false;
 	PxRigidActor* actor = m_pController->getActor();
-	
+
 	if (CEngine::GetInstance()->Raycast(vPlayerPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
 	{
 		if (buf.getAnyHit(0).distance <= 0.0f)
@@ -1163,7 +1172,7 @@ void CPlayer::Transform_ToWorldSpace()
 
 	_vector		vPoint[8];
 	_vector*	tempPoint = m_pBox->GetObbBox();
-	for (int i = 0; i < 8; i++) 
+	for (int i = 0; i < 8; i++)
 		vPoint[i] = tempPoint[i];
 	Make_Plane(vPoint);
 }
@@ -1218,7 +1227,7 @@ void CPlayer::SearchMonster()
 			}
 		}
 	}
-	
+
 }
 
 _bool CPlayer::isInFrustum(_fvector vPosition, _float fRange)

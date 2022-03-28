@@ -70,7 +70,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.0067692399, -4.43952131]
       Rotation: [0, -0, 0]
-      Scale: [3.70357823, 0.199000001, 3.11460805]
+      Scale: [2.60400009, 0.199000001, 1.71500003]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor3.fbx
@@ -78,7 +78,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -0.0067692399, -4.43952131]
     Rotation: [0, -0, 0]
-    Scale: [3.70357823, 0.199000001, 3.11460805]
+    Scale: [2.60400009, 0.199000001, 1.71500003]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor3.fbx
     HasCollider: false

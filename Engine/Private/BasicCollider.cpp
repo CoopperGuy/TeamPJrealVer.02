@@ -538,13 +538,16 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 					if (TargetpStat->GetStatInfo().isImmortal == true)
 						return;
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
+						pTargetCollider->SetHit(true);
 						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
 						{
-							pTargetCollider->SetHit(true);
+							
 							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 					}
+					else
+						pTargetCollider->SetHit(false);
 				}
 				else
 					pTargetCollider->SetHit(false);

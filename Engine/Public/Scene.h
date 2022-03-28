@@ -11,6 +11,9 @@ public:
 	virtual HRESULT Initialize();
 	virtual _uint Update(_double TimeDelta);
 	virtual HRESULT Render();
+	virtual void StartLoader();
+public:
+	void SetIsClear(_bool _isClear) { m_bIsClearEnd = _isClear; }
 public:
 	_uint GetSceneIndex() { return m_iSceneIndex; }
 public:

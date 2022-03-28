@@ -8,11 +8,11 @@ CEffectBlood::CEffectBlood()
 {
 }
 
-CEffectBlood * CEffectBlood::Create(void * pArg, _vector pos)
+CEffectBlood * CEffectBlood::Create(void * pArg)
 {
 	CEffectBlood*		pInstance = new CEffectBlood();
 
-	if (FAILED(pInstance->Initialize(pArg, pos)))
+	if (FAILED(pInstance->Initialize(pArg)))
 	{
 		MSG_BOX("Failed to Create CEffectBlood");
 		SafeRelease(pInstance);
@@ -23,7 +23,7 @@ CEffectBlood * CEffectBlood::Create(void * pArg, _vector pos)
 }
 
 
-HRESULT CEffectBlood::Initialize(void* pArg, _vector pos)
+HRESULT CEffectBlood::Initialize(void* pArg)
 {
 	if (pArg != nullptr) {
 
@@ -33,8 +33,6 @@ HRESULT CEffectBlood::Initialize(void* pArg, _vector pos)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 		m_pComponent = m_pGameObject->GetComponent("Com_RectInstance");
-
-		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 
 		RandomNum = rand() % 3;

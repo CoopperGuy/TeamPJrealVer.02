@@ -23,7 +23,8 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/Boss_Flogas.yaml";
+static string strScene = "../../Assets/Scenes/Flogas_Dungeon.yaml";
+
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

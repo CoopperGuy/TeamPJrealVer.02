@@ -412,6 +412,9 @@
     <ClInclude Include="..\Public\SpriteBomb.h">
       <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteBomb</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\DecalCrash.h">
+      <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -809,6 +812,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\SpriteBomb.cpp">
       <Filter>05.Effect\FlogasDungeon\FireExplosion\SpriteBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\DecalCrash.cpp">
+      <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1227,6 +1233,9 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteBomb">
       <UniqueIdentifier>{4cc6552e-0aef-468f-9d78-146317cfc98c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\PlayerEffect\DecalCrash">
+      <UniqueIdentifier>{955afa30-b4de-4a59-b002-cbe5b58b7a92}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

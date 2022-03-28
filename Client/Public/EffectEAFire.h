@@ -27,7 +27,7 @@ private:
 	_double m_dMakeFB = 0;
 	_vector vPosition = {};
 
-
+	_double dead = 0;
 
 
 };

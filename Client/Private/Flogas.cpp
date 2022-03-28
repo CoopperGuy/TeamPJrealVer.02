@@ -56,6 +56,7 @@ CFlogas * CFlogas::Create(CGameObject * pObj, _float3 position)
 void CFlogas::Free()
 {
 	__super::Free();
+
 }
 
 HRESULT CFlogas::Initialize(_float3 position)
@@ -210,7 +211,7 @@ void CFlogas::Update(_double dDeltaTime)
 		//m_pTrailBuffer->SetIsActive(true);
 		m_pTrailBuffer->Update(dDeltaTime, XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix()));
 	}
-	Hit();
+
 }
 
 void CFlogas::LateUpdate(_double dDeltaTime)
@@ -220,7 +221,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
 	OrganizeEffect(m_eState);
-
+	Hit();
 
 	if (m_bDeadMotion)
 	{
@@ -666,7 +667,7 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 
 			}*/
 		m_eState = RUN;
-	
+
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
@@ -941,8 +942,12 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
 				//auto EffectFlyLaser = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFlyLaser", "Effect_BossFlyLaser");
 				//CEngine::GetInstance()->AddScriptObject(m_pEffFlyLaser = CEffectFlyLaser::Create(EffectFlyLaser), CEngine::GetInstance()->GetCurSceneNumber());
-				/*auto EffectLight = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FlyEffLight", "O_FlogasLighte");
-				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLight = CFlyLight::Create(EffectLight), CEngine::GetInstance()->GetCurSceneNumber());*/
+				_matrix Translation = XMMatrixIdentity();
+				Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), 3.f, XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+				Translation = m_pTransform->Remove_Scale(Translation);
+
+				auto EffectLight = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FlogasEffLight", "O_FlogasLighte", &Translation);
+				CEngine::GetInstance()->AddScriptObject(m_pEffFlyLight = CFlyLight::Create(EffectLight), CEngine::GetInstance()->GetCurSceneNumber());
 				m_bMakeEffect = false;
 			}
 
@@ -954,12 +959,12 @@ void CFlogas::OrganizeEffect(Flogas eState)
 	case FLYING_END:
 		if (m_pEffFly)
 			m_pEffFly->SetAnimationEnd();
-		if (m_pEffFlyLaser)
-			m_pEffFlyLaser->SetDead();
-		if (m_pEffFlyLight)
-			m_pEffFlyLight->SetDead();
 		break;
 	case FLYING_END2:
+		//if (m_pEffFlyLaser)
+		//	m_pEffFlyLaser->SetDead();
+		if (m_pEffFlyLight)
+			m_pEffFlyLight->SetDead();
 		break;
 	}
 	m_pTrailBuffer->SetIsActive(m_DrawTrail);
@@ -967,13 +972,25 @@ void CFlogas::OrganizeEffect(Flogas eState)
 
 void CFlogas::Hit()
 {
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return;
+
 	if (m_pOBB->Get_isHit()) {
-		//CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
-		//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+
+		_matrix Translation;
+		_int random = rand() % 7;
+		random += 1;
+		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		Translation = m_pTransform->Remove_Scale(Translation);
+
+
+		CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+		CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+
 		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
 		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 	}
-	
+
 }
 
 
