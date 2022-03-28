@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\EffectFlash.h"
+#include "SpriteFire.h"
 
 USING(Client)
 
@@ -7,10 +8,11 @@ CEffectFlash::CEffectFlash()
 {
 }
 
-HRESULT CEffectFlash::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
+HRESULT CEffectFlash::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas& pEl)
 {
 	
 	m_pThis = pThis;
+	m_pEl = &pEl;
 	CTransform* pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 	
@@ -33,6 +35,8 @@ void CEffectFlash::LateUpdate(_double deltaTime)
 	m_DurationDelta += (_float)deltaTime;
 	if (m_DurationDelta > m_pThis->GetFadeOutDuration()) 
 	{
+		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Sprite_Fire", "Prototype_E_Sprite_Fire");
+		CEngine::GetInstance()->AddScriptObject(CSpriteFire::Create((CEmptyEffect*)pGameObject, m_pThis, m_pEl), CEngine::GetInstance()->GetCurSceneNumber());
 		this->SetDead();
 		m_pThis->SetDead();
 	}
@@ -40,11 +44,11 @@ void CEffectFlash::LateUpdate(_double deltaTime)
 
 
 
-CBasicEffect * CEffectFlash::Create(CEmptyEffect* pThis, CGameObject* pTarget)
+CBasicEffect * CEffectFlash::Create(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas& pEl)
 {
 	CEffectFlash*		pInstance = new CEffectFlash();
 
-	if (FAILED(pInstance->Initialize(pThis, pTarget)))
+	if (FAILED(pInstance->Initialize(pThis, pTarget, pEl)))
 	{
 		MSG_BOX("Failed to Create CEffectFlash");
 		SafeRelease(pInstance);

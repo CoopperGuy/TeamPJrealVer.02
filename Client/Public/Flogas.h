@@ -56,6 +56,9 @@ private:
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 
+public:
+	_bool Get_Flying() { return m_bFly; }
+
 private:
 	class CStat* m_pStat					= nullptr;
 	class CTransform* m_pTargetTransform	= nullptr;

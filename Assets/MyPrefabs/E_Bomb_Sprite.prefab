@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [1.5, 0.100000001, -2]
       Rotation: [0, -0, 0]
-      Scale: [3, 3, 0.00100000005]
+      Scale: [2, 2, 0]
     Com_VIBuffer:
       {}
     Effect_Setting:

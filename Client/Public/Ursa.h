@@ -51,7 +51,7 @@ private:
 
 	_float SetDistance();
 	_bool None_Combat();
-
+	_bool IsGravity();
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 
@@ -68,8 +68,10 @@ private:
 	_float3 m_vTargetToLook;
 	_float3 m_vCenterPos;
 
-	_float m_fDist		   = 0.f;
-	_double m_dPatternTime = 0.0;
+	_float m_fDist		     = 0.f;
+	_float m_fJumpSpeed		 = 0.f;
+	_float m_fSpeed			 = 0.098f;
+	_double m_dPatternTime	 = 0.0;
 	_double m_dWheelWindTime = 0.0;
 
 	_uint m_iComboIndex = 0;

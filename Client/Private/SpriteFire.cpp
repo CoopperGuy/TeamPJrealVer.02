@@ -9,10 +9,10 @@ CSpriteFire::CSpriteFire()
 {
 }
 
-HRESULT CSpriteFire::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas& pEl)
+HRESULT CSpriteFire::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas* pEl)
 {
 	m_pThis = pThis;
-	m_pEl = &pEl;
+	m_pEl = pEl;
 	CTransform* pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 
@@ -33,22 +33,26 @@ void CSpriteFire::Update(_double dDeltaTime)
 void CSpriteFire::LateUpdate(_double dDeltaTime)
 {
 	_float Total = (_float)m_pThis->GetSpriteTotal() * 0.8f;
+	_vector vPosition = XMVectorZero();
 	if (m_pThis->GetSpriteNum() > Total)
 	{	
-		_uint Z = 1;
-		_uint X = 1;
+		_int Z = 1;
+		_int X = 1;
+
 		if(m_dOnetime == 0)
 		{
-			for (_uint i = 0; i < 5; ++i)
+			for (_int i = 0; i < 5; ++i)
 			{
-				for (_uint j = 0; j < 5; ++j)
+				for (_int j = 0; j < 5; ++j)
 				{
 					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Bomb_Sprite", "E_Bomb_Sprite");
-					if (!m_pEl->Get_Right())
+					if (m_pEl->Get_Right())
 						X = -1;
 					if (!m_pEl->Get_Front())
 						Z = -1;
-						CEngine::GetInstance()->AddScriptObject(CSpriteBomb::Create((CEmptyEffect*)pGameObject, m_pThis, _float2(j * X, i * Z)), CEngine::GetInstance()->GetCurSceneNumber());
+					vPosition = XMVectorSetX(vPosition, j * X);
+					vPosition = XMVectorSetZ(vPosition, i * Z);
+						CEngine::GetInstance()->AddScriptObject(CSpriteBomb::Create((CEmptyEffect*)pGameObject, m_pThis, vPosition), CEngine::GetInstance()->GetCurSceneNumber());
 					
 				}
 			}
@@ -64,7 +68,7 @@ void CSpriteFire::LateUpdate(_double dDeltaTime)
 
 
 
-CBasicEffect * CSpriteFire::Create(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas& pEl)
+CBasicEffect * CSpriteFire::Create(CEmptyEffect* pThis, CGameObject* pTarget, CEl_Flogas* pEl)
 {
 	CSpriteFire*		pInstance = new CSpriteFire();
 
