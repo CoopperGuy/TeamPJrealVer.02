@@ -10,7 +10,7 @@ private:
 	virtual ~CSpriteBomb() = default;
 
 private:
-	virtual HRESULT Initialize(CEmptyEffect* pThis, CGameObject* pTarget,_fvector sortvalue);
+	virtual HRESULT Initialize(CEmptyEffect* pThis, CGameObject* pTarget);
 	virtual void Update(_double dDeltaTime) override;
 	virtual void LateUpdate(_double dDeltaTime) override;
 
@@ -23,7 +23,7 @@ private:
 	_float			m_fScale = 0.f;
 
 public:
-	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget, _fvector sortvalue);
+	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget);
 	virtual void Free();
 };
 
