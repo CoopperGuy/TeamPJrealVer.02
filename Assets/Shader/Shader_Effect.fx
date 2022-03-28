@@ -600,13 +600,16 @@ vector PS_MAIN_MaskAlsoSPRITE(PS_IN_SPRITE In) : SV_TARGET
 
 	vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
 
-	vDiffuseColor.a = vMask.a;
+    vDiffuseColor.rgb += g_vOffsetColor.rgb;
+    vDiffuseColor.a = vMask.a + g_vOffsetColor.a;
+    vDiffuseColor.a *= g_fFadeAlpha;
 
 	if (vDiffuseColor.a <= 0.3f)
 	discard;
 
 	return vDiffuseColor;
 }
+
 
 vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
 {

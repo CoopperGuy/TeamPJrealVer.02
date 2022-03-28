@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Ursa_SoilDust
-    UUID: 10243181681387302327
+    UUID: 6528759874074589488
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 14
-    BillBord: false
+    BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [2, 4, 2]
+      Translation: [0, 1.5, 0]
+      Rotation: [13.5097332, 60.9687805, 0]
+      Scale: [2.00006294, 2.99993467, 1.99996448]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [0, 0, 0, -0.25]
