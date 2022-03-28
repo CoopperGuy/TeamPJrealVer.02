@@ -42,9 +42,29 @@ HRESULT CMonHp::Initailze(CGameObject * pArg)
 		m_pTargetStat = static_cast<CStat*>(m_pTarget->GetComponent("Com_Stat"));
 
 	}
+	CGameObject*	monHud = CEngine::GetInstance()->SpawnPrefab("U_MonsterHud");
+	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+	this->SetThisUI(static_cast<CEmptyUI*>(monHud));
+
+	list<CGameObject*> child = monHud->GetChildren();
+	auto& iter = child.begin();
+	CEmptyUI*	hpBar = static_cast<CEmptyUI*>(*iter);
+	(this)->pushHuds(hpBar);
+	this->pushBuffer(static_cast<CVIBuffer_RectUI*>(hpBar->GetComponent("Com_VIBuffer")));
+	iter++;
+
+	CEmptyUI*	levelFlag = static_cast<CEmptyUI*>(*iter);
+	(this)->pushHuds(levelFlag);
+	this->pushBuffer(static_cast<CVIBuffer_RectUI*>(levelFlag->GetComponent("Com_VIBuffer")));
+	iter++;
+
+	CEmptyUI*	monName = static_cast<CEmptyUI*>(*iter);
+	(this)->pushHuds(monName);
+
+	this->SetIsEnd();
 	
-	std::thread loadHpBar(ThreadMonHpBar, this);
-	loadHpBar.detach();
+	//std::thread loadHpBar(ThreadMonHpBar, this);
+	//loadHpBar.detach();
 
 	return S_OK;
 }

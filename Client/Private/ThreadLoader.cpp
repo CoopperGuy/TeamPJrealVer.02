@@ -5,20 +5,23 @@ USING(Client)
 
 CThreadLoader::CThreadLoader(size_t _numThreads)
 	:m_iNum_Threads(_numThreads)
-	,m_bStop_All(false)
+	, m_bStop_All(false)
 	, m_fCur_Jobs(0)
 	, m_fMax_Jobs(0)
 	, isEnd(false)
 {
 	m_worker_Threads.reserve(m_iNum_Threads);
-	
+
 }
 
 _float CThreadLoader::loadingPercentage()
 {
 	if (m_fMax_Jobs == 0)
 		return 0.f;
-
+	if (m_fCur_Jobs == m_fMax_Jobs) {
+		m_bStop_All = true;
+		isEnd = true;
+	}
 	return (_float)m_fCur_Jobs / (_float)m_fMax_Jobs;
 }
 
@@ -38,11 +41,8 @@ void CThreadLoader::WorkerThread()
 {
 	while (true) {
 		std::unique_lock<std::mutex> lock(m_job_Mutex);
-		if (m_fCur_Jobs == m_fMax_Jobs) {
-			m_bStop_All = true;
-			isEnd = true;
-		}
 		m_cv_Job_Queue.wait(lock, [this]() {return !this->m_jobs.empty() || m_bStop_All; });
+	
 		if (m_bStop_All && this->m_jobs.empty()) {
 			return;
 		}

@@ -48,6 +48,7 @@ public:
 	uint64_t GetUUID() { return m_UUID(); }
 public:
 	void SetInfo(string name, string layer, uint64_t uuid, _bool active,_uint curScene);
+	void SetPrefabInfo(string name, string layer, uint64_t uuid, _bool active, _uint curScene);
 public:
 	virtual void LinkTranformWithParent();
 public:
