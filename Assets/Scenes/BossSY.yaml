@@ -21,116 +21,31 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: E_MeteoEnd
-    UUID: 3916701776396286379
+  - Name: E_UrsaDust2
+    UUID: 18367012166334428539
     Active: true
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 1
-    BillBord: true
+    PassIndex: 2
+    BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [1.29115021, 0.991643369, 0.994288683]
+      Translation: [0, -0, 0]
+      Rotation: [2.39999986, 0.799999893, 1.99999964]
+      Scale: [2.40000033, 0.800000012, 2]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_SelectRing_001_TEX_KKJ.png
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Smoke3.dds
+      TextureMaskPath: ""
       TextureNoisePath: ""
       TextureNormalPath: ""
-      ScrollSpeedX: [-0.5, -0.899999976, 0]
-      ScrollSpeedY: [-1.10000002, -0.400000006, 2.29999995]
-      Distortion1: [-0.300000012, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
+      ScrollSpeedX: [1.29999995, 2.0999999, 2.29999995]
+      ScrollSpeedY: [0.100000001, 0.200000003, 1.16415322e-09]
+      Distortion1: [0.100000001, 0.300000012]
+      Distortion2: [0.100000001, 0.100000001]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0
-      DistortionBias: 0
-      FadeOut: true
-      FadeOutDuration: 1
-      FadeOutStratTime: 2
-      FadeIn: false
-      FadeInDuration: 2
-      FadeInStratTime: 0
-      EffectDuration: 3
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      Alpha: 0.300000012
-  - Name: E_BossFly
-    UUID: 12907802441406947660
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 6
-    BillBord: false
-    Com_Transform:
-      Translation: [0, -0.19158569, -4.71361923]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 4, 1.5]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: cylinder_twist.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\003.dds
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Wind001_TEX_HKJ.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\teaa.dds
-      TextureNormalPath: ""
-      ScrollSpeedX: [0.800000012, 0.400000006, 0]
-      ScrollSpeedY: [1, 0, 2.29999995]
-      Distortion1: [0.200000003, 0.300000012]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 1.60000002
-      DistortionBias: 0.699999988
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      Alpha: 0.699999988
-    Children:
-      - 15813074674636003092
-      - 7937311397830142873
-  - Name: Circle
-    UUID: 15813074674636003092
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 1
-    BillBord: false
-    Com_Transform:
-      Translation: [-0.0486830473, 0.300000012, 0.193959355]
-      Rotation: [0, -0, 0]
-      Scale: [18, 1, 18]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Circle.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\020.dds
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_wind_001_TEX_CJH.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\test.jpg
-      TextureNormalPath: ..\..\Assets\Textures\Effect\Normal\Test.dds
-      ScrollSpeedX: [-0.100000001, -0.200000003, 0]
-      ScrollSpeedY: [-0.200000003, -0.300000012, 2.29999995]
-      Distortion1: [1.39999998, -1]
-      Distortion2: [0.400000006, 0.300000012]
-      Distortion3: [0.100000001, 0.800000012]
-      DistortionScale: 0.5
+      DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: false
       FadeOutDuration: 0
@@ -139,49 +54,8 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      Alpha: 0.600000024
-  - Name: dome
-    UUID: 7937311397830142873
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 8
-    BillBord: false
-    Com_Transform:
-      Translation: [-0.149278611, 3.76999998, 0]
-      Rotation: [0, -0, 0]
-      Scale: [6, 7, 6]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: dome.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\014.dds
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\teaa.dds
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Noise_002_TEX_HKB_1.png
-      TextureNormalPath: ""
-      ScrollSpeedX: [0.100000001, 0.100000001, 0]
-      ScrollSpeedY: [0, 0, 2.29999995]
-      Distortion1: [0.300000012, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.200000003
-      DistortionBias: 0.100000001
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      Alpha: 0.699999988
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 70
+      Alpha: 1

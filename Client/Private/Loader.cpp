@@ -402,11 +402,11 @@ HRESULT CLoader::GameSceneSEO()
 
 	std::vector<std::future<_int>> futures;
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Blood", "E_IIBlood", 0));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 1));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 2));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO, 4));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 0));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 2));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO, 3));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_SEO, 4));
 
 
 
