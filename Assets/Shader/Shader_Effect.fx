@@ -419,6 +419,7 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     if (vDiffuseColor.a <= 0.f)
         discard;
         
+   
     return vDiffuseColor;
 }
 
