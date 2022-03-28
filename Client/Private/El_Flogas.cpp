@@ -76,7 +76,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				{
 					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
 					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
-					cout <<" Create Bomb " << "\n";
+					//cout <<" Create Bomb " << "\n";
 				}
 				m_dExplosionTime += dDeltaTime;
 

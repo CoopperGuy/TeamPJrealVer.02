@@ -22,11 +22,7 @@ HRESULT CScene_Kim::Initialize()
 
 _uint CScene_Kim::Update(_double TimeDelta)
 {
-#ifdef _DEBUG
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD9)) {
-		CEngine::GetInstance()->AddScriptObject(CWaterEA::Create(nullptr),CEngine::GetInstance()->GetCurSceneNumber()) ;
-	}
-#endif // _DEBUG
+
 
 	return _uint();
 }

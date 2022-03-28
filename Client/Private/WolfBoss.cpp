@@ -136,7 +136,7 @@ void CWolfBoss::Update(_double dDeltaTime)
 
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
-		cout << "wolf king foot pos " << footpos.x << "\t" << footpos.y << "\t" << footpos.z << "\n";
+		//cout << "wolf king foot pos " << footpos.x << "\t" << footpos.y << "\t" << footpos.z << "\n";
 	}
 	/*if (m_pTargetPos)
 	{

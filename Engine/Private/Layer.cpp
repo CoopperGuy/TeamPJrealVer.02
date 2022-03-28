@@ -16,7 +16,7 @@ CLayer * CLayer::Create()
 void CLayer::Free()
 {
 	for (auto& pGameObject : m_ObjectList) {
-		cout << "GameObejct : " << pGameObject->GetName() << "deleteed\n";
+	//	cout << "GameObejct : " << pGameObject->GetName() << "deleteed\n";
 		SafeRelease(pGameObject);
 	}
 
