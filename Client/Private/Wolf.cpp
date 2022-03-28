@@ -221,15 +221,16 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	case Client::CWolf::DAMAGE: {
 		if (m_iBlood <= 1) {
 			m_iBlood += 1;
-			_matrix pos = Remove_ScaleRotation(m_pTransform->GetWorldMatrix());
+			_matrix Translation;
+			_int random = rand() % 4;
+			random += 1;
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+			Translation = m_pTransform->Remove_Scale(Translation);
 
-			
-			
-			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blood", "E_IIBlood");
-			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood, mypos), CEngine::GetInstance()->GetCurSceneNumber());
-			
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
 			CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, mypos), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {

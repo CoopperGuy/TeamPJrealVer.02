@@ -74,7 +74,7 @@ void CDropRock::LateUpdate(_double deltaTime)
 		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
 
 		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_InsDust");
-		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust, m_pTransform->Remove_ScaleRotation(m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
 
 		this->SetDead();
 		m_pGameObject->SetDead();

@@ -42,7 +42,7 @@ private:
 
 	_float PlusScale = 1.f;
 	_float plusscale = 1.f;
-	_float m_fMaxScail = 2.f;
+	_float m_fMaxScail = 1.7f;
 	_float m_fDeadTime = 0.f;
 
 private:
