@@ -131,7 +131,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Flare
     UUID: 4844422747993476240
     Active: true
@@ -142,8 +142,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.68122411, -3.21823137e-07, -0.665211558]
-      Rotation: [-136.547928, -59.5966949, 180]
-      Scale: [0.20133245, 0.204826519, 0.23057951]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.167642936, 0.180923611, 0.196843341]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -169,7 +169,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: AuraEffect
     UUID: 4172193352215827146
     Active: true
@@ -180,8 +180,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.88122892, 0.308779508, 0.522710443]
-      Rotation: [-136.547928, -59.5966911, 180]
-      Scale: [0.984288812, 0.99388361, 1.0321418]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.819559753, 0.877860188, 0.881109953]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -207,7 +207,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Winds
     UUID: 14551009718490616253
     Active: true
@@ -219,7 +219,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867656]
+      Scale: [1, 1.10000002, 1.0986762]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
@@ -248,7 +248,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: DecalCrash
     UUID: 16470094205010690303
     Active: true
@@ -258,7 +258,7 @@ GameObjects:
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [0.264552534, -0.492807955, 0]
+      Translation: [0.264552534, -0.503841043, 0]
       Rotation: [0, -0, 0]
       Scale: [0.699999988, 0.100000001, 0.699999988]
     Com_Decal:
@@ -286,7 +286,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: BoxCollider
     UUID: 7517823684187096642
     Active: true
@@ -314,6 +314,90 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 1
+  - Name: ItemDrop
+    UUID: 13384811345579694097
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.475563407, -0.336065173, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.0627211034, 0.0500000007, 0.0465253554]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: BombBeam2.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_FakeLight_002_TEX_HKB.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AuraTile_001_TEX_KKJ1.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+    Children:
+      - 1942561307840455863
+  - Name: DropSphere
+    UUID: 1942561307840455863
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.100000001, 0.100000001, 0.100000001]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: sphere.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\abs.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true

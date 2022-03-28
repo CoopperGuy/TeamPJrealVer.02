@@ -145,6 +145,16 @@ void CGameObject::SetInfo(string name, string layer, uint64_t uuid, _bool active
 	m_pEngine->AddGameObjectWithUUID(curScene, uuid, this);
 }
 
+void CGameObject::SetPrefabInfo(string name, string layer, uint64_t uuid, _bool active, _uint curScene)
+{
+	if (uuid)
+		m_UUID = uuid;
+
+	m_Name = name;
+	m_Layer = layer;
+	m_bIsActive = active;
+}
+
 void CGameObject::LinkTranformWithParent()
 {
 }

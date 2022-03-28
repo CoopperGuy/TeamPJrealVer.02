@@ -30,8 +30,6 @@ _int ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit)
 		wstring errMsg = L"Failed To Create Prefab" + path;
 		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
 	}
-	loader->SetCompleteBit(bit);
-
 	return bit;
 }
 
@@ -98,7 +96,7 @@ _bool CLoader::Get_IsEnd()
 HRESULT CLoader::Initialize(SCENE eScene)
 {
 	InitializeCriticalSection(&m_CS);
-	m_ThreadLoader = new CThreadLoader(6);
+	m_ThreadLoader = new CThreadLoader(5);
 
 	m_eScene = eScene;
 	m_pLoadingGauge = CLoadingGauge::Create(nullptr);
@@ -237,15 +235,17 @@ HRESULT CLoader::GameSceneStage01()
 HRESULT CLoader::GameSceneStage02()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -4.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -22.f));
+
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2, 1);
+
 
 	if (FAILED(GameFlogasLoader()))
 		MSG_BOX("Failed To Create Flogas Effect");
 
 
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2, 1);
-
+	
 
 	m_ThreadLoader->Start_Thread();
 
@@ -290,9 +290,9 @@ HRESULT CLoader::GameSceneLogo()
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
+
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
-
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
@@ -308,15 +308,11 @@ HRESULT CLoader::GameSceneLogo()
 
 	m_ThreadLoader->Start_Thread();
 
-	/*for (auto& f : futures) {
-		cout << "return result : " << f.get() << "\n";
-	}
-	*/
 	m_iCompleteBit = 0;
 
 
-
 	while (!m_isFinish) {
+		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;
 	}
@@ -333,7 +329,7 @@ HRESULT CLoader::GameSceneKIM()
 
 	std::vector<std::future<_int>> futures;
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 0));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_WaterEA", "WaterEA", 1));
 
 	m_ThreadLoader->Start_Thread();

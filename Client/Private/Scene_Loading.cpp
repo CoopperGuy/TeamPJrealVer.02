@@ -114,11 +114,7 @@ _uint CScene_Loading::Update(_double TimeDelta)
 			m_pLoader->UpdateGauge(TimeDelta);
 		}
 	}
-	else {
-		if (m_bIsClearEnd) {
-			m_bIsClearEnd = false;
-		}
-	}
+
 	return _uint();
 }
 
