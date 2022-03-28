@@ -750,7 +750,8 @@ _float CUrsa::SetDistance()
 	vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 	vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	XMStoreFloat3(&m_vTargetToLook, vTargetPos - vPos);
-	return XMVectorGetX(XMVector3Length(vTargetPos - vPos));
+	m_vTargetToLook.y = 0.f;
+	return XMVectorGetX(XMVector3Length(XMLoadFloat3(&m_vTargetToLook)));
 }
 
 _bool CUrsa::None_Combat()

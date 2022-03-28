@@ -30,7 +30,7 @@ private:
 	CTransform* m_pTargetTransform	= nullptr;
 	CFlogas*		m_pFlogas		= nullptr;
 	class CStat*	m_pStat			= nullptr;
-	class CMonHp*	m_pMonHp		= nullptr;
+	class CMonHpVIBuffer*	m_pMonHp		= nullptr;
 	string			m_ScriptName	= {};
 
 	_float3     m_vTargetPos;

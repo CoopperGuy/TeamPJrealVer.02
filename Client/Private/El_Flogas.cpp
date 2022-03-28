@@ -4,7 +4,7 @@
 #include "Element_Bomb.h"
 #include "SpriteFire.h"
 #include "EffectFlash.h"
-#include "MonHp.h"
+#include "MonHpVIBuffer.h"
 
 #include "Obb.h"
 
@@ -57,7 +57,7 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	m_pModel->SetAnimationLoop((_uint)ELEMENT_STATE::DIE, false);
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
-	//m_pMonHp = CMonHp::Create(m_pGameObject);
+	m_pMonHp = CMonHpVIBuffer::Create(m_pGameObject);
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));

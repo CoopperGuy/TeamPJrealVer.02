@@ -32,7 +32,7 @@ void CSpriteFire::Update(_double dDeltaTime)
 
 void CSpriteFire::LateUpdate(_double dDeltaTime)
 {
-	_float Total = (_float)m_pThis->GetSpriteTotal() * 0.8f;
+	_float Total = (_float)m_pThis->GetSpriteTotal() * 0.5f;
 	_vector vPosition = XMVectorZero();
 	if (m_pThis->GetSpriteNum() > Total)
 	{	
