@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_IBlood
-    UUID: 9503067381276588604
+    UUID: 10265025652961985006
     Active: true
     Layer: Default
     Type: Effect
@@ -9,23 +9,23 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [175.499985, 84.9000015, -133.699997]
-      Scale: [0.999825835, 0.999989748, 0.999993861]
+      Rotation: [0, -0, 0]
+      Scale: [0.999825835, 0.999989808, 0.999993861]
     Com_RectInstance:
-      Shape: 1
-      InstNum: 11
-      Color: [0.790625274, 0.00944183208, 0, 0]
-      Speed: 10
-      LifeTime: 1.20000005
-      Size: 0.0500000007
+      Shape: 0
+      InstNum: 84
+      Color: [0.736212015, 0.00907113403, 0, 0]
+      Speed: 1.89999998
+      LifeTime: 1.89999998
+      Size: 0.5
       StartRadian: 0
       RadiationAngle: 0
       LerpColor: true
-      SrcColor: [0.536231875, 0.0233144239, 0, 0]
-      DestColor: [0.963768125, 0, 0, 0]
+      SrcColor: [1, 0.0434782505, 0, 0]
+      DestColor: [0.666666627, 0, 0, 0]
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_005_TEX_CJH_1.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fire_005_TEX_CJH.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [2.29999995, 0, 0]

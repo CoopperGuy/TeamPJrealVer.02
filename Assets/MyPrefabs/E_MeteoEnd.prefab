@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoEnd
-    UUID: 12888008211868092643
+    UUID: 3916701776396286379
     Active: true
     Layer: Default
     Type: Effect
@@ -9,13 +9,13 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [45.7902718, -3.35851645, -6.41430745e-07]
-      Scale: [1.29114747, 0.994256496, 0.997342825]
+      Rotation: [24.7053127, 7.77918816, 0]
+      Scale: [1.29115021, 0.99167645, 0.994329989]
     Com_VIBuffer:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Ring.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_WaterWave_Mask_001_Tex_HKB.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_SelectRing_001_TEX_KKJ.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [-0.5, -0.899999976, 0]

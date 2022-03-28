@@ -35,6 +35,8 @@ private:
 
 	_double makedt = 0;
 
+	_double test = 0;
+
 
 private:
 	CBasicCollider*	m_pOBB = nullptr;
