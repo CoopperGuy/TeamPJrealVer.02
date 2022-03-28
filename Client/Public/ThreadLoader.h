@@ -48,10 +48,10 @@ inline std::future<typename std::result_of<F(Args...)>::type> CThreadLoader::Enq
 
 	std::lock_guard<std::mutex> lock(m_job_Mutex);
 	m_jobs.push([job]() {(*job)(); });
-
+	m_fMax_Jobs++;
 	m_cv_Job_Queue.notify_one();
 
-	m_fMax_Jobs++;
+
 	return job_result_future;
 
 }

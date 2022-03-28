@@ -30,8 +30,6 @@ _int ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit)
 		wstring errMsg = L"Failed To Create Prefab" + path;
 		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
 	}
-	loader->SetCompleteBit(bit);
-
 	return bit;
 }
 
@@ -304,6 +302,7 @@ HRESULT CLoader::GameSceneLogo()
 
 
 	while (!m_isFinish) {
+		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;
 	}
