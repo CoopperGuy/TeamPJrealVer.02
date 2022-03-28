@@ -128,12 +128,18 @@ void CUrsa::Update(_double dDeltaTime)
 		SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
+	
 	if (m_pCollider) 
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
-
-	//fall down
-	/*PxControllerFilters filters;
-	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);*/
+	
+	PxControllerFilters filters;
+	if (IsGravity()) {
+		m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
+		m_pController->move(PxVec3(0.0f, m_fJumpSpeed, 0.f), 0.01f, PxF32(dDeltaTime), filters);
+	}
+	else {
+		m_fJumpSpeed = 0.f;
+	}
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -755,6 +761,38 @@ _bool CUrsa::None_Combat()
 
 	else
 		return false;
+}
+
+_bool CUrsa::IsGravity()
+{
+	_vector vUrsaPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	_vector vRayDir = XMVectorSet(0.f, -1.f, 0.f, 0.f);
+	PxRaycastBuffer buf;
+	PxQueryFilterData filterData;
+	filterData.data.word1 = CPxManager::GROUP4;
+	filterData.data.word2 = CPxManager::GROUP4;
+	filterData.flags |= PxQueryFlag::eANY_HIT;
+	filterData.flags |= PxQueryFlag::ePREFILTER;
+	_bool isCollied = false;
+	PxRigidActor* actor = m_pController->getActor();
+
+	if (CEngine::GetInstance()->Raycast(vUrsaPos, vRayDir, 0.06f, buf, filterData, &CPxQueryFilters(actor, CPxManager::GROUP4)))
+	{
+		if (buf.getAnyHit(0).distance <= 0.0f)
+		{
+			//cout << "playe collid with terrain\n";
+			isCollied = false;
+		}
+		else {
+			//cout << "playe no collid with terrain \n";
+			isCollied = true;
+		}
+	}
+	else {
+		//	cout << "playe no collid with terrain \n";
+		isCollied = true;
+	}
+	return isCollied;
 }
 
 void CUrsa::TestAnimation(Ursa eState)
