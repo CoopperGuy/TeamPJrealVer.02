@@ -75,6 +75,7 @@ public:
 	void Collsion();
 	_bool GetUsableSkill() { return m_bUsableSkill; }
 	_float3 GetLockOnPosition();
+	
 public:
 	void SetUpEquip(string Name);
 

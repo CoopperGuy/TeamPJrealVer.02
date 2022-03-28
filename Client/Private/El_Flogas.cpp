@@ -21,26 +21,26 @@ CEl_Flogas::CEl_Flogas(CGameObject * pObj)
 
 HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 {
-	if (name == "El_Flogas01")
-	{
-		m_bRight = true;
-		m_bFront = true;
-	}
-	else if (name == "El_Flogas02")
-	{
-		m_bRight = false;
-		m_bFront = true;
-	}
-	else if (name == "El_Flogas03")
-	{
-		m_bRight = true;
-		m_bFront = false;
-	}
-	else if (name == "El_Flogas04")
-	{
-		m_bRight = false;
-		m_bFront = false;
-	}
+	//if (name == "El_Flogas01")
+	//{
+	//	m_bRight = true;
+	//	m_bFront = true;
+	//}
+	//else if (name == "El_Flogas02")
+	//{
+	//	m_bRight = false;
+	//	m_bFront = true;
+	//}
+	//else if (name == "El_Flogas03")
+	//{
+	//	m_bRight = true;
+	//	m_bFront = false;
+	//}
+	//else if (name == "El_Flogas04")
+	//{
+	//	m_bRight = false;
+	//	m_bFront = false;
+	//}
 	m_ScriptName = name;
 	m_pFlogas = pObj;
 
@@ -77,40 +77,31 @@ void CEl_Flogas::Update(_double dDeltaTime)
 	vDist = vTargetPos - vPos;
 	fLen = XMVectorGetX(XMVector3Length(vDist));
 	if (m_pStat->GetStatInfo().hp < 0)
-		m_bDead = true;
+		m_bDestination = true;
 
 	if (m_pGameObject->GetActive())
 	{
 		PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
-		if (!m_bMove)
+		if (!m_bDestination)
 		{
 			if (fLen > 1.f)
 			{
-				if (!m_bDead)
-				{
-					m_pModel->SetUp_AnimationIndex(RUN);
-					vDist = XMVectorSetY(vDist, 0.f);
-					m_pTransform->SetLook(vDist);
-					memcpy(&vDir, &XMVector3Normalize(vDist), sizeof(_float3));
-					m_pController->move(vDir * 0.4f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
-				}
-				else
-				{
-					m_pModel->SetUp_AnimationIndex(DIE);
-					m_fScale -= (_float)dDeltaTime;
-					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
-					
-					if (m_pModel->Get_isFinished(DIE))
-					{
-						_float3 vPos = {};
-						XMStoreFloat3(&vPos, XMVectorSetY(m_pTransform->GetState(CTransform::STATE_POSITION), -5.f));
-						m_pCollider->SetPosition(vPos);
-						m_bMove = false;
-						m_pModel->SetUp_AnimationIndex(DEADBODY);
-						m_bDestination = true;
-					}
-				}
+				m_pModel->SetUp_AnimationIndex(RUN);
+				vDist = XMVectorSetY(vDist, 0.f);
+				m_pTransform->SetLook(vDist);
+				memcpy(&vDir, &XMVector3Normalize(vDist), sizeof(_float3));
+				m_pController->move(vDir * 0.4f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 			
+					
+				/*if (m_pModel->Get_isFinished(DIE))
+				{
+					_float3 vPos = {};
+					XMStoreFloat3(&vPos, XMVectorSetY(m_pTransform->GetState(CTransform::STATE_POSITION), -5.f));
+					m_pCollider->SetPosition(vPos);
+					m_bMove = false;
+					m_pModel->SetUp_AnimationIndex(DEADBODY);
+					m_bDestination = true;
+				}*/
 			}
 			else
 			{
@@ -120,12 +111,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 		}
 		else
 		{
-			if (m_bDead)
-			{
-				if(!m_pFlogas->Get_Flying())
-					m_pGameObject->SetActive(false);
-			}
-			else if (m_bExplosion)
+			if (m_bExplosion)
 			{
 				m_pModel->SetUp_AnimationIndex(IDLE);
 				if (m_dExplosionTime <= 0.0)
@@ -150,14 +136,26 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				{
 					m_fScale -= (_float)dDeltaTime;
 					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
-					if (m_pModel->Get_isFinished(DIE))
+					if (m_pModel->GetCurrentKeyFrame() == 50)
 					{
 						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
 						CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
-				
-						m_bMove = false;
-						m_pModel->SetUp_AnimationIndex(DEADBODY);
-						m_pGameObject->SetActive(false);
+					}
+
+					if (m_pModel->Get_isFinished(DIE))
+					{
+						if (m_pStat->GetStatInfo().hp < 0)
+						{
+							m_bMove = false;
+							m_pModel->SetUp_AnimationIndex(DEADBODY);
+							m_pGameObject->SetActive(m_pFlogas->Get_Flying());
+						}
+						else
+						{
+							m_bMove = false;
+							m_pModel->SetUp_AnimationIndex(DEADBODY);
+							m_pGameObject->SetActive(false);
+						}
 					}
 				}
 			}
@@ -165,8 +163,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 	}
 	else
 	{
+		m_pStat->HpHeal(100.f);
 		m_fScale = 1.5f;
 		m_bDeadMotion = false;
+		m_bDestination = false;
 		m_bMove = false;
 		m_pTransform->SetMatrix(m_OriginWorld);
 		m_pCollider->SetPosition(m_vOriginPos);

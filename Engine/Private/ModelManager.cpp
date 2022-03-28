@@ -134,20 +134,20 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 
 	string fullPath = pMeshFilePath + pMeshFileName;
 
+	EnterCriticalSection(&m_CS);
 	if (m_mapModel.find(fullPath) == m_mapModel.end())
 	{
 		CModel* pModel = CModel::Create(pDevice, pDeviceContext);
 		pModel->SetMeshCollider(meshCollider);
 		pModel->SetLinkEquip(bEquipment);
 		pModel->CreateBuffer(pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, pivotMatrix);
-		EnterCriticalSection(&m_CS);
 		m_mapModel.emplace(fullPath, pModel);
-		LeaveCriticalSection(&m_CS);
 
 		auto& iter = m_CurCloningObj.find(fullPath);
 		if (iter != m_CurCloningObj.end())
 			iter->second = false;
 	}
+	LeaveCriticalSection(&m_CS);
 
 	// return cloned object
 	EnterCriticalSection(&m_CS);
