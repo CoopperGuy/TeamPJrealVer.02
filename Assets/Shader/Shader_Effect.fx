@@ -415,6 +415,9 @@ vector PS_MAIN_FIRE(PS_IN_TEST In) : SV_TARGET
     vDiffuseColor.rgb += g_vOffsetColor.rgb;
     vDiffuseColor.a = vAlpha + g_vOffsetColor.a;
     vDiffuseColor.a *= g_fFadeAlpha;
+
+    if (vDiffuseColor.a <= 0.f)
+        discard;
         
     return vDiffuseColor;
 }

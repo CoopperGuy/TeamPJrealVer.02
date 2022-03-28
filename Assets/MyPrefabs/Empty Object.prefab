@@ -1,20 +1,22 @@
 Scene: Untitled
 GameObjects:
   - Name: Empty Object
-    UUID: 15173079792411371195
+    UUID: 764982118315121517
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 2
+    PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [-0.575269282, 0.0621358044, 0]
-      Rotation: [0, -0, -0.000104273429]
-      Scale: [2, 1, 1]
+      Translation: [0.00284723006, 0.837292969, -2.03610826]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     Com_VIBuffer:
       {}
+    Com_Decal:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\WispySmoke02_8x8.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -32,8 +34,8 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
-      SpriteNumX: 8
-      SpriteNumY: 8
-      SpriteTotal: 64
-      SpriteSpeed: 50
-      Alpha: 1
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]

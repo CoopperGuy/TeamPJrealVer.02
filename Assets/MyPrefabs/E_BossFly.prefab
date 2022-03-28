@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_BossFly
-    UUID: 7585266301347750764
+    UUID: 4369383191383768019
     Active: true
     Layer: Default
     Type: Effect
@@ -39,10 +39,10 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 0.699999988
+      OffsetColor: [0, 0, 0, 1]
     Children:
       - Name: Circle
-        UUID: 4041697015291068917
+        UUID: 12383994362882801045
         Active: true
         Layer: Default
         Type: Effect
@@ -80,9 +80,9 @@ GameObjects:
           SpriteNumY: 0
           SpriteTotal: 0
           SpriteSpeed: 5
-          Alpha: 0.600000024
+          OffsetColor: [0, 0, 0, 0.800000012]
       - Name: dome
-        UUID: 9464925176306043447
+        UUID: 6913186927665250291
         Active: true
         Layer: Default
         Type: Effect
@@ -120,4 +120,4 @@ GameObjects:
           SpriteNumY: 0
           SpriteTotal: 0
           SpriteSpeed: 5
-          Alpha: 0.699999988
+          OffsetColor: [0, 0, 0, 1]

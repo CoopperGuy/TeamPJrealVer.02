@@ -415,6 +415,9 @@
     <ClInclude Include="..\public\DecalCrash.h">
       <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectSoilDust.h">
+      <Filter>05.Effect\Ursa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -815,6 +818,9 @@
     </ClCompile>
     <ClCompile Include="..\private\DecalCrash.cpp">
       <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSoilDust.cpp">
+      <Filter>05.Effect\Ursa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1236,6 +1242,9 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\DecalCrash">
       <UniqueIdentifier>{955afa30-b4de-4a59-b002-cbe5b58b7a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa">
+      <UniqueIdentifier>{75c92038-93ed-43f2-9757-6d90198644b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
