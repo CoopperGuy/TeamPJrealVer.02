@@ -324,10 +324,18 @@ HRESULT CVIBuffer_RectInstance::Initialize_Radiation()
 		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
 
 		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
-		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
+		_vector AxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+		_vector vRight = XMVector3Normalize(XMVector3Cross(AxisY, vLook));
+		vRight = XMVector3Normalize(vRight * cosf(pIV->fRadian) + AxisY * sinf(pIV->fRadian));
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
 		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
 		XMStoreFloat4(&pIV->vDir, vRight);
+
+		/*_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
+		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
+		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
+		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
+		XMStoreFloat4(&pIV->vDir, vRight);*/
 
 		/*if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 		{
@@ -378,7 +386,9 @@ HRESULT CVIBuffer_RectInstance::Initialize_Cone()
 		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
 
 		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
-		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
+		_vector AxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+		_vector vRight = XMVector3Normalize(XMVector3Cross(AxisY, vLook));
+		vRight = XMVector3Normalize(vRight * cosf(pIV->fRadian) + AxisY * sinf(pIV->fRadian));
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
 		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
 		XMStoreFloat4(&pIV->vDir, vRight);

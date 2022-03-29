@@ -83,7 +83,7 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     float4 vPixelDepth = g_DepthTexture.Sample(g_DefaultSampler, uv.xy);
     float fViewZ = vPixelDepth.x * 300.f;
     
-    if (vPixelDepth.x <= 0.f)
+    if (vPixelDepth.x == 0.f || vPixelDepth.y == 0.f)
         discard;
 
     vector vLocalPos = (vector) 0.f;
