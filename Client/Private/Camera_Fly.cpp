@@ -115,8 +115,10 @@ void CCamera_Fly::ShakeCamera(SHAKE _shake, _int _cnt, _float _duration, _float 
 {
 	m_eShaking = _shake;
 	m_fDuration = _duration;
+	m_fDurationDelta = 0.f;
 	m_iCnt = _cnt;
 	m_fSpd = _spd;
+	XMStoreFloat3(&m_vShakePos, XMVectorSet(0.f, 0.f, 0.f, 0.f));
 	switch (m_eShaking)
 	{
 	case Client::CCamera_Fly::SHAKE_RIGHT:
@@ -377,14 +379,14 @@ void CCamera_Fly::ShakeY(_double DeltaTime)
 	}
 	else {
 		_vector up = m_pTransformCom->GetState(CTransform::STATE_UP);
-		XMStoreFloat3(&m_vShakeYPos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakeYPos), up, (_float)m_fYDurationDelta) * m_fYDirection);
+		XMStoreFloat3(&m_vShakeYPos, DirectX::XMVectorLerp(XMLoadFloat3(&m_vShakeYPos), up, (_float)m_fYDurationDelta) * m_fYDirection * m_fYSpd);
 	}
 	m_bYShake = false;
 }
 
 void CCamera_Fly::ShakeFov(_double DeltaTime)
 {
-	m_fov = m_fov * (1 - (_float)DeltaTime * 5.f) + m_fDestFov * (_float)DeltaTime * 5.f;
+	m_fov = m_fov * (1 - (_float)DeltaTime * m_fFovSpd) + m_fDestFov * (_float)DeltaTime * m_fFovSpd;
 	if (m_FovShakeDurationDelta >= m_FovShakeDuration) {
 		m_fDestFov = m_constFov;
 		m_FovShakeDurationDelta = 0.f;

@@ -115,6 +115,13 @@ void CEventCheck::SetUpEquip(string _equipName)
 		m_pPlayerScript->SetUpEquip(_equipName);
 }
 
+void CEventCheck::SlowAttack()
+{
+	if (m_pPlayerScript)
+		m_pPlayerScript->Set_SlowAttack(true);
+
+}
+
 void CEventCheck::OffAllMenus()
 {
 	if (m_pMenus)
