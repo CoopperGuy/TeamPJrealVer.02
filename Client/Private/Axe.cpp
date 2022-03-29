@@ -493,6 +493,7 @@ void CAxe::Set_TrailOnOff()
 	if (isStartHit) {
 		CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
 		engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+		
 	}
 	
 }
