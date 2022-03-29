@@ -8,6 +8,7 @@
 
 #pragma region MyRegion
 #include "EffectSoilDust.h"
+#include "EffectUrsaDust.h"
 #pragma endregion
 
 
@@ -898,6 +899,8 @@ void CUrsa::OrganizeEffect()
 			++i;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;
@@ -909,6 +912,8 @@ void CUrsa::OrganizeEffect()
 			++i;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;

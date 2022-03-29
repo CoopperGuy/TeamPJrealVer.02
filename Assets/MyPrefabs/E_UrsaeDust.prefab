@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_UrsaeDust
-    UUID: 10888254527440078417
+    UUID: 6203001648510775913
     Active: true
     Layer: Default
     Type: Effect
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 70
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [1, 1, 1, -0.829999983]

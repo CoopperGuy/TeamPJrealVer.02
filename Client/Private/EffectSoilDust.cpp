@@ -35,6 +35,7 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 
 		m_pTransform->SetMatrix(pos);
 
+		m_pTransform->SetScale(_float3(2.f, 3.f,2.f));
 	}
 	return S_OK;
 }
