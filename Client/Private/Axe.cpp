@@ -497,5 +497,4 @@ void CAxe::Set_TrailOnOff()
 		CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.02f);
 		CEventCheck::GetInstance()->ShakeUpDown(4, 0.02f);
 	}
-	
 }

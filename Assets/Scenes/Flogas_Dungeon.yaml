@@ -41,8 +41,8 @@ GameObjects:
       Type: 0
       Range: 10
       Angle: 20
-      Diffuse: [0.540642738, 0.558724403, 0.956521749, 1]
-      Ambient: [0.0144927502, 0.0144927502, 0.0144927502, 1]
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.333333313, 0.333333313, 0.333333313, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -1526,7 +1526,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.5215092, 26.0779991, 1.79999995]
+      Scale: [22.5215073, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1552,7 +1552,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Wall1
     UUID: 1483917860621449909
     Active: true
@@ -1651,8 +1651,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.69327307, 1.31196868, -8.28250313]
-      Rotation: [48.4947929, 5.33978558, 0]
-      Scale: [0.293107122, 0.249655098, 0.605052292]
+      Rotation: [3.14027858, 3.65621209, -1.33671962e-08]
+      Scale: [0.279784024, 0.176538035, 0.641046643]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1678,7 +1678,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 15770022732734872725
     Active: true
@@ -1689,8 +1689,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [48.4947891, 5.33978605, 0]
-      Scale: [0.638484478, 0.48491171, 1.31344199]
+      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
+      Scale: [0.609398663, 0.342905939, 1.39153469]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1716,7 +1716,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Wall1
     UUID: 3639142049821933306
     Active: true
@@ -2046,8 +2046,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [48.4947891, 5.33978605, 0]
-      Scale: [0.637421131, 0.483912379, 1.31399167]
+      Rotation: [3.14027858, 3.65621209, -1.3367198e-08]
+      Scale: [0.608391702, 0.342193186, 1.39210963]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2073,7 +2073,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 5691130930190213264
     Active: true
@@ -2084,8 +2084,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [7.93538809, 1.34698355, -8.84075165]
-      Rotation: [48.4947891, 5.33978558, 0]
-      Scale: [0.318827629, 0.389990479, 1.31417298]
+      Rotation: [3.1402781, 3.65621161, -1.3367198e-08]
+      Scale: [0.304314017, 0.275781512, 1.39230764]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2111,7 +2111,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 5974207186220585515
     Active: true
@@ -2122,8 +2122,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.08104706, 1.34008193, -3.44539356]
-      Rotation: [48.4947929, 5.3397851, 0]
-      Scale: [0.318730086, 0.3900401, 1.31399167]
+      Rotation: [3.14027858, 3.65621114, -1.3367198e-08]
+      Scale: [0.304203779, 0.275809765, 1.39210963]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2149,7 +2149,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 1671464895325951026
     Active: true
@@ -2160,8 +2160,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.58388233, 1.30740726, -0.59903425]
-      Rotation: [48.4947853, 5.33978605, 0]
-      Scale: [0.318793535, 0.39012745, 1.31419075]
+      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
+      Scale: [0.304272592, 0.275863618, 1.39231455]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2187,7 +2187,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 5754051776145636077
     Active: true
@@ -2198,8 +2198,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [48.4947891, 5.3397851, 0]
-      Scale: [0.637912631, 0.483950019, 1.31404531]
+      Rotation: [3.14027882, 3.65621233, -1.3367198e-08]
+      Scale: [0.608864009, 0.342220753, 1.39215982]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2225,7 +2225,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 8218886197490550364
     Active: true
@@ -2236,8 +2236,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [48.4947891, 5.3397851, 0]
-      Scale: [0.6377033, 0.483984411, 1.31404531]
+      Rotation: [3.14027882, 3.65621161, -1.3367198e-08]
+      Scale: [0.608672738, 0.342252344, 1.39215982]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2263,7 +2263,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 4506074469666995895
     Active: true
@@ -2274,8 +2274,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [48.4947929, 5.3397851, 0]
-      Scale: [0.524766147, 0.641969502, 1.31421781]
+      Rotation: [3.14027834, 3.65621114, -1.3367198e-08]
+      Scale: [0.500856519, 0.453959554, 1.39234471]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2301,7 +2301,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 14101136375250397075
     Active: true
@@ -2312,8 +2312,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [48.4947929, 5.3397851, 0]
-      Scale: [0.538483858, 0.654334545, 1.44760025]
+      Rotation: [3.14027858, 3.65621161, -1.3367198e-08]
+      Scale: [0.514025688, 0.462705851, 1.53369808]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2339,7 +2339,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 5152656489460797690
     Active: true
@@ -2350,8 +2350,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [48.4947929, 5.33978558, 0]
-      Scale: [0.891981661, 0.726915598, 1.31421781]
+      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
+      Scale: [0.851444423, 0.514027357, 1.39234471]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2377,7 +2377,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: LampFire
     UUID: 3014897176380867306
     Active: true
@@ -2388,8 +2388,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [48.4947929, 5.3397851, 0]
-      Scale: [0.909935176, 0.706776321, 1.31399167]
+      Rotation: [3.14027858, 3.65621161, -1.3367198e-08]
+      Scale: [0.868536413, 0.499803215, 1.39210963]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2415,7 +2415,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Wall3
     UUID: 7857229646009060073
     Active: true
@@ -2561,15 +2561,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-7.69467306, 1.32634377, -8.36112595]
+      Translation: [-7.77287292, 1.32634377, -8.36112595]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.70000005
+      Range: 3
       Angle: 20
       Diffuse: [0.978260875, 0.571422696, 0.198487729, 1]
-      Ambient: [0.173913062, 0.363999993, 0.136000007, 1]
+      Ambient: [0.5, 0, 0, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -2587,7 +2587,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.5
+      Range: 6
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2608,7 +2608,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.5
+      Range: 6
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2624,15 +2624,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [8.57621574, 1.22263777, -9.19071388]
+      Translation: [8.0126667, 1.22263777, -9.19071388]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.70000005
+      Range: 3
       Angle: 20
       Diffuse: [0.976000011, 0.571099997, 0.197999999, 1]
-      Ambient: [0.398999989, 0.363999993, 0.136000007, 1]
+      Ambient: [0.5, 0, 0, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -2650,7 +2650,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 7
+      Range: 4
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2666,15 +2666,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [8.244174, 1.28696001, -3.33414054]
+      Translation: [8.04406261, 1.28696001, -3.33414054]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.70000005
+      Range: 3
       Angle: 20
       Diffuse: [0.977999985, 0.57099998, 0.197999999, 1]
-      Ambient: [0.398999989, 0.363999993, 0.136000007, 1]
+      Ambient: [0.5, 0, 0, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -2692,7 +2692,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 12
+      Range: 7
       Angle: 20
       Diffuse: [0.942028999, 0.227386266, 0, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2713,7 +2713,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 10
+      Range: 6
       Angle: 20
       Diffuse: [1, 0.34799999, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2734,7 +2734,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 10
+      Range: 6
       Angle: 20
       Diffuse: [1, 0.340000004, 0.129999995, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2755,7 +2755,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 15.6999998
+      Range: 7
       Angle: 20
       Diffuse: [0.978260875, 0.228374466, 0, 1]
       Ambient: [0.224999994, 0.0719999969, 0.0719999969, 1]
@@ -2771,15 +2771,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-7.08639479, 1.47725797, -0.988871694]
+      Translation: [-7.49956322, 1.47725797, -0.988871694]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 3.70000005
+      Range: 3
       Angle: 20
       Diffuse: [0.977999985, 0.57099998, 0.197999999, 1]
-      Ambient: [0.398999989, 0.363999993, 0.136000007, 1]
+      Ambient: [0.5, 0, 0, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -3379,7 +3379,28 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
+  - Name: PointLightDummy
+    UUID: 11394335429579781445
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 9.40999985, -5.93771219]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 15
+      Angle: 20
+      Diffuse: [0, 0.280718833, 0.586956501, 1]
+      Ambient: [0.151281238, 0.283713758, 0.311594188, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
   - Name: PointLight01
     UUID: 4563585621494192207
     Active: true
@@ -3394,7 +3415,7 @@ GameObjects:
       Scale: [1, 1, 1]
     Com_Light:
       Type: 1
-      Range: 7.30000019
+      Range: 6
       Angle: 20
       Diffuse: [1, 0.340321064, 0.130434811, 1]
       Ambient: [0.224637687, 0.0716236085, 0.0716236085, 1]
