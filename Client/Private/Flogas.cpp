@@ -437,7 +437,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 	else
 	{
 		m_dAniSpeed = 1.f;
-		if (m_iFlyingCount > 1)
+		if (m_iFlyingCount > 3)
 		{
 			m_bFly = true;
 			m_iFlyingCount = 0;
