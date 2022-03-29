@@ -62,6 +62,7 @@ private:
 	unordered_map<std::string, std::thread>	Threads;
 private:
 	CThreadLoader*		m_ThreadLoader = nullptr;
+	mutable	size_t		m_threadSize = 12;
 
 public:
 	static CLoader* Create(SCENE eScene);

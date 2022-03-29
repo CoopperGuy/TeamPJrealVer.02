@@ -15,6 +15,10 @@ HRESULT CSparkFlare::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 	m_pPlayerTrans = static_cast<CTransform*>(m_pTargetObj->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThisEffect->GetComponent("Com_Transform"));
 
+	_vector position = m_pPlayerTrans->GetState(CTransform::STATE_POSITION);
+	m_pEffectTrans->SetState(CTransform::STATE_POSITION, position);
+
+
 	return S_OK;
 }
 

@@ -93,7 +93,7 @@ private:
 	BoundingSphere*			m_pSphere = nullptr;
 	_bool					m_isCollision = false;
 	_bool					m_isHit = false;
-
+	_bool					m_bStartHit = false;
 	_float4x4				m_TransformMatrix;
 
 	_float3					m_vMin, m_vMax;
@@ -142,9 +142,7 @@ public: //collsion
 	void	Set_Collision(_bool pcollset) { m_isCollision = pcollset; }
 	void	ClearList();
 
-	_bool Setdamage = false;
-	_bool SetComboDamage = false;
-	_bool	Collsion_ing = false;
+
 	_double ActiveColdt = 0.f;
 
 
@@ -154,13 +152,16 @@ public:
 	void SetOffset(_float3 offset) { m_Offset = offset; }
 	void SetCollisionType(ID type) { m_CollisionType = type; }
 	void SetHit(_bool pHit) { m_isHit = pHit; }
+	void SetStartHit(_bool _bStartHIt) { m_bStartHit = _bStartHIt; }
 public:
 	_bool	GetIsAttachBone() { return m_isAttachBone; }
+	_bool	GetStartHit() { return m_bStartHit; }
 	ID	GetCollisionType() { return m_CollisionType; }
 	_float3 GetOffset() { return m_Offset; }
 	_vector GetVecOffset() { return XMLoadFloat3(&m_Offset); }
 	string	GetBoneName() { return m_strBoneName; }
 	_vector* GetObbBox();
+	
 private:
 	_bool	m_isAttachBone = false;
 	ID	m_CollisionType = ID::IDEND;

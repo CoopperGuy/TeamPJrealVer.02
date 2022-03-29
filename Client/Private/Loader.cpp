@@ -96,7 +96,7 @@ _bool CLoader::Get_IsEnd()
 HRESULT CLoader::Initialize(SCENE eScene)
 {
 	InitializeCriticalSection(&m_CS);
-	m_ThreadLoader = new CThreadLoader(5);
+	m_ThreadLoader = new CThreadLoader(m_threadSize);
 
 	m_eScene = eScene;
 	m_pLoadingGauge = CLoadingGauge::Create(nullptr);
