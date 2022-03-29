@@ -221,7 +221,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
 	OrganizeEffect(m_eState);
-	/*Hit();*/
+	Hit();
 
 	if (m_bDeadMotion)
 	{
