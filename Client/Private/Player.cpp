@@ -241,7 +241,8 @@ void CPlayer::Update(_double dDeltaTime)
 	Collsion();
 	Transform_ToWorldSpace();
 	SearchMonster();
-	CreateBlood();
+	//if (m_pStatus->GetStatInfo().hp >= 0)
+	//	CreateBlood();
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
 }
