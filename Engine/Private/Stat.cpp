@@ -57,7 +57,7 @@ void CStat::HpHeal(_float healPoint)
 
 _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 {
-	STAT enemyStatus = enemyStat->GetStatInfo();
+	STAT enemyStatus = enemyStat->m_tStat;
 	_int ratio = 80 + rand() % 20;
 	_int crit = rand() % 100;
 
@@ -106,7 +106,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 		CLight::Create(m_pDevice, m_pDeviceContext, _desc, m_pTransform, true);
 	}
 
-	if (enemyStat->GetStatusEffect() & STATUSEFFECT::BLOOD) {
+	if (enemyStat->m_StatusEffect & STATUSEFFECT::BLOOD) {
 		enemyStatus.hp += dmg /** 0.1f*/;
 		enemyStat->CorrectMaxHp();
 	}
