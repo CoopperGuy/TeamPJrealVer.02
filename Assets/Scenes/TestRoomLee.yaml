@@ -25,7 +25,7 @@ GameObjects:
     UUID: 12570807769345660294
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -51,13 +51,19 @@ GameObjects:
       MeshFileName: Floor1.fbx
       HasCollider: false
       Equipment: false
+    Translation: [0, 0, 0]
+    Rotation: [0, -0, 0]
+    Scale: [5, 5, 5]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor1.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 100
   - Name: Wall
     UUID: 843996683983716321
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -83,6 +89,12 @@ GameObjects:
       MeshFileName: Wall0.fbx
       HasCollider: false
       Equipment: false
+    Translation: [0, 0, -2.84713697]
+    Rotation: [0, -0, 0]
+    Scale: [9.79273987, 1, 0.00378112844]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\Wall(face)\
+    MeshFileName: Wall0.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 1
   - Name: TestMonster
@@ -177,7 +189,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [0.467000008, 0, 0.878000021, 1]
   - Name: Empty Object
     UUID: 2352509968335960163
     Active: true
@@ -215,4 +227,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.384057999, 0, 0, 0.800000012]
+      OffsetColor: [0.384057999, 0.356999993, 0.470999986, 0.800000012]
