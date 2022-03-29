@@ -1079,16 +1079,10 @@ _bool CPlayer::IsGravity()
 
 void CPlayer::CreateBlood()
 {
-	if (CEngine::GetInstance()->IsKeyDown(VK_F8))
-	{
-		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
-		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
-	}
-
 	if (m_pOBB->Get_isHit()) {
 
 		_matrix Translation;
-		_int random = rand() % 4;
+		_int random = rand() % 2;
 		random += 1;
 		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 		Translation = m_pTransform->Remove_Scale(Translation);

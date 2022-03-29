@@ -18,6 +18,11 @@ public:
 public:
 	static CScene_Stage3* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, _uint iLevelIndex);
 	virtual void Free() override;
+
+private:
+	_double m_dMakeDropRock = 0;
+
+	_uint makeRockNum = 0;
 };
 
 END

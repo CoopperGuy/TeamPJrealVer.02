@@ -32,7 +32,7 @@ private:
 
 	_float Time = 0.f;
 public:
-	static CDropRock*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,8.f});
+	static CDropRock*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f});
 	virtual void Free() override;
 };
 

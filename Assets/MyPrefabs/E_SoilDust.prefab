@@ -1,23 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: Empty Object
-    UUID: 764982118315121517
+  - Name: E_SoilDust
+    UUID: 14017234329955827648
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 0
+    PassIndex: 14
     BillBord: false
     Com_Transform:
-      Translation: [0.00284723006, 0.837292969, -2.03610826]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_VIBuffer:
       {}
-    Com_Decal:
-      {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
-      TextureMaskPath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -34,8 +32,8 @@ GameObjects:
       FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
+      SpriteNumX: 4
+      SpriteNumY: 8
+      SpriteTotal: 32
+      SpriteSpeed: 30
+      OffsetColor: [0, 0, 0, 0.8]

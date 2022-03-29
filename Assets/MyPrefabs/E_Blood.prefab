@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Blood
-    UUID: 16533228143661620560
+    UUID: 12575416980113234800
     Active: true
     Layer: Default
     Type: Effect
@@ -9,8 +9,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [20.6697197, -1.60999036, -5.33818749e-08]
-      Scale: [0.999805152, 0.99986881, 0.999529302]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.999805152, 0.999866426, 0.999529302]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0
       DistortionBias: 0
       FadeOut: true
-      FadeOutDuration: 0.5
+      FadeOutDuration: 1.20000005
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0.5
+      EffectDuration: 1.20000005
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 1]

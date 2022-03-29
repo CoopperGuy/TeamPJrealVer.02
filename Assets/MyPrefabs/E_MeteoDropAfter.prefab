@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoDropAfter
-    UUID: 4932829240672984789
+    UUID: 12707583458257652304
     Active: true
     Layer: Default
     Type: Effect
@@ -10,11 +10,11 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.20000005, 0.600000024, 1.20000005]
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Impact_006_TEX_KKJ.png
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 0.5
-      FadeOutStratTime: 1.5
-      FadeIn: true
-      FadeInDuration: 1
+      FadeOutDuration: 2
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
       FadeInStratTime: 0
       EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]

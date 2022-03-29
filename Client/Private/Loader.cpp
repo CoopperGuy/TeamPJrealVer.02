@@ -200,6 +200,18 @@ HRESULT CLoader::GameFlogasLoader()
 	return S_OK;
 }
 
+HRESULT CLoader::GameUrsaLoader()
+{
+	std::vector<std::future<_int>> futures;
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_UrsaeDust", 1);
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 2));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
+	m_iCompleteBit = 0;
+
+	return S_OK;
+}
+
 HRESULT CLoader::GameTestLoader()
 {
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/FieldMapGround.yaml", SCENE_TEST);
@@ -261,6 +273,11 @@ HRESULT CLoader::GameSceneStage03()
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3, 0);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_STAGE3, 1);
+
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
+
+
 
 	m_ThreadLoader->Start_Thread();
 
@@ -399,7 +416,7 @@ HRESULT CLoader::GameSceneJUN()
 HRESULT CLoader::GameSceneSEO()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, -4.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
 
 	std::vector<std::future<_int>> futures;
@@ -407,13 +424,16 @@ HRESULT CLoader::GameSceneSEO()
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 0));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 2));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_SEO, 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_SEO, 4));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeonSY.yaml", SCENE_SEO, 3));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
 
 
 
-	if (FAILED(GameFlogasLoader()))
-		MSG_BOX("Failed To Create Flogas Effect");
+		//if (FAILED(GameFlogasLoader()))
+		//	MSG_BOX("Failed To Create Flogas Effect");
+
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
 
 	m_ThreadLoader->Start_Thread();
 

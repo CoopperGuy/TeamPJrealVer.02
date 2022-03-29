@@ -1,0 +1,26 @@
+Scene: Untitled
+GameObjects:
+  - Name: Tower
+    UUID: 4949736482795885592
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-12.2399988, 3.09360266, -0.0855694786]
+      Rotation: [0, -56.053318, 0]
+      Scale: [0.99999994, 1, 0.99999994]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+      MeshFileName: Tower0.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-12.2399988, 3.09360266, -0.0855694786]
+    Rotation: [0, -56.053318, 0]
+    Scale: [0.99999994, 1, 0.99999994]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
+    MeshFileName: Tower0.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
