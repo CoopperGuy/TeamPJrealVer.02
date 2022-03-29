@@ -956,12 +956,15 @@ void CFlogas::OrganizeEffect(Flogas eState)
 		break;
 	}
 	case FLYING_ING:
+		m_eCurSTATES = CStat::STATES_IDEL;
 		break;
 	case FLYING_END:
+		m_eCurSTATES = CStat::STATES_IDEL;
 		if (m_pEffFly)
 			m_pEffFly->SetAnimationEnd();
 		break;
 	case FLYING_END2:
+		m_eCurSTATES = CStat::STATES_IDEL;
 		//if (m_pEffFlyLaser)
 		//	m_pEffFlyLaser->SetDead();
 		if (m_pEffFlyLight)
