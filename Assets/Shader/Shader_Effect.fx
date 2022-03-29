@@ -501,7 +501,9 @@ vector PS_MAIN_MESH(PS_IN_TEST In) : SV_TARGET
        //discard;
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
    // vDiffuseColor.a = vAlpha.a;     
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
+    vDiffuseColor.rgb += g_vOffsetColor.rgb;
+    vDiffuseColor.a = vAlpha.a + g_vOffsetColor.a;
+    vDiffuseColor.a *= g_fFadeAlpha;
     if (vDiffuseColor.a <= 0.1f)
         discard;
 
@@ -674,8 +676,11 @@ vector PS_MAIN_MESHALPHA(PS_IN_TEST In) : SV_TARGET
        //discard;
     vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) / 3;
    // vDiffuseColor.a = vAlpha.a;     
-    vDiffuseColor.a = vAlpha.a * g_fFadeAlpha;
     vDiffuseColor.rgb = vDiffuseColor.rgb * vAlpha.a;
+    vDiffuseColor.rgb += g_vOffsetColor.rgb;
+    vDiffuseColor.a = vAlpha.a + g_vOffsetColor.a;
+    vDiffuseColor.a *= g_fFadeAlpha;
+
     if (vDiffuseColor.a <= 0.1f)
         discard;
 
