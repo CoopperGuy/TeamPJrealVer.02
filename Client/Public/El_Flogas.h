@@ -24,8 +24,6 @@ public:
 
 public:
 	_bool Get_DeadMotion() { return m_bDeadMotion; }
-	_bool Get_Right() { return m_bRight; }
-	_bool Get_Front() { return m_bFront; }
 private:
 	CTransform* m_pTargetTransform	= nullptr;
 	CFlogas*		m_pFlogas		= nullptr;
@@ -41,8 +39,7 @@ private:
 
 	_bool m_bMove = false;
 	_bool m_bDeadMotion = false;
-	_bool m_bRight = false;
-	_bool m_bFront = false;
+	_bool m_bHpzero = false;
 };
 
 END
