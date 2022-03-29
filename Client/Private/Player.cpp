@@ -1106,11 +1106,24 @@ void CPlayer::SlowMotion(_double deltaTime)
 	_bool isSlow = m_pStatus->GetIsSlow();
 	if (isSlow == true) {
 		g_TickLate = 0.5f;
-		m_slowDelta += deltaTime;
-		if (m_slowTime < m_slowDelta) {
-			m_slowDelta = 0;
+		m_slowEvadeDelta += deltaTime;
+		if (m_slowEvadeTime < m_slowEvadeDelta) {
+			m_slowEvadeDelta = 0;
 			m_pStatus->SetSlow(false);
 			g_TickLate = 1.f;
+		}
+	}
+}
+
+void CPlayer::SlowAttack(_double deltaTime)
+{
+	if (m_bSlowAttck) {
+		g_TickLate = 0.5f;
+		m_slowDelta += deltaTime;
+		if (m_slowDelta < m_sloweTime) {
+			m_slowDelta = 0;
+			g_TickLate = 1.f;
+			m_bSlowAttck = false;
 		}
 	}
 }

@@ -497,7 +497,8 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 					}
 				}
 				else {
-					pTargetCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
+					pWeaponeCollider->m_bStartHit = false;
+					pWeaponeCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
 				}
 			}
 		}
