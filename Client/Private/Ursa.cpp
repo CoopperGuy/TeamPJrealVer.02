@@ -913,7 +913,7 @@ void CUrsa::OrganizeEffect()
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;

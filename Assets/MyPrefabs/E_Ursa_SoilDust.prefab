@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 30
-      OffsetColor: [1, 0.808443606, 0.449275374, -0.300000024]
+      OffsetColor: [1, 0.808443606, 0.449275374, -0.700000024]

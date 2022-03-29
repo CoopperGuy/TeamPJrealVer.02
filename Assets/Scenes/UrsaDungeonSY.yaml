@@ -1,6 +1,6 @@
 Scene: Untitled
 GameObjects:
-  - Name: Direction
+  - Name: light
     UUID: 463561755303631127
     Active: true
     Layer: Default
@@ -9,15 +9,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-1.39999998, 35.7999992, -32]
-      Rotation: [176.999924, 84.1989975, 41.8009987]
-      Scale: [0.999928474, 0.999803364, 0.999817193]
+      Translation: [-3, 24.7000008, -20]
+      Rotation: [0.000104238068, 87.899971, -141.498993]
+      Scale: [0.999931633, 0.999806821, 0.999814332]
     Com_Light:
       Type: 0
       Range: 10
       Angle: 20
-      Diffuse: [1, 1, 1, 1]
-      Ambient: [0, 0, 0, 1]
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [1, 1, 1, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -55,7 +55,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, 0, -4.98518229]
+      Translation: [0, 0, -4.99340534]
       Rotation: [0, -0, 0]
       Scale: [5, 5, 5]
     Com_Model:
@@ -63,7 +63,7 @@ GameObjects:
       MeshFileName: Tile11.fbx
       HasCollider: false
       Equipment: false
-    Translation: [0, 0, -4.98518229]
+    Translation: [0, 0, -4.99340534]
     Rotation: [0, -0, 0]
     Scale: [5, 5, 5]
     MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
@@ -105,7 +105,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.99295568, 0, -9.93216038]
+      Translation: [-4.99295568, 0, -5.00586224]
       Rotation: [0, -0, 0]
       Scale: [5, 5, 5]
     Com_Model:
@@ -113,7 +113,7 @@ GameObjects:
       MeshFileName: Tile11.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-4.99295568, 0, -9.93216038]
+    Translation: [-4.99295568, 0, -5.00586224]
     Rotation: [0, -0, 0]
     Scale: [5, 5, 5]
     MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
@@ -130,15 +130,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.98000002, 0, -4.99594164]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [5, 5, 5]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
       MeshFileName: Tile11.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-4.98000002, 0, -4.99594164]
+    Translation: [4.98899984, 0, -4.92266655]
     Rotation: [0, -0, 0]
     Scale: [5, 5, 5]
     MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
@@ -196,6 +196,8 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 100
+    Children:
+      - 4052401080348672466
   - Name: Badack
     UUID: 11409919040451949299
     Active: true
@@ -205,17 +207,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.98726463, 0, 0]
+      Translation: [4.91730213, 0, 0.0192266107]
       Rotation: [0, -0, 0]
-      Scale: [5, 5, 5]
+      Scale: [4.86999989, 5, 4.94999981]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
       MeshFileName: Tile11.fbx
       HasCollider: false
       Equipment: false
-    Translation: [4.98726463, 0, 0]
+    Translation: [4.91730213, 0, 0.0192266107]
     Rotation: [0, -0, 0]
-    Scale: [5, 5, 5]
+    Scale: [4.86999989, 5, 4.94999981]
     MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
     MeshFileName: Tile11.fbx
     HasCollider: false
@@ -405,16 +407,16 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.5249185e-06, 1.05343246, -1.1052109]
-      Rotation: [0, 22.2679996, 0]
+      Translation: [4.5249185e-06, 2.24300003, -1.1052109]
+      Rotation: [-179.999359, 22.2679996, -0.000216444969]
       Scale: [1.80000019, 0.99999994, 1.80000019]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall\
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
-    Translation: [4.5249185e-06, 1.05343246, -1.1052109]
-    Rotation: [0, 22.2679996, 0]
+    Translation: [4.5249185e-06, 2.24300003, -1.1052109]
+    Rotation: [-179.999359, 22.2679996, -0.000216444969]
     Scale: [1.80000019, 0.99999994, 1.80000019]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall\
     MeshFileName: wall2.fbx
@@ -481,16 +483,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-4.14389324, 2.79998994, -6.4031601]
-      Rotation: [-179.9991, 71.1010056, -179.9991]
-      Scale: [0.999999881, 1, 0.999999881]
+      Rotation: [-179.999756, 75.2275391, -179.999756]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
     Translation: [-4.14389324, 2.79998994, -6.4031601]
-    Rotation: [-179.9991, 71.1010056, -179.9991]
-    Scale: [0.999999881, 1, 0.999999881]
+    Rotation: [-179.999756, 75.2275391, -179.999756]
+    Scale: [1, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
     MeshFileName: wall2.fbx
     HasCollider: false
@@ -505,17 +507,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-6.83085918, 2.80000496, -2.40322971]
-      Rotation: [179.998459, 33.9117012, 179.998322]
-      Scale: [0.999993324, 0.999994218, 0.999993324]
+      Translation: [-7.14132833, 2.79999948, -2.37109709]
+      Rotation: [179.999893, 38.0367622, 179.999893]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-6.83085918, 2.80000496, -2.40322971]
-    Rotation: [179.998459, 33.9117012, 179.998322]
-    Scale: [0.999993324, 0.999994218, 0.999993324]
+    Translation: [-7.14132833, 2.79999948, -2.37109709]
+    Rotation: [179.999893, 38.0367622, 179.999893]
+    Scale: [1, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
     MeshFileName: wall2.fbx
     HasCollider: false
@@ -556,16 +558,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-3.44351721, 2.80000257, 6.205585]
-      Rotation: [-179.999893, -47.7104797, 179.999893]
-      Scale: [0.99999994, 1, 0.99999994]
+      Rotation: [-179.999237, -43.4140167, 179.999237]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
     Translation: [-3.44351721, 2.80000257, 6.205585]
-    Rotation: [-179.999893, -47.7104797, 179.999893]
-    Scale: [0.99999994, 1, 0.99999994]
+    Rotation: [-179.999237, -43.4140167, 179.999237]
+    Scale: [1, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
     MeshFileName: wall2.fbx
     HasCollider: false
@@ -580,17 +582,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-6.53637409, 2.79999638, 2.54109693]
-      Rotation: [-179.999634, 1.46753848, -179.999893]
-      Scale: [0.999999881, 1, 0.999999881]
+      Translation: [-6.89603233, 2.79999638, 2.53188229]
+      Rotation: [-179.999893, -4.23803377, -179.999893]
+      Scale: [0.999999285, 1, 0.999999285]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-6.53637409, 2.79999638, 2.54109693]
-    Rotation: [-179.999634, 1.46753848, -179.999893]
-    Scale: [0.999999881, 1, 0.999999881]
+    Translation: [-6.89603233, 2.79999638, 2.53188229]
+    Rotation: [-179.999893, -4.23803377, -179.999893]
+    Scale: [0.999999285, 1, 0.999999285]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
     MeshFileName: wall2.fbx
     HasCollider: false
@@ -691,156 +693,6 @@ GameObjects:
     RenderGroup: 1
     FrustumRange: 20
   - Name: door3
-    UUID: 3152453946734901247
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-3.51303482, 0, -7.21062136]
-      Rotation: [0, 34.5971756, 0]
-      Scale: [1.49999988, 1.29999995, 0.999999642]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-3.51303482, 0, -7.21062136]
-    Rotation: [0, 34.5971756, 0]
-    Scale: [1.49999988, 1.29999995, 0.999999642]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 20
-  - Name: door3
-    UUID: 7455018125559487255
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-5.48021936, 0.0495035648, -5.5935626]
-      Rotation: [0, 44.5393829, 0]
-      Scale: [1.39999998, 1.29999995, 0.999999881]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-5.48021936, 0.0495035648, -5.5935626]
-    Rotation: [0, 44.5393829, 0]
-    Scale: [1.39999998, 1.29999995, 0.999999881]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
-    UUID: 5901155410114440120
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-6.99897814, 0, -3.38635135]
-      Rotation: [0, 66.1713028, 0.488851994]
-      Scale: [1.39999998, 1.29999995, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-6.99897814, 0, -3.38635135]
-    Rotation: [0, 66.1713028, 0.488851994]
-    Scale: [1.39999998, 1.29999995, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 20
-  - Name: door3
-    UUID: 15046027125094625516
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-7.58132648, 0, 1.8033489]
-      Rotation: [0, -76.9125671, 0]
-      Scale: [1.50000036, 1.39999998, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-7.58132648, 0, 1.8033489]
-    Rotation: [0, -76.9125671, 0]
-    Scale: [1.50000036, 1.39999998, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 20
-  - Name: door3
-    UUID: 17148936001823086280
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-6.35296869, 0, 4.11133909]
-      Rotation: [0, -52.7917671, 0]
-      Scale: [1.50000012, 1.39999998, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-6.35296869, 0, 4.11133909]
-    Rotation: [0, -52.7917671, 0]
-    Scale: [1.50000012, 1.39999998, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
-    UUID: 3721660991809613865
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-4.46539307, 0, 6.00082064]
-      Rotation: [0, -33.5885582, 0]
-      Scale: [1.50000012, 1.39999998, 0.999999821]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-4.46539307, 0, 6.00082064]
-    Rotation: [0, -33.5885582, 0]
-    Scale: [1.50000012, 1.39999998, 0.999999821]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
     UUID: 14165188864115041145
     Active: true
     Layer: Default
@@ -865,56 +717,6 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 1
-  - Name: door3
-    UUID: 4308353699477723003
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [7.13914013, 0, 4.10282993]
-      Rotation: [0, 71.093895, 0]
-      Scale: [1.49999988, 1.29999995, 0.999999881]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [7.13914013, 0, 4.10282993]
-    Rotation: [0, 71.093895, 0]
-    Scale: [1.49999988, 1.29999995, 0.999999881]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
-    UUID: 5789293527980966485
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [8.00857162, 0, 1.60627425]
-      Rotation: [0, 85.2078247, 0]
-      Scale: [1.50000036, 1.29999995, 0.999999762]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [8.00857162, 0, 1.60627425]
-    Rotation: [0, 85.2078247, 0]
-    Scale: [1.50000036, 1.29999995, 0.999999762]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
   - Name: door3
     UUID: 909446648885450708
     Active: true
@@ -941,56 +743,6 @@ GameObjects:
     RenderGroup: 1
     FrustumRange: 20
   - Name: door3
-    UUID: 18260693662650539692
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [6.8172121, 0, -3.53546095]
-      Rotation: [0, -64.8268051, 0]
-      Scale: [1.50000036, 1.29999995, 0.999999642]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [6.8172121, 0, -3.53546095]
-    Rotation: [0, -64.8268051, 0]
-    Scale: [1.50000036, 1.29999995, 0.999999642]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 20
-  - Name: door3
-    UUID: 17340396695620276461
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [5.18875122, 0, -5.55274773]
-      Rotation: [0, -49.5721016, 0]
-      Scale: [1.50000036, 1.29999995, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [5.18875122, 0, -5.55274773]
-    Rotation: [0, -49.5721016, 0]
-    Scale: [1.50000036, 1.29999995, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 20
-  - Name: door3
     UUID: 18213130130240003443
     Active: true
     Layer: Default
@@ -1000,7 +752,7 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-      Rotation: [-1.11216959e-05, 82.4875717, -1.12273501e-05]
+      Rotation: [-1.11222471e-05, 82.4875717, -1.12273501e-05]
       Scale: [1.5, 1.29999995, 0.99999851]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
@@ -1008,38 +760,13 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-    Rotation: [-1.11216959e-05, 82.4875717, -1.12273501e-05]
+    Rotation: [-1.11222471e-05, 82.4875717, -1.12273501e-05]
     Scale: [1.5, 1.29999995, 0.99999851]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
     MeshFileName: Door3.fbx
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 1
-  - Name: door3
-    UUID: 10776406244104820306
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-2.16253972, 0.0157061815, 6.86215162]
-      Rotation: [0, -16.0224609, 0]
-      Scale: [1.50000036, 1.29999995, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-2.16253972, 0.0157061815, 6.86215162]
-    Rotation: [0, -16.0224609, 0]
-    Scale: [1.50000036, 1.29999995, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
   - Name: door3
     UUID: 12856846968266543357
     Active: true
@@ -1090,222 +817,6 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 30
-  - Name: BoxCollider
-    UUID: 15893229566914190992
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-9.15012932, 2.29013729, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [4, 12, 14]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 16231890479324545572
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [9.32813644, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [4, 12, 14]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 17207028962401541633
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, -9.99619579]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 4]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 12441981136169402965
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 0, 9.03478432]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 4]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 18160278461750810161
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-8.11672783, 0, 5.33024025]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 5]
-      Angle:
-        - 0
-        - -54.8999939
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 5252880462025873363
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [7.31717205, 0, -6.63433647]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 5]
-      Angle:
-        - 0
-        - -56.0998497
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 10031986836402201273
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-8.12945747, 0, -6.28831434]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 4]
-      Angle:
-        - 0
-        - 55.399868
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: BoxCollider
-    UUID: 11398350639106371735
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [8.75595665, 0, 4.71270704]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [14, 12, 5]
-      Angle:
-        - 0
-        - 47.599987
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
   - Name: badackBoxCollidere
     UUID: 9418004017648236437
     Active: true
@@ -1333,347 +844,6 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 1
-  - Name: RoofBoxCollider
-    UUID: 14686829694865355848
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, 8, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Box
-      Size: [12, 1, 10]
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: false
-        Gravity: false
-        Kinematic: false
-        CharacterController: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: startPosWall
-    UUID: 13432223403040471638
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [1.70904696, 2.5, -10.4025421]
-      Rotation: [0, -22.313343, 0]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-      MeshFileName: wall2.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [1.70904696, 2.5, -10.4025421]
-    Rotation: [0, -22.313343, 0]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-    MeshFileName: wall2.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 50
-  - Name: startPosWall
-    UUID: 17369187119688605193
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-1.66575944, 2.5, -10.9123116]
-      Rotation: [-179.999893, 18.9814301, 179.999893]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-      MeshFileName: wall2.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-1.66575944, 2.5, -10.9123116]
-    Rotation: [-179.999893, 18.9814301, 179.999893]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\
-    MeshFileName: wall2.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
-    UUID: 5335734463051411708
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-2.41609502, -0.00512610376, -9.24516487]
-      Rotation: [0, -77.3564606, 0]
-      Scale: [1.60000038, 1.25, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-2.41609502, -0.00512610376, -9.24516487]
-    Rotation: [0, -77.3564606, 0]
-    Scale: [1.60000038, 1.25, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 30
-  - Name: door3
-    UUID: 10327822276609459910
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [2.411273, -0.0138498563, -9.39640331]
-      Rotation: [-179.997925, 89.8122253, -179.997925]
-      Scale: [1.69999993, 1.29999995, 0.999999762]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-      MeshFileName: Door3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [2.411273, -0.0138498563, -9.39640331]
-    Rotation: [-179.997925, 89.8122253, -179.997925]
-    Scale: [1.69999993, 1.29999995, 0.999999762]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
-    MeshFileName: Door3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: SkyDome
-    UUID: 4255150396954017840
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, -0.746800244, 0]
-      Rotation: [0, -0, 0]
-      Scale: [2, 2, 2]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Sky\
-      MeshFileName: Sky.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 1000
-  - Name: PointLight00
-    UUID: 9591119341027931885
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [7.44525576, 3.59304333, 0.314487159]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [0.869565248, 0.347935706, 0.0126023917, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight01
-    UUID: 18402465609043309090
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-8.4285059, 1.62370062, 0.146897197]
-      Rotation: [0, -0, 0]
-      Scale: [1.00974774, 1.01000023, 1.00999594]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [1, 0.298000008, 0.0500000007, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight02
-    UUID: 2845701914104731514
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [4.4256382, 3.15965843, -6.20872831]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [0.811594188, 0.352867037, 0.129999995, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight03
-    UUID: 9010213766952440677
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0.895800412, -16.905756, 0.464306831]
-      Rotation: [0, -0, 0.125229046]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 20
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [0.869565248, 0.424371988, 0.0819155499, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight04
-    UUID: 7893375971510652456
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [4.36407089, 2.76308894, 6.86479092]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [0.905797124, 0.541651845, 0.144402459, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight05
-    UUID: 17357585609341508198
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-3.89538169, 2.14568448, -7.06969452]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [1, 0.298000008, 0.0500000007, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: PointLight06
-    UUID: 10199848693329623773
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-4.39429903, 1.64949059, 7.55717897]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Light:
-      Type: 1
-      Range: 5
-      Angle: 20
-      Diffuse: [1, 0, 0, 1]
-      Ambient: [1, 0.298361659, 0.0507246256, 1]
-      Specular: [1, 1, 1, 1]
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: E_InsDust
-    UUID: 15606537711191113771
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 0
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [90, -0, 0]
-      Scale: [0.997606575, 0.999550641, 0.999483049]
-    Com_RectInstance:
-      Shape: 0
-      InstNum: 27
-      Color: [0.440579116, 0.440579116, 0.440579116, 0]
-      Speed: 5.4000001
-      LifeTime: 1.5
-      Size: 0.5
-      StartRadian: 0
-      RadiationAngle: 30
-      LerpColor: true
-      SrcColor: [0.521739125, 0.521739125, 0.521739125, 0]
-      DestColor: [0, 0, 0, 0]
-    Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
   - Name: Wall0
     UUID: 7957372564531258125
     Active: true
@@ -1683,7 +853,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [7.2105031, 2.79999995, 3.08391857]
+      Translation: [7.2105031, 2.7676487, 3.08391857]
       Rotation: [0, -39.8158722, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -1691,7 +861,7 @@ GameObjects:
       MeshFileName: wall2.fbx
       HasCollider: false
       Equipment: false
-    Translation: [7.2105031, 2.79999995, 3.08391857]
+    Translation: [7.2105031, 2.7676487, 3.08391857]
     Rotation: [0, -39.8158722, 0]
     Scale: [1, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\Wall2\

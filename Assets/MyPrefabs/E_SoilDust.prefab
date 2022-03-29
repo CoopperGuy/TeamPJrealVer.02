@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_SoilDust
-    UUID: 10243181681387302327
+    UUID: 14017234329955827648
     Active: true
     Layer: Default
     Type: Effect
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [0, 0, 0, 0.8]
