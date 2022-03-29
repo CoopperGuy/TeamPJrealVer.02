@@ -216,6 +216,7 @@ HRESULT CLoader::GameSceneStage01()
 	m_ThreadLoader->Start_Thread();
 
 	while (!m_isFinish) {
+		Sleep(200);	
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;
 	}
@@ -246,6 +247,7 @@ HRESULT CLoader::GameSceneStage02()
 
 
 	while (!m_isFinish) {
+		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;
 	}
@@ -264,6 +266,7 @@ HRESULT CLoader::GameSceneStage03()
 
 
 	while (!m_isFinish) {
+		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;
 	}
@@ -290,8 +293,6 @@ HRESULT CLoader::GameSceneLogo()
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Flare", "E_Flare", 6));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Wind", "E_Winds", 7));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ChargeEffect", "E_ChargeEffect", 8));
@@ -300,6 +301,8 @@ HRESULT CLoader::GameSceneLogo()
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DecalCrash", "E_DecalCrash", 11));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IBlood", "E_IBlood", 12));
 	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
+	//futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
+	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -323,9 +326,7 @@ HRESULT CLoader::GameSceneKIM()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 2.f));
 
 	std::vector<std::future<_int>> futures;
-
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 0));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_WaterEA", "WaterEA", 1));
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
 
 	m_ThreadLoader->Start_Thread();
 

@@ -141,7 +141,12 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		pModel->SetLinkEquip(bEquipment);
 		pModel->CreateBuffer(pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, pivotMatrix);
 		EnterCriticalSection(&m_CS);
-		m_mapModel.emplace(fullPath, pModel);
+		if (m_mapModel.find(fullPath) != m_mapModel.end()){
+			SafeRelease(pModel);
+		}
+		else {
+			m_mapModel.emplace(make_pair(fullPath, pModel));
+		}
 		LeaveCriticalSection(&m_CS);
 
 		auto& iter = m_CurCloningObj.find(fullPath);

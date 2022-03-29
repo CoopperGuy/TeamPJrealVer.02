@@ -8,9 +8,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-1.38995612, 0, 0.240088522]
-      Rotation: [-142.206467, 86.460083, -179.999985]
-      Scale: [0.999015152, 0.099963136, 0.995561182]
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.9, 0.1, 0.9]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
@@ -27,7 +27,7 @@ GameObjects:
         Com_Transform:
           Translation: [0, 0, 0]
           Rotation: [0, -0, 0]
-          Scale: [0.999000013, 0.899999976, 1]
+          Scale: [1, 0.9, 1]
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
