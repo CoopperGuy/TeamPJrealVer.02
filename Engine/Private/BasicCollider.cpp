@@ -23,7 +23,6 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_pSphere(rhs.m_pSphere)
 	, m_pInputLayOut(rhs.m_pInputLayOut)
 	, m_isCollision(rhs.m_isCollision)
-	, ActiveColdt(rhs.ActiveColdt)
 	, m_ColliderDesc(rhs.m_ColliderDesc)
 	, m_vMax(rhs.m_vMax)
 	, m_vMin(rhs.m_vMin)
@@ -469,7 +468,9 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 				return;
 
 			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(PlayerStat)->GetStatInfo().hp <= 0)
-      {
+			{
+				pWeaponeCollider->m_bStartHit = false;
+				pTargetCollider->m_bIsDown = false;
 				return;
 			}
 			else
@@ -487,21 +488,27 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 
 							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
+							if (pWeaponeCollider->m_bIsDownAttack) {
+								pTargetCollider->m_bIsDown = true;
+							}
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 						else {
 							pTargetCollider->m_isHit = false;
 							pWeaponeCollider->m_bStartHit = false;
+							pTargetCollider->m_bIsDown = false;
 						}
 					}
 					else {
 						pTargetCollider->m_isHit = false;
 						pWeaponeCollider->m_bStartHit = false;
+						pTargetCollider->m_bIsDown = false;
 					}
 				}
 				else {
 					pWeaponeCollider->m_bStartHit = false;
+					pTargetCollider->m_bIsDown = false;
 					pWeaponeCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
 				}
 			}
@@ -546,6 +553,7 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
 						if (TargetpStat->GetStatInfo().isImmortal == true) {
 							TargetpStat->SetSlow(true);
+							pTargetCollider->m_bIsDown = false;
 							return;
 						}
 
@@ -553,6 +561,9 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 						{
 
 							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
+							if (pMyCollider->m_bIsDownAttack) {
+								pTargetCollider->m_bIsDown = true;
+							}
 							return;
 						}
 						if(!pTargetCollider->m_isHit)
@@ -560,11 +571,16 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 						else
 							pTargetCollider->SetHit(false);
 					}
-					else
+					else {
 						pTargetCollider->SetHit(false);
+						pTargetCollider->m_bIsDown = false;
+					}
 				}
-				else
+				else {
 					pTargetCollider->SetHit(false);
+					pTargetCollider->m_bIsDown = false;
+
+				}
 			}
 		}
 	}

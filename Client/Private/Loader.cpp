@@ -227,10 +227,15 @@ HRESULT CLoader::GameSceneStage01()
 
 	m_ThreadLoader->Start_Thread();
 
+
 	while (!m_isFinish) {
-		Sleep(200);	
-		if (m_ThreadLoader->GetIsEnd())
+		Sleep(200);
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 	return S_OK;
 }
@@ -258,10 +263,15 @@ HRESULT CLoader::GameSceneStage02()
 	m_ThreadLoader->Start_Thread();
 
 
+
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 	return S_OK;
 }
@@ -282,10 +292,15 @@ HRESULT CLoader::GameSceneStage03()
 	m_ThreadLoader->Start_Thread();
 
 
+
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 
 	return S_OK;
@@ -328,8 +343,12 @@ HRESULT CLoader::GameSceneLogo()
 
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if(m_ThreadLoader->GetIsEnable()){
+			m_isFinish = true;
+		}
 	}
 
 

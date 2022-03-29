@@ -48,6 +48,8 @@ CComponent * CCapsuleCollider::Clone(void * pArg)
 void CCapsuleCollider::Free()
 {
 	__super::Free();
+	if(m_pController)
+		m_pController->release();
 }
 
 HRESULT CCapsuleCollider::InitializePrototype()
