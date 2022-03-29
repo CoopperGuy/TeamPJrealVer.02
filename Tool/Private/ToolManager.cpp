@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/UrsaDungeonSY.yaml";
+static string strScene = "../../Assets/Scenes/Flogas_DungeonSY.yaml";
 
 
 

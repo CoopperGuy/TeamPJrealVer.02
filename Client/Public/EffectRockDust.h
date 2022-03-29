@@ -12,13 +12,13 @@ private:
 	explicit CEffectRockDust();
 	virtual ~CEffectRockDust() = default;
 public:
-	virtual HRESULT Initialize(void* pArg, _matrix pos);
+	virtual HRESULT Initialize(void* pArg);
 	virtual void Update(_double deltaTime) ;
 	virtual void LateUpdate(_double deltaTime) ;
 	virtual void Render();
 
 public:
-	static CEffectRockDust* Create(void*	pTarget, _matrix pos);
+	static CEffectRockDust* Create(void*	pTarget);
 	virtual void Free() override;
 
 private:

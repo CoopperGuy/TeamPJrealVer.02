@@ -73,8 +73,11 @@ void CDropRock::LateUpdate(_double deltaTime)
 	{
 		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
 
-		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_InsDust");
-		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust, m_pTransform->Remove_ScaleRotation(m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
+		_matrix Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		Translation = m_pTransform->Remove_Scale(Translation);
+
+		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_InsDust", &Translation);
+		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust), CEngine::GetInstance()->GetCurSceneNumber());
 
 		this->SetDead();
 		m_pGameObject->SetDead();

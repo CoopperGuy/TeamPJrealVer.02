@@ -84,13 +84,13 @@ void CMeteoFireBall::Update(_double deltaTime)
 		}
 	}
 	else {
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		m_bDead = true;
-		CEventCheck::GetInstance()->ShakeUpDown(5, 0.1f);
 	}
 	if (m_pOBB->Get_isHit())
 	{
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		m_bDead = true;
-		CEventCheck::GetInstance()->ShakeUpDown(5, 0.1f);
 	}
 
 

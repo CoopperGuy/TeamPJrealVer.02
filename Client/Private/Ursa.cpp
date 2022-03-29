@@ -107,36 +107,36 @@ void CUrsa::Update(_double dDeltaTime)
 
 	m_fDist = SetDistance();
 
-	//////////TestAnimation(Flying_End);
-	////////Checking_Phase(dDeltaTime);
-	//////////if (m_bCombat[First])
-	//////////{
-	//////////	if (!m_bCB)
-	//////////		Adjust_Dist(dDeltaTime);
-	//////////}
+	//TestAnimation(Flying_End);
+	Checking_Phase(dDeltaTime);
+	//if (m_bCombat[First])
+	//{
+	//	if (!m_bCB)
+	//		Adjust_Dist(dDeltaTime);
+	//}
 
 
-	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	////////	m_bCombat[First] = true;
-	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	////////	Roar();
-	////////if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	////////{
-	////////	m_bCombat[Second] = true;
-	////////	m_bCombat[First] = false;
-	////////}
-	////////Execute_Pattern(dDeltaTime);
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+		m_bCombat[First] = true;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+		Roar();
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	{
+		m_bCombat[Second] = true;
+		m_bCombat[First] = false;
+	}
+	Execute_Pattern(dDeltaTime);
 
-	/////////*if(!m_bWheelWind && !m_bRoar)*/
-	////////	Checking_Finished();
+	/*if(!m_bWheelWind && !m_bRoar)*/
+		Checking_Finished();
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
-		m_eState = IDLE01;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = Combo_1;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = Combo_2Start;
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+	//	m_eState = IDLE01;
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
+	//	m_eState = Combo_1;
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
+	//	m_eState = Combo_2Start;
 
 
 
@@ -899,8 +899,8 @@ void CUrsa::OrganizeEffect()
 			++i;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
-			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;
@@ -912,8 +912,8 @@ void CUrsa::OrganizeEffect()
 			++i;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
-			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 	}
 		break;
