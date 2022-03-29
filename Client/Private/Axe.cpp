@@ -15,6 +15,7 @@
 #include "ChargeAxe.h"
 #include "AuraEffect.h"
 #include "DecalCrash.h"
+#include "Obb.h"
 USING(Client)
 
 CAxe::CAxe()
@@ -389,6 +390,8 @@ void CAxe::Set_TrailOnOff()
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.02f);
+			CEventCheck::GetInstance()->ShakeUpDown(4, 0.02f);
 		}
 		break;
 	}

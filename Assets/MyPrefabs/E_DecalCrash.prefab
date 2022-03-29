@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.264552534, -0.492807955, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.699999988, 0.100000001, 0.699999988]
+      Scale: [1, 0.100000001, 1]
     Com_Decal:
       {}
     Effect_Setting:
