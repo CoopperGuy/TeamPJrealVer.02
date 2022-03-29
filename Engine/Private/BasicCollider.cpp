@@ -468,7 +468,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			if (PlayerStat == nullptr)
 				return;
 
-			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(PlayerStat)->GetStatInfo().hp <= 0)
 				return;
 			else
 			{
@@ -533,7 +533,7 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 			if (TargetpStat == nullptr || MyStat == nullptr)
 				return;
 
-			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(MyStat)->GetStatInfo().hp <= 0)
 			{
 				return;
 			}

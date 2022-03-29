@@ -998,8 +998,8 @@ void CFlogas::Hit()
 			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
 			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
 
-			CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
-			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
+			//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
+			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
 		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
