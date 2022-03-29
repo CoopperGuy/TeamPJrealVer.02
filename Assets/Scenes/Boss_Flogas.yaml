@@ -66,7 +66,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.5, 0, -0.600000024]
       Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Scale: [1.2, 1.2, 1.2]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -114,7 +114,7 @@ GameObjects:
     Com_Transform:
       Translation: [6, 0, -1]
       Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Scale: [1.2, 1.2, 1.2]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -162,7 +162,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.80000019, 0, -8.5]
       Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Scale: [1.2, 1.2, 1.2]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -210,7 +210,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.80000019, 0, -8.80000019]
       Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Scale: [1.2, 1.2, 1.2]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule

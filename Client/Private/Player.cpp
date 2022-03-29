@@ -243,6 +243,7 @@ void CPlayer::Update(_double dDeltaTime)
 	SearchMonster();
 	CreateBlood();
 	SlowMotion(dDeltaTime);
+	SlowAttack(dDeltaTime);
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
@@ -1099,6 +1100,7 @@ void CPlayer::SlowMotion(_double deltaTime)
 {
 	_bool isSlow = m_pStatus->GetIsSlow();
 	if (isSlow == true) {
+		CEventCheck::GetInstance()->ZoomFov(m_slowEvadeTime, 60.f, 15.f);
 		g_TickLate = 0.5f;
 		m_slowEvadeDelta += deltaTime;
 		if (m_slowEvadeTime < m_slowEvadeDelta) {
@@ -1114,7 +1116,7 @@ void CPlayer::SlowAttack(_double deltaTime)
 	if (m_bSlowAttck) {
 		g_TickLate = 0.5f;
 		m_slowDelta += deltaTime;
-		if (m_slowDelta < m_sloweTime) {
+		if (m_sloweTime < m_slowDelta) {
 			m_slowDelta = 0;
 			g_TickLate = 1.f;
 			m_bSlowAttck = false;
@@ -1259,6 +1261,9 @@ void CPlayer::SearchMonster()
 			if (m_pTargetOn) {
 				m_pTargetOn->ReleaseThisUI();
 				m_pTargetOn = nullptr;
+				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
+			}
+			else {
 				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
 			}
 		}

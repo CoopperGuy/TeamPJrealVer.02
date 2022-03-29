@@ -24,13 +24,11 @@ public:
 
 public:
 	_bool Get_DeadMotion() { return m_bDeadMotion; }
-	_bool Get_Right() { return m_bRight; }
-	_bool Get_Front() { return m_bFront; }
 private:
 	CTransform* m_pTargetTransform	= nullptr;
 	CFlogas*		m_pFlogas		= nullptr;
 	class CStat*	m_pStat			= nullptr;
-	class CMonHp*	m_pMonHp		= nullptr;
+	class CMonHpVIBuffer*	m_pMonHp		= nullptr;
 	string			m_ScriptName	= {};
 
 	_float3     m_vTargetPos;
@@ -41,8 +39,7 @@ private:
 
 	_bool m_bMove = false;
 	_bool m_bDeadMotion = false;
-	_bool m_bRight = false;
-	_bool m_bFront = false;
+	_bool m_bHpzero = false;
 };
 
 END

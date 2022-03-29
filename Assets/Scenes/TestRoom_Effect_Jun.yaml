@@ -40,7 +40,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
     Children:
       - 15508972454785851554
   - Name: Slash_Ringe
@@ -83,7 +83,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: BurstFire
     UUID: 11713522519489596904
     Active: true
@@ -124,7 +124,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
     Children:
       - 8616304515364961595
       - 10972809127800823377
@@ -169,7 +169,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: SideFire01
     UUID: 10972809127800823377
     Active: true
@@ -210,7 +210,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: SideFire02
     UUID: 2331934001768822582
     Active: true
@@ -251,7 +251,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire_explosion
     UUID: 12895974190404613629
     Active: true
@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [11.3099337, -0.125067741, 0]
-      Scale: [0.32108438, 0.335785687, 0.308255702]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.32108438, 0.335785687, 0.308255672]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -289,7 +289,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 15
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
     Children:
       - 6601677359937610046
   - Name: TorchFire
@@ -329,7 +329,7 @@ GameObjects:
       SpriteNumY: 4
       SpriteTotal: 32
       SpriteSpeed: 10
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Element_Bomb
     UUID: 1960447721169478958
     Active: true
@@ -370,7 +370,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 0.5
+      OffsetColor: [0, 0, 0, 0]
   - Name: Bomb_Center
     UUID: 5502899901288605207
     Active: true
@@ -381,7 +381,7 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.05423212, 0.316382021, 0]
-      Rotation: [11.3099327, -0.125067741, 0]
+      Rotation: [11.3099327, -0, 0]
       Scale: [0.987161875, 1.00384128, 0.776978016]
     Com_VIBuffer:
       {}
@@ -408,7 +408,7 @@ GameObjects:
       SpriteNumY: 5
       SpriteTotal: 25
       SpriteSpeed: 20
-      Alpha: 0.5
+      OffsetColor: [0, 0, 0, 0]
     Children:
       - 17888228711785348147
       - 17504197830417166847
@@ -450,7 +450,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Bomb2
     UUID: 17504197830417166847
     Active: true
@@ -488,7 +488,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Bomb3
     UUID: 8400450724821270359
     Active: true
@@ -526,7 +526,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Empty Object
     UUID: 15358753725944729880
     Active: true
@@ -586,7 +586,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 0.5
+      OffsetColor: [0, 0, 0, 0]
     Children:
       - 1960447721169478958
   - Name: sprite_Fire
@@ -598,9 +598,9 @@ GameObjects:
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [2.4000001, 0, 0.00999999978]
-      Rotation: [11.3099346, -0.125067741, 0]
-      Scale: [4.98655081, 5.10992146, 0.975873232]
+      Translation: [1.5, -0.584999979, -2.58699989]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [2, 1.5, 0.975873172]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -626,10 +626,10 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 15
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Flash
     UUID: 4248036092631464237
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: Effect
@@ -637,7 +637,7 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.4000001, 0, 0]
-      Rotation: [11.3099337, -0.125067741, 0]
+      Rotation: [11.3099213, -0, 0]
       Scale: [3.99880648, 4.01290369, 0.000997137395]
     Com_VIBuffer:
       {}
@@ -664,7 +664,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Bomb_Sprite
     UUID: 12440416352988010921
     Active: true
@@ -702,4 +702,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 15
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]

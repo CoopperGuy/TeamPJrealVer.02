@@ -356,7 +356,7 @@ void CAxe::Set_TrailOnOff()
 			CEngine::GetInstance()->AddScriptObject(CDecalCrash::Create((CEmptyEffect*)pEffect, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
-			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f, 5.f);
+			CEventCheck::GetInstance()->ZoomFov(0.5f, 45.f, 10.f);
 		}
 		break;
 	}
@@ -493,7 +493,9 @@ void CAxe::Set_TrailOnOff()
 	if (isStartHit) {
 		CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
 		engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
-		
+		CEventCheck::GetInstance()->SlowAttack();
+		CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.02f);
+		CEventCheck::GetInstance()->ShakeUpDown(4, 0.02f);
 	}
 	
 }

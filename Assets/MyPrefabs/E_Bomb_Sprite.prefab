@@ -6,7 +6,7 @@ GameObjects:
     Layer: Default
     Type: Effect
     PassIndex: 14
-    BillBord: false
+    BillBord: true
     Com_Transform:
       Translation: [1.5, 0.100000001, -2]
       Rotation: [0, -0, 0]
@@ -35,5 +35,5 @@ GameObjects:
       SpriteNumX: 4
       SpriteNumY: 8
       SpriteTotal: 32
-      SpriteSpeed: 15
+      SpriteSpeed: 30
       Alpha: 1

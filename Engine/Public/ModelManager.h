@@ -47,7 +47,7 @@ public:
 public:
 	CModel* GetCloneModel(string fullPathName, void* pArg);
 private:
-	unordered_map<string, CModel*> m_mapModel;
+	map<string, CModel*> m_mapModel;
 private:
 	class CTexture* m_pDissolveTex = nullptr;
 	CModel* m_pTargetModel = nullptr;
