@@ -227,10 +227,15 @@ HRESULT CLoader::GameSceneStage01()
 
 	m_ThreadLoader->Start_Thread();
 
+
 	while (!m_isFinish) {
-		Sleep(200);	
-		if (m_ThreadLoader->GetIsEnd())
+		Sleep(200);
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 	return S_OK;
 }
@@ -258,10 +263,15 @@ HRESULT CLoader::GameSceneStage02()
 	m_ThreadLoader->Start_Thread();
 
 
+
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 	return S_OK;
 }
@@ -282,10 +292,15 @@ HRESULT CLoader::GameSceneStage03()
 	m_ThreadLoader->Start_Thread();
 
 
+
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if (m_ThreadLoader->GetIsEnable()) {
+			m_isFinish = true;
+		}
 	}
 
 	return S_OK;
@@ -328,8 +343,12 @@ HRESULT CLoader::GameSceneLogo()
 
 	while (!m_isFinish) {
 		Sleep(200);
-		if (m_ThreadLoader->GetIsEnd())
+		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
+		}
+		else if(m_ThreadLoader->GetIsEnable()){
+			m_isFinish = true;
+		}
 	}
 
 
@@ -390,13 +409,14 @@ HRESULT CLoader::GameSceneJUN()
 
 	std::vector<std::future<_int>> futures;
 
-
-	/*CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
-	m_pLoadingGauge->SetPercentage(50.f);*/
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
+	//m_pLoadingGauge->SetPercentage(50.f);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
+	m_pLoadingGauge->SetPercentage(50.f);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG);
 	m_pLoadingGauge->SetPercentage(50.f);
 	
+	//futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
 	//futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG, 1);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);

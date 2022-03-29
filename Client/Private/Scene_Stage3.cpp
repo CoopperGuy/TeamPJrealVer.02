@@ -24,24 +24,6 @@ HRESULT CScene_Stage3::Initialize()
 _uint CScene_Stage3::Update(_double TimeDelta)
 {
 	__super::Update(TimeDelta);
-
-	m_dMakeDropRock += TimeDelta;
-
-	if (m_dMakeDropRock >= 10.f)
-	{
-		if (makeRockNum <= 2)
-		{
-			++makeRockNum;
-			CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
-			CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
-		}
-
-		else {
-			m_dMakeDropRock = 0;
-			makeRockNum = 0;
-		}
-	}
-
 	return _uint();
 }
 

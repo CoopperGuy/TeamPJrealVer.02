@@ -52,6 +52,19 @@ GameObjects:
       Translation: [0.129999995, -1.02199996, -4.74100018]
       Rotation: [0, 1.99999964, 0]
       Scale: [1.63300002, 1.26800013, 0.837000072]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [4, 1.39999998, 3]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -80,10 +93,10 @@ GameObjects:
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\020.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_SmokeMask_003_TEX_KKJ.png
       TextureNoisePath: ""
-      TextureNormalPath: ""
+      TextureNormalPath: ..\..\Assets\Textures\Effect\Normal\Test.dds
       ScrollSpeedX: [0, 0, 0]
       ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
@@ -91,15 +104,15 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 1
+      FadeIn: true
+      FadeInDuration: 1
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [0, 0, 0, 0.200000003]

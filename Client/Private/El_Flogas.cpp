@@ -5,7 +5,7 @@
 #include "SpriteFire.h"
 #include "EffectFlash.h"
 #include "MonHpVIBuffer.h"
-
+#include "BasicCollider.h"
 #include "Obb.h"
 
 USING(Client)
@@ -34,6 +34,7 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	m_OriginWorld = m_pTransform->GetMatrix();
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
+	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 	m_pModel->SetAnimationLoop((_uint)ELEMENT_STATE::DIE, false);
 	m_pModel->SetAnimationLoop((_uint)ELEMENT_STATE::DEADBODY, false);
 	if (m_pCollider)
@@ -124,8 +125,8 @@ void CEl_Flogas::Update(_double dDeltaTime)
 			{
 				if (m_bDeadMotion)
 				{
-					m_fScale -= (_float)dDeltaTime;
-					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
+					/*m_fScale -= (_float)dDeltaTime;
+					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));*/
 					if (!m_bHpzero)
 					{
 						if (m_pModel->GetCurrentKeyFrame() >= 25)
@@ -168,6 +169,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 		m_bExplosion = false;
 		m_bMove = true;
 		m_bCreateEffect = true;
+		m_bHpzero = false;
 		m_pTransform->SetMatrix(m_OriginWorld);
 		_float3 vPos = m_vOriginPos;
 		vPos.y = -5.f;
