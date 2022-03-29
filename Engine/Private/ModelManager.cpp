@@ -77,8 +77,10 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 	//	m_CurCloningObj.emplace(fullPath, true);
 	//}
 
-	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
-	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
+	CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
+
+	/*MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
+	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));*/
 }
 
 void CModelManager::CloneModelIns(CGameObject* pObj, string pMeshFilePath, string pMeshFileName, string pShaderFilePath, string pEffectFilePath, _bool meshCollider, _bool HasIns, _bool Building, _bool BG, _bool Ground, void* pArg)
@@ -146,6 +148,7 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		EnterCriticalSection(&m_CS);
 		if (m_mapModel.find(fullPath) != m_mapModel.end()){
 			SafeRelease(pModel);
+			cout << "/////////////Same Model Inputed////////////\n";
 		}
 		else {
 			m_mapModel.emplace(make_pair(fullPath, pModel));
