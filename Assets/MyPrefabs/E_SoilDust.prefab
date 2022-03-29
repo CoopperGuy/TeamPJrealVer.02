@@ -1,14 +1,14 @@
 Scene: Untitled
 GameObjects:
   - Name: E_SoilDust
-    UUID: 14017234329955827648
+    UUID: 14147604946903502357
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 14
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [0, 0.497298837, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_VIBuffer:
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0.8]
+      OffsetColor: [0, 0, 0, -0.300000012]
