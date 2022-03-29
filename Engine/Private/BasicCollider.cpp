@@ -24,7 +24,6 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_pInputLayOut(rhs.m_pInputLayOut)
 	, m_isCollision(rhs.m_isCollision)
 	, ActiveColdt(rhs.ActiveColdt)
-	, Setdamage(rhs.Setdamage)
 	, m_ColliderDesc(rhs.m_ColliderDesc)
 	, m_vMax(rhs.m_vMax)
 	, m_vMin(rhs.m_vMin)
@@ -481,17 +480,21 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							return;
 						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
-							pTargetCollider->SetHit(true);
+							pTargetCollider->m_isHit = true;
+							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
-						else
-							pTargetCollider->SetHit(false);
+						else {
+							pTargetCollider->m_isHit = false;
+							pWeaponeCollider->m_bStartHit = false;
+						}
 					}
-					else
-						pTargetCollider->SetHit(false);
-
+					else {
+						pTargetCollider->m_isHit = false;
+						pWeaponeCollider->m_bStartHit = false;
+					}
 				}
 				else {
 					pTargetCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
