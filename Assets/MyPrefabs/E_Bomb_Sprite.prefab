@@ -35,5 +35,5 @@ GameObjects:
       SpriteNumX: 4
       SpriteNumY: 8
       SpriteTotal: 32
-      SpriteSpeed: 25
+      SpriteSpeed: 30
       Alpha: 1

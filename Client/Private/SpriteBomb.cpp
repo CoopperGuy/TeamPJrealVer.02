@@ -35,7 +35,7 @@ void CSpriteBomb::Update(_double dDeltaTime)
 void CSpriteBomb::LateUpdate(_double dDeltaTime)
 {
 	m_DurationDelta += (_float)dDeltaTime;
-	if (m_DurationDelta > m_pThis->GetFadeOutDuration()) 
+	if (m_pThis->GetSpriteEnd())
 	{
 		this->SetDead();
 		m_pThis->SetDead();

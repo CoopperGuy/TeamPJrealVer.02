@@ -17,7 +17,7 @@ HRESULT CSpriteFire::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_F
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 
 	_vector vTargetPos = pTargetTrans->GetState(CTransform::STATE_POSITION);
-	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
+	vTargetPos = XMVectorSetY(vTargetPos, -0.1f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 	m_fScale = m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
 
@@ -26,8 +26,8 @@ HRESULT CSpriteFire::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_F
 
 void CSpriteFire::Update(_double dDeltaTime)
 {
-	m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, 1.f));
-	m_fScale += (_float)dDeltaTime;
+	/*m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, 1.f));
+	m_fScale += (_float)dDeltaTime * 0.4f;*/
 }
 
 void CSpriteFire::LateUpdate(_double dDeltaTime)

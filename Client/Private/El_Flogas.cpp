@@ -37,6 +37,9 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	m_pModel->SetAnimationLoop((_uint)ELEMENT_STATE::DIE, false);
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
+	_float3 vPos = m_vOriginPos;
+	vPos.y = -5.f;
+	m_pCollider->SetPosition(vPos);
 	m_pMonHp = CMonHpVIBuffer::Create(m_pGameObject);
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
@@ -71,8 +74,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 		if (!m_bDestination)
 		{
 			if (m_bHpzero)
+			{
+				m_bExplosion = true;
 				m_bDestination = true;
-			
+			}
 			else if (fLen > 1.f)
 			{
 				m_pModel->SetUp_AnimationIndex(RUN);
@@ -89,20 +94,29 @@ void CEl_Flogas::Update(_double dDeltaTime)
 			if (m_bExplosion)
 			{
 				m_pModel->SetUp_AnimationIndex(IDLE);
-				if (m_dExplosionTime <= 0.0)
-				{
-					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
-					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
-				}
-				m_dExplosionTime += dDeltaTime;
-				//m_fScale += (_float)dDeltaTime * 0.1f;
-				//m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
-				if (m_dExplosionTime > 3.0)
+				if (m_bHpzero)
 				{
 					m_bDeadMotion = true;
 					m_bExplosion = false;
 					m_dExplosionTime = 0.0;
 					m_pModel->SetUp_AnimationIndex(DIE);
+				}
+				else
+				{
+					if (m_dExplosionTime <= 0.0)
+					{
+						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
+						CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+					}
+					m_dExplosionTime += dDeltaTime;
+
+					if (m_dExplosionTime > 3.0)
+					{
+						m_bDeadMotion = true;
+						m_bExplosion = false;
+						m_dExplosionTime = 0.0;
+						m_pModel->SetUp_AnimationIndex(DIE);
+					}
 				}
 			}
 			else
@@ -111,12 +125,14 @@ void CEl_Flogas::Update(_double dDeltaTime)
 				{
 					m_fScale -= (_float)dDeltaTime;
 					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
-					if (m_pModel->GetCurrentKeyFrame() == 40)
+					if (!m_bHpzero)
 					{
-						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
-						CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+						if (m_pModel->GetCurrentKeyFrame() == 40)
+						{
+							CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
+							CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+						}
 					}
-
 					if (m_pModel->Get_isFinished(DIE))
 					{
 						if (m_bHpzero)
@@ -141,13 +157,15 @@ void CEl_Flogas::Update(_double dDeltaTime)
 	else
 	{
 		m_pStat->HpHeal(100.f);
-		m_fScale = 1.5f;
+		m_fScale = 1.2f;
 		m_bDeadMotion = false;
 		m_bDestination = false;
+		m_bExplosion = false;
 		m_bMove = true;
 		m_pTransform->SetMatrix(m_OriginWorld);
 		_float3 vPos = m_vOriginPos;
 		vPos.y = -5.f;
+		m_pTransform->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&vPos));
 		m_pCollider->SetPosition(vPos);
 	}
 }
