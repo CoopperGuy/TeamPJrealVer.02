@@ -17,6 +17,7 @@ public:
 	void Start_Thread();
 public:
 	_bool GetIsEnd();
+	_bool GetIsEnable();
 private:
 	void WorkerThread();
 

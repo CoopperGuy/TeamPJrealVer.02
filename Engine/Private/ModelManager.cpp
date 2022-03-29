@@ -38,9 +38,12 @@ void CModelManager::Free()
 		SafeRelease(model.second);
 		//cout << "model delete " << model.second << "\n";
 	}
+	for (auto& iter : thread_handles) {
 
+	}
+	thread_handles.clear();
 	m_mapModel.clear();
-
+	m_CurCloningObj.clear();
 	SafeRelease(m_pDissolveTex);
 
 	DeleteCriticalSection(&m_CS);

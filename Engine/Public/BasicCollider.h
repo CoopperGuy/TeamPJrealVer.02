@@ -94,6 +94,9 @@ private:
 	_bool					m_isCollision = false;
 	_bool					m_isHit = false;
 	_bool					m_bStartHit = false;
+	_bool					m_bIsDownAttack = false;
+	_bool					m_bIsDown = false;
+
 	_float4x4				m_TransformMatrix;
 
 	_float3					m_vMin, m_vMax;
@@ -102,6 +105,7 @@ private:
 
 private:
 	_int					m_CollisionFlag = COLLISIONTYPE::COLLSION_NONE;
+	ID						m_CollisionType = ID::IDEND;
 private:
 	BasicEffect*			m_pEffect = nullptr;
 	ID3D11InputLayout*		m_pInputLayOut = nullptr;
@@ -141,11 +145,6 @@ public: //collsion
 	_bool	Get_Collision() { return m_isCollision; }
 	void	Set_Collision(_bool pcollset) { m_isCollision = pcollset; }
 	void	ClearList();
-
-
-	_double ActiveColdt = 0.f;
-
-
 public:
 	void SetIsAttachBone(_bool attach) { m_isAttachBone = attach; }
 	void SetBoneName(string name) { m_strBoneName = name; }
@@ -153,10 +152,14 @@ public:
 	void SetCollisionType(ID type) { m_CollisionType = type; }
 	void SetHit(_bool pHit) { m_isHit = pHit; }
 	void SetStartHit(_bool _bStartHIt) { m_bStartHit = _bStartHIt; }
+	void SetIsDownAttack(_bool _bDownAttack) { m_bIsDownAttack = _bDownAttack; }
+	void SetIsDown(_bool _bDown) { m_bIsDown = _bDown; }
 public:
 	_bool	GetIsAttachBone() { return m_isAttachBone; }
 	_bool	GetStartHit() { return m_bStartHit; }
-	ID	GetCollisionType() { return m_CollisionType; }
+	_bool	GetIsDownAttack() { return m_bIsDownAttack; }
+	_bool	GetIsDown() { return m_bIsDown; }
+	ID		GetCollisionType() { return m_CollisionType; }
 	_float3 GetOffset() { return m_Offset; }
 	_vector GetVecOffset() { return XMLoadFloat3(&m_Offset); }
 	string	GetBoneName() { return m_strBoneName; }
@@ -164,7 +167,6 @@ public:
 	
 private:
 	_bool	m_isAttachBone = false;
-	ID	m_CollisionType = ID::IDEND;
 	_float3	m_Offset;
 	string	m_strBoneName;
 public:

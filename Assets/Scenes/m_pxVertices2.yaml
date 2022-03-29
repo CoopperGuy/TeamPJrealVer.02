@@ -132,44 +132,6 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0, 0, 0, 0]
-  - Name: Flare
-    UUID: 4844422747993476240
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 1
-    BillBord: true
-    Com_Transform:
-      Translation: [-3.68122411, -3.21823137e-07, -0.665211558]
-      Rotation: [12.8203688, 18.7410431, 4.50786956e-07]
-      Scale: [0.167287454, 0.180308744, 0.196612984]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\DooDiffuse\FX_Flare_004_TEX_KKJ.tga
-      TextureMaskPath: ..\..\Assets\Textures\Effect\DooMask\FX_Flare_004_TEX_HKB.tga
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0
-      DistortionBias: 0
-      FadeOut: true
-      FadeOutDuration: 0.100000001
-      FadeOutStratTime: 0.100000001
-      FadeIn: true
-      FadeInDuration: 0.100000001
-      FadeInStratTime: 0
-      EffectDuration: 0.200000003
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
   - Name: AuraEffect
     UUID: 4172193352215827146
     Active: true
@@ -180,8 +142,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.88122892, 0.308779508, 0.522710443]
-      Rotation: [12.8203659, 18.7410374, 4.50787013e-07]
-      Scale: [0.817830384, 0.874900222, 0.880096436]
+      Rotation: [19.7805653, 7.41409636, -2.15242835e-07]
+      Scale: [0.816467524, 0.873787522, 0.879677653]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -219,7 +181,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867597]
+      Scale: [1, 1.10000002, 1.09867549]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
@@ -325,7 +287,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.475563407, -0.336065173, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.0627211034, 0.0500000007, 0.0465253554]
+      Scale: [0.142385542, 0.0876625702, 0.0870637819]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: BombBeam2.fbx
@@ -354,7 +316,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [1, 1, 1, -0.5]
     Children:
       - 1942561307840455863
   - Name: DropSphere
@@ -397,7 +359,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
+      OffsetColor: [1, 1, 1, 0]
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true
