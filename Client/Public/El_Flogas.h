@@ -40,6 +40,7 @@ private:
 	_bool m_bMove = false;
 	_bool m_bDeadMotion = false;
 	_bool m_bHpzero = false;
+	_bool m_bCreateEffect = false;
 };
 
 END
