@@ -21,26 +21,6 @@ CEl_Flogas::CEl_Flogas(CGameObject * pObj)
 
 HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 {
-	//if (name == "El_Flogas01")
-	//{
-	//	m_bRight = true;
-	//	m_bFront = true;
-	//}
-	//else if (name == "El_Flogas02")
-	//{
-	//	m_bRight = false;
-	//	m_bFront = true;
-	//}
-	//else if (name == "El_Flogas03")
-	//{
-	//	m_bRight = true;
-	//	m_bFront = false;
-	//}
-	//else if (name == "El_Flogas04")
-	//{
-	//	m_bRight = false;
-	//	m_bFront = false;
-	//}
 	m_ScriptName = name;
 	m_pFlogas = pObj;
 
@@ -148,9 +128,13 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					{
 						if (m_pStat->GetStatInfo().hp < 0)
 						{
+							_float3 vPos = {};
+							XMStoreFloat3(&vPos, m_pTransform->GetState(CTransform::STATE_POSITION));
+							vPos.y = -5.f;
 							m_bMove = false;
 							m_pModel->SetUp_AnimationIndex(DEADBODY);
 							m_pGameObject->SetActive(m_pFlogas->Get_Flying());
+							m_pCollider->SetPosition(vPos);
 						}
 						else
 						{
