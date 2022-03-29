@@ -58,7 +58,7 @@ public:
 	void Set_InvenRightLeft(_bool right);
 	void Set_Evade() { m_bEvade = false; }
 	void Set_AnimSpeed(_double dSpeed) { m_dAnimSpeed = dSpeed; }
-
+	void Set_SlowAttack(_bool _bSlowAttack) { m_bSlowAttck = _bSlowAttack; }
 	//get
 public:
 	const _int Get_LBComboIndex() const { return m_iLB; }
@@ -75,7 +75,7 @@ public:
 	void Collsion();
 	_bool GetUsableSkill() { return m_bUsableSkill; }
 	_float3 GetLockOnPosition();
-	
+	_bool Get_SlowAttack() { return m_bSlowAttck; }
 public:
 	void SetUpEquip(string Name);
 
@@ -89,6 +89,7 @@ private:
 	_bool IsGravity();
 	void CreateBlood();
 	void SlowMotion(_double deltaTime);
+	void SlowAttack(_double deltaTime);
 private:
 	void UIInput();
 	void InputSkill();
@@ -118,6 +119,8 @@ private:
 	_double m_dCombatTime	= 0.f;
 
 private:
+	_bool m_bSlowAttck		= false;
+	//
 	_bool m_bEvadeDelay		= false;
 	_bool m_bMove			= false;
 	_bool m_bJump			= false;
@@ -129,10 +132,10 @@ private:
 	_bool m_bComboDelay		= false;
 	_bool m_bDuring			= false;
 	_bool m_bMixCombo		= false;
-
+	//
 	_bool m_bEvade			= false;
 	_bool m_bUsableSkill	= false;
-
+	//
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
 private:
@@ -145,8 +148,11 @@ private:
 	_int m_iSkill[(_uint)Skill::Max_Slot]	= {};
 	_int m_iSkillIndex						= 0;
 private:
+	_double m_slowEvadeDelta = 0;
+	_double m_slowEvadeTime = 0.2;
+private:
 	_double m_slowDelta = 0;
-	_double m_slowTime = 0.1;
+	_double m_sloweTime = 0.1;
 private:
 	_float4x4 m_matRoot			= {};
 	_float4x4 m_matWorld		= {};
