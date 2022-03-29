@@ -133,6 +133,7 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
+	m_vOffsetColor = rhs->m_vOffsetColor;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
@@ -244,6 +245,7 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	m_iSpriteNumY = rhs->m_iSpriteNumY;
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
+	m_vOffsetColor = rhs->m_vOffsetColor;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
