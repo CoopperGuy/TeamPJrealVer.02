@@ -21,14 +21,17 @@ HRESULT CDropRock::Initailze(CGameObject * pArg, _vector pos)
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
 		int randompos = rand() % 2;
+		int randomX = rand() % 10;
+		randomX += 5;
 
 		switch (randompos)
 		{
 		case 0:
-			pos = XMVectorSetX(pos, -10.f);
+			pos = XMVectorSetX(pos, randomX * -1.f);
+			
 			break;
 		case 1:
-			pos = XMVectorSetX(pos, 10.f);
+			pos = XMVectorSetX(pos, randomX);
 			break;
 
 		}

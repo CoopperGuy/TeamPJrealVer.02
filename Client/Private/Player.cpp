@@ -1079,6 +1079,9 @@ _bool CPlayer::IsGravity()
 
 void CPlayer::CreateBlood()
 {
+	if (m_pStatus->GetStatInfo().hp <= 0)
+		return;
+
 	if (m_pOBB->Get_isHit()) {
 
 		_matrix Translation;
