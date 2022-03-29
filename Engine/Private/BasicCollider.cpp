@@ -468,8 +468,10 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			if (PlayerStat == nullptr)
 				return;
 
-			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0) {
+				pWeaponeCollider->m_bStartHit = false;
 				return;
+			}
 			else
 			{
 				if (PlayerStat->GetSTATES() == CStat::STATES_ATK)
