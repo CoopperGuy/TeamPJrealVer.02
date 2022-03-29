@@ -4,6 +4,7 @@
 #include "WaterEA.h"
 #include "FlogasDunDoor.h"
 #include "Wolf.h"
+#include "Ursa.h"
 USING(Client)
 
 CScene_SEO::CScene_SEO(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -44,7 +45,9 @@ HRESULT CScene_SEO::ReadyScript()
 	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);
 	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, three), SCENE_SEO);
 
-	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
+	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_SEO);
+
 
 	//m_pEngine->AddScriptObject(CFlogasDunDoor::Create(nullptr), SCENE_SEO);
 

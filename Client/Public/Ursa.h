@@ -47,11 +47,19 @@ private:
 	void TestAnimation(Ursa eState);
 	void Roar();
 	void SetRotate();
+	void OrganizeEffect();
+
 	PxVec3 OriginShift();
 
+
 	_float SetDistance();
+	
 	_bool None_Combat();
 	_bool IsGravity();
+
+	_fmatrix Remove_Scale(_fmatrix _srcmatrix);
+	_fmatrix Remove_Rotation(_fmatrix TransformMatrix);
+	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 

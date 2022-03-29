@@ -243,6 +243,7 @@ void CPlayer::Update(_double dDeltaTime)
 	SearchMonster();
 	CreateBlood();
 	SlowMotion(dDeltaTime);
+	SlowAttack(dDeltaTime);
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
@@ -1078,16 +1079,10 @@ _bool CPlayer::IsGravity()
 
 void CPlayer::CreateBlood()
 {
-	if (CEngine::GetInstance()->IsKeyDown(VK_F8))
-	{
-		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
-		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
-	}
-
 	if (m_pOBB->Get_isHit()) {
 
 		_matrix Translation;
-		_int random = rand() % 4;
+		_int random = rand() % 2;
 		random += 1;
 		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 		Translation = m_pTransform->Remove_Scale(Translation);
@@ -1105,6 +1100,7 @@ void CPlayer::SlowMotion(_double deltaTime)
 {
 	_bool isSlow = m_pStatus->GetIsSlow();
 	if (isSlow == true) {
+		CEventCheck::GetInstance()->ZoomFov(m_slowEvadeTime, 60.f, 15.f);
 		g_TickLate = 0.5f;
 		m_slowEvadeDelta += deltaTime;
 		if (m_slowEvadeTime < m_slowEvadeDelta) {
@@ -1120,7 +1116,7 @@ void CPlayer::SlowAttack(_double deltaTime)
 	if (m_bSlowAttck) {
 		g_TickLate = 0.5f;
 		m_slowDelta += deltaTime;
-		if (m_slowDelta < m_sloweTime) {
+		if (m_sloweTime < m_slowDelta) {
 			m_slowDelta = 0;
 			g_TickLate = 1.f;
 			m_bSlowAttck = false;
@@ -1265,6 +1261,9 @@ void CPlayer::SearchMonster()
 			if (m_pTargetOn) {
 				m_pTargetOn->ReleaseThisUI();
 				m_pTargetOn = nullptr;
+				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
+			}
+			else {
 				m_pTargetOn = CTargetOn::Create(m_pGameObject, m_listMonsters.front());
 			}
 		}

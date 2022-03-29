@@ -14,7 +14,7 @@ HRESULT CTargetOn::Initailze(CGameObject* player, CGameObject * pArg)
 	m_pPlayer = static_cast<CEmptyGameObject*>(player);
 	m_pTarget = static_cast<CEmptyGameObject*>(pArg);
 
-	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition());
+	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition()) - XMVectorSet(0.f,0.25f,0.f,0.f);
 	_matrix view = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW);
 	_matrix proj = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ);
 	targetPos = XMVector3TransformCoord(targetPos, view);
@@ -46,7 +46,7 @@ HRESULT CTargetOn::Initailze(CGameObject* player, CGameObject * pArg)
 void CTargetOn::Update(_double deltaTime)
 {
 	m_pThisUI->SetisRender(true);
-	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition());
+	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition()) - XMVectorSet(0.f, 0.25f, 0.f, 0.f);
 	_matrix view = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW);
 	_matrix proj = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ);
 	targetPos = XMVector3TransformCoord(targetPos, view);

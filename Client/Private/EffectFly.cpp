@@ -49,6 +49,8 @@ HRESULT CEffectFly::Initialize(void* pArg)
 		_float posx = XMVectorGetX(pTargetTransform->GetState(CTransform::STATE_POSITION));
 		_float posz = XMVectorGetZ(pTargetTransform->GetState(CTransform::STATE_POSITION));
 
+		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeInEnable(false);
+
 	}
 	return S_OK;
 }
@@ -84,6 +86,8 @@ void CEffectFly::Update(_double deltaTime)
 			m_bAnimationEnd = false;
 		}
 	}
+	else
+		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeInEnable(false);
 
 }
 

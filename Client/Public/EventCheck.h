@@ -40,6 +40,7 @@ public:
 	void ZoomFov(_float _duration, _float _destFov, _float _spd);
 public:
 	void SetUpEquip(string _equipName);
+	void SlowAttack();
 public:
 	void OffAllMenus();
 public:

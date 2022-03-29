@@ -415,6 +415,12 @@
     <ClInclude Include="..\public\DecalCrash.h">
       <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaDust.h">
+      <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectSoilDust.h">
+      <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -815,6 +821,12 @@
     </ClCompile>
     <ClCompile Include="..\private\DecalCrash.cpp">
       <Filter>05.Effect\PlayerEffect\DecalCrash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSoilDust.cpp">
+      <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaDust.cpp">
+      <Filter>05.Effect\Ursa\Dust</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1236,6 +1248,12 @@
     </Filter>
     <Filter Include="05.Effect\PlayerEffect\DecalCrash">
       <UniqueIdentifier>{955afa30-b4de-4a59-b002-cbe5b58b7a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa">
+      <UniqueIdentifier>{75c92038-93ed-43f2-9757-6d90198644b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Dust">
+      <UniqueIdentifier>{e0a1b44a-3649-4c35-8b58-d494aa575171}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

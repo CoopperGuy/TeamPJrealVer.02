@@ -8,11 +8,11 @@ CEffectRockDust::CEffectRockDust()
 {
 }
 
-CEffectRockDust * CEffectRockDust::Create(void * pArg, _matrix pos)
+CEffectRockDust * CEffectRockDust::Create(void * pArg)
 {
 	CEffectRockDust*		pInstance = new CEffectRockDust();
 
-	if (FAILED(pInstance->Initialize(pArg, pos)))
+	if (FAILED(pInstance->Initialize(pArg)))
 	{
 		MSG_BOX("Failed to Create CEffectRockDust");
 		SafeRelease(pInstance);
@@ -23,7 +23,7 @@ CEffectRockDust * CEffectRockDust::Create(void * pArg, _matrix pos)
 }
 
 
-HRESULT CEffectRockDust::Initialize(void* pArg, _matrix pos)
+HRESULT CEffectRockDust::Initialize(void* pArg)
 {
 	if (pArg != nullptr) {
 
@@ -33,8 +33,6 @@ HRESULT CEffectRockDust::Initialize(void* pArg, _matrix pos)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 		m_pComponent = m_pGameObject->GetComponent("Com_RectInstance");
-
-		m_pTransform->SetMatrix( pos);
 
 
 		RandomNum = rand() % 3;

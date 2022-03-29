@@ -35,6 +35,7 @@ public:
 	HRESULT	UpdateGauge(_double deltaTime);
 	HRESULT GamePlayLoader();
 	HRESULT GameFlogasLoader();
+	HRESULT GameUrsaLoader();
 	HRESULT	GameTestLoader();
 	HRESULT	GameSceneLoader(string scene, SCENE sceneNum);
 	HRESULT GameSceneStage01();
@@ -61,7 +62,7 @@ private:
 	unordered_map<std::string, std::thread>	Threads;
 private:
 	CThreadLoader*		m_ThreadLoader = nullptr;
-	mutable	size_t		m_threadSize = 12;
+	mutable	size_t		m_threadSize = 16;
 
 public:
 	static CLoader* Create(SCENE eScene);
