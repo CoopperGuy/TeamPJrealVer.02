@@ -1526,7 +1526,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.5215073, 26.0779991, 1.79999995]
+      Scale: [22.5215054, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1651,8 +1651,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.69327307, 1.31196868, -8.28250313]
-      Rotation: [3.14027858, 3.65621209, -1.33671962e-08]
-      Scale: [0.279784024, 0.176538035, 0.641046643]
+      Rotation: [53.8188362, 4.15750265, -2.1400804e-07]
+      Scale: [0.279445112, 0.181838259, 0.657646418]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1689,8 +1689,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
-      Scale: [0.609398663, 0.342905939, 1.39153469]
+      Rotation: [53.8188438, 4.15750217, -2.1400804e-07]
+      Scale: [0.608597636, 0.353216141, 1.42763126]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2046,8 +2046,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [3.14027858, 3.65621209, -1.3367198e-08]
-      Scale: [0.608391702, 0.342193186, 1.39210963]
+      Rotation: [53.8188438, 4.15750217, -2.14008068e-07]
+      Scale: [0.607642293, 0.352480173, 1.42822695]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2084,8 +2084,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [7.93538809, 1.34698355, -8.84075165]
-      Rotation: [3.1402781, 3.65621161, -1.3367198e-08]
-      Scale: [0.304314017, 0.275781512, 1.39230764]
+      Rotation: [53.8188438, 4.15750217, -2.1400804e-07]
+      Scale: [0.303924412, 0.284062326, 1.42843366]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2122,8 +2122,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.08104706, 1.34008193, -3.44539356]
-      Rotation: [3.14027858, 3.65621114, -1.3367198e-08]
-      Scale: [0.304203779, 0.275809765, 1.39210963]
+      Rotation: [53.8188438, 4.15750217, -2.1400804e-07]
+      Scale: [0.303824723, 0.284091026, 1.42822695]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2160,8 +2160,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.58388233, 1.30740726, -0.59903425]
-      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
-      Scale: [0.304272592, 0.275863618, 1.39231455]
+      Rotation: [53.8188438, 4.15750217, -2.1400804e-07]
+      Scale: [0.303881496, 0.284146219, 1.42843604]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2198,8 +2198,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [3.14027882, 3.65621233, -1.3367198e-08]
-      Scale: [0.608864009, 0.342220753, 1.39215982]
+      Rotation: [53.81884, 4.15750217, -2.1400804e-07]
+      Scale: [0.608098805, 0.352508515, 1.4282763]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2236,8 +2236,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [3.14027882, 3.65621161, -1.3367198e-08]
-      Scale: [0.608672738, 0.342252344, 1.39215982]
+      Rotation: [53.81884, 4.15750217, -2.1400804e-07]
+      Scale: [0.60790199, 0.352541596, 1.4282763]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2274,8 +2274,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [3.14027834, 3.65621114, -1.3367198e-08]
-      Scale: [0.500856519, 0.453959554, 1.39234471]
+      Rotation: [53.81884, 4.15750122, -2.1400804e-07]
+      Scale: [0.500237286, 0.467599064, 1.42846811]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2312,8 +2312,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [3.14027858, 3.65621161, -1.3367198e-08]
-      Scale: [0.514025688, 0.462705851, 1.53369808]
+      Rotation: [53.8188438, 4.1575017, -2.1400804e-07]
+      Scale: [0.513420045, 0.476610363, 1.57346845]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2350,8 +2350,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [3.14027834, 3.65621161, -1.3367198e-08]
-      Scale: [0.851444423, 0.514027357, 1.39234471]
+      Rotation: [53.81884, 4.15750217, -2.1400804e-07]
+      Scale: [0.850383937, 0.529449701, 1.42846811]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2388,8 +2388,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [3.14027858, 3.65621161, -1.3367198e-08]
-      Scale: [0.868536413, 0.499803215, 1.39210963]
+      Rotation: [53.8188438, 4.15750265, -2.1400804e-07]
+      Scale: [0.867478788, 0.514843464, 1.42822695]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3123,7 +3123,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-0.782881141, -0.300000012, -13.415925]
+      Translation: [-1.51263046, -0.300000012, -15.5028677]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -3142,7 +3142,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.519102931, -0.302244604, -15.5692701]
+      Translation: [0.926710784, -0.284163415, -16.8800335]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -3161,7 +3161,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-0.794344127, -0.300000012, -17.7646484]
+      Translation: [-0.794344127, -0.300000012, -18.1690063]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
@@ -3399,6 +3399,44 @@ GameObjects:
       Diffuse: [0, 0.280718833, 0.586956501, 1]
       Ambient: [0.151281238, 0.283713758, 0.311594188, 1]
       Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: floor2
+    UUID: 8512588390550056248
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.214238107, -0.300000012, -14.2960405]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor0.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: floor2
+    UUID: 486556351811449
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.09821582, -0.300000012, -12.2640266]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor0.fbx
+      HasCollider: true
+      Equipment: false
     RenderGroup: 1
     FrustumRange: 1
   - Name: PointLight01
