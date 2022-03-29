@@ -2,7 +2,7 @@
 #include "BasicEffect.h"
 
 BEGIN(Client)
-
+class CObb;
 class CImpactBeam :
 	public CBasicEffect
 {
@@ -16,6 +16,8 @@ private:
 private:
 	CEmptyEffect*	m_pThisEffect = nullptr;
 	CTransform*		m_pEffectTrans = nullptr;
+private:
+	CObb*			m_pObb = nullptr;
 private:
 	vector<CTransform*>	m_Child;
 private:

@@ -72,7 +72,10 @@ private:
 
 private:
 	_bool			m_bRimLightEnable = false;
-	_float4			m_vRimLightColor = { 1.f, 0.5f, 0.5f, 1.f };
+	//_float4			m_vRimLightDest;
+	_float4			m_vRimLightDest = { 1.f, 0.5f, 0.5f, 1.f };
+	_float4			m_vRimLightSrc{};
+	_float4			m_vRimgLightColor{};
 	_double			m_RimLightTimeAcc = 0.f;
 	_double			m_RimLightTime = 0.15f;
 private:
