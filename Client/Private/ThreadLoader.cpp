@@ -34,6 +34,14 @@ _bool CThreadLoader::GetIsEnd()
 	return isEnd;
 }
 
+_bool CThreadLoader::GetIsEnable()
+{
+	size_t remain_Jobs = m_fMax_Jobs - m_fCur_Jobs;
+	if (remain_Jobs < m_iNum_Threads / 2)
+		return true;
+	return false;
+}
+
 void CThreadLoader::WorkerThread()
 {
 	while (true) {
