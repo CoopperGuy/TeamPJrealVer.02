@@ -103,13 +103,16 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
     
     vMask.a = (vMask.r + vMask.g + vMask.b) / 3.f;
-    if (vMask.a < 0.1f)
+    if (vMask.a <= 0.1f)
         discard;
 
     vColor.rgb += g_vOffsetColor.rgb;
     vColor.a = vMask.a + g_vOffsetColor.a;
     vColor.a *= g_fFadeAlpha;    
-        
+    
+    if (vColor.a <= 0.f)
+        discard;
+
     if (vMask.r > 0.99f)
         vColor.rgb += 0.5f;
 
@@ -144,14 +147,15 @@ vector PS_MAIN_REDUP(PS_IN In) : SV_TARGET
     float2 decaluv = vLocalPos.xz + 0.5f;
     vMask = g_MaskTexture.Sample(g_DefaultSampler, decaluv);
     vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
-    
+
     vColor.a = (vMask.r + vMask.g + vMask.b) / 3.f;
     if (vColor.a <= 0.1f)
         discard;
+
     vColor.a = vColor.a * g_fFadeAlpha;
     vColor.r = 1.f;
     vColor.gb = vMask.g;
- 
+    
 
     return vColor;
 }
