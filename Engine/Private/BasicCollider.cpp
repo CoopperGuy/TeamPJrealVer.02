@@ -192,7 +192,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 _bool CBasicCollider::Update_State(_fmatrix TransformMatrix)
 {
 	_matrix transform = Remove_Scale(TransformMatrix);
-	
+
 	if (m_eType == CBasicCollider::TYPE_AABB)
 		XMStoreFloat4x4(&m_TransformMatrix, Remove_ScaleRotation(TransformMatrix));
 
@@ -202,7 +202,7 @@ _bool CBasicCollider::Update_State(_fmatrix TransformMatrix)
 	if (m_eType == CBasicCollider::TYPE_SPHERE)
 		XMStoreFloat4x4(&m_TransformMatrix, TransformMatrix);
 
-	CGameObjectManager::GetInstance()->AddOBBCollsionList(m_CollisionType, m_pMaster,this);
+	CGameObjectManager::GetInstance()->AddOBBCollsionList(m_CollisionType, m_pMaster, this);
 	return _bool();
 }
 
@@ -468,7 +468,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			if (PlayerStat == nullptr)
 				return;
 
-			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(PlayerStat)->GetStatInfo().hp <= 0)
 				return;
 			else
 			{
@@ -480,7 +480,9 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							return;
 						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
-							pTargetCollider->m_isHit = true;
+							if(!pTargetCollider->m_isHit)
+								pTargetCollider->m_isHit = true;
+
 							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
@@ -526,12 +528,12 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 			}
 
 			CStat* TargetpStat = static_cast<CStat*>(TargetObj.first->GetComponent("Com_Stat"));
-			CStat* MyStat =static_cast<CStat*>(MyObj.first->GetComponent("Com_Stat"));
+			CStat* MyStat = static_cast<CStat*>(MyObj.first->GetComponent("Com_Stat"));
 
 			if (TargetpStat == nullptr || MyStat == nullptr)
 				return;
 
-			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0)
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(MyStat)->GetStatInfo().hp <= 0)
 			{
 				return;
 			}
@@ -540,7 +542,6 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 				if (pMyCollider->Collision_OBB(pMyCollider, pTargetCollider))
 				{
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
-						pTargetCollider->SetHit(true);
 						if (TargetpStat->GetStatInfo().isImmortal == true) {
 							TargetpStat->SetSlow(true);
 							return;
@@ -548,10 +549,14 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 
 						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
 						{
-							
+
 							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
+						if(!pTargetCollider->m_isHit)
+							pTargetCollider->SetHit(true);
+						else
+							pTargetCollider->SetHit(false);
 					}
 					else
 						pTargetCollider->SetHit(false);
@@ -653,7 +658,7 @@ void CBasicCollider::SetupCollisionFlag(_bool tf)
 	switch (tf)
 	{
 
-	case true: 
+	case true:
 	{
 		switch (m_CollisionFlag)
 		{
@@ -676,7 +681,7 @@ void CBasicCollider::SetupCollisionFlag(_bool tf)
 		}
 		break;
 	}
-	case false: 
+	case false:
 	{
 		switch (m_CollisionFlag)
 		{
@@ -730,7 +735,7 @@ CBasicCollider::OBBDESC CBasicCollider::Compute_OBB(_fvector * pPoints)
 	ZeroMemory(&OBBDesc, sizeof(OBBDESC));
 
 	XMStoreFloat3(&OBBDesc.vCenter, (pPoints[0] + pPoints[6]) * 0.5f);
-	
+
 	XMStoreFloat3(&OBBDesc.vAlignAxis[0], XMVector3Normalize(pPoints[2] - pPoints[3]));
 	XMStoreFloat3(&OBBDesc.vAlignAxis[1], XMVector3Normalize(pPoints[2] - pPoints[1]));
 	XMStoreFloat3(&OBBDesc.vAlignAxis[2], XMVector3Normalize(pPoints[2] - pPoints[6]));
@@ -776,7 +781,7 @@ void CBasicCollider::ClearList()
 _vector* CBasicCollider::GetObbBox()
 {
 	_vector vSourPoint[8];
-	
+
 	for (_uint i = 0; i < 8; ++i)
 	{
 		vSourPoint[i] = XMVector3TransformCoord(XMLoadFloat3(&m_vPoint[i]), XMLoadFloat4x4(&m_TransformMatrix));
