@@ -77,8 +77,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 	vDist = vTargetPos - vPos;
 	fLen = XMVectorGetX(XMVector3Length(vDist));
 	if (m_pStat->GetStatInfo().hp < 0)
+	{
+		m_bExplosion = true;
 		m_bDestination = true;
-
+	}
 	if (m_pGameObject->GetActive())
 	{
 		PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
@@ -120,8 +122,8 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject,*this), CEngine::GetInstance()->GetCurSceneNumber());
 				}
 				m_dExplosionTime += dDeltaTime;
-				m_fScale += (_float)dDeltaTime * 0.1f;
-				m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
+				//m_fScale += (_float)dDeltaTime * 0.1f;
+				//m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));
 				if (m_dExplosionTime > 3.0)
 				{
 					m_bDeadMotion = true;
