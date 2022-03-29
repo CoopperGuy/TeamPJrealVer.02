@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\ImpactBeam.h"
-
+#include "Obb.h"
 USING(Client)
 
 CImpactBeam::CImpactBeam()
@@ -23,7 +23,7 @@ HRESULT CImpactBeam::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 	for (auto& iter : child) {
 		m_Child.emplace_back(static_cast<CTransform*>(iter->GetComponent("Com_LocalTransform")));
 	}
-
+	m_pObb = CObb::Create(position, XMVectorSet(1.f, 1.f, 1.f,0.f), 50.f, ID::PLAYER_EFFECT, m_Duration);
 	return S_OK;
 }
 
@@ -42,6 +42,7 @@ void CImpactBeam::LateUpdate(_double deltaTime)
 	if (m_DurationDelta > m_Duration) {
 		this->SetDead();
 		m_pThisEffect->SetDead();
+		//m_pObb->SetupDead();
 	}
 }
 

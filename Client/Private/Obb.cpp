@@ -63,15 +63,16 @@ void CObb::Update(_double deltaTime)
 {
 	if(m_pTargetTransform)
 		m_pTransform->SetMatrix(m_pTargetTransform->GetWorldMatrix());
+	
+}
+
+void CObb::LateUpdate(_double deltaTime)
+{
 	m_fDelta += (_float)deltaTime;
 	if (m_fDuration < m_fDelta) {
 		this->SetDead();
 		m_pObj->SetDead();
 	}
-}
-
-void CObb::LateUpdate(_double deltaTime)
-{
 }
 
 void CObb::Render()
@@ -93,7 +94,8 @@ void CObb::SetSize(_float3 _size)
 void CObb::SetupDead()
 {
 	this->SetDead();
-	m_pObj->SetDead();
+	if(m_pObj)
+		m_pObj->SetDead();
 }
 
 void CObb::SetPosision(_float3 _pos)

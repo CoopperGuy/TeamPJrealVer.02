@@ -99,7 +99,7 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     clip(0.5f - ObjectAbsPos);
 
     float2 decaluv = vLocalPos.xz + 0.5f;
-    vMask = g_MaskTexture.Sample(g_DefaultSampler, decaluv);
+    vMask = g_MaskTexture.Sample(g_BorderSampler, decaluv);
     vColor = g_DiffuseTexture.Sample(g_DefaultSampler, decaluv);
     
     vMask.a = (vMask.r + vMask.g + vMask.b) / 3.f;
@@ -107,8 +107,8 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
         discard;
 
     vColor.rgb += g_vOffsetColor.rgb;
-    vColor.a = vMask.a + g_vOffsetColor.a;
-    vColor.a *= g_fFadeAlpha;    
+    vColor.a = saturate(vMask.a + g_vOffsetColor.a);
+    vColor.a *= g_fFadeAlpha;
     
     if (vColor.a <= 0.f)
         discard;
@@ -166,7 +166,7 @@ technique11		DefaultDevice
 	{
         SetRasterizerState(Rasterizer_Solid);
         SetDepthStencilState(DepthStecil_Default, 0);
-		SetBlendState(Blend_None, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -177,7 +177,7 @@ technique11		DefaultDevice
     {
         SetRasterizerState(Rasterizer_Solid);
         SetDepthStencilState(DepthStecil_Default, 0);
-        SetBlendState(Blend_None, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
         VertexShader = compile vs_5_0 VS_MAIN();
         GeometryShader = NULL;

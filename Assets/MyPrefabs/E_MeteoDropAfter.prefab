@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoDropAfter
-    UUID: 12707583458257652304
+    UUID: 15297601380557049846
     Active: true
     Layer: Default
     Type: Effect
@@ -10,7 +10,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1.20000005, 0.600000024, 1.20000005]
+      Scale: [1.20000005, 0.100000001, 1.20000005]
     Com_Decal:
       {}
     Effect_Setting:
