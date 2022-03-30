@@ -35,12 +35,14 @@ HRESULT CEffectDropRock::Initialize(void* pArg, _vector pos)
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 		_vector pPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
+
+		pos = XMVectorSetY(pos, XMVectorGetY(pPos) - 0.09f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeInEnable(true);
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutStartTime(0.f);
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutDuration(1.3f);
-		static_cast<CEmptyEffect*>(m_pGameObject)->SetEffectDuration(1.3f);
+		//static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeInEnable(true);
+		//static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutStartTime(0.f);
+		//static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutDuration(1.3f);
+		//static_cast<CEmptyEffect*>(m_pGameObject)->SetEffectDuration(1.3f);
 
 
 	}
@@ -55,21 +57,14 @@ void CEffectDropRock::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	deaddt += deltaTime;
+	if (0.9f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	{
+		deaddt += deltaTime;
+	}
 
-	//if (1.f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-	//{
+	//if(static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutEnable())
 	//	deaddt += deltaTime;
-	//	static bool make = true;
-	//	if (make) {
-	//		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeInEnable(true);
-	//		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutStartTime(0.f);
-	//		static_cast<CEmptyEffect*>(m_pGameObject)->SetFadeOutDuration(0.4f);
-	//		static_cast<CEmptyEffect*>(m_pGameObject)->SetEffectDuration(0.4f);
 
-	//		make = false;
-	//	}
-	//}
 
 }
 
@@ -79,7 +74,6 @@ void CEffectDropRock::LateUpdate(_double deltaTime)
 
 	if (deaddt >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 	{
-
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

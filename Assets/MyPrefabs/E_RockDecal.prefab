@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_RockDecal
-    UUID: 11203407320222714002
+    UUID: 4766292534011152679
     Active: true
     Layer: Default
     Type: Effect
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 0.695652187, 0, 0]
+      OffsetColor: [1, 0.347826123, 0, 0]

@@ -202,6 +202,8 @@ HRESULT CLoader::GameUrsaLoader()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DropRockEff", "E_RockEff2", 4));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_RockSmall", "O_RockSmall", 5));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDecal", "E_RockDecal", 6));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 7));
   
 	m_iCompleteBit = 0;
 
