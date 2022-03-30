@@ -249,7 +249,7 @@ HRESULT CLoader::GameSceneStage02()
 	//m_pLoadingGauge->SetPercentage(50.f);
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2, 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_STAGE2, 1);
 
 
 	if (FAILED(GameFlogasLoader()))

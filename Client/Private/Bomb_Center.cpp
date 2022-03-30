@@ -25,7 +25,9 @@ HRESULT CBomb_Center::Initialize(CEmptyEffect* pThis, CTransform* pTarget, CEl_F
 	}
 	_float fscale = m_Child.front()->GetScale(CTransform::STATE_RIGHT);
 	m_vScale = { fscale, fscale, fscale };
-	m_pEffectTrans->SetState(CTransform::STATE_POSITION, pTarget->GetState(CTransform::STATE_POSITION));
+	_vector vPos = pTarget->GetState(CTransform::STATE_POSITION);
+	vPos = XMVectorSetY(vPos, 0.2f);
+	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vPos);
 	return S_OK;
 }
 

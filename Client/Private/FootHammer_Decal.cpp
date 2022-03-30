@@ -14,7 +14,7 @@ HRESULT CFootHammer_Decal::Initialize(CEmptyEffect* pThis, CGameObject* pTarget,
 	CTransform* pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 	_vector vTargetPos = pTargetTrans->GetState(CTransform::STATE_POSITION);
-	vTargetPos += pTargetTrans->GetState(CTransform::STATE_LOOK) * (_float)iCount * 0.5f;
+	vTargetPos += pTargetTrans->GetState(CTransform::STATE_LOOK) * (_float)iCount * 0.6f;
 	
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 
@@ -28,7 +28,7 @@ void CFootHammer_Decal::Update(_double dDeltaTime)
 	if (m_DurationDelta < m_pThis->GetFadeInDuration())
 	{
 		m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_UP), m_fAngle);
-		m_fAngle += (_float)dDeltaTime * 0.5f;
+		m_fAngle += (_float)dDeltaTime * 100.f;
 	}
 	else
 	{
