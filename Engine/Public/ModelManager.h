@@ -58,7 +58,7 @@ private:
 	CRITICAL_SECTION		m_WaitCS;
 	unordered_map<string, CRITICAL_SECTION> m_keys;
 
-	size_t					m_maxThread = 5;
+	size_t					m_maxThread = 6;
 };
 
 END

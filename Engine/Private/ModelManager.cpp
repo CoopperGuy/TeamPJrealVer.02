@@ -28,6 +28,7 @@ CModelManager::CModelManager()
 {
 	InitializeCriticalSection(&m_CS);
 	InitializeCriticalSection(&m_WaitCS);
+	m_maxThread = std::thread::hardware_concurrency() + 1;
 
 }
 
@@ -77,10 +78,10 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 	//	m_CurCloningObj.emplace(fullPath, true);
 	//}
 
-	CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
+	//CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
 
-	//MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
-	//thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
+	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
+	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
 }
 
 
