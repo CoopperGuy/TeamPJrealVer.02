@@ -24,6 +24,7 @@ public:
 	void SetColor(_float4 _color) { m_vColor = _color; }
 	void SetIsCenter(_bool tf) { m_bisCenter = tf; }
 	void SetShader(_bool _shaderCut) { m_bisShaderCut = _shaderCut; }
+	void SetIsKorean(_bool _isKorean) { m_bIsKorean = _isKorean; }
 public:
 	string& GetText() { return m_strText; }
 	_float4& GetColor() { return m_vColor; }
@@ -31,10 +32,12 @@ public:
 	_float2& GetScale() { return m_vScale; }
 	_bool&	GetIsCenter() { return m_bisCenter; }
 	_bool	GetShaderCut() { return m_bisShaderCut; }
-
+	_bool	GetIsKorean() { return m_bIsKorean; }
 private:
 	SpriteBatch*		m_pSpriteBatch;
 	SpriteFont*			m_pSpriteFont;
+	SpriteFont*			m_pSpriteKoreanFont;
+
 private:
 	class CRectTransform*			m_pTransform;
 	string							m_strText = "";
@@ -43,6 +46,7 @@ private:
 	_float2							m_vScale = { 1.f, 1.f };
 	_bool							m_bisCenter = true;
 	_bool							m_bisShaderCut = false;
+	_bool							m_bIsKorean = false;
 };
 
 END

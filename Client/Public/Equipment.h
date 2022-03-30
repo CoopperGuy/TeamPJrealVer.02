@@ -30,14 +30,21 @@ public:
 	_bool Set_ModelCom(string name);
 
 public:
+	const _bool	GetIsEquip() { return m_bisEquip; }
+
+public:
 	virtual void Free() override;
 
 protected:
+	unordered_map<string, CModel*> m_EquipList;
+protected:
 	CTransform* m_pTargetTransform = nullptr;
 	CModel*		m_pTargetModel = nullptr;
-	string		m_EquipPath = {};
-	ITEMINFO	m_pEquipInfo = {};
-	unordered_map<string, CModel*> m_EquipList;
+protected:
+	ITEMINFO	m_pEquipInfo{};
+	string		m_EquipPath{};
+protected:
+	_bool		m_bisEquip = false;
 };
 
 END

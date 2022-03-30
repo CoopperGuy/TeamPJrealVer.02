@@ -25,7 +25,7 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		randomX = rand() % 10;
 
 
-		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1 );
+		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1f );
 
 
 	

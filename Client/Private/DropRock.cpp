@@ -29,11 +29,11 @@ HRESULT CDropRock::Initailze(CGameObject * pArg, _vector pos)
 		switch (randompos)
 		{
 		case 0:
-			pos = XMVectorSetX(pos, randomX * -1.f);
+			pos = XMVectorSetX(pos, (_float)randomX * -1.f);
 
 			break;
 		case 1:
-			pos = XMVectorSetX(pos, randomX);
+			pos = XMVectorSetX(pos, (_float)randomX);
 			break;
 
 		}

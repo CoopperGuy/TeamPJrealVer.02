@@ -32,7 +32,8 @@ HRESULT CXlsxRead::Ready_XlsxLoader(string _path)
 		item.atk = stof(row[5].to_string().c_str());
 		item.def = stof(row[6].to_string().c_str());
 		item.price = stoi(row[7].to_string().c_str());
-		item.imageName = row[8].to_string();
+		item.level = stoi(row[8].to_string().c_str());
+		item.imageName = row[9].to_string();
 		item.itemName = tag;
 		m_itemDB.emplace(tag, item);
 

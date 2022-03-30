@@ -104,7 +104,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 		{
 			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 			PxControllerFilters filters;
-			_vector vLook, vTargetLook;
+			_vector vLook{}, vTargetLook{};
 			_vector vDis;
 
 			//if (m_bLook) {

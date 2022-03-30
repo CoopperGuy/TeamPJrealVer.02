@@ -48,12 +48,12 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 			}
 			m_pHpBar->SetPercentage(m_fPercetage);
 			m_pHpBar->SetBackPercentage(m_fBackPercentage);
-		}
-		if (m_pHudTrans) {
-			_vector hpPos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, 0.f, 1.f), m_pTargetTrans->GetWorldMatrix());
-			m_pHudTrans->SetState(CTransform::STATE_POSITION, hpPos);
-			if (m_pBarTrans) {
-				m_pBarTrans->SetState(CTransform::STATE_POSITION, XMVectorSet(0.f,0.f,0.f,1.f));
+			if (m_pHudTrans) {
+				_vector hpPos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, 0.f, 1.f), m_pTargetTrans->GetWorldMatrix());
+				m_pHudTrans->SetState(CTransform::STATE_POSITION, hpPos);
+				if (m_pBarTrans) {
+					m_pBarTrans->SetState(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+				}
 			}
 		}
 	}

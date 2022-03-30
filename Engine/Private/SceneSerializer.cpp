@@ -556,6 +556,7 @@ void CSceneSerializer::SerializeUI(YAML::Emitter & out, CGameObject * obj)
 
 		out << YAML::Key << "ShaderCut" << YAML::Value << shaderCut;
 
+		out << YAML::Key << "IsKorean" << YAML::Value << text->GetIsKorean();
 
 		out << YAML::EndMap;
 
@@ -904,7 +905,10 @@ CGameObject* CSceneSerializer::DeserializeUI(YAML::Node& obj, _bool bSpawn, _uin
 			_bool	isShaderCut = text["ShaderCut"].as<bool>();
 			pText->SetShader(isShaderCut);
 		}
-
+		if (text["IsKorean"]) {
+			_bool	isKorean = text["IsKorean"].as<bool>();
+			pText->SetIsKorean(isKorean);
+		}
 	}
 
 	return deserializedObject;
