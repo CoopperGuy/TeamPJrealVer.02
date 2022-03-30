@@ -185,6 +185,8 @@ HRESULT CLoader::GameFlogasLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Flash", "E_Flash", 24);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Sprite_Fire", "E_Sprite_Fire", 25);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FlogasEffLight", "O_FlogasLighte", 26);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FootHammer_Decal", "E_FootHammer_Decal", 27);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FootHamer_Bomb", "E_FootHamer_Bomb", 28);
 
 	m_iCompleteBit = 0;
 

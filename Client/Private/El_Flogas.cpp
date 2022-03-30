@@ -47,6 +47,7 @@ HRESULT CEl_Flogas::Initialize(string name, CFlogas * pObj)
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 	XMStoreFloat3(&m_vTargetPos, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+	XMStoreFloat3(&m_vEffectDist, m_pTransform->GetState(CTransform::STATE_POSITION) - XMLoadFloat3(&m_vTargetPos));
 	m_pModel->SetUp_AnimationIndex(IDLE);
 	m_pGameObject->SetActive(false);
 	return S_OK;
@@ -109,6 +110,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					{
 						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
 						CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+						CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
 					}
 					m_dExplosionTime += dDeltaTime;
 
@@ -129,13 +131,25 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					m_pTransform->SetScale(_float3(m_fScale, m_fScale, m_fScale));*/
 					if (!m_bHpzero)
 					{
-						if (m_pModel->GetCurrentKeyFrame() >= 25)
+						if (m_pModel->GetCurrentKeyFrame() >= 1)
 						{
 							if (m_bCreateEffect)
 							{
-								m_bCreateEffect = false;
-								CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
-								CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+								m_dCreatTime += dDeltaTime;
+								if (m_iEffectCount > 7)
+								{
+									m_bCreateEffect = false;
+									m_iEffectCount = 0;
+									m_dCreatTime = 0.0;
+								}
+								else if (m_dCreatTime > 0.2)
+								{
+									CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Flash", "E_Flash");
+									CEngine::GetInstance()->AddScriptObject(CEffectFlash::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
+									m_dCreatTime = 0.f;
+									++m_iEffectCount;
+								}
+
 							}
 						}
 					}
@@ -147,6 +161,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 							XMStoreFloat3(&vPos, m_pTransform->GetState(CTransform::STATE_POSITION));
 							vPos.y = -5.f;
 							m_pModel->SetUp_AnimationIndex(DEADBODY);
+							m_pStat->HpHeal(100.f);
 							m_pGameObject->SetActive(m_pFlogas->Get_Flying());
 							m_pCollider->SetPosition(vPos);
 						}

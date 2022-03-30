@@ -59,6 +59,7 @@ void CSpriteFire::LateUpdate(_double dDeltaTime)
 
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Bomb_Sprite", "E_Bomb_Sprite");
 			CEngine::GetInstance()->AddScriptObject(CSpriteBomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
+			m_pThis->SetSpriteSpeed(30.f);
 		}
 		m_dOnetime += dDeltaTime;
 	}
