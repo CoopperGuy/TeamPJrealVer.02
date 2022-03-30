@@ -35,11 +35,13 @@ public:
 	virtual void Free() override;
 	CurState Get_State() { return m_eState; }
 	_bool Get_Cancel() { return m_bCancel; }
+	_bool Get_HitEnd() { return m_bHitEnd; }
 
 	void Set_Cancel() { m_bCancel = false; }
 protected:
 	CurState m_eState;
 	_bool m_bCancel = false;
+	_bool m_bHitEnd = false;
 };
 
 END

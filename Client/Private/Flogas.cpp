@@ -673,7 +673,8 @@ void CFlogas::Adjust_Dist(_double dDeltaTime)
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
-		m_pController->move(vDir * 0.8f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+
+		m_pController->move(vDir * 0.8 * dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
 	}
 }
 

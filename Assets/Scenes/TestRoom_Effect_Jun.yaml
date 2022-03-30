@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
-      Scale: [0.294238538, 0.317832649, 0.305356026]
+      Rotation: [10.6840134, -40.4888535, 0]
+      Scale: [0.292329907, 0.317668051, 0.306082547]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -330,47 +330,6 @@ GameObjects:
       SpriteTotal: 32
       SpriteSpeed: 10
       OffsetColor: [0, 0, 0, 0]
-  - Name: Element_Bomb
-    UUID: 1960447721169478958
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 11
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 0.316382021, 0]
-      Rotation: [0.000104271996, 89.9999466, 0.000104273924]
-      Scale: [0.400000006, 0.400000006, 0.400000006]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
-      MeshFileName: TwistMesh.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_Sky_001_TEX_HKB.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
-      TextureNormalPath: ""
-      ScrollSpeedX: [0.5, 0.5, 0]
-      ScrollSpeedY: [0.5, 0.5, 2.29999995]
-      Distortion1: [2, 0.200000003]
-      Distortion2: [2, 0.300000012]
-      Distortion3: [2, 0.100000001]
-      DistortionScale: 0.100000001
-      DistortionBias: 0.100000001
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
   - Name: Bomb_Center
     UUID: 5502899901288605207
     Active: true
@@ -381,8 +340,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.05423212, 0.316382021, 0]
-      Rotation: [58.7854691, -23.2711487, -9.29382566e-07]
-      Scale: [0.903208256, 0.949655116, 0.769673467]
+      Rotation: [10.6840124, -40.4888535, 0]
+      Scale: [0.897296309, 0.949139476, 0.771469474]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -451,6 +410,8 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0, 0, 0, 0]
+    Children:
+      - 15358753725944729880
   - Name: Bomb2
     UUID: 17504197830417166847
     Active: true
@@ -538,7 +499,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Monster\Element_Flogas\
       MeshFileName: Element_Flogas.fbx
@@ -546,47 +507,6 @@ GameObjects:
       Equipment: false
     RenderGroup: 1
     FrustumRange: 1
-  - Name: Element_Twist
-    UUID: 16862281925524856904
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 11
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 0.316382021, 0]
-      Rotation: [8.84379042e-05, 89.999939, 8.84396795e-05]
-      Scale: [0.399999976, 0.400000006, 0.399999976]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
-      MeshFileName: TwistMesh.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\011.dds
-    Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
   - Name: sprite_Fire
     UUID: 16024358607365518532
     Active: true
@@ -597,8 +517,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.5, -0.584999979, -2.58699989]
-      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
-      Scale: [1.8298372, 1.41918743, 0.965302944]
+      Rotation: [10.6840143, -40.4888573, 0]
+      Scale: [1.8179369, 1.41843748, 0.967618346]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -711,8 +631,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.642346501, 1.1709255, -3.44839787]
-      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
-      Scale: [1.89874613, 1.93675733, 0.999999285]
+      Rotation: [10.6840143, -40.4888573, 0]
+      Scale: [1.88638616, 1.93571293, 1.00224221]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -772,6 +692,47 @@ GameObjects:
       FadeInDuration: 1
       FadeInStratTime: 0
       EffectDuration: 2
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+  - Name: Elemnet_Bomb
+    UUID: 1802894393410624207
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 11
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.999162138, 0.294809699, 0.0134926438]
+      Rotation: [0, -0, 0]
+      Scale: [0.400000006, 0.400000006, 0.400000006]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: TwistedMeshEffect.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_FX_Beam_B01_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Line_Aura04_Tex_KJ.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.200000003, 0.100000001]
+      Distortion2: [0.200000003, 0.100000001]
+      Distortion3: [0.200000003, 0.100000001]
+      DistortionScale: 0.100000001
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0

@@ -32,7 +32,7 @@ void CSpriteBomb::Update(_double dDeltaTime)
 void CSpriteBomb::LateUpdate(_double dDeltaTime)
 {
 	if(m_DurationDelta <= 0)
-		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
+		CEventCheck::GetInstance()->ShakeUpDown(8, 0.05f, 2.f);
 	m_DurationDelta += (_float)dDeltaTime;
 
 	if (m_pThis->GetSpriteEnd())

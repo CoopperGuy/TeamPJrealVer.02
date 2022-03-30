@@ -9,45 +9,58 @@ CSkill_Player::CSkill_Player()
 
 void CSkill_Player::Enter(CPlayer & pPlayer)
 {
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_2))
+	if (pPlayer.Get_Hit())
 	{
-		if (m_iCurrentAniIndex == 2)
-			m_bCancel = true;
-		m_iCurrentAniIndex = 2;
-	}
-	else if (CEngine::GetInstance()->Get_DIKDown(DIK_4))
-	{
-		if (m_iCurrentAniIndex == 4)
-			m_bCancel = true;
-		m_iCurrentAniIndex = 4;
-	}
-	
-
-	if (pPlayer.Get_Skill() != -1)
-	{
-		if (!m_bDuring)
-		{
-			m_vecSkill.push_back(pPlayer.Get_Skill());
-			m_iStartIndex = pPlayer.Get_Skill();
-		}
-		if (!m_bCancel)
-			m_bDuring = true;
-		
-		if (m_bFinished)
-		{
-			m_bDuring = false;
-			m_bFinished = false;
-		}
+		if(pPlayer.Get_Down())
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		else
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
 	}
 	else
-		m_bDuring = false;
+	{
+		if (CEngine::GetInstance()->Get_DIKDown(DIK_2))
+		{
+			if (m_iCurrentAniIndex == 2)
+				m_bCancel = true;
+			m_iCurrentAniIndex = 2;
+		}
+		else if (CEngine::GetInstance()->Get_DIKDown(DIK_4))
+		{
+			if (m_iCurrentAniIndex == 4)
+				m_bCancel = true;
+			m_iCurrentAniIndex = 4;
+		}
 
-	if(m_vecSkill.size() > 0 && m_iCurIndex == 0)
-		pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
+
+		if (pPlayer.Get_Skill() != -1)
+		{
+			if (!m_bDuring)
+			{
+				m_vecSkill.push_back(pPlayer.Get_Skill());
+				m_iStartIndex = pPlayer.Get_Skill();
+			}
+			if (!m_bCancel)
+				m_bDuring = true;
+
+			if (m_bFinished)
+			{
+				m_bDuring = false;
+				m_bFinished = false;
+			}
+		}
+		else
+			m_bDuring = false;
+
+		if (m_vecSkill.size() > 0 && m_iCurIndex == 0)
+			pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
+	}
 }
 
 CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 {
+	if (pPlayer.Get_Hit())
+		m_bCancel = true;
+	
 	if (!m_bDuring)
 	{
 		m_iCurIndex = 0;
@@ -152,6 +165,7 @@ void CSkill_Player::End(CPlayer & pPlayer)
 		m_iCurrentAniIndex = 0;
 		m_vecSkill.clear();
 	}
+
 }
 
 void CSkill_Player::Free()

@@ -13,9 +13,6 @@ private:
 	virtual void Update(_double dDeltaTime) override;
 	virtual void LateUpdate(_double dDeltaTime) override;
 
-public:
-	_bool Get_Release() { return m_bRelease; }
-
 private:
 	CEmptyEffect*	m_pThis		   = nullptr;
 	CTransform*		m_pEffectTrans = nullptr;
@@ -24,7 +21,6 @@ private:
 	_double			m_Duration = 3.0;
 	_double			m_DurationDelta = 0.0;
 	_float			m_fScale = 1.f;
-	_bool			m_bRelease = false;
 public:
 	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* pTargat, class CEl_Flogas& pObj, _float fAngle = 0.f);
 	virtual void Free();

@@ -9,9 +9,15 @@ CAtt_Player::CAtt_Player()
 
 void CAtt_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Evade())
+	if (pPlayer.Get_Hit())
+	{
+		if (pPlayer.Get_Down())
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		else
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
+	}
+	else if (pPlayer.Get_Evade())
 		pPlayer.m_pModel->SetUp_AnimationIndex((_uint)Player_State::CBEvade);
-
 	else if (pPlayer.Get_RBComboIndex() >= 0)
 	{
 		switch (pPlayer.Get_RBComboIndex())
@@ -55,11 +61,12 @@ void CAtt_Player::Enter(CPlayer & pPlayer)
 			break;
 		}
 	}
-
 }
 
 CStateMachine * CAtt_Player::Input(CPlayer & pPlayer)
 {
+	if (pPlayer.Get_Hit())
+		return	pPlayer.GetState(CurState::IDLE);
 	if (pPlayer.m_pModel->Get_isFinished() || pPlayer.Get_LBComboIndex() < 0 && pPlayer.Get_RBComboIndex() < 0)
 	{
 		if (pPlayer.Get_LBComboIndex() >= 3)
@@ -74,6 +81,7 @@ void CAtt_Player::Update(_double dDeltaTime, CPlayer & pPlayer)
 {
 	//LB Combo
 	pPlayer.Set_AnimSpeed(1.f);
+
 	if (pPlayer.Get_LBComboIndex() >= 4)
 	{
 		if (pPlayer.Get_LBComboIndex() >= 5)
@@ -88,6 +96,25 @@ void CAtt_Player::Update(_double dDeltaTime, CPlayer & pPlayer)
 
 void CAtt_Player::End(CPlayer& pPlayer)
 {
+	if (pPlayer.Get_Hit())
+	{
+		if (pPlayer.Get_Down())
+		{
+			pPlayer.isFinish_Combo();
+		}
+	}
+	/*if (pPlayer.Get_Hit())
+	{
+		if (pPlayer.m_pModel->Get_isFinished())
+		{
+			pPlayer.Set_Hit();
+			if (pPlayer.Get_Down())
+			{
+				if(pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::GetUp)
+					pPlayer.Set_Down();
+			}
+		}
+	}*/
 }
 
 void CAtt_Player::Free()

@@ -19,8 +19,6 @@ HRESULT CElement_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTargat, CEl
 	vPos = XMVectorSetY(vPos, 0.5f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vPos);
 	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_UP), fAngle);
-	CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Bomb_Center", "E_Bomb_Center");
-	CEngine::GetInstance()->AddScriptObject(CBomb_Center::Create((CEmptyEffect*)pGameObject, m_pEffectTrans, *this), CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
 }
 
@@ -33,9 +31,8 @@ void CElement_Bomb::LateUpdate(_double deltaTime)
 {
 	if (m_pElement->Get_DeadMotion())
 	{
-		m_bRelease = m_pElement->Get_DeadMotion();
-		m_pThis->SetDead();
 		this->SetDead();
+		m_pThis->SetDead();
 	}
 }
 

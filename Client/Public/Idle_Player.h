@@ -20,6 +20,7 @@ public:
 	virtual void Free() override;
 public:
 	_double m_dDelta = 0.f;
+	_bool m_bKnockBack = false;
 };
 
 END
