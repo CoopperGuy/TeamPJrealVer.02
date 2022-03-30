@@ -1,12 +1,12 @@
 Scene: Untitled
 GameObjects:
   - Name: E_UrsaeDust
-    UUID: 6203001648510775913
+    UUID: 2759160416923108739
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
-    BillBord: false
+    BillBord: true
     Com_Transform:
       Translation: [0, 0.209957123, 0]
       Rotation: [0, -0, 0]
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 70
-      OffsetColor: [1, 1, 1, -0.829999983]
+      OffsetColor: [1, 1, 1, 0.3]

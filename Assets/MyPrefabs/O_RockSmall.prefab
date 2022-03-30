@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_RockSmall
+    UUID: 9942069659115664186
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.0149999997, 0.0149999997, 0.0149999997]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: DropRock2.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

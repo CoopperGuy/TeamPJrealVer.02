@@ -19,19 +19,19 @@ GameObjects:
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
+      ScrollSpeedY: [1.3, 2.1, 2.3]
+      Distortion1: [0.1, 0.2]
+      Distortion2: [0.1, 0.3]
+      Distortion3: [0.1, 0.1]
       DistortionScale: 0
       DistortionBias: 0
       FadeOut: true
-      FadeOutDuration: 0.100000001
-      FadeOutStratTime: 0.100000001
+      FadeOutDuration: 0.1
+      FadeOutStratTime: 0.1
       FadeIn: true
-      FadeInDuration: 0.100000001
+      FadeInDuration: 0.1
       FadeInStratTime: 0
-      EffectDuration: 0.200000003
+      EffectDuration: 0.2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
@@ -54,7 +54,7 @@ GameObjects:
           InstNum: 30
           Color: [0.978260875, 0.595333576, 0, 0]
           Speed: 3
-          LifeTime: 0.200000003
+          LifeTime: 0.2
           Size: 0.400000006
           StartRadian: 0
           RadiationAngle: 30

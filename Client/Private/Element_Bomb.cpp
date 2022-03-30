@@ -9,7 +9,7 @@ CElement_Bomb::CElement_Bomb()
 {
 }
 
-HRESULT CElement_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTargat, CEl_Flogas& pObj)
+HRESULT CElement_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTargat, CEl_Flogas& pObj, _float fAngle)
 {
 	m_pThis = pThis;
 	m_pElement = &pObj;
@@ -18,7 +18,7 @@ HRESULT CElement_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTargat, CEl
 	_vector vPos = pTargetTrans->GetState(CTransform::STATE_POSITION);
 	vPos = XMVectorSetY(vPos, 0.5f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vPos);
-
+	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_UP), fAngle);
 	CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Bomb_Center", "E_Bomb_Center");
 	CEngine::GetInstance()->AddScriptObject(CBomb_Center::Create((CEmptyEffect*)pGameObject, m_pEffectTrans, *this), CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
@@ -41,11 +41,11 @@ void CElement_Bomb::LateUpdate(_double deltaTime)
 
 
 
-CBasicEffect * CElement_Bomb::Create(CEmptyEffect* pThis, CGameObject* pTargat, class CEl_Flogas& pObj)
+CBasicEffect * CElement_Bomb::Create(CEmptyEffect* pThis, CGameObject* pTargat, class CEl_Flogas& pObj, _float fAngle)
 {
 	CElement_Bomb*		pInstance = new CElement_Bomb();
 
-	if (FAILED(pInstance->Initialize(pThis, pTargat, pObj)))
+	if (FAILED(pInstance->Initialize(pThis, pTargat, pObj, fAngle)))
 	{
 		MSG_BOX("Failed to Create CElement_Bomb");
 		SafeRelease(pInstance);

@@ -1,0 +1,92 @@
+Scene: Untitled
+GameObjects:
+  - Name: ReinforceUI
+    UUID: 10955020830725008595
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 5
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 360]
+      Size: [512, 720]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\WindowBgLeft.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ReinforceSlot
+    UUID: 10480240937084011576
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 128]
+      Size: [256, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Reinforce\CampTree_Item_Title_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemImage
+    UUID: 18189282622033961211
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 128]
+      Size: [88, 88]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Reinforce\nullImage.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ReinforceMateriale
+    UUID: 7587394193738736047
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 360]
+      Size: [80, 80]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Reinforce\CashShop_Banner_Line.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: MaterialImage
+    UUID: 4841210787061409446
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ""
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]

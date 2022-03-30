@@ -24,6 +24,8 @@ public:
 
 public:
 	_bool Get_DeadMotion() { return m_bDeadMotion; }
+	_vector Get_EffectDist() { return XMLoadFloat3(&m_vEffectDist); }
+	_uint Get_Count() { return m_iEffectCount; }
 private:
 	CTransform* m_pTargetTransform	= nullptr;
 	CFlogas*		m_pFlogas		= nullptr;
@@ -32,11 +34,14 @@ private:
 	CBasicCollider* m_pOBB			= nullptr;
 	string			m_ScriptName	= {};
 
+	_uint		m_iEffectCount = 0;
 	_float3     m_vTargetPos;
+	_float3     m_vEffectDist;
 	_float3		m_vOriginPos;
 	_float4x4	m_OriginWorld;
 	_float		m_fScale = 1.5f;
 	_double		m_dExplosionTime = 0.0;
+	_double		m_dCreatTime = 0.0;
 
 	_bool m_bMove = false;
 	_bool m_bDeadMotion = false;

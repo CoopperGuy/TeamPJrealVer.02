@@ -49,9 +49,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.129999995, -1.02199996, -4.74100018]
+      Translation: [0.129999995, 0, -4.74100018]
       Rotation: [0, 1.99999964, 0]
-      Scale: [1.63300002, 1.26800013, 0.837000072]
+      Scale: [30, 1.26800013, 30]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -68,9 +68,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, -0.0067692399, -4.43952131]
+      Translation: [0, 0, -4.43952131]
       Rotation: [0, -0, 0]
-      Scale: [3.70357823, 0.199000001, 3.11460805]
+      Scale: [30, 0.199000001, 30]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor3.fbx
@@ -78,7 +78,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -0.0067692399, -4.43952131]
     Rotation: [0, -0, 0]
-    Scale: [3.70357823, 0.199000001, 3.11460805]
+    Scale: [30, 0.199000001, 30]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor3.fbx
     HasCollider: false
