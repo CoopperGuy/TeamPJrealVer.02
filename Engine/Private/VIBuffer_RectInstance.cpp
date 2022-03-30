@@ -323,19 +323,14 @@ HRESULT CVIBuffer_RectInstance::Initialize_Radiation()
 		pIV->fRadian = XMConvertToRadians(_float((90 * IQuarter) + (rand() % 90)));
 		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
 
-		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
+		_vector vCamPos = CEngine::GetInstance()->GetCamPosition();
+		vCamPos = XMVectorSetW(vCamPos, 0.f);
+		_vector vLook = XMVector3Normalize(vCamPos - XMLoadFloat4(&pIV->vPosition));
 		_vector AxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
 		_vector vRight = XMVector3Normalize(XMVector3Cross(AxisY, vLook));
 		vRight = XMVector3Normalize(vRight * cosf(pIV->fRadian) + AxisY * sinf(pIV->fRadian));
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
-		XMStoreFloat4(&pIV->vDir, vRight);
-
-		/*_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
-		_vector vRight = XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f);
-		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
-		XMStoreFloat4(&pIV->vDir, vRight);*/
+		XMStoreFloat4(&pIV->vDir, -vRight);
 
 		/*if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 		{
@@ -379,19 +374,20 @@ HRESULT CVIBuffer_RectInstance::Initialize_Cone()
 	for (_uint i = 0; i < m_iNumInstance; ++i)
 	{
 		VTXRECTINST*		pIV = new VTXRECTINST();		
-		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 1.f);
+		pIV->vPosition = _float4(OffsetPosition.x, OffsetPosition.y, OffsetPosition.z, 0.f);
 		pIV->fStartSize = 0.1f + (rand() % 5 * 0.1f);
 		pIV->fStartSpeed = 0.1f + (rand() % 201 * 0.001f);
 		pIV->fRadian = XMConvertToRadians(float(m_fStartRadian + (rand() % ((_int)m_fRadiationAngle + 1) - ((_int)m_fRadiationAngle / 2))));
 		//XMStoreFloat4(&pIV->vDir, XMVectorSet(cosf(pIV->fRadian), sinf(pIV->fRadian), 0.f, 0.f));
 
-		_vector vLook = XMVector3Normalize(CEngine::GetInstance()->GetCamPosition()) - XMLoadFloat4(&pIV->vPosition);
+		_vector vCamPos = CEngine::GetInstance()->GetCamPosition();
+		vCamPos = XMVectorSetW(vCamPos, 0.f);
+		_vector vLook = XMVector3Normalize(vCamPos - XMLoadFloat4(&pIV->vPosition));
 		_vector AxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
 		_vector vRight = XMVector3Normalize(XMVector3Cross(AxisY, vLook));
 		vRight = XMVector3Normalize(vRight * cosf(pIV->fRadian) + AxisY * sinf(pIV->fRadian));
 		_vector vUp = XMVector3Normalize(XMVector3Cross(vLook, vRight));
-		vRight = XMVector3Normalize(XMVector3Cross(vUp, vLook));
-		XMStoreFloat4(&pIV->vDir, vRight);
+		XMStoreFloat4(&pIV->vDir, -vRight);
 
 		/*if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 		{
