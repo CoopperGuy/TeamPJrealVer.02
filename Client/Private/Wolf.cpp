@@ -45,7 +45,7 @@ HRESULT CWolf::Initialize(_float3 position)
 	m_pStat->SetSTATE(CStat::STATES_IDEL);
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,3.f,position.z });
-	m_pCollider->SetPosition(_float3(0, 0, 0));
+	m_pCollider->SetPosition(_float3(position.x, position.y, position.z));
 
 	SetUpAnimation();
 	m_pCurState = IDLE0;
