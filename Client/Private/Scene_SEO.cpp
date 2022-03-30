@@ -35,7 +35,6 @@ HRESULT CScene_SEO::Render()
 HRESULT CScene_SEO::ReadyScript()
 {
 	//CWolf::Create(nullptr);
-	//CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 
 	//_float3 one = { 4.f,2.f,4.f };
 	//_float3 two = { 16.f,2.f,16.f };

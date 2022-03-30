@@ -52,7 +52,6 @@ inline std::future<typename std::result_of<F(Args...)>::type> CThreadLoader::Enq
 	m_fMax_Jobs++;
 	m_cv_Job_Queue.notify_one();
 
-
 	return job_result_future;
 
 }
