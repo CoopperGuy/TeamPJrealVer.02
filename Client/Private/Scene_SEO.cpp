@@ -5,6 +5,7 @@
 #include "FlogasDunDoor.h"
 #include "Wolf.h"
 #include "Ursa.h"
+#include "DropRock.h"
 USING(Client)
 
 CScene_SEO::CScene_SEO(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -24,6 +25,7 @@ HRESULT CScene_SEO::Initialize()
 
 _uint CScene_SEO::Update(_double TimeDelta)
 {
+
 	return _uint();
 }
 
@@ -36,9 +38,9 @@ HRESULT CScene_SEO::ReadyScript()
 {
 	//CWolf::Create(nullptr);
 
-	//_float3 one = { 4.f,2.f,4.f };
-	//_float3 two = { 16.f,2.f,16.f };
-	//_float3 three = { 28.f,2.f,28.f };
+	//_float3 one = { 3.f,2.f,3.f };
+	//_float3 two = { 5.f,2.f,5.f };
+	//_float3 three = { 5.f,2.f,5.f };
 	//m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
 	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), SCENE_SEO);
 	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);

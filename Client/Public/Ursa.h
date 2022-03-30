@@ -88,6 +88,8 @@ private:
 	_uint m_iThir		= 0;
 	_uint m_iLast		= 0;
 
+	_uint m_iMakeDust = 0;
+
 	_bool m_bCombat[Phase_End] = {};
 	_bool m_bDeadMotion		   = false;
 	_bool m_bCenter			   = false;

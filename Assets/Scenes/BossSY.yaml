@@ -21,3 +21,22 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
+  - Name: O_Rock
+    UUID: 9942069659115664186
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.0799999982, 0.0500000007, 0.0799999982]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
+      MeshFileName: DropRock.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

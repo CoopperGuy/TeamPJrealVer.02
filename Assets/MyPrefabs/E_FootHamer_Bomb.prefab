@@ -1,21 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_Ursa_SoilDust
-    UUID: 11605302278683078314
+  - Name: FootHamer_Bomb
+    UUID: 17587500826751517279
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 14
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.999652445, 1.00000143, 0.999992549]
+      Translation: [0.642346501, 1.1709255, -3.44839787]
+      Rotation: [58.7854691, -23.2711487, -9.29382566e-07]
+      Scale: [1.99968565, 1.99979866, 0.999999762]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\fireball_022.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\dust_14.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: false
-      FadeOutDuration: 0
+      FadeOutDuration: 1
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 1
       SpriteNumX: 4
       SpriteNumY: 8
       SpriteTotal: 32
-      SpriteSpeed: 50
-      OffsetColor: [0.768115938, 0.646146655, 0.456416696, 0.0500000007]
+      SpriteSpeed: 20
+      OffsetColor: [1, 0.423440456, 0.115942001, 0]

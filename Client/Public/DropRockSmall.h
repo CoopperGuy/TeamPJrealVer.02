@@ -2,12 +2,12 @@
 #include "IScriptObject.h"
 #include "Engine.h"
 BEGIN(Client)
-class CDropRock :
+class CDropRockSmall :
 	public IScriptObject
 {
 public:
-	CDropRock();
-	virtual ~CDropRock() = default;
+	CDropRockSmall();
+	virtual ~CDropRockSmall() = default;
 
 public:
 	virtual HRESULT Initailze(CGameObject * pArg, _vector pos);
@@ -31,11 +31,12 @@ private:
 
 	_float Speed = 3.f;
 
-	_float tempsp = 0.f;
-
 	_float Time = 0.f;
+
+	int randompos = 0;
+	int randomX = 0.f;
 public:
-	static CDropRock*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f});
+	static CDropRockSmall*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f});
 	virtual void Free() override;
 };
 
