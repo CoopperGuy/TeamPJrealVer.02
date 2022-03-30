@@ -57,7 +57,7 @@ void CEffectDropRock::Update(_double deltaTime)
 	if (!m_pGameObject)
 		return;
 
-	if (0.9f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	if (1.7f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
 		deaddt += deltaTime;
 	}
@@ -74,6 +74,8 @@ void CEffectDropRock::LateUpdate(_double deltaTime)
 
 	if (deaddt >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 	{
+		cout << XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) << endl;
+
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

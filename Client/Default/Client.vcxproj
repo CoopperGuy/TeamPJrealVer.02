@@ -207,6 +207,7 @@
     <ClInclude Include="..\Public\EAFireBall.h" />
     <ClInclude Include="..\Public\EffectBloodDecal.h" />
     <ClInclude Include="..\Public\EffectDropRock.h" />
+    <ClInclude Include="..\Public\EffectDropRockDust.h" />
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
@@ -373,6 +374,7 @@
     <ClCompile Include="..\Private\EffectBlood.cpp" />
     <ClCompile Include="..\Private\EffectBloodDecal.cpp" />
     <ClCompile Include="..\Private\EffectDropRock.cpp" />
+    <ClCompile Include="..\Private\EffectDropRockDust.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
     <ClCompile Include="..\Private\EffectFireBall.cpp" />
