@@ -1,31 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_RockEff
-    UUID: 6110740209620566118
+  - Name: E_RockDecal
+    UUID: 11203407320222714002
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [-0.335000008, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_RectInstance:
-      Shape: 0
-      InstNum: 100
-      Color: [1, 1.03169227, 1.13584793, 0]
-      Speed: 5.4000001
-      LifeTime: 1.89999998
-      Size: 2.20000005
-      StartRadian: 12.1000004
-      RadiationAngle: 30
-      LerpColor: true
-      SrcColor: [1, 0.758033991, 0.304347813, 0]
-      DestColor: [1, 0.946439803, 0.876811624, 0]
+      Scale: [1.5, 0.100000001, 1.5]
+    Com_Decal:
+      {}
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Smoke_001_TEX_PHS.png
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\f_06_blur.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDecal\FX_Crack_007_TEX_KKJ.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -35,15 +25,15 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
+      FadeOut: true
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 0.747952104, 0.275362313, -0.100000001]
+      OffsetColor: [1, 0.695652187, 0, 0]

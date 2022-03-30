@@ -4,6 +4,7 @@
 #include "EffectRockDust.h"
 #include "EventCheck.h"
 #include "EffectDropRock.h"
+#include "EffectUrsaDust.h"
 USING(Client)
 
 CDropRockSmall::CDropRockSmall()
@@ -38,6 +39,10 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		StartPosX = XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION));
 
 		m_pTransform->SetScale(_float3(0.01f, 0.01f, 0.01f));
+
+		_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX));
+		auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+		CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(offset * m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
 	}
 	return S_OK;
 }
