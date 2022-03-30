@@ -185,7 +185,7 @@ GameObjects:
     Layer: Default
     Instancing: false
     Type: Effect
-    PassIndex: 2
+    PassIndex: 18
     BillBord: false
     Com_Transform:
       Translation: [0, 0.485000014, -3.70000005]
@@ -216,4 +216,80 @@ GameObjects:
       SpriteNumY: 4
       SpriteTotal: 64
       SpriteSpeed: 30
+      OffsetColor: [0, 0, 0, 0]
+  - Name: E_EAFireBall
+    UUID: 16517990980708095272
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 2
+    BillBord: true
+    Com_Transform:
+      Translation: [1.60000002, 0, 0]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.997680962, 0.998773754, 0.995753586]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall8x8.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 25
+      SpriteSpeed: 30
+      OffsetColor: [0, 0, 0, 0]
+  - Name: E_EAFire
+    UUID: 13359879345918171291
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 18
+    BillBord: true
+    Com_Transform:
+      Translation: [0.0787363127, 0.992836535, 0.15544042]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.999136209, 1.00194907, 0.999437511]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Explosion01-light_5x5.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 3
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 3
+      SpriteNumX: 5
+      SpriteNumY: 5
+      SpriteTotal: 25
+      SpriteSpeed: 25
       OffsetColor: [0, 0, 0, 0]
