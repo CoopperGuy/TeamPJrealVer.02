@@ -310,9 +310,6 @@
     <ClInclude Include="..\Public\EffectEAFire.h">
       <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\FlogasDunDoor.h">
-      <Filter>02.GameObjects\Map\Door</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\EAFireBall.h">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClInclude>
@@ -432,6 +429,15 @@
     </ClInclude>
     <ClInclude Include="..\Public\FootHammer_Decal.h">
       <Filter>05.Effect\FlogasDungeon\FootHammer\FloorDecal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectRockDecal.h">
+      <Filter>05.Effect\Ursa\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\FlogasDunDoor.h">
+      <Filter>02.GameObjects\Map\Door\Flogas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\UrsaDunDoor.h">
+      <Filter>02.GameObjects\Map\Door\Ursa</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -726,9 +732,6 @@
     <ClCompile Include="..\Private\EffectEAFire.cpp">
       <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\FlogasDunDoor.cpp">
-      <Filter>02.GameObjects\Map\Door</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\EAFireBall.cpp">
       <Filter>02.GameObjects\Character\Enemy\WaterEA</Filter>
     </ClCompile>
@@ -851,6 +854,15 @@
     </ClCompile>
     <ClCompile Include="..\Private\FootHammer_Decal.cpp">
       <Filter>05.Effect\FlogasDungeon\FootHammer\FloorDecal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectRockDecal.cpp">
+      <Filter>05.Effect\Ursa\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\FlogasDunDoor.cpp">
+      <Filter>02.GameObjects\Map\Door\Flogas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\UrsaDunDoor.cpp">
+      <Filter>02.GameObjects\Map\Door\Ursa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1290,6 +1302,12 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FootHammer\FloorDecal">
       <UniqueIdentifier>{6bbce7a7-4767-482f-9e11-adc5ccbae1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Door\Flogas">
+      <UniqueIdentifier>{dfd1bf7b-2bb5-404f-a89e-5ddc379c31c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Door\Ursa">
+      <UniqueIdentifier>{ef7e9a1b-750b-4b9d-82b8-a2d939504f5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

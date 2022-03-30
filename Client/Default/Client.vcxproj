@@ -210,6 +210,7 @@
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\EffectRockDecal.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
@@ -308,6 +309,7 @@
     <ClInclude Include="..\public\ThreadLoader.h" />
     <ClInclude Include="..\public\TownPortal.h" />
     <ClInclude Include="..\Public\Ursa.h" />
+    <ClInclude Include="..\Public\UrsaDunDoor.h" />
     <ClInclude Include="..\Public\WaterEA.h" />
     <ClInclude Include="..\public\Winds.h" />
     <ClInclude Include="..\Public\Wolf.h" />
@@ -387,6 +389,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
+    <ClCompile Include="..\Private\EffectRockDecal.cpp" />
     <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
@@ -469,6 +472,7 @@
     <ClCompile Include="..\private\ThreadLoader.cpp" />
     <ClCompile Include="..\private\TownPortal.cpp" />
     <ClCompile Include="..\Private\Ursa.cpp" />
+    <ClCompile Include="..\Private\UrsaDunDoor.cpp" />
     <ClCompile Include="..\Private\WaterEA.cpp" />
     <ClCompile Include="..\private\Winds.cpp" />
     <ClCompile Include="..\Private\Wolf.cpp" />

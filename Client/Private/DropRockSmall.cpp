@@ -26,10 +26,10 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		randomX = rand() % 10;
 
 
-		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1 );
+		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1);
 
 
-	
+
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 		MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
@@ -38,11 +38,15 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		StartPosY = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
 		StartPosX = XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION));
 
-		m_pTransform->SetScale(_float3(0.01f, 0.01f, 0.01f));
+		m_pTransform->SetScale(_float3(randomX * 0.001f, randomX * 0.001f, randomX * 0.001f));
 
-		_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX));
-		auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-		CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(offset * m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
+
+		int random = rand() % 3;
+		if (random == 0) {
+			_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX));
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(offset * m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 	}
 	return S_OK;
 }
@@ -56,17 +60,17 @@ void CDropRockSmall::Update(_double deltaTime)
 	XMVector3Normalize(MyPos);
 
 	PosY = StartPosY + (3.5f * Time - 0.5f * 9.8f * Time * Time);
-	Time += (_float)deltaTime * 0.5f; //시간값을 해줘야함 
+	Time += (_float)deltaTime * 0.1* randomX; //시간값을 해줘야함 
 
 
 
 	if (randompos == 0) {
 		PosX -= /*deltaTime**/0.003f * randomX;
-		PosZ -= /*deltaTime**/0.002f * randomX;
+		PosZ += /*deltaTime**/0.005f * randomX;
 	}
 	else {
 		PosX += /*deltaTime**/0.003f * randomX;
-		PosZ += /*deltaTime**/0.002f * randomX;
+		PosZ -= /*deltaTime**/0.005f * randomX;
 
 	}
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ PosX,PosY,PosZ });
