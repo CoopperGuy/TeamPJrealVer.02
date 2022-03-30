@@ -8,14 +8,14 @@ GameObjects:
     PassIndex: 0
     NumOBB: 2
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [100, 100, 100]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
       Radius: 0.100000001
-      Height: 0.100000001
+      Height: 0.200000001
       Angle:
         - 0
         - 0
