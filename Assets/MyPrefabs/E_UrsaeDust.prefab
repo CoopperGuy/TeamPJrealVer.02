@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_UrsaeDust
-    UUID: 2759160416923108739
+    UUID: 5120974272251489655
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0.209957123, 0]
-      Rotation: [0, -0, 0]
-      Scale: [2.4000001, 0.800000012, 2]
+      Translation: [-0.0168395545, 1.0680685, 0.160352141]
+      Rotation: [-14.616951, -5.14228296, 1.07152943e-07]
+      Scale: [2.37476563, 0.800166726, 2.00598788]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -24,16 +24,16 @@ GameObjects:
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
+      DistortionBias: 0.25
+      FadeOut: true
+      FadeOutDuration: 2.75
+      FadeOutStratTime: 0.25
+      FadeIn: true
+      FadeInDuration: 0.25
       FadeInStratTime: 0
-      EffectDuration: 0
+      EffectDuration: 3
       SpriteNumX: 8
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 70
-      OffsetColor: [1, 1, 1, 0.3]
+      OffsetColor: [0, 0, 0, -0.5]

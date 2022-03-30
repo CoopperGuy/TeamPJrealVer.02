@@ -1,20 +1,20 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Ursa_SoilDust
-    UUID: 11605302278683078314
+    UUID: 5305419133825331868
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 14
+    PassIndex: 17
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.999652445, 1.00000143, 0.999992549]
+      Translation: [1.41224837, 0.540380895, 0.14303574]
+      Rotation: [7.36781597, 4.87502527, -5.3554615e-08]
+      Scale: [0.935916066, 1.00209224, 0.889537394]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 50
-      OffsetColor: [0.768115938, 0.646146655, 0.456416696, 0.0500000007]
+      OffsetColor: [0.369565189, 0.286546916, 0.286546916, -0.25999999]
