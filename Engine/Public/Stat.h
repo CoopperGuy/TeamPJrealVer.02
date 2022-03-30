@@ -51,6 +51,7 @@ public:
 	void SetStatusEffect(STATUSEFFECT _effect) { m_StatusEffect = STATUSEFFECT(m_StatusEffect | _effect); }
 	void ShutStatusEffect(STATUSEFFECT _effect) { m_StatusEffect &= ~_effect; }
 	void SetSlow(_bool _isSlow) { m_bisSlow = _isSlow; }
+	void SetUpBonusStat(_float _boAtk, _float _boArmor, _float _boHp);
 public:
 	_bool GetIsImmortal() { return m_tStat.isImmortal; }
 	_bool GetIsSlow() { return m_bisSlow; }

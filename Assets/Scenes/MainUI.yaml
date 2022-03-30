@@ -234,6 +234,8 @@ GameObjects:
       Scale: [0.800000012, 0.800000012]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 5923592597401862741
   - Name: EscMenu
@@ -257,6 +259,7 @@ GameObjects:
     Children:
       - 529759806022810624
       - 16786830591833640957
+      - 811462122791456894
   - Name: TextLine
     UUID: 5923592597401862741
     Active: false
@@ -299,6 +302,8 @@ GameObjects:
       Scale: [0.800000012, 0.800000012]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 3633483967520159922
   - Name: TextLine
@@ -400,6 +405,8 @@ GameObjects:
       Scale: [0.649999976, 0.649999976]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 7651156532380057483
   - Name: QuickRegi1
@@ -426,6 +433,8 @@ GameObjects:
       Scale: [0.649999976, 0.649999976]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 17528326666143867850
   - Name: QuickRegi2
@@ -452,6 +461,8 @@ GameObjects:
       Scale: [0.649999976, 0.649999976]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 4231274138471713980
   - Name: QuickRegi3
@@ -478,6 +489,8 @@ GameObjects:
       Scale: [0.649999976, 0.649999976]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
     Children:
       - 5413296028055816498
   - Name: QuickRegiIcon
@@ -588,6 +601,8 @@ GameObjects:
       Scale: [0.899999976, 0.899999976]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: LevelFont20
     UUID: 7440413138310284788
     Active: true
@@ -809,6 +824,52 @@ GameObjects:
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: SelectStatusHud
+    UUID: 811462122791456894
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [167.802002, 390]
+      Size: [264.524994, 103.958]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: " \n  Status"
+      Color: [0.869565248, 0.869565248, 0.869565248, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+    Children:
+      - 11329878301795121800
+  - Name: TextLine
+    UUID: 11329878301795121800
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [167.802002, 369.765411]
+      Size: [264.524994, 1]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""

@@ -1,0 +1,392 @@
+Scene: Untitled
+GameObjects:
+  - Name: StatusUI
+    UUID: 12709825739729054496
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 320]
+      Size: [512, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Status\Alret_BG_Center_Black.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Children:
+      - 9091233226383742767
+  - Name: Level
+    UUID: 6912300890169422044
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [452.161224, 250.481888]
+      Size: [50, 50]
+    Com_Text:
+      Text: "레벨 :"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: HP
+    UUID: 17443005186602383772
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [460.023651, 300.481873]
+      Size: [50, 50]
+    Com_Text:
+      Text: "HP :"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: Damage
+    UUID: 8550060210867383614
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [449.016266, 350.481873]
+      Size: [83.5992889, 50]
+    Com_Text:
+      Text: "공격력 :"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: Armor
+    UUID: 10656871281608856041
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [445.871277, 400.481873]
+      Size: [76.6567001, 50]
+    Com_Text:
+      Text: "방어력 : "
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: LevelText
+    UUID: 12794265163873800249
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [500.161224, 236.481888]
+      Size: [280.646942, 50]
+    Com_Text:
+      Text: 1
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: HpText
+    UUID: 1253097232667895360
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [500.161224, 286.481873]
+      Size: [362.022217, 50]
+    Com_Text:
+      Text: 100/100
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: DamageText
+    UUID: 7607378244828085113
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [500.161224, 336.481873]
+      Size: [529.497375, 50]
+    Com_Text:
+      Text: 10
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: ArmorText
+    UUID: 5268911192690237220
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [500.161224, 386.481873]
+      Size: [542.307861, 50]
+    Com_Text:
+      Text: 10
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: Critical
+    UUID: 2167238301946583713
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [745.183533, 250.481888]
+      Size: [96.205101, 50]
+    Com_Text:
+      Text: "치명타 : "
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: CriticalText
+    UUID: 10508006170069821950
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [786.893433, 236.481888]
+      Size: [310.613831, 50]
+    Com_Text:
+      Text: 10
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: Stamina
+    UUID: 56851600297184099
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [745.183594, 300.481995]
+      Size: [133.535477, 50]
+    Com_Text:
+      Text: "스태미나 : "
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: StaminaText
+    UUID: 722525955919866688
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [785.320801, 286.602478]
+      Size: [1118.74463, 50]
+    Com_Text:
+      Text: 100/100
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: Exp
+    UUID: 6012561743349372969
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [746.75592, 350.481995]
+      Size: [96.813652, 50]
+    Com_Text:
+      Text: "경험치 : "
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: ExpText
+    UUID: 17741985947360242821
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [788.46582, 336.481995]
+      Size: [846.013672, 50]
+    Com_Text:
+      Text: 100/100
+      Color: [1, 1, 1, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: BonusHp
+    UUID: 14297763216866354567
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [633.391479, 289]
+      Size: [1334.27014, 50]
+    Com_Text:
+      Text: + 10
+      Color: [0.521739125, 1, 0, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: BonusAtk
+    UUID: 8415633789692687755
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [633.390991, 339]
+      Size: [3718.48608, 50]
+    Com_Text:
+      Text: + 10
+      Color: [0.522000015, 1, 0, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: BonusDef
+    UUID: 3239553370989332722
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [633.390991, 389]
+      Size: [1758.69165, 50]
+    Com_Text:
+      Text: + 10
+      Color: [0.522000015, 1, 0, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false
+  - Name: Texts
+    UUID: 9091233226383742767
+    Active: false
+    Layer: Texts
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [444.275177, 258]
+      Size: [50, 50]
+    Children:
+      - 6912300890169422044
+      - 17443005186602383772
+      - 8550060210867383614
+      - 10656871281608856041
+      - 2167238301946583713
+      - 56851600297184099
+      - 6012561743349372969
+      - 12794265163873800249
+      - 1253097232667895360
+      - 7607378244828085113
+      - 5268911192690237220
+      - 10508006170069821950
+      - 722525955919866688
+      - 17741985947360242821
+      - 14297763216866354567
+      - 8415633789692687755
+      - 3239553370989332722

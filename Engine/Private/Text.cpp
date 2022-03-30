@@ -9,16 +9,19 @@ CText::CText(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
 {
 	m_pSpriteBatch = CEngine::GetInstance()->GetSpriteBatch();
 	m_pSpriteFont = CEngine::GetInstance()->GetSpriteFont();
+	m_pSpriteKoreanFont = CEngine::GetInstance()->GetSpriteKoreanFont();
 }
 
 CText::CText(const CText & rhs)
 	: CComponent(rhs)
 	, m_pSpriteBatch(rhs.m_pSpriteBatch)
 	, m_pSpriteFont(rhs.m_pSpriteFont)
+	, m_pSpriteKoreanFont(rhs.m_pSpriteKoreanFont)
 	, m_strText(rhs.m_strText)
 	, m_vColor(rhs.m_vColor)
 	, m_fLayerDepth(rhs.m_fLayerDepth)
 	, m_bisShaderCut(rhs.m_bisShaderCut)
+	, m_bIsKorean(rhs.m_bIsKorean)
 {
 }
 
@@ -93,6 +96,7 @@ HRESULT CText::Render()
 		m_pDeviceContext->RSSetScissorRects(1, &rt);
 	});
 
+
 	/*_float padding = desc.sizeX / 5.f;
 	_float textWidth = (desc.sizeX - padding) * xFactor;
 
@@ -126,11 +130,25 @@ HRESULT CText::Render()
 	//if(MultiByteToWideChar(437,MB_PRECOMPOSED,newStr.c_str(),newStr.length(), unicode,newStr.length())){
 	//}
 	if (!m_bisCenter) {
-		vPos = { desc.posX * xFactor ,desc.posY * yFactor };
-		m_pSpriteFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+		if (m_bIsKorean) {
+			vPos = { desc.posX * xFactor ,desc.posY * yFactor };
+			m_pSpriteKoreanFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+
+		}
+		else {
+			vPos = { desc.posX * xFactor ,desc.posY * yFactor };
+			m_pSpriteFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+
+		}
 	}
 	else {
-		m_pSpriteFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+		if (m_bIsKorean) {
+			m_pSpriteKoreanFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+
+		}
+		else {
+			m_pSpriteFont->DrawString(m_pSpriteBatch, m_strText.c_str(), vPos, XMLoadFloat4(&m_vColor), 0.f, XMFLOAT2(0.f, 0.f), _float2{ m_vScale.x * xFactor, m_vScale.y * yFactor }, DirectX::SpriteEffects_None, m_fLayerDepth);
+		}
 	}
 	m_pSpriteBatch->End();
 

@@ -9,6 +9,7 @@ BEGIN(Client)
 
 class CBackPackHud;
 class CQuestHud;
+class CStatusUI;
 
 class CMenuHud :
 	public IScriptObject
@@ -17,6 +18,7 @@ class CMenuHud :
 	{
 		MENU_EQUIP,
 		MENU_QUEST,
+		MENU_STATUS,
 		MENU_END
 	};
 private:
@@ -45,6 +47,7 @@ private:
 private:
 	CBackPackHud*		m_pBackPack = nullptr;
 	CQuestHud*			m_pQuestHud = nullptr;
+	CStatusUI*			m_pStatus = nullptr;
 	CInventory*			m_pInven = nullptr;
 private:
 	_bool				m_bisActive = false;

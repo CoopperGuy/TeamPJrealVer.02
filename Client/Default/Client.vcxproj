@@ -303,6 +303,7 @@
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\Public\SpriteBomb.h" />
     <ClInclude Include="..\Public\SpriteFire.h" />
+    <ClInclude Include="..\public\StatusUI.h" />
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TargetOn.h" />
     <ClInclude Include="..\public\TestMonster.h" />
@@ -466,6 +467,7 @@
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\Private\SpriteBomb.cpp" />
     <ClCompile Include="..\Private\SpriteFire.cpp" />
+    <ClCompile Include="..\private\StatusUI.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TargetOn.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />

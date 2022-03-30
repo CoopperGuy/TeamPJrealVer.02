@@ -49,7 +49,7 @@ public:
 	ID3D11DepthStencilView*		GetDepthStencilRenderTargetView();
 	SpriteBatch*				GetSpriteBatch();
 	SpriteFont*					GetSpriteFont();
-
+	SpriteFont*					GetSpriteKoreanFont();
 	_float2						GetCurrentWindowSize();
 
 

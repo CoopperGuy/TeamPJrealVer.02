@@ -60,7 +60,7 @@ void CDropRockSmall::Update(_double deltaTime)
 	XMVector3Normalize(MyPos);
 
 	PosY = StartPosY + (3.5f * Time - 0.5f * 9.8f * Time * Time);
-	Time += (_float)deltaTime * 0.1* randomX; //½Ã°£°ªÀ» ÇØÁà¾ßÇÔ 
+	Time += (_float)deltaTime * 0.1* randomX; //Â½ÃƒÂ°Â£Â°ÂªÃ€Â» Ã‡Ã˜ÃÃ Â¾ÃŸÃ‡Ã” 
 
 
 

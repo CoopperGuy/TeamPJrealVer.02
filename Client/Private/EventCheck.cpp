@@ -134,6 +134,7 @@ void CEventCheck::RemoveItem(ITEMTYPE _type, _int _idx)
 		m_pBackPackHud->RemoveItem(_type, _idx);
 }
 
+
 _float3 CEventCheck::GetLockOnPos()
 {
 	if (m_pPlayerScript)

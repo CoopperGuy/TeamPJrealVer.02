@@ -37,6 +37,7 @@ public:
 	ID3D11ShaderResourceView*	GetShaderResourceView() { return m_pShaderResourceView.Get(); }
 	SpriteBatch*				GetSpriteBatch() { return m_pSpriteBatch.get(); }
 	SpriteFont*					GetSpriteFont() { return m_pSpriteFont.get(); }
+	SpriteFont*					GetSpriteKoreanFont() { return m_pSpriteKoreanFont.get(); }
 
 	_float2						GetCurrentWindowSize() { return m_currentWindowSize; }
 	// Take this to camera later
@@ -66,6 +67,7 @@ private:
 
 	Scope<DirectX::SpriteBatch>			m_pSpriteBatch;
 	Scope<DirectX::SpriteFont>			m_pSpriteFont;
+	Scope<DirectX::SpriteFont>			m_pSpriteKoreanFont;
 
 	XMMATRIX					g_World1;
 	XMMATRIX					g_World2;
