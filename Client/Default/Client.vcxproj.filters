@@ -386,7 +386,7 @@
       <Filter>05.Effect\PlayerEffect\AuraEffect</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\EffectRockDust.h">
-      <Filter>05.Effect\Instance\RockDust</Filter>
+      <Filter>05.Effect\Ursa\Rock\RockDust</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\FlyLight.h">
       <Filter>05.Effect\FlogasDungeon\Fly</Filter>
@@ -420,6 +420,12 @@
     </ClInclude>
     <ClInclude Include="..\Public\EffectSoilDust.h">
       <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectDropRock.h">
+      <Filter>05.Effect\Ursa\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\DropRockSmall.h">
+      <Filter>02.GameObjects\Map\Rock</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\FootHammer_Bomb.h">
       <Filter>05.Effect\FlogasDungeon\FootHammer\Bomb</Filter>
@@ -796,7 +802,7 @@
       <Filter>05.Effect\PlayerEffect\AuraEffect</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectRockDust.cpp">
-      <Filter>05.Effect\Instance\RockDust</Filter>
+      <Filter>05.Effect\Ursa\Rock\RockDust</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Scene_GamePlay.cpp">
       <Filter>01.Scenes\GamePlay</Filter>
@@ -833,6 +839,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\EffectUrsaDust.cpp">
       <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectDropRock.cpp">
+      <Filter>05.Effect\Ursa\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\DropRockSmall.cpp">
+      <Filter>02.GameObjects\Map\Rock</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\FootHammer_Bomb.cpp">
       <Filter>05.Effect\FlogasDungeon\FootHammer\Bomb</Filter>
@@ -1240,9 +1252,6 @@
     <Filter Include="05.Effect\PlayerEffect\AuraEffect">
       <UniqueIdentifier>{a6f523b4-a235-4b65-abe0-95078fca832e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Effect\Instance\RockDust">
-      <UniqueIdentifier>{9cd9a968-a044-4812-891a-e208a8af8dbb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="97.Manager\ThreadPool">
       <UniqueIdentifier>{d9fbb0a9-0f8d-454d-8ef7-21d4bb5c9b71}</UniqueIdentifier>
     </Filter>
@@ -1266,6 +1275,12 @@
     </Filter>
     <Filter Include="05.Effect\Ursa\Dust">
       <UniqueIdentifier>{e0a1b44a-3649-4c35-8b58-d494aa575171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Rock">
+      <UniqueIdentifier>{1180137d-b07b-4ef0-b482-7fd4f1e33f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Rock\RockDust">
+      <UniqueIdentifier>{9cd9a968-a044-4812-891a-e208a8af8dbb}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FootHammer">
       <UniqueIdentifier>{756e2d84-0918-4cb9-ae8f-0d77066b7e4e}</UniqueIdentifier>

@@ -198,8 +198,11 @@ HRESULT CLoader::GameUrsaLoader()
 {
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_UrsaeDust", 1);
-	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 2));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_RockEff", 2));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DropRockEff", "E_RockEff2", 4));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_RockSmall", "O_RockSmall", 5));
+  
 	m_iCompleteBit = 0;
 
 	return S_OK;
@@ -441,12 +444,10 @@ HRESULT CLoader::GameSceneSEO()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
 
-
-	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_InsDust", 0));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
-	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 2));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeonSY.yaml", SCENE_SEO, 3));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 3));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
+
 
 
 

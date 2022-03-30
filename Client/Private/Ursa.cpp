@@ -895,27 +895,29 @@ void CUrsa::OrganizeEffect()
 	case Client::CUrsa::Combo_1Hold:
 		break;
 	case Client::CUrsa::Combo_1: {
-		int i = 0;
-		if (keyFrame == 19 && i <= 1) {
-			++i;
+		if (keyFrame == 19 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
-			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+		else
+			m_iMakeDust = 0;
 	}
 		break;
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start: {
-			int i = 0;
-		if (keyFrame == 39 && i<=1) {
-			++i;
+		if (keyFrame == 39 && m_iMakeDust <=1) {
+			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
-			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+		else
+			m_iMakeDust = 0;
 	}
 		break;
 	case Client::CUrsa::Combo_2End:
