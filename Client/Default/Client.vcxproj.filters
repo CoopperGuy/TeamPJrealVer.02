@@ -442,6 +442,9 @@
     <ClInclude Include="..\public\StatusUI.h">
       <Filter>04.UI\StatusHud</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectDropRockDust.h">
+      <Filter>05.Effect\Ursa\Rock\RockDust</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -869,6 +872,9 @@
     </ClCompile>
     <ClCompile Include="..\private\StatusUI.cpp">
       <Filter>04.UI\StatusHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectDropRockDust.cpp">
+      <Filter>05.Effect\Ursa\Rock\RockDust</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

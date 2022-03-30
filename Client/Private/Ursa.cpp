@@ -132,7 +132,7 @@ void CUrsa::Update(_double dDeltaTime)
 	Execute_Pattern(dDeltaTime);
 
 	/*if(!m_bWheelWind && !m_bRoar)*/
-		Checking_Finished();
+	Checking_Finished();
 
 
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
@@ -144,14 +144,14 @@ void CUrsa::Update(_double dDeltaTime)
 
 
 
-	if(m_bCB)
+	if (m_bCB)
 		SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
-	
-	if (m_pCollider) 
+
+	if (m_pCollider)
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
-	
+
 	PxControllerFilters filters;
 	if (IsGravity()) {
 		m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
@@ -161,7 +161,7 @@ void CUrsa::Update(_double dDeltaTime)
 		m_fJumpSpeed = 0.f;
 	}
 
-	Hit();
+	Hit(dDeltaTime);
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -238,8 +238,8 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 	{
 		if (!m_bFar && !m_bSuperFar)
 		{
-			m_bMove		= true;
-			m_bClose	= false;
+			m_bMove = true;
+			m_bClose = false;
 			m_bSuperFar = false;
 		}
 	}
@@ -247,22 +247,22 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 	{
 		if (!m_bFar && !m_bSuperFar)
 		{
-			m_bClose	= true;
-			m_bMove		= false;
+			m_bClose = true;
+			m_bMove = false;
 			m_bSuperFar = false;
 		}
 	}
 
 	if (m_bMove && !m_bFinishBlow)
 	{
-		if(!m_bWheelWind)
+		if (!m_bWheelWind)
 			m_eState = RUN;
 
 		vLook = XMVectorLerp(vLook, vTargetLook, 0.5f);
 		vLook = XMVectorSetY(vLook, 0.f);
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
-		
+
 
 		m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 	}
@@ -273,28 +273,28 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 	_float Max = m_pStat->GetStatInfo().maxHp;
 	if (m_bFinishBlow)
 	{
-		if(m_bDelay)
+		if (m_bDelay)
 			m_dPatternTime += dDeltaTime;
-		
+
 		if (m_pModel->Get_isFinished())
 		{
-			if(!m_bDelay)
+			if (!m_bDelay)
 				SetRotate();
 			m_bDelay = true;
 			m_eState = IDLE_CB;
 		}
-		
+
 		if (m_dPatternTime > 0.5)
 		{
 			m_dPatternTime = 0.0;
-			m_bSuperFar	   = false;
-			m_bFar		   = false;
-			m_bCB		   = false;
-			m_bClose	   = false;
-			m_bDelay	   = false;
-			m_bRoar		   = false;
-			m_bCenter	   = false;
-			m_bFinishBlow  = false;
+			m_bSuperFar = false;
+			m_bFar = false;
+			m_bCB = false;
+			m_bClose = false;
+			m_bDelay = false;
+			m_bRoar = false;
+			m_bCenter = false;
+			m_bFinishBlow = false;
 		}
 	}
 	if (m_pStat->GetStatInfo().hp < Max)
@@ -343,7 +343,7 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 
 void CUrsa::Execute_Pattern(_double dDeltaTime)
 {
-	if(m_bDeadMotion)
+	if (m_bDeadMotion)
 	{
 		Empty_queue();
 		if (m_pMonHp)
@@ -674,7 +674,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 4:
-					if(m_bAddRand)
+					if (m_bAddRand)
 						m_QueState.push(Big_SLASH);
 					else
 						m_QueState.push(AXE_STAMP);
@@ -704,7 +704,7 @@ void CUrsa::SetUp_Combo()
 				default:
 					break;
 				}
-			}	
+			}
 		}
 	}
 }
@@ -821,7 +821,7 @@ _bool CUrsa::IsGravity()
 
 void CUrsa::TestAnimation(Ursa eState)
 {
-	if(CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 		m_eState = eState;
 
 	if (m_pModel->Get_isFinished())
@@ -854,7 +854,7 @@ void CUrsa::Roar()
 void CUrsa::SetRotate()
 {
 	_vector vRight = m_pTransform->GetState(CTransform::STATE_RIGHT);
-	if(m_eState == R_SLASH)
+	if (m_eState == R_SLASH)
 	{
 		m_pTransform->SetLook(vRight);
 	}
@@ -929,11 +929,11 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 	}
 
-		break;
+	break;
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start: {
-		if (keyFrame == 39 && m_iMakeDust <=1) {
+		if (keyFrame == 39 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
@@ -961,7 +961,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 	}
 
-		break;
+	break;
 	case Client::CUrsa::Combo_2End:
 		break;
 	case Client::CUrsa::Combo_3Start:
@@ -992,7 +992,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::WHEELWIND_End:
 		break;
-	case Client::CUrsa::ROAR_Start: 
+	case Client::CUrsa::ROAR_Start:
 		break;
 	case Client::CUrsa::HIT:
 		break;
@@ -1087,35 +1087,44 @@ _fmatrix CUrsa::Remove_ScaleRotation(_fmatrix _srcmatrix)
 	return NonScaleMatrix;
 }
 
-void CUrsa::Hit()
+void CUrsa::Hit(_double dDeltaTime)
 {
 	if (m_pStat->GetStatInfo().hp <= 0)
 		return;
 
-	if (m_pOBB->Get_isHit()) {
 
-		_matrix Translation;
-		_int random = rand() % 7;
-		_int random2 = rand() % 5;
-		_int random3 = rand() % 2;
-		random += 1;
-		if (random3 == 0)
-			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
-		else
-			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+	m_fMKB += (_float)dDeltaTime;
 
-		Translation = m_pTransform->Remove_Scale(Translation);
+	if (m_fMKB >= 0.2f) {
+		if (m_pOBB->Get_isHit()) {
 
-		for (int i = 0; i < 2; ++i) {
 
-			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
-			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+			_matrix Translation;
+			_int random = rand() % 7;
+			_int random2 = rand() % 5;
+			_int random3 = rand() % 2;
+			random += 1;
+			if (random3 == 0)
+				Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+			else
+				Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 
-			//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
-			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
+			Translation = m_pTransform->Remove_Scale(Translation);
+
+			for (int i = 0; i < 2; ++i) {
+
+				CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+				CEngine::GetInstance()->AddScriptObject(m_pBlood = CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+
+				//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
+				//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
+			}
+			CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+
+			m_fMKB = 0;
+
 		}
-		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 	}
 
 }
