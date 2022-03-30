@@ -88,7 +88,7 @@ _bool CLoader::Get_IsEnd()
 HRESULT CLoader::Initialize(SCENE eScene)
 {
 	InitializeCriticalSection(&m_CS);
-	m_threadSize = std::thread::hardware_concurrency() * 2 + 1;
+	m_threadSize = std::thread::hardware_concurrency();
 	m_ThreadLoader = new CThreadLoader(m_threadSize);
 
 	m_eScene = eScene;
