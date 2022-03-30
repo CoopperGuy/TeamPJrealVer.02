@@ -25,6 +25,7 @@
 #include "FlyLight.h"
 #include "EffectBlood.h"
 #include "EffectBloodDecal.h"
+#include "FootHammer_Decal.h"
 #pragma endregion
 
 #include "Obb.h"
@@ -220,7 +221,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
-	OrganizeEffect(m_eState);
+	OrganizeEffect(m_eState, dDeltaTime);
 	Hit();
 
 	if (m_bDeadMotion)
@@ -437,7 +438,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 	else
 	{
 		m_dAniSpeed = 1.f;
-		if (m_iFlyingCount > 3)
+		if (m_iFlyingCount > 1)
 		{
 			m_bFly = true;
 			m_iFlyingCount = 0;
@@ -478,7 +479,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 							continue;
 					}*/
 
-				if (iSecondDrawing < 40)
+				if (iSecondDrawing < 50)
 				{
 					if (m_QueState.back() != FOOTHAMMER)
 						m_QueState.push(FOOTHAMMER);
@@ -802,7 +803,7 @@ _bool CFlogas::OriginShift(_double dDeltaTime)
 	return true;
 }
 
-void CFlogas::OrganizeEffect(Flogas eState)
+void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 {
 	//키프레임으로 이펙트
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
@@ -929,6 +930,28 @@ void CFlogas::OrganizeEffect(Flogas eState)
 				   break;
 	case FOOTHAMMER:
 		m_eCurSTATES = CStat::STATES_IDEL;
+		if (keyFrame >= 30)
+		{
+			if (m_bCreate)
+			{
+				m_dCreateTime += dDeltaTime;
+				if (m_iCreateCount > 4)
+				{
+					m_bCreate = false;
+					m_iCreateCount = 1;
+					m_dCreateTime = 0.0;
+				}
+				if (m_dCreateTime >= 0.3)
+				{
+					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FootHammer_Decal", "E_FootHammer_Decal");
+					CEngine::GetInstance()->AddScriptObject(CFootHammer_Decal::Create((CEmptyEffect*)pGameObject, m_pGameObject, m_iCreateCount,XMLoadFloat3(&m_vTargetToLook)), CEngine::GetInstance()->GetCurSceneNumber());
+					m_dCreateTime = 0.0;
+					++m_iCreateCount;
+				}
+			}
+		}
+		if (m_pModel->Get_isFinished(FOOTHAMMER))
+			m_bCreate = true;
 		break;
 	case STUN:
 		break;

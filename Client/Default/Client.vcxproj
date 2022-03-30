@@ -221,6 +221,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\Public\FootHammer_Bomb.h" />
+    <ClInclude Include="..\Public\FootHammer_Decal.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -406,6 +408,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\Private\FootHammer_Bomb.cpp" />
+    <ClCompile Include="..\Private\FootHammer_Decal.cpp" />
     <ClCompile Include="..\private\Gold.cpp" />
     <ClCompile Include="..\private\Glove.cpp" />
     <ClCompile Include="..\private\GoldAxe.cpp" />

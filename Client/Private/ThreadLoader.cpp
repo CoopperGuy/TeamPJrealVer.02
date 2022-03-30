@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\ThreadLoader.h"
-
+#include <chrono>
 USING(Client)
 
 CThreadLoader::CThreadLoader(size_t _numThreads)
@@ -18,7 +18,8 @@ _float CThreadLoader::loadingPercentage()
 {
 	if (m_fMax_Jobs == 0)
 		return 0.f;
-	
+	for (size_t i = 0; i < m_iNum_Threads; i++) {
+	}
 	return (_float)m_fCur_Jobs / (_float)m_fMax_Jobs;
 }
 
@@ -36,29 +37,31 @@ _bool CThreadLoader::GetIsEnd()
 
 _bool CThreadLoader::GetIsEnable()
 {
-	size_t remain_Jobs = m_fMax_Jobs - m_fCur_Jobs;
-	if (remain_Jobs < m_iNum_Threads / 2)
-		return true;
+	//size_t remain_Jobs = m_fMax_Jobs - m_fCur_Jobs;
+	//if (remain_Jobs < 2)
+	//	return true;
 	return false;
 }
 
 void CThreadLoader::WorkerThread()
 {
 	while (true) {
-		std::unique_lock<std::mutex> lock(m_job_Mutex);
-		if (m_fCur_Jobs == m_fMax_Jobs) {
-			m_bStop_All = true;
-			isEnd = true;
-		}
-		m_cv_Job_Queue.wait(lock, [this]() {return !this->m_jobs.empty() || m_bStop_All; });
-	
-		if (m_bStop_All && this->m_jobs.empty()) {
-			return;
-		}
+		std::function<void()> job;
+		{
+			std::unique_lock<std::mutex> lock(m_job_Mutex);
+			if (m_fCur_Jobs == m_fMax_Jobs) {
+				m_bStop_All = true;
+				isEnd = true;
+			}
+			m_cv_Job_Queue.wait(lock, [this]() {return !this->m_jobs.empty() || m_bStop_All; });
 
-		std::function<void()> job = std::move(m_jobs.front());
-		m_jobs.pop();
-		lock.unlock();
+			if (m_bStop_All && this->m_jobs.empty()) {
+				return;
+			}
+
+			job = std::move(m_jobs.front());
+			m_jobs.pop();
+		}
 
 		job();
 		m_fCur_Jobs++;
@@ -69,8 +72,8 @@ void CThreadLoader::Free()
 {
 	m_bStop_All = true;
 	m_cv_Job_Queue.notify_all();
-
 	for (auto& iter : m_worker_Threads) {
 		iter.join();
 	}
+	m_worker_Threads.clear();
 }

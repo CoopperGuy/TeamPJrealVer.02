@@ -121,8 +121,8 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 				deserializedObject = DeserializeEffect(obj, false, curScene);
 			else
 				deserializedObject = DeserializeObject(obj, false, curScene);
-		/*	if(deserializedObject)
-				cout << deserializedObject->GetName() << "is created \n";*/	
+			if(deserializedObject)
+				cout << deserializedObject->GetName() << "is created \n";
 		}
 	}
 
@@ -774,9 +774,9 @@ CGameObject* CSceneSerializer::DeserializeUI(YAML::Node& obj, _bool bSpawn, _uin
 	auto active = obj["Active"].as<_bool>();
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyUI", layer);
+	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
 
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 
 	auto sortingOrder = obj["SortingOrder"].as<_int>();
 	dynamic_cast<CEmptyUI*>(deserializedObject)->SetSortingOrder(sortingOrder);
@@ -949,6 +949,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyEffect", layer);
+	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
 
 	if (obj["BillBord"])
@@ -956,7 +957,6 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		auto billBord = obj["BillBord"].as<_bool>();
 		static_cast<CEmptyEffect*>(deserializedObject)->SetBillBord(billBord);
 	}
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 
 	if (obj["PassIndex"])
 	{
@@ -1919,6 +1919,7 @@ CGameObject* CSceneSerializer::NoneInstancingObject(YAML::Node & obj, _bool bSpa
 	
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyGameObject", layer);
+	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
 
 	if (obj["PassIndex"])
@@ -1927,7 +1928,6 @@ CGameObject* CSceneSerializer::NoneInstancingObject(YAML::Node & obj, _bool bSpa
 		deserializedObject->SetPassIndex(renderIndex);
 	}
 
-	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetRenderGroup((CRenderer::RENDER)renderGroup);
 	dynamic_cast<CEmptyGameObject*>(deserializedObject)->SetFrustum(FrustumRange);
@@ -2419,7 +2419,8 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, false, 0);
 			else
 				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, false, 0);
-
+			if(deserializedPrototype)
+				cout << "prefab prototype created  : " << deserializedPrototype->GetName() << "\n";
 			auto children = obj["Children"];
 			if (children)
 			{

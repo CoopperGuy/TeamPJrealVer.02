@@ -17,20 +17,12 @@ CLoader::CLoader()
 }
 
 
-_int ThreadTest(CLoader*	loader, string path, SCENE sceneNum, _int threadIdx) {
+void ThreadTest(CLoader*	loader, string path, SCENE sceneNum, _int threadIdx) {
 	CEngine::GetInstance()->DeserializeScene(path, sceneNum);
-	loader->SetFinish(threadIdx);
-	return threadIdx;
 }
 
-_int ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit) {
-	if (FAILED(CEngine::GetInstance()->CreatePrefab(_prototypeTag, _name))) {
-		wstring path;
-		path.assign(_name.begin(), _name.end());
-		wstring errMsg = L"Failed To Create Prefab" + path;
-		MessageBox(NULL, errMsg.c_str(), L"System Message", MB_OK);
-	}
-	return bit;
+void ThreadPrefab(CLoader*	loader, string _prototypeTag, string _name, _int bit) {
+	CEngine::GetInstance()->CreatePrefab(_prototypeTag, _name);
 }
 
 unsigned int APIENTRY ThreadMain(void* pArg)
@@ -96,6 +88,7 @@ _bool CLoader::Get_IsEnd()
 HRESULT CLoader::Initialize(SCENE eScene)
 {
 	InitializeCriticalSection(&m_CS);
+	m_threadSize = std::thread::hardware_concurrency() * 2 + 1;
 	m_ThreadLoader = new CThreadLoader(m_threadSize);
 
 	m_eScene = eScene;
@@ -165,7 +158,6 @@ HRESULT CLoader::GamePlayLoader()
 HRESULT CLoader::GameFlogasLoader()
 {
 
-	std::vector<std::future<_int>> futures;
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BossFly", "E_BossFly", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BossFlyLaser", "E_Laser", 1);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Dust", "E_DustEffect", 2);
@@ -193,6 +185,8 @@ HRESULT CLoader::GameFlogasLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Flash", "E_Flash", 24);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_E_Sprite_Fire", "E_Sprite_Fire", 25);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FlogasEffLight", "O_FlogasLighte", 26);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FootHammer_Decal", "E_FootHammer_Decal", 27);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_FootHamer_Bomb", "E_FootHamer_Bomb", 28);
 
 	m_iCompleteBit = 0;
 
@@ -202,14 +196,13 @@ HRESULT CLoader::GameFlogasLoader()
 
 HRESULT CLoader::GameUrsaLoader()
 {
-	std::vector<std::future<_int>> futures;
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_UrsaeDust", 1);
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_RockEff", 2));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DropRockEff", "E_RockEff2", 4));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_RockSmall", "O_RockSmall", 5));
-
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_RockEff", 2));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DropRockEff", "E_RockEff2", 4));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_RockSmall", "O_RockSmall", 5));
+  
 	m_iCompleteBit = 0;
 
 	return S_OK;
@@ -236,9 +229,9 @@ HRESULT CLoader::GameSceneStage01()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		else if (m_ThreadLoader->GetIsEnable()) {
+		/*else if (m_ThreadLoader->GetIsEnable()) {
 			m_isFinish = true;
-		}
+		}*/
 	}
 	return S_OK;
 }
@@ -248,13 +241,13 @@ HRESULT CLoader::GameSceneStage02()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -22.f));
 
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2);
-	m_pLoadingGauge->SetPercentage(60.f);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2);
-	m_pLoadingGauge->SetPercentage(50.f);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2);
+	//m_pLoadingGauge->SetPercentage(60.f);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2);
+	//m_pLoadingGauge->SetPercentage(50.f);
 
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2, 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2, 1);
 
 
 	if (FAILED(GameFlogasLoader()))
@@ -272,9 +265,9 @@ HRESULT CLoader::GameSceneStage02()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		else if (m_ThreadLoader->GetIsEnable()) {
+	/*	else if (m_ThreadLoader->GetIsEnable()) {
 			m_isFinish = true;
-		}
+		}*/
 	}
 	return S_OK;
 }
@@ -311,33 +304,31 @@ HRESULT CLoader::GameSceneStage03()
 
 HRESULT CLoader::GameSceneLogo()
 {
-	std::vector<std::future<_int>> futures;
-
 	CEngine::GetInstance()->DeserializePrefab();
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Player.yaml", SCENE_STATIC, 6));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Equip.yaml", SCENE_STATIC, 7));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/MainUI.yaml", SCENE_STATIC, 1));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml", SCENE_STATIC, 2));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Player.yaml", SCENE_STATIC, 6));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Equip.yaml", SCENE_STATIC, 7));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/LogoTest.yaml", SCENE_LOGO, 0));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/MainUI.yaml", SCENE_STATIC, 1));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml", SCENE_STATIC, 2));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/QuestUI.yaml", SCENE_STATIC, 3));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Flare", "E_Flare", 6));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Wind", "E_Winds", 7));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ChargeEffect", "E_ChargeEffect", 8));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_AuraEffect", "E_AuraEffect", 9));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BloodDecal", "E_BloodDecal", 10));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DecalCrash", "E_DecalCrash", 11));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IBlood", "E_IBlood", 12));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactGround", "E_ImpactGround2", 3));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Flare", "E_Flare", 6));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Wind", "E_Winds", 7));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ChargeEffect", "E_ChargeEffect", 8));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_AuraEffect", "E_AuraEffect", 9));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_BloodDecal", "E_BloodDecal", 10));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DecalCrash", "E_DecalCrash", 11));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IBlood", "E_IBlood", 12));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -349,9 +340,9 @@ HRESULT CLoader::GameSceneLogo()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		else if(m_ThreadLoader->GetIsEnable()){
+		/*else if(m_ThreadLoader->GetIsEnable()){
 			m_isFinish = true;
-		}
+		}*/
 	}
 
 
@@ -364,8 +355,8 @@ HRESULT CLoader::GameSceneKIM()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 2.f));
 
-	std::vector<std::future<_int>> futures;
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM);
+	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM);
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -384,9 +375,8 @@ HRESULT CLoader::GameSceneKIM()
 
 HRESULT CLoader::GameSceneLEE()
 {
-	std::vector<std::future<_int>> futures;
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -410,17 +400,24 @@ HRESULT CLoader::GameSceneJUN()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(1.f, 0.5f, -4.f));
 
-	std::vector<std::future<_int>> futures;
 
+
+	/*CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
+	m_pLoadingGauge->SetPercentage(50.f);*/
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG);
+	//m_pLoadingGauge->SetPercentage(50.f);
+	
+	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
 	//m_pLoadingGauge->SetPercentage(50.f);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
-	m_pLoadingGauge->SetPercentage(50.f);
-	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG);
-	m_pLoadingGauge->SetPercentage(50.f);
+  
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
+	//m_pLoadingGauge->SetPercentage(50.f);
+	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG);
+	//m_pLoadingGauge->SetPercentage(50.f);
 	
-	//futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
-	//futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG, 1);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
@@ -447,11 +444,10 @@ HRESULT CLoader::GameSceneSEO()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
 
-	std::vector<std::future<_int>> futures;
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 3));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
 
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 3));
-	futures.emplace_back(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
 
 
 

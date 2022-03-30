@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\EffectFlash.h"
 #include "SpriteFire.h"
+#include "El_Flogas.h"
 
 USING(Client)
 
@@ -15,8 +16,8 @@ HRESULT CEffectFlash::Initialize(CEmptyEffect* pThis, CGameObject* pTarget, CEl_
 	m_pEl = &pEl;
 	CTransform* pTargetTrans = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
-	
 	_vector vTargetPos = pTargetTrans->GetState(CTransform::STATE_POSITION);
+	vTargetPos += m_pEl->Get_EffectDist() * (_float)m_pEl->Get_Count() * 0.1f;
 	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 	m_fScale = m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
