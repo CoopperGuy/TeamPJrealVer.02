@@ -1089,42 +1089,45 @@ _fmatrix CUrsa::Remove_ScaleRotation(_fmatrix _srcmatrix)
 
 void CUrsa::Hit(_double dDeltaTime)
 {
+	if (m_eState == DEADBODY || m_eState == DIE)
+		return;
+
+
 	if (m_pStat->GetStatInfo().hp <= 0)
 		return;
 
 
-	m_fMKB += (_float)dDeltaTime;
+	//m_fMKB += (_float)dDeltaTime;
 
-	if (m_fMKB >= 0.2f) {
-		if (m_pOBB->Get_isHit()) {
+	//if (m_fMKB >= 0.2f) {
+	if (m_pOBB->Get_isHit()) {
 
 
-			_matrix Translation;
-			_int random = rand() % 7;
-			_int random2 = rand() % 5;
-			_int random3 = rand() % 2;
-			random += 1;
-			if (random3 == 0)
-				Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
-			else
-				Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		_matrix Translation;
+		_int random = rand() % 7;
+		_int random2 = rand() % 5;
+		_int random3 = rand() % 2;
+		random += 1;
+		if (random3 == 0)
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		else
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 
-			Translation = m_pTransform->Remove_Scale(Translation);
+		Translation = m_pTransform->Remove_Scale(Translation);
 
-			for (int i = 0; i < 2; ++i) {
+		for (int i = 0; i < 2; ++i) {
 
-				CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
-				CEngine::GetInstance()->AddScriptObject(m_pBlood = CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+			CEngine::GetInstance()->AddScriptObject(m_pBlood = CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
 
-				//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
-				//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
-			}
-			CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
-
-			m_fMKB = 0;
-
+			//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
+			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+
+		m_fMKB = 0;
+
 	}
 
 }
