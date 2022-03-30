@@ -29,6 +29,7 @@ private:
 	CFlogas*		m_pFlogas		= nullptr;
 	class CStat*	m_pStat			= nullptr;
 	class CMonHpVIBuffer*	m_pMonHp		= nullptr;
+	CBasicCollider* m_pOBB			= nullptr;
 	string			m_ScriptName	= {};
 
 	_float3     m_vTargetPos;

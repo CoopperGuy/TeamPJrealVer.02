@@ -34,10 +34,8 @@ void CElement_Bomb::LateUpdate(_double deltaTime)
 	if (m_pElement->Get_DeadMotion())
 	{
 		m_bRelease = m_pElement->Get_DeadMotion();
-		//cout << " Deleating Bomb " << "\n";
-		this->SetDead();
 		m_pThis->SetDead();
-		//cout << " Deleated Bomb " << "\n";
+		this->SetDead();
 	}
 }
 
