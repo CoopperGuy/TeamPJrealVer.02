@@ -90,3 +90,41 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+  - Name: ReinforceButton
+    UUID: 12974663652876638929
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 570.481934]
+      Size: [128, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Reinforce\Onhead_TextBubble.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+  - Name: ItemName
+    UUID: 14269806176148426749
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [972.535583, 289.421692]
+      Size: [463.896973, 130.322815]
+    Com_Text:
+      Text: df
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: true

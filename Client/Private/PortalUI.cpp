@@ -45,10 +45,10 @@ void CPortalUI::Update(_double deltaTime)
 			}
 		}
 		if ((m_fDestScnensPosX - m_fCurScnensPosX) >= 0.01f) {
-			m_fCurScnensPosX += 640.f * deltaTime;
+			m_fCurScnensPosX += 640.f * (_float)deltaTime;
 		}
 		if ((m_fCurScnensPosX - m_fDestScnensPosX) >= 0.01f) {
-			m_fCurScnensPosX -= 640.f * deltaTime;
+			m_fCurScnensPosX -= 640.f * (_float)deltaTime;
 		}
 		_float2 scenesPos = m_pPosition->GetPosition();
 		m_pPosition->SetPosition(m_fCurScnensPosX, scenesPos.y);

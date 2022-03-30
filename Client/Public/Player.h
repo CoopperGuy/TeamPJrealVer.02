@@ -76,10 +76,12 @@ public:
 	_bool GetUsableSkill() { return m_bUsableSkill; }
 	_float3 GetLockOnPosition();
 	_bool Get_SlowAttack() { return m_bSlowAttck; }
+	const CStat::STAT GetStatus() const;
 public:
 	void SetUpEquip(string Name);
 
 private:
+	void EquipmentsStatusUpdate();
 	void Input();
 	void PlayerMove(_double dDeltaTime);
 	void Jump(_double dDeltaTime);
@@ -182,8 +184,9 @@ private:
 	CBasicCollider* m_pBox = nullptr;
 private:
 	class CEquipment* m_pEquip[(_uint)Equip::Max_Equip] = {nullptr};
-	CStateMachine* m_pState = nullptr;
-	CStateMachine* m_pDynamicState[(_uint)CurState::Max];
-	Evade_Dist	   m_eEvadeDist = Evade_END;
+	CItem*			m_pEquipItemList[(_uint)EQUIPTYPE::TYPE_END] = { nullptr };
+	CStateMachine*	m_pState = nullptr;
+	CStateMachine*	m_pDynamicState[(_uint)CurState::Max];
+	Evade_Dist		m_eEvadeDist = Evade_END;
 };
 END

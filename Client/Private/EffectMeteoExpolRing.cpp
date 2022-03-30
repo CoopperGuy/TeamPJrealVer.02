@@ -54,8 +54,8 @@ void CEffectMeteoExpolRing::Update(_double deltaTime)
 	
 	m_dDeadTime += deltaTime;
 
-	Startscail.x += (_float)deltaTime*1.2 ;
-	Startscail.y+= (_float)deltaTime *1.2;
+	Startscail.x += (_float)deltaTime*1.2f;
+	Startscail.y+= (_float)deltaTime *1.2f;
 
 
 	m_pTransform->SetScale(_float3(Startscail));

@@ -3,6 +3,7 @@
 #include "BackPackHud.h"
 #include "QuestHud.h"
 #include "EventCheck.h"
+#include "StatusUI.h"
 USING(Client)
 
 CMenuHud::CMenuHud()
@@ -58,6 +59,11 @@ void CMenuHud::Update(_double deltaTime)
 				emptyUI = dynamic_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(0, "Quest_Hud"));
 				m_pQuestHud = CQuestHud::Create();
 				CEngine::GetInstance()->AddScriptObject(m_pQuestHud, 0);
+				break;
+			case Client::CMenuHud::MENU_STATUS:
+				emptyUI = dynamic_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(0, "StatusUI"));
+				m_pStatus = CStatusUI::Create();
+				CEngine::GetInstance()->AddScriptObject(m_pStatus, 0);
 				break;
 			case Client::CMenuHud::MENU_END:
 				break;

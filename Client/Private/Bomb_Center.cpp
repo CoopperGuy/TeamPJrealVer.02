@@ -30,7 +30,7 @@ HRESULT CBomb_Center::Initialize(CEmptyEffect* pThis, CTransform* pTarget, CElem
 
 void CBomb_Center::Update(_double dDeltaTime)
 {
-	m_fScale -= (_float)dDeltaTime*0.5;
+	m_fScale -= (_float)dDeltaTime*0.5f;
 	if (m_fScale < 0.5f)
 		m_fScale = 1.f;
 		m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, m_fScale));

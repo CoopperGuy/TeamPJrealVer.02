@@ -155,6 +155,7 @@ namespace Engine
 		_float		atk;
 		_float		def;
 		_int		price;
+		_int		level;
 		string		imageName;
 		string		itemName;
 	}ITEMINFO;

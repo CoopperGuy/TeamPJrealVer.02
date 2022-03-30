@@ -54,18 +54,18 @@ void CModelManager::Free()
 
 void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string pMeshFileName, string pShaderFilePath, string pEffectFilePath, _bool meshCollider, void* pArg, _bool bEquipment)
 {
-	while (10 < iCurNumThread)
+	while (m_maxThread < iCurNumThread)
 		Sleep(100);
 	
-	string fullPath = pMeshFilePath + pMeshFileName;
-	auto& iter = m_CurCloningObj.find(fullPath);
-	if (iter != m_CurCloningObj.end())
-	{
-		while(iter->second == true)
-			Sleep(100);
-	}
-	else
-		m_CurCloningObj.emplace(fullPath, true);
+	//string fullPath = pMeshFilePath + pMeshFileName;
+	//auto& iter = m_CurCloningObj.find(fullPath);
+	//if (iter != m_CurCloningObj.end())
+	//{
+	//	while(iter->second == true)
+	//		Sleep(100);
+	//}
+	//else
+	//	m_CurCloningObj.emplace(fullPath, true);
 
 	//if (m_CurCloningObj.find(fullPath) != m_CurCloningObj.end())
 	//{
@@ -79,38 +79,10 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 
 	CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
 
-	/*MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
-	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));*/
+	//MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
+	//thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
 }
 
-void CModelManager::CloneModelIns(CGameObject* pObj, string pMeshFilePath, string pMeshFileName, string pShaderFilePath, string pEffectFilePath, _bool meshCollider, _bool HasIns, _bool Building, _bool BG, _bool Ground, void* pArg)
-{
-	while (10 < iCurNumThread)
-		Sleep(100);
-
-	string fullPath = pMeshFilePath + pMeshFileName;
-	auto& iter = m_CurCloningObj.find(fullPath);
-	if (iter != m_CurCloningObj.end())
-	{
-		while (iter->second == false)
-			Sleep(100);
-	}
-	else
-		m_CurCloningObj.emplace(fullPath, true);
-
-	//if (m_CurCloningObj.find(fullPath) != m_CurCloningObj.end())
-	//{
-	//	while (iter->second != true)
-	//		Sleep(1000);
-	//}
-	//else
-	//{
-	//	m_CurCloningObj.emplace(fullPath, true);
-	//}
-
-	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS);
-	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
-}
 
 
 
@@ -160,9 +132,7 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 			iter->second = false;
 	}
 	// return cloned object
-	EnterCriticalSection(&m_CS);
 	pObj->AddModelComponent(0, m_mapModel[fullPath]->Clone(pArg));
-	LeaveCriticalSection(&m_CS);
 }
 
 void CModelManager::CloneModelThreadIns(CGameObject * pObj, string pMeshFilePath, string pMeshFileName, string pShaderFilePath, string pEffectFilePath, _bool meshCollider, _bool HasIns, void * pArg)

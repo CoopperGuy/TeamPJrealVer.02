@@ -34,7 +34,7 @@ private:
 	_float Time = 0.f;
 
 	int randompos = 0;
-	int randomX = 0.f;
+	int randomX = 0;
 public:
 	static CDropRockSmall*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f});
 	virtual void Free() override;

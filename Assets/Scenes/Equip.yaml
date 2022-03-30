@@ -94,7 +94,7 @@ GameObjects:
       HasCollider: false
       Equipment: true
     RenderGroup: 1
-    FrustumRange: 1
+    FrustumRange: 5000
   - Name: Axe
     UUID: 12359380860843280545
     Active: true
@@ -120,7 +120,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     RenderGroup: 1
-    FrustumRange: 1
+    FrustumRange: 5000
   - Name: Gauntlet
     UUID: 15124377062086904572
     Active: true

@@ -50,7 +50,7 @@ void CEffectUrsaDust::Update(_double deltaTime)
 	_float3 m_fScale = { m_pTransform->GetScale(CTransform::STATE_RIGHT) , m_pTransform->GetScale(CTransform::STATE_UP) , m_pTransform->GetScale(CTransform::STATE_LOOK) };
 
 
-	m_pTransform->SetScale(_float3(m_fScale.x += deltaTime, m_fScale.y += deltaTime, m_fScale.z += deltaTime));
+	m_pTransform->SetScale(_float3(m_fScale.x += (_float)deltaTime, m_fScale.y += (_float)deltaTime, m_fScale.z += (_float)deltaTime));
 
 }
 

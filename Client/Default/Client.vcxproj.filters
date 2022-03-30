@@ -433,6 +433,9 @@
     <ClInclude Include="..\Public\FootHammer_Decal.h">
       <Filter>05.Effect\FlogasDungeon\FootHammer\FloorDecal</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\StatusUI.h">
+      <Filter>04.UI\StatusHud</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -851,6 +854,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\FootHammer_Decal.cpp">
       <Filter>05.Effect\FlogasDungeon\FootHammer\FloorDecal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\StatusUI.cpp">
+      <Filter>04.UI\StatusHud</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1290,6 +1296,9 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FootHammer\FloorDecal">
       <UniqueIdentifier>{6bbce7a7-4767-482f-9e11-adc5ccbae1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\StatusHud">
+      <UniqueIdentifier>{367a2b80-1de1-4462-9306-ee1839b56db2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -45,7 +45,7 @@ _uint CScene_Loading::Update(_double TimeDelta)
 		{
 			CEngine*		pEngine = GET_INSTANCE(CEngine);
 
-			SetWindowText(g_hWnd, TEXT("·Îµù ³¡!!!!!!!!!!!"));
+			SetWindowText(g_hWnd, TEXT("Loding Compelete!!!!!!!!!!"));
 
 			CScene*		pScene = nullptr;
 			Client::SCENE	sceneTag;
