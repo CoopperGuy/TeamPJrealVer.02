@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_InsDust
-    UUID: 13883344407407796782
+  - Name: E_RockEff
+    UUID: 17129638050956990319
     Active: true
     Layer: Default
     Type: Effect
@@ -9,23 +9,23 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [90, -0, 0]
-      Scale: [0.997606635, 0.999550641, 0.999483049]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
     Com_RectInstance:
       Shape: 0
-      InstNum: 27
-      Color: [0.31291163, 0.31291163, 0.31291163, 0]
-      Speed: 5.4000001
-      LifeTime: 1.5
-      Size: 0.5
-      StartRadian: 0
+      InstNum: 100
+      Color: [0.978260875, 0.805354595, 0.616729677, 0]
+      Speed: 4
+      LifeTime: 1.60000002
+      Size: 1.39999998
+      StartRadian: 12.1000004
       RadiationAngle: 30
-      LerpColor: true
-      SrcColor: [0.521739125, 0.521739125, 0.521739125, 0]
-      DestColor: [0, 0, 0, 0]
+      LerpColor: false
+      SrcColor: [0, 0, 0, 0]
+      DestColor: [1, 1, 1, 0]
     Effect_Setting:
       TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Circle_mask01.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -46,4 +46,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]

@@ -245,6 +245,11 @@ void CPlayer::Update(_double dDeltaTime)
 		CreateBlood();
 
 
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_8)) {
+		CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
+		CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
 
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
