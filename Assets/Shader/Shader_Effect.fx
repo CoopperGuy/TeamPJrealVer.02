@@ -564,6 +564,7 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
    
+
     vDiffuseColor *= vMask;
 
     if (vDiffuseColor.a <= 0.2f)

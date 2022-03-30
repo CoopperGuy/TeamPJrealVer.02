@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.32108438, 0.335785687, 0.308255672]
+      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
+      Scale: [0.294238538, 0.317832649, 0.305356026]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -339,7 +339,7 @@ GameObjects:
     PassIndex: 11
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [0, 0.316382021, 0]
       Rotation: [0.000104271996, 89.9999466, 0.000104273924]
       Scale: [0.400000006, 0.400000006, 0.400000006]
     Com_Model:
@@ -381,8 +381,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.05423212, 0.316382021, 0]
-      Rotation: [11.3099327, -0, 0]
-      Scale: [0.987161875, 1.00384128, 0.776978016]
+      Rotation: [58.7854691, -23.2711487, -9.29382566e-07]
+      Scale: [0.903208256, 0.949655116, 0.769673467]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -556,8 +556,8 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [0, 0.316382021, 0]
-      Rotation: [0, -0, 0]
-      Scale: [0.400000006, 0.400000006, 0.400000006]
+      Rotation: [8.84379042e-05, 89.999939, 8.84396795e-05]
+      Scale: [0.399999976, 0.400000006, 0.399999976]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\Flogas\
       MeshFileName: TwistMesh.fbx
@@ -587,8 +587,6 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0, 0, 0, 0]
-    Children:
-      - 1960447721169478958
   - Name: sprite_Fire
     UUID: 16024358607365518532
     Active: true
@@ -599,8 +597,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.5, -0.584999979, -2.58699989]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [2, 1.5, 0.975873172]
+      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
+      Scale: [1.8298372, 1.41918743, 0.965302944]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -702,4 +700,80 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 15
+      OffsetColor: [0, 0, 0, 0]
+  - Name: FootHamer_Bomb
+    UUID: 17587500826751517279
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 14
+    BillBord: true
+    Com_Transform:
+      Translation: [0.642346501, 1.1709255, -3.44839787]
+      Rotation: [58.7854691, -23.2711468, -9.29382566e-07]
+      Scale: [1.89874613, 1.93675733, 0.999999285]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\fireball_022.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\dust_14.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 1
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 1
+      SpriteNumX: 4
+      SpriteNumY: 8
+      SpriteTotal: 32
+      SpriteSpeed: 20
+      OffsetColor: [1, 0.423440456, 0.115942001, 0]
+  - Name: FootHammer_Decal
+    UUID: 10723190694740278444
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0.616551518, 0.251776755, -3.34051633]
+      Rotation: [0.000104272374, -0, 0.000104272687]
+      Scale: [0.999965847, 0.199998766, 0.999965847]
+    Com_Decal:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_AuraCircle_001_TEX_HKB.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 2
+      FadeOutStratTime: 1
+      FadeIn: true
+      FadeInDuration: 1
+      FadeInStratTime: 0
+      EffectDuration: 2
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
       OffsetColor: [0, 0, 0, 0]
