@@ -43,7 +43,7 @@ void CFootHammer_Decal::Update(_double dDeltaTime)
 
 void CFootHammer_Decal::LateUpdate(_double dDeltaTime)
 {
-	if (m_DurationDelta >= m_pThis->GetFadeOutEnable())
+	if (m_DurationDelta >= m_pThis->GetFadeOutDuration())
 	{
 		this->SetDead();
 		m_pThis->SetDead();

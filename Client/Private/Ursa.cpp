@@ -195,7 +195,7 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		m_bClose = false;
 		vDir = OriginShift();
 		if (!m_bCenter)
-			m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
+			m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
 	}
 	else if (m_bWheelWind)
@@ -257,7 +257,7 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
 		
-		m_pController->move(vDir * 1.f * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
+		m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
 	}
 }

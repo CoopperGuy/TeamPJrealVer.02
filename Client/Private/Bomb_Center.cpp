@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\Bomb_Center.h"
 #include "Element_Bomb.h"
+#include "El_Flogas.h"
 
 USING(Client)
 
@@ -8,11 +9,11 @@ CBomb_Center::CBomb_Center()
 {
 }
 
-HRESULT CBomb_Center::Initialize(CEmptyEffect* pThis, CTransform* pTarget, CElement_Bomb& pBomb)
+HRESULT CBomb_Center::Initialize(CEmptyEffect* pThis, CTransform* pTarget, CEl_Flogas& pBomb)
 {
 	
 	m_pThis = pThis;
-	m_pBomb = &pBomb;
+	m_pElement = &pBomb;
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 
 	list<CGameObject*>Child = m_pThis->GetChildren();
@@ -30,7 +31,7 @@ HRESULT CBomb_Center::Initialize(CEmptyEffect* pThis, CTransform* pTarget, CElem
 
 void CBomb_Center::Update(_double dDeltaTime)
 {
-	m_fScale -= (_float)dDeltaTime*0.5;
+	m_fScale -= (_float)dDeltaTime * 0.5f;
 	if (m_fScale < 0.5f)
 		m_fScale = 1.f;
 		m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, m_fScale));
@@ -44,7 +45,7 @@ void CBomb_Center::Update(_double dDeltaTime)
 
 void CBomb_Center::LateUpdate(_double deltaTime)
 {
-	if (m_pBomb->Get_Release())
+	if (m_pElement->Get_DeadMotion())
 	{
 		this->SetDead();
 		m_pThis->SetDead();
@@ -53,7 +54,7 @@ void CBomb_Center::LateUpdate(_double deltaTime)
 
 
 
-CBasicEffect * CBomb_Center::Create(CEmptyEffect* pThis, CTransform* pTarget, CElement_Bomb& pBomb)
+CBasicEffect * CBomb_Center::Create(CEmptyEffect* pThis, CTransform* pTarget, CEl_Flogas& pBomb)
 {
 	CBomb_Center*		pInstance = new CBomb_Center();
 

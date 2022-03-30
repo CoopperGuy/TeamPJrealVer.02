@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "..\Public\El_Flogas.h"
 #include "Flogas.h"
+
 #include "Element_Bomb.h"
+#include "Bomb_Center.h"
 #include "SpriteFire.h"
 #include "EffectFlash.h"
+
 #include "MonHpVIBuffer.h"
 #include "BasicCollider.h"
 #include "Obb.h"
@@ -110,7 +113,9 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					{
 						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ElementBomb", "E_Element_Bomb");
 						CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this), CEngine::GetInstance()->GetCurSceneNumber());
-						CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
+						//CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
+						pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Bomb_Center", "E_Bomb_Center");
+						CEngine::GetInstance()->AddScriptObject(CBomb_Center::Create((CEmptyEffect*)pGameObject, m_pTransform, *this), CEngine::GetInstance()->GetCurSceneNumber());
 					}
 					m_dExplosionTime += dDeltaTime;
 

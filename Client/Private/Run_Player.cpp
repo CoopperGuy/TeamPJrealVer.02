@@ -11,7 +11,14 @@ CRun_Player::CRun_Player()
 
 void CRun_Player::Enter(CPlayer & pPlayer)
 {
-	if (CEngine::GetInstance()->IsKeyPressed(VK_SHIFT))
+	if (pPlayer.Get_Hit())
+	{
+		if (pPlayer.Get_Down())
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		else
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
+	}
+	else if (CEngine::GetInstance()->IsKeyPressed(VK_SHIFT))
 	{
 		if (pPlayer.Get_Combat())
 			pPlayer.SetUp_AnimIndex((_uint)Player_State::CBSprint_ing);
@@ -36,6 +43,9 @@ void CRun_Player::Enter(CPlayer & pPlayer)
 
 CStateMachine * CRun_Player::Input(CPlayer & pPlayer)
 {
+	if (pPlayer.Get_Hit())
+		return	pPlayer.GetState(CurState::IDLE);
+
 	CSkill_Player* pSkill = static_cast<CSkill_Player*>(pPlayer.GetState(CurState::Skill));
 
 	if (!CEngine::GetInstance()->IsKeyPressed('W') && !CEngine::GetInstance()->IsKeyPressed('A')

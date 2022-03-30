@@ -1644,7 +1644,6 @@ void CModel::RemoveBuffer()
 		}
 	}
 	m_pShader.reset();
-
 	m_RagdollBones.clear();
 
 	for (auto& rb : m_RagdollRbs)

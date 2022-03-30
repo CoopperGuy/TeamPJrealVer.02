@@ -11,7 +11,14 @@ CWalk_Player::CWalk_Player()
 
 void CWalk_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Combat())
+	if (pPlayer.Get_Hit())
+	{
+		if (pPlayer.Get_Down())
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		else
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
+	}
+	else if (pPlayer.Get_Combat())
 	{
 		if (!pPlayer.Get_Evade())
 			pPlayer.SetUp_AnimIndex((_uint)Player_State::CBWalk);
@@ -27,6 +34,9 @@ void CWalk_Player::Enter(CPlayer & pPlayer)
 
 CStateMachine* CWalk_Player::Input(CPlayer& pPlayer)
 {
+	if (pPlayer.Get_Hit())
+		return	pPlayer.GetState(CurState::IDLE);
+
 	CSkill_Player* pSkill = static_cast<CSkill_Player*>(pPlayer.GetState(CurState::Skill));
 
 	if (!CEngine::GetInstance()->IsKeyPressed('W') && !CEngine::GetInstance()->IsKeyPressed('A')

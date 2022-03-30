@@ -407,11 +407,6 @@ HRESULT CLoader::GameSceneJUN()
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
 	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG);
 	//m_pLoadingGauge->SetPercentage(50.f);
-  
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG);
-	//m_pLoadingGauge->SetPercentage(50.f);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG);
-	//m_pLoadingGauge->SetPercentage(50.f);
 	
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));

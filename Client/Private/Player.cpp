@@ -133,6 +133,9 @@ HRESULT CPlayer::Initialize()
 	m_pModel->SetAnimationLoop((_uint)Player_State::WarCry, false, false);
 	m_pModel->SetAnimationLoop((_uint)Player_State::Evade, false, false);
 	m_pModel->SetAnimationLoop((_uint)Player_State::CBEvade, false, false);
+	m_pModel->SetAnimationLoop((_uint)Player_State::Hit_F, false, false);
+	m_pModel->SetAnimationLoop((_uint)Player_State::KnockDown_Start, false, false);
+	m_pModel->SetAnimationLoop((_uint)Player_State::GetUp, false, false);
 
 	m_iSkill[0] = (_uint)Player_State::Leap_Start;
 	m_iSkill[1] = (_uint)Player_State::WhirlWind_Start;
@@ -243,9 +246,13 @@ void CPlayer::Update(_double dDeltaTime)
 	SearchMonster();
 	if (m_pStatus->GetStatInfo().hp >= 0)
 		CreateBlood();
-
-
-
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+		m_bHit = true;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	{
+		m_bHit = true;
+		m_bDown = true;
+	}
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
 }
@@ -739,7 +746,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	PxControllerFilters filters;
 	_float fSpeed = 0.f;
 	_vector vUp = m_pTransform->GetState(CTransform::STATE::STATE_UP);
-	if (Walk() && !m_bEvade)
+	if (Walk() && !m_bEvade && !m_bHit)
 	{
 		if (CEngine::GetInstance()->IsKeyPressed('W'))
 		{
@@ -790,7 +797,6 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	}
 
 	vEvadeLook = SetEvadeDist();
-	//PlayerCombo(dDeltaTime);
 
 
 	if (!m_bEvade && !m_bEvadeDelay)
@@ -805,7 +811,45 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		}
 	}
 
-	if (m_bEvade)
+	if (m_bHit)
+	{
+		if (m_bDown)
+		{
+			if (m_pModel->Get_AnimIndex() == (_uint)Player_State::KnockDown_Start)
+			{
+				if (m_pModel->GetCurrentKeyFrame() < 6)
+				{
+					if (IsGravity()) 
+					{
+						m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
+						_vector vKnockback = -m_pTransform->GetState(CTransform::STATE_LOOK);
+						vKnockback = XMVectorSetY(vKnockback, m_fJumpSpeed);
+						PxVec3 KnockDir = {};
+						memcpy(&KnockDir, &vKnockback, sizeof(PxVec3));
+						m_pController->move(KnockDir, 0.01f, PxF32(dDeltaTime), filters);
+					}
+					else 
+					{
+						m_fJumpSpeed = 0.f;
+					}
+				}
+				if (m_pModel->Get_isFinished())
+					m_bDownIng = true;
+			}
+		}
+		else
+		{
+			if (m_pModel->Get_AnimIndex() == (_uint)Player_State::Hit_F)
+			{
+				if (m_pModel->GetCurrentKeyFrame() >= 16)
+				{
+					m_bHit = false;
+					m_bCB = true;
+				}
+			}
+		}
+	}
+	else if (m_bEvade)
 	{
 		m_bEvadeDelay = true;
 		m_EvadeDelayTime = 0.f;
@@ -864,10 +908,6 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		vPlayerLook = vEvadeLook;
 		m_bCombo = false;
 	}
-	/*if (CEngine::GetInstance()->IsKeyDown('K'))
-		SetUpEquip("PlateArmor");
-	if (CEngine::GetInstance()->IsKeyDown('L'))
-		SetUpEquip("LeatherArmor");*/
 
 	m_pTransform->SetLook(vPlayerLook);
 
@@ -1087,7 +1127,12 @@ void CPlayer::CreateBlood()
 		return;
 
 	if (m_pOBB->Get_isHit()) {
-
+		if (m_pOBB->GetIsDown())
+		{
+			m_fJumpSpeed = 0.01f;
+			m_bDown = true;
+		}
+		m_bHit = true;
 		_matrix Translation;
 		_int random = rand() % 2;
 		random += 1;
@@ -1107,7 +1152,7 @@ void CPlayer::SlowMotion(_double deltaTime)
 {
 	_bool isSlow = m_pStatus->GetIsSlow();
 	if (isSlow == true) {
-		CEventCheck::GetInstance()->ZoomFov(m_slowEvadeTime, 60.f, 15.f);
+		CEventCheck::GetInstance()->ZoomFov((_float)m_slowEvadeTime, 60.f, 15.f);
 		g_TickLate = 0.5f;
 		m_slowEvadeDelta += deltaTime;
 		if (m_slowEvadeTime < m_slowEvadeDelta) {
