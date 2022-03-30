@@ -55,11 +55,15 @@ void CDropRockSmall::Update(_double deltaTime)
 
 
 
-	if(randompos==0)
+	if (randompos == 0) {
 		PosX -= /*deltaTime**/0.003f * randomX;
-	else
+		PosZ -= /*deltaTime**/0.002f * randomX;
+	}
+	else {
 		PosX += /*deltaTime**/0.003f * randomX;
+		PosZ += /*deltaTime**/0.002f * randomX;
 
+	}
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ PosX,PosY,PosZ });
 
 	MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);

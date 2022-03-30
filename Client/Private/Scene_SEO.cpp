@@ -38,13 +38,13 @@ HRESULT CScene_SEO::ReadyScript()
 {
 	//CWolf::Create(nullptr);
 
-	_float3 one = { 3.f,2.f,3.f };
-	_float3 two = { 5.f,2.f,5.f };
-	_float3 three = { 5.f,2.f,5.f };
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), SCENE_SEO);
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, three), SCENE_SEO);
+	//_float3 one = { 3.f,2.f,3.f };
+	//_float3 two = { 5.f,2.f,5.f };
+	//_float3 three = { 5.f,2.f,5.f };
+	//m_pEngine->AddScriptObject(CWolf::Create(nullptr), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CWolf::Create(nullptr, three), SCENE_SEO);
 
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
 	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_SEO);

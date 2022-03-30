@@ -97,7 +97,7 @@ void CDropRock::LateUpdate(_double deltaTime)
 {
 	if (0.15f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
-		CEventCheck::GetInstance()->ShakeUpDown(10, 0.03f);
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 
 		/*	if (m_pDropRockEff)
 				m_pDropRockEff->SetDead();*/
