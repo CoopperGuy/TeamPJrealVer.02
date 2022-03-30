@@ -141,4 +141,11 @@ CUrsaDunDoor * CUrsaDunDoor::Create(CGameObject * pTarget)
 
 void CUrsaDunDoor::Free()
 {
+
+	for (auto& pair : m_pWolf)
+	{
+		SafeRelease(pair);
+	}
+	m_pWolf.clear();
+
 }
