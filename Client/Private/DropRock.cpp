@@ -5,6 +5,7 @@
 #include "EventCheck.h"
 #include "EffectDropRock.h"
 #include "DropRockSmall.h"
+#include "EffectUrsaDust.h"
 USING(Client)
 
 CDropRock::CDropRock()
@@ -108,10 +109,15 @@ void CDropRock::LateUpdate(_double deltaTime)
 		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_RockEff", &Translation);
 		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust), CEngine::GetInstance()->GetCurSceneNumber());
 
-		for (int i = 0; i < 8; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall", &Translation);
 			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(RockSmall, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 		}
+
+
+		/*_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), 0.3f, XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+		CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());*/
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}
