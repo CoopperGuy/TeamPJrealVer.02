@@ -158,6 +158,8 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		auto& iter = m_CurCloningObj.find(fullPath);
 		if (iter != m_CurCloningObj.end())
 			iter->second = false;
+		else
+			iter->second = true;
 	}
 	// return cloned object
 	EnterCriticalSection(&m_CS);
