@@ -18,6 +18,7 @@ private:
 	CGameObject*		m_pGameObject = nullptr;
 	CCollider*			m_pCollider = nullptr;
 	CTransform*			m_pTransform = nullptr;
+	class CEffectDropRock* m_pDropRockEff = nullptr;
 
 	_vector MyPos = {};
 
@@ -29,6 +30,8 @@ private:
 	_float StartPosX = 0.f;
 
 	_float Speed = 3.f;
+
+	_float tempsp = 0.f;
 
 	_float Time = 0.f;
 public:

@@ -30,7 +30,7 @@ HRESULT CMonHpVIBuffer::Initailze(CGameObject * pArg)
 	this->pushHuds(monHud, monHpBar);
 	this->pushBuffer(static_cast<CVIBuffer_Rect*>(monHud->GetComponent("Com_VIBuffer")));
 	this->pushBuffer(static_cast<CVIBuffer_Rect*>(monHpBar->GetComponent("Com_VIBuffer")));
-	this->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")), nullptr);
+	this->SetHud_BarTransform(static_cast<CTransform*>(monHud->GetComponent("Com_Transform")), static_cast<CTransform*>(monHpBar->GetComponent("Com_LocalTransform")));
 	this->SetIsEnd();
 
 	return S_OK;
@@ -48,12 +48,12 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 			}
 			m_pHpBar->SetPercentage(m_fPercetage);
 			m_pHpBar->SetBackPercentage(m_fBackPercentage);
-		}
-		if (m_pHudTrans) {
-			_vector hpPos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, 0.f, 1.f), m_pTargetTrans->GetWorldMatrix());
-			m_pHudTrans->SetState(CTransform::STATE_POSITION, hpPos);
-			if (m_pBarTrans) {
-				m_pBarTrans->SetMatrix(m_pHudTrans->GetWorldMatrix());
+			if (m_pHudTrans) {
+				_vector hpPos = XMVector3TransformCoord(XMVectorSet(0.f, 0.5f, 0.f, 1.f), m_pTargetTrans->GetWorldMatrix());
+				m_pHudTrans->SetState(CTransform::STATE_POSITION, hpPos);
+				if (m_pBarTrans) {
+					m_pBarTrans->SetState(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+				}
 			}
 		}
 	}
@@ -77,8 +77,8 @@ void CMonHpVIBuffer::Render()
 
 void CMonHpVIBuffer::SetHud_BarTransform(CTransform * Hudtrans, CTransform * BarTrans)
 {
-	m_pBarTrans = BarTrans;
 	m_pHudTrans = Hudtrans;
+	m_pBarTrans = BarTrans;
 }
 
 

@@ -1,0 +1,42 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_RockEff2
+    UUID: 10038508682520728509
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [-178.999939, -89, -89]
+      Scale: [2.60100031, 2.59994125, 3.00000024]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Effect_HalfCircleY.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_007_TEX_CJH.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
+      TextureNormalPath: ""
+      ScrollSpeedX: [1.29999995, 0.600000024, 0]
+      ScrollSpeedY: [1.10000002, 3.4000001, 2.29999995]
+      Distortion1: [0, 0.300000012]
+      Distortion2: [0.400000006, 0]
+      Distortion3: [0.200000003, 0]
+      DistortionScale: 0.200000003
+      DistortionBias: 1.20000005
+      FadeOut: false
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0.5
+      FadeInStratTime: 0
+      EffectDuration: 0.200000003
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [1, 0.217391312, 0, 0]

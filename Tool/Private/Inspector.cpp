@@ -1047,6 +1047,11 @@ void CInspector::DrawTextUI()
 			_bool& isCenter = pText->GetIsCenter();
 			ImGui::Checkbox("isCenter", &isCenter);
 			pText->SetIsCenter(isCenter);
+			ImGui::Text("isKorean");
+			_bool isKorean = pText->GetIsKorean();
+			ImGui::Checkbox("isKorean", &isKorean);
+			pText->SetIsKorean(isKorean);
+
 			ImGui::InputTextMultiline("Text", &pText->GetText());
 
 			_float2& scale = pText->GetScale();

@@ -237,17 +237,17 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [-0.121509969, 0.369528085, -1.80380046]
-      Rotation: [-166.09024, 5.90100288, -179.999893]
+      Translation: [1, 1, 1]
+      Rotation: [0, -0, 0]
       Scale: [0.99855417, 1.0005976, 1.0012449]
     Com_RectInstance:
       Shape: 1
       InstNum: 100
-      Color: [0.674284816, 0.00517028384, 0, 0]
+      Color: [0.70575279, 0.0161156654, 0, 0]
       Speed: 1.79999995
       LifeTime: 2.0999999
       Size: 0.699999988
-      StartRadian: 1.5
+      StartRadian: 90
       RadiationAngle: 50
       LerpColor: true
       SrcColor: [0.753623188, 0.0327662192, 0, 0]

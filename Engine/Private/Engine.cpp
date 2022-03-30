@@ -226,6 +226,11 @@ SpriteFont * CEngine::GetSpriteFont()
 	return m_pGraphicDevice->GetSpriteFont();;
 }
 
+SpriteFont * CEngine::GetSpriteKoreanFont()
+{
+	return m_pGraphicDevice->GetSpriteKoreanFont();
+}
+
 _float2 CEngine::GetCurrentWindowSize()
 {
 	return m_pGraphicDevice->GetCurrentWindowSize();

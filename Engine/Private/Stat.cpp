@@ -19,6 +19,13 @@ CStat::CStat(const CStat & rhs)
 {
 }
 
+void CStat::SetUpBonusStat(_float _boAtk, _float _boArmor, _float _boHp)
+{
+	m_tStat.boAtk = _boAtk;
+	m_tStat.boArmor = _boArmor;
+	m_tStat.boHp = _boHp;
+}
+
 _bool CStat::UseStamina(_float stamina)
 {
 	if (m_fStamina >= stamina) {

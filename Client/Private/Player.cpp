@@ -246,6 +246,7 @@ void CPlayer::Update(_double dDeltaTime)
 	SearchMonster();
 	if (m_pStatus->GetStatInfo().hp >= 0)
 		CreateBlood();
+
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bHit = true;
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
@@ -253,8 +254,10 @@ void CPlayer::Update(_double dDeltaTime)
 		m_bHit = true;
 		m_bDown = true;
 	}
+
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
+	EquipmentsStatusUpdate();
 }
 
 void CPlayer::LateUpdate(_double dDeltaTime)
@@ -347,6 +350,31 @@ _float3 CPlayer::GetLockOnPosition()
 	if (m_listMonsters.size() > 0)
 		return m_listMonsters.front()->GetCollisionPosition();
 	return m_pGameObject->GetCollisionPosition();
+}
+
+const CStat::STAT CPlayer::GetStatus() const
+{
+	if (m_pStatus)
+		return m_pStatus->GetStatInfo();
+	return CStat::STAT();
+}
+
+void CPlayer::EquipmentsStatusUpdate()
+{
+	_float atk = 0.f, armor = 0.f, hp = 0.f;
+	for (_int i = 0; i < (_int)EQUIPTYPE::TYPE_END; i++) {
+		if (m_pEquipItemList[i] != nullptr) {
+			ITEMINFO _info = m_pEquipItemList[i]->GetItempInfo();
+			atk += _info.atk + (_info.atk * 0.1f) * _info.level;
+			armor += _info.def + (_info.def * 0.1f) * _info.level;
+			hp += _info.hp + (_info.hp * 0.1f) * _info.level;
+		}
+	}
+	CStat::STAT	_status = m_pStatus->GetStatInfo();
+	_status.boAtk = atk;
+	_status.boArmor = armor;
+	_status.boHp = hp;
+	m_pStatus->SetStatInfo(_status);
 }
 
 void CPlayer::Input()
@@ -949,30 +977,45 @@ void CPlayer::SetUpEquip(string Name)
 	_uint i = 0;
 	if (Info.itemType == ITEMTYPE::EQUIP)
 	{
+		EQUIPTYPE _equipType = EQUIPTYPE::TYPE_END;
 		switch (Info.equipType)
 		{
 		case EQUIPTYPE::CHEST:
 			i = 0;
+			_equipType = EQUIPTYPE::CHEST;
 			Equip_OnOff(Equip::Armor, Name, i);
 			break;
 		case EQUIPTYPE::GLOOVE:
 			i = 1;
+			_equipType = EQUIPTYPE::GLOOVE;
 			Equip_OnOff(Equip::Glove, Name, i);
 			break;
 		case EQUIPTYPE::SHOOSE:
 			i = 2;
+			_equipType = EQUIPTYPE::SHOOSE;
 			Equip_OnOff(Equip::Boots, Name, i);
 			break;
 		case EQUIPTYPE::HELMET:
 			i = 4;
+			_equipType = EQUIPTYPE::HELMET;
 			Equip_OnOff(Equip::Helm, Name, i);
 			break;
 		case EQUIPTYPE::LOWER:
 			i = 6;
+			_equipType = EQUIPTYPE::LOWER;
 			Equip_OnOff(Equip::Pants, Name, i);
 			break;
 		default:
 			break;
+		}
+		if (_equipType != EQUIPTYPE::TYPE_END) {
+			if (Name != "")
+				if (m_pEquipItemList[(_uint)Info.equipType] == nullptr)
+					m_pEquipItemList[(_uint)Info.equipType] = m_pInven->GetItemByName(Name, ITEMTYPE::EQUIP, _equipType);
+				else if (m_pEquipItemList[(_uint)Info.equipType]->GetItempInfo().itemName == Name)
+					m_pEquipItemList[(_uint)Info.equipType] = nullptr;
+				else
+					m_pEquipItemList[(_uint)Info.equipType] = m_pInven->GetItemByName(Name, ITEMTYPE::EQUIP, _equipType);
 		}
 	}
 }
@@ -988,8 +1031,9 @@ void CPlayer::Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial)
 			//if(eEquipType != Equip::Armor)
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
 		}
-		else
+		else {
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, true);
+		}
 	}
 }
 

@@ -9,8 +9,11 @@
 #pragma region MyRegion
 #include "EffectSoilDust.h"
 #include "EffectUrsaDust.h"
+#include "EffectBlood.h"
+#include "EffectBloodDecal.h"
 #pragma endregion
 
+#include "DropRock.h"
 
 
 USING(Client)
@@ -52,6 +55,7 @@ HRESULT CUrsa::Initialize(_float3 position)
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
+	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
@@ -156,6 +160,8 @@ void CUrsa::Update(_double dDeltaTime)
 	else {
 		m_fJumpSpeed = 0.f;
 	}
+
+	Hit();
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -164,7 +170,7 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 
 	m_pModel->Play_Animation(dDeltaTime);
 
-	OrganizeEffect();
+	OrganizeEffect(dDeltaTime);
 }
 
 void CUrsa::Render()
@@ -195,8 +201,8 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		m_bClose = false;
 		vDir = OriginShift();
 		if (!m_bCenter)
-			m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
+			m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 	}
 	else if (m_bWheelWind)
 	{
@@ -257,8 +263,8 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		m_pTransform->SetLook(vLook);
 		memcpy(&vDir, &vLook, sizeof(_float3));
 		
-		m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 
+		m_pController->move(vDir * 1.0 * dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 	}
 }
 
@@ -858,7 +864,7 @@ void CUrsa::SetRotate()
 	}
 }
 
-void CUrsa::OrganizeEffect()
+void CUrsa::OrganizeEffect(_double dDeltaTime)
 {
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 	_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
@@ -895,28 +901,66 @@ void CUrsa::OrganizeEffect()
 	case Client::CUrsa::Combo_1Hold:
 		break;
 	case Client::CUrsa::Combo_1: {
-		int i = 0;
-		if (keyFrame == 19 && i <= 1) {
-			++i;
+		if (keyFrame == 19 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
-			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		else
+			m_iMakeDust = 0;
+	}
+	{
+		_uint random = rand() % 10;
+
+		if (random >= 2)
+		{
+			{
+				/*		if (keyFrame >= 82 && keyFrame <= 105)*/ {
+					m_dDropRockMkdt += dDeltaTime;
+					if (m_dDropRockMkdt >= 1.f) {
+						CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
+						CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+						m_dDropRockMkdt = 0;
+					}
+				}
+			}
 		}
 	}
+
 		break;
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start: {
-			int i = 0;
-		if (keyFrame == 39 && i<=1) {
-			++i;
+		if (keyFrame == 39 && m_iMakeDust <=1) {
+			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
-			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		else
+			m_iMakeDust = 0;
+	}
+	{
+		_uint random = rand() % 10;
+
+		if (random >= 2)
+		{
+			{
+				/*		if (keyFrame >= 82 && keyFrame <= 105)*/ {
+					m_dDropRockMkdt += dDeltaTime;
+					if (m_dDropRockMkdt >= 1.f) {
+						CGameObject* Rock = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Rock", "O_Rock");
+						CEngine::GetInstance()->AddScriptObject(CDropRock::Create(Rock), CEngine::GetInstance()->GetCurSceneNumber());
+						m_dDropRockMkdt = 0;
+					}
+				}
+			}
 		}
 	}
+
 		break;
 	case Client::CUrsa::Combo_2End:
 		break;
@@ -948,7 +992,7 @@ void CUrsa::OrganizeEffect()
 		break;
 	case Client::CUrsa::WHEELWIND_End:
 		break;
-	case Client::CUrsa::ROAR_Start:
+	case Client::CUrsa::ROAR_Start: 
 		break;
 	case Client::CUrsa::HIT:
 		break;
@@ -1042,3 +1086,37 @@ _fmatrix CUrsa::Remove_ScaleRotation(_fmatrix _srcmatrix)
 
 	return NonScaleMatrix;
 }
+
+void CUrsa::Hit()
+{
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return;
+
+	if (m_pOBB->Get_isHit()) {
+
+		_matrix Translation;
+		_int random = rand() % 7;
+		_int random2 = rand() % 5;
+		_int random3 = rand() % 2;
+		random += 1;
+		if (random3 == 0)
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+		else
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
+
+		Translation = m_pTransform->Remove_Scale(Translation);
+
+		for (int i = 0; i < 2; ++i) {
+
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
+
+			//CGameObject* EffectBlood2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IBlood", "E_IBlood", &Translation);
+			//CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood2), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
+		CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
+}
+

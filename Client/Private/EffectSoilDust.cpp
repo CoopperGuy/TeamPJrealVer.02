@@ -35,7 +35,15 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 
 		m_pTransform->SetMatrix(pos);
 
-		m_pTransform->SetScale(_float3(2.f, 4.f,2.f));
+		m_pTransform->SetScale(_float3(1.f, 2.f,1.f));
+
+
+		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
+		pos = XMVectorSetY(pos, 0.8f);
+
+		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
+
 	}
 	return S_OK;
 }

@@ -36,9 +36,9 @@ HRESULT CScene_Kim::Render()
 HRESULT CScene_Kim::ReadyScript()
 {
 	//CEngine::GetInstance()->AddScriptObject(CTestMonster::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
-	_float3 one = { 4.f,0.f,4.f };
-	_float3 two = { 16.f,0.f,16.f };
-	_float3 three = { 28.f,0.f,28.f };
+	_float3 one = { 2.f,5.f,2.f };
+	_float3 two = { 2.f,5.f,-2.f };
+	_float3 three = { -2.f,5.f,2.f };
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), CEngine::GetInstance()->GetCurSceneNumber());
 	m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), CEngine::GetInstance()->GetCurSceneNumber());

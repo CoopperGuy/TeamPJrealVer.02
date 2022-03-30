@@ -41,6 +41,10 @@ void CEquipment::Linked_SkinnedInfoToTarget(CModel * pTarget)
 	if (pTarget)
 	{
 		m_pModel->SetUp_SkinnedInfoToEquipment(pTarget);
+		m_bisEquip = true;
+	}
+	else {
+		m_bisEquip = false;
 	}
 }
 

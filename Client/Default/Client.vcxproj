@@ -203,11 +203,14 @@
     <ClInclude Include="..\public\DecalCrash.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\DropRock.h" />
+    <ClInclude Include="..\Public\DropRockSmall.h" />
     <ClInclude Include="..\Public\EAFireBall.h" />
     <ClInclude Include="..\Public\EffectBloodDecal.h" />
+    <ClInclude Include="..\Public\EffectDropRock.h" />
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\EffectRockDecal.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
@@ -300,12 +303,14 @@
     <ClInclude Include="..\public\Skill_Player.h" />
     <ClInclude Include="..\Public\SpriteBomb.h" />
     <ClInclude Include="..\Public\SpriteFire.h" />
+    <ClInclude Include="..\public\StatusUI.h" />
     <ClInclude Include="..\public\TalkHud.h" />
     <ClInclude Include="..\public\TargetOn.h" />
     <ClInclude Include="..\public\TestMonster.h" />
     <ClInclude Include="..\public\ThreadLoader.h" />
     <ClInclude Include="..\public\TownPortal.h" />
     <ClInclude Include="..\Public\Ursa.h" />
+    <ClInclude Include="..\Public\UrsaDunDoor.h" />
     <ClInclude Include="..\Public\WaterEA.h" />
     <ClInclude Include="..\public\Winds.h" />
     <ClInclude Include="..\Public\Wolf.h" />
@@ -362,10 +367,12 @@
     <ClCompile Include="..\private\DecalCrash.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
     <ClCompile Include="..\Private\DropRock.cpp" />
+    <ClCompile Include="..\Private\DropRockSmall.cpp" />
     <ClCompile Include="..\Private\EAFireBall.cpp" />
     <ClCompile Include="..\Private\EffectBlackhole.cpp" />
     <ClCompile Include="..\Private\EffectBlood.cpp" />
     <ClCompile Include="..\Private\EffectBloodDecal.cpp" />
+    <ClCompile Include="..\Private\EffectDropRock.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
     <ClCompile Include="..\Private\EffectFireBall.cpp" />
@@ -383,6 +390,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
+    <ClCompile Include="..\Private\EffectRockDecal.cpp" />
     <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
@@ -459,12 +467,14 @@
     <ClCompile Include="..\private\Skill_Player.cpp" />
     <ClCompile Include="..\Private\SpriteBomb.cpp" />
     <ClCompile Include="..\Private\SpriteFire.cpp" />
+    <ClCompile Include="..\private\StatusUI.cpp" />
     <ClCompile Include="..\private\TalkHud.cpp" />
     <ClCompile Include="..\private\TargetOn.cpp" />
     <ClCompile Include="..\private\TestMonster.cpp" />
     <ClCompile Include="..\private\ThreadLoader.cpp" />
     <ClCompile Include="..\private\TownPortal.cpp" />
     <ClCompile Include="..\Private\Ursa.cpp" />
+    <ClCompile Include="..\Private\UrsaDunDoor.cpp" />
     <ClCompile Include="..\Private\WaterEA.cpp" />
     <ClCompile Include="..\private\Winds.cpp" />
     <ClCompile Include="..\Private\Wolf.cpp" />

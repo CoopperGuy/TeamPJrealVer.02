@@ -52,7 +52,7 @@ HRESULT CGraphicDevice::ReadyGraphicDevice(HWND hWnd, _uint iWidth, _uint iHeigh
 	// m_pSpriteFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/comic_sans_ms_16.spritefont");
 	// m_pSpriteFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/UAV-OSD-Sans-Mono.spritefont");
 	m_pSpriteFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/UAV-OSD-Mono12.spritefont");
-
+	m_pSpriteKoreanFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/NotoSans.spritefont");
 
 	Initialize(iWidth, iHeight);
 
@@ -253,8 +253,10 @@ HRESULT CGraphicDevice::ChangeResolution(_uint iWidth, _uint iHeight)
 
 	m_pSpriteBatch.release();
 	m_pSpriteFont.release();
+	m_pSpriteKoreanFont.release();
 	m_pSpriteBatch = make_unique<DirectX::SpriteBatch>(m_pDeviceContext.Get());
 	m_pSpriteFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/comic_sans_ms_16.spritefont");
+	m_pSpriteKoreanFont = make_unique<DirectX::SpriteFont>(m_pDevice.Get(), L"../../Assets/Fonts/NotoSans.spritefont");
 
 	return S_OK;
 }

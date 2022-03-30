@@ -47,7 +47,8 @@ private:
 	void TestAnimation(Ursa eState);
 	void Roar();
 	void SetRotate();
-	void OrganizeEffect();
+	void OrganizeEffect(_double dDeltaTime);
+	void Hit();
 
 	PxVec3 OriginShift();
 
@@ -68,7 +69,7 @@ private:
 	class CTransform* m_pTargetTransform = nullptr;
 	CBasicCollider* m_pOBBCom			 = nullptr;
 	CMonHp*	m_pMonHp					 = nullptr;
-
+	CBasicCollider*		m_pOBB = nullptr;
 private:
 	Ursa m_eState = Ursa_END;
 	queue<Ursa> m_QueState;
@@ -81,12 +82,15 @@ private:
 	_float m_fSpeed			 = 0.098f;
 	_double m_dPatternTime	 = 0.0;
 	_double m_dWheelWindTime = 0.0;
+	_double m_dDropRockMkdt = 0;
 
 	_uint m_iComboIndex = 0;
 	_uint m_iFirst		= 0;
 	_uint m_iSec		= 0;
 	_uint m_iThir		= 0;
 	_uint m_iLast		= 0;
+
+	_uint m_iMakeDust = 0;
 
 	_bool m_bCombat[Phase_End] = {};
 	_bool m_bDeadMotion		   = false;

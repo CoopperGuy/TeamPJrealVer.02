@@ -37,6 +37,8 @@ HRESULT CWolf::Initialize(_float3 position)
 {
 	m_pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Wolf", "O_Wolf");
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
+
+	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 	m_pOBBCom = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
@@ -45,7 +47,7 @@ HRESULT CWolf::Initialize(_float3 position)
 	m_pStat->SetSTATE(CStat::STATES_IDEL);
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,3.f,position.z });
-	m_pCollider->SetPosition(_float3(0, 0, 0));
+	m_pCollider->SetPosition(_float3(position.x, position.y, position.z));
 
 	SetUpAnimation();
 	m_pCurState = IDLE0;
@@ -104,7 +106,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 		{
 			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
 			PxControllerFilters filters;
-			_vector vLook, vTargetLook;
+			_vector vLook{}, vTargetLook{};
 			_vector vDis;
 
 			//if (m_bLook) {
@@ -171,7 +173,11 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
-	_float dis = 1.3f;
+
+	if (XMVectorGetZ(TargetDistance) <= 0 || XMVectorGetX(TargetDistance) <=0)
+		TargetDistance = TargetDistance*-1;
+
+	_float dis = 1.f;
 	switch (m_pWolfState)
 	{
 	case Client::CWolf::IDLE0: {
