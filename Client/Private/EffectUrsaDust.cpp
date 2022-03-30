@@ -56,7 +56,9 @@ void CEffectUrsaDust::Update(_double deltaTime)
 
 void CEffectUrsaDust::LateUpdate(_double deltaTime)
 {
-	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetSpriteEnd())
+	m_dDeadTime += deltaTime;
+
+	if (static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration() <= (_float)m_dDeadTime)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
