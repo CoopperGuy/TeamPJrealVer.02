@@ -1000,6 +1000,10 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 void CFlogas::Hit()
 {
+	if (m_eState == DEADBODY || m_eState == DIE)
+		return;
+
+
 	if (m_pStat->GetStatInfo().hp <= 0)
 		return;
 

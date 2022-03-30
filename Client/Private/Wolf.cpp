@@ -88,7 +88,7 @@ void CWolf::Update(_double dDeltaTime)
 		WolfAttflow(dDeltaTime);
 	}
 
-	if (m_pOBBCom->Get_isHit()) {
+	if (m_pOBBCom->GetStartHit()) {
 		m_pWolfState = DAMAGE;
 	}
 
@@ -174,7 +174,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 
-	if (XMVectorGetZ(TargetDistance) <= 0 || XMVectorGetX(TargetDistance) <=0)
+	if (XMVectorGetZ(TargetDistance) <= 0 || XMVectorGetX(TargetDistance) <= 0)
 		TargetDistance = TargetDistance*-1;
 
 	_float dis = 1.f;
@@ -233,10 +233,11 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 			Translation = m_pTransform->Remove_Scale(Translation);
 
-			/*CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
+			CGameObject* EffectBlood = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_IIBlood", "E_IIBlood", &Translation);
 			CEngine::GetInstance()->AddScriptObject(CEffectBlood::Create(EffectBlood), CEngine::GetInstance()->GetCurSceneNumber());
 			CGameObject* EffectBloodDecal = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BloodDecal", "E_BloodDecal");
-			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());*/
+			CEngine::GetInstance()->AddScriptObject(CEffectBloodDecal::Create(EffectBloodDecal, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+
 		}
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
