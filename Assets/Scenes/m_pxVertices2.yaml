@@ -142,8 +142,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.88122892, 0.308779508, 0.522710443]
-      Rotation: [16.8181858, -16.9010105, 0]
-      Scale: [0.802050948, 0.869548976, 0.861903608]
+      Rotation: [9.18371773, 39.2688751, 1.10280439e-06]
+      Scale: [0.802059293, 0.869547665, 0.861916184]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -181,7 +181,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867513]
+      Scale: [1, 1.10000002, 1.09867501]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
