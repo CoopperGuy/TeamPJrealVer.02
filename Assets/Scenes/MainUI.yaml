@@ -10,7 +10,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [666.953552, 616.166931]
+      Position: [666.953552, 647.406616]
       Size: [50, 50]
     Children:
       - 3718436722915007908
@@ -27,7 +27,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [674.14502, 643.156738]
+      Position: [674.14502, 676.239685]
       Size: [300, 15]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
@@ -47,7 +47,7 @@ GameObjects:
     PassIndex: 3
     Hovering: false
     Com_Transform:
-      Position: [674.144958, 644.742615]
+      Position: [674.144958, 677.825562]
       Size: [295, 13]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
@@ -65,7 +65,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [674.044983, 663.542419]
+      Position: [674.044983, 692.239685]
       Size: [300, 15]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
@@ -85,7 +85,7 @@ GameObjects:
     PassIndex: 3
     Hovering: false
     Com_Transform:
-      Position: [674.044983, 663.542419]
+      Position: [674.044983, 692.239685]
       Size: [295, 12]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\StaminaHud.tga
@@ -103,7 +103,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [674.044983, 680.680237]
+      Position: [674.044983, 706.239685]
       Size: [300, 12]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
@@ -123,7 +123,7 @@ GameObjects:
     PassIndex: 3
     Hovering: false
     Com_Transform:
-      Position: [674.044983, 680.680237]
+      Position: [674.044983, 706.239685]
       Size: [295, 10]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\ExpHud.png
@@ -141,7 +141,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [487.144348, 657.198669]
+      Position: [498.0979, 690]
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Alert_Bg_LevelFlag.tga
@@ -163,7 +163,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [487.144287, 657.198975]
+      Position: [498.097839, 690.000305]
       Size: [18, 18]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\DmgF_Null_0.tga
@@ -181,8 +181,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1130, 667.452698]
-      Size: [32, 32]
+      Position: [1120, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
       TextureMaskPath: ""
@@ -202,8 +202,8 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [1130, 667.452698]
-      Size: [32, 32]
+      Position: [1120, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
@@ -334,7 +334,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [37.0359497, 659.909424]
+      Position: [40, 690]
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -355,7 +355,7 @@ GameObjects:
     PassIndex: 12
     Hovering: false
     Com_Transform:
-      Position: [37.0359497, 659.909546]
+      Position: [40, 690.000122]
       Size: [16, 16]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
@@ -373,7 +373,7 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [37.0359497, 659.909119]
+      Position: [40, 689.999695]
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Gauge.dds
@@ -391,7 +391,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [557.809326, 360]
+      Position: [552.949341, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -419,7 +419,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [622.292969, 360]
+      Position: [617.432983, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -447,7 +447,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [686.776978, 360]
+      Position: [681.916992, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -475,7 +475,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [751.260986, 360]
+      Position: [746.401001, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -503,7 +503,7 @@ GameObjects:
     PassIndex: 8
     Hovering: false
     Com_Transform:
-      Position: [557.809021, 360]
+      Position: [552.949036, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
@@ -521,7 +521,7 @@ GameObjects:
     PassIndex: 8
     Hovering: false
     Com_Transform:
-      Position: [622.29303, 360]
+      Position: [617.433044, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
@@ -539,7 +539,7 @@ GameObjects:
     PassIndex: 8
     Hovering: false
     Com_Transform:
-      Position: [686.776978, 360]
+      Position: [681.916992, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
@@ -557,7 +557,7 @@ GameObjects:
     PassIndex: 8
     Hovering: false
     Com_Transform:
-      Position: [751.260986, 360]
+      Position: [746.401001, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
@@ -575,7 +575,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [897.960571, 686.859131]
+      Position: [897.960571, 700]
       Size: [32, 32]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Icon_Gold_0.dds
@@ -593,7 +593,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [972.11615, 691.847534]
+      Position: [972.11615, 705]
       Size: [111.699234, 21.6747799]
     Com_Text:
       Text: 0
@@ -613,7 +613,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [483.012207, 656.928406]
+      Position: [493.965759, 690]
       Size: [10, 10]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.dds
@@ -631,7 +631,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [490.942749, 656.927979]
+      Position: [501.896301, 690]
       Size: [10, 10]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.dds
@@ -649,8 +649,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1130, 667.452698]
-      Size: [16, 16]
+      Position: [1120, 690]
+      Size: [20, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
       TextureMaskPath: ""
@@ -667,8 +667,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1162, 667.452698]
-      Size: [32, 32]
+      Position: [1160, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
       TextureMaskPath: ""
@@ -688,8 +688,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1162, 667.452698]
-      Size: [16, 16]
+      Position: [1160, 690]
+      Size: [20, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
       TextureMaskPath: ""
@@ -706,8 +706,8 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [1162, 667.452698]
-      Size: [32, 32]
+      Position: [1160, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
@@ -724,8 +724,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1194, 667.452698]
-      Size: [32, 32]
+      Position: [1200, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
       TextureMaskPath: ""
@@ -745,8 +745,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1194, 667.452698]
-      Size: [16, 16]
+      Position: [1200, 690]
+      Size: [20, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
       TextureMaskPath: ""
@@ -763,8 +763,8 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [1194, 667.452698]
-      Size: [32, 32]
+      Position: [1200, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
@@ -781,8 +781,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1226, 667.452698]
-      Size: [32, 32]
+      Position: [1240, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\SkillICon.tga
       TextureMaskPath: ""
@@ -802,8 +802,8 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [1226, 667.452698]
-      Size: [16, 16]
+      Position: [1240, 690]
+      Size: [20, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
       TextureMaskPath: ""
@@ -820,8 +820,8 @@ GameObjects:
     PassIndex: 4
     Hovering: false
     Com_Transform:
-      Position: [1226, 667.452698]
-      Size: [32, 32]
+      Position: [1240, 690]
+      Size: [40, 40]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\skill\UI2_Myslot_FxCoolFin.dds
       TextureMaskPath: ""
@@ -884,7 +884,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [644.859985, 360]
+      Position: [640, 360]
       Size: [1972.12988, 264.164337]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Right_KillLog.tga
@@ -908,7 +908,7 @@ GameObjects:
     PassIndex: 1
     Hovering: true
     Com_Transform:
-      Position: [1250.47339, 325.136383]
+      Position: [1245.6134, 325.136383]
       Size: [16, 16]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Continuty_2.tga

@@ -7,7 +7,7 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 5
-    PassIndex: 1
+    PassIndex: 14
     Hovering: false
     Com_Transform:
       Position: [302.26944, 432.763275]
@@ -15,7 +15,7 @@ GameObjects:
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
       TextureMaskPath: ""
-      TextureNoisePath: ""
+      TextureNoisePath: ..\..\Assets\UITexture\BackImg\Window_BG_BattlePass.dds
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
     Children:

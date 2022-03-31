@@ -416,6 +416,15 @@ float4 PS_MAIN_PORTAL(PS_INITEM input) : SV_Target
         discard;
     return color;
 }
+
+float4 PS_MAIN_BACKIMG(PS_IN input) : SV_Target
+{
+    float4 diffuse = Map.Sample(Sampler, input.vTexUV);
+    float4 noise = Noise.Sample(Sampler, input.vTexUV);
+    float4 color = diffuse.argb + noise.argb;
+    return color;
+}
+
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -563,5 +572,17 @@ technique11		DefaultDevice
         VertexShader = compile vs_5_0 VS_MAIN_PORTAL();
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_PORTAL();
+    }
+
+
+    pass BackImage
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_BACKIMG();
     }
 }

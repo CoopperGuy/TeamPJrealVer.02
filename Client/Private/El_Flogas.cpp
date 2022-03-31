@@ -178,6 +178,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 						{
 							m_pModel->SetUp_AnimationIndex(DEADBODY);
 							m_pGameObject->SetActive(false);
+							m_pMonHp->SetUpDead();
 						}
 					}
 				}

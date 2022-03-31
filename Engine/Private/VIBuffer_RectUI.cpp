@@ -157,8 +157,8 @@ HRESULT CVIBuffer_RectUI::Render(_uint iPassIndex)
 
 
 
-	if (iPassIndex > 13) {
-		iPassIndex = 13;
+	if (iPassIndex > 14) {
+		iPassIndex = 14;
 	}
 	m_pShader->Render(iPassIndex);
 	if (m_IBSubResourceData.pSysMem)

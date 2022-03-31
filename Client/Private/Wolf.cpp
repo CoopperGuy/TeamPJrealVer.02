@@ -29,8 +29,8 @@ CWolf * CWolf::Create(CGameObject * pObj, _float3 position)
 void CWolf::Free()
 {
 	__super::Free();
-	if (m_pHpBar)
-		m_pHpBar->SetUpDead();
+	//if (m_pHpBar)
+	//	m_pHpBar->SetUpDead();
 }
 
 HRESULT CWolf::Initialize(_float3 position)
@@ -137,7 +137,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	{
 
 		if (m_pHpBar)
-			m_pHpBar->SetDead();
+			m_pHpBar->SetUpDead();
 
 		if (m_pModel->Get_isFinished()) {
 			this->SetDead();
