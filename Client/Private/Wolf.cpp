@@ -29,8 +29,8 @@ CWolf * CWolf::Create(CGameObject * pObj, _float3 position)
 void CWolf::Free()
 {
 	__super::Free();
-	m_pHpBar->SetDead();
-
+	if (m_pHpBar)
+		m_pHpBar->SetUpDead();
 }
 
 HRESULT CWolf::Initialize(_float3 position)
@@ -135,11 +135,12 @@ void CWolf::LateUpdate(_double dDeltaTime)
 
 
 		if (m_pHpBar)
-			m_pHpBar->SetDead();
+			m_pHpBar->SetUpDead();
 		//m_pModel->Play_Animation(0);
 		this->SetDead();
 		m_pGameObject->SetDead();
 		m_pCollider->ReleaseController();
+
 	}
 
 }

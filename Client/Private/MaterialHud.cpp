@@ -6,7 +6,6 @@ void CheckMaterialItem(CMaterialHud* script) {
 	if (script->GetThreadNum() < 0)
 		return;
 	script->MinusThread();
-	script->CheckItems();
 	script->AddThread();
 }
 END
@@ -47,12 +46,39 @@ HRESULT CMaterialHud::Initailze(CGameObject * pArg)
 
 void CMaterialHud::Update(_double deltaTime)
 {
+	_uint i = 0;
+	for (auto& iter : m_pMaterialList) {
+		if (iter.first->IsHovered()) {
+			if (CEngine::GetInstance()->IsMouseDown(0))
+				m_iCurSelected = i;
+		}
+		i++;
+	}
+
+
+	if (m_pThisUI->IsActive()) {
+		
+	}
+	else {
+		m_iCurSelected = -1;
+	}
+
 	Scroll(deltaTime);
+
 }
 
 void CMaterialHud::LateUpdate(_double deltaTime)
 {
-
+	_uint checkIdx = 0;
+	for (auto& iter : m_pMaterialList) {
+		if (checkIdx == m_iCurSelected) {
+			iter.first->SetIsSelected(true);
+		}
+		else {
+			iter.first->SetIsSelected(false);
+		}
+		checkIdx++;
+	}
 }
 
 void CMaterialHud::Render()
@@ -84,6 +110,7 @@ void CMaterialHud::RemoveMaterialItem(_uint idx)
 		iter++;
 	}
 	(*iter).first->RemoveParent();
+	(*iter).first->SetDead();
 	iter = m_pMaterialList.erase(iter);
 	m_fCurYSize -= m_constYScale;
 
@@ -134,8 +161,7 @@ void CMaterialHud::Scroll(_double deltaTime)
 {
 	_float fScrollSpd = 500.f;
 	if (m_pThisUI->IsActive()) {
-		std::thread CheckingItem(CheckMaterialItem, this);
-		CheckingItem.detach();
+		this->CheckItems();
 		if (CEngine::GetInstance()->GetMouseMoveValue().z > 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
 			if (pos.y >= 0.f) {
@@ -160,6 +186,13 @@ void CMaterialHud::Scroll(_double deltaTime)
 	else {
 		m_pThisUI->SetTransformOffst(0.f, 0.f);
 	}
+}
+
+CItem * CMaterialHud::GetSelectedItem()
+{
+	string _name = m_pMaterialList[m_iCurSelected].second.name->GetText();
+	CItem* _item = m_pInven->GetItemByName(_name, ITEMTYPE::MATERIAL);
+	return _item;
 }
 
 void CMaterialHud::SetAddPosition(_float x)

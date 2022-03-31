@@ -13,7 +13,7 @@ BEGIN(Client)
 class CEquipItemHud;
 class CMaterialHud;
 class CConsumItemHud;
-
+class CReinforceHud;
 class CBackPackHud :
 	public IScriptObject
 {
@@ -38,10 +38,12 @@ private:
 	vector<CEmptyUI*>	m_pBackPackButton;
 	CGameObject*		m_pTarget = nullptr;
 	CEmptyUI*			m_pThisUI = nullptr;
+	CEmptyUI*			m_pReinforceButton = nullptr;
 private:
 	CEquipItemHud*		m_pEquipHud = nullptr;
 	CMaterialHud*		m_pMaterialHud = nullptr;
 	CConsumItemHud*		m_pConsumHud = nullptr;
+	CReinforceHud*		m_pReinforceHud = nullptr;
 private:
 	CInventory*			m_pInven = nullptr;
 private:
@@ -49,6 +51,7 @@ private:
 private:
 	_bool				m_bisActive = false;
 	_bool				m_bisOpenRightLeft = false;
+	_bool				m_bIsReinforceMenu = false;
 private:
 	mutable _float		m_fAddPosX = 390.f;
 public:

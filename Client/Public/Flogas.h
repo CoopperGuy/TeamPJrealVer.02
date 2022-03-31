@@ -122,7 +122,6 @@ private:
 	_double m_TimeAcc = 0.0;
 	CGameObject* pEffectObj = nullptr;
 private:
-	CGameObject*		m_pTrail = nullptr;
 	CVIBuffer_Trail*	m_pTrailBuffer = nullptr;
 	_float4x4			m_wpBoneMatrix;
 	_bool				m_DrawTrail = false;

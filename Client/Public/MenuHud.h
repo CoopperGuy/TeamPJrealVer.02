@@ -52,6 +52,7 @@ private:
 private:
 	_bool				m_bisActive = false;
 	_bool				m_bRightOpenInven = false;
+	
 public:
 	static CMenuHud* Create(CGameObject*	pTarget = nullptr);
 	virtual void Free() override;

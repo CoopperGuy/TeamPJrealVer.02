@@ -217,6 +217,13 @@ void CEquipItemHud::SetAddPosition(_float x)
 	m_fAddItemPosX = x;
 }
 
+CItem * CEquipItemHud::GetSelectedItem()
+{
+	string _name = m_pEquipItemList[m_iCurSelectedTag][m_iCurSelected].second.name->GetText(); 
+	CItem* _item = m_pInven->GetItemByName(_name, ITEMTYPE::EQUIP, EQUIPTYPE(m_iCurSelectedTag));
+	return _item;
+}
+
 
 CEquipItemHud * CEquipItemHud::Create(CGameObject * pTarget)
 {

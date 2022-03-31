@@ -90,6 +90,7 @@ void CMenuHud::Update(_double deltaTime)
 		}
 		m_pBackPack->SetRightLeft(m_bRightOpenInven);
 	}
+
 }
 
 void CMenuHud::LateUpdate(_double deltaTime)

@@ -1157,3 +1157,29 @@ void CUrsa::Hit(_double dDeltaTime)
 
 }
 
+void CUrsa::Create_Trail()
+{
+	/*CGameObject* pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Flogas_Trail");
+	if (pTrail == nullptr)
+		return;
+
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(pTrail);
+
+	pEffect->SetPassIndex(3);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/Trail.dds", CEmptyEffect::TEXTURE_NOISE);
+
+	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
+	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
+	pEffect->setDistortion(0, _float2(0.1f, 0.2f));
+	pEffect->setDistortion(1, _float2(0.1f, 0.3f));
+	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
+	pEffect->SetDistortionScale(4.f);
+	pEffect->SetDistortionBias(1.f);
+	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Weapon_R"));
+	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix());
+	pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
+	m_pRightTrailBuffer = static_cast<CVIBuffer_Trail*>(pTrail->GetComponent("Com_Trail"));*/
+}
+
