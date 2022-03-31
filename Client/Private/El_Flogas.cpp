@@ -126,6 +126,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 						m_dExplosionTime = 0.0;
 						m_pModel->SetUp_AnimationIndex(DIE);
 					}
+					else
+					{
+						static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red * 0.7, 3.0);
+					}
 				}
 			}
 			else
@@ -224,4 +228,7 @@ CEl_Flogas * CEl_Flogas::Create(string name, CFlogas* pObj)
 void CEl_Flogas::Free()
 {
 	__super::Free();
+	if (m_pMonHp)
+		m_pMonHp->SetUpDead();
+
 }

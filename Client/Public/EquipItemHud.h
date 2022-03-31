@@ -31,6 +31,8 @@ public:
 	void AddThread() { m_iCurThread++; }
 	void MinusThread() { m_iCurThread--; }
 public:
+	CItem*	GetSelectedItem();
+public:
 	_int GetThreadNum() { return m_iCurThread; }
 private:
 	vector<pair<CEmptyUI*, ITEMSUB>>	m_pEquipItemList[(_int)EQUIPTYPE::TYPE_END];

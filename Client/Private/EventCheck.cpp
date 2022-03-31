@@ -5,6 +5,7 @@
 #include "AddQuickslot.h"
 #include "Camera_Fly.h"
 #include "BackPackHud.h"
+#include "ReinforceHud.h"
 USING(Client)
 
 IMPLEMENT_SINGLETON(CEventCheck);
@@ -42,6 +43,12 @@ void CEventCheck::SetMenus(CMenuHud * _menu)
 {
 	if (_menu)
 		m_pMenus = _menu;
+}
+
+void CEventCheck::SetReinforceHud(CReinforceHud * _reinforce)
+{
+	if (_reinforce)
+		m_pReinforceHud = _reinforce;
 }
 
 void CEventCheck::AddItemAtQuickSlot(CItem * item, _int idx)
@@ -126,6 +133,19 @@ void CEventCheck::OffAllMenus()
 {
 	if (m_pMenus)
 		m_pMenus->OffAllMenus();
+}
+
+void CEventCheck::SetUpReinforceItem(CItem * _item)
+{
+	if (m_pReinforceHud)
+		m_pReinforceHud->SetUpReinforceItem(_item);
+}
+
+void CEventCheck::SetUpReinforceMaterial(CItem * _item)
+{
+	if (m_pReinforceHud)
+		m_pReinforceHud->SetUpReinforceMaterial(_item);
+
 }
 
 void CEventCheck::RemoveItem(ITEMTYPE _type, _int _idx)

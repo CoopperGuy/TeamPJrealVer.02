@@ -262,8 +262,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.278124869, 0.766852498, -0.200000003]
-      Rotation: [10.6840134, -40.4888535, 0]
-      Scale: [0.292329907, 0.317668051, 0.306082547]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.291649818, 0.317838103, 0.305608749]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -340,8 +340,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.05423212, 0.316382021, 0]
-      Rotation: [10.6840124, -40.4888535, 0]
-      Scale: [0.897296309, 0.949139476, 0.771469474]
+      Rotation: [11.3099327, -0, 0]
+      Scale: [0.895206451, 0.949661016, 0.770272076]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -517,8 +517,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.5, -0.584999979, -2.58699989]
-      Rotation: [10.6840143, -40.4888573, 0]
-      Scale: [1.8179369, 1.41843748, 0.967618346]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [1.81369567, 1.41919804, 0.966115057]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -631,12 +631,12 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.642346501, 1.1709255, -3.44839787]
-      Rotation: [10.6840143, -40.4888573, 0]
-      Scale: [1.88638616, 1.93571293, 1.00224221]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [2, 1.5, 1.00068629]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\fireball_022.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\FireBall02_8x8.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\dust_14.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -647,18 +647,18 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 1
+      FadeOut: true
+      FadeOutDuration: 1.27999997
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 1.27999997
       SpriteNumX: 4
       SpriteNumY: 8
       SpriteTotal: 32
-      SpriteSpeed: 20
-      OffsetColor: [1, 0.423440456, 0.115942001, 0]
+      SpriteSpeed: 25
+      OffsetColor: [0, 0, 0, 0.300000012]
   - Name: FootHammer_Decal
     UUID: 10723190694740278444
     Active: true

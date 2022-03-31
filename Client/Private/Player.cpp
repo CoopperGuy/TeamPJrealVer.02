@@ -237,22 +237,44 @@ void CPlayer::Update(_double dDeltaTime)
 	m_pModel->SetDissolve(m_fDissolveAcc);
 	///////////////////////////////////////////////////////////////
 
-	//#ifdef _DEBUG
+	#ifdef _DEBUG	
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADMINUS)) {
+		ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NormalReinforce").second;
+		CItem*	tempItem = new CItem(_info);
+		if (!m_pInven->AddItem("NormalReinforce", tempItem)) {
+			SafeDelete(tempItem);
+		}
+	}
+	#endif // _DEBUG
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}
-	//#endif // _DEBUG
 	Collsion();
 	Transform_ToWorldSpace();
 	SearchMonster();
 	if (m_pStatus->GetStatInfo().hp >= 0)
 		CreateBlood();
 
-	/*if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bHit = true;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	{
+		if (!m_bEvade)
+		{
+			if(!m_bOnlyDown)
+				m_bHit = true;
+		}
+	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		m_bDown = true;
-	*/
+	{
+		if (!m_bEvade)
+		{
+			if (!m_bSuperArmor)
+			{
+				m_fJumpSpeed = 0.01f;
+				m_bDown = true;
+				m_bHit = false;
+			}
+		}
+	}
 
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
@@ -771,8 +793,8 @@ void CPlayer::SetUp_HitState()
 	}
 	case (_uint)Player_State::Hit_F:
 	{
-		m_bOnlyDown = true;
-		m_bSuperArmor = false;
+		m_bOnlyDown = false;
+		m_bSuperArmor = true;
 		break;
 	}
 	case (_uint)Player_State::LBCombo1:
@@ -1052,6 +1074,11 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	{
 		if (m_pModel->Get_AnimIndex() == (_uint)Player_State::KnockDown_Start)
 		{
+			if (m_pModel->GetCurrentKeyFrame() < 1)
+			{
+				CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
+				CEventCheck::GetInstance()->ZoomFov(0.3f, 60.f, 15.f);
+			}
 			if (m_pModel->GetCurrentKeyFrame() < 6)
 			{
 				if (IsGravity())
@@ -1076,7 +1103,6 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	if (m_bEvade)
 	{
 		m_bEvadeDelay = true;
-		m_bSuperArmor = true;
 		m_EvadeDelayTime = 0.f;
 		isFinish_Combo();
 		m_dAnimSpeed = 1.7f;
@@ -1379,8 +1405,12 @@ void CPlayer::CreateBlood()
 		{
 			if (m_pOBB->GetIsDown())
 			{
-				m_fJumpSpeed = 0.01f;
-				m_bDown = true;
+				if (!m_bSuperArmor)
+				{
+					m_fJumpSpeed = 0.01f;
+					m_bDown = true;
+					m_bHit = false;
+				}
 			}
 			else if(!m_bOnlyDown)
 				m_bHit = true;

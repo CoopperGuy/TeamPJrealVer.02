@@ -29,8 +29,8 @@ CWolf * CWolf::Create(CGameObject * pObj, _float3 position)
 void CWolf::Free()
 {
 	__super::Free();
-	m_pHpBar->SetDead();
-
+	if (m_pHpBar)
+		m_pHpBar->SetUpDead();
 }
 
 HRESULT CWolf::Initialize(_float3 position)
@@ -159,7 +159,7 @@ void CWolf::SetUpAnimation()
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::IDLE1, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::WALK, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::RUN, true, false);
-	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, false, false); // À§Çù
+	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, false, false); // ìœ„í˜‘
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::ZTTACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::STRAIGHTATACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::DAMAGE, false, false);
@@ -376,11 +376,11 @@ void CWolf::WolfLookPlayer()
 {
 	_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION);
 
-	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	yÃà // ¿ÜÀûÀ¸·Î ¹æÇâ¹éÅÍs¸¦ ±¸ÇÏ±âÀ§ÇØ¼­ ±×¸®°í ÁÂ¿ì·Î¸¸ ¹Ù²îÁö yÃàÀº ¾È¹Ù²î´Ï±î
+	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	yì¶• // ì™¸ì ìœ¼ë¡œ ë°©í–¥ë°±í„°së¥¼ êµ¬í•˜ê¸°ìœ„í•´ì„œ ê·¸ë¦¬ê³  ì¢Œìš°ë¡œë§Œ ë°”ë€Œì§€ yì¶•ì€ ì•ˆë°”ë€Œë‹ˆê¹Œ
 	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
 
-	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//À§¿¡¼­ ¿ÜÀûÇÑ right´Â ½ºÄÉÀÏÀÌ ±úÁ®ÀÖ¾î¼­ ¿ø·¡ »ç¿ëÇÏ´ø right¸¦ ´ëÀÔÇØÁÖÀÚ 
-	_vector		vLook = XMVector3Cross(vRight, vUp);			// À§¿¡¼­ ¹Ù²ãÁØ Ç×µîÇà·Ä°ú yÃàÀ» ¿ÜÀûÇÏ±â 
+	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//ìœ„ì—ì„œ ì™¸ì í•œ rightëŠ” ìŠ¤ì¼€ì¼ì´ ê¹¨ì ¸ìžˆì–´ì„œ ì›ëž˜ ì‚¬ìš©í•˜ë˜ rightë¥¼ ëŒ€ìž…í•´ì£¼ìž 
+	_vector		vLook = XMVector3Cross(vRight, vUp);			// ìœ„ì—ì„œ ë°”ê¿”ì¤€ í•­ë“±í–‰ë ¬ê³¼ yì¶•ì„ ì™¸ì í•˜ê¸° 
 	vLook = XMVector3Normalize(vLook) * m_pTransform->GetScale(CTransform::STATE_LOOK);
 
 	m_pTransform->SetState(CTransform::STATE_RIGHT, vRight);

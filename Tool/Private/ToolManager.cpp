@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/BossSY.yaml";
+static string strScene = "../../Assets/Scenes/TestRoom_Effect_Jun.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
@@ -64,7 +64,6 @@ HRESULT CToolManager::Initialize()
 
 	m_pEngine->DeserializeScene(strScene,SCENE_TOOL);
 	m_pEngine->WaitThread();
-
 	//m_pEngine->AddScriptObject(CToolPlayer::Create(nullptr),m_pEngine->GetCurSceneNumber());
 
 

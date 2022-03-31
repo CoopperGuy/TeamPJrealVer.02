@@ -29,6 +29,7 @@ public:
 	void MinusThread() { m_iCurThread--; }
 public:
 	_int GetThreadNum() { return m_iCurThread; }
+	CItem*	GetSelectedItem();
 public:
 	void SetAddPosition(_float x);
 private:
