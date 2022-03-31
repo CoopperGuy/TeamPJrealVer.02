@@ -8,6 +8,7 @@ class CAddQuickslot;
 class CItem;
 class CBackPackHud;
 class CMenuHud;
+class CReinforceHud;
 class CEventCheck :
 	public CBase
 {
@@ -24,6 +25,7 @@ public:
 	void SetCameraFly(CCamera_Fly* camera);
 	void SetBackPackHud(CBackPackHud* _backPack);
 	void SetMenus(CMenuHud* _menu);
+	void SetReinforceHud(CReinforceHud* _reinforce);
 public:
 	void AddItemAtQuickSlot(CItem* item, _int idx);
 public:
@@ -44,6 +46,9 @@ public:
 public:
 	void OffAllMenus();
 public:
+	void SetUpReinforceItem(CItem*	_item);
+	void SetUpReinforceMaterial(CItem*	_item);
+public:
 	void SetCurBackPack(BACKPACKSTATE _state) { m_eBackState = _state; }
 	BACKPACKSTATE GetBackPackState() { return m_eBackState; }
 	void RemoveItem(ITEMTYPE _type, _int _idx);
@@ -59,6 +64,7 @@ private:
 	CCamera_Fly*	m_pCameraFly = nullptr;
 	CBackPackHud*	m_pBackPackHud = nullptr;
 	CMenuHud*		m_pMenus = nullptr;
+	CReinforceHud*	m_pReinforceHud = nullptr;
 private:
 	BACKPACKSTATE	m_eBackState = BACKPACKSTATE::BACK_END;
 	_bool			m_bChangeScene = false;

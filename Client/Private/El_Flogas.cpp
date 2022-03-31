@@ -224,4 +224,7 @@ CEl_Flogas * CEl_Flogas::Create(string name, CFlogas* pObj)
 void CEl_Flogas::Free()
 {
 	__super::Free();
+	if (m_pMonHp)
+		m_pMonHp->SetUpDead();
+
 }

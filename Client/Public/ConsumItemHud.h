@@ -34,6 +34,7 @@ public:
 	_bool GetAddQuickSlotOpen() { return m_bSelectInputIndex; }
 	_int GetSelectedItemIndex() { return m_iCurSelected; }
 	string GetSelectedItemName();
+	CItem*	GetSelectedItem();
 private:
 	vector<pair<CEmptyUI*, ITEMSUB>>	m_pConsumItemList;
 	CGameObject*						m_pTarget = nullptr;

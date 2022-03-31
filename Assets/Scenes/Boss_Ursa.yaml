@@ -46,7 +46,7 @@ GameObjects:
       IsAttach: true
       BoneName: BN_Axe_R
       Offset: [0, 0.0500000007, -0.400000006]
-      CollisionType: 8
+      CollisionType: 3
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Monster\Ursa\
       MeshFileName: ursa.fbx
