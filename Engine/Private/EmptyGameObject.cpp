@@ -636,6 +636,16 @@ void CEmptyGameObject::SetPosition(_float3 pos)
 	m_pTransformCom->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&pos));
 }
 
+void CEmptyGameObject::SetWorldMatrix(_fmatrix matWorld)
+{
+	m_pTransformCom->SetMatrix(matWorld);
+}
+
+void CEmptyGameObject::SetWorldMatrix(_float4x4 matWorld)
+{
+	m_pTransformCom->SetMatrix(matWorld);
+}
+
 _bool CEmptyGameObject::GetHaveParent()
 {
 	if (m_pParent)

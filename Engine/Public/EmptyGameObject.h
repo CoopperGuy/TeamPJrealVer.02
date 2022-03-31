@@ -37,6 +37,8 @@ public:
 	void SetRenderGroup(CRenderer::RENDER type) { m_eRenderGroup = type; }
 	void SetLocalPosition(_float3 pos);
 	void SetPosition(_float3 pos);
+	void SetWorldMatrix(_fmatrix matWorld);
+	void SetWorldMatrix(_float4x4 matWorld);
 	void SetTargetTransform(CTransform* pTarget) { m_pTargetTransform = pTarget; }
 	virtual void	SetisRender(_bool tf) override;
 	void Set_Render(_uint index, _bool Render) { m_bRender[index] = Render; }

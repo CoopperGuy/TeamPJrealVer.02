@@ -103,6 +103,15 @@ void CObb::SetPosision(_float3 _pos)
 	m_pObj->SetPosition(_pos);
 }
 
+void CObb::SetMatrix(_fmatrix matWorld)
+{
+	m_pObj->SetWorldMatrix(matWorld);
+}
+
+void CObb::SetMatrix(_float4x4 matWorld)
+{
+	m_pObj->SetWorldMatrix(matWorld);
+}
 
 CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CTransform * pTarget)
 {
