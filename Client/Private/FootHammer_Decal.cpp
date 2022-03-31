@@ -36,6 +36,8 @@ void CFootHammer_Decal::Update(_double dDeltaTime)
 		{
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FootHamer_Bomb", "E_FootHamer_Bomb");
 			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
 			m_bCreateEffect = false;
 		}
 	}

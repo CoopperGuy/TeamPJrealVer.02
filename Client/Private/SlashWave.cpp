@@ -24,7 +24,7 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 	_vector vPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	//m_pEffectTrans->GoRight(0.05);
-	vPos += XMVector3Normalize(m_pTargetTrans->GetState(CTransform::STATE_RIGHT))  * -0.05f;
+	vPos += XMVector3Normalize(m_pTargetTrans->GetState(CTransform::STATE_RIGHT))  * 0.05f;
 
 
 	CTransform* pChildTrans = static_cast<CTransform*>(m_pThis->GetChildren().front()->GetComponent("Com_Transform"));
@@ -59,9 +59,11 @@ void CSlashWave::Update(_double dDeltaTime)
 		if(m_fScale < 1.5f)
 			m_fScale += (_float)dDeltaTime;
 
-		
-		m_pOBB->SetPosision(effectPos);
 	}
+		_float3 vPos = {};
+		XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
+		m_pOBB->SetPosision(vPos);
+		m_pOBB->SetSize(_float3(m_fScale* 0.5f, m_fScale * 0.5f, m_fScale *0.5f));
 }
 
 void CSlashWave::LateUpdate(_double deltaTime)

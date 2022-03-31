@@ -9,12 +9,12 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.642346501, 1.1709255, -3.44839787]
-      Rotation: [58.7854691, -23.2711487, -9.29382566e-07]
-      Scale: [1.99968565, 1.99979866, 0.999999762]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [2, 1.5, 1.00068629]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\fireball_022.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\FireBall02_8x8.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\dust_14.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
@@ -25,15 +25,15 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 1
+      FadeOut: true
+      FadeOutDuration: 1.27999997
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 1.27999997
       SpriteNumX: 4
       SpriteNumY: 8
       SpriteTotal: 32
-      SpriteSpeed: 20
-      OffsetColor: [1, 0.423440456, 0.115942001, 0]
+      SpriteSpeed: 25
+      OffsetColor: [0, 0, 0, 0.300000012]
