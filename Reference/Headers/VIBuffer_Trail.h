@@ -19,14 +19,13 @@ public:
 	virtual CComponent* Clone(void* pArg) override;
 	virtual void Free() override;
 
-public:
-	void SetColor(_float4 color) { m_Color = color; }
 private:
-	_float4			m_Color = { 1.f, 1.f, 1.f, 1.f };
+	_float3	 m_vLowOffset = { 0.f, 0.f, 0.f };
+	_float3  m_vHighOffset = { 0.f, 0.f, 0.f };
 
 	_double m_TimeAcc = 0.0;
 
-	_float	m_fAlpha = -1.f;
+	_float	 m_fAlpha = -1.f;
 
 private:
 	_uint	m_iCatmullRomCnt = 10;

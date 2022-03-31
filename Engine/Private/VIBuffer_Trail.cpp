@@ -37,20 +37,20 @@ HRESULT CVIBuffer_Trail::InitializePrototype()
 	m_VBDesc.MiscFlags = 0;
 	m_VBDesc.StructureByteStride = m_iStride;
 
-	m_pVertices = new VTXTEX[m_iNumVertices];
-	ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
+	//m_pVertices = new VTXTEX[m_iNumVertices];
+	//ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
 
-	for (_uint i = 0; i < m_iNumVertices; i += 2)
-	{
-		((VTXTEX*)m_pVertices)[i].vPosition = _float3(0.f, 0.f, 0.f);
-		((VTXTEX*)m_pVertices)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
+	//for (_uint i = 0; i < m_iNumVertices; i += 2)
+	//{
+	//	((VTXTEX*)m_pVertices)[i].vPosition = _float3(0.f, 0.f, 0.f);
+	//	((VTXTEX*)m_pVertices)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
 
-		((VTXTEX*)m_pVertices)[i + 1].vPosition = _float3(0.f, 0.f, 0.f);
-		((VTXTEX*)m_pVertices)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
-	}
+	//	((VTXTEX*)m_pVertices)[i + 1].vPosition = _float3(0.f, 0.f, 0.f);
+	//	((VTXTEX*)m_pVertices)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
+	//}
 
-	/* For.D3D11_SUBRESOURCE_DATA */
-	m_VBSubResourceData.pSysMem = m_pVertices;
+	///* For.D3D11_SUBRESOURCE_DATA */
+	//m_VBSubResourceData.pSysMem = m_pVertices;
 
 #pragma endregion VERTEXBUFFER
 
@@ -86,8 +86,11 @@ HRESULT CVIBuffer_Trail::InitializePrototype()
 
 #pragma endregion INDEXBUFFER
 
-	if (FAILED(__super::Create_Buffers()))
+	if (FAILED(m_pDevice->CreateBuffer(&m_IBDesc, &m_IBSubResourceData, &m_pIB)))
 		return E_FAIL;
+
+	/*if (FAILED(__super::Create_Buffers()))
+		return E_FAIL;*/
 
 	//D3D11_INPUT_ELEMENT_DESC		ElmentDesc[] = {
 	//	,
@@ -105,7 +108,7 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 {
 	m_isCloned = true;
 	m_pVB = nullptr;
-	ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
+	//ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
 			
 	m_pVertices = new VTXTEX[m_iNumVertices];
 	ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
@@ -129,7 +132,10 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 
 	if (pArg)
 	{
-		_matrix WeaponTransform;
+		m_vLowOffset = static_cast<TRAILDESC*>(pArg)->vLowOffset;
+		m_vHighOffset = static_cast<TRAILDESC*>(pArg)->vHighOffset;
+
+		/*_matrix WeaponTransform;
 		memcpy(&WeaponTransform, pArg, sizeof(_matrix));
 
 		D3D11_MAPPED_SUBRESOURCE		SubResource;
@@ -146,10 +152,8 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 			XMStoreFloat3(&((VTXTEX*)SubResource.pData)[i + 1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
 		}
 
-		m_pDeviceContext->Unmap(m_pVB.Get(), 0);
-	}
-
-	
+		m_pDeviceContext->Unmap(m_pVB.Get(), 0);*/
+	}	
 
 	for (_int i = m_iNumVertices; i > 0; i--) {
 		m_vecCatmullRom.push_back(((VTXTEX*)m_pVertices)[i]);
@@ -176,8 +180,8 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 		((VTXTEX*)SubResource.pData)[(m_iNumVertices - 1) - i].vPosition = ((VTXTEX*)SubResource.pData)[(m_iNumVertices - 1) - (i + 2)].vPosition;
 	}
 
-	_vector vLocalPosLow = XMVectorSet(0.f, -0.2f, 0.f, 0.f);
-	_vector vLocalPosHigh = XMVectorSet(0.f, 0.45f, 0.f, 0.f);
+	_vector vLocalPosLow = XMVectorSet(m_vLowOffset.x, m_vLowOffset.y, m_vLowOffset.z, 0.f);
+	_vector vLocalPosHigh = XMVectorSet(m_vHighOffset.x, m_vHighOffset.y, m_vHighOffset.z, 0.f);
 
 	DirectX::XMStoreFloat3(&((VTXTEX*)SubResource.pData)[0].vPosition, XMVector3TransformCoord(vLocalPosLow, WeaponTransform));
 	DirectX::XMStoreFloat3(&((VTXTEX*)SubResource.pData)[1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
@@ -245,8 +249,8 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 
 			for (_uint i = 0; i < m_iNumVertices; i += 2)
 			{
-				((VTXTEX*)SubResource.pData)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
-				((VTXTEX*)SubResource.pData)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
+				((VTXTEX*)SubResource.pData)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
+				((VTXTEX*)SubResource.pData)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
 			}
 
 
@@ -272,6 +276,7 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 			m_iVtxCnt = 0;
 		}
 	}
+	
 	return S_OK;
 }
 
@@ -281,15 +286,13 @@ HRESULT CVIBuffer_Trail::Render(_uint iPassIndex)
 		return S_OK;
 	if (m_bisActive && m_fAlpha <= -0.5f)
 		return S_OK;
+	
 	_uint		iOffset = 0;
-
-	m_pShader->SetUp_ValueOnShader("g_AlphaSet", &m_fAlpha, sizeof(_float));
-
+	
 	ID3D11ShaderResourceView*	pDiffuseSRV = CTargetManager::GetInstance()->GetShaderResourceView("Target_Trail");
 	if (pDiffuseSRV != nullptr)
 		m_pShader->SetUp_TextureOnShader("g_HDRTexture", pDiffuseSRV);
-	//m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));
-	
+		
 	m_pDeviceContext->IASetVertexBuffers(0, m_iNumVertexBuffers, m_pVB.GetAddressOf(), &m_iStride, &iOffset);
 	m_pDeviceContext->IASetIndexBuffer(m_pIB.Get(), m_eIndexFormat, 0);
 	m_pDeviceContext->IASetPrimitiveTopology(m_ePrimitive);

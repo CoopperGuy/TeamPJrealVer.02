@@ -108,16 +108,17 @@ void CAxe::State_Idle()
 
 void CAxe::Create_Trail()
 {
-	m_pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Player_Trail");
-	if (m_pTrail == nullptr)
+	CGameObject* pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Player_Trail");
+	if (pTrail == nullptr)
 		return;
 
-	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(m_pTrail);
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(pTrail);
 	
 	pEffect->SetPassIndex(3);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	//pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail01_TEX_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
 	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/Trail.dds", CEmptyEffect::TEXTURE_NOISE);
+	pEffect->SetOffsetColor(_float4(1.f, 0.f, 0.f, 0.f));
 
 	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
 	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
@@ -127,9 +128,13 @@ void CAxe::Create_Trail()
 	pEffect->SetDistortionScale(4.f);
 	pEffect->SetDistortionBias(1.f);
 
-	_matrix WeaponTrans = XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
-	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
-	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
+	//_matrix WeaponTrans = XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix());
+	TRAILDESC TrailDesc;
+	TrailDesc.vHighOffset = { 0.f, 0.4f, 0.f };
+	TrailDesc.vLowOffset = { 0.f, -0.1f, 0.f };
+
+	pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
+	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(pTrail->GetComponent("Com_Trail"));
 }
 
 _fmatrix CAxe::Remove_Scale(_fmatrix _srcmatrix)

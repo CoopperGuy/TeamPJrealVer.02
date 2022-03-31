@@ -1374,7 +1374,7 @@ void CPlayer::CreateBlood()
 	if (m_pStatus->GetStatInfo().hp <= 0)
 		return;
 
-	//if (m_pOBB->Get_isHit()) {
+	if (m_pOBB->Get_isHit()) {
 	//	if (!m_bEvade)
 	//	{
 	//		if (m_pOBB->GetIsDown())

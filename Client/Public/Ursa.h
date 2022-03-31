@@ -68,6 +68,7 @@ private:
 private:
 	class CStat* m_pStat				 = nullptr;
 	class CTransform* m_pTargetTransform = nullptr;
+	class CTransform* m_pRenderTransform = nullptr;
 	CBasicCollider* m_pOBBCom			 = nullptr;
 	CMonHp*	m_pMonHp					 = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
@@ -114,12 +115,15 @@ private:
 	_bool m_bSkillDelay		   = false;
 	_bool m_bAddRand		   = false;
 
+	// Dissolve
+	_bool m_bDissolve = false;
+	_float m_fDissolveAcc = 0.f;
 private:
 	CVIBuffer_Trail*		m_pRightTrailBuffer = nullptr;
 	CVIBuffer_Trail*		m_pLeftTrailBuffer = nullptr;
 
 	_float4x4			m_RightwpBoneMatrix;
-	_float4x4			m_LightwpBoneMatrix;
+	_float4x4			m_LeftwpBoneMatrix;
 	_bool				m_DrawTrail = false;
 
 };

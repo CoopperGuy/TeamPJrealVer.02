@@ -50,7 +50,6 @@ private:
 	CModel*			m_pModel			= nullptr;
 private:
 	CVIBuffer_Trail* m_pTrailBuffer			= nullptr;
-	CGameObject*	m_pTrail = nullptr;
 private:
 	class CBasicCollider* m_pOBB = nullptr;
 private:
