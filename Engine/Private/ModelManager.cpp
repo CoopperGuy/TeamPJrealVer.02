@@ -38,6 +38,7 @@ void CModelManager::Free()
 		SafeRelease(model.second);
 		//cout << "model delete " << model.second << "\n";
 	}
+	m_Threads.clear();
 	for (auto& iter : thread_handles) {
 
 	}

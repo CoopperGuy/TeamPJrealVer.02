@@ -237,11 +237,18 @@ void CPlayer::Update(_double dDeltaTime)
 	m_pModel->SetDissolve(m_fDissolveAcc);
 	///////////////////////////////////////////////////////////////
 
-	//#ifdef _DEBUG
+	#ifdef _DEBUG	
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADMINUS)) {
+		ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NormalReinforce").second;
+		CItem*	tempItem = new CItem(_info);
+		if (!m_pInven->AddItem("NormalReinforce", tempItem)) {
+			SafeDelete(tempItem);
+		}
+	}
+	#endif // _DEBUG
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}
-	//#endif // _DEBUG
 	Collsion();
 	Transform_ToWorldSpace();
 	SearchMonster();
@@ -1374,7 +1381,7 @@ void CPlayer::CreateBlood()
 	if (m_pStatus->GetStatInfo().hp <= 0)
 		return;
 
-	//if (m_pOBB->Get_isHit()) {
+	if (m_pOBB->Get_isHit()) {
 	//	if (!m_bEvade)
 	//	{
 	//		if (m_pOBB->GetIsDown())

@@ -448,6 +448,9 @@
     <ClInclude Include="..\Public\EffectUrsaShoulder.h">
       <Filter>05.Effect\Ursa\Shoulder</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ReinforceHud.h">
+      <Filter>04.UI\ReinforceHud</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -881,6 +884,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\EffectUrsaShoulder.cpp">
       <Filter>05.Effect\Ursa\Shoulder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ReinforceHud.cpp">
+      <Filter>04.UI\ReinforceHud</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1332,6 +1338,9 @@
     </Filter>
     <Filter Include="05.Effect\Ursa\Shoulder">
       <UniqueIdentifier>{f22d41cb-ba1b-47b9-a666-902a8998e3c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ReinforceHud">
+      <UniqueIdentifier>{cb4d9075-b548-4c72-9cce-ebbdb41a63e4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

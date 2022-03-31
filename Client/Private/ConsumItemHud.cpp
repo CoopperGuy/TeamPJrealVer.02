@@ -121,6 +121,7 @@ void CConsumItemHud::RemoveConsumItem(_uint idx)
 		iter++;
 	}
 	(*iter).first->RemoveParent();
+	(*iter).first->SetDead();
 	iter = m_pConsumItemList.erase(iter);
 	m_fCurYSize -= m_constYScale;
 
@@ -215,9 +216,10 @@ void CConsumItemHud::SetAddPosition(_float x)
 	m_fAddItemPosX = x;
 }
 
+
 string CConsumItemHud::GetSelectedItemName()
 {
-	if (m_iCurSelected > 0)
+	if (m_iCurSelected > -1)
 		return m_pConsumItemList[m_iCurSelected].second.name->GetText();
 	else
 		return "";

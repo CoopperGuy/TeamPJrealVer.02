@@ -4,6 +4,7 @@
 #include "MaterialHud.h"
 #include "ConsumItemHud.h"
 #include "EventCheck.h"
+#include "ReinforceHud.h"
 USING(Client)
 
 CBackPackHud::CBackPackHud()
@@ -20,19 +21,20 @@ HRESULT CBackPackHud::Initailze(CGameObject * pArg)
 	list<CGameObject*> buttonList = CEngine::GetInstance()->GetGameObjectInLayer(0, "BackPackSelect");
 
 	for (auto& iter : selectList) {
-		m_pBackPackList.emplace_back(dynamic_cast<CEmptyUI*>(iter));
+		m_pBackPackList.emplace_back(static_cast<CEmptyUI*>(iter));
 	}
 	for (auto& iter : buttonList) {
-		m_pBackPackButton.emplace_back(dynamic_cast<CEmptyUI*>(iter));
+		m_pBackPackButton.emplace_back(static_cast<CEmptyUI*>(iter));
 	}
 	m_pEquipHud = CEquipItemHud::Create();
 	m_pMaterialHud = CMaterialHud::Create();
 	m_pConsumHud = CConsumItemHud::Create();
-
+	m_pReinforceHud = CReinforceHud::Create();
+	m_pReinforceButton = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(0, "OpenReinforceButton"));
 	CEngine::GetInstance()->AddScriptObject(m_pEquipHud, 0);
 	CEngine::GetInstance()->AddScriptObject(m_pMaterialHud, 0);
 	CEngine::GetInstance()->AddScriptObject(m_pConsumHud, 0);
-
+	CEngine::GetInstance()->AddScriptObject(m_pReinforceHud, 0);
 	CEventCheck::GetInstance()->SetBackPackHud(this);
 
 	return S_OK;
@@ -50,6 +52,7 @@ void CBackPackHud::Update(_double deltaTime)
 	}
 
 	if (m_pThisUI->IsActive()) {
+		m_bIsReinforceMenu = m_pReinforceHud->GetIsOnOff();
 		for (auto& iter : m_pBackPackButton) {
 			iter->SetCorrectYSize(0.15f);
 			if (iter->IsHovered()) {
@@ -91,11 +94,38 @@ void CBackPackHud::Update(_double deltaTime)
 			}
 						
 		}
+		if (m_pReinforceButton->IsHovered()) {
+			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
+				m_bIsReinforceMenu = true;
+			}
+		}
+		if (m_bisOpenRightLeft) {
+			m_bIsReinforceMenu = false;
+		}
+		if (m_bIsReinforceMenu) {
+			CEventCheck::BACKPACKSTATE state = CEventCheck::BACKPACKSTATE(m_iCurSelected);
+			if (CEngine::GetInstance()->Get_DIKDown(DIK_LSHIFT)) {
+				switch (state)
+				{
+				case Client::CEventCheck::BACK_EQUIP: {
+					CItem* _item = m_pEquipHud->GetSelectedItem();
+					m_pReinforceHud->SetUpReinforceItem(_item);
+				}
+					break;
+				case Client::CEventCheck::BACK_MATERIAL: {
+					CItem* _item = m_pMaterialHud->GetSelectedItem();
+					m_pReinforceHud->SetUpReinforceMaterial(_item);
+				}
+					break;
+				}
+			}
+		}
 	}
 	else {
 		for (auto& iter : m_pBackPackList) {
 			iter->SetActive(false);
 		}
+		m_bIsReinforceMenu = false;
 	}
 	if (!m_bisOpenRightLeft)
 		m_fAddPosX = 390.f;	
@@ -105,6 +135,7 @@ void CBackPackHud::Update(_double deltaTime)
 	m_pEquipHud->SetAddPosition(m_fAddPosX);
 	m_pMaterialHud->SetAddPosition(m_fAddPosX);
 	m_pConsumHud->SetAddPosition(m_fAddPosX);
+	m_pReinforceHud->SetIsOnOff(m_bIsReinforceMenu);
 }
 
 void CBackPackHud::LateUpdate(_double deltaTime)

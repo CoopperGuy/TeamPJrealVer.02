@@ -437,7 +437,7 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		playerStat->SetSTATE(CStat::STATES_ATK);
 		playerStat->SetDMGRatio(1.3f);
-		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
+		if (keyFrame == 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
