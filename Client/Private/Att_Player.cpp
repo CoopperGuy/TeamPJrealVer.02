@@ -9,13 +9,12 @@ CAtt_Player::CAtt_Player()
 
 void CAtt_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
-	{
-		if (pPlayer.Get_Down())
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
-		else
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown())
 			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
-	}
+	
+	else if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
+		pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+
 	else if (pPlayer.Get_Evade())
 		pPlayer.m_pModel->SetUp_AnimationIndex((_uint)Player_State::CBEvade);
 	else if (pPlayer.Get_RBComboIndex() >= 0)
@@ -65,7 +64,8 @@ void CAtt_Player::Enter(CPlayer & pPlayer)
 
 CStateMachine * CAtt_Player::Input(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown() 
+		|| pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
 		return	pPlayer.GetState(CurState::IDLE);
 	if (pPlayer.m_pModel->Get_isFinished() || pPlayer.Get_LBComboIndex() < 0 && pPlayer.Get_RBComboIndex() < 0)
 	{
@@ -103,18 +103,6 @@ void CAtt_Player::End(CPlayer& pPlayer)
 			pPlayer.isFinish_Combo();
 		}
 	}
-	/*if (pPlayer.Get_Hit())
-	{
-		if (pPlayer.m_pModel->Get_isFinished())
-		{
-			pPlayer.Set_Hit();
-			if (pPlayer.Get_Down())
-			{
-				if(pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::GetUp)
-					pPlayer.Set_Down();
-			}
-		}
-	}*/
 }
 
 void CAtt_Player::Free()

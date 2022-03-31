@@ -415,8 +415,8 @@ HRESULT CLoader::GameSceneJUN()
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
 
-	if (FAILED(GameFlogasLoader()))
-		MSG_BOX("Failed To Create Flogas Effect");
+	//if (FAILED(GameFlogasLoader()))
+		//MSG_BOX("Failed To Create Flogas Effect");
 	
 	m_ThreadLoader->Start_Thread();
 	
