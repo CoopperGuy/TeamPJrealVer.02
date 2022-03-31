@@ -384,6 +384,12 @@ _uint CEngine::GetCurSceneNumber()
 	return m_pSceneManager->GetCurSceneNumber();
 }
 
+void CEngine::WaitThread()
+{
+	if (m_pModelManager)
+		m_pModelManager->WaitThreads();
+}
+
 HRESULT CEngine::AddPrototype(string pPrototypeTag, CGameObject * pPrototype)
 {
 	if (nullptr == m_pGameObjectManager)
