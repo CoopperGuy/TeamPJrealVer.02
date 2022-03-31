@@ -70,7 +70,10 @@ private:
 	CBasicCollider* m_pOBBCom			 = nullptr;
 	CMonHp*	m_pMonHp					 = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+
+
 	class CEffectBlood* m_pBlood = nullptr;
+	class CEffectUrsaShoulder* m_pUrsaShoulder = nullptr;
 private:
 	Ursa m_eState = Ursa_END;
 	queue<Ursa> m_QueState;
