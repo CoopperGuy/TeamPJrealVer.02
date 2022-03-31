@@ -248,11 +248,11 @@ void CFlogas::Render()
 
 void CFlogas::Create_Trail()
 {
-	m_pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Flogas_Trail");
-	if (m_pTrail == nullptr)
+	CGameObject* pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Flogas_Trail");
+	if (pTrail == nullptr)
 		return;
 
-	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(m_pTrail);
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(pTrail);
 
 	pEffect->SetPassIndex(3);
 	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
@@ -268,8 +268,8 @@ void CFlogas::Create_Trail()
 	pEffect->SetDistortionBias(1.f);
 	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_WP_R"));
 	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix());
-	m_pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
-	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(m_pTrail->GetComponent("Com_Trail"));
+	pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
+	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(pTrail->GetComponent("Com_Trail"));
 }
 
 void CFlogas::Set_TrailOnOff()

@@ -41,7 +41,7 @@ private:
 	void First_Phase(_double dDeltaTime);
 	void Second_Phase(_double dDeltaTime);
 	void Third_Phase(_double dDeltaTime);
-	void Last_Phase(_double dDeltaTime);
+	//void Last_Phase(_double dDeltaTime);
 	void SetUp_Combo();
 	void Checking_Finished();
 	void TestAnimation(Ursa eState);
@@ -49,6 +49,7 @@ private:
 	void SetRotate();
 	void OrganizeEffect(_double dDeltaTime);
 	void Hit(_double dDeltaTime);
+	void Create_Trail();
 
 	PxVec3 OriginShift();
 
@@ -109,5 +110,14 @@ private:
 	_bool m_bWheelWind		   = false;
 	_bool m_bSkillDelay		   = false;
 	_bool m_bAddRand		   = false;
+
+private:
+	CVIBuffer_Trail*		m_pRightTrailBuffer = nullptr;
+	CVIBuffer_Trail*		m_pLeftTrailBuffer = nullptr;
+
+	_float4x4			m_RightwpBoneMatrix;
+	_float4x4			m_LightwpBoneMatrix;
+	_bool				m_DrawTrail = false;
+
 };
 END
