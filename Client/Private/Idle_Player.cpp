@@ -105,15 +105,19 @@ void CIdle_Player::Update(_double dDeltaTime, CPlayer& pPlayer)
 		if (pPlayer.Get_Downing())
 			m_dDelta += dDeltaTime;
 
-		if (m_dDelta >= 1.5)
+		if (m_dDelta >= 1.0)
 			m_bKnockBack = true;
 
 		if (pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::GetUp)
 		{
-			if (pPlayer.m_pModel->GetCurrentKeyFrame() == 20)
+			if (pPlayer.m_pModel->GetCurrentKeyFrame() >= 20)
 			{
-				m_bKnockBack = false;
-				pPlayer.Set_Hit();
+				if (pPlayer.Get_Move())
+				{
+					m_bKnockBack = false;
+					pPlayer.Set_CB();
+					pPlayer.Set_Hit();
+				}
 			}
 		}
 	}

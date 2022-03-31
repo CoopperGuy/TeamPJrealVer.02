@@ -22,7 +22,7 @@ public:
 	virtual void Free() override;
 
 public:
-	void Set_Matrix(_matrix pos) { m_pTransform->SetMatrix(pos); }
+	void Set_Matrix(_matrix pos);
 
 
 private:

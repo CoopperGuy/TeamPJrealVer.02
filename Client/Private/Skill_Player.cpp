@@ -58,7 +58,10 @@ CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 	if (pPlayer.Get_Down())
 	{
 		if (!pPlayer.Get_SuperArmor())
+		{
 			m_bCancel = true;
+			//m_bDuring = false;
+		}
 	}
 	if (!m_bDuring)
 	{
@@ -68,6 +71,7 @@ CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 	if (m_bCancel)
 	{
 		m_bDuring = false;
+		m_iCurIndex = 0;
 		m_SkillTime = 0.f;
 		m_bLoop = false;
 		m_bFinished = true;

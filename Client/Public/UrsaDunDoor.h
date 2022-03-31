@@ -39,6 +39,8 @@ private:
 
 	_uint make = 0;
 
+	_bool WolfSet = false;
+
 
 public:
 	static CUrsaDunDoor*	Create(CGameObject*	pTarget = nullptr);

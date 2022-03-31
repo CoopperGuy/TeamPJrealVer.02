@@ -18,6 +18,7 @@ public:
 	ITEMINFO	GetItempInfo() { return m_tinfo; }
 	void		IncreaseItemAmount(_uint amount = 1) { m_tinfo.numOfItem += amount; }
 	void		UseItem() { m_tinfo.numOfItem--; }
+	void		ItemLevelUp() { m_tinfo.level++; }
 private:
 	ITEMINFO m_tinfo;
 };

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\FootHammer_Bomb.h"
 #include "EventCheck.h"
+#include "Obb.h"
 
 USING(Client)
 
@@ -16,18 +17,28 @@ HRESULT CFootHammer_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 	_float3 vTargetPos;
 	XMStoreFloat3(&vTargetPos, pTargetTrans->GetState(CTransform::STATE_POSITION));
-	m_fScale = m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
+	m_vScale = { m_pEffectTrans->GetScale(CTransform::STATE_RIGHT), m_pEffectTrans->GetScale(CTransform::STATE_UP),1.f };
 	vTargetPos.y = 1.f;
-	
+	CGameObject* pFlogas = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
+	CStat* stat = static_cast<CStat*>(pFlogas->GetComponent("Com_Stat"));
+
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&vTargetPos));
+
+	m_pOBB = CObb::Create(vTargetPos, m_vScale, stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
 
 	return S_OK;
 }
 
 void CFootHammer_Bomb::Update(_double dDeltaTime)
 {
-	m_pEffectTrans->SetScale(_float3(m_fScale, m_fScale, 1.f));
+	m_pEffectTrans->SetScale(_float3(m_vScale.x + m_fScale, m_vScale.y + m_fScale, 1.f));
 	m_fScale += (_float)dDeltaTime * 0.5f;
+
+	_float3 vPos = {};
+	XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
+	vPos.y = 0.f;
+	m_pOBB->SetPosision(vPos);
+	m_pOBB->SetSize(_float3((m_vScale.x + m_fScale)* 0.5f, (m_vScale.y + m_fScale) * 0.5f, 1.f));
 }
 
 void CFootHammer_Bomb::LateUpdate(_double dDeltaTime)
@@ -38,7 +49,7 @@ void CFootHammer_Bomb::LateUpdate(_double dDeltaTime)
 
 	if (m_pThis->GetSpriteEnd())
 	{
-
+		m_pOBB->SetupDead();
 		this->SetDead();
 		m_pThis->SetDead();
 	}

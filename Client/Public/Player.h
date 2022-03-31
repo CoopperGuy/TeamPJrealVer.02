@@ -61,6 +61,7 @@ public:
 	void Set_SlowAttack(_bool _bSlowAttack) { m_bSlowAttck = _bSlowAttack; }
 	void Set_Hit() { m_bHit = false, m_bDown = false, m_bDownIng = false; }
 	void SetUp_HitState();
+	void Set_CB() { m_bCB = true; }
 	//get
 public:
 	const _int Get_LBComboIndex() const { return m_iLB; }
@@ -83,6 +84,7 @@ public:
 	_bool Get_Downing() { return m_bDownIng; }
 	_bool Get_SuperArmor() { return m_bSuperArmor; }
 	_bool Get_OnlyDown() { return m_bOnlyDown; }
+	_bool Get_Move() { return m_bMove; }
 	const CStat::STAT GetStatus() const;
 
 public:

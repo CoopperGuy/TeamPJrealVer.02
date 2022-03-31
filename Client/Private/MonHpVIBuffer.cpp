@@ -61,14 +61,7 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 
 void CMonHpVIBuffer::LateUpdate(_double deltaTime)
 {
-	if (m_bisEnd) {
-		if (pTarget) {
-			if (pTarget->isDead()) {
-				this->SetDead();
-				m_pHp->SetDead();
-			}
-		}
-	}
+	
 }
 
 void CMonHpVIBuffer::Render()
@@ -79,6 +72,13 @@ void CMonHpVIBuffer::SetHud_BarTransform(CTransform * Hudtrans, CTransform * Bar
 {
 	m_pHudTrans = Hudtrans;
 	m_pBarTrans = BarTrans;
+}
+
+void CMonHpVIBuffer::SetUpDead()
+{
+	this->SetDead();
+	if(m_pHp)
+		m_pHp->SetDead();
 }
 
 
@@ -94,7 +94,5 @@ CMonHpVIBuffer * CMonHpVIBuffer::Create(CGameObject * pTarget)
 
 void CMonHpVIBuffer::Free()
 {
-
-
 }
 

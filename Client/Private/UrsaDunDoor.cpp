@@ -77,10 +77,16 @@ void CUrsaDunDoor::Update(_double deltaTime)
 		}
 		if (MaxHight <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 		{
-			for (auto Wolf : m_pWolf)
-			{
-				Wolf->SetAtt();
+			if (m_pWolf.size() > 0) {
+				for (auto Wolf : m_pWolf)
+				{
+					if (Wolf->dead())
+
+						if (Wolf)
+							Wolf->SetAtt();
+				}
 			}
+
 			m_bCloseDoor = true;
 		}
 		closedoordt = 0;
@@ -100,16 +106,32 @@ void CUrsaDunDoor::Update(_double deltaTime)
 
 			}
 		}
-
-		for (auto Wolf : m_pWolf)
-		{
-			Wolf->SetAtt();
+		if (m_pWolf.size() > 0) {
+			for (auto Wolf : m_pWolf)
+			{
+				if (Wolf)
+					Wolf->SetAtt();
+			}
 		}
 	}
 }
 
 void CUrsaDunDoor::LateUpdate(_double deltaTime)
 {
+
+	auto iter = m_pWolf.begin();
+	for (; iter != m_pWolf.end(); )
+	{
+		bool iEvent = (*iter)->IsDead();
+
+		if (iEvent)
+			iter = m_pWolf.erase(iter);
+
+		else
+			++iter;
+	}
+
+
 	if (UrsaStat->GetStatInfo().hp <= 0) {
 		if (m_pWolf.size() > 0) {
 			for (auto Wolf : m_pWolf)
@@ -118,6 +140,8 @@ void CUrsaDunDoor::LateUpdate(_double deltaTime)
 				{
 					Wolf->SetDead();
 				}
+				else
+					Wolf->SetDead();
 			}
 		}
 	}
@@ -142,11 +166,11 @@ CUrsaDunDoor * CUrsaDunDoor::Create(CGameObject * pTarget)
 void CUrsaDunDoor::Free()
 {
 	if (m_pWolf.size() > 0) {
-		for (auto& pair : m_pWolf)
+	/*	for (auto& pair : m_pWolf)
 		{
-			SafeRelease(pair);
-		}
+			if(pair)
+				SafeRelease(pair);
+		}*/
 		m_pWolf.clear();
-
 	}
 }

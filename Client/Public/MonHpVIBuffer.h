@@ -22,6 +22,8 @@ public:
 	void SetIsEnd() { m_bisEnd = true; }
 public:
 	_bool GetIsEnd() { return m_bisEnd; }
+public:
+	void	SetUpDead();
 private:
 	CGameObject*	pTarget = nullptr;
 	CVIBuffer_Rect*	m_pVIBuffer = nullptr;

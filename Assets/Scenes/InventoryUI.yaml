@@ -25,6 +25,175 @@ GameObjects:
       - 12944058087480305985
       - 11845365342155498423
       - 12893099253836064542
+      - 14794521715461366055
+  - Name: MaterialItemList0
+    UUID: 6971170235059011951
+    Active: false
+    Layer: MaterialItemList
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [-22.6090088, 6.74475098]
+      Size: [50, 50]
+  - Name: WeaponText
+    UUID: 18113412866005203712
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 200]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Weapon
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: HelmetText
+    UUID: 14307409957735197175
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 260]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Helmet
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: ChestText
+    UUID: 4477101166319400238
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 320]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Chest
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: GloveText
+    UUID: 10489976160073860266
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 380]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Glove
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: ShooseText
+    UUID: 9907293121996886223
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 440]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Shoose
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: LowerText
+    UUID: 312116914979708147
+    Active: false
+    Layer: EquipCategory
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 10
+    Hovering: true
+    Com_Transform:
+      Position: [88.3909912, 500]
+      Size: [120, 20]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+    Com_Text:
+      Text: Lower
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: EquipItem
     UUID: 11123017261122148341
     Active: false
@@ -75,162 +244,6 @@ GameObjects:
     Children:
       - 3605073293141489059
       - 6971170235059011951
-  - Name: WeaponText
-    UUID: 18113412866005203712
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 200]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Weapon
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: HelmetText
-    UUID: 14307409957735197175
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 260]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Helmet
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: ChestText
-    UUID: 4477101166319400238
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 320]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Chest
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: GloveText
-    UUID: 10489976160073860266
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 380]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Glove
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: ShooseText
-    UUID: 9907293121996886223
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 440]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Shoose
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: LowerText
-    UUID: 312116914979708147
-    Active: false
-    Layer: EquipCategory
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 10
-    Hovering: true
-    Com_Transform:
-      Position: [88.3909912, 500]
-      Size: [120, 20]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: Lower
-      Color: [1, 1, 1, 1]
-      Scale: [1, 1]
-      LayerDepth: 0
-      IsCenter: true
-  - Name: MaterialItemList0
-    UUID: 6971170235059011951
-    Active: false
-    Layer: MaterialItemList
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [-22.6090088, 6.74475098]
-      Size: [50, 50]
   - Name: CousumableText
     UUID: 10590615739566618244
     Active: false
@@ -249,6 +262,8 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: MaterialItemText
     UUID: 3605073293141489059
     Active: false
@@ -267,6 +282,8 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: EquipItemList
     UUID: 13592429952304183812
     Active: false
@@ -291,6 +308,24 @@ GameObjects:
     Com_Transform:
       Position: [-24.3481445, 0]
       Size: [50, 50]
+  - Name: OpenReinforceButton
+    UUID: 14794521715461366055
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [557.701416, 672.843384]
+      Size: [64, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Reinforce\Onhead_TextBubble.dds
+      TextureMaskPath: ..\..\Assets\UITexture\Alert_Bg_LevelFlag.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
   - Name: SelectEquip
     UUID: 12944058087480305985
     Active: false
@@ -303,7 +338,7 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - -0.850000024
+      - 0.850000024
     XShrink: true
     YShrink: false
     Breath: true
@@ -322,6 +357,8 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: SelectComsumable
     UUID: 11845365342155498423
     Active: false
@@ -334,7 +371,7 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - -0.850000024
+      - 0.850000024
     XShrink: true
     YShrink: false
     Breath: true
@@ -353,6 +390,8 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
   - Name: SelectMaterial
     UUID: 12893099253836064542
     Active: false
@@ -365,7 +404,7 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - -0.850000024
+      - 0.850000024
     XShrink: true
     YShrink: false
     Breath: true
@@ -384,3 +423,5 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
