@@ -110,30 +110,30 @@ void CUrsa::Update(_double dDeltaTime)
 
 	__super::Update(dDeltaTime);
 
-	m_fDist = SetDistance();
+	////m_fDist = SetDistance();
 
-	//TestAnimation(Flying_End);
-	Checking_Phase(dDeltaTime);
-	//if (m_bCombat[First])
-	//{
-	//	if (!m_bCB)
-	//		Adjust_Dist(dDeltaTime);
-	//}
+	//////TestAnimation(Flying_End);
+	////Checking_Phase(dDeltaTime);
+	//////if (m_bCombat[First])
+	//////{
+	//////	if (!m_bCB)
+	//////		Adjust_Dist(dDeltaTime);
+	//////}
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bCombat[First] = true;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		Roar();
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bCombat[Second] = true;
-		m_bCombat[First] = false;
-	}
-	Execute_Pattern(dDeltaTime);
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	////	m_bCombat[First] = true;
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	////	Roar();
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	////{
+	////	m_bCombat[Second] = true;
+	////	m_bCombat[First] = false;
+	////}
+	////Execute_Pattern(dDeltaTime);
 
-	/*if(!m_bWheelWind && !m_bRoar)*/
-	Checking_Finished();
+	/////*if(!m_bWheelWind && !m_bRoar)*/
+	////Checking_Finished();
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
@@ -145,8 +145,8 @@ void CUrsa::Update(_double dDeltaTime)
 
 
 
-	if (m_bCB)
-		SetUp_Combo();
+	////if (m_bCB)
+	////	SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 
@@ -902,7 +902,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_1Hold:
 		break;
 	case Client::CUrsa::Combo_1: {
-		if (keyFrame == 19 && m_iMakeDust <= 1) {
+		if (keyFrame == 19 && m_iMakeDust < 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
@@ -934,7 +934,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start: {
-		if (keyFrame == 39 && m_iMakeDust <= 1) {
+		if (keyFrame == 39 && m_iMakeDust < 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
@@ -976,7 +976,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Big_SLASH:
 		break;
 	case Client::CUrsa::AXE_STAMP: {
-		if (keyFrame == 47 && m_iMakeDust <= 1) {
+		if (keyFrame == 47 && m_iMakeDust < 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
@@ -999,16 +999,25 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::ROAR_End:
 		break;
 	case Client::CUrsa::DASH_ATTSpeedup: {
-		_matrix ArmTwist = m_pModel->Get_BoneWithoutOffset("Bip01-RUpArmTwist");
-		ArmTwist = Remove_ScaleRotation(ArmTwist* m_pTransform->GetWorldMatrix());
+		_matrix ArmTwist = m_pModel->Get_BoneMatrix("Bip01-RUpArmTwist");
+		//_matrix Offset = XMMatrixTranslation(0.1f, 0.4f, 0.2f);
+		_matrix Offset = XMMatrixTranslation(-0.1f, 0.4f, 0.3f);
+		ArmTwist = Remove_ScaleRotation(Offset*/* *ArmTwist* */m_pTransform->GetWorldMatrix());
 
-		if (keyFrame ==13 && m_iMakeDust <= 1) {
-			m_iMakeDust += 1;
-			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
+		if (keyFrame >=13 && keyFrame <= 23){
+			if (m_iMakeDust < 1) {
+				m_iMakeDust += 1;
+				auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
+				CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
+			}
+			if (m_pUrsaShoulder)
+				m_pUrsaShoulder->Set_Matrix(ArmTwist);
 		}
 		else
 			m_iMakeDust = 0;
+
+		if (keyFrame > 23 && m_pUrsaShoulder)
+			m_pUrsaShoulder->SetDead();
 	}
 		break;
 	case Client::CUrsa::WHEELWIND_Start:

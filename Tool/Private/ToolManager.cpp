@@ -63,6 +63,7 @@ HRESULT CToolManager::Initialize()
 	InitializeImGui();
 
 	m_pEngine->DeserializeScene(strScene,SCENE_TOOL);
+	m_pEngine->WaitThread();
 
 	//m_pEngine->AddScriptObject(CToolPlayer::Create(nullptr),m_pEngine->GetCurSceneNumber());
 

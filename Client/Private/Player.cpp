@@ -1374,17 +1374,17 @@ void CPlayer::CreateBlood()
 	if (m_pStatus->GetStatInfo().hp <= 0)
 		return;
 
-	//if (m_pOBB->Get_isHit()) {
-	//	if (!m_bEvade)
-	//	{
-	//		if (m_pOBB->GetIsDown())
-	//		{
-	//			m_fJumpSpeed = 0.01f;
-	//			m_bDown = true;
-	//		}
-	//		else if(!m_bOnlyDown)
-	//			m_bHit = true;
-	//	}
+	if (m_pOBB->Get_isHit()) {
+		if (!m_bEvade)
+		{
+			if (m_pOBB->GetIsDown())
+			{
+				m_fJumpSpeed = 0.01f;
+				m_bDown = true;
+			}
+			else if(!m_bOnlyDown)
+				m_bHit = true;
+		}
 		_matrix Translation;
 		_int random = rand() % 2;
 		random += 1;

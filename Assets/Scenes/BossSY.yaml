@@ -33,11 +33,6 @@ GameObjects:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
-      MeshFileName: Tile16.fbx
-      HasCollider: false
-      Equipment: false
     RenderGroup: 1
     FrustumRange: 300
     Children:
@@ -52,13 +47,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0, 4.4000001, 4.19999981]
-      Rotation: [-83.1999741, -0, 0.0999926403]
-      Scale: [0.999933779, 0.999992609, 0.999995708]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
-      MeshFileName: Tile16.fbx
-      HasCollider: false
-      Equipment: false
+      Rotation: [-83.1999741, -0, 0.0999692008]
+      Scale: [0.999828875, 0.999992609, 0.999995708]
     RenderGroup: 1
     FrustumRange: 300
   - Name: Empty Object
@@ -73,11 +63,6 @@ GameObjects:
       Translation: [-0.455884188, 0.0298478305, -1.25748992]
       Rotation: [0, -0, 0]
       Scale: [0.999883056, 0.322275907, 0.99999994]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Sprite.fbx
-      HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Trail_018_TEX_CJH.png
@@ -103,7 +88,7 @@ GameObjects:
       SpriteSpeed: 5
       OffsetColor: [1, 0, 0, 0]
   - Name: E_UrsaShoulder
-    UUID: 15287291070595421037
+    UUID: 7483806154429880512
     Active: true
     Layer: Default
     Instancing: false
@@ -111,9 +96,9 @@ GameObjects:
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [-0.0226405263, -0.00234144926, -0.23443757]
-      Rotation: [118.51033, 63.3821182, 116.514008]
-      Scale: [1.00000036, 0.999999344, 0.999999404]
+      Translation: [-2.79801225e-06, 0, 0]
+      Rotation: [0.0011857762, -89.1113663, -0.000926627545]
+      Scale: [1.49999988, 1.5, 0.999947608]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: Effect_HalfCircleY.fbx
@@ -132,40 +117,14 @@ GameObjects:
       DistortionScale: 0.100000001
       DistortionBias: 1
       FadeOut: true
-      FadeOutDuration: 1
+      FadeOutDuration: 0.300000012
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0.5
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 0.300000012
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [1, 0.608695626, 0, -0.25999999]
-  - Name: ursa
-    UUID: 9473631358597828140
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 1
-    Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.400000006, 0.400000006]
-      IsAttach: true
-      BoneName: Bip01-RUpArmTwist
-      Offset: [0, 0, 0]
-      CollisionType: 8
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Ursa\
-      MeshFileName: ursa.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 1
