@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_EAFire
-    UUID: 13002950037316236514
+    UUID: 14361680015650704428
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 2
+    PassIndex: 18
     BillBord: true
     Com_Transform:
-      Translation: [0.0787363127, 0.992836535, 0.15544042]
-      Rotation: [-0.755309105, -0.795636833, -2.25971732e-07]
-      Scale: [0.999136269, 1.00194907, 0.999437571]
+      Translation: [0, 0, 0]
+      Rotation: [3.04692483, 8.75248909, 0]
+      Scale: [0.997533858, 1.00290954, 1.00071442]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,3 +36,4 @@ GameObjects:
       SpriteNumY: 5
       SpriteTotal: 25
       SpriteSpeed: 25
+      OffsetColor: [0, 0, 0, -0.0299999993]

@@ -205,6 +205,7 @@ HRESULT CLoader::GameUrsaLoader()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDecal", "E_RockDecal", 6));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 7));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_DropDust", "E_DropDust", 8));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder", 9));
   
 	m_iCompleteBit = 0;
 
@@ -437,9 +438,6 @@ HRESULT CLoader::GameSceneSEO()
 		//(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
 		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 3));
 		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 4));
-
-
-
 
 		//if (FAILED(GameFlogasLoader()))
 		//	MSG_BOX("Failed To Create Flogas Effect");

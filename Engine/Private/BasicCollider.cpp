@@ -557,6 +557,8 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							pTargetCollider->m_bIsDown = false;
 							return;
 						}
+						if (!pTargetCollider->m_isHit)
+							pTargetCollider->SetHit(true);
 
 						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
 						{
@@ -567,8 +569,6 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							}
 							return;
 						}
-						if(!pTargetCollider->m_isHit)
-							pTargetCollider->SetHit(true);
 						else
 							pTargetCollider->SetHit(false);
 					}
@@ -583,6 +583,8 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 
 				}
 			}
+			else
+				pTargetCollider->SetHit(false);
 		}
 	}
 }

@@ -74,7 +74,7 @@ void CEffectDropRock::LateUpdate(_double deltaTime)
 
 	if (deaddt >= static_cast<CEmptyEffect*>(m_pGameObject)->GetFadeOutDuration())
 	{
-		cout << XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) << endl;
+	//	cout << XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) << endl;
 
 		this->SetDead();
 		m_pGameObject->SetDead();

@@ -1,11 +1,11 @@
 Scene: Untitled
 GameObjects:
   - Name: E_BossFly
-    UUID: 7131143136191313440
+    UUID: 14067131824364867217
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 6
+    PassIndex: 5
     BillBord: false
     Com_Transform:
       Translation: [0, -0.19158569, -4.71361923]
@@ -42,14 +42,14 @@ GameObjects:
       OffsetColor: [0, 0, 0, 1]
     Children:
       - Name: Circle
-        UUID: 14673414811614756118
+        UUID: 12691947898724607337
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 1
         BillBord: false
         Com_Transform:
-          Translation: [-0.0486830473, 0.15, 0.193959355]
+          Translation: [-0.0486830473, 0.109999999, 0.193959355]
           Rotation: [0, -0, 0]
           Scale: [20, 19, 20]
         Com_Model:
@@ -82,11 +82,11 @@ GameObjects:
           SpriteSpeed: 5
           OffsetColor: [0, 0, 0, 0.800000012]
       - Name: dome
-        UUID: 10647587959843346817
+        UUID: 8878411348526646246
         Active: true
         Layer: Default
         Type: Effect
-        PassIndex: 8
+        PassIndex: 5
         BillBord: false
         Com_Transform:
           Translation: [-0.149278611, 3.76999998, 0]

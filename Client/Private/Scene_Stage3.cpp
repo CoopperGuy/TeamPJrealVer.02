@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "Ursa.h"
 #include "DropRock.h"
+#include "UrsaDunDoor.h"
 USING(Client)
 
 CScene_Stage3::CScene_Stage3(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -37,6 +38,7 @@ HRESULT CScene_Stage3::Render()
 HRESULT CScene_Stage3::ReadyScript()
 {
 	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	m_pEngine->AddScriptObject(CUrsaDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 
 	return S_OK;
 }

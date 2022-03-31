@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_Meteo
-    UUID: 6020740018306788504
+    UUID: 15030568054132359128
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 1
+    PassIndex: 5
     BillBord: true
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [2, 0.99999845, 2]
+      Rotation: [1.41384697, 12.1300964, -5.45794485e-08]
+      Scale: [1.985726, 0.998387158, 2.0045135]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,17 +36,17 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.586956501, 0.250945181, 0.250945181, 0]
+      OffsetColor: [0, 0, 0, 1]
     Children:
       - Name: Empty Object
-        UUID: 4031745159966848184
+        UUID: 12251525321747386234
         Active: true
         Layer: Default
         Type: Effect
-        PassIndex: 1
+        PassIndex: 5
         BillBord: false
         Com_Transform:
-          Translation: [0.0676695406, -0.289000005, 0]
+          Translation: [0.0676695406, -0.300000012, 0]
           Rotation: [0, -0, 0]
           Scale: [0.0700000003, 0.0500000007, 0.0700000003]
         Com_Model:
