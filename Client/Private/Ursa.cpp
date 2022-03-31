@@ -103,37 +103,37 @@ void CUrsa::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
-	////if (!m_pGameObject->IsActive())
-	////	return;
-	//////if (m_pStat->GetStatInfo().hp <= 0)
-	//////	m_pGameObject->SetDead();
+	if (!m_pGameObject->IsActive())
+		return;
+	//if (m_pStat->GetStatInfo().hp <= 0)
+	//	m_pGameObject->SetDead();
 
-	////__super::Update(dDeltaTime);
+	__super::Update(dDeltaTime);
 
-	////m_fDist = SetDistance();
+	m_fDist = SetDistance();
 
-	//////TestAnimation(Flying_End);
-	////Checking_Phase(dDeltaTime);
-	//////if (m_bCombat[First])
-	//////{
-	//////	if (!m_bCB)
-	//////		Adjust_Dist(dDeltaTime);
-	//////}
+	//TestAnimation(Flying_End);
+	Checking_Phase(dDeltaTime);
+	//if (m_bCombat[First])
+	//{
+	//	if (!m_bCB)
+	//		Adjust_Dist(dDeltaTime);
+	//}
 
 
-	////if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	////	m_bCombat[First] = true;
-	////if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	////	Roar();
-	////if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	////{
-	////	m_bCombat[Second] = true;
-	////	m_bCombat[First] = false;
-	////}
-	////Execute_Pattern(dDeltaTime);
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+		m_bCombat[First] = true;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+		Roar();
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	{
+		m_bCombat[Second] = true;
+		m_bCombat[First] = false;
+	}
+	Execute_Pattern(dDeltaTime);
 
-	/////*if(!m_bWheelWind && !m_bRoar)*/
-	////Checking_Finished();
+	/*if(!m_bWheelWind && !m_bRoar)*/
+	Checking_Finished();
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
@@ -145,8 +145,8 @@ void CUrsa::Update(_double dDeltaTime)
 
 
 
-	////if (m_bCB)
-	////	SetUp_Combo();
+	if (m_bCB)
+		SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 
