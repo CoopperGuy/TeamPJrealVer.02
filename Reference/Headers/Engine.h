@@ -84,7 +84,7 @@ public:
 	_uint		UpdateScene(_double DeltaTime);
 	HRESULT		RenderScene();
 	_uint		GetCurSceneNumber();
-
+	void		WaitThread();
 #pragma endregion
 
 #pragma region GAMEOBJECT_MANAGER

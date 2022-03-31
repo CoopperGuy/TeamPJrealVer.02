@@ -4,20 +4,19 @@
 #include "InstanceModel.h"
 
 IMPLEMENT_SINGLETON(CModelManager)
-static int iCurNumThread = 0;
+static atomic<int> iCurNumThread = 0;
 static int iCurInNumThread = 0;
 unsigned int APIENTRY ThreadCloneModel(void* pArg)
 {
 	CModelManager::MODELLOADDESC* desc = (CModelManager::MODELLOADDESC*)pArg;
 
-	++iCurNumThread;
-
+	iCurNumThread.fetch_add(1);
 	CModelManager::GetInstance()->CloneModelThread(
 		desc->pObj, desc->pMeshFilePath, desc->pMeshFileName, desc->pShaderFilePath, desc->pEffectFilePath,
 		desc->bMeshCollider, desc->pArg, desc->bEquipment); 
 
 	SafeDelete(desc);
-	--iCurNumThread;
+	iCurNumThread.fetch_sub(1);
 
 
 	return 0;
@@ -55,9 +54,8 @@ void CModelManager::Free()
 
 void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string pMeshFileName, string pShaderFilePath, string pEffectFilePath, _bool meshCollider, void* pArg, _bool bEquipment)
 {
-	while (m_maxThread < iCurNumThread)
-		Sleep(100);
-	
+	while (m_maxThread < iCurNumThread.load())
+		Sleep(300);
 	//string fullPath = pMeshFilePath + pMeshFileName;
 	//auto& iter = m_CurCloningObj.find(fullPath);
 	//if (iter != m_CurCloningObj.end())
@@ -81,7 +79,8 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 	//CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
 
 	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
-	thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
+	//thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
+	m_Threads.emplace_back(std::thread(ThreadCloneModel, desc));
 }
 
 
@@ -118,7 +117,8 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		pModel->SetMeshCollider(meshCollider);
 		pModel->SetLinkEquip(bEquipment);
 		pModel->CreateBuffer(pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, pivotMatrix);
-		EnterCriticalSection(&m_CS);
+		//EnterCriticalSection(&m_CS);
+		std::lock_guard<std::mutex> locks(m_Mesh_Jobs);
 		if (m_mapModel.find(fullPath) != m_mapModel.end()){
 			SafeRelease(pModel);
 			cout << "/////////////Same Model Inputed////////////\n";
@@ -126,7 +126,9 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		else {
 			m_mapModel.emplace(make_pair(fullPath, pModel));
 		}
-		LeaveCriticalSection(&m_CS);
+		//EnterCriticalSection(&m_CS);
+
+		//LeaveCriticalSection(&m_CS);
 
 		auto& iter = m_CurCloningObj.find(fullPath);
 		if (iter != m_CurCloningObj.end())
@@ -183,13 +185,13 @@ void CModelManager::CloneModelThreadIns(CGameObject * pObj, string pMeshFilePath
 
 void CModelManager::WaitThreads()
 {
-	EnterCriticalSection(&m_WaitCS);
-	while (!thread_handles.empty())
+	//std::lock_guard<std::mutex> lock(m_Wait);
+	/*while (!thread_handles.empty())
 	{
 		list<HANDLE> threads_left;
 		auto& iter = thread_handles.begin();
 		for (; iter != thread_handles.end();) {
-			DWORD rc = WaitForSingleObject(*iter, INFINITE);
+			DWORD rc = WaitForSingleObject(*iter, 60000);
 
 			if (rc == WAIT_OBJECT_0)
 			{
@@ -214,9 +216,11 @@ void CModelManager::WaitThreads()
 
 			iter++;
 		}
+	}*/
+	for (auto& iter : m_Threads) {
+		iter.join();
 	}
-	LeaveCriticalSection(&m_WaitCS);
-
+	m_Threads.clear();
 }
 
 void CModelManager::CreaetModel(string pMeshFilePath, string pMeshFileName, string pShaderFilePath, void * pArg)

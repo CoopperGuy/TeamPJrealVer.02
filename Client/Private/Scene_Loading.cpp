@@ -44,7 +44,7 @@ _uint CScene_Loading::Update(_double TimeDelta)
 		if (isFinish == true)
 		{
 			CEngine*		pEngine = GET_INSTANCE(CEngine);
-
+			pEngine->WaitThread();
 			SetWindowText(g_hWnd, TEXT("Loding Compelete!!!!!!!!!!"));
 
 			CScene*		pScene = nullptr;

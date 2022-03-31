@@ -53,12 +53,16 @@ private:
 	CModel* m_pTargetModel = nullptr;
 
 	list<HANDLE>				thread_handles;
+	vector<std::thread>			m_Threads;
 	unordered_map<string, _bool>			m_CurCloningObj;
 	CRITICAL_SECTION		m_CS;
 	CRITICAL_SECTION		m_WaitCS;
 	unordered_map<string, CRITICAL_SECTION> m_keys;
 
 	size_t					m_maxThread = 6;
+
+	std::mutex				m_Mesh_Jobs;
+	std::mutex				m_Wait;
 };
 
 END

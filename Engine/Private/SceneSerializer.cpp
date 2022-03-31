@@ -161,7 +161,7 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 		}
 	}
 	//YAMLMutex.unlock();
-	CModelManager::GetInstance()->WaitThreads();
+	//CModelManager::GetInstance()->WaitThreads();
 
 
 	DeserializeInstancModel(curScene);
@@ -2453,7 +2453,7 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 			}
 		}
 	}
-	CModelManager::GetInstance()->WaitThreads();
+	//CModelManager::GetInstance()->WaitThreads();
 
 	return S_OK;
 }
