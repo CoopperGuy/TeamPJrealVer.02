@@ -9,12 +9,11 @@ CSkill_Player::CSkill_Player()
 
 void CSkill_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
+	if (pPlayer.Get_Hit() && pPlayer.Get_Down())
 	{
-		if(pPlayer.Get_Down())
+		if(pPlayer.m_pModel->Get_AnimIndex() != (_uint)Player_State::Leap_Start ||
+			pPlayer.m_pModel->Get_AnimIndex() != (_uint)Player_State::Leap_End)
 			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
-		else
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
 	}
 	else
 	{
@@ -58,7 +57,7 @@ void CSkill_Player::Enter(CPlayer & pPlayer)
 
 CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
+	if (pPlayer.Get_Hit() && pPlayer.Get_Down())
 		m_bCancel = true;
 	
 	if (!m_bDuring)
