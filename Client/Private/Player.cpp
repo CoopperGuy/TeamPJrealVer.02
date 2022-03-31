@@ -210,6 +210,7 @@ void CPlayer::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
+	SetUp_HitState();
 	m_dAnimSpeed = 1.f;
 	if (!g_Menu && !g_AnotherMenu) {
 		PlayerMove(dDeltaTime);
@@ -247,13 +248,11 @@ void CPlayer::Update(_double dDeltaTime)
 	if (m_pStatus->GetStatInfo().hp >= 0)
 		CreateBlood();
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	/*if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 		m_bHit = true;
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	{
-		m_bHit = true;
 		m_bDown = true;
-	}
+	*/
 
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
@@ -760,6 +759,205 @@ void CPlayer::Set_InvenRightLeft(_bool right)
 	}
 }
 
+void CPlayer::SetUp_HitState()
+{
+	switch (m_pModel->Get_AnimIndex())
+	{
+	case (_uint)Player_State::Evade:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = true;
+		break;
+	}
+	case (_uint)Player_State::Hit_F:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LBCombo1:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LBCombo2: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LBCombo3: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LBCombo4_0: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LBCombo4_1: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::RBCombo1: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::RBCombo2: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::RBCombo3:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::RBCombo4:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB2Combo1:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB2Combo2:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB2Combo3:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB3Combo1_0:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB3Combo1_1:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB3Combo2:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB3Combo3:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::LB3Combo4:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::Leap_Start:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = true;
+		break;
+	}
+	case (_uint)Player_State::Leap_End: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = true;
+		break;
+	}
+	case (_uint)Player_State::WhirlWind_Start: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::WhirlWind_ing: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::WhirlWind_End: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::WarCry: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::Chop_Start: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::Chop_ing1: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::Chop_ing2: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::Chop_End: 
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = false;
+		break;
+	}
+	case (_uint)Player_State::CBEvade:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = true;
+		break;
+	}
+	case (_uint)Player_State::Dead:
+	{
+		m_bOnlyDown = true;
+		m_bSuperArmor = true;
+		break;
+	}
+	default:
+	{
+		m_bOnlyDown = false;
+		m_bSuperArmor = false;
+		break;
+	}
+	}
+}
+
 
 void CPlayer::PlayerMove(_double dDeltaTime)
 {
@@ -774,7 +972,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	PxControllerFilters filters;
 	_float fSpeed = 0.f;
 	_vector vUp = m_pTransform->GetState(CTransform::STATE::STATE_UP);
-	if (Walk() && !m_bEvade && !m_bHit)
+	if (Walk() && !m_bEvade && !m_bHit && !m_bDown)
 	{
 		if (CEngine::GetInstance()->IsKeyPressed('W'))
 		{
@@ -841,45 +1039,44 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 
 	if (m_bHit)
 	{
-		if (m_bDown)
+		if (m_pModel->Get_AnimIndex() == (_uint)Player_State::Hit_F)
 		{
-			if (m_pModel->Get_AnimIndex() == (_uint)Player_State::KnockDown_Start)
+			if (m_pModel->GetCurrentKeyFrame() >= 16)
 			{
-				if (m_pModel->GetCurrentKeyFrame() < 6)
-				{
-					if (IsGravity()) 
-					{
-						m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
-						_vector vKnockback = -m_pTransform->GetState(CTransform::STATE_LOOK);
-						vKnockback = XMVectorSetY(vKnockback, m_fJumpSpeed);
-						PxVec3 KnockDir = {};
-						memcpy(&KnockDir, &vKnockback, sizeof(PxVec3));
-						m_pController->move(KnockDir, 0.01f, PxF32(dDeltaTime), filters);
-					}
-					else 
-					{
-						m_fJumpSpeed = 0.f;
-					}
-				}
-				if (m_pModel->Get_isFinished())
-					m_bDownIng = true;
-			}
-		}
-		else
-		{
-			if (m_pModel->Get_AnimIndex() == (_uint)Player_State::Hit_F)
-			{
-				if (m_pModel->GetCurrentKeyFrame() >= 16)
-				{
-					m_bHit = false;
-					m_bCB = true;
-				}
+				m_bHit = false;
+				m_bCB = true;
 			}
 		}
 	}
-	else if (m_bEvade)
+	if (m_bDown)
+	{
+		if (m_pModel->Get_AnimIndex() == (_uint)Player_State::KnockDown_Start)
+		{
+			if (m_pModel->GetCurrentKeyFrame() < 6)
+			{
+				if (IsGravity())
+				{
+					m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
+					_vector vKnockback = -m_pTransform->GetState(CTransform::STATE_LOOK);
+					vKnockback = XMVectorSetY(vKnockback, m_fJumpSpeed);
+					PxVec3 KnockDir = {};
+					memcpy(&KnockDir, &vKnockback, sizeof(PxVec3));
+					m_pController->move(KnockDir, 0.01f, PxF32(dDeltaTime), filters);
+				}
+				else
+				{
+					m_fJumpSpeed = 0.f;
+				}
+			}
+			if (m_pModel->Get_isFinished())
+				m_bDownIng = true;
+		}
+	}
+
+	if (m_bEvade)
 	{
 		m_bEvadeDelay = true;
+		m_bSuperArmor = true;
 		m_EvadeDelayTime = 0.f;
 		isFinish_Combo();
 		m_dAnimSpeed = 1.7f;
@@ -896,7 +1093,10 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			else
 			{
 				if (m_bMove)
+				{
+					m_bSuperArmor = false;
 					m_bEvade = false;
+				}
 			}
 			break;
 		case (_uint)Player_State::CBEvade:
@@ -908,12 +1108,16 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			else
 			{
 				if (m_bMove)
+				{
+					m_bSuperArmor = false;
 					m_bEvade = false;
+				}
 			}
 			break;
 		}
 
 		if (m_pModel->Get_isFinished()) {
+			m_bSuperArmor = false;
 			m_bEvade = false;
 			m_pStatus->Immortal(false);
 		}
@@ -1170,13 +1374,17 @@ void CPlayer::CreateBlood()
 	if (m_pStatus->GetStatInfo().hp <= 0)
 		return;
 
-	if (m_pOBB->Get_isHit()) {
-		if (m_pOBB->GetIsDown())
-		{
-			m_fJumpSpeed = 0.01f;
-			m_bDown = true;
-		}
-		m_bHit = true;
+	//if (m_pOBB->Get_isHit()) {
+	//	if (!m_bEvade)
+	//	{
+	//		if (m_pOBB->GetIsDown())
+	//		{
+	//			m_fJumpSpeed = 0.01f;
+	//			m_bDown = true;
+	//		}
+	//		else if(!m_bOnlyDown)
+	//			m_bHit = true;
+	//	}
 		_matrix Translation;
 		_int random = rand() % 2;
 		random += 1;

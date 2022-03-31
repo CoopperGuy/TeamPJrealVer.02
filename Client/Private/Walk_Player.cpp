@@ -11,13 +11,12 @@ CWalk_Player::CWalk_Player()
 
 void CWalk_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
-	{
-		if (pPlayer.Get_Down())
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
-		else
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
-	}
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown())
+		pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
+
+	else if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
+		pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+	
 	else if (pPlayer.Get_Combat())
 	{
 		if (!pPlayer.Get_Evade())
@@ -34,7 +33,8 @@ void CWalk_Player::Enter(CPlayer & pPlayer)
 
 CStateMachine* CWalk_Player::Input(CPlayer& pPlayer)
 {
-	if (pPlayer.Get_Hit())
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown()
+		|| pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
 		return	pPlayer.GetState(CurState::IDLE);
 
 	CSkill_Player* pSkill = static_cast<CSkill_Player*>(pPlayer.GetState(CurState::Skill));

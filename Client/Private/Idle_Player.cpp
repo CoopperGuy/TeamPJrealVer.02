@@ -11,22 +11,23 @@ CIdle_Player::CIdle_Player()
 
 void CIdle_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit())
-	{
-		if (pPlayer.Get_Down())
-			if (pPlayer.Get_Downing())
-			{
-				if(m_bKnockBack)
-					pPlayer.SetUp_AnimIndex((_uint)Player_State::GetUp);
-				else
-					pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Ing);
-			}
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown())
+		pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
 
+	else if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
+	{
+		if (pPlayer.Get_Downing())
+		{
+			if (m_bKnockBack)
+				pPlayer.SetUp_AnimIndex((_uint)Player_State::GetUp);
 			else
-				pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+				pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Ing);
+		}
+
 		else
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::Hit_F);
+			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
 	}
+		
 	else if (pPlayer.Get_Combat())
 	{
 		if (!pPlayer.Get_Evade())
@@ -44,8 +45,11 @@ void CIdle_Player::Enter(CPlayer & pPlayer)
 CStateMachine* CIdle_Player::Input(CPlayer& pPlayer)
 {
 	CSkill_Player* pSkill =static_cast<CSkill_Player*>(pPlayer.GetState(CurState::Skill));
-	if (pPlayer.Get_Hit())
+
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown()
+		|| pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
 		return	pPlayer.GetState(CurState::IDLE);
+
 	if (CEngine::GetInstance()->IsKeyPressed('W') || CEngine::GetInstance()->IsKeyPressed('A')
 		|| CEngine::GetInstance()->IsKeyPressed('S') || CEngine::GetInstance()->IsKeyPressed('D'))
 	{
@@ -91,31 +95,29 @@ CStateMachine* CIdle_Player::Input(CPlayer& pPlayer)
 
 void CIdle_Player::Update(_double dDeltaTime, CPlayer& pPlayer)
 {
-	if (pPlayer.Get_Hit())
+	if (pPlayer.Get_Hit() && !pPlayer.Get_OnlyDown())
 	{
-		if (!pPlayer.Get_Down())
-		{
-			if(pPlayer.m_pModel->Get_isFinished())
-				pPlayer.Set_Hit();
-		}
-		else
-		{
-			if (pPlayer.Get_Downing())
-				m_dDelta += dDeltaTime;
+		if (pPlayer.m_pModel->Get_isFinished())
+			pPlayer.Set_Hit();
+	}
+	else if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
+	{
+		if (pPlayer.Get_Downing())
+			m_dDelta += dDeltaTime;
 
-			if (m_dDelta >= 1.5)
-				m_bKnockBack = true;
+		if (m_dDelta >= 1.5)
+			m_bKnockBack = true;
 
-			if (pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::GetUp)
+		if (pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::GetUp)
+		{
+			if (pPlayer.m_pModel->GetCurrentKeyFrame() == 20)
 			{
-				if (pPlayer.m_pModel->GetCurrentKeyFrame() == 20)
-				{
-					m_bKnockBack = false;
-					pPlayer.Set_Hit();
-				}
+				m_bKnockBack = false;
+				pPlayer.Set_Hit();
 			}
 		}
 	}
+	
 	if (pPlayer.Get_LBComboIndex() >= 5)
 		pPlayer.isFinish_Combo();
 }

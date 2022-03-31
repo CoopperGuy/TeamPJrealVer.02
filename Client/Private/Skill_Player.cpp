@@ -9,57 +9,57 @@ CSkill_Player::CSkill_Player()
 
 void CSkill_Player::Enter(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit() && pPlayer.Get_Down())
+	if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
 	{
-		if(pPlayer.m_pModel->Get_AnimIndex() != (_uint)Player_State::Leap_Start ||
-			pPlayer.m_pModel->Get_AnimIndex() != (_uint)Player_State::Leap_End)
-			pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
+		return;
+	}
+	
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_2))
+	{
+		if (m_iCurrentAniIndex == 2)
+			m_bCancel = true;
+		m_iCurrentAniIndex = 2;
+	}
+	else if (CEngine::GetInstance()->Get_DIKDown(DIK_4))
+	{
+		if (m_iCurrentAniIndex == 4)
+			m_bCancel = true;
+		m_iCurrentAniIndex = 4;
+	}
+
+
+	if (pPlayer.Get_Skill() != -1)
+	{
+		if (!m_bDuring)
+		{
+			m_vecSkill.push_back(pPlayer.Get_Skill());
+			m_iStartIndex = pPlayer.Get_Skill();
+		}
+		if (!m_bCancel)
+			m_bDuring = true;
+
+		if (m_bFinished)
+		{
+			m_bDuring = false;
+			m_bFinished = false;
+		}
 	}
 	else
-	{
-		if (CEngine::GetInstance()->Get_DIKDown(DIK_2))
-		{
-			if (m_iCurrentAniIndex == 2)
-				m_bCancel = true;
-			m_iCurrentAniIndex = 2;
-		}
-		else if (CEngine::GetInstance()->Get_DIKDown(DIK_4))
-		{
-			if (m_iCurrentAniIndex == 4)
-				m_bCancel = true;
-			m_iCurrentAniIndex = 4;
-		}
+		m_bDuring = false;
 
-
-		if (pPlayer.Get_Skill() != -1)
-		{
-			if (!m_bDuring)
-			{
-				m_vecSkill.push_back(pPlayer.Get_Skill());
-				m_iStartIndex = pPlayer.Get_Skill();
-			}
-			if (!m_bCancel)
-				m_bDuring = true;
-
-			if (m_bFinished)
-			{
-				m_bDuring = false;
-				m_bFinished = false;
-			}
-		}
-		else
-			m_bDuring = false;
-
-		if (m_vecSkill.size() > 0 && m_iCurIndex == 0)
-			pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
-	}
+	if (m_vecSkill.size() > 0 && m_iCurIndex == 0)
+		pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
+	
 }
 
 CStateMachine * CSkill_Player::Input(CPlayer & pPlayer)
 {
-	if (pPlayer.Get_Hit() && pPlayer.Get_Down())
-		m_bCancel = true;
-	
+	if (pPlayer.Get_Down())
+	{
+		if (!pPlayer.Get_SuperArmor())
+			m_bCancel = true;
+	}
 	if (!m_bDuring)
 	{
 		m_iCurIndex = 0;

@@ -60,6 +60,7 @@ public:
 	void Set_AnimSpeed(_double dSpeed) { m_dAnimSpeed = dSpeed; }
 	void Set_SlowAttack(_bool _bSlowAttack) { m_bSlowAttck = _bSlowAttack; }
 	void Set_Hit() { m_bHit = false, m_bDown = false, m_bDownIng = false; }
+	void SetUp_HitState();
 	//get
 public:
 	const _int Get_LBComboIndex() const { return m_iLB; }
@@ -80,6 +81,8 @@ public:
 	_bool Get_Hit() { return m_bHit; }
 	_bool Get_Down() { return m_bDown; }
 	_bool Get_Downing() { return m_bDownIng; }
+	_bool Get_SuperArmor() { return m_bSuperArmor; }
+	_bool Get_OnlyDown() { return m_bOnlyDown; }
 	const CStat::STAT GetStatus() const;
 
 public:
@@ -145,6 +148,8 @@ private:
 	_bool m_bHit			= false;
 	_bool m_bDown			= false;
 	_bool m_bDownIng		= false;
+	_bool m_bOnlyDown		= false;
+	_bool m_bSuperArmor		= false;
 	//
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
