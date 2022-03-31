@@ -172,6 +172,11 @@ namespace Engine
 
 }
 
+typedef struct tagTrailBufferDesc {
+	//XMMATRIX WeaponTransform;
+	XMFLOAT3	 vLowOffset;
+	XMFLOAT3     vHighOffset;
+}TRAILDESC;
 
 struct SimpleVertex
 {

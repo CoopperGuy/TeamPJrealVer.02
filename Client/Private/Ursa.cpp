@@ -51,6 +51,7 @@ HRESULT CUrsa::Initialize(_float3 position)
 		return E_FAIL;
 
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+	m_pRenderTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_RenderTransform"));
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	if (m_pCollider)
@@ -94,6 +95,8 @@ HRESULT CUrsa::Initialize(_float3 position)
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pMonHp = CMonHp::Create(m_pGameObject);
 	XMStoreFloat3(&m_vCenterPos, m_pTransform->GetState(CTransform::STATE_POSITION));
+
+	Create_Trail();
 
 	return S_OK;
 }
@@ -171,7 +174,29 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 
 	m_pModel->Play_Animation(dDeltaTime);
 
+	_matrix OffsetMatrix = XMMatrixIdentity();
+	XMMatrixTranslation(0.f, 0.05, -0.4);
+
+	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
+	XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
+
+	if (m_pRightTrailBuffer)
+		m_pRightTrailBuffer->Update(dDeltaTime, OffsetMatrix * XMLoadFloat4x4(&m_RightwpBoneMatrix) * XMLoadFloat4x4(&m_pRenderTransform->GetMatrix()));
+	if (m_pLeftTrailBuffer)
+		m_pLeftTrailBuffer->Update(dDeltaTime, OffsetMatrix * XMLoadFloat4x4(&m_LeftwpBoneMatrix) * XMLoadFloat4x4(&m_pRenderTransform->GetMatrix()));
+	//m_pRightTrailBuffer->SetIsActive(true);
+	//m_pLeftTrailBuffer->SetIsActive(true);
+
 	OrganizeEffect(dDeltaTime);
+
+	if (m_bDissolve)
+	{
+		m_fDissolveAcc += (_float)dDeltaTime * 0.5f;
+		if (m_fDissolveAcc > 1.f)
+			m_fDissolveAcc = 1.f;
+
+		m_pModel->SetDissolve(m_fDissolveAcc);
+	}	
 }
 
 void CUrsa::Render()
@@ -876,6 +901,9 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	UrsaAxeL = Remove_ScaleRotation(UrsaAxeL* m_pTransform->GetWorldMatrix());
 
 	_matrix RemoveWorldMatrix = m_pTransform->Remove_Scale(m_pTransform->GetWorldMatrix());
+	
+	m_pRightTrailBuffer->SetIsActive(false);
+	m_pLeftTrailBuffer->SetIsActive(false);
 
 	switch (m_eState)
 	{
@@ -892,17 +920,29 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::ROAR_Casting:
 		break;
 	case Client::CUrsa::DASH_ATT:
+		if (keyFrame >= 50 && keyFrame <= 70)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CUrsa::L_SLASH:
+		if (keyFrame >= 9 && keyFrame <= 29)
+			m_pLeftTrailBuffer->SetIsActive(true);
 		break;
 	case Client::CUrsa::R_SLASH:
+		if (keyFrame >= 20 && keyFrame <= 34)
+			m_pRightTrailBuffer->SetIsActive(true);
 		break;
-	case Client::CUrsa::Combo_1Start:
+	case Client::CUrsa::Combo_1Start:		
 		break;
 	case Client::CUrsa::Combo_1Hold:
 		break;
-	case Client::CUrsa::Combo_1: {
-		if (keyFrame == 19 && m_iMakeDust < 1) {
+	case Client::CUrsa::Combo_1:
+		if (keyFrame >= 6 && keyFrame <= 27)
+			m_pRightTrailBuffer->SetIsActive(true);		
+	{
+		if (keyFrame == 19 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
@@ -929,12 +969,15 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			}
 		}
 	}
-
 	break;
 	case Client::CUrsa::Combo_1End:
 		break;
-	case Client::CUrsa::Combo_2Start: {
-		if (keyFrame == 39 && m_iMakeDust < 1) {
+	case Client::CUrsa::Combo_2Start: 
+		if (keyFrame >= 24 && keyFrame <= 49)
+			m_pLeftTrailBuffer->SetIsActive(true);		
+	{
+		if (keyFrame == 39 && m_iMakeDust <= 1) 
+    {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
@@ -966,17 +1009,35 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_2End:
 		break;
 	case Client::CUrsa::Combo_3Start:
+		if (keyFrame >= 8)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CUrsa::Combo_3End:
 		break;
 	case Client::CUrsa::Combo_4Start:
+		if (keyFrame >= 7 && keyFrame <= 20)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CUrsa::Combo_4End:
 		break;
 	case Client::CUrsa::Big_SLASH:
+		if (keyFrame >= 35 && keyFrame <= 50)
+			m_pRightTrailBuffer->SetIsActive(true);
 		break;
-	case Client::CUrsa::AXE_STAMP: {
-		if (keyFrame == 47 && m_iMakeDust < 1) {
+	case Client::CUrsa::AXE_STAMP: 
+		if (keyFrame >= 34 && keyFrame <= 50)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
+	{
+		if (keyFrame == 47 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
@@ -998,20 +1059,20 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::ROAR_End:
 		break;
-	case Client::CUrsa::DASH_ATTSpeedup: {
-		_matrix ArmTwist = m_pModel->Get_BoneMatrix("Bip01-RUpArmTwist");
-		//_matrix Offset = XMMatrixTranslation(0.1f, 0.4f, 0.2f);
-		_matrix Offset = XMMatrixTranslation(-0.1f, 0.4f, 0.3f);
-		ArmTwist = Remove_ScaleRotation(Offset*/* *ArmTwist* */m_pTransform->GetWorldMatrix());
+	case Client::CUrsa::DASH_ATTSpeedup: 
+		if (keyFrame >= 15 && keyFrame <= 40)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
+	{
+		_matrix ArmTwist = m_pModel->Get_BoneWithoutOffset("Bip01-RUpArmTwist");
+		ArmTwist = Remove_ScaleRotation(ArmTwist* m_pTransform->GetWorldMatrix());
 
-		if (keyFrame >=13 && keyFrame <= 23){
-			if (m_iMakeDust < 1) {
-				m_iMakeDust += 1;
-				auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
-				CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
-			}
-			if (m_pUrsaShoulder)
-				m_pUrsaShoulder->Set_Matrix(ArmTwist);
+		if (keyFrame ==13 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
+			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		else
 			m_iMakeDust = 0;
@@ -1022,9 +1083,16 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::WHEELWIND_Start:
 		break;
-	case Client::CUrsa::WHEELWIND_Ing:
+	case Client::CUrsa::WHEELWIND_Ing:		
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
 		break;
 	case Client::CUrsa::WHEELWIND_End:
+		if (keyFrame <= 7)
+		{
+			m_pRightTrailBuffer->SetIsActive(true);
+			m_pLeftTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CUrsa::ROAR_Start:
 		break;
@@ -1033,6 +1101,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::DIE:
 		break;
 	case Client::CUrsa::DEADBODY:
+		m_bDissolve = true;
 		break;
 	case Client::CUrsa::qqq:
 		break;
@@ -1168,16 +1237,17 @@ void CUrsa::Hit(_double dDeltaTime)
 
 void CUrsa::Create_Trail()
 {
-	/*CGameObject* pTrail = CEngine::GetInstance()->AddGameObject(SCENE_STATIC, "Prototype_EmptyEffect", "Flogas_Trail");
-	if (pTrail == nullptr)
+	CGameObject* pRightTrail = CEngine::GetInstance()->AddGameObject(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_EmptyEffect", "Ursa_Trail");
+	if (pRightTrail == nullptr)
 		return;
 
-	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(pTrail);
+	CEmptyEffect* pEffect = static_cast<CEmptyEffect*>(pRightTrail);
 
 	pEffect->SetPassIndex(3);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/LV_ElRano_Object_SpermaPropB_E_LBR.dds", CEmptyEffect::TEXTURE_DIFFUSE);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail02_Tex_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
-	pEffect->SetTexture("../../Assets/Textures/Effect/Noise/Trail.dds", CEmptyEffect::TEXTURE_NOISE);
+	//pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/nullImage.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail01_TEX_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	pEffect->SetTexture("../../Assets/Textures/Effect/TrailDistortion/FX_FX_Dust_Aura01_NRM.tga", CEmptyEffect::TEXTURE_NOISE);
+
 
 	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
 	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
@@ -1186,9 +1256,37 @@ void CUrsa::Create_Trail()
 	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
 	pEffect->SetDistortionScale(4.f);
 	pEffect->SetDistortionBias(1.f);
-	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Weapon_R"));
-	_matrix WeaponTrans = XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pTransform->GetMatrix());
-	pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &WeaponTrans);
-	m_pRightTrailBuffer = static_cast<CVIBuffer_Trail*>(pTrail->GetComponent("Com_Trail"));*/
+
+	CGameObject* pLeftTrail = CEngine::GetInstance()->AddGameObject(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_EmptyEffect", "Ursa_Trail");
+	if (pLeftTrail == nullptr)
+		return;
+
+	pEffect = nullptr;
+	pEffect = static_cast<CEmptyEffect*>(pLeftTrail);
+
+	pEffect->SetPassIndex(3);
+	//pEffect->SetTexture("../../Assets/Textures/Effect/Diffuse/nullImage.dds", CEmptyEffect::TEXTURE_DIFFUSE);
+	pEffect->SetTexture("../../Assets/Textures/Effect/Mask/Trun_FX_Trail01_TEX_HKJ.jpg", CEmptyEffect::TEXTURE_MASK);
+	pEffect->SetTexture("../../Assets/Textures/Effect/TrailDistortion/FX_FX_Dust_Aura01_NRM.tga", CEmptyEffect::TEXTURE_NOISE);
+	
+	pEffect->SetScrollSpeedX(_float3(0.5f, 0.5f, 0.f));
+	pEffect->SetScrollSpeedY(_float3(0.f, 0.f, 0.f));
+	pEffect->setDistortion(0, _float2(0.1f, 0.2f));
+	pEffect->setDistortion(1, _float2(0.1f, 0.3f));
+	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
+	pEffect->SetDistortionScale(4.f);
+	pEffect->SetDistortionBias(1.f);
+
+	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
+	XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
+	
+	TRAILDESC TrailDesc;
+	TrailDesc.vHighOffset = { 0.f, 0.f, -0.5f };
+	TrailDesc.vLowOffset = { 0.f, 0.f, -0.2f };
+
+	pRightTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
+	pLeftTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
+	m_pRightTrailBuffer = static_cast<CVIBuffer_Trail*>(pRightTrail->GetComponent("Com_Trail"));
+	m_pLeftTrailBuffer = static_cast<CVIBuffer_Trail*>(pLeftTrail->GetComponent("Com_Trail"));
 }
 

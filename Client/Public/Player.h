@@ -152,7 +152,8 @@ private:
 	_bool m_bDownIng		= false;
 	_bool m_bOnlyDown		= false;
 	_bool m_bSuperArmor		= false;
-	//
+	
+	// Dissolve
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
 private:

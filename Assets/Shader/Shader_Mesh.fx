@@ -334,13 +334,13 @@ PS_OUT PS_MAIN(PS_IN In)
     // 빛과 텍스처 색상을 결합합니다.
     color = color * textureColor + (float4(Emission, 0.f) * float4(1.0f, 1.0f, 1.0f, 0.f));
 
-    if (dissolveColor.r < g_fDissolve)
+    if (dissolveColor.g < g_fDissolve)
     {
-        //if (dissolveColor.r > g_fDissolve - 0.1f && g_fDissolve != 1.f)
-        //    color = float4(1.f, 0.2f, 0.2f, 0.8f);
-        if (dissolveColor.r > g_fDissolve - 0.1f && g_fDissolve != 1.f)    // Edge부분 체크
+        if (dissolveColor.g > g_fDissolve - 0.07f && g_fDissolve != 1.f)
+            color = float4(1.f, 0.3f, 0.3f, 1.f);
+        else if (dissolveColor.g > g_fDissolve - 0.1f && g_fDissolve != 1.f)    // Edge부분 체크
         {
-            color = float4(1.f, 0.2f, 0.2f, 0.8f);
+            color = float4(0.5f, 0.5f, 0.5f, 0.8f);
         }
         else
             color.a = 0.0f; // 확실히 없어질 곳
