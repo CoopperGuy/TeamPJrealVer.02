@@ -129,17 +129,23 @@ void CWolf::LateUpdate(_double dDeltaTime)
 
 
 	if (m_bDead) {
-		//m_pWolfState = DIE;
-		//m_pModel->SetUp_AnimationIndex(DIE);
-		//m_pModel->Play_Animation(dDeltaTime);
-
-
 		if (m_pHpBar)
 			m_pHpBar->SetDead();
-		//m_pModel->Play_Animation(0);
-		this->SetDead();
-		m_pGameObject->SetDead();
-		m_pCollider->ReleaseController();
+
+
+		m_pWolfState = DIE;
+		m_pModel->SetUp_AnimationIndex(DIE);
+		m_pModel->Play_Animation(dDeltaTime);
+
+
+		if (m_pWolfState == DIE) {
+			if (m_pModel->Get_isFinished()) {
+				m_pModel->Play_Animation(0);
+				this->SetDead();
+				m_pGameObject->SetDead();
+				m_pCollider->ReleaseController();
+			}
+		}
 	}
 
 }
