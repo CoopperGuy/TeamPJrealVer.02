@@ -76,6 +76,12 @@ void CWolf::Update(_double dDeltaTime)
 	if (!m_pGameObject->IsActive())
 		return;
 
+
+	if (m_pStat->GetStatInfo().hp <= 0) {
+		m_pWolfState = DIE;
+		WolfAtt = false;
+		WolfIdle = false;
+	}
 	__super::Update(dDeltaTime);
 
 	WolfStateUpdate(dDeltaTime);
@@ -88,7 +94,7 @@ void CWolf::Update(_double dDeltaTime)
 		WolfAttflow(dDeltaTime);
 	}
 
-	if (m_pOBBCom->GetStartHit()) {
+	if (m_pOBBCom->Get_isHit()) {
 		m_pWolfState = DAMAGE;
 	}
 
@@ -98,7 +104,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 {
 	if (m_pStat->GetStatInfo().hp <= 0) {
 		m_pWolfState = DIE;
-		m_bDead = true;
+		//m_bDead = true;
 	}
 
 	if (!m_bDead) {
@@ -127,24 +133,16 @@ void CWolf::LateUpdate(_double dDeltaTime)
 		//WolfStateUpdate(dDeltaTime);
 	}
 
+	if (m_pWolfState == DIE)
+	{
 
-	if (m_bDead) {
 		if (m_pHpBar)
 			m_pHpBar->SetDead();
 
-
-		m_pWolfState = DIE;
-		m_pModel->SetUp_AnimationIndex(DIE);
-		m_pModel->Play_Animation(dDeltaTime);
-
-
-		if (m_pWolfState == DIE) {
-			if (m_pModel->Get_isFinished()) {
-				m_pModel->Play_Animation(0);
-				this->SetDead();
-				m_pGameObject->SetDead();
-				m_pCollider->ReleaseController();
-			}
+		if (m_pModel->Get_isFinished()) {
+			this->SetDead();
+			m_pGameObject->SetDead();
+			m_pCollider->ReleaseController();
 		}
 	}
 
@@ -175,6 +173,12 @@ void CWolf::RotateBody(_double deltaTime)
 
 void CWolf::WolfAttflow(_double dDeltaTime)
 {
+
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return;
+
+	//cout << m_pStat->GetStatInfo().hp << endl;
+
 	_vector PlayerTF = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
@@ -192,6 +196,11 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		break;
 	}
 	case Client::CWolf::THREATEN: {
+		if (m_pStat->GetStatInfo().hp <= 0) {
+			m_pWolfState = DIE;
+			return;
+		}
+
 		WolfLookPlayer();
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
@@ -231,10 +240,10 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		}
 		break;
 	case Client::CWolf::DAMAGE: {
-		if (m_iBlood <= 1) {
+		if (m_iBlood < 1) {
 			m_iBlood += 1;
 			_matrix Translation;
-			_int random = rand() % 4;
+			_int random = rand() % 2;
 			random += 1;
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 			Translation = m_pTransform->Remove_Scale(Translation);
@@ -297,6 +306,14 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 			}
 		}
 	}
+}
+
+_float CWolf::Gethp()
+{
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return -1.f;
+
+	return m_pStat->GetStatInfo().hp;
 }
 
 void CWolf::WolfSetAni(_double dDeltaTime)

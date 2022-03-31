@@ -1,0 +1,83 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_Vine
+    UUID: 13716774670570461750
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 4
+    BillBord: false
+    Com_Transform:
+      Translation: [0, -0.107978269, 0]
+      Rotation: [9.34836789e-05, -0, -0.000461467222]
+      Scale: [1.29112899, 0.607694566, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: Vine.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\Vine.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\teaa.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AESmoke_001_PS_JYW.tga
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.300000012
+      DistortionBias: 0
+      FadeOut: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 3
+      FadeIn: true
+      FadeInDuration: 1
+      FadeInStratTime: 0
+      EffectDuration: 4
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+    Children:
+      - Name: E_Vine
+        UUID: 15197127984866135284
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 4
+        BillBord: false
+        Com_Transform:
+          Translation: [0, 0, 0]
+          Rotation: [179.999496, 83.8280716, 179.9991]
+          Scale: [0.722483575, 0.681455612, 0.999999881]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: Vine.fbx
+          HasCollider: false
+          EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\Vine.dds
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\teaa.dds
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AuraTile_004_TEX_KKJ1.png
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.100000001
+          DistortionBias: 0.100000001
+          FadeOut: true
+          FadeOutDuration: 1
+          FadeOutStratTime: 3
+          FadeIn: true
+          FadeInDuration: 1
+          FadeInStratTime: 0
+          EffectDuration: 4
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          OffsetColor: [0, 0, 0, 0.00999999978]

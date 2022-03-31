@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_UrsaShoulder
-    UUID: 11165651788151035451
+    UUID: 7483806154429880512
     Active: true
     Layer: Default
     Type: Effect
@@ -9,8 +9,8 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [-2.79801225e-06, 0, 0]
-      Rotation: [0.0011857762, -89.1113663, -0.000926627545]
-      Scale: [1.49999988, 1.5, 0.999972343]
+      Rotation: [0.00118577632, -89.1113663, -0.000926627545]
+      Scale: [1.79999995, 1.79999995, 0.999947608]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: Effect_HalfCircleY.fbx
@@ -29,14 +29,14 @@ GameObjects:
       DistortionScale: 0.100000001
       DistortionBias: 1
       FadeOut: true
-      FadeOutDuration: 0.300000012
+      FadeOutDuration: 0.699999988
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0.5
       FadeInStratTime: 0
-      EffectDuration: 0.300000012
+      EffectDuration: 0.699999988
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 0.608695626, 0, -0.25999999]
+      OffsetColor: [0.992753625, 0.992753625, 0, -0.25999999]
