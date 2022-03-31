@@ -22,7 +22,7 @@ private:
 
 	_vector MyPos = {};
 
-
+	_vector				m_Targetpos = {};
 	_float PosX = 0.f;
 	_float PosY = 0.f;
 	_float PosZ = 0.f;

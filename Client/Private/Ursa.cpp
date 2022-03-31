@@ -11,6 +11,7 @@
 #include "EffectUrsaDust.h"
 #include "EffectBlood.h"
 #include "EffectBloodDecal.h"
+#include "EffectUrsaShoulder.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -102,50 +103,50 @@ void CUrsa::Update(_double dDeltaTime)
 	if (!m_pGameObject)
 		return;
 
-	if (!m_pGameObject->IsActive())
-		return;
-	//if (m_pStat->GetStatInfo().hp <= 0)
-	//	m_pGameObject->SetDead();
+	////if (!m_pGameObject->IsActive())
+	////	return;
+	//////if (m_pStat->GetStatInfo().hp <= 0)
+	//////	m_pGameObject->SetDead();
 
-	__super::Update(dDeltaTime);
+	////__super::Update(dDeltaTime);
 
-	m_fDist = SetDistance();
+	////m_fDist = SetDistance();
 
-	//TestAnimation(Flying_End);
-	Checking_Phase(dDeltaTime);
-	//if (m_bCombat[First])
-	//{
-	//	if (!m_bCB)
-	//		Adjust_Dist(dDeltaTime);
-	//}
-
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bCombat[First] = true;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		Roar();
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bCombat[Second] = true;
-		m_bCombat[First] = false;
-	}
-	Execute_Pattern(dDeltaTime);
-
-	/*if(!m_bWheelWind && !m_bRoar)*/
-	Checking_Finished();
+	//////TestAnimation(Flying_End);
+	////Checking_Phase(dDeltaTime);
+	//////if (m_bCombat[First])
+	//////{
+	//////	if (!m_bCB)
+	//////		Adjust_Dist(dDeltaTime);
+	//////}
 
 
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
-	//	m_eState = IDLE01;
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-	//	m_eState = Combo_1;
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	////	m_bCombat[First] = true;
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	////	Roar();
+	////if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
+	////{
+	////	m_bCombat[Second] = true;
+	////	m_bCombat[First] = false;
+	////}
+	////Execute_Pattern(dDeltaTime);
+
+	/////*if(!m_bWheelWind && !m_bRoar)*/
+	////Checking_Finished();
+
+
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+		m_eState = IDLE01;
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
+		m_eState = DASH_ATTSpeedup;
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
 	//	m_eState = Combo_2Start;
 
 
 
-	if (m_bCB)
-		SetUp_Combo();
+	////if (m_bCB)
+	////	SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pStat->SetSTATE(m_eCurSTATES);
 
@@ -974,7 +975,20 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::Big_SLASH:
 		break;
-	case Client::CUrsa::AXE_STAMP:
+	case Client::CUrsa::AXE_STAMP: {
+		if (keyFrame == 47 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
+			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		else if (keyFrame == 49 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
+			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
+			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		else
+			m_iMakeDust = 0;
+	}
 		break;
 	case Client::CUrsa::PUMMEL_1:
 		break;
@@ -984,7 +998,18 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::ROAR_End:
 		break;
-	case Client::CUrsa::DASH_ATTSpeedup:
+	case Client::CUrsa::DASH_ATTSpeedup: {
+		_matrix ArmTwist = m_pModel->Get_BoneWithoutOffset("Bip01-RUpArmTwist");
+		ArmTwist = Remove_ScaleRotation(ArmTwist* m_pTransform->GetWorldMatrix());
+
+		if (keyFrame ==13 && m_iMakeDust <= 1) {
+			m_iMakeDust += 1;
+			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+		else
+			m_iMakeDust = 0;
+	}
 		break;
 	case Client::CUrsa::WHEELWIND_Start:
 		break;

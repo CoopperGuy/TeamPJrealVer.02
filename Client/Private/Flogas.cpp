@@ -58,6 +58,15 @@ void CFlogas::Free()
 {
 	__super::Free();
 
+	if (m_pWaterEA.size() > 0) {
+		for (auto& pair : m_pWaterEA)
+		{
+			SafeRelease(pair);
+		}
+		m_pWaterEA.clear();
+
+	}
+
 }
 
 HRESULT CFlogas::Initialize(_float3 position)

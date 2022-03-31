@@ -21,8 +21,8 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: O_Rock
-    UUID: 9942069659115664186
+  - Name: Empty Object
+    UUID: 10639133541859426387
     Active: true
     Layer: Default
     Instancing: false
@@ -32,25 +32,6 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.0399999991, 0.0500000007, 0.0799999982]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Rock\
-      MeshFileName: DropRock.fbx
-      HasCollider: false
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: Empty Object
-    UUID: 11535172414627239501
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [0, -0.493999988, 0]
-      Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
@@ -58,9 +39,30 @@ GameObjects:
       HasCollider: false
       Equipment: false
     RenderGroup: 1
-    FrustumRange: 1
+    FrustumRange: 300
+    Children:
+      - 9179205471258052515
   - Name: Empty Object
-    UUID: 721093195873755760
+    UUID: 9179205471258052515
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 4.4000001, 4.19999981]
+      Rotation: [-83.1999741, -0, 0.0999926403]
+      Scale: [0.999933839, 0.999992609, 0.999995708]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Tile\
+      MeshFileName: Tile16.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 300
+  - Name: Empty Object
+    UUID: 6575797560168373983
     Active: true
     Layer: Default
     Instancing: false
@@ -68,26 +70,26 @@ GameObjects:
     PassIndex: 1
     BillBord: false
     Com_Transform:
-      Translation: [-2.87899995, -0.483714074, 0.0354494154]
-      Rotation: [8.32912974e-07, 85.8245697, 94.4999619]
-      Scale: [2.19999981, 1.99999857, 0.999994755]
+      Translation: [-0.455884188, 0.0298478305, -1.25748992]
+      Rotation: [0, -0, 0]
+      Scale: [0.999883056, 0.322275907, 0.99999994]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: Effect_Corn.fbx
+      MeshFileName: Sprite.fbx
       HasCollider: false
-      EffectFilePath: ""
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
     Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Dust_003_TEX_KKJ.tga
-      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Trail_018_TEX_CJH.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Trail.dds
       TextureNormalPath: ""
-      ScrollSpeedX: [0.400000006, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.100000001]
+      ScrollSpeedX: [0, 8.5, 0]
+      ScrollSpeedY: [0, -1.29999995, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 1.20000005
-      DistortionBias: 0.400000006
+      DistortionScale: 10
+      DistortionBias: 0
       FadeOut: false
       FadeOutDuration: 0
       FadeOutStratTime: 0
@@ -100,8 +102,8 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [1, 0, 0, 0]
-  - Name: E_RockEff2
-    UUID: 10038508682520728509
+  - Name: E_UrsaShoulder
+    UUID: 15287291070595421037
     Active: true
     Layer: Default
     Instancing: false
@@ -110,186 +112,60 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [-178.999939, -89, -89]
-      Scale: [2.60100031, 2.59994125, 3.00000024]
+      Rotation: [0.00118590461, -89.1113663, -0.000926627603]
+      Scale: [0.999947608, 1, 0.999947608]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: Effect_HalfCircleY.fbx
       HasCollider: false
-      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\LV_ElRano_Object_SpermaPropB_E_LBR.dds
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\007.dds
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_007_TEX_CJH.png
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\007.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\test3.jpg
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
       TextureNormalPath: ""
-      ScrollSpeedX: [1.29999995, 0.600000024, 0]
-      ScrollSpeedY: [1.10000002, 3.4000001, 2.29999995]
-      Distortion1: [0, 0.300000012]
-      Distortion2: [0.400000006, 0]
+      ScrollSpeedX: [0.300000012, 0.600000024, 0]
+      ScrollSpeedY: [1.10000002, 3.70000005, 2.29999995]
+      Distortion1: [0.100000001, 0.300000012]
+      Distortion2: [0.200000003, 0]
       Distortion3: [0.200000003, 0]
-      DistortionScale: 0.200000003
-      DistortionBias: 1.20000005
-      FadeOut: false
-      FadeOutDuration: 2
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0.200000003
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [1, 0.217391312, 0, 0]
-  - Name: E_RockDecal
-    UUID: 4766292534011152679
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 0
-    BillBord: false
-    Com_Transform:
-      Translation: [-0.335000008, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 0.100000001, 1.5]
-    Com_Decal:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\f_06_blur.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDecal\FX_Crack_007_TEX_KKJ.png
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
+      DistortionScale: 0.100000001
+      DistortionBias: 1
       FadeOut: true
-      FadeOutDuration: 2
+      FadeOutDuration: 1
       FadeOutStratTime: 0
       FadeIn: false
-      FadeInDuration: 0
+      FadeInDuration: 0.5
       FadeInStratTime: 0
-      EffectDuration: 2
+      EffectDuration: 1
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 0.347826123, 0, 0]
-  - Name: E_DropDust
-    UUID: 1859417684721566519
+      OffsetColor: [1, 0.608695626, 0, -0.25999999]
+  - Name: ursa
+    UUID: 9473631358597828140
     Active: true
     Layer: Default
     Instancing: false
-    Type: Effect
-    PassIndex: 18
-    BillBord: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
     Com_Transform:
-      Translation: [0, 0.485000014, -3.70000005]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\DiscSmoke01_16x4.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: true
-      FadeOutDuration: 2
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 2
-      SpriteNumX: 16
-      SpriteNumY: 4
-      SpriteTotal: 64
-      SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0]
-  - Name: E_EAFireBall
-    UUID: 16517990980708095272
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 2
-    BillBord: true
-    Com_Transform:
-      Translation: [1.60000002, 0, 0]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.997680962, 0.998773754, 0.995753586]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FireBall8x8.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 8
-      SpriteNumY: 8
-      SpriteTotal: 25
-      SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0]
-  - Name: E_EAFire
-    UUID: 13359879345918171291
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 18
-    BillBord: true
-    Com_Transform:
-      Translation: [0.0787363127, 0.992836535, 0.15544042]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.999136209, 1.00194907, 0.999437511]
-    Com_VIBuffer:
-      {}
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Explosion01-light_5x5.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: true
-      FadeOutDuration: 3
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 3
-      SpriteNumX: 5
-      SpriteNumY: 5
-      SpriteTotal: 25
-      SpriteSpeed: 25
-      OffsetColor: [0, 0, 0, 0]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.200000003, 0.100000001, 0.200000003]
+      IsAttach: true
+      BoneName: Bip01-LUpArmTwist
+      Offset: [0, 0, 0]
+      CollisionType: 8
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Ursa\
+      MeshFileName: ursa.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

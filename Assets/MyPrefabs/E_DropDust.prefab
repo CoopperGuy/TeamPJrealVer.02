@@ -1,14 +1,14 @@
 Scene: Untitled
 GameObjects:
   - Name: E_DropDust
-    UUID: 1859417684721566519
+    UUID: 321230123447721563
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 2
+    PassIndex: 18
     BillBord: false
     Com_Transform:
-      Translation: [0, 0.485000014, -3.70000005]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_VIBuffer:

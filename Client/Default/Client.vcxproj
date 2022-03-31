@@ -216,6 +216,7 @@
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
     <ClInclude Include="..\Public\EffectUrsaDust.h" />
+    <ClInclude Include="..\Public\EffectUrsaShoulder.h" />
     <ClInclude Include="..\Public\Element_Bomb.h" />
     <ClInclude Include="..\Public\Bomb_Center.h" />
     <ClInclude Include="..\Public\Fire_explosion.h" />
@@ -399,6 +400,7 @@
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\Private\EffectSoilDust.cpp" />
     <ClCompile Include="..\Private\EffectUrsaDust.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaShoulder.cpp" />
     <ClCompile Include="..\Private\Element_Bomb.cpp" />
     <ClCompile Include="..\private\ElfNPC.cpp" />
     <ClCompile Include="..\private\El_Flogas.cpp" />

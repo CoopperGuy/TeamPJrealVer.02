@@ -32,7 +32,7 @@ GameObjects:
     Com_Transform:
       Translation: [19.6858349, 0.658126712, 23.1555309]
       Rotation: [-90.0000076, -54.0418968, -179.999496]
-      Scale: [0.999903977, 0.999999523, 1.38074136]
+      Scale: [0.999903738, 0.999999523, 1.38074136]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: .Basic0.fbx
@@ -40,7 +40,7 @@ GameObjects:
       Equipment: false
     Translation: [19.6858349, 0.658126712, 23.1555309]
     Rotation: [-90.0000076, -54.0418968, -179.999496]
-    Scale: [0.999903977, 0.999999523, 1.38074136]
+    Scale: [0.999903738, 0.999999523, 1.38074136]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: .Basic0.fbx
     HasCollider: false
@@ -56,16 +56,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [7.72589159, -0.85806185, 22.6689072]
-      Rotation: [-90, -0.64849484, -179.999756]
-      Scale: [0.99987179, 0.99998039, 0.9998914]
+      Rotation: [-90, -0.648494661, -179.999756]
+      Scale: [0.999871671, 0.999980271, 0.9998914]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
       HasCollider: false
       Equipment: false
     Translation: [7.72589159, -0.85806185, 22.6689072]
-    Rotation: [-90, -0.64849484, -179.999756]
-    Scale: [0.99987179, 0.99998039, 0.9998914]
+    Rotation: [-90, -0.648494661, -179.999756]
+    Scale: [0.999871671, 0.999980271, 0.9998914]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -106,16 +106,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [7.72589159, -0.85806185, 22.6689072]
-      Rotation: [-90, -0.648497581, -179.999756]
-      Scale: [0.999874473, 0.999983072, 0.9998914]
+      Rotation: [-90, -0.648497522, -179.999756]
+      Scale: [0.999874353, 0.999982953, 0.9998914]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
       HasCollider: false
       Equipment: false
     Translation: [7.72589159, -0.85806185, 22.6689072]
-    Rotation: [-90, -0.648497581, -179.999756]
-    Scale: [0.999874473, 0.999983072, 0.9998914]
+    Rotation: [-90, -0.648497522, -179.999756]
+    Scale: [0.999874353, 0.999982953, 0.9998914]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -156,16 +156,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [17.9809265, -0.965452313, 35.1914558]
-      Rotation: [90, 28.004961, 2.62611195e-07]
-      Scale: [0.999882996, 0.999999642, 0.99999994]
+      Rotation: [90, 28.0049629, 2.62611195e-07]
+      Scale: [0.999882817, 0.999999642, 0.99999994]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
       HasCollider: false
       Equipment: false
     Translation: [17.9809265, -0.965452313, 35.1914558]
-    Rotation: [90, 28.004961, 2.62611195e-07]
-    Scale: [0.999882996, 0.999999642, 0.99999994]
+    Rotation: [90, 28.0049629, 2.62611195e-07]
+    Scale: [0.999882817, 0.999999642, 0.99999994]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -182,7 +182,7 @@ GameObjects:
     Com_Transform:
       Translation: [12.6879272, -0.915525258, 20.8540611]
       Rotation: [90, -0, 0]
-      Scale: [0.999981105, 1, 1]
+      Scale: [0.999980986, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
@@ -190,7 +190,7 @@ GameObjects:
       Equipment: false
     Translation: [12.6879272, -0.915525258, 20.8540611]
     Rotation: [90, -0, 0]
-    Scale: [0.999981105, 1, 1]
+    Scale: [0.999980986, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -207,7 +207,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.35808468, 1.41568816, 39.6055641]
       Rotation: [87.2458496, 66.8128281, -2.99307036]
-      Scale: [0.998799503, 0.999999285, 0.999847353]
+      Scale: [0.998799503, 0.999999285, 0.999847233]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: .Basic0.fbx
@@ -215,7 +215,7 @@ GameObjects:
       Equipment: false
     Translation: [-8.35808468, 1.41568816, 39.6055641]
     Rotation: [87.2458496, 66.8128281, -2.99307036]
-    Scale: [0.998799503, 0.999999285, 0.999847353]
+    Scale: [0.998799503, 0.999999285, 0.999847233]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: .Basic0.fbx
     HasCollider: false
@@ -232,7 +232,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.706771612, 0.141742587, 23.1889839]
       Rotation: [90, -0, 0]
-      Scale: [0.999934316, 1, 1]
+      Scale: [0.999934196, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
@@ -240,7 +240,7 @@ GameObjects:
       Equipment: false
     Translation: [-0.706771612, 0.141742587, 23.1889839]
     Rotation: [90, -0, 0]
-    Scale: [0.999934316, 1, 1]
+    Scale: [0.999934196, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -382,7 +382,7 @@ GameObjects:
     Com_Transform:
       Translation: [4.99932957, 2.8946681, 22.6554642]
       Rotation: [90, -0, 0]
-      Scale: [0.999974549, 1, 0.691477537]
+      Scale: [0.99997443, 1, 0.691477537]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
       MeshFileName: Basic8.fbx
@@ -390,7 +390,7 @@ GameObjects:
       Equipment: false
     Translation: [4.99932957, 2.8946681, 22.6554642]
     Rotation: [90, -0, 0]
-    Scale: [0.999974549, 1, 0.691477537]
+    Scale: [0.99997443, 1, 0.691477537]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Basic\
     MeshFileName: Basic8.fbx
     HasCollider: false
@@ -407,7 +407,7 @@ GameObjects:
     Com_Transform:
       Translation: [18.3869057, 0.0911907256, 27.2333679]
       Rotation: [172.059402, 10.1639881, -178.273972]
-      Scale: [0.999797881, 0.999997497, 0.998048782]
+      Scale: [0.999797761, 0.999997497, 0.998048782]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
       MeshFileName: Tower0.fbx
@@ -415,7 +415,7 @@ GameObjects:
       Equipment: false
     Translation: [18.3869057, 0.0911907256, 27.2333679]
     Rotation: [172.059402, 10.1639881, -178.273972]
-    Scale: [0.999797881, 0.999997497, 0.998048782]
+    Scale: [0.999797761, 0.999997497, 0.998048782]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower0\
     MeshFileName: Tower0.fbx
     HasCollider: false
@@ -627,7 +627,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.8161149, -1.01399946, 31.4816246]
       Rotation: [90, 89, 0.000104262559]
-      Scale: [0.999804735, 0.999946356, 0.999998033]
+      Scale: [0.999804616, 0.999946356, 0.999998033]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
       MeshFileName: Stairs1.fbx
@@ -635,7 +635,7 @@ GameObjects:
       Equipment: false
     Translation: [5.8161149, -1.01399946, 31.4816246]
     Rotation: [90, 89, 0.000104262559]
-    Scale: [0.999804735, 0.999946356, 0.999998033]
+    Scale: [0.999804616, 0.999946356, 0.999998033]
     MeshFilePath: ..\..\Assets\Meshes\Map\Stairs\
     MeshFileName: Stairs1.fbx
     HasCollider: false
@@ -1889,7 +1889,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: EquipNPC
     UUID: 8599249920016921887
     Active: true
@@ -1922,8 +1922,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [17.9290009, -3.09100008, 25.9868164]
-      Rotation: [-90, -1.43967439e-13, -179.999893]
-      Scale: [2.82678366, 2.73900008, 3.62299991]
+      Rotation: [-90, -1.43967412e-13, -179.999893]
+      Scale: [2.82678318, 2.73900008, 3.62299991]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower8\
       MeshFileName: Tower8.fbx
@@ -1941,16 +1941,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [4.5769186, 1.55312514, 34.1839294]
-      Rotation: [90, 89, 8.41822566e-06]
-      Scale: [0.999897361, 0.999992669, 1.2008245]
+      Rotation: [90, 89, 8.41822657e-06]
+      Scale: [0.999897242, 0.999992669, 1.2008245]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower10\
       MeshFileName: Tower10.fbx
       HasCollider: false
       Equipment: false
     Translation: [4.5769186, 1.55312514, 34.1839294]
-    Rotation: [90, 89, 8.41822566e-06]
-    Scale: [0.999897361, 0.999992669, 1.2008245]
+    Rotation: [90, 89, 8.41822657e-06]
+    Scale: [0.999897242, 0.999992669, 1.2008245]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\Tower10\
     MeshFileName: Tower10.fbx
     HasCollider: false
@@ -2895,7 +2895,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [0.200000003, 0.5, 0.200000003]
+      Size: [0.200000003, 2, 0.200000003]
       Angle:
         - 0
         - 0
@@ -2922,7 +2922,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [0.200000003, 0.5, 0.200000003]
+      Size: [0.200000003, 2, 0.200000003]
       Angle:
         - 0
         - 0
@@ -3603,8 +3603,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [13.6733255, 1.42076266, 26.1672058]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3630,7 +3630,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3641,8 +3641,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [9.91244888, 1.4114182, 25.4054718]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3668,7 +3668,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3679,8 +3679,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [17.907465, 1.77923751, 28.5297012]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3706,7 +3706,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3717,8 +3717,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [17.9069138, 1.66635501, 30.6703758]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3744,7 +3744,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3755,8 +3755,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [14.3152466, 1.43982267, 32.5379982]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3782,7 +3782,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3793,8 +3793,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [15.0096769, 2.6880579, 26.3946095]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3820,7 +3820,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3831,8 +3831,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.44896984, 2.89404273, 25.3545856]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3858,7 +3858,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3869,8 +3869,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.03379488, 3.16763735, 24.9382153]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3896,7 +3896,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3907,8 +3907,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [7.21364594, 2.08549118, 34.0770912]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3934,7 +3934,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3945,8 +3945,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.742036283, 2.05363965, 34.0629387]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3972,7 +3972,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -3983,8 +3983,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8, 0.0687308013, 32.2857704]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.290110469, 0.386300147, 0.786750793]
+      Rotation: [3.58791018, -73.4107132, -3.73794762e-07]
+      Scale: [0.288408041, 0.387480021, 0.78646946]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -4010,7 +4010,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -4021,8 +4021,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.0814654827, 2.98774052, 24.7634621]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -4048,7 +4048,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -4059,8 +4059,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.67324996, 0.628196776, 27.0857754]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -4086,7 +4086,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: Fire
     UUID: 1694303503047059371
     Active: true
@@ -4097,8 +4097,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-5.67864418, 0.304818839, 27.671936]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [0.290009737, 0.385410011, 0.792241812]
+      Rotation: [3.58791065, -73.4107132, -3.73794762e-07]
+      Scale: [0.288310111, 0.386591911, 0.791954577]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -4124,7 +4124,7 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 0]
   - Name: PointBlueLight
     UUID: 81756882314730092
     Active: true
@@ -4388,7 +4388,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.279930174, -0.860605478, 34.1982536]
       Rotation: [90, -0, 0]
-      Scale: [0.0149998199, 0.0150000006, 0.0149997603]
+      Scale: [0.0149998181, 0.0150000006, 0.0149997603]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4396,7 +4396,7 @@ GameObjects:
       Equipment: false
     Translation: [-0.279930174, -0.860605478, 34.1982536]
     Rotation: [90, -0, 0]
-    Scale: [0.0149998199, 0.0150000006, 0.0149997603]
+    Scale: [0.0149998181, 0.0150000006, 0.0149997603]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4413,7 +4413,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.383156806, -0.860605478, 33.8275108]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999317, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999298, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4421,7 +4421,7 @@ GameObjects:
       Equipment: false
     Translation: [-0.383156806, -0.860605478, 33.8275108]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999317, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999298, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4438,7 +4438,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.53238869, -0.860605478, 27.4868736]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999261, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999242, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4446,7 +4446,7 @@ GameObjects:
       Equipment: false
     Translation: [-3.53238869, -0.860605478, 27.4868736]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999261, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999242, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4463,7 +4463,7 @@ GameObjects:
     Com_Transform:
       Translation: [4.8222127, -0.860605478, 24.5210838]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999019, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4471,7 +4471,7 @@ GameObjects:
       Equipment: false
     Translation: [4.8222127, -0.860605478, 24.5210838]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999019, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4488,7 +4488,7 @@ GameObjects:
     Com_Transform:
       Translation: [14.3502989, -0.860605478, 26.2880268]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999233, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999214, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4496,7 +4496,7 @@ GameObjects:
       Equipment: false
     Translation: [14.3502989, -0.860605478, 26.2880268]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999233, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999214, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4513,7 +4513,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.01612067, -0.860605478, 27.4222984]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999037, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999019, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4521,7 +4521,7 @@ GameObjects:
       Equipment: false
     Translation: [-3.01612067, -0.860605478, 27.4222984]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999037, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999019, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4538,7 +4538,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.1587038, -0.860605478, 27.6093121]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999149, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999131, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4546,7 +4546,7 @@ GameObjects:
       Equipment: false
     Translation: [-8.1587038, -0.860605478, 27.6093121]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999149, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999131, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4563,7 +4563,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.16550159, -0.860605478, 27.650034]
       Rotation: [90, -0, 0]
-      Scale: [0.00999958068, 0.00999999978, 0.00999999978]
+      Scale: [0.00999957882, 0.00999999978, 0.00999999978]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4571,7 +4571,7 @@ GameObjects:
       Equipment: false
     Translation: [-3.16550159, -0.860605478, 27.650034]
     Rotation: [90, -0, 0]
-    Scale: [0.00999958068, 0.00999999978, 0.00999999978]
+    Scale: [0.00999957882, 0.00999999978, 0.00999999978]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4588,7 +4588,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.07729578, -0.860605478, 24.8390465]
       Rotation: [90, -0, 0]
-      Scale: [0.00999987312, 0.00999999978, 0.00999999978]
+      Scale: [0.00999987125, 0.00999999978, 0.00999999978]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4596,7 +4596,7 @@ GameObjects:
       Equipment: false
     Translation: [5.07729578, -0.860605478, 24.8390465]
     Rotation: [90, -0, 0]
-    Scale: [0.00999987312, 0.00999999978, 0.00999999978]
+    Scale: [0.00999987125, 0.00999999978, 0.00999999978]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4613,7 +4613,7 @@ GameObjects:
     Com_Transform:
       Translation: [-7.93372345, -0.860605478, 28.0918827]
       Rotation: [90, -0, 0]
-      Scale: [0.00999990478, 0.00999999978, 0.00999999978]
+      Scale: [0.00999990292, 0.00999999978, 0.00999999978]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4621,7 +4621,7 @@ GameObjects:
       Equipment: false
     Translation: [-7.93372345, -0.860605478, 28.0918827]
     Rotation: [90, -0, 0]
-    Scale: [0.00999990478, 0.00999999978, 0.00999999978]
+    Scale: [0.00999990292, 0.00999999978, 0.00999999978]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4638,7 +4638,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.57931614, -0.860605478, 39.6220474]
       Rotation: [90, -0, 0]
-      Scale: [0.0149998805, 0.0149999997, 0.0149999997]
+      Scale: [0.0149998786, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4646,7 +4646,7 @@ GameObjects:
       Equipment: false
     Translation: [-5.57931614, -0.860605478, 39.6220474]
     Rotation: [90, -0, 0]
-    Scale: [0.0149998805, 0.0149999997, 0.0149999997]
+    Scale: [0.0149998786, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4663,7 +4663,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.426392645, -0.860605478, 25.0383644]
       Rotation: [90, -0, 0]
-      Scale: [0.0149998693, 0.0149999997, 0.0149999997]
+      Scale: [0.0149998674, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4671,7 +4671,7 @@ GameObjects:
       Equipment: false
     Translation: [0.426392645, -0.860605478, 25.0383644]
     Rotation: [90, -0, 0]
-    Scale: [0.0149998693, 0.0149999997, 0.0149999997]
+    Scale: [0.0149998674, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4688,7 +4688,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.568558335, -0.860605478, 31.1897278]
       Rotation: [90, -0, 0]
-      Scale: [0.00999989826, 0.00999999978, 0.00999999978]
+      Scale: [0.0099998964, 0.00999999978, 0.00999999978]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4696,7 +4696,7 @@ GameObjects:
       Equipment: false
     Translation: [0.568558335, -0.860605478, 31.1897278]
     Rotation: [90, -0, 0]
-    Scale: [0.00999989826, 0.00999999978, 0.00999999978]
+    Scale: [0.0099998964, 0.00999999978, 0.00999999978]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4713,7 +4713,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.241643965, -0.906928897, 31.0761242]
       Rotation: [90, -0, 0]
-      Scale: [0.0149998907, 0.0149999997, 0.0149999997]
+      Scale: [0.0149998888, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4721,7 +4721,7 @@ GameObjects:
       Equipment: false
     Translation: [0.241643965, -0.906928897, 31.0761242]
     Rotation: [90, -0, 0]
-    Scale: [0.0149998907, 0.0149999997, 0.0149999997]
+    Scale: [0.0149998888, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4738,7 +4738,7 @@ GameObjects:
     Com_Transform:
       Translation: [17.9668026, -0.860605478, 27.0888138]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999196, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999177, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4746,7 +4746,7 @@ GameObjects:
       Equipment: false
     Translation: [17.9668026, -0.860605478, 27.0888138]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999196, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999177, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4763,7 +4763,7 @@ GameObjects:
     Com_Transform:
       Translation: [17.8225098, -0.956725359, 26.8174248]
       Rotation: [90, -0, 0]
-      Scale: [0.014999886, 0.0149999997, 0.0149999997]
+      Scale: [0.0149998842, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4771,7 +4771,7 @@ GameObjects:
       Equipment: false
     Translation: [17.8225098, -0.956725359, 26.8174248]
     Rotation: [90, -0, 0]
-    Scale: [0.014999886, 0.0149999997, 0.0149999997]
+    Scale: [0.0149998842, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4788,7 +4788,7 @@ GameObjects:
     Com_Transform:
       Translation: [21.5733929, -0.860605478, 29.6813107]
       Rotation: [90, -0, 0]
-      Scale: [0.0149999075, 0.0149999997, 0.0149999997]
+      Scale: [0.0149999056, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4796,7 +4796,7 @@ GameObjects:
       Equipment: false
     Translation: [21.5733929, -0.860605478, 29.6813107]
     Rotation: [90, -0, 0]
-    Scale: [0.0149999075, 0.0149999997, 0.0149999997]
+    Scale: [0.0149999056, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4813,7 +4813,7 @@ GameObjects:
     Com_Transform:
       Translation: [18.3162975, -0.860605478, 32.4865685]
       Rotation: [90, -0, 0]
-      Scale: [0.00999987684, 0.00999999978, 0.00999999978]
+      Scale: [0.00999987498, 0.00999999978, 0.00999999978]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4821,7 +4821,7 @@ GameObjects:
       Equipment: false
     Translation: [18.3162975, -0.860605478, 32.4865685]
     Rotation: [90, -0, 0]
-    Scale: [0.00999987684, 0.00999999978, 0.00999999978]
+    Scale: [0.00999987498, 0.00999999978, 0.00999999978]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false
@@ -4838,7 +4838,7 @@ GameObjects:
     Com_Transform:
       Translation: [13.8279839, -0.860605478, 32.595089]
       Rotation: [90, -0, 0]
-      Scale: [0.0149987526, 0.0149999997, 0.0149999997]
+      Scale: [0.0149987508, 0.0149999997, 0.0149999997]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Crystal1.fbx
@@ -4846,7 +4846,7 @@ GameObjects:
       Equipment: false
     Translation: [13.8279839, -0.860605478, 32.595089]
     Rotation: [90, -0, 0]
-    Scale: [0.0149987526, 0.0149999997, 0.0149999997]
+    Scale: [0.0149987508, 0.0149999997, 0.0149999997]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Crystal1.fbx
     HasCollider: false

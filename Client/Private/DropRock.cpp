@@ -24,19 +24,32 @@ HRESULT CDropRock::Initailze(CGameObject * pArg, _vector pos)
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
+		CGameObject* pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
+		CTransform * m_pTargetTransform = dynamic_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
+		m_Targetpos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+
 		int randompos = rand() % 2;
 		int randomX = rand() % 5;
 		randomX += 5;
 
+
 		switch (randompos)
 		{
-		case 0:
-			pos = XMVectorSetX(pos, (_float)randomX * -1.f);
+		case 0: {
+			pos = XMVectorSetX(pos, XMVectorGetX(m_pTargetTransform->GetState(CTransform::STATE_POSITION)) + 10.f);
 
-			break;
-		case 1:
-			pos = XMVectorSetX(pos, (_float)randomX);
-			break;
+			m_Targetpos = XMVectorSetX(m_Targetpos, XMVectorGetX(m_Targetpos) -(randompos+1));
+			m_Targetpos = XMVectorSetZ(m_Targetpos, XMVectorGetZ(m_Targetpos) +(randompos+1));
+
+		}
+				break;
+		case 1: {
+			pos = XMVectorSetX(pos, XMVectorGetX(m_pTargetTransform->GetState(CTransform::STATE_POSITION)) - 10.f);
+
+			m_Targetpos = XMVectorSetX(m_Targetpos, XMVectorGetX(m_Targetpos) - (randompos + 1));
+			m_Targetpos = XMVectorSetZ(m_Targetpos, XMVectorGetZ(m_Targetpos) + (randompos + 1));
+		}
+		break;
 
 		}
 
@@ -78,17 +91,32 @@ void CDropRock::Update(_double deltaTime)
 	XMVector3Normalize(MyPos);
 
 
-	tempsp += 0.0005f;
+	tempsp += 0.1f;
 
 	PosY = StartPosY + (3.f * Time - 0.5f * 9.8f * Time * Time);
-	Time += ((_float)deltaTime * 1.2f)+ tempsp; //시간값을 해줘야함 
+	Time += ((_float)deltaTime * 1.2f) + tempsp; //시간값을 해줘야함 
 
-	if (StartPosX >= 0)
-		PosX -= /*deltaTime**/0.3f;
-	else
-		PosX += /*deltaTime**/0.3f;
 
-	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ PosX,PosY,PosZ });
+	_vector		vDirection = m_Targetpos - pos;
+
+	pos += (XMVector3Normalize(vDirection) * tempsp * (_float)deltaTime);
+
+	//if (StartPosX >= 0)
+	//{
+	//	PosX -= /*deltaTime**/0.5f;
+	//	pos = XMVectorSetX(pos, PosX);
+	//}
+	//else {
+	//	PosX += /*deltaTime**/0.5f;
+	//	pos = XMVectorSetX(pos, PosX);
+
+	//}
+
+	//pos = XMVectorSetY(pos, PosY);
+
+	//pos = XMVectorSetZ(pos, PosZ);
+
+	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 	MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 

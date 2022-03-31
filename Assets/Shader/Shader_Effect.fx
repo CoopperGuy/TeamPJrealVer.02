@@ -1174,7 +1174,7 @@ technique11 DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_TESTSPRITE();
     }
-    pass SPRITE_TWO //17
+    pass SPRITE_TWO //18
     {
         SetRasterizerState(Rasterizer_NoneCull);
         SetDepthStencilState(DepthStecil_Default, 0);

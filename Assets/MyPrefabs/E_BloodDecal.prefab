@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_BloodDecal
-    UUID: 9928841288284857122
+    UUID: 12704931056308564175
     Active: true
     Layer: Default
     Type: Effect
@@ -14,7 +14,7 @@ GameObjects:
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\019.dds
       TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blood_005_TEX_CJH_1.png
       TextureNoisePath: ""
       TextureNormalPath: ..\..\Assets\Textures\Effect\Normal\Test.dds
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      Alpha: 1
+      OffsetColor: [0, 0, 0, 1]
