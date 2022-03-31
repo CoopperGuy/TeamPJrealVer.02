@@ -46,6 +46,10 @@ private:
 public:
 	WOLFSTATE GetWolfState() { return m_pWolfState; }
 
+	_float Gethp();
+	
+
+	_bool dead() { return m_bDead; }
 public:
 	void SetWolfState(WOLFSTATE _pState) { m_pWolfState = _pState; }
 	void WolfSetAni(_double dDeltaTime);
@@ -60,6 +64,8 @@ public:
 	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
 
 
+
+
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 private:
@@ -68,6 +74,7 @@ private:
 	_bool WolfIdle = false;
 	_bool m_isEnd = false;
 	_bool m_isdeadAni = false;
+	_bool m_bDIE = false;
 private:
 	_float m_fJumpSpeed = 0.f;
 	_float m_fSpeed = 15.0f;

@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_SoilDust
-    UUID: 14147604946903502357
+    UUID: 8547115786463978880
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 14
-    BillBord: false
+    BillBord: true
     Com_Transform:
-      Translation: [0, 0.497298837, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Translation: [-0.76256454, 0.497298837, 0]
+      Rotation: [-0.710538983, 5.94022083, -3.35305685e-08]
+      Scale: [0.999828517, 0.999982953, 0.999867916]
     Com_VIBuffer:
       {}
     Effect_Setting:

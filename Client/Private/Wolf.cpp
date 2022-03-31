@@ -76,6 +76,12 @@ void CWolf::Update(_double dDeltaTime)
 	if (!m_pGameObject->IsActive())
 		return;
 
+
+	if (m_pStat->GetStatInfo().hp <= 0) {
+		m_pWolfState = DIE;
+		WolfAtt = false;
+		WolfIdle = false;
+	}
 	__super::Update(dDeltaTime);
 
 	WolfStateUpdate(dDeltaTime);
@@ -88,7 +94,7 @@ void CWolf::Update(_double dDeltaTime)
 		WolfAttflow(dDeltaTime);
 	}
 
-	if (m_pOBBCom->GetStartHit()) {
+	if (m_pOBBCom->Get_isHit()) {
 		m_pWolfState = DAMAGE;
 	}
 
@@ -98,7 +104,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 {
 	if (m_pStat->GetStatInfo().hp <= 0) {
 		m_pWolfState = DIE;
-		m_bDead = true;
+		//m_bDead = true;
 	}
 
 	if (!m_bDead) {
@@ -127,20 +133,17 @@ void CWolf::LateUpdate(_double dDeltaTime)
 		//WolfStateUpdate(dDeltaTime);
 	}
 
-
-	if (m_bDead) {
-		//m_pWolfState = DIE;
-		//m_pModel->SetUp_AnimationIndex(DIE);
-		//m_pModel->Play_Animation(dDeltaTime);
-
+	if (m_pWolfState == DIE)
+	{
 
 		if (m_pHpBar)
-			m_pHpBar->SetUpDead();
-		//m_pModel->Play_Animation(0);
-		this->SetDead();
-		m_pGameObject->SetDead();
-		m_pCollider->ReleaseController();
+			m_pHpBar->SetDead();
 
+		if (m_pModel->Get_isFinished()) {
+			this->SetDead();
+			m_pGameObject->SetDead();
+			m_pCollider->ReleaseController();
+		}
 	}
 
 }
@@ -156,7 +159,7 @@ void CWolf::SetUpAnimation()
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::IDLE1, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::WALK, true, false);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::RUN, true, false);
-	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, false, false); // À§Çù
+	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::THREATEN, false, false); // ìœ„í˜‘
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::ZTTACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::STRAIGHTATACK, false, true);
 	m_pModel->SetAnimationLoop((_uint)WOLFSTATE::DAMAGE, false, false);
@@ -170,6 +173,12 @@ void CWolf::RotateBody(_double deltaTime)
 
 void CWolf::WolfAttflow(_double dDeltaTime)
 {
+
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return;
+
+	//cout << m_pStat->GetStatInfo().hp << endl;
+
 	_vector PlayerTF = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 	_vector TargetDistance = PlayerTF - m_pTransform->GetState(CTransform::STATE_POSITION);
 
@@ -187,6 +196,11 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		break;
 	}
 	case Client::CWolf::THREATEN: {
+		if (m_pStat->GetStatInfo().hp <= 0) {
+			m_pWolfState = DIE;
+			return;
+		}
+
 		WolfLookPlayer();
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
@@ -226,10 +240,10 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		}
 		break;
 	case Client::CWolf::DAMAGE: {
-		if (m_iBlood <= 1) {
+		if (m_iBlood < 1) {
 			m_iBlood += 1;
 			_matrix Translation;
-			_int random = rand() % 4;
+			_int random = rand() % 2;
 			random += 1;
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 			Translation = m_pTransform->Remove_Scale(Translation);
@@ -294,6 +308,14 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 	}
 }
 
+_float CWolf::Gethp()
+{
+	if (m_pStat->GetStatInfo().hp <= 0)
+		return -1.f;
+
+	return m_pStat->GetStatInfo().hp;
+}
+
 void CWolf::WolfSetAni(_double dDeltaTime)
 {
 	if (m_pCurState != m_pWolfState)
@@ -354,11 +376,11 @@ void CWolf::WolfLookPlayer()
 {
 	_vector		vDirection = m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION);
 
-	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	yÃà // ¿ÜÀûÀ¸·Î ¹æÇâ¹éÅÍs¸¦ ±¸ÇÏ±âÀ§ÇØ¼­ ±×¸®°í ÁÂ¿ì·Î¸¸ ¹Ù²îÁö yÃàÀº ¾È¹Ù²î´Ï±î
+	_vector vUp = m_pTransform->GetState(CTransform::STATE_UP);			//	yì¶• // ì™¸ì ìœ¼ë¡œ ë°©í–¥ë°±í„°së¥¼ êµ¬í•˜ê¸°ìœ„í•´ì„œ ê·¸ë¦¬ê³  ì¢Œìš°ë¡œë§Œ ë°”ë€Œì§€ yì¶•ì€ ì•ˆë°”ë€Œë‹ˆê¹Œ
 	_vector	vRight = XMVector3Cross(vUp, vDirection);		//
 
-	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//À§¿¡¼­ ¿ÜÀûÇÑ right´Â ½ºÄÉÀÏÀÌ ±úÁ®ÀÖ¾î¼­ ¿ø·¡ »ç¿ëÇÏ´ø right¸¦ ´ëÀÔÇØÁÖÀÚ 
-	_vector		vLook = XMVector3Cross(vRight, vUp);			// À§¿¡¼­ ¹Ù²ãÁØ Ç×µîÇà·Ä°ú yÃàÀ» ¿ÜÀûÇÏ±â 
+	vRight = XMVector3Normalize(vRight) * m_pTransform->GetScale(CTransform::STATE_RIGHT);	//ìœ„ì—ì„œ ì™¸ì í•œ rightëŠ” ìŠ¤ì¼€ì¼ì´ ê¹¨ì ¸ìžˆì–´ì„œ ì›ëž˜ ì‚¬ìš©í•˜ë˜ rightë¥¼ ëŒ€ìž…í•´ì£¼ìž 
+	_vector		vLook = XMVector3Cross(vRight, vUp);			// ìœ„ì—ì„œ ë°”ê¿”ì¤€ í•­ë“±í–‰ë ¬ê³¼ yì¶•ì„ ì™¸ì í•˜ê¸° 
 	vLook = XMVector3Normalize(vLook) * m_pTransform->GetScale(CTransform::STATE_LOOK);
 
 	m_pTransform->SetState(CTransform::STATE_RIGHT, vRight);

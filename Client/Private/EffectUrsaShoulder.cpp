@@ -53,7 +53,6 @@ void CEffectUrsaShoulder::Update(_double deltaTime)
 
 void CEffectUrsaShoulder::LateUpdate(_double deltaTime)
 {
-
 	if (Deaddt >=static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration())
 	{
 		this->SetDead();
@@ -68,4 +67,19 @@ void CEffectUrsaShoulder::Render()
 void CEffectUrsaShoulder::Free()
 {
 	__super::Free();
+}
+
+void CEffectUrsaShoulder::Set_Matrix(_matrix pos)
+{
+
+	if (m_bDead)
+		return;
+
+	if (!m_pGameObject)
+		return;
+
+	if(m_pTransform)
+		m_pTransform->SetMatrix(pos);
+
+
 }
