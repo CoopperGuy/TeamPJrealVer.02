@@ -14,7 +14,7 @@ GameObjects:
       Size: [50, 50]
   - Name: QuestListSub
     UUID: 12864424915382906858
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -39,7 +39,7 @@ GameObjects:
     Hovering: false
     Com_Transform:
       Position: [300.869629, 360]
-      Size: [606.221375, 720]
+      Size: [600, 720]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
       TextureMaskPath: ""
@@ -71,7 +71,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestShortcut
     UUID: 16287995631125625181
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -92,7 +92,7 @@ GameObjects:
       - 13067805310386615929
   - Name: QuestName
     UUID: 8499379159806179817
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -112,7 +112,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestPurpose
     UUID: 13067805310386615929
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -132,7 +132,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestShortcut
     UUID: 12805142118666484563
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -153,7 +153,7 @@ GameObjects:
       - 11513149226949606065
   - Name: QuestName
     UUID: 10117224854208029290
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -173,7 +173,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestPurpose
     UUID: 11513149226949606065
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -193,7 +193,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestShortcut
     UUID: 15542191811747929715
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -214,7 +214,7 @@ GameObjects:
       - 5950913508321936982
   - Name: QuestName
     UUID: 12415205669606939399
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -234,7 +234,7 @@ GameObjects:
       IsKorean: false
   - Name: QuestPurpose
     UUID: 5950913508321936982
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI

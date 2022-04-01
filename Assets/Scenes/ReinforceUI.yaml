@@ -18,6 +18,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 10480240937084011576
       - 18189282622033961211
@@ -27,6 +28,7 @@ GameObjects:
       - 14269806176148426749
       - 15846141100906453035
       - 5277232172662643811
+      - 8551668434793670199
   - Name: ReinforceSlot
     UUID: 10480240937084011576
     Active: true
@@ -45,6 +47,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ItemImage
     UUID: 18189282622033961211
     Active: true
@@ -63,6 +66,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ReinforceMateriale
     UUID: 7587394193738736047
     Active: true
@@ -81,6 +85,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: MaterialImage
     UUID: 4841210787061409446
     Active: true
@@ -99,6 +104,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ReinforceButton
     UUID: 12974663652876638929
     Active: true
@@ -117,6 +123,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ItemName
     UUID: 14269806176148426749
     Active: true
@@ -127,7 +134,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [972.535583, 289.421692]
+      Position: [932.846802, 289.421692]
       Size: [463.896973, 130.322815]
     Com_Text:
       Text: ""
@@ -144,17 +151,18 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 7
-    PassIndex: 1
+    PassIndex: 15
     Hovering: true
     Com_Transform:
       Position: [1253.92773, 50]
       Size: [20, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Alert_Bg_Continuty_2.tga
-      TextureMaskPath: ""
+      TextureMaskPath: ..\..\Assets\UITexture\Reinforce\XHover.dds
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ReinforceEffect
     UUID: 5277232172662643811
     Active: true
@@ -166,10 +174,31 @@ GameObjects:
     Hovering: false
     Com_Transform:
       Position: [1026, 128]
-      Size: [100, 100]
+      Size: [256, 256]
     Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Reinforce\Qte_Fx_CircleFlare_0.dds
+      TexturePath: ..\..\Assets\UITexture\Reinforce\Enchant_Fx_Square0.dds
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: MaterialName
+    UUID: 8551668434793670199
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [938.352417, 428.216888]
+      Size: [1990.95081, 50]
+    Com_Text:
+      Text: ""
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false

@@ -4,6 +4,7 @@
 #include "ModelManager.h"
 #include <string.h>
 
+#include "EmptyCamera.h"
 #include "EmptyGameObject.h"
 #include "EmptyMapObject.h"
 #include "EmptyUI.h"
@@ -63,8 +64,8 @@ void CSceneSerializer::Serialize(const string & filePath)
 
 			if (dynamic_cast<CEmptyGameObject*>(obj))
 				SerializeObject(out, obj);
-			//else if (dynamic_cast<CEmptyMapObject*>(obj))
-			//	SerializeMapObject(out, obj);
+			else if (dynamic_cast<CEmptyCamera*>(obj))
+				SerializeCamera(out, obj);
 			else if (dynamic_cast<CEmptyEffect*>(obj))
 				SerializeEffect(out, obj);
 			else
@@ -528,6 +529,12 @@ void CSceneSerializer::SerializeUI(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::Value << YAML::Flow;
 		out << YAML::BeginSeq << color.x << color.y << color.z << color.w << YAML::EndSeq;
 
+		CEmptyUI*	_ui = static_cast<CEmptyUI*>(obj);
+
+		out << YAML::Key << "Sprite";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq <<  _ui->p_SpriteTime << _ui->p_SpriteNum << _ui->p_SpriteX << _ui->p_SpriteY << YAML::EndSeq;
+
 		out << YAML::EndMap;
 	}
 	if (obj->GetComponent("Com_Text"))
@@ -763,6 +770,67 @@ void CSceneSerializer::SerializeEffect(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::EndMap;
 }
 
+void CSceneSerializer::SerializeCamera(YAML::Emitter & out, CGameObject * obj)
+{
+	out << YAML::Key << "Type" << YAML::Value << "Camera";
+	CEmptyCamera*	_camera = static_cast<CEmptyCamera*>(obj);
+	if (obj->GetComponent("Com_Transform"))
+	{
+		CTransform* transform = nullptr;
+		if (obj->GetParent() == nullptr) {
+			transform = dynamic_cast<CTransform*>(obj->GetComponent("Com_Transform"));
+		}
+		else {
+			transform = dynamic_cast<CTransform*>(obj->GetComponent("Com_LocalTransform"));
+		}
+		out << YAML::Key << "Com_Transform";
+		out << YAML::BeginMap;
+
+		XMMATRIX matrix = XMLoadFloat4x4(&transform->GetMatrix());
+		//XMVECTOR tr, rt, sc;
+		//XMMatrixDecompose(&sc, &rt, &tr, matrix);
+
+		float _objMat[16];
+		memcpy(_objMat, &matrix, sizeof(XMMATRIX));
+		float matrixTranslation[3], matrixRotation[3], matrixScale[3];
+		ImGuizmo::DecomposeMatrixToComponents(_objMat, matrixTranslation, matrixRotation, matrixScale);
+
+
+		out << YAML::Key << "Translation";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << matrixTranslation[0] << matrixTranslation[1] << matrixTranslation[2] << YAML::EndSeq;
+
+		out << YAML::Key << "Rotation";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << matrixRotation[0] << matrixRotation[1] << matrixRotation[2] << YAML::EndSeq;
+
+		out << YAML::Key << "Scale";
+		out << YAML::Value << YAML::Flow;
+		out << YAML::BeginSeq << matrixScale[0] << matrixScale[1] << matrixScale[2] << YAML::EndSeq;
+
+
+		out << YAML::EndMap;
+	}
+	out << YAML::Key << "MoveTime" << YAML::Value << _camera->p_moveTime;
+
+	out << YAML::Key << "SrcPosition";
+	out << YAML::Value << YAML::Flow;
+	out << YAML::BeginSeq << _camera->p_srcPosition.x << _camera->p_srcPosition.y << _camera->p_srcPosition.z << YAML::EndSeq;
+
+	out << YAML::Key << "DestPosition";
+	out << YAML::Value << YAML::Flow;
+	out << YAML::BeginSeq << _camera->p_destPosition.x << _camera->p_destPosition.y << _camera->p_destPosition.z << YAML::EndSeq;
+
+	out << YAML::Key << "SrcLookPosition";
+	out << YAML::Value << YAML::Flow;
+	out << YAML::BeginSeq << _camera->p_srcLookPosition.x << _camera->p_srcLookPosition.y << _camera->p_srcLookPosition.z << YAML::EndSeq;
+
+	out << YAML::Key << "DestLookPosition";
+	out << YAML::Value << YAML::Flow;
+	out << YAML::BeginSeq << _camera->p_destLookPosition.x << _camera->p_destLookPosition.y << _camera->p_destLookPosition.z << YAML::EndSeq;
+
+}
+
 CGameObject* CSceneSerializer::DeserializeUI(YAML::Node& obj, _bool bSpawn, _uint curScene)
 {
 	uint64_t uuid = 0;
@@ -873,6 +941,14 @@ CGameObject* CSceneSerializer::DeserializeUI(YAML::Node& obj, _bool bSpawn, _uin
 		color.z = sequence[2].as<float>();
 		color.w = sequence[3].as<float>();
 		dynamic_cast<CVIBuffer_RectUI*>(pVIBuffer)->SetColor(color);
+		auto sprite = viBuffer["Sprite"];
+		CEmptyUI*	_ui = static_cast<CEmptyUI*>(deserializedObject);
+		if (sprite) {
+			_ui->p_SpriteTime = sprite[0].as<float>();
+			_ui->p_SpriteNum = sprite[1].as<int>();
+			_ui->p_SpriteX = sprite[2].as<int>();
+			_ui->p_SpriteY = sprite[3].as<int>();
+		}
 	}
 	auto text = obj["Com_Text"];
 	if (text)
@@ -937,6 +1013,47 @@ CGameObject* CSceneSerializer::DeserializeObject(YAML::Node & obj, _bool bSpawn,
 	}
 	else
 		return NoneInstancingObject(obj, bSpawn, curScene);
+}
+
+CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn, _uint curScene)
+{
+	auto name = obj["Name"].as<string>();
+	auto uuid = obj["UUID"].as<uint64_t>();
+	auto layer = obj["Layer"].as<string>();
+	auto active = obj["Active"].as<_bool>();
+
+	GameObjectMutex.lock();
+	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyCamera", layer);
+	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
+	GameObjectMutex.unlock();
+
+	auto transformCom = obj["Com_Transform"];
+	if (transformCom)
+	{
+		//_float3 tr, rt, sc;
+		float tr[3], rt[3], sc[3];
+		auto sequence = transformCom["Translation"];
+		tr[0] = sequence[0].as<float>();
+		tr[1] = sequence[1].as<float>();
+		tr[2] = sequence[2].as<float>();
+		sequence = transformCom["Rotation"];
+		rt[0] = sequence[0].as<float>();
+		rt[1] = sequence[1].as<float>();
+		rt[2] = sequence[2].as<float>();
+		sequence = transformCom["Scale"];
+		sc[0] = sequence[0].as<float>();
+		sc[1] = sequence[1].as<float>();
+		sc[2] = sequence[2].as<float>();
+
+		float _objMat[16]; XMFLOAT4X4 objMat;
+		ImGuizmo::RecomposeMatrixFromComponents(tr, rt, sc, _objMat);
+		memcpy(&objMat, _objMat, sizeof(XMFLOAT4X4));
+
+		CComponent* pTransform = deserializedObject->GetComponent("Com_Transform");
+		dynamic_cast<CTransform*>(pTransform)->SetMatrix(objMat);
+	}
+
+	return nullptr;
 }
 
 

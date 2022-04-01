@@ -39,6 +39,9 @@ public:
 	bool IsSelected() { return m_bSelect; }
 public:
 	void SetSortingOrder(_int order) { m_iSortingOrder = order; }
+	void SetSpriteNum(_int _num) { m_iSpriteNum = _num; }
+	void SetSpriteX(_int _x) { m_iSpriteX = _x; }
+	void SetSpriteY(_int _y) { m_iSpriteY = _y; }
 	void SetIsHovering(_bool tf) { m_isHovering = tf; }
 	void SetIsShrink(_bool tf) { m_bisShrink = tf; }
 	void SetIsBreath(_bool tf) { m_bisBreath = tf; }
@@ -52,7 +55,8 @@ public:
 	void SetPercentage(_float percentage) { m_fPercentage = percentage; }
 	void SetBackPercetage(_float backPercentage) { m_fBackPercentage = backPercentage; }
 	void SetDegree(_float degree) { m_fDegree = degree; }
-
+	void SetSpriteTime(_float _time) { m_fSpriteTime = _time; }
+	void SetAlpha(_float _alpha) { m_fAlpha = _alpha; }
 	virtual void	SetisRender(_bool tf) override;
 public:
 	_bool&	GetIsShrink() { return m_bisShrink; }
@@ -60,6 +64,9 @@ public:
 	_bool&	GetIsBreath() { return m_bisBreath; }
 	_bool&	GetXShrink() { return m_bisXShrink; }
 	_bool&	GetYShrink() { return m_bisYShrink; }
+	_int	GetSpriteNum() { return m_iSpriteNum; }
+	_int	GetSpriteX() { return m_iSpriteX; }
+	_int	GetSpriteY() { return m_iSpriteY; }
 	_int&	GetSortingOrder() { return m_iSortingOrder; }
 	_float&	GetShrinkMax() { return m_fShrinkMax; }
 	_float&	GetShrinkMin() { return m_fShrinkMin; }
@@ -67,9 +74,17 @@ public:
 	_float	GetPercentage() { return m_fPercentage; }
 	_float	GetBackPercentage() { return m_fBackPercentage; }
 	_float	GetDegree() { return m_fDegree; }
+	_float	GetSpriteTime() { return m_fSpriteTime; }
+	_float	GetAlpha() { return m_fAlpha; }
 	_float2	GetTransformOffst() { return m_vTransformOffSet; }
 	_float2 GetPosition();
 	_float2	GetUISize();
+public:
+	PROPERTY(GetSpriteTime, SetSpriteTime)_float p_SpriteTime;
+	PROPERTY(GetSpriteNum, SetSpriteNum)_int p_SpriteNum;
+	PROPERTY(GetSpriteX, SetSpriteX)_int p_SpriteX;
+	PROPERTY(GetSpriteY, SetSpriteY)_int p_SpriteY;
+	PROPERTY(GetAlpha, SetAlpha)_float p_Alpha;
 
 protected:
 	_bool m_bHover = false;
@@ -81,12 +96,19 @@ protected:
 	_bool m_bisYShrink = true;
 protected:
 	_int	m_iSortingOrder = 0;
+	_int	m_iSprite = 0;
+	_int	m_iSpriteNum = 0;
+	_int	m_iSpriteX = 0;
+	_int	m_iSpriteY = 0;
 	_float2	m_vTransformOffSet = { 0.f, 0.f };
 	_float	m_fShrinkSpd = 0.f;
 	_float	m_fShrinkMax = 50.f;
 	_float	m_fShrinkMin = 0.f;
 	_float	m_fTime = 0.f;
 	_float	m_fSelectHoverTime = 0.f;
+	_float	m_fSpriteTime = 0.1f;
+	_float	m_fSpriteDelta = 0.f;
+	_float	m_fAlpha = 1.f;
 private:
 	_float	m_fPercentage = 1.f;
 	_float	m_fBackPercentage = 1.f;

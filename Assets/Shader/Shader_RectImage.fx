@@ -2,6 +2,9 @@
 
 cbuffer UiInformation
 {
+    int g_iSpriteNum = 0;
+    int g_iSpriteX = 0;
+    int g_iSpriteY = 0;
     float g_Percentage = 1.f;
     float g_Back = 1.f;
     float g_Time = 0.f;
@@ -9,9 +12,9 @@ cbuffer UiInformation
     float g_degree = 0.f;
     float g_USpeed = 0.f;
     float g_VSpeed = 0.f;
+    float g_Alpha = 1.f;
     bool  g_isHover = false;
     bool g_isSelected = false;
-    
 };
 
 cbuffer Matrices
@@ -171,6 +174,33 @@ VS_OUT VS_MAIN_TEXT1(VS_IN In)
 
     return Out;
 }
+
+VS_OUT VS_MAIN_SPRITE(VS_IN In)
+{
+    VS_OUT Out = (VS_OUT) 0;
+
+    /* Postion */
+    matrix matWV, matWVP;
+
+    matWV = mul(g_WorldMatrix, g_ViewMatrix);
+    matWVP = mul(matWV, g_ProjMatrix);
+
+    Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+
+    uint UVx = 0;
+    uint UVy = 0;
+
+    UVx = g_iSpriteNum % g_iSpriteX;
+    UVy = g_iSpriteNum / g_iSpriteX;
+
+
+    Out.vTexUV.x = ((In.vTexUV.x + UVx) / (float) g_iSpriteX);
+    Out.vTexUV.y = ((In.vTexUV.y + UVy) / (float) g_iSpriteY);
+   
+    return Out;
+}
+
+
 /* VS_OUT 구조체의 SV_POSITION이라는 시멘틱을 가진 데이터에 한해서만  */
 /* W값으로 XYZW모두를 나눈다. */
 /* 뷰포트로 정점의 위치를 변환한다. */
@@ -199,6 +229,8 @@ struct PS_INITEM
 SamplerState Sampler
 {
     Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = border;
+    AddressV = border;
 };
 SamplerState SamplerWrap
 {
@@ -421,10 +453,62 @@ float4 PS_MAIN_BACKIMG(PS_IN input) : SV_Target
 {
     float4 diffuse = Map.Sample(Sampler, input.vTexUV);
     float4 noise = Noise.Sample(Sampler, input.vTexUV);
-    float4 color = diffuse.argb + noise.argb;
+    float4 color;
+    color.a = diffuse.a;
+    if (noise.a > 0.f)
+        color.rgb = diffuse.rgb + noise.rgb * 0.5f;
+    else
+        color.rgb = diffuse.rgb;
     return color;
 }
 
+float4 PS_MAIN_SWAP(PS_IN input) : SV_Target
+{
+    float4 diffuse = Map.Sample(Sampler, input.vTexUV);
+    float4 mask = Mask.Sample(Sampler, input.vTexUV);
+    float4 color;
+    if (g_isHover)
+        color = mask;
+    else
+        color = diffuse;
+        
+        
+    return color;
+}
+
+
+vector PS_MAIN_SPRITE(PS_IN In) : SV_TARGET
+{
+    float4 vDiffuseColor;
+    float4 vMask;
+
+	//vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+    vDiffuseColor = Map.Sample(g_DefaultSampler, In.vTexUV);
+    vDiffuseColor.a = (vDiffuseColor.r + vDiffuseColor.g + vDiffuseColor.b) * g_Alpha;
+    vDiffuseColor.rgb *= vColor.rgb;
+    //vDiffuseColor.a += vColor.a;
+    //vDiffuseColor.a *= vColor;
+    
+    if (vDiffuseColor.a <= 0.1f)
+        discard;
+
+    return vDiffuseColor;
+}
+
+vector PS_MAIN_SPRITEALPHA(PS_IN In) : SV_TARGET
+{
+    float4 vDiffuseColor;
+    float4 vMask;
+
+	//vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
+    vDiffuseColor = Map.Sample(g_DefaultSampler, In.vTexUV);
+    vDiffuseColor.rgb += vColor.rgb;
+    vDiffuseColor.a *= g_Alpha;
+    //vDiffuseColor.a += vColor.a;
+    //vDiffuseColor.a *= vColor;
+    
+    return vDiffuseColor;
+}
 technique11		DefaultDevice
 {
 	pass DefaultPass
@@ -584,5 +668,37 @@ technique11		DefaultDevice
         VertexShader = compile vs_5_0 VS_MAIN();
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_BACKIMG();
+    }
+
+    pass ImageSwap
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SWAP();
+    }
+
+    pass Sprite
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_SPRITE();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SPRITE();
+    }
+    pass SpriteAlpha
+    {
+        SetRasterizerState(Rasterizer_Solid);
+        SetDepthStencilState(DepthStecil_NotZTestWrite, 0);
+        SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+        VertexShader = compile vs_5_0 VS_MAIN_SPRITE();
+        GeometryShader = NULL;
+        PixelShader = compile ps_5_0 PS_MAIN_SPRITEALPHA();
     }
 }

@@ -132,7 +132,7 @@ HRESULT CVIBuffer_RectUI::Render(_uint iPassIndex)
 	m_pShader->SetUp_ValueOnShader("g_ViewMatrix", &XMMatrixIdentity(), sizeof(_matrix));
 	m_pShader->SetUp_ValueOnShader("g_ProjMatrix", &XMMatrixTranspose(XMLoadFloat4x4(&m_pRectTransform->GetProjMat())), sizeof(_matrix));
 	m_pShader->SetUp_ValueOnShader("vColor", &m_Color, sizeof(_float4));
-	
+
 	//if (m_pTexture)
 	//{
 	//	m_pShader->SetUp_TextureOnShader("Map", m_pTexture);
@@ -157,8 +157,8 @@ HRESULT CVIBuffer_RectUI::Render(_uint iPassIndex)
 
 
 
-	if (iPassIndex > 14) {
-		iPassIndex = 14;
+	if (iPassIndex > 17) {
+		iPassIndex = 17;
 	}
 	m_pShader->Render(iPassIndex);
 	if (m_IBSubResourceData.pSysMem)

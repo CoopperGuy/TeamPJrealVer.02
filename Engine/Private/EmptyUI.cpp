@@ -120,6 +120,18 @@ _uint CEmptyUI::Update(_double TimeDelta)
 	else {
 		m_fSelectHoverTime = 0.f;
 	}
+	m_fSpriteDelta += (_float)TimeDelta;
+	if (m_fSpriteDelta > m_fSpriteTime) {
+		m_fSpriteDelta = 0.f;
+		if (m_iSprite >= m_iSpriteNum) {
+			m_iSprite = 0;
+		}
+		else {
+			m_iSprite++;
+		}
+	}
+			
+	
 
 	return S_OK;
 }
@@ -226,8 +238,11 @@ HRESULT CEmptyUI::Render(_uint iPassIndex)
 			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Percentage", &m_fPercentage, sizeof(_float));
 			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Back", &m_fBackPercentage, sizeof(_float));
 			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_degree", &m_fDegree, sizeof(_float));
+			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteNum", &m_iSprite, sizeof(_int));
+			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteX", &m_iSpriteX, sizeof(_int));
+			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_iSpriteY", &m_iSpriteY, sizeof(_int));
+			static_cast<CVIBuffer_RectUI*>(buffer)->GetShader()->SetUp_ValueOnShader("g_Alpha", &m_fAlpha, sizeof(_float));
 		}
-
 		(buffer)->Render(m_iPassIndex);
 	}
 	CComponent* text = GetComponent("Com_Text");
@@ -322,6 +337,7 @@ _float2 CEmptyUI::GetUISize()
 {
 	return m_pRectTransformCom->GetUISize();
 }
+
 
 HRESULT CEmptyUI::SetUpComponents()
 {

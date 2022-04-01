@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: ReinforceFail
+    UUID: 15712851693223423908
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 8
+    PassIndex: 16
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 128]
+      Size: [256, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\Textures\Effect\Sprite\Explosion_sub_04.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.0500000007, 16, 4, 4]

@@ -38,9 +38,11 @@ public:
 	virtual HRESULT Initialize(void* pArg);
 	virtual _uint Update(_double TimeDelta);
 	virtual _uint LateUpdate(_double TimeDelta);
+//public:
+//	void SetRolling(_bool result) { m_bRolling = result; }
 public:
-	void SetRolling(_bool result) { m_bRolling = result; }
-
+	void	OnCamera() { m_bIsActive = true; }
+	void	OffCamera() { m_bIsActive = false; }
 protected:
 	class CTransform*			m_pTransformCom = nullptr;
 	class CPipeline*			m_pPipeline = nullptr;
@@ -48,9 +50,10 @@ protected:
 	CAMERADESC					m_CameraDesc;
 
 protected:
-	_bool						m_bRolling = true;
+	_bool						m_bIsActive = true;
 	_float						m_fov = 75.f;
 	mutable	_float				m_constFov = 75.f;
+
 public:
 	//virtual CGameObject* Clone_GameObject(void* pArg = nullptr) = 0;
 	virtual void Free();

@@ -2,12 +2,12 @@ Scene: Untitled
 GameObjects:
   - Name: StatusUI
     UUID: 12709825739729054496
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
     SortingOrder: 1
-    PassIndex: 1
+    PassIndex: 14
     Hovering: false
     Com_Transform:
       Position: [640, 320]
@@ -15,14 +15,15 @@ GameObjects:
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Status\Tooltip_Bg_0.dds
       TextureMaskPath: ""
-      TextureNoisePath: ""
+      TextureNoisePath: ..\..\Assets\UITexture\BackImg\Window_BG_BattlePass.dds
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
     Children:
       - 9091233226383742767
+      - 2906268953474078685
   - Name: Level
     UUID: 6912300890169422044
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -42,7 +43,7 @@ GameObjects:
       IsKorean: true
   - Name: HP
     UUID: 17443005186602383772
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -62,7 +63,7 @@ GameObjects:
       IsKorean: true
   - Name: Damage
     UUID: 8550060210867383614
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -82,7 +83,7 @@ GameObjects:
       IsKorean: true
   - Name: Armor
     UUID: 10656871281608856041
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -102,7 +103,7 @@ GameObjects:
       IsKorean: true
   - Name: LevelText
     UUID: 12794265163873800249
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -122,7 +123,7 @@ GameObjects:
       IsKorean: false
   - Name: HpText
     UUID: 1253097232667895360
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -142,7 +143,7 @@ GameObjects:
       IsKorean: false
   - Name: DamageText
     UUID: 7607378244828085113
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -162,7 +163,7 @@ GameObjects:
       IsKorean: false
   - Name: ArmorText
     UUID: 5268911192690237220
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -182,7 +183,7 @@ GameObjects:
       IsKorean: false
   - Name: Critical
     UUID: 2167238301946583713
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -202,7 +203,7 @@ GameObjects:
       IsKorean: true
   - Name: CriticalText
     UUID: 10508006170069821950
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -222,7 +223,7 @@ GameObjects:
       IsKorean: false
   - Name: Stamina
     UUID: 56851600297184099
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -242,7 +243,7 @@ GameObjects:
       IsKorean: true
   - Name: StaminaText
     UUID: 722525955919866688
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -262,7 +263,7 @@ GameObjects:
       IsKorean: false
   - Name: Exp
     UUID: 6012561743349372969
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -282,7 +283,7 @@ GameObjects:
       IsKorean: true
   - Name: ExpText
     UUID: 17741985947360242821
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -302,7 +303,7 @@ GameObjects:
       IsKorean: false
   - Name: BonusHp
     UUID: 14297763216866354567
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -322,7 +323,7 @@ GameObjects:
       IsKorean: false
   - Name: BonusAtk
     UUID: 8415633789692687755
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -342,7 +343,7 @@ GameObjects:
       IsKorean: false
   - Name: BonusDef
     UUID: 3239553370989332722
-    Active: true
+    Active: false
     Layer: Default
     Instancing: false
     Type: UI
@@ -360,9 +361,27 @@ GameObjects:
       IsCenter: false
       ShaderCut: false
       IsKorean: false
+  - Name: BgStauts
+    UUID: 2906268953474078685
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 324.297485]
+      Size: [580, 400]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Status\SkillPoint_Title_Bg_0.tga
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
   - Name: Texts
     UUID: 9091233226383742767
-    Active: true
+    Active: false
     Layer: Texts
     Instancing: false
     Type: UI
@@ -390,21 +409,3 @@ GameObjects:
       - 14297763216866354567
       - 8415633789692687755
       - 3239553370989332722
-  - Name: BgStauts
-    UUID: 2906268953474078685
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 2
-    PassIndex: 1
-    Hovering: false
-    Com_Transform:
-      Position: [640, 324.297485]
-      Size: [574.093567, 407.263184]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Status\SkillPoint_Title_Bg_0.tga
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]

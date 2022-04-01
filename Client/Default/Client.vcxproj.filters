@@ -305,7 +305,7 @@
       <Filter>05.Effect\PlayerEffect\ImpactGround</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\EffectFireBall.h">
-      <Filter>05.Effect\FlogasDungeon\WaterEA\FireBall</Filter>
+      <Filter>05.Effect\FlogasDungeon\FireBall</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\EffectEAFire.h">
       <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
@@ -453,6 +453,12 @@
     </ClInclude>
     <ClInclude Include="..\public\ReinforceHud.h">
       <Filter>04.UI\ReinforceHud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ReinforceSuccess.h">
+      <Filter>04.UI\ReinforceSuccess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ReinforceFall.h">
+      <Filter>04.UI\ReinforceFail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -742,7 +748,7 @@
       <Filter>05.Effect\PlayerEffect\ImpactGround</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectFireBall.cpp">
-      <Filter>05.Effect\FlogasDungeon\WaterEA\FireBall</Filter>
+      <Filter>05.Effect\FlogasDungeon\FireBall</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectEAFire.cpp">
       <Filter>05.Effect\FlogasDungeon\WaterEA</Filter>
@@ -894,6 +900,12 @@
     <ClCompile Include="..\private\ReinforceHud.cpp">
       <Filter>04.UI\ReinforceHud</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\ReinforceSuccess.cpp">
+      <Filter>04.UI\ReinforceSuccess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ReinforceFall.cpp">
+      <Filter>04.UI\ReinforceFail</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -976,18 +988,6 @@
     <Filter Include="04.UI">
       <UniqueIdentifier>{652700e4-e1a7-4593-9d4d-ebf540c4e9e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\HpBar">
-      <UniqueIdentifier>{ea3286c2-848b-44b3-9c31-ba5c23e2c10d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\DmgFont">
-      <UniqueIdentifier>{d61eed23-66b9-4c46-8d67-45c1a60f26b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\LevelFlag">
-      <UniqueIdentifier>{d4089a2e-6efb-4b55-b397-6e7926a96b30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\MonHp">
-      <UniqueIdentifier>{d1174004-240f-498a-8e02-b269b07fb4cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObjects\Character">
       <UniqueIdentifier>{d7260cd3-ab35-4f37-a0df-7c849d18ccbc}</UniqueIdentifier>
     </Filter>
@@ -996,12 +996,6 @@
     </Filter>
     <Filter Include="02.GameObjects\Map">
       <UniqueIdentifier>{f347125c-9e34-42ad-b7d8-64ddfa20a69d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\ComboHud">
-      <UniqueIdentifier>{dfdda2c9-82a9-41cf-8180-deae86a1cd83}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\ComboHud\ComboIcon">
-      <UniqueIdentifier>{f78da6c5-2012-4f42-94d6-d33debe499ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObjects\Character\StateMachine\00.Player">
       <UniqueIdentifier>{87921a53-6198-42f9-9427-f061092a7cb9}</UniqueIdentifier>
@@ -1033,44 +1027,11 @@
     <Filter Include="02.GameObjects\Character\Enemy\Wolf">
       <UniqueIdentifier>{5668b4c4-f17a-46da-b958-67071b53bc70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\MenuHud">
-      <UniqueIdentifier>{cfac49d1-019b-4693-86ee-4ecb35016894}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\BackPackHud">
-      <UniqueIdentifier>{0c2d4485-265c-4f70-b0af-c3b2bd57cec8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\BackPackHud\EquipItemHud">
-      <UniqueIdentifier>{f08ce71c-a07e-42f6-b18c-290ef4752321}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\BackPackHud\ConsumItemHud">
-      <UniqueIdentifier>{e87c55d4-d661-498b-9c3e-be77923f6f78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\BackPackHud\MaterialHud">
-      <UniqueIdentifier>{3951d8e9-b2b9-448b-83fb-189a0dafb818}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObjects\Character\Player">
       <UniqueIdentifier>{3d4340ef-4b50-43ed-bd2b-a3c585ee44bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\Inventory">
-      <UniqueIdentifier>{e0189cb1-deec-4de4-a593-0aef184f93c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\Inventory\Item">
-      <UniqueIdentifier>{8443359d-40c4-4ea0-b3d3-f6eb8b48f007}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.UI\Talk">
       <UniqueIdentifier>{e1948351-d639-46ca-800c-e62dffe5c778}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\Quest">
-      <UniqueIdentifier>{6bc491b5-62a5-4fa1-814e-092d262523c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\Quest\SideQuestHud">
-      <UniqueIdentifier>{6c7bf673-5372-400e-8364-37865f1c9c47}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\LoadingGauge">
-      <UniqueIdentifier>{a73aae91-2cb6-4585-8d20-4005dc43d9d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\MonHp\VIBufer">
-      <UniqueIdentifier>{f5e3f0a6-d983-4d89-9698-64c84c0ccdc2}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObjects\Character\NPC">
       <UniqueIdentifier>{26345f43-4feb-4ce6-adea-a25a63ec4819}</UniqueIdentifier>
@@ -1084,9 +1045,6 @@
     <Filter Include="02.GameObjects\Character\NPC\Shop">
       <UniqueIdentifier>{365792fa-60c3-4082-b869-f314d8212abc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\ShopInvenHud">
-      <UniqueIdentifier>{a07d204d-f5f6-4a6c-8ec6-2cb07bafd207}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObjects\Character\NPC\Shop\ShopHud">
       <UniqueIdentifier>{c61648db-4945-4eb8-a8e8-bdbc4c99b754}</UniqueIdentifier>
     </Filter>
@@ -1095,15 +1053,6 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Spawn">
       <UniqueIdentifier>{0c7c5f14-0092-41f6-93e1-6e137141c016}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\QuickSlot">
-      <UniqueIdentifier>{6df2378b-03ae-47f4-bda7-b07ad65874cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\QuickSlot\AddQuickSlot">
-      <UniqueIdentifier>{4248d005-72a3-4b68-bd7a-f45693978745}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\Gold">
-      <UniqueIdentifier>{88c3e311-5b5c-410d-a6ba-9af20d3881bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObjects\Character\Equip">
       <UniqueIdentifier>{35cb6ed9-321d-4baf-9347-d7c2605401cc}</UniqueIdentifier>
@@ -1180,12 +1129,6 @@
     <Filter Include="01.Scenes\Scene_Stage2">
       <UniqueIdentifier>{3c2380f2-a082-4c0c-90de-88bdde76c122}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\Portal">
-      <UniqueIdentifier>{96033c71-9e55-4c82-b1b9-1c5ed5702ee0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\SkillIcon">
-      <UniqueIdentifier>{dc39dc03-5a3d-4e97-beca-2df591d6078f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Effect\Blood">
       <UniqueIdentifier>{b98e05ca-1130-45db-8654-5b82942f02fb}</UniqueIdentifier>
     </Filter>
@@ -1200,24 +1143,6 @@
     </Filter>
     <Filter Include="05.Effect\FlogasDungeon">
       <UniqueIdentifier>{2d1f065d-f3f8-4365-9beb-ccea3adb5e9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\Fly">
-      <UniqueIdentifier>{a0a4f70c-c18c-4970-a3af-a932faa1490a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\Flylaser">
-      <UniqueIdentifier>{34202178-b0d6-41aa-8499-fab196c63d78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\SwordRing">
-      <UniqueIdentifier>{01b36692-1267-4773-b660-9fefb5a3b5cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\Blackhole">
-      <UniqueIdentifier>{3146d605-6edf-4246-bba0-062810346050}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\Grab">
-      <UniqueIdentifier>{4ec86c75-e00d-4d1e-8508-3ae283585e79}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\Pajang">
-      <UniqueIdentifier>{7fa73b9b-b501-4e98-94cb-eb56b3cdcb22}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObjects\OBB">
       <UniqueIdentifier>{d799b32c-6fe9-4b51-9cdc-38a7ea286fbc}</UniqueIdentifier>
@@ -1237,9 +1162,6 @@
     <Filter Include="05.Effect\FlogasDungeon\WaterEA">
       <UniqueIdentifier>{a5f911b9-ee32-4e45-8c22-04b13ab4bded}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\WaterEA\FireBall">
-      <UniqueIdentifier>{1356775d-6e89-4ee5-a184-4b28664a345c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObjects\Map\Door">
       <UniqueIdentifier>{9a197bdb-196e-4fff-ae1a-15516856e85e}</UniqueIdentifier>
     </Filter>
@@ -1249,29 +1171,8 @@
     <Filter Include="05.Effect\PlayerEffect\ImpactShort">
       <UniqueIdentifier>{ddb7f3b1-e5b6-49d8-b712-ce988382b4fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FIREFIST">
-      <UniqueIdentifier>{2840642e-7df8-4286-ae71-41537f2b67bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\TakeDown">
-      <UniqueIdentifier>{3365c5ab-e566-44ea-ad8c-01fc0a91d11b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\Magic">
-      <UniqueIdentifier>{46545f34-01a7-447d-9c97-225d6600903c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\SkillIcon\SkillInfo">
-      <UniqueIdentifier>{60fb8895-ed32-4c1a-b06f-26310100b3a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FireSlash">
-      <UniqueIdentifier>{a6bbf25d-4a31-414c-ae55-e7c9519b0d64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FireExplosion">
-      <UniqueIdentifier>{2f2b2acf-e036-4abb-821b-33d2424bada9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Ursa">
       <UniqueIdentifier>{93a0abd7-38e9-4bfc-96c3-1778de104aac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\TargetOn">
-      <UniqueIdentifier>{e3712d70-1560-4639-8c58-2dc8dc2165d3}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Scenes\Scene_Stage3">
       <UniqueIdentifier>{b4b9d465-6a82-4759-826b-e26eec11a0b1}</UniqueIdentifier>
@@ -1297,18 +1198,6 @@
     <Filter Include="97.Manager\ThreadPool">
       <UniqueIdentifier>{d9fbb0a9-0f8d-454d-8ef7-21d4bb5c9b71}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\ElementBomb">
-      <UniqueIdentifier>{7e7a44ff-f87e-470c-b554-b0d6141be628}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\Flash">
-      <UniqueIdentifier>{8ad35148-0ca4-4960-a4c2-d3a5b88ddbdd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteFire">
-      <UniqueIdentifier>{07188ae7-a255-4325-bf94-62f29369b6ed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteBomb">
-      <UniqueIdentifier>{4cc6552e-0aef-468f-9d78-146317cfc98c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Effect\PlayerEffect\DecalCrash">
       <UniqueIdentifier>{955afa30-b4de-4a59-b002-cbe5b58b7a92}</UniqueIdentifier>
     </Filter>
@@ -1324,6 +1213,141 @@
     <Filter Include="05.Effect\Ursa\Rock\RockDust">
       <UniqueIdentifier>{9cd9a968-a044-4812-891a-e208a8af8dbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObjects\Map\Door\Flogas">
+      <UniqueIdentifier>{dfd1bf7b-2bb5-404f-a89e-5ddc379c31c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Map\Door\Ursa">
+      <UniqueIdentifier>{ef7e9a1b-750b-4b9d-82b8-a2d939504f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Shoulder">
+      <UniqueIdentifier>{f22d41cb-ba1b-47b9-a666-902a8998e3c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Vine">
+      <UniqueIdentifier>{c081963b-b0a9-495f-90ed-00410473da7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud">
+      <UniqueIdentifier>{0c2d4485-265c-4f70-b0af-c3b2bd57cec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\EquipItemHud">
+      <UniqueIdentifier>{f08ce71c-a07e-42f6-b18c-290ef4752321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\ConsumItemHud">
+      <UniqueIdentifier>{e87c55d4-d661-498b-9c3e-be77923f6f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BackPackHud\MaterialHud">
+      <UniqueIdentifier>{3951d8e9-b2b9-448b-83fb-189a0dafb818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ComboHud">
+      <UniqueIdentifier>{dfdda2c9-82a9-41cf-8180-deae86a1cd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ComboHud\ComboIcon">
+      <UniqueIdentifier>{f78da6c5-2012-4f42-94d6-d33debe499ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\DmgFont">
+      <UniqueIdentifier>{d61eed23-66b9-4c46-8d67-45c1a60f26b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Gold">
+      <UniqueIdentifier>{88c3e311-5b5c-410d-a6ba-9af20d3881bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\HpBar">
+      <UniqueIdentifier>{ea3286c2-848b-44b3-9c31-ba5c23e2c10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Inventory">
+      <UniqueIdentifier>{e0189cb1-deec-4de4-a593-0aef184f93c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Inventory\Item">
+      <UniqueIdentifier>{8443359d-40c4-4ea0-b3d3-f6eb8b48f007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\LevelFlag">
+      <UniqueIdentifier>{d4089a2e-6efb-4b55-b397-6e7926a96b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\LoadingGauge">
+      <UniqueIdentifier>{a73aae91-2cb6-4585-8d20-4005dc43d9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MenuHud">
+      <UniqueIdentifier>{cfac49d1-019b-4693-86ee-4ecb35016894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MonHp">
+      <UniqueIdentifier>{d1174004-240f-498a-8e02-b269b07fb4cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MonHp\VIBufer">
+      <UniqueIdentifier>{f5e3f0a6-d983-4d89-9698-64c84c0ccdc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Portal">
+      <UniqueIdentifier>{96033c71-9e55-4c82-b1b9-1c5ed5702ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Quest">
+      <UniqueIdentifier>{6bc491b5-62a5-4fa1-814e-092d262523c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\Quest\SideQuestHud">
+      <UniqueIdentifier>{6c7bf673-5372-400e-8364-37865f1c9c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\QuickSlot">
+      <UniqueIdentifier>{6df2378b-03ae-47f4-bda7-b07ad65874cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\QuickSlot\AddQuickSlot">
+      <UniqueIdentifier>{4248d005-72a3-4b68-bd7a-f45693978745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ReinforceHud">
+      <UniqueIdentifier>{cb4d9075-b548-4c72-9cce-ebbdb41a63e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ShopInvenHud">
+      <UniqueIdentifier>{a07d204d-f5f6-4a6c-8ec6-2cb07bafd207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\SkillIcon">
+      <UniqueIdentifier>{dc39dc03-5a3d-4e97-beca-2df591d6078f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\SkillIcon\SkillInfo">
+      <UniqueIdentifier>{60fb8895-ed32-4c1a-b06f-26310100b3a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\StatusHud">
+      <UniqueIdentifier>{367a2b80-1de1-4462-9306-ee1839b56db2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\TargetOn">
+      <UniqueIdentifier>{e3712d70-1560-4639-8c58-2dc8dc2165d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\SwordRing">
+      <UniqueIdentifier>{01b36692-1267-4773-b660-9fefb5a3b5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Blackhole">
+      <UniqueIdentifier>{3146d605-6edf-4246-bba0-062810346050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\ElementBomb">
+      <UniqueIdentifier>{7e7a44ff-f87e-470c-b554-b0d6141be628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireBall">
+      <UniqueIdentifier>{1356775d-6e89-4ee5-a184-4b28664a345c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion">
+      <UniqueIdentifier>{2f2b2acf-e036-4abb-821b-33d2424bada9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\Flash">
+      <UniqueIdentifier>{8ad35148-0ca4-4960-a4c2-d3a5b88ddbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteFire">
+      <UniqueIdentifier>{07188ae7-a255-4325-bf94-62f29369b6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireExplosion\SpriteBomb">
+      <UniqueIdentifier>{4cc6552e-0aef-468f-9d78-146317cfc98c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST">
+      <UniqueIdentifier>{2840642e-7df8-4286-ae71-41537f2b67bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\TakeDown">
+      <UniqueIdentifier>{3365c5ab-e566-44ea-ad8c-01fc0a91d11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FIREFIST\Magic">
+      <UniqueIdentifier>{46545f34-01a7-447d-9c97-225d6600903c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\FireSlash">
+      <UniqueIdentifier>{a6bbf25d-4a31-414c-ae55-e7c9519b0d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Fly">
+      <UniqueIdentifier>{a0a4f70c-c18c-4970-a3af-a932faa1490a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\FlogasDungeon\Flylaser">
+      <UniqueIdentifier>{34202178-b0d6-41aa-8499-fab196c63d78}</UniqueIdentifier>
+    </Filter>
     <Filter Include="05.Effect\FlogasDungeon\FootHammer">
       <UniqueIdentifier>{756e2d84-0918-4cb9-ae8f-0d77066b7e4e}</UniqueIdentifier>
     </Filter>
@@ -1333,23 +1357,17 @@
     <Filter Include="05.Effect\FlogasDungeon\FootHammer\FloorDecal">
       <UniqueIdentifier>{6bbce7a7-4767-482f-9e11-adc5ccbae1cf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObjects\Map\Door\Flogas">
-      <UniqueIdentifier>{dfd1bf7b-2bb5-404f-a89e-5ddc379c31c1}</UniqueIdentifier>
+    <Filter Include="05.Effect\FlogasDungeon\Grab">
+      <UniqueIdentifier>{4ec86c75-e00d-4d1e-8508-3ae283585e79}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObjects\Map\Door\Ursa">
-      <UniqueIdentifier>{ef7e9a1b-750b-4b9d-82b8-a2d939504f5d}</UniqueIdentifier>
+    <Filter Include="05.Effect\FlogasDungeon\Pajang">
+      <UniqueIdentifier>{7fa73b9b-b501-4e98-94cb-eb56b3cdcb22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.UI\StatusHud">
-      <UniqueIdentifier>{367a2b80-1de1-4462-9306-ee1839b56db2}</UniqueIdentifier>
+    <Filter Include="04.UI\ReinforceSuccess">
+      <UniqueIdentifier>{8e556ad4-7b2f-49a1-928e-32cf0cbd7dae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Effect\Ursa\Shoulder">
-      <UniqueIdentifier>{f22d41cb-ba1b-47b9-a666-902a8998e3c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Effect\Ursa\Vine">
-      <UniqueIdentifier>{c081963b-b0a9-495f-90ed-00410473da7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.UI\ReinforceHud">
-      <UniqueIdentifier>{cb4d9075-b548-4c72-9cce-ebbdb41a63e4}</UniqueIdentifier>
+    <Filter Include="04.UI\ReinforceFail">
+      <UniqueIdentifier>{bccf0790-376a-437e-a351-94b0f2131299}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
