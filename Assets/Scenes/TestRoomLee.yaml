@@ -59,18 +59,18 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 100
-  - Name: TestMonster
+  - Name: DarkKinght
     UUID: 8617912300921592626
     Active: true
     Layer: Default
     Instancing: false
     Type: Object
     PassIndex: 0
-    NumOBB: 2
+    NumOBB: 3
     Com_Transform:
-      Translation: [-0.15243873, 0, -0.547006786]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [0.999996841, 1, 0.999996841]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -86,22 +86,29 @@ GameObjects:
         Kinematic: false
         CharacterController: true
     Com_OBB:
-      Center: [0.100000001, 0.100000001, 0]
-      Size: [0.300000012, 0.5, 0.300000012]
+      Center: [0.100000001, 0.100000001, 0.100000001]
+      Size: [0.300000012, 0.449999988, 0.200000003]
       IsAttach: false
       BoneName: ""
-      Offset: [-0.0500000007, 0.150000006, 0]
+      Offset: [-0.0299999993, 0.150000006, -0.00999999978]
       CollisionType: 2
     Com_OBB1:
-      Center: [0, 0.100000001, 0]
-      Size: [0.25, 0.25, 0.25]
+      Center: [0.100000001, 0.100000001, 0]
+      Size: [0.100000001, 0.100000001, 0.370000005]
       IsAttach: true
       BoneName: Bip01-R-Hand
-      Offset: [0, 0, 0]
+      Offset: [-0.0149999997, 0.00499999989, -0.200000003]
       CollisionType: 3
+    Com_OBB2:
+      Center: [0, 0, 0]
+      Size: [0.150000006, 0.270000011, 0.400000006]
+      IsAttach: true
+      BoneName: BN_Dun_L
+      Offset: [0, 0, 0]
+      CollisionType: 8
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\WaterEA\
-      MeshFileName: waterEA.fbx
+      MeshFilePath: ..\..\Assets\Meshes\Monster\DarkKnight\
+      MeshFileName: DarkKnight.fbx
       HasCollider: false
       Equipment: false
     Com_Stat:
@@ -209,7 +216,7 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [-1.28505898, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1.20000005, 0.699999988, 1.20000005]
     Com_Decal:
@@ -238,54 +245,6 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0, 0, 0, 0]
-  - Name: Empty Object
-    UUID: 16682185199152379195
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Effect
-    PassIndex: 0
-    BillBord: false
-    Com_Transform:
-      Translation: [0, 1, -1]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_RectInstance:
-      Shape: 1
-      InstNum: 100
-      Color: [0.942028999, 0, 0, 0]
-      Speed: 3
-      LifeTime: 5
-      Size: 0.300000012
-      StartRadian: -10
-      RadiationAngle: 10
-      LerpColor: false
-      SrcColor: [0, 0, 0, 0]
-      DestColor: [1, 1, 1, 0]
-    Effect_Setting:
-      TextureDiffusePath: ""
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Spark.dds
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
   - Name: E_Ursa_SoilDust
     UUID: 5305419133825331868
     Active: true
@@ -296,8 +255,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.925123751, 1.00323248, 0.892349064]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.698498428, 0.75081414, 0.719352603]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -362,7 +321,7 @@ GameObjects:
     Com_Transform:
       Translation: [-0.0168395545, 1.0680685, 0.160352141]
       Rotation: [11.3099308, -0, 0]
-      Scale: [2.37476563, 0.800138414, 2.00598788]
+      Scale: [1.79304945, 0.59880507, 1.61708856]
     Com_VIBuffer:
       {}
     Effect_Setting:

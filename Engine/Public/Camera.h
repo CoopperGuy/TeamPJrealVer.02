@@ -49,8 +49,8 @@ protected:
 
 protected:
 	_bool						m_bRolling = true;
-	_float						m_fov = 75.f;
-	mutable	_float				m_constFov = 75.f;
+	_float						m_fov = 60.f;
+	mutable	_float				m_constFov = 60.f;
 public:
 	//virtual CGameObject* Clone_GameObject(void* pArg = nullptr) = 0;
 	virtual void Free();
