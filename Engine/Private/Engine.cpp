@@ -42,6 +42,7 @@ CEngine::CEngine()
 	, m_pTalkManager(CTalkManager::GetInstance())
 	, m_pAlretManager(CAlretManager::GetInstance())
 	, m_pInput_Device(CInput_Device::GetInstance())
+	, m_pCameraManager(CameraManager::GetInstance())
 {
 	SafeAddRef(m_pTargetManager);
 	SafeAddRef(m_pLightManager);
@@ -63,6 +64,7 @@ CEngine::CEngine()
 	SafeAddRef(m_pTalkManager);
 	SafeAddRef(m_pInput_Device);
 	SafeAddRef(m_pAlretManager);
+	SafeAddRef(m_pCameraManager);
 }
 
 #pragma region TIMER_MANAGER
@@ -102,12 +104,16 @@ _uint CEngine::Update(_double dTimeDelta)
 	m_pScriptObjectManager->Update(dTimeDelta);
 	m_pGameObjectManager->Update(dTimeDelta);
 
+	m_pCameraManager->Update(dTimeDelta);
+
 	m_pLightManager->Update(dTimeDelta);
 	m_pFrustum->Transform_ToWorldSpace();
 
 	m_pScriptObjectManager->LateUpdate(dTimeDelta);
 	m_pGameObjectManager->LateUpdate(dTimeDelta);
 	
+	m_pCameraManager->LateUpdate(dTimeDelta);
+
 	return _uint();
 }
 
@@ -133,6 +139,9 @@ void CEngine::ReleaseEngine()
 
 	if (0 != CScriptObjectManager::GetInstance()->DestroyInstance())
 		MSG_BOX("Failed to Delete CScriptObjectManager");
+
+	if (0 != CameraManager::GetInstance()->DestroyInstance())
+		MSG_BOX("Failed to Delete CameraManager");
 
 	if (0 != CGameObjectManager::GetInstance()->DestroyInstance())
 		MSG_BOX("Failed to Delete CGameObjectManager");
@@ -1039,6 +1048,26 @@ _byte CEngine::Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonS
 	return m_pInput_Device->Get_MouseButtonStateDown(eButtonState);
 }
 
+void CEngine::ActiveCameraByIndex(_int _idx)
+{
+	if (m_pCameraManager)
+		m_pCameraManager->ActiveCameraByIndex(_idx);
+}
+
+HRESULT CEngine::AddCamera(CCamera * _camera)
+{
+	if (m_pCameraManager)
+		m_pCameraManager->AddCamera(_camera);
+	return S_OK;
+}
+
+HRESULT CEngine::SetDefaultCamera()
+{
+	if (m_pCameraManager)
+		m_pCameraManager->SetDefaultCamera();
+	return S_OK;
+}
+
 PxScene * CEngine::GetScene()
 {
 	return m_pPxManager->GetScene();
@@ -1060,6 +1089,7 @@ void CEngine::Free()
 	SafeRelease(m_pLightManager);
 	SafeRelease(m_pScriptObjectManager);
 	SafeRelease(m_pPipeline);
+	SafeRelease(m_pCameraManager);
 	SafeRelease(m_pComponentManager);
 	SafeRelease(m_pGameObjectManager);
 	SafeRelease(m_pSceneManager);

@@ -590,6 +590,7 @@ void CInspector::DrawImage()
 	CComponent* pComponent;
 	if (pComponent = g_pObjFocused->GetComponent("Com_VIBuffer"))
 	{
+		CEmptyUI*	_UI = static_cast<CEmptyUI*>(g_pObjFocused);
 		ImGui::Separator();
 
 		ImGui::Text("Shrink");
@@ -707,9 +708,24 @@ void CInspector::DrawImage()
 				ImGui::EndDragDropTarget();
 			}
 			
-			_float4& color = dynamic_cast<CVIBuffer_RectUI*>(pComponent)->GetColor();
+			_float4& color = static_cast<CVIBuffer_RectUI*>(pComponent)->GetColor();
 			ImGui::ColorEdit4("MyColor##2f", (float*)&color, ImGuiColorEditFlags_Float);
+			static_cast<CVIBuffer_RectUI*>(pComponent)->SetColor(color);
 			ImGui::TreePop();
+			_float _time = _UI->p_SpriteTime;
+			_int _spriteNum = _UI->p_SpriteNum;
+			_int _spriteX = _UI->p_SpriteX;
+			_int _spriteY = _UI->p_SpriteY;
+
+			ImGui::DragFloat("SpriteTime", &_time, 0.05f, 0.f, 10.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
+			ImGui::DragInt("SpriteNum", &_spriteNum, 1, 0, 100);
+			ImGui::DragInt("SpriteX", &_spriteX, 1, 0, 100);
+			ImGui::DragInt("SpriteY", &_spriteY, 1, 0, 100);
+
+			_UI->p_SpriteTime = _time;
+			_UI->p_SpriteNum = _spriteNum;
+			_UI->p_SpriteX = _spriteX;
+			_UI->p_SpriteY = _spriteY;
 		}
 
 		if (bDelete)

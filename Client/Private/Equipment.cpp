@@ -15,7 +15,7 @@ CEquipment::CEquipment(CGameObject * pObj)
 
 HRESULT CEquipment::Initialize()
 {
-	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_PLAYER").front());
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->GetGameObjectInLayer(SCENE_STATIC, "LAYER_PLAYER").front());
 	if (pPlayer)
 	{
 		m_pTargetTransform = static_cast<CTransform*>(pPlayer->GetComponent("Com_RenderTransform"));
@@ -55,10 +55,13 @@ HRESULT CEquipment::Add_EquipList(string name)
 
 	CGameObject* pGameObject = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, name);
 	CModel* pModel = static_cast<CModel*>(pGameObject->GetComponent("Com_Model"));
-	pModel->SetUp_SkinnedInfoToEquipment(m_pTargetModel);
-	static_cast<CEmptyGameObject*>(pGameObject)->SetTargetTransform(m_pTargetTransform);
+	if (pModel->GetLinkEquip())
+	{
+		pModel->SetUp_SkinnedInfoToEquipment(m_pTargetModel);
+		static_cast<CEmptyGameObject*>(pGameObject)->SetTargetTransform(m_pTargetTransform);
+	}
 	pGameObject->SetActive(false);
-	m_EquipList.emplace(pModel->GetMeshFileName(),pModel);
+	m_EquipList.emplace(pModel->GetMeshFileName(), pModel);
 
 	return S_OK;
 }
@@ -84,8 +87,11 @@ _bool CEquipment::Set_ModelCom(string name)
 		{
 			if (m_pModel->GetMeshFileName() == pModel->GetMeshFileName())
 			{
-				if(m_pGameObject->GetActive())
-					ActiveEquip(false);
+				if (m_pGameObject->GetActive())
+				{
+					if(!m_bWeapon)
+						ActiveEquip(false);
+				}
 				else
 					ActiveEquip(true);
 				return true;

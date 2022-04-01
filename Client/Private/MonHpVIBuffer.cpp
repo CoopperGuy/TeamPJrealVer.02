@@ -77,8 +77,9 @@ void CMonHpVIBuffer::SetHud_BarTransform(CTransform * Hudtrans, CTransform * Bar
 void CMonHpVIBuffer::SetUpDead()
 {
 	this->SetDead();
-	if(m_pHp)
+	if (m_pHp) {
 		m_pHp->SetDead();
+	}
 }
 
 

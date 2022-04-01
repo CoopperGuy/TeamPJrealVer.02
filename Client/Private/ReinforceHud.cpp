@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\ReinforceHud.h"
 #include "Item.h"
+#include "ReinforceSuccess.h"
+#include "ReinforceFall.h"
 USING(Client)
 static string itemPath = "../../Assets/UITexture/Item/";
 CReinforceHud::CReinforceHud()
@@ -79,25 +81,37 @@ void CReinforceHud::UpdateImage()
 {
 	if (m_pCurReinforceItem) {
 		CVIBuffer_RectUI* _itemImg = static_cast<CVIBuffer_RectUI*>(m_vecReinforceUIs[REINFORCE_ITEMIMG]->GetComponent("Com_VIBuffer"));
-		string _itemName = itemPath + m_pCurReinforceItem->GetItempInfo().imageName + ".dds";
-		_itemImg->UpdateTexture(_itemName, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		string _itemName = m_pCurReinforceItem->GetItempInfo().itemName;
+		string _itemImage = m_pCurReinforceItem->GetItempInfo().imageName;
+		string _itemPath = itemPath + _itemImage + ".dds";
+		_itemImg->UpdateTexture(_itemPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		CText* _nameCom = static_cast<CText*>(m_vecReinforceUIs[REINFORCE_NAME]->GetComponent("Com_Text"));
+		_itemName = _itemName + " + " + to_string(m_pCurReinforceItem->GetItempInfo().level);
+		_nameCom->SetString(_itemName);
 	}
 	else {
 		CVIBuffer_RectUI* _itemImg = static_cast<CVIBuffer_RectUI*>(m_vecReinforceUIs[REINFORCE_ITEMIMG]->GetComponent("Com_VIBuffer"));
-		string _itemName = itemPath  + "nullImage.dds";
-		_itemImg->UpdateTexture(_itemName, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
-
+		string _itemPath = itemPath  + "nullImage.dds";
+		_itemImg->UpdateTexture(_itemPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		CText* _nameCom = static_cast<CText*>(m_vecReinforceUIs[REINFORCE_NAME]->GetComponent("Com_Text"));
+		_nameCom->SetString("");
 	}
 	if (m_pCurMaterial) {
 		CVIBuffer_RectUI* _itemImg = static_cast<CVIBuffer_RectUI*>(m_vecReinforceUIs[REINFORCE_MATEIMG]->GetComponent("Com_VIBuffer"));
-		string _itemName = itemPath + m_pCurMaterial->GetItempInfo().imageName + ".dds";
-		_itemImg->UpdateTexture(_itemName, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		string _itemName = m_pCurMaterial->GetItempInfo().itemName;
+		string _itemImage = m_pCurMaterial->GetItempInfo().imageName;
+		string _itemPath = itemPath + _itemImage + ".dds";
+		_itemImg->UpdateTexture(_itemPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		CText* _nameCom = static_cast<CText*>(m_vecReinforceUIs[REINFORCE_MATENAME]->GetComponent("Com_Text"));
+		_nameCom->SetString(_itemName);
+
 	}
 	else {
 		CVIBuffer_RectUI* _itemImg = static_cast<CVIBuffer_RectUI*>(m_vecReinforceUIs[REINFORCE_MATEIMG]->GetComponent("Com_VIBuffer"));
-		string _itemName = itemPath + "nullImage.dds";
-		_itemImg->UpdateTexture(_itemName, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
-
+		string _itemPath = itemPath + "nullImage.dds";
+		_itemImg->UpdateTexture(_itemPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+		CText* _nameCom = static_cast<CText*>(m_vecReinforceUIs[REINFORCE_NAME]->GetComponent("Com_Text"));
+		_nameCom->SetString("");
 	}
 }
 
@@ -129,10 +143,33 @@ void CReinforceHud::StartReinforce(_float _deltaTime)
 		if (m_pCurMaterial->GetItempInfo().numOfItem > 0) {
 			m_fReinforceDelta += _deltaTime;
 			if (m_fReinforceTime < m_fReinforceDelta) {
+				_int _percentage = rand() % 100;
+				_int _succesPer = 0;
+				if (m_pCurMaterial->GetItempInfo().itemName == "NormalReinforce")
+				{
+					_succesPer = 30;
+				}
+				if (m_pCurMaterial->GetItempInfo().itemName == "MediumReinforce")
+				{
+					_succesPer = 70;
+				}
+				if (m_pCurMaterial->GetItempInfo().itemName == "HighReinForce")
+				{
+					_succesPer = 100;
+				}
 				m_pCurMaterial->UseItem();
-				m_pCurReinforceItem->ItemLevelUp();
-				m_bIsReinforceWhile = false;
 				m_fReinforceDelta = 0.f;
+				m_bIsReinforceWhile = false;
+				if (_percentage < _succesPer) //success
+				{
+					m_pCurReinforceItem->ItemLevelUp();
+					CReinforceSuccess::Create(nullptr);
+				}
+				else //fail
+				{
+					CReinforceFall::Create(nullptr);
+				}
+
 			}
 		}
 		else 

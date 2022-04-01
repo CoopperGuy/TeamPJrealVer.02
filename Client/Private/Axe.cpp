@@ -28,16 +28,17 @@ CAxe::CAxe(CGameObject * pObj)
 
 HRESULT CAxe::Initialize()
 {
-	pAxe = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Axe");
-	pPlayer = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
-	m_pTransform = static_cast<CTransform*>(pAxe->GetComponent("Com_Transform"));
+	m_bWeapon = true;
+
+	pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_PLAYER").front());
 	m_pTargetTransform = static_cast<CTransform*>(pPlayer->GetComponent("Com_RenderTransform"));
 	m_pTargetModel = static_cast<CModel*>(pPlayer->GetComponent("Com_Model"));
-	m_pCollider = static_cast<CCollider*>(pAxe->GetComponent("Com_Collider"));
-	m_pModel = static_cast<CModel*>(pAxe->GetComponent("Com_Model"));
-	m_pOBB = static_cast<CBasicCollider*>(pAxe->GetComponent("Com_OBB"));
+	Add_EquipList("NoviceAxe");
+	Add_EquipList("RedAxe");
+	Add_EquipList("GoldAxe");
 
-
+	Set_Component("NoviceAxe");
+	
 	XMStoreFloat4x4(&m_matRightBone, XMMatrixIdentity());
 	
 	Create_Trail();
@@ -47,12 +48,16 @@ HRESULT CAxe::Initialize()
 
 void CAxe::Update(_double deltaTime)
 {
+	if (!m_pModel->Get_Root(true))
+		State_Att();
 	Set_Attack();
 }
 
 void CAxe::LateUpdate(_double deltaTime)
 {
-	State_Att();
+	//State_Att();
+	if(m_pModel->Get_Root(true))
+		State_Att();
 
 	if (m_pTrailBuffer)
 		m_pTrailBuffer->Update(deltaTime, XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
@@ -93,7 +98,7 @@ void CAxe::State_Att()
 	_matrix Scale, Rotate, Translation;
 	Scale = XMMatrixScaling(1.5f, 1.5f, 1.5f);
 	Translation = XMMatrixTranslation(0.f, 0.05f,0.f);
-	Rotate = XMMatrixRotationRollPitchYaw(0.05f, 90.f, -0.05f);
+	Rotate = XMMatrixRotationRollPitchYaw(0.05f, -90.f, -0.05f);
 	_matrix TargetRootBone = XMMatrixIdentity();
 	_matrix OffsetMatrix = XMMatrixIdentity();
 	OffsetMatrix = Scale * Rotate * Translation;
@@ -158,6 +163,15 @@ _fmatrix CAxe::Remove_ScaleRotation(_fmatrix TransformMatrix)
 	return NonRotateMatrix;
 }
 
+
+_bool CAxe::Set_Component(string name)
+{
+	Set_ModelCom(name);
+	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
+	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+
+	return true;
+}
 
 void CAxe::Set_TrailOnOff()
 {
@@ -285,7 +299,7 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame == 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
-			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, pAxe), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		break;
 	}
@@ -348,7 +362,7 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame == 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
-			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, pAxe), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		if (keyFrame >= 12 && keyFrame <= 22) {
 			m_pTrailBuffer->SetIsActive(true);
@@ -500,7 +514,7 @@ void CAxe::Set_TrailOnOff()
 
 	if (isStartHit) {
 		CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Flare", "E_Flare", &weponTransform);
-		engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, pAxe), engine->GetCurSceneNumber());
+		engine->AddScriptObject(CSparkFlare::Create((CEmptyEffect*)pGameObject, m_pGameObject), engine->GetCurSceneNumber());
 		CEventCheck::GetInstance()->SlowAttack();
 		CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 4, 0.02f);
 		CEventCheck::GetInstance()->ShakeUpDown(4, 0.02f);

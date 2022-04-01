@@ -83,10 +83,24 @@ void CEquipItemHud::Update(_double deltaTime)
 	}
 	for (auto& iter : m_pEquipItemList[m_iCurSelectedTag]) {
 		iter.first->SetisRender(true);
-		if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_EQUIP) {
-			if (iter.first->IsHovered()) {
-				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) {
-					CEventCheck::GetInstance()->SetUpEquip(iter.second.name->GetText());
+		if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_EQUIP)
+		{
+			if (iter.first->IsHovered())
+			{
+				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) 
+				{
+					string _itemName = iter.second.name->GetText();
+					for (_int i = _itemName.length() - 1; i > 0; i--) 
+					{
+						if (_itemName[i] == '+') 
+						{
+							_itemName.pop_back();
+							break;
+						}
+						else 
+							_itemName.pop_back();
+					}
+					CEventCheck::GetInstance()->SetUpEquip(_itemName);
 				}
 			}
 		}
@@ -163,7 +177,7 @@ void CEquipItemHud::CheckItems()
 		for (auto& iter : itemList) {
 			if (m_pEquipItemList[i].size() == itemList.size()) {
 				ITEMINFO info = iter.second->GetItempInfo();
-				m_pEquipItemList[i][idx].second.name->SetString(iter.first);
+				m_pEquipItemList[i][idx].second.name->SetString(info.itemName + "+" + to_string(info.level));
 				m_pEquipItemList[i][idx].second.amount->SetString(to_string(info.numOfItem));
 				string path = itemImagePath + info.imageName + ".dds";
 				m_pEquipItemList[i][idx].second._image->UpdateTexture(path, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
@@ -220,6 +234,16 @@ void CEquipItemHud::SetAddPosition(_float x)
 CItem * CEquipItemHud::GetSelectedItem()
 {
 	string _name = m_pEquipItemList[m_iCurSelectedTag][m_iCurSelected].second.name->GetText(); 
+	for (_int i = _name.length() - 1; i > 0; i--)
+	{
+		if (_name[i] == '+')
+		{
+			_name.pop_back();
+			break;
+		}
+		else
+			_name.pop_back();
+	}
 	CItem* _item = m_pInven->GetItemByName(_name, ITEMTYPE::EQUIP, EQUIPTYPE(m_iCurSelectedTag));
 	return _item;
 }

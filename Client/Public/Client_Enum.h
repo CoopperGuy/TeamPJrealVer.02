@@ -17,6 +17,6 @@ namespace Client
 
 	enum class Equip
 	{
-		Armor, Glove, Boots, Helm, Pants, Max_Equip
+		Weapon, Armor, Glove, Boots, Helm, Pants, Max_Equip
 	};
 }

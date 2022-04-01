@@ -7,15 +7,15 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 5
-    PassIndex: 1
+    PassIndex: 14
     Hovering: false
     Com_Transform:
-      Position: [302.26944, 432.763275]
-      Size: [600, 1160.83154]
+      Position: [302.26944, 417.253021]
+      Size: [753.319153, 896.84198]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\WindowBg.png
       TextureMaskPath: ""
-      TextureNoisePath: ""
+      TextureNoisePath: ..\..\Assets\UITexture\BackImg\Window_BG_BattlePass.dds
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
     Children:
@@ -26,18 +26,56 @@ GameObjects:
       - 11845365342155498423
       - 12893099253836064542
       - 14794521715461366055
-  - Name: MaterialItemList0
-    UUID: 6971170235059011951
+  - Name: EquipItem
+    UUID: 11123017261122148341
     Active: false
-    Layer: MaterialItemList
+    Layer: BackPackSub
     Instancing: false
     Type: UI
     SortingOrder: 6
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [-22.6090088, 6.74475098]
+      Position: [27.3909912, 34.4897461]
       Size: [50, 50]
+    Children:
+      - 18113412866005203712
+      - 14307409957735197175
+      - 4477101166319400238
+      - 10489976160073860266
+      - 9907293121996886223
+      - 312116914979708147
+      - 13592429952304183812
+  - Name: ComsumableItem
+    UUID: 2534542176139175624
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [25.6518555, 34.4897461]
+      Size: [50, 50]
+    Children:
+      - 10590615739566618244
+      - 15437861468603381042
+  - Name: MaterialItem
+    UUID: 2033216220318070637
+    Active: false
+    Layer: BackPackSub
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [27.3909912, 41.2344971]
+      Size: [50, 50]
+    Children:
+      - 3605073293141489059
+      - 6971170235059011951
   - Name: WeaponText
     UUID: 18113412866005203712
     Active: false
@@ -48,7 +86,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 200]
+      Position: [88.3909912, 184.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -74,7 +112,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 260]
+      Position: [88.3909912, 244.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -100,7 +138,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 320]
+      Position: [88.3909912, 304.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -126,7 +164,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 380]
+      Position: [88.3909912, 364.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -152,7 +190,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 440]
+      Position: [88.3909912, 424.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -178,7 +216,7 @@ GameObjects:
     PassIndex: 10
     Hovering: true
     Com_Transform:
-      Position: [88.3909912, 500]
+      Position: [88.3909912, 484.489746]
       Size: [120, 20]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line3.tga
@@ -194,56 +232,18 @@ GameObjects:
       IsCenter: true
       ShaderCut: false
       IsKorean: false
-  - Name: EquipItem
-    UUID: 11123017261122148341
+  - Name: MaterialItemList0
+    UUID: 6971170235059011951
     Active: false
-    Layer: BackPackSub
+    Layer: MaterialItemList
     Instancing: false
     Type: UI
     SortingOrder: 6
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [27.3909912, 50]
+      Position: [-22.6090088, -8.76550293]
       Size: [50, 50]
-    Children:
-      - 18113412866005203712
-      - 14307409957735197175
-      - 4477101166319400238
-      - 10489976160073860266
-      - 9907293121996886223
-      - 312116914979708147
-      - 13592429952304183812
-  - Name: ComsumableItem
-    UUID: 2534542176139175624
-    Active: false
-    Layer: BackPackSub
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [25.6518555, 50]
-      Size: [50, 50]
-    Children:
-      - 10590615739566618244
-      - 15437861468603381042
-  - Name: MaterialItem
-    UUID: 2033216220318070637
-    Active: false
-    Layer: BackPackSub
-    Instancing: false
-    Type: UI
-    SortingOrder: 6
-    PassIndex: 0
-    Hovering: false
-    Com_Transform:
-      Position: [27.3909912, 56.744751]
-      Size: [50, 50]
-    Children:
-      - 3605073293141489059
-      - 6971170235059011951
   - Name: CousumableText
     UUID: 10590615739566618244
     Active: false
@@ -254,7 +254,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [122.355194, 151.170959]
+      Position: [122.355194, 135.660706]
       Size: [190.052979, 50]
     Com_Text:
       Text: Consumable
@@ -274,7 +274,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [108.270142, 152.857147]
+      Position: [108.270142, 137.346893]
       Size: [156.899261, 50]
     Com_Text:
       Text: Material
@@ -294,7 +294,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [-22.6090088, 0]
+      Position: [-22.6090088, -15.5102539]
       Size: [50, 50]
   - Name: ConsumItemList
     UUID: 15437861468603381042
@@ -306,7 +306,7 @@ GameObjects:
     PassIndex: 0
     Hovering: false
     Com_Transform:
-      Position: [-24.3481445, 0]
+      Position: [-24.3481445, -15.5102539]
       Size: [50, 50]
   - Name: OpenReinforceButton
     UUID: 14794521715461366055
@@ -315,14 +315,14 @@ GameObjects:
     Instancing: false
     Type: UI
     SortingOrder: 6
-    PassIndex: 6
+    PassIndex: 15
     Hovering: true
     Com_Transform:
-      Position: [557.701416, 672.843384]
-      Size: [64, 32]
+      Position: [56.6149902, 690.296997]
+      Size: [64, 64]
     Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Reinforce\Onhead_TextBubble.dds
-      TextureMaskPath: ..\..\Assets\UITexture\Alert_Bg_LevelFlag.tga
+      TexturePath: ..\..\Assets\UITexture\Reinforce\bg_enchant_common.dds
+      TextureMaskPath: ..\..\Assets\UITexture\Reinforce\bg_enchant_expert.dds
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
@@ -338,12 +338,12 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - 0.850000024
+      - -0.850000024
     XShrink: true
     YShrink: false
     Breath: true
     Com_Transform:
-      Position: [97.652832, 87.0960693]
+      Position: [97.652832, 71.5858154]
       Size: [200, 25]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga
@@ -371,12 +371,12 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - 0.850000024
+      - -0.850000024
     XShrink: true
     YShrink: false
     Breath: true
     Com_Transform:
-      Position: [296.314148, 87.0951843]
+      Position: [296.314148, 71.5849304]
       Size: [200, 25]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga
@@ -404,12 +404,12 @@ GameObjects:
     Shrink:
       - 200
       - 165
-      - 0.850000024
+      - -0.850000024
     XShrink: true
     YShrink: false
     Breath: true
     Com_Transform:
-      Position: [498.513885, 88.7429504]
+      Position: [498.513885, 73.2326965]
       Size: [200, 25]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line1.tga

@@ -17,6 +17,7 @@ public:
 	void SerializeObject(YAML::Emitter& out, CGameObject* obj);
 	void SerializeUI(YAML::Emitter& out, CGameObject* obj);
 	void SerializeEffect(YAML::Emitter& out, CGameObject* obj);
+	void SerializeCamera(YAML::Emitter& out, CGameObject* obj);
 
 	void SerializePrefab(CGameObject* obj);
 	void DeserializePrefab();
@@ -26,6 +27,7 @@ public:
 
 	CGameObject* DeserializeUI(YAML::Node& obj, _bool bSpawn = false, _uint curScene = 0);
 	CGameObject* DeserializeObject(YAML::Node& obj,_bool bSpawn = false, _uint curScene = 0);
+	CGameObject* DeserializeCamera(YAML::Node& obj, _bool bSpawn = false, _uint curScene = 0);
 	//CGameObject* DeserializeMapObject(YAML::Node& obj, _bool bSpawn = false, _uint curScene = 0);
 	CGameObject* DeserializeEffect(YAML::Node& obj, _bool bSpawn = false, _uint curScene = 0);
 	CGameObject* DeserializePrototypeEffect(string pPrototypeTag, YAML::Node& obj, _bool bSpawn = false, _uint curScene = 0);

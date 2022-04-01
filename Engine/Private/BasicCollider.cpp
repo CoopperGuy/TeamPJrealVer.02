@@ -24,6 +24,7 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_pInputLayOut(rhs.m_pInputLayOut)
 	, m_isCollision(rhs.m_isCollision)
 	, m_ColliderDesc(rhs.m_ColliderDesc)
+	, m_vTempSize(rhs.m_vTempSize)
 	, m_vMax(rhs.m_vMax)
 	, m_vMin(rhs.m_vMin)
 	, m_strBoneName(rhs.m_strBoneName)
@@ -51,7 +52,7 @@ HRESULT CBasicCollider::InitializePrototype(TYPE eType)
 		m_pSphere = new BoundingSphere(_float3(0.0f, 0.f, 0.f), 0.5f);
 		break;
 	}
-
+	m_vTempSize = m_pBB->Extents;
 	m_pEffect = new BasicEffect(m_pDevice);
 	if (nullptr == m_pEffect)
 		return E_FAIL;
@@ -122,7 +123,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 	switch (m_eType)
 	{
 	case CBasicCollider::TYPE_AABB:
-		vExtents = _float3(m_ColliderDesc.vSize.x * 0.5f, m_ColliderDesc.vSize.y * 0.5f, m_ColliderDesc.vSize.z * 0.5f);
+		vExtents = _float3(0.5f, 0.5f, 0.5f);
 		vCenter = _float3(0.f, 0.f, 0.f);
 		m_pBB = new BoundingBox(vCenter, vExtents);
 
@@ -149,7 +150,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 		break;
 
 	case CBasicCollider::TYPE_OBB:
-		vExtents = _float3(m_ColliderDesc.vSize.x * 0.5f, m_ColliderDesc.vSize.y * 0.5f, m_ColliderDesc.vSize.z * 0.5f);
+		vExtents = _float3(0.5f, 0.5f, 0.5f);
 		vCenter = _float3(0.f, 0.f, 0.f);
 		m_pBB = new BoundingBox(vCenter, vExtents);
 
@@ -184,6 +185,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 
 		break;
 	}
+	m_pBB->Extents = _float3(m_vTempSize.x, m_vTempSize.y, m_vTempSize.z);
 
 	return S_OK;
 }
@@ -569,8 +571,6 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							}
 							return;
 						}
-						else
-							pTargetCollider->SetHit(false);
 					}
 					else {
 						pTargetCollider->SetHit(false);

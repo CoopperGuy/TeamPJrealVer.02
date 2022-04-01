@@ -12,16 +12,20 @@ private:
 	explicit CEffectUrsaDust();
 	virtual ~CEffectUrsaDust() = default;
 public:
-	virtual HRESULT Initialize(void* pArg, _matrix pos);
+	virtual HRESULT Initialize(void* pArg);
+	virtual HRESULT Initialize(void * pArg, _vector pos);
 	virtual void Update(_double deltaTime) ;
 	virtual void LateUpdate(_double deltaTime) ;
 	virtual void Render();
 
 public:
-	static CEffectUrsaDust* Create(void*	pTarget, _matrix pos);
+	static CEffectUrsaDust* Create(void*	pTarget);
+	static CEffectUrsaDust * Create(void * pArg, _vector pos);
 	virtual void Free() override;
 
 private:
+	CComponent* m_pComponent = nullptr;
+
 	_double m_dDeadTime = 0;
 
 	_float3 Startscail = {};
