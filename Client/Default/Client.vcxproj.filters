@@ -454,6 +454,15 @@
     <ClInclude Include="..\public\ReinforceHud.h">
       <Filter>04.UI\ReinforceHud</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectSoilDecal.h">
+      <Filter>05.Effect\Ursa\Decal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaWind.h">
+      <Filter>05.Effect\Ursa\Wind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectDustWh.h">
+      <Filter>05.Effect\Ursa\Dust</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -893,6 +902,15 @@
     </ClCompile>
     <ClCompile Include="..\private\ReinforceHud.cpp">
       <Filter>04.UI\ReinforceHud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSoilDecal.cpp">
+      <Filter>05.Effect\Ursa\Decal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaWind.cpp">
+      <Filter>05.Effect\Ursa\Wind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectDustWh.cpp">
+      <Filter>05.Effect\Ursa\Dust</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1350,6 +1368,12 @@
     </Filter>
     <Filter Include="04.UI\ReinforceHud">
       <UniqueIdentifier>{cb4d9075-b548-4c72-9cce-ebbdb41a63e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Decal">
+      <UniqueIdentifier>{e820a9af-a098-40b2-84fc-f6297df15bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Wind">
+      <UniqueIdentifier>{7ebc7ec5-ee86-42de-83ee-67aec496d861}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
