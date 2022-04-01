@@ -142,12 +142,6 @@
     <ClInclude Include="..\public\ConsumItemHud.h">
       <Filter>04.UI\BackPackHud\ConsumItemHud</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Axe.h">
-      <Filter>02.GameObjects\Character\Equip\Weapon\00.RedAxe</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\GoldAxe.h">
-      <Filter>02.GameObjects\Character\Equip\Weapon\01.GoldAxe</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\MaterialHud.h">
       <Filter>04.UI\BackPackHud\MaterialHud</Filter>
     </ClInclude>
@@ -454,6 +448,12 @@
     <ClInclude Include="..\public\ReinforceHud.h">
       <Filter>04.UI\ReinforceHud</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Axe.h">
+      <Filter>02.GameObjects\Character\Equip\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Helmet.h">
+      <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -575,12 +575,6 @@
     </ClCompile>
     <ClCompile Include="..\private\ConsumItemHud.cpp">
       <Filter>04.UI\BackPackHud\ConsumItemHud</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Axe.cpp">
-      <Filter>02.GameObjects\Character\Equip\Weapon\00.RedAxe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\GoldAxe.cpp">
-      <Filter>02.GameObjects\Character\Equip\Weapon\01.GoldAxe</Filter>
     </ClCompile>
     <ClCompile Include="..\private\MaterialHud.cpp">
       <Filter>04.UI\BackPackHud\MaterialHud</Filter>
@@ -894,6 +888,12 @@
     <ClCompile Include="..\private\ReinforceHud.cpp">
       <Filter>04.UI\ReinforceHud</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\Axe.cpp">
+      <Filter>02.GameObjects\Character\Equip\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Helmet.cpp">
+      <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1110,15 +1110,6 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Equip\Weapon">
       <UniqueIdentifier>{cd21bc16-4fbd-4e48-b880-6e77afc17799}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObjects\Character\Equip\Weapon\00.RedAxe">
-      <UniqueIdentifier>{10f31294-e94c-404b-b059-3d9c993da163}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObjects\Character\Equip\Weapon\01.GoldAxe">
-      <UniqueIdentifier>{56d8d42f-e3fd-4824-9b18-f81b4b0690d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObjects\Character\Equip\Weapon\02.BasicAxe">
-      <UniqueIdentifier>{f20fcd4a-8870-4599-85e2-98e87af726bd}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObjects\Character\StateMachine\00.Player\04.Skill">
       <UniqueIdentifier>{50c8d1ad-ea58-49ad-81fc-5caf92cefff0}</UniqueIdentifier>
@@ -1350,6 +1341,9 @@
     </Filter>
     <Filter Include="04.UI\ReinforceHud">
       <UniqueIdentifier>{cb4d9075-b548-4c72-9cce-ebbdb41a63e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Equip\Helmet">
+      <UniqueIdentifier>{0c237a15-bc85-4561-8a75-d80e9ca8b597}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
