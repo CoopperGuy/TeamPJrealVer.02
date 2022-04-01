@@ -9,19 +9,19 @@ class ENGINE_DLL CCamera abstract : public CGameObject
 public:
 	typedef struct tagCameraDesc
 	{
-		/* Ä«¸Ş¶ó º¹Á¦º»¿¡°Ô ÇÊ¿äÇÑ Á¤º¸µé. */
+		/* ì¹´ë©”ë¼ ë³µì œë³¸ì—ê²Œ í•„ìš”í•œ ì •ë³´ë“¤. */
 		_float3		vEye;
 		_float3		vAt;
 		_float3		vAxisY = _float3(0.f, 1.f, 0.f);
 		CTransform::TRANSFORMDESC		TransformDesc;
 
-		///* Åõ¿µ°ü·Ã Á¤º¸. */
+		///* íˆ¬ì˜ê´€ë ¨ ì •ë³´. */
 		//_float		fAspect;
 		//_float		fFovy;
 		//_float		fNear;
 		//_float		fFar;
 
-		///* Ä«¸Ş¶óÀÇ Æ®·£½ºÆû¿¡°Ô ÇÊ¿äÇÑ Á¤º¸. */
+		///* ì¹´ë©”ë¼ì˜ íŠ¸ëœìŠ¤í¼ì—ê²Œ í•„ìš”í•œ ì •ë³´. */
 		//CTransform::STATEDESC			StateDesc;
 
 	}CAMERADESC;
@@ -33,7 +33,7 @@ protected:
 	virtual ~CCamera() = default;
 
 public:
-	/* ¿øÇü°´Ã¼¸¦ ÃÊ±âÈ­ÇÏ³®. */
+	/* ì›í˜•ê°ì²´ë¥¼ ì´ˆê¸°í™”í•˜ë‚Ÿ. */
 	virtual HRESULT InitializePrototype();
 	virtual HRESULT Initialize(void* pArg);
 	virtual _uint Update(_double TimeDelta);
@@ -50,9 +50,9 @@ protected:
 	CAMERADESC					m_CameraDesc;
 
 protected:
-	_bool						m_bIsActive = true;
-	_float						m_fov = 75.f;
-	mutable	_float				m_constFov = 75.f;
+	_bool						m_bRolling = true;
+	_float						m_fov = 45.f;
+	mutable	_float				m_constFov = 45.f;
 
 public:
 	//virtual CGameObject* Clone_GameObject(void* pArg = nullptr) = 0;
