@@ -56,8 +56,7 @@
 		return dwRefCnt;									\
 	}
 
-
-
+#define PROPERTY(GET,SET)	_declspec(property(get = GET, put = SET)) 
 
 #ifndef MSG_BOX
 #define	MSG_BOX(_message)			MessageBox(NULL, TEXT(_message), L"System Message", MB_OK)

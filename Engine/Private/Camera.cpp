@@ -27,14 +27,16 @@ HRESULT CCamera::Initialize(void * pArg)
 {
 	__super::Initialize(pArg);
 
+	SetUpComponents(0, "Prototype_Transform", "Com_Transform", (CComponent**)&m_pTransformCom);
+
 	if (nullptr != pArg)
 		memcpy(&m_CameraDesc, pArg, sizeof(CAMERADESC));
-
+	else
+		m_pTransformCom->SetMatrix(XMMatrixIdentity());
 	//AddComponent(0, "Prototype_Transform", "Com_Transform");
 
 	//m_pTransformCom = dynamic_cast<CTransform*>(GetComponent("Com_Transform"));
 
-	SetUpComponents(0, "Prototype_Transform", "Com_Transform", (CComponent**)&m_pTransformCom);
 
 	if (nullptr == m_pTransformCom)
 		return E_FAIL;
@@ -56,7 +58,7 @@ HRESULT CCamera::Initialize(void * pArg)
 _uint CCamera::Update(_double TimeDelta)
 {
 	__super::Update(TimeDelta);
-	if (m_bRolling)
+	if (m_bIsActive)
 	{
 		_float2 winSize = m_pEngine->GetCurrentWindowSize();
 		m_pPipeline->Set_Transform(CPipeline::D3DTS_VIEW, m_pTransformCom->GetWorldMatrixInverse());

@@ -181,6 +181,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClInclude Include="..\public\BasicCollider.h" />
     <ClInclude Include="..\Public\BoxCollider.h" />
     <ClInclude Include="..\Public\Camera.h" />
+    <ClInclude Include="..\public\CameraManager.h" />
     <ClInclude Include="..\Public\CapsuleCollider.h" />
     <ClInclude Include="..\Public\Cell.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -197,6 +198,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     </ClInclude>
     <ClInclude Include="..\Public\DebugSphere.h" />
     <ClInclude Include="..\Public\DmgVIBuffer.h" />
+    <ClInclude Include="..\public\EmptyCamera.h" />
     <ClInclude Include="..\Public\EmptyEffect.h" />
     <ClInclude Include="..\Public\EmptyGameObject.h" />
     <ClInclude Include="..\Public\EmptyMapObject.h" />
@@ -294,6 +296,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClCompile Include="..\private\BasicCollider.cpp" />
     <ClCompile Include="..\Private\BoxCollider.cpp" />
     <ClCompile Include="..\Private\Camera.cpp" />
+    <ClCompile Include="..\private\CameraManager.cpp" />
     <ClCompile Include="..\Private\CapsuleCollider.cpp" />
     <ClCompile Include="..\Private\Cell.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -310,6 +313,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     </ClCompile>
     <ClCompile Include="..\Private\DebugSphere.cpp" />
     <ClCompile Include="..\Private\DmgVIBuffer.cpp" />
+    <ClCompile Include="..\private\EmptyCamera.cpp" />
     <ClCompile Include="..\Private\EmptyEffect.cpp" />
     <ClCompile Include="..\Private\EmptyGameObject.cpp" />
     <ClCompile Include="..\Private\EmptyMapObject.cpp" />

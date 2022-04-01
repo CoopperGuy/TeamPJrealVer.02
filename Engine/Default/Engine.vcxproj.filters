@@ -304,6 +304,12 @@
     <Filter Include="01.Utility\02.GameObject\EmptyObject\UI\DmgFont">
       <UniqueIdentifier>{f18bcbb6-2d6b-4316-9228-7ac10ba7b09b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\02.GameObject\Camera\EmptyCamera">
+      <UniqueIdentifier>{3056670d-f198-43ec-b4ca-8625a028d750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\02.GameObject\Camera\EmptyCamera\Manager">
+      <UniqueIdentifier>{1dc57b7c-9fe1-447b-a53f-333f635b5267}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\public\Base.h">
@@ -606,6 +612,12 @@
     <ClInclude Include="..\public\PxQueryFilters.h">
       <Filter>Others\PhysX</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\EmptyCamera.h">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\CameraManager.h">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -889,6 +901,12 @@
     </ClCompile>
     <ClCompile Include="..\private\PxQueryFilters.cpp">
       <Filter>Others\PhysX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\EmptyCamera.cpp">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\CameraManager.cpp">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

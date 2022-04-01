@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: U_ReinforceSuccess
+    UUID: 14543408604602065478
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 8
+    PassIndex: 16
+    Hovering: false
+    Com_Transform:
+      Position: [1026, 128]
+      Size: [256, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\Textures\Effect\Sprite\Fire_ATK_Sub_Mask.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0.920289874, 0.833305955, 0.420132339, 1]
+      Sprite: [0.0500000007, 16, 4, 4]

@@ -102,7 +102,7 @@ private:
 	_float3					m_vMin, m_vMax;
 	_float3					m_vPoint[8];
 	_float3					m_vOriginPoint[8];
-
+	_float3					m_vTempSize;
 private:
 	_int					m_CollisionFlag = COLLISIONTYPE::COLLSION_NONE;
 	ID						m_CollisionType = ID::IDEND;
@@ -128,7 +128,7 @@ public:
 	void Set_Radius(_float vRadius);
 
 	_float3	GetSize() { return m_pBB->Extents; }
-	void	SetSize(_float3 m_Size) { m_pBB->Extents = m_Size; }
+	void	SetSize(_float3 m_Size) { m_pBB->Extents = m_Size; m_vTempSize = m_Size; }
 
 	_float3	GetPos() { return m_pBB->Center; }
 	void	SetPos(_float3 m_Pos) { m_pBB->Center = m_Pos; }

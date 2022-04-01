@@ -25,7 +25,7 @@ CScene_Loading::CScene_Loading(ID3D11Device * pDevice, ID3D11DeviceContext * pDe
 HRESULT CScene_Loading::Initialize(SCENE eScene)
 {
 	__super::Initialize();	
-	Sleep(700);
+	//Sleep(700);
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_LOADING);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/LoadingTest.yaml", CEngine::GetInstance()->GetCurSceneNumber());
 

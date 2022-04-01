@@ -178,6 +178,10 @@ void CEl_Flogas::Update(_double dDeltaTime)
 						{
 							m_pModel->SetUp_AnimationIndex(DEADBODY);
 							m_pGameObject->SetActive(false);
+							if (m_pMonHp) {
+								m_pMonHp->SetUpDead();
+								m_pMonHp = nullptr;
+							}
 						}
 					}
 				}
@@ -228,7 +232,7 @@ CEl_Flogas * CEl_Flogas::Create(string name, CFlogas* pObj)
 void CEl_Flogas::Free()
 {
 	__super::Free();
-	if (m_pMonHp)
-		m_pMonHp->SetUpDead();
+	//if (m_pMonHp)
+	//	m_pMonHp->SetUpDead();
 
 }

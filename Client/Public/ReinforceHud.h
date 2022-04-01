@@ -6,7 +6,7 @@ class CItem;
 class CReinforceHud :
 	public IScriptObject
 {
-	enum REINFORCE{ REINFORCE_SLOT, REINFORCE_ITEMIMG, REINFORCE_MATE, REINFORCE_MATEIMG, REINFORCE_BUTTON, REINFORCE_NAME,REINFORCE_CLOSE, REINFORCE_EFFECT,
+	enum REINFORCE{ REINFORCE_SLOT, REINFORCE_ITEMIMG, REINFORCE_MATE, REINFORCE_MATEIMG, REINFORCE_BUTTON, REINFORCE_NAME,REINFORCE_CLOSE, REINFORCE_EFFECT, REINFORCE_MATENAME,
 		REINFORCE_END};
 private:
 	explicit CReinforceHud();
@@ -34,7 +34,7 @@ private:
 	CItem*				m_pCurMaterial = nullptr;
 private:
 	_float				m_fReinforceDelta = 0.f;
-	_float				m_fReinforceTime = 1.f;
+	_float				m_fReinforceTime = 3.f;
 private:
 	_bool				m_bIsReinforceWhile = false;
 	_bool				m_bIsOnOff = false;

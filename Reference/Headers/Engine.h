@@ -18,6 +18,7 @@
 #include "AlretManager.h"
 #include "Input_Device.h"
 #include "PxQueryFilters.h"
+#include "CameraManager.h"
 
 
 BEGIN(Engine)
@@ -241,6 +242,11 @@ public:
 	_byte Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState);
 
 #pragma endregion
+#pragma region CAMERA
+	void	ActiveCameraByIndex(_int _idx);
+	HRESULT	AddCamera(CCamera* _camera);
+	HRESULT	SetDefaultCamera();
+#pragma endregion
 private:
 	class CTimerManager*			m_pTimerManager = nullptr;
 	class CGraphicDevice*			m_pGraphicDevice = nullptr;
@@ -261,7 +267,7 @@ private:
 	CTalkManager*					m_pTalkManager = nullptr;
 	CAlretManager*					m_pAlretManager = nullptr;
 	CInput_Device*					m_pInput_Device = nullptr;
-
+	CameraManager*					m_pCameraManager = nullptr;
 	CFrustum*						m_pFrustum = nullptr;
 	CXlsxRead*						m_pXlsxRead = nullptr;
 	USAGE							m_eUsage;
