@@ -197,7 +197,7 @@ HRESULT CLoader::GameFlogasLoader()
 HRESULT CLoader::GameUrsaLoader()
 {
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", 0);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_Ursa_Smoke", 1);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_UrsaeDust", "E_UDust", 1);
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_RockDust", "E_RockEff", 2));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Rock", "O_Rock", 3));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_DropRockEff", "E_RockEff2", 4));

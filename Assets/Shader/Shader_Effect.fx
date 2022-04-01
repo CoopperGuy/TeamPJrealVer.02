@@ -563,7 +563,8 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 	//vMask = g_MaskTexture.Sample(g_DefaultSampler, In.vMaskUV);
     vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
 	vMask = g_DiffuseTexture.Sample(g_DefaultSampler, In.vTexUV);
-    vMask.a = (vMask.r + vMask.g + vMask.b) / 3;
+    //vMask.a = (vMask.r + vMask.g + vMask.b) / 3;
+    vMask.a = vMask.r ;
 
     if (vMask.a <= 0.f)
         discard;
@@ -577,6 +578,7 @@ vector PS_MAIN_SPRITE(PS_IN_SPRITE In) : SV_TARGET
 
     return vDiffuseColor;
 }
+
 
 vector PS_MAIN_SPRITENOALPHASPLIT(PS_IN_SPRITE In) : SV_TARGET
 {
@@ -1184,4 +1186,5 @@ technique11 DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_SPRITENOALPHASPLIT();
     }
+
 }
