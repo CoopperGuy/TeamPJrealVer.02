@@ -1,21 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_EAFire
-    UUID: 16654529124919596713
+  - Name: E_Ursa_DustWh
+    UUID: 8659794970948794455
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 2
+    PassIndex: 17
     BillBord: true
     Com_Transform:
-      Translation: [-1.29999995, 0.899999976, 0]
-      Rotation: [-3.13882542, 37.1696434, 2.67858553e-07]
-      Scale: [0.998741388, 0.996032715, 0.99764359]
+      Translation: [0, 0, 0]
+      Rotation: [3.46493363, -27.1078968, -1.19891823e-07]
+      Scale: [0.933180034, 1.00355005, 0.890453279]
     Com_VIBuffer:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Explosion01-light_5x5.tga
-      TextureMaskPath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\DustSprite.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: false
-      FadeOutDuration: 3
+      FadeOutDuration: 0
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 3
-      SpriteNumX: 5
-      SpriteNumY: 5
-      SpriteTotal: 25
-      SpriteSpeed: 30
-      OffsetColor: [0.152173936, 0.152173936, 0.152173936, -0.319999993]
+      EffectDuration: 0
+      SpriteNumX: 4
+      SpriteNumY: 8
+      SpriteTotal: 32
+      SpriteSpeed: 50
+      OffsetColor: [0.710144937, 0.70499897, 0.70499897, -0.600000024]

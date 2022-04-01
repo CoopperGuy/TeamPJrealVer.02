@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_MeteoExplo
-    UUID: 9964478890369991515
+    UUID: 4098558351496363101
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
+      Translation: [0, 0, -1.10000002]
+      Rotation: [13.9296932, 3.68078971, 5.3471183e-08]
+      Scale: [1.50156868, 1.50002635, 1.50573087]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,16 +36,17 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 32
       SpriteSpeed: 30
+      OffsetColor: [0, 0, 0, 0.49000001]
     Children:
       - Name: E_MeteoTexture
-        UUID: 17560369029756367008
+        UUID: 12027324957165234030
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 2
         BillBord: false
         Com_Transform:
-          Translation: [0, 0, 0]
+          Translation: [0, 0.200000003, 0]
           Rotation: [0, -0, 0]
           Scale: [1, 1, 1]
         Com_VIBuffer:
@@ -73,3 +74,4 @@ GameObjects:
           SpriteNumY: 5
           SpriteTotal: 25
           SpriteSpeed: 20
+          OffsetColor: [0, 0, 0, -0.119999997]

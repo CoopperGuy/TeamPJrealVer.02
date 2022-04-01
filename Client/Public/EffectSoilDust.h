@@ -22,11 +22,16 @@ public:
 	virtual void Free() override;
 
 private:
+	void MakeEffet();
+
+private:
 	_double m_dDeadTime = 0;
 
 	_float3 Startscail = {};
 	_float ScailX = 0.f;
 	_float ScailY = 0.f;
+
+	_vector MyPos = {};
 };
 
 END

@@ -256,8 +256,8 @@ void CPlayer::Update(_double dDeltaTime)
 	Collsion();
 	Transform_ToWorldSpace();
 	SearchMonster();
-	if (m_pStatus->GetStatInfo().hp >= 0)
-		CreateBlood();
+
+	CreateBlood();
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 	{
@@ -1399,9 +1399,6 @@ _bool CPlayer::IsGravity()
 
 void CPlayer::CreateBlood()
 {
-	if (m_pStatus->GetStatInfo().hp <= 0)
-		return;
-
 	if (m_pOBB->Get_isHit()) {
 		if (!m_bEvade)
 		{
@@ -1417,6 +1414,8 @@ void CPlayer::CreateBlood()
 			else if(!m_bOnlyDown)
 				m_bHit = true;
 		}
+
+
 		_matrix Translation;
 		_int random = rand() % 2;
 		random += 1;

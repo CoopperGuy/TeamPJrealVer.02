@@ -207,6 +207,9 @@ HRESULT CLoader::GameUrsaLoader()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_DropDust", "E_DropDust", 8));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder", 9));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Vine", "E_Vine", 10));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_SoilDecal", "E_SoilDecal", 11));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_UrsaWind", "E_UrsaWinds", 12));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_DustWh", "E_Ursa_DustWh", 13));
   
 	m_iCompleteBit = 0;
 

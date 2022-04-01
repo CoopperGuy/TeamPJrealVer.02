@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_EAFireBall
-    UUID: 8200470614270945311
+    UUID: 1480150377305053328
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 2
     BillBord: true
     Com_Transform:
-      Translation: [0, 0, 0]
-      Rotation: [27.5666695, 12.2949238, 0]
-      Scale: [0.997680604, 0.998777509, 0.995640576]
+      Translation: [0, 0.5, 0]
+      Rotation: [20.1651344, 2.11314321, 0]
+      Scale: [0.996890485, 0.998437822, 0.995886624]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 8
       SpriteTotal: 64
       SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, 0.449999988]
+      OffsetColor: [0.724637687, 0.210953102, 0.068262957, 0.430000007]

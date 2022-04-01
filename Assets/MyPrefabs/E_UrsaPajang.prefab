@@ -1,21 +1,21 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_DropDust
-    UUID: 14975448869522790646
+  - Name: E_UrsaPajang
+    UUID: 12105528831038368577
     Active: true
     Layer: Default
     Type: Effect
-    PassIndex: 2
+    PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, -1.1638509]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
-    Com_VIBuffer:
+    Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\DiscSmoke01_16x4.dds
-      TextureMaskPath: ""
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_pajang_002_TEX_HKB.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 2
+      FadeOutDuration: 4
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0
       FadeInStratTime: 0
-      EffectDuration: 2
-      SpriteNumX: 16
-      SpriteNumY: 4
-      SpriteTotal: 64
-      SpriteSpeed: 30
-      OffsetColor: [0, 0, 0, -0.389999986]
+      EffectDuration: 4
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [1, 0, 0, 0]
