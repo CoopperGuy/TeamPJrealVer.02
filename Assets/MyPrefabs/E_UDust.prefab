@@ -1,0 +1,336 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_UDust
+    UUID: 16811550305882506159
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 18
+    BillBord: true
+    Com_Transform:
+      Translation: [-3.56185609e-10, 0.300000012, 0]
+      Rotation: [6.5150485, 5.65115881, 0]
+      Scale: [1.19894004, 1.05575407, 0.995306611]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0
+      DistortionBias: 0
+      FadeOut: false
+      FadeOutDuration: 20
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 3
+      FadeInStratTime: 0
+      EffectDuration: 20
+      SpriteNumX: 8
+      SpriteNumY: 8
+      SpriteTotal: 64
+      SpriteSpeed: 30
+      OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
+    Children:
+      - Name: E_UDust
+        UUID: 11699377653818942900
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [-0.200000003, 0, 0.790000021]
+          Rotation: [0, -0, 0]
+          Scale: [1.29999995, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.0649999976, 0.0649999976, 0.0649999976, 0.100000001]
+      - Name: E_UDust
+        UUID: 10874119373565274246
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [0.200000003, 0, -0.610000014]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.086956501, 0.086956501, 0.086956501, 0.109999999]
+      - Name: E_UDust
+        UUID: 17625942043203947304
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [-0.0799999982, 0, -0.730000019]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.0652173758, 0.0652173758, 0.0652173758, 0.109999999]
+      - Name: E_UDust
+        UUID: 8877608032152679794
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [-0.573862791, 0, -0.730000019]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
+      - Name: E_UDust
+        UUID: 10986890313834708877
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [0.550000012, 0, 0.189999998]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
+      - Name: E_UDust
+        UUID: 15376438388020320782
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [-0.550000012, 0, -0.189999998]
+          Rotation: [0, -0, 0]
+          Scale: [1.10000002, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.108695626, 0.108695626, 0.108695626, 0.109999999]
+      - Name: E_UDust
+        UUID: 10025421525242227875
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [0.449999988, 0, -0.349999994]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.086956501, 0.086956501, 0.086956501, 0.109999999]
+      - Name: E_UDust
+        UUID: 13031814294692866112
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 18
+        BillBord: true
+        Com_Transform:
+          Translation: [-0.449999988, 0, 0.349999994]
+          Rotation: [0, -0, 0]
+          Scale: [1.20000005, 1, 1]
+        Com_VIBuffer:
+          {}
+        Effect_Setting:
+          TextureDiffusePath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Sprite\smokee.dds
+          TextureNoisePath: ""
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0
+          DistortionBias: 0
+          FadeOut: false
+          FadeOutDuration: 20
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 3
+          FadeInStratTime: 0
+          EffectDuration: 20
+          SpriteNumX: 8
+          SpriteNumY: 8
+          SpriteTotal: 64
+          SpriteSpeed: 30
+          OffsetColor: [0.086956501, 0.086956501, 0.086956501, 0.109999999]

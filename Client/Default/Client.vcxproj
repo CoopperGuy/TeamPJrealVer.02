@@ -208,15 +208,18 @@
     <ClInclude Include="..\Public\EffectBloodDecal.h" />
     <ClInclude Include="..\Public\EffectDropRock.h" />
     <ClInclude Include="..\Public\EffectDropRockDust.h" />
+    <ClInclude Include="..\Public\EffectDustWh.h" />
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
     <ClInclude Include="..\Public\EffectRockDecal.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
+    <ClInclude Include="..\Public\EffectSoilDecal.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
     <ClInclude Include="..\Public\EffectUrsaDust.h" />
     <ClInclude Include="..\Public\EffectUrsaShoulder.h" />
+    <ClInclude Include="..\Public\EffectUrsaWind.h" />
     <ClInclude Include="..\Public\EffectVine.h" />
     <ClInclude Include="..\Public\Element_Bomb.h" />
     <ClInclude Include="..\Public\Bomb_Center.h" />
@@ -227,6 +230,7 @@
     </ClInclude>
     <ClInclude Include="..\Public\FootHammer_Bomb.h" />
     <ClInclude Include="..\Public\FootHammer_Decal.h" />
+    <ClInclude Include="..\Public\Helmet.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -259,7 +263,6 @@
     <ClInclude Include="..\Public\FlogasDunDoor.h" />
     <ClInclude Include="..\public\Gold.h" />
     <ClInclude Include="..\public\Glove.h" />
-    <ClInclude Include="..\public\GoldAxe.h" />
     <ClInclude Include="..\Public\Grid.h" />
     <ClInclude Include="..\public\HpBar.h" />
     <ClInclude Include="..\public\Idle_Player.h" />
@@ -381,6 +384,7 @@
     <ClCompile Include="..\Private\EffectDropRock.cpp" />
     <ClCompile Include="..\Private\EffectDropRockDust.cpp" />
     <ClCompile Include="..\Private\EffectDust.cpp" />
+    <ClCompile Include="..\Private\EffectDustWh.cpp" />
     <ClCompile Include="..\Private\EffectEAFire.cpp" />
     <ClCompile Include="..\Private\EffectFireBall.cpp" />
     <ClCompile Include="..\Private\EffectFlash.cpp" />
@@ -400,11 +404,13 @@
     <ClCompile Include="..\Private\EffectRockDecal.cpp" />
     <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
+    <ClCompile Include="..\Private\EffectSoilDecal.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\Private\EffectSoilDust.cpp" />
     <ClCompile Include="..\Private\EffectUrsaDust.cpp" />
     <ClCompile Include="..\Private\EffectUrsaShoulder.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaWind.cpp" />
     <ClCompile Include="..\Private\EffectVine.cpp" />
     <ClCompile Include="..\Private\Element_Bomb.cpp" />
     <ClCompile Include="..\private\ElfNPC.cpp" />
@@ -425,8 +431,8 @@
     <ClCompile Include="..\Private\FootHammer_Decal.cpp" />
     <ClCompile Include="..\private\Gold.cpp" />
     <ClCompile Include="..\private\Glove.cpp" />
-    <ClCompile Include="..\private\GoldAxe.cpp" />
     <ClCompile Include="..\Private\Grid.cpp" />
+    <ClCompile Include="..\Private\Helmet.cpp" />
     <ClCompile Include="..\private\HpBar.cpp" />
     <ClCompile Include="..\private\Idle_Player.cpp" />
     <ClCompile Include="..\private\ImpactBeam.cpp" />

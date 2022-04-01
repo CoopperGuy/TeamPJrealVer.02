@@ -29,12 +29,12 @@ GameObjects:
       DistortionScale: 0.100000001
       DistortionBias: 1
       FadeOut: true
-      FadeOutDuration: 0.699999988
+      FadeOutDuration: 1
       FadeOutStratTime: 0
       FadeIn: false
-      FadeInDuration: 0.5
+      FadeInDuration: 0.7
       FadeInStratTime: 0
-      EffectDuration: 0.699999988
+      EffectDuration: 1
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0

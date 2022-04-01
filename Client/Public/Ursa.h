@@ -76,6 +76,7 @@ private:
 
 	class CEffectBlood* m_pBlood = nullptr;
 	class CEffectUrsaShoulder* m_pUrsaShoulder = nullptr;
+	class CEffectUrsaWind*		m_pUrsaWind = nullptr;
 private:
 	Ursa m_eState = Ursa_END;
 	queue<Ursa> m_QueState;
@@ -91,6 +92,7 @@ private:
 	_double m_dPatternTime	 = 0.0;
 	_double m_dWheelWindTime = 0.0;
 	_double m_dDropRockMkdt = 0;
+	_double m_dTest = 0;
 
 	_uint m_iComboIndex = 0;
 	_uint m_iFirst		= 0;

@@ -571,8 +571,6 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							}
 							return;
 						}
-						else
-							pTargetCollider->SetHit(false);
 					}
 					else {
 						pTargetCollider->SetHit(false);

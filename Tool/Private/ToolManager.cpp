@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/ReinforceUI.yaml";
+static string strScene = "../../Assets/Scenes/Equip.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())

@@ -83,7 +83,7 @@ HRESULT CScene_Logo::Render()
 HRESULT CScene_Logo::ReadyScript()
 {
 	m_pEngine->AddScriptObject(CPlayer::Create(nullptr), SCENE_STATIC);
-	m_pEngine->AddScriptObject(CAxe::Create(nullptr), SCENE_STATIC);
+	//m_pEngine->AddScriptObject(CAxe::Create(nullptr), SCENE_STATIC);
 
 	return S_OK;
 }

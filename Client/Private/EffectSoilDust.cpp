@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Client_Struct.h"
 #include "..\Public\EffectSoilDust.h"
+#include "EffectUrsaDust.h"
+#include "EffectSoilDecal.h"
 
 USING(Client)
 
@@ -38,12 +40,14 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 		m_pTransform->SetScale(_float3(1.f, 2.f,1.f));
 
 
-		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
+		MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
-		pos = XMVectorSetY(pos, 0.8f);
+		MyPos = XMVectorSetY(MyPos, 0.8f);
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
-
+		m_pTransform->SetState(CTransform::STATE_POSITION, MyPos);
+		
+		
+		MakeEffet();
 	}
 	return S_OK;
 }
@@ -75,4 +79,40 @@ void CEffectSoilDust::Render()
 void CEffectSoilDust::Free()
 {
 	__super::Free();
+}
+
+void CEffectSoilDust::MakeEffet()
+{
+
+#pragma region Make Dust
+
+	_matrix Translation;
+	_int random = rand() % 3;
+	_int Num = rand() % 2;
+	random += 1;
+	random = random*0.1f;
+
+	if (Num == 0)
+		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + random);
+	else
+		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) - random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) - random);
+
+	Translation = m_pTransform->Remove_Scale(Translation);
+	for (int i = 0; i < 7; ++i) {
+		auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UDust", &Translation);
+		CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+#pragma endregion
+
+//#pragma region MakeDecal
+//	auto DustDecal= CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_SoilDecal", "E_SoilDecal");
+//	CEngine::GetInstance()->AddScriptObject(CEffectSoilDecal::Create(DustDecal, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+//#pragma endregion
+
+
+
+
+
+
+
 }
