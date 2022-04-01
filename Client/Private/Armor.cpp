@@ -18,7 +18,8 @@ HRESULT CArmor::Initialize()
 
 	Add_EquipList("PlateArmor");
 	Add_EquipList("LeatherArmor");
-	
+	Add_EquipList("JusinArmor");
+
 	return S_OK;
 }
 

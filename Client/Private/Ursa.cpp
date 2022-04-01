@@ -912,7 +912,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	
 	m_pRightTrailBuffer->SetIsActive(false);
 	m_pLeftTrailBuffer->SetIsActive(false);
-
+	m_eCurSTATES = CStat::STATES_IDEL;
 	switch (m_eState)
 	{
 	case Client::CUrsa::IDLE02:
@@ -944,6 +944,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	}
 		break;
 	case Client::CUrsa::DASH_ATT: {
+		if (keyFrame >= 42 && keyFrame <= 70)
+			m_eCurSTATES = CStat::STATES_ATK;
 		if (keyFrame >= 50 && keyFrame <= 70)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -974,19 +976,27 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::L_SLASH:
 		if (keyFrame >= 9 && keyFrame <= 29)
+		{
 			m_pLeftTrailBuffer->SetIsActive(true);
+			m_eCurSTATES = CStat::STATES_ATK;
+		}
 		break;
 	case Client::CUrsa::R_SLASH:
 		if (keyFrame >= 20 && keyFrame <= 34)
+		{
 			m_pRightTrailBuffer->SetIsActive(true);
+			m_eCurSTATES = CStat::STATES_ATK;
+		}
 		break;
 	case Client::CUrsa::Combo_1Start:		
 		break;
 	case Client::CUrsa::Combo_1Hold:
 		break;
 	case Client::CUrsa::Combo_1:
+		if (keyFrame >= 16 && keyFrame <= 23)
+			m_eCurSTATES = CStat::STATES_ATK;
 		if (keyFrame >= 6 && keyFrame <= 27)
-			m_pRightTrailBuffer->SetIsActive(true);		
+			m_pRightTrailBuffer->SetIsActive(true);	
 	{
 		if (keyFrame == 19 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
@@ -1023,6 +1033,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start: 
+		if (keyFrame >= 36 && keyFrame <= 41)
+			m_eCurSTATES = CStat::STATES_ATK;
 		if (keyFrame >= 24 && keyFrame <= 49)
 			m_pLeftTrailBuffer->SetIsActive(true);		
 	{
@@ -1062,6 +1074,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_2End:
 		break;
 	case Client::CUrsa::Combo_3Start:
+		if (keyFrame >= 6 && keyFrame <= 20)
+			m_eCurSTATES = CStat::STATES_ATK;
 		if (keyFrame >= 8)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -1073,6 +1087,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_4Start:
 		if (keyFrame >= 7 && keyFrame <= 20)
 		{
+			m_eCurSTATES = CStat::STATES_ATK;
 			m_pRightTrailBuffer->SetIsActive(true);
 			m_pLeftTrailBuffer->SetIsActive(true);
 		}
@@ -1177,7 +1192,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 
 	}
-		//±â¸ðÀ¸´Â°Å?
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½?
 
 		break;
 	case Client::CUrsa::HIT:

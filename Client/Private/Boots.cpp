@@ -18,6 +18,7 @@ HRESULT CBoots::Initialize()
 
 	Add_EquipList("PlateBoots");
 	Add_EquipList("LeatherBoots");
+	Add_EquipList("JusinBoots");
 
 	return S_OK;
 }

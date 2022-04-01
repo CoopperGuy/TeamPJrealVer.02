@@ -18,6 +18,7 @@ HRESULT CGlove::Initialize()
 
 	Add_EquipList("Gauntlet");
 	Add_EquipList("LeatherGlove");
+	Add_EquipList("JusinGlove");
 
 	return S_OK;
 }
