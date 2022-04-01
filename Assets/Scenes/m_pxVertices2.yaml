@@ -1,5 +1,21 @@
 Scene: Untitled
 GameObjects:
+  - Name: CameraTemp
+    UUID: 4774826341096836628
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Camera
+    Com_Transform:
+      Translation: [0.000485454773, 0.000485454773, 0]
+      Rotation: [0.551296711, 44.986084, 0.00506796734]
+      Scale: [0.999620855, 0.999873042, 0.999919295]
+    MoveTime: 5
+    Movie: 1
+    SrcPosition: [5, 5, 0]
+    DestPosition: [0, 0, 0]
+    SrcLookPosition: [0, 0, 0]
+    DestLookPosition: [1, 0, 1]
   - Name: Direction
     UUID: 4189982650163625068
     Active: true
@@ -32,11 +48,11 @@ GameObjects:
     Com_Transform:
       Translation: [-0.0259912014, -0.431751668, 0]
       Rotation: [0, -0, 0]
-      Scale: [5, 5, 5]
+      Scale: [50, 5, 50]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [5, 0.100000001, 5]
+      Size: [50, 0.100000001, 50]
       Angle:
         - 0
         - 0
@@ -53,7 +69,7 @@ GameObjects:
       Equipment: false
     Translation: [-0.0259912014, -0.431751668, 0]
     Rotation: [0, -0, 0]
-    Scale: [5, 5, 5]
+    Scale: [50, 5, 50]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor1.fbx
     HasCollider: false
@@ -141,9 +157,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-3.88122892, 0.308779508, 0.522710443]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [0.801858604, 0.869651139, 0.86173445]
+      Translation: [.nan, .nan, .nan]
+      Rotation: [.nan, .nan, .nan]
+      Scale: [.nan, .nan, .nan]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -181,7 +197,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867442]
+      Scale: [1, 1.10000002, 1.09867311]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx

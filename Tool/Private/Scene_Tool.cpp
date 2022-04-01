@@ -30,6 +30,7 @@
 #include "BasicCollider.h"
 #include "Stat.h"
 #include "Shop.h"
+#include "EmptyCamera.h"
 //#include "VIBuffer_RectInstance.h"
 
 USING(Tool)
@@ -166,7 +167,8 @@ HRESULT CScene_Tool::ReadyPrototypeGameObject()
 		return E_FAIL;
 	if (FAILED(pEngine->AddPrototype("Prototype_EmptyMapObject", CEmptyMapObject::Create(m_pDevice, m_pDeviceContext))))
 		return E_FAIL;
-
+	if (FAILED(pEngine->AddPrototype("Prototype_EmptyCamera", CEmptyCamera::Create(m_pDevice, m_pDeviceContext))))
+		return E_FAIL;
 	RELEASE_INSTANCE(CEngine);
 
 	return S_OK;

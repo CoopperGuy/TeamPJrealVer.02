@@ -120,6 +120,8 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 				deserializedObject = DeserializeUI(obj, false, curScene);
 			else if (obj["Type"].as<string>() == "Effect")
 				deserializedObject = DeserializeEffect(obj, false, curScene);
+			else if (obj["Type"].as<string>() == "Camera")
+				deserializedObject = DeserializeCamera(obj, false, curScene);
 			else
 				deserializedObject = DeserializeObject(obj, false, curScene);
 			if(deserializedObject)
@@ -812,6 +814,7 @@ void CSceneSerializer::SerializeCamera(YAML::Emitter & out, CGameObject * obj)
 		out << YAML::EndMap;
 	}
 	out << YAML::Key << "MoveTime" << YAML::Value << _camera->p_moveTime;
+	out << YAML::Key << "Movie" << YAML::Value << _camera->p_Moive;
 
 	out << YAML::Key << "SrcPosition";
 	out << YAML::Value << YAML::Flow;
@@ -1024,9 +1027,9 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 
 	GameObjectMutex.lock();
 	CGameObject* deserializedObject = m_pEngine->AddGameObject(curScene, "Prototype_EmptyCamera", layer);
+	CEmptyCamera*	_camera = static_cast<CEmptyCamera*>(deserializedObject);
 	deserializedObject->SetInfo(name, layer, uuid, active, curScene);
 	GameObjectMutex.unlock();
-
 	auto transformCom = obj["Com_Transform"];
 	if (transformCom)
 	{
@@ -1052,8 +1055,26 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 		CComponent* pTransform = deserializedObject->GetComponent("Com_Transform");
 		dynamic_cast<CTransform*>(pTransform)->SetMatrix(objMat);
 	}
+	auto moveTime = obj["MoveTime"];
+	auto SrcPosition = obj["SrcPosition"];
+	auto DestPosition = obj["DestPosition"];
+	auto SrcLookPosition = obj["SrcLookPosition"];
+	auto DestLookPosition = obj["DestLookPosition"];
+	auto movie = obj["Movie"];
 
-	return nullptr;
+	_camera->p_moveTime = moveTime.as<_float>();
+	_float3 srcPos{ SrcPosition[0].as<_float>(),SrcPosition[1].as<_float>() ,SrcPosition[2].as<_float>() };
+	_float3 destPos{ DestPosition[0].as<_float>(),DestPosition[1].as<_float>() ,DestPosition[2].as<_float>() };
+	_float3 srcLookPos{ SrcLookPosition[0].as<_float>(),SrcLookPosition[1].as<_float>() ,SrcLookPosition[2].as<_float>() };
+	_float3 destLookPos{ DestLookPosition[0].as<_float>(),DestLookPosition[1].as<_float>() ,DestLookPosition[2].as<_float>() };
+
+	_camera->p_srcPosition = srcPos;
+	_camera->p_destPosition = destPos;
+	_camera->p_srcLookPosition = srcLookPos;
+	_camera->p_destLookPosition = destLookPos;
+	if (movie)
+		_camera->p_Moive = (CEmptyCamera::MOVIE)movie.as<_int>();
+	return deserializedObject;
 }
 
 

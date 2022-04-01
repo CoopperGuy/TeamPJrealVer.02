@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/TestRoomLee.yaml";
+static string strScene = "../../Assets/Scenes/m_pxVertices2.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
@@ -116,6 +116,18 @@ void CToolManager::Update(_double dDeltaTime)
 	bool show_demo_window = true;
 	ImGui::ShowDemoWindow(&show_demo_window);
 
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD0)) {
+		CEngine::GetInstance()->ActiveCameraByIndex(0);
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD1)) {
+		CEngine::GetInstance()->ActiveCameraByIndex(1);
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD2)) {
+		CEngine::GetInstance()->ActiveCameraByIndex(2);
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD3)) {
+		CEngine::GetInstance()->ActiveCameraByIndex(3);
+	}
 
 
 	m_pEngine->UpdateImGui();

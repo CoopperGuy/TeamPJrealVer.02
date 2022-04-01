@@ -39,7 +39,7 @@ _uint CCamera_Tool::Update(_double TimeDelta)
 		return -1;
 
 
-	if (GetActiveWindow() == g_hWnd)
+	if (GetActiveWindow() == g_hWnd && m_bIsUse)
 	{
 		_float speed = TimeDelta / 2.f;
 		if (m_pEngine->IsKeyPressed('W'))
