@@ -57,6 +57,7 @@ public:
 	_bool	Get_isFinished(_uint iIndex);
 	_bool	Get_isFinished();
 	_uint	Get_AnimIndex() { return m_iAnimationIndex; }
+	_double Get_AnimTime();
 
 public:
 	HRESULT Bind_Buffers(_uint iPassIndex, CTransform* pTarget = nullptr);
@@ -114,8 +115,7 @@ public:
 	CShader*	GetShader() { return m_pShader.get(); }
 	unordered_map<string, BONEDESC*> GetBoneDescMap() { return m_RagdollBones; }
 public:
-	void SetUpPxVectices();	
-	void SetEquipOnOff(_uint iMaterialIndex, _bool ActiveEquip) { m_vecEquipMaterial[iMaterialIndex] = (_uint)ActiveEquip; }
+	void SetUpPxVectices();	void SetEquipOnOff(_uint iMaterialIndex, _bool ActiveEquip) { m_vecEquipMaterial[iMaterialIndex] = (_uint)ActiveEquip; }
 	void	SetDissolve(_float value) { m_fDissolve = value; }
 	void	SetEffectFilePath(string FilePath) { m_pEffectFilePath = FilePath; }
 	HRESULT	SetEffectMaterial();

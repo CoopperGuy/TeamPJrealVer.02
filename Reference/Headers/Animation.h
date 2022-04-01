@@ -18,6 +18,7 @@ public:
 	list<_matrix> Get_Blend_Animation_Matrix(CAnimation* prevAnim, _float ratio);
 	HRESULT ResetCurrentTime();
 	_double GetDuratuin() { return m_Duration; }
+	_double GetTotalTime() { return fmod(m_TickPerSecond, m_Duration); }
 	_uint	GetCurrentKeyFrame() { return (_uint)m_CurrrentTime; };
 	void	Set_CurrentKeyFrame(_double CurrentKeyFrame);
 	vector<class CChannel*> GetChannels() { return m_Channels; }
