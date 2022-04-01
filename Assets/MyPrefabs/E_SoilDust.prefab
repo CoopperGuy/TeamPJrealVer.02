@@ -9,8 +9,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.76256454, 0.497298837, 0]
-      Rotation: [-0.710538983, 5.94022083, -3.35305685e-08]
-      Scale: [0.999828517, 0.999982953, 0.999867916]
+      Rotation: [6.43614101, -0.874375403, 0]
+      Scale: [0.987508655, 0.99684602, 0.997444451]
     Com_VIBuffer:
       {}
     Effect_Setting:
