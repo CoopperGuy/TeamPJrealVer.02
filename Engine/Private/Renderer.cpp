@@ -183,8 +183,8 @@ HRESULT CRenderer::InitializePrototype()
 	if (nullptr == m_pVIBuffer_SSAO)
 		return E_FAIL;
 
-	//if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Trail", 0.f, 0.f, 200.f, 200.f)))
-		//return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_ShadowDepth", 0.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Diffuse", 0.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Normal", 0.f, 200.f, 200.f, 200.f)))
@@ -283,7 +283,7 @@ HRESULT CRenderer::DrawRenderGroup()
 	if (m_bDebuger) {
 		/*if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
 			return E_FAIL;*/
-		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
 			return E_FAIL;
 	}
 	
