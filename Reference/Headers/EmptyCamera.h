@@ -3,9 +3,16 @@
 
 BEGIN(Engine)
 
-class CEmptyCamera :
+class ENGINE_DLL CEmptyCamera :
 	public CCamera
 {
+public:
+	enum MOVIE
+	{
+		MOVIE_Y,
+		MOVIE_NOY,
+		MOVIE_NONE
+	};
 private:
 	explicit CEmptyCamera(ID3D11Device* pDevice, ID3D11DeviceContext* pDevice_Context);
 	explicit CEmptyCamera(const CCamera& rhs);
@@ -19,6 +26,7 @@ public:
 
 public:
 	PROPERTY(GetIsMove, SetIsMove) _bool p_isMove;
+	PROPERTY(GetMovie, SetMovie) MOVIE p_Moive;
 	PROPERTY(GetMoveTime, SetMoveTime) _float p_moveTime;
 	PROPERTY(GetSrcPosition, SetSrcPosition) _float3 p_srcPosition;
 	PROPERTY(GetSrcLookPosition, SetSrcLookPosition) _float3 p_srcLookPosition;
@@ -32,6 +40,7 @@ public:
 	virtual void Free();
 public:
 	void SetIsMove(_bool _move) { m_bIsMove = _move; }
+	void SetMovie(MOVIE _movie) { m_eMovie = _movie; }
 	void SetMoveTime(_float _time) { m_fMoveTime = _time; }
 	void SetSrcPosition(_float3 _pos) { m_vSrcPosition = _pos; }
 	void SetSrcLookPosition(_float3 _pos) { m_vSrcLookPosition = _pos; }
@@ -39,6 +48,7 @@ public:
 	void SetDestLookPosition(_float3 _pos) { m_vDestLookPosition = _pos; }
 public:
 	_bool GetIsMove() { return m_bIsMove; }
+	MOVIE GetMovie() { return m_eMovie; }
 	_float GetMoveTime() { return m_fMoveTime; }
 	_float3 GetSrcPosition() { return m_vSrcPosition; }
 	_float3 GetSrcLookPosition() { return m_vSrcLookPosition; }
@@ -46,14 +56,15 @@ public:
 	_float3 GetDestLookPosition() { return m_vDestLookPosition; }
 private:
 	_bool	m_bIsMove = false;
+	MOVIE	m_eMovie = MOVIE_Y;
 private:
 	_float	m_fMoveTime = 0.f;
 	_float	m_fMoveDelta = 0.f;
 private:
-	_float3	m_vSrcPosition{};
-	_float3	m_vDestPosition{};
-	_float3	m_vSrcLookPosition{};
-	_float3	m_vDestLookPosition{};
+	_float3	m_vSrcPosition = { 0.f,0.f ,0.f };
+	_float3	m_vDestPosition = { 0.f,0.f ,0.f };
+	_float3	m_vSrcLookPosition = { 0.f,0.f ,0.f };
+	_float3	m_vDestLookPosition = { 0.f,0.f ,0.f };
 };
 
 END

@@ -12,6 +12,9 @@ CameraManager::CameraManager()
 _int CameraManager::Update(_double dDeltaTime)
 {
 	_int idx = 0;
+	if (m_iCurActiveCamera >= m_vecCamera.size()) {
+		m_iCurActiveCamera = 0;
+	}
 	for (auto& iter : m_vecCamera) {
 		if (idx == m_iCurActiveCamera)
 			iter->OnCamera();

@@ -41,8 +41,8 @@ public:
 //public:
 //	void SetRolling(_bool result) { m_bRolling = result; }
 public:
-	void	OnCamera() { m_bIsActive = true; }
-	void	OffCamera() { m_bIsActive = false; }
+	void	OnCamera() { m_bIsUse = true; }
+	void	OffCamera() { m_bIsUse = false; }
 protected:
 	class CTransform*			m_pTransformCom = nullptr;
 	class CPipeline*			m_pPipeline = nullptr;
@@ -50,7 +50,7 @@ protected:
 	CAMERADESC					m_CameraDesc;
 
 protected:
-	_bool						m_bRolling = true;
+	_bool						m_bIsUse = true;
 	_float						m_fov = 45.f;
 	mutable	_float				m_constFov = 45.f;
 
