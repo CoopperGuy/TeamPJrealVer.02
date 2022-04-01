@@ -95,7 +95,7 @@ GameObjects:
       Equipment: true
     RenderGroup: 1
     FrustumRange: 5000
-  - Name: Axe
+  - Name: RedAxe
     UUID: 12359380860843280545
     Active: true
     Layer: Default
@@ -115,10 +115,138 @@ GameObjects:
       Offset: [-0.0500000007, 0.200000003, -0.0199999996]
       CollisionType: 1
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Weapon\Axe\
-      MeshFileName: Axe01.fbx
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Weapon\RedAxe\
+      MeshFileName: RedAxe.fbx
       HasCollider: false
       Equipment: false
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: NoviceAxe
+    UUID: 7070592919805793268
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0.100000001, 0.100000001, 0.100000001]
+      Size: [0.349999994, 0.200000003, 0.200000003]
+      IsAttach: false
+      BoneName: ""
+      Offset: [-0.0500000007, 0.119999997, -0.0199999996]
+      CollisionType: 1
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Weapon\NoviceAxe\
+      MeshFileName: NoviceAxe.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: GoldAxe
+    UUID: 16941634311098207806
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 1
+    Com_Transform:
+      Translation: [-0.36126551, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_OBB:
+      Center: [0.100000001, 0.100000001, 0.100000001]
+      Size: [0.319999993, 0.280000001, 0.200000003]
+      IsAttach: false
+      BoneName: ""
+      Offset: [-0.0350000001, 0.109999999, -0.0199999996]
+      CollisionType: 8
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Weapon\GoldAxe\
+      MeshFileName: GoldAxe.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: PlateHelmet
+    UUID: 13740799227708094368
+    Active: true
+    Layer: Layer_PlateHelmet
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\PlateHelmet\
+      MeshFileName: PlateHelmet.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: LeatherHelmet
+    UUID: 16809167717785159616
+    Active: true
+    Layer: Layer_LeatherHelmet
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Leather\LeatherHelmet\
+      MeshFileName: LeatherHelmet.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: JusinArmor
+    UUID: 346333773580454439
+    Active: true
+    Layer: Layer_JusinArmor
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Jusin\JusinArmor\
+      MeshFileName: JusinArmor.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: JusinBoots
+    UUID: 8670754222909527051
+    Active: true
+    Layer: Layer_JusinBoots
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Jusin\JusinBoots\
+      MeshFileName: JusinBoots.fbx
+      HasCollider: false
+      Equipment: true
     RenderGroup: 1
     FrustumRange: 5000
   - Name: Gauntlet
@@ -136,6 +264,63 @@ GameObjects:
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Equip\PlateGlove\
       MeshFileName: Gauntlet.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: JusinGlove
+    UUID: 4361705162581976191
+    Active: true
+    Layer: Layer_JusinGlove
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Jusin\JusinGlove\
+      MeshFileName: JusinGlove.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: JusinHelmet
+    UUID: 3781402386141001500
+    Active: true
+    Layer: Layer_JusinHelmet
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Jusin\JusinHelmet\
+      MeshFileName: JusinHelmet.fbx
+      HasCollider: false
+      Equipment: true
+    RenderGroup: 1
+    FrustumRange: 5000
+  - Name: JusinLower
+    UUID: 6313453176847265023
+    Active: true
+    Layer: Layer_JusinLower
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Equip\Jusin\JusinLower\
+      MeshFileName: JusinLower.fbx
       HasCollider: false
       Equipment: true
     RenderGroup: 1

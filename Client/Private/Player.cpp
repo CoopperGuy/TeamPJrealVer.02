@@ -29,6 +29,8 @@
 #include "Armor.h"
 #include "Boots.h"
 #include "Lower.h"
+#include "Helmet.h"
+#include "Axe.h"
 #pragma endregion
 
 #pragma region Collider
@@ -142,6 +144,8 @@ HRESULT CPlayer::Initialize()
 	m_iSkill[2] = (_uint)Player_State::WarCry;
 	m_iSkill[3] = (_uint)Player_State::Chop_Start;
 
+	m_pEquip[(_uint)Equip::Weapon] = CAxe::Create(nullptr);
+	m_pEquip[(_uint)Equip::Helm] = CHelmet::Create();
 	m_pEquip[(_uint)Equip::Glove] = CGlove::Create();
 	m_pEquip[(_uint)Equip::Armor] = CArmor::Create();
 	m_pEquip[(_uint)Equip::Boots] = CBoots::Create();
@@ -257,23 +261,11 @@ void CPlayer::Update(_double dDeltaTime)
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 	{
-		if (!m_bEvade)
-		{
-			if(!m_bOnlyDown)
-				m_bHit = true;
-		}
-	}
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	{
-		if (!m_bEvade)
-		{
-			if (!m_bSuperArmor)
-			{
-				m_fJumpSpeed = 0.01f;
-				m_bDown = true;
-				m_bHit = false;
-			}
-		}
+		SetUpEquip("JusinArmor");
+		SetUpEquip("JusinBoots");
+		SetUpEquip("JusinGlove");
+		SetUpEquip("JusinLower");
+		SetUpEquip("JusinHelmet");
 	}
 
 	SlowMotion(dDeltaTime);
@@ -1210,6 +1202,11 @@ void CPlayer::SetUpEquip(string Name)
 		EQUIPTYPE _equipType = EQUIPTYPE::TYPE_END;
 		switch (Info.equipType)
 		{
+		case EQUIPTYPE::WEAPON:
+			i = 9;
+			_equipType = EQUIPTYPE::CHEST;
+			Equip_OnOff(Equip::Weapon, Name, i);
+			break;
 		case EQUIPTYPE::CHEST:
 			i = 0;
 			_equipType = EQUIPTYPE::CHEST;
@@ -1252,16 +1249,21 @@ void CPlayer::SetUpEquip(string Name)
 
 void CPlayer::Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial)
 {
-	_bool bCheck = m_pEquip[(_uint)eEquipType]->Set_ModelCom(Name);
+	_bool bCheck = false;
+	if (eEquipType == Equip::Weapon)
+		static_cast<CAxe*>(m_pEquip[(_uint)Equip::Weapon])->Set_Component(Name);
+	else
+		bCheck = m_pEquip[(_uint)eEquipType]->Set_ModelCom(Name);
 
 	if (bCheck)
 	{
 		if (m_pEquip[(_uint)eEquipType]->Get_GameObj()->GetActive())
 		{
-			//if(eEquipType != Equip::Armor)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
+			if (eEquipType != Equip::Helm)
+				static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
 		}
-		else {
+		else 
+		{
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, true);
 		}
 	}

@@ -1,12 +1,12 @@
 #pragma once
-#include "IScriptObject.h"
+#include "Equipment.h"
 #include "Engine.h"
 #include "Player.h"
 
 
 BEGIN(Client)
 
-class CAxe : public IScriptObject
+class CAxe : public CEquipment
 {
 public:
 	explicit CAxe();
@@ -34,30 +34,28 @@ private:
 	_fmatrix Remove_ScaleRotation(_fmatrix _srcmatrix);
 public:
 	void Set_DrawTrail() { m_DrawTrail = true; }
-
+	_bool Set_Component(string name);
 public:
 	void Set_TrailOnOff();
 
 
 private:
 	CGameObject*	pPlayer				= nullptr;
-	CGameObject*	 pAxe				 = nullptr;
+
 private:
-	CTransform*		m_pTransform		= nullptr;
-	CTransform*		m_pTargetTransform  = nullptr;
-	CModel*			m_pTargetModel		= nullptr;
-	CCollider*		m_pCollider			= nullptr;
-	CModel*			m_pModel			= nullptr;
-private:
-	CVIBuffer_Trail* m_pTrailBuffer			= nullptr;
+	CVIBuffer_Trail* m_pTrailBuffer		= nullptr;
+
 private:
 	class CBasicCollider* m_pOBB = nullptr;
+
 private:
 	_bool			m_bcheck = true;
 	_bool			m_bDamageCheck = false;
 	_bool			m_DrawTrail = false;
+
 private:
 	_bool			m_effectCreate[(_int)Player_State::Player_End];
+
 private:
 	_float4x4 m_matRightBone = {};
 

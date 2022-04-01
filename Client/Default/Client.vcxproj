@@ -227,6 +227,7 @@
     </ClInclude>
     <ClInclude Include="..\Public\FootHammer_Bomb.h" />
     <ClInclude Include="..\Public\FootHammer_Decal.h" />
+    <ClInclude Include="..\Public\Helmet.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -259,7 +260,6 @@
     <ClInclude Include="..\Public\FlogasDunDoor.h" />
     <ClInclude Include="..\public\Gold.h" />
     <ClInclude Include="..\public\Glove.h" />
-    <ClInclude Include="..\public\GoldAxe.h" />
     <ClInclude Include="..\Public\Grid.h" />
     <ClInclude Include="..\public\HpBar.h" />
     <ClInclude Include="..\public\Idle_Player.h" />
@@ -423,8 +423,8 @@
     <ClCompile Include="..\Private\FootHammer_Decal.cpp" />
     <ClCompile Include="..\private\Gold.cpp" />
     <ClCompile Include="..\private\Glove.cpp" />
-    <ClCompile Include="..\private\GoldAxe.cpp" />
     <ClCompile Include="..\Private\Grid.cpp" />
+    <ClCompile Include="..\Private\Helmet.cpp" />
     <ClCompile Include="..\private\HpBar.cpp" />
     <ClCompile Include="..\private\Idle_Player.cpp" />
     <ClCompile Include="..\private\ImpactBeam.cpp" />

@@ -45,6 +45,7 @@ protected:
 	string		m_EquipPath{};
 protected:
 	_bool		m_bisEquip = false;
+	_bool		m_bWeapon = false;
 };
 
 END

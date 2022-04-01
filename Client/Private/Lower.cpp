@@ -18,6 +18,7 @@ HRESULT CLower::Initialize()
 
 	Add_EquipList("LeatherLower");
 	Add_EquipList("PlateLower");
+	Add_EquipList("JusinLower");
 
 	return S_OK;
 }
