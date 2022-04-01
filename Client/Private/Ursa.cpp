@@ -120,7 +120,7 @@ void CUrsa::Update(_double dDeltaTime)
 
 	m_fDist = SetDistance();
 
-	TestAnimation(Flying_End);
+	//TestAnimation(Flying_End);
 	Checking_Phase(dDeltaTime);
 	if (m_bCombat[First])
 	{
@@ -128,23 +128,13 @@ void CUrsa::Update(_double dDeltaTime)
 			Adjust_Dist(dDeltaTime);
 	}
 
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bCombat[First] = true;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		Roar();
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bCombat[Second] = true;
-		m_bCombat[First] = false;
-	}
 	Execute_Pattern(dDeltaTime);
 
-	/*if(!m_bWheelWind && !m_bRoar)*/
-	Checking_Finished();
+	//if(!m_bWheelWind /*&& !m_bRoar*/)
+		Checking_Finished();
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+	/*if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
 	{
 		m_eState = IDLE01;
 		m_fDist = SetDistance();
@@ -152,8 +142,7 @@ void CUrsa::Update(_double dDeltaTime)
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
 		m_eState = CB_Start;
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = ROAR_Casting;
-
+		m_eState = ROAR_Casting;*/
 
 
 	if (m_bCB)
@@ -175,6 +164,8 @@ void CUrsa::Update(_double dDeltaTime)
 
 	Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
+	if (!None_Combat())
+		CatchUpToLook(dDeltaTime);
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -586,6 +577,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -597,6 +589,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -607,6 +600,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Big_SLASH);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
@@ -621,6 +615,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -633,6 +628,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -643,6 +639,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -653,11 +650,13 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 4:
+					m_LerpTime = 0.0;
 					m_QueState.push(Big_SLASH);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 5:
+					m_LerpTime = 0.0;
 					m_QueState.push(AXE_STAMP);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
@@ -675,6 +674,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -685,6 +685,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -695,6 +696,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -708,6 +710,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 4:
+					m_LerpTime = 0.0;
 					if (m_bAddRand)
 						m_QueState.push(Big_SLASH);
 					else
@@ -716,6 +719,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 5:
+					m_LerpTime = 0.0;
 					if (m_bAddRand)
 						m_QueState.push(AXE_STAMP);
 					else
@@ -729,6 +733,7 @@ void CUrsa::SetUp_Combo()
 				case 6:
 					if (m_bAddRand)
 					{
+						m_LerpTime = 0.0;
 						m_QueState.push(PUMMEL_1);
 						m_QueState.push(PUMMEL_2);
 						vTargetLook = XMVectorSetY(vTargetLook, 0.f);
@@ -759,6 +764,7 @@ void CUrsa::Checking_Finished()
 				}
 				if (!None_Combat())
 				{
+					m_LerpTime = 0.0;
 					if (m_QueState.empty())
 						m_bFinishBlow = true;
 				}
@@ -775,11 +781,11 @@ void CUrsa::Checking_Finished()
 				{
 					m_eState = m_QueState.front();
 					m_QueState.pop();
-
 				}
 			}
 			if (!None_Combat())
 			{
+				m_LerpTime = 0.0;
 				if (m_QueState.empty())
 					m_bFinishBlow = true;
 			}
@@ -794,6 +800,7 @@ void CUrsa::Checking_Finished()
 			}
 			if (!None_Combat())
 			{
+				m_LerpTime = 0.0;
 				if (m_QueState.empty())
 					m_bFinishBlow = true;
 			}
@@ -1395,5 +1402,14 @@ void CUrsa::Create_Trail()
 	pLeftTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
 	m_pRightTrailBuffer = static_cast<CVIBuffer_Trail*>(pRightTrail->GetComponent("Com_Trail"));
 	m_pLeftTrailBuffer = static_cast<CVIBuffer_Trail*>(pLeftTrail->GetComponent("Com_Trail"));
+}
+
+void CUrsa::CatchUpToLook(_double dDeltaTime)
+{
+	_vector vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
+	_vector vTargetToLook = XMLoadFloat3(&m_vTargetToLook);
+	_float ratio = (_float)m_LerpTime / (_float)m_pModel->Get_AnimTime() * 0.3f;
+	m_pTransform->SetLook(XMVectorLerp(vLook, vTargetToLook, ratio));
+	m_LerpTime += dDeltaTime;
 }
 
