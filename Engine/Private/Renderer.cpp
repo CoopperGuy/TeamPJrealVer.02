@@ -281,9 +281,9 @@ HRESULT CRenderer::DrawRenderGroup()
 	}
 
 	if (m_bDebuger) {
-		/*if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+		/*if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
 			return E_FAIL;*/
-		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
 			return E_FAIL;
 	}
 	
