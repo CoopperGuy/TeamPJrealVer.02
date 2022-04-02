@@ -134,10 +134,9 @@ void CUrsa::Update(_double dDeltaTime)
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
 	{
 		m_eState = IDLE01;
-		m_fDist = SetDistance();
 	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = ROAR_Start;
+		m_eState = Combo_1;
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
 	//	m_eState = ROAR_Start;
 
@@ -1323,7 +1322,8 @@ void CUrsa::Hit(_double dDeltaTime)
 
 	//if (m_fMKB >= 0.2f) {
 	if (m_pOBB->Get_isHit()) {
-
+		CEngine::GetInstance()->PlaySoundW("Blood.mp3", CHANNELID::ENEMY18);
+		CEngine::GetInstance()->PlaySoundW("UrsaHit.ogg", CHANNELID::ENEMY19);
 
 		_matrix Translation;
 		_int random = rand() % 7;

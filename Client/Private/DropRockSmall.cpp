@@ -42,15 +42,15 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		m_pTransform->SetScale(_float3(randomX * 0.001f, randomX * 0.001f, randomX * 0.001f));
 
 
-		int random = rand() % 3;
-		if (random == 0) {
-			CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_DropDust", "E_DropDust");
-			CEngine::GetInstance()->AddScriptObject(CEffectDropRockDust::Create(EffectRockDust, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+		//int random = rand() % 3;
+		//if (random == 0) {
+		//	/*CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_DropDust", "E_DropDust");
+		//	CEngine::GetInstance()->AddScriptObject(CEffectDropRockDust::Create(EffectRockDust, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());*/
 
-			//_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX));
-			//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
-			//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(offset * m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
-		}
+		//	//_matrix offset = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + (randomX));
+		//	//auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UrsaeDust");
+		//	//CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, m_pTransform->Remove_ScaleRotation(offset * m_pTransform->GetWorldMatrix())), CEngine::GetInstance()->GetCurSceneNumber());
+		//}
 	}
 	return S_OK;
 }

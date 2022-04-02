@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_UDust
-    UUID: 16811550305882506159
+    UUID: 15273011022123974632
     Active: true
     Layer: Default
     Type: Effect
@@ -9,8 +9,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.56185609e-10, 0.300000012, 0]
-      Rotation: [6.5150485, 5.65115881, 0]
-      Scale: [1.19894004, 1.05575407, 0.995306611]
+      Rotation: [10.949523, -6.51686001, -1.07415772e-07]
+      Scale: [1.19457102, 1.05580616, 0.995351613]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -39,14 +39,14 @@ GameObjects:
       OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
     Children:
       - Name: E_UDust
-        UUID: 11699377653818942900
+        UUID: 5388220700258082752
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 18
         BillBord: true
         Com_Transform:
-          Translation: [-0.200000003, 0, 0.790000021]
+          Translation: [-0.200000003, 0, -0.109999999]
           Rotation: [0, -0, 0]
           Scale: [1.29999995, 1, 1]
         Com_VIBuffer:
@@ -76,7 +76,7 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.0649999976, 0.0649999976, 0.0649999976, 0.100000001]
       - Name: E_UDust
-        UUID: 10874119373565274246
+        UUID: 7406337662310796997
         Active: true
         Layer: Default
         Type: Effect
@@ -113,7 +113,7 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.086956501, 0.086956501, 0.086956501, 0.109999999]
       - Name: E_UDust
-        UUID: 17625942043203947304
+        UUID: 8967312394219261612
         Active: true
         Layer: Default
         Type: Effect
@@ -150,14 +150,14 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.0652173758, 0.0652173758, 0.0652173758, 0.109999999]
       - Name: E_UDust
-        UUID: 8877608032152679794
+        UUID: 3530347129675043854
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 18
         BillBord: true
         Com_Transform:
-          Translation: [-0.573862791, 0, -0.730000019]
+          Translation: [-0.573862791, 0, -0.629999995]
           Rotation: [0, -0, 0]
           Scale: [1.20000005, 1, 1]
         Com_VIBuffer:
@@ -187,7 +187,7 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
       - Name: E_UDust
-        UUID: 10986890313834708877
+        UUID: 1726197860440086565
         Active: true
         Layer: Default
         Type: Effect
@@ -224,14 +224,14 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.101449251, 0.101449251, 0.101449251, 0.109999999]
       - Name: E_UDust
-        UUID: 15376438388020320782
+        UUID: 5970297082613345969
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 18
         BillBord: true
         Com_Transform:
-          Translation: [-0.550000012, 0, -0.189999998]
+          Translation: [-0.550000012, 0, -0.289999992]
           Rotation: [0, -0, 0]
           Scale: [1.10000002, 1, 1]
         Com_VIBuffer:
@@ -261,7 +261,7 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.108695626, 0.108695626, 0.108695626, 0.109999999]
       - Name: E_UDust
-        UUID: 10025421525242227875
+        UUID: 14743963376561922311
         Active: true
         Layer: Default
         Type: Effect
@@ -298,14 +298,14 @@ GameObjects:
           SpriteSpeed: 30
           OffsetColor: [0.086956501, 0.086956501, 0.086956501, 0.109999999]
       - Name: E_UDust
-        UUID: 13031814294692866112
+        UUID: 16724553761101829143
         Active: true
         Layer: Default
         Type: Effect
         PassIndex: 18
         BillBord: true
         Com_Transform:
-          Translation: [-0.449999988, 0, 0.349999994]
+          Translation: [-0.449999988, 0, 0.25]
           Rotation: [0, -0, 0]
           Scale: [1.20000005, 1, 1]
         Com_VIBuffer:

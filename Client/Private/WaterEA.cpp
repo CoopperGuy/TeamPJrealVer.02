@@ -83,6 +83,8 @@ void CWaterEA::Set_State(_double dDeltaTime)
 
 		if (keyFrame >= 22 && keyFrame <= 23)
 		{
+			CEngine::GetInstance()->PlaySoundW("WaterEAAtt.mp3", CHANNELID::ENEMY19);
+
 			if (fireballmake < 1  ) {
 				fireballmake += 1;
 				handbone = Remove_ScaleRotation(handbone * m_pTransform->GetWorldMatrix());
