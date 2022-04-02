@@ -835,6 +835,10 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		m_iMakeMeteo = 0;
 		break;
 	case WALK:
+		if (keyFrame == 7 || keyFrame == 17)
+		{
+			//CEngine::GetInstance()->PlaySoundW();
+		}
 		break;
 	case RUN:
 		break;

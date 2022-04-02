@@ -115,11 +115,16 @@ void CEl_Flogas::Update(_double dDeltaTime)
 						//CEngine::GetInstance()->AddScriptObject(CElement_Bomb::Create((CEmptyEffect*)pGameObject, m_pGameObject, *this, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
 						CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Bomb_Center", "E_Bomb_Center");
 						CEngine::GetInstance()->AddScriptObject(CBomb_Center::Create((CEmptyEffect*)pGameObject, m_pTransform, *this), CEngine::GetInstance()->GetCurSceneNumber());
+						CEngine::GetInstance()->PlaySoundW("Element_Flogas.ogg", ENEMY20);
+						CEngine::GetInstance()->PlaySoundW("Fire.mp3", ENEMY21);
+
 					}
 					m_dExplosionTime += dDeltaTime;
 
 					if (m_dExplosionTime > 3.0)
 					{
+						CEngine::GetInstance()->StopSound(ENEMY20);
+						CEngine::GetInstance()->PlaySoundW("ExplosionStart.mp3", ENEMY20);
 						m_bDeadMotion = true;
 						m_bExplosion = false;
 						m_dExplosionTime = 0.0;

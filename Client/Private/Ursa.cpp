@@ -943,7 +943,11 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::DASH_ATT: {
 		if (keyFrame >= 42 && keyFrame <= 70)
+		{
+		}
+
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
+
 		if (keyFrame >= 50 && keyFrame <= 70)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
