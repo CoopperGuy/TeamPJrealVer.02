@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Line.h"
+BEGIN(Engine)
 
 class CDebugCapsule	: public CLine
 {
@@ -39,3 +40,4 @@ private:
 	_bool m_bInit = false;
 };
 
+END

@@ -67,6 +67,8 @@ HRESULT CUrsa::Initialize(_float3 position)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pLeftWeapon = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+	m_pRightWeapon = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB2"));
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
@@ -145,8 +147,7 @@ void CUrsa::Update(_double dDeltaTime)
 	if (m_bCB)
 		SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
-	m_pStat->SetSTATE(m_eCurSTATES);
-
+	m_pLeftWeapon->p_States = m_eCurSTATES;
 	if (m_pCollider)
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 
@@ -172,7 +173,7 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime);
 
 	_matrix OffsetMatrix = XMMatrixIdentity();
-	XMMatrixTranslation(0.f, 0.05, -0.4);
+	XMMatrixTranslation(0.f, 0.05f, -0.4f);
 
 	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
 	XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
@@ -916,7 +917,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	
 	m_pRightTrailBuffer->SetIsActive(false);
 	m_pLeftTrailBuffer->SetIsActive(false);
-	m_eCurSTATES = CStat::STATES_IDEL;
+	m_eCurSTATES = CBasicCollider::STATES_IDEL;
 	switch (m_eState)
 	{
 	case Client::CUrsa::IDLE02:
@@ -943,7 +944,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::DASH_ATT: {
 		if (keyFrame >= 42 && keyFrame <= 70)
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		if (keyFrame >= 50 && keyFrame <= 70)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -951,7 +952,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		_matrix ArmTwist = m_pModel->Get_BoneWithoutOffset("Bip01-RUpArmTwist");
 		_matrix Offset = XMMatrixTranslation(-0.1f, 0.3f, 0.2f);
-		ArmTwist = Remove_ScaleRotation(Offset */*ArmTwist**/ m_pTransform->GetWorldMatrix());
+		ArmTwist = Remove_ScaleRotation(Offset * m_pTransform->GetWorldMatrix());
 
 		if (keyFrame == 48 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
@@ -976,14 +977,14 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame >= 9 && keyFrame <= 29)
 		{
 			m_pLeftTrailBuffer->SetIsActive(true);
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		}
 		break;
 	case Client::CUrsa::R_SLASH:
 		if (keyFrame >= 20 && keyFrame <= 34)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		}
 		break;
 	case Client::CUrsa::Combo_1Start:		
@@ -992,7 +993,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::Combo_1:
 		if (keyFrame >= 16 && keyFrame <= 23)
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		if (keyFrame >= 6 && keyFrame <= 27)
 			m_pRightTrailBuffer->SetIsActive(true);	
 	{
@@ -1032,7 +1033,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::Combo_2Start: 
 		if (keyFrame >= 36 && keyFrame <= 41)
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		if (keyFrame >= 24 && keyFrame <= 49)
 			m_pLeftTrailBuffer->SetIsActive(true);		
 	{
@@ -1073,7 +1074,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::Combo_3Start:
 		if (keyFrame >= 6 && keyFrame <= 20)
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		if (keyFrame >= 8)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -1085,7 +1086,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_4Start:
 		if (keyFrame >= 7 && keyFrame <= 20)
 		{
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_pRightTrailBuffer->SetIsActive(true);
 			m_pLeftTrailBuffer->SetIsActive(true);
 		}
@@ -1143,7 +1144,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		_matrix ArmTwist = m_pModel->Get_BoneWithoutOffset("Bip01-RUpArmTwist");
 		_matrix Offset = XMMatrixTranslation(-0.1f, 0.3f, 0.2f);
-		ArmTwist = Remove_ScaleRotation(Offset */*ArmTwist**/ m_pTransform->GetWorldMatrix());
+		ArmTwist = Remove_ScaleRotation(Offset * m_pTransform->GetWorldMatrix());
 
 		if (keyFrame == 14 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;

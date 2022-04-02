@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\TestMonster.h"
-
+#include "BasicCollider.h"
 USING(Client)
 
 CTestMonster::CTestMonster()
@@ -19,6 +19,8 @@ HRESULT CTestMonster::Initialize()
 	m_pThisObj = static_cast<CEmptyGameObject*>(pEngine->FindGameObjectWithName(pEngine->GetCurSceneNumber(), "testMonster"));
 	m_pThisModel = static_cast<CModel*>(m_pThisObj->GetComponent("Com_Model"));
 	m_pThisStat = static_cast<CStat*>(m_pThisObj->GetComponent("Com_Stat"));
+	m_pWeapon = static_cast<CBasicCollider*>(m_pThisObj->GetComponent("Com_OBB1"));
+
 	m_pThisModel->SetAnimationLoop(0, true);
 	return S_OK;
 }
@@ -26,12 +28,12 @@ HRESULT CTestMonster::Initialize()
 void CTestMonster::Update(_double deltaTime)
 {
 	m_pThisModel->Play_Animation(deltaTime);
-	m_eCurSTATES = CStat::STATES_ATK;
+	m_pWeapon->p_States = CBasicCollider::STATES_ATK;
 }
 
 void CTestMonster::LateUpdate(_double dDeltaTime)
 {
-	m_pThisStat->SetSTATE(m_eCurSTATES);
+	m_pWeapon->p_States = m_eCurSTATES;
 }
 
 void CTestMonster::Render()

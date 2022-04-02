@@ -60,7 +60,6 @@ void CEl_Flogas::Update(_double dDeltaTime)
 {
 	_vector vTargetPos, vPos, vDist;
 	_float fLen;
-	m_pStat->SetSTATE(m_eCurSTATES);
 	vTargetPos = XMLoadFloat3(&m_vTargetPos);
 	vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 	vDist = vTargetPos - vPos;

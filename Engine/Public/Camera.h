@@ -9,19 +9,19 @@ class ENGINE_DLL CCamera abstract : public CGameObject
 public:
 	typedef struct tagCameraDesc
 	{
-		/* ì¹´ë©”ë¼ ë³µì œë³¸ì—ê²Œ í•„ìš”í•œ ì •ë³´ë“¤. */
+		/* Ä«¸Ş¶ó º¹Á¦º»¿¡°Ô ÇÊ¿äÇÑ Á¤º¸µé. */
 		_float3		vEye;
 		_float3		vAt;
 		_float3		vAxisY = _float3(0.f, 1.f, 0.f);
 		CTransform::TRANSFORMDESC		TransformDesc;
 
-		///* íˆ¬ì˜ê´€ë ¨ ì •ë³´. */
+		///* Åõ¿µ°ü·Ã Á¤º¸. */
 		//_float		fAspect;
 		//_float		fFovy;
 		//_float		fNear;
 		//_float		fFar;
 
-		///* ì¹´ë©”ë¼ì˜ íŠ¸ëœìŠ¤í¼ì—ê²Œ í•„ìš”í•œ ì •ë³´. */
+		///* Ä«¸Ş¶óÀÇ Æ®·£½ºÆû¿¡°Ô ÇÊ¿äÇÑ Á¤º¸. */
 		//CTransform::STATEDESC			StateDesc;
 
 	}CAMERADESC;
@@ -33,7 +33,7 @@ protected:
 	virtual ~CCamera() = default;
 
 public:
-	/* ì›í˜•ê°ì²´ë¥¼ ì´ˆê¸°í™”í•˜ë‚Ÿ. */
+	/* ¿øÇü°´Ã¼¸¦ ÃÊ±âÈ­ÇÏ³®. */
 	virtual HRESULT InitializePrototype();
 	virtual HRESULT Initialize(void* pArg);
 	virtual _uint Update(_double TimeDelta);

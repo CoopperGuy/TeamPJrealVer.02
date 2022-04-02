@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 //#include "..\Public\DarkKnight.h"
 //#include "StateMachine.h"
 //#include "BasicCollider.h"
