@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
-  - Name: E_SoilDecal
-    UUID: 1252582048591764389
+  - Name: E_ROARDecal
+    UUID: 4703849150176159675
     Active: true
     Layer: Default
     Type: Effect
@@ -10,12 +10,12 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.5, 0.5, 0.5]
+      Scale: [1, 0.100000001, 1]
     Com_Decal:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\Dust2.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDecal\FX_Crack_003.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\DooDecal\FX_Crack_007_TEX_KKJ.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -26,14 +26,14 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 0.5
-      FadeOutStratTime: 0.5
+      FadeOutDuration: 0.699999988
+      FadeOutStratTime: 1
       FadeIn: true
-      FadeInDuration: 0.300000012
+      FadeInDuration: 0.699999988
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 1.70000005
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.311594188, 0.17386052, 0.17386052, 0]
+      OffsetColor: [1, 1, 1, 0.270000011]

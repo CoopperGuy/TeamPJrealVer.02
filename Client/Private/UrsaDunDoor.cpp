@@ -71,6 +71,11 @@ void CUrsaDunDoor::Update(_double deltaTime)
 	if (m_bOpenDoor)
 	{
 		if (MaxHight >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
+			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
+			CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::MAPOBJ);
+
+			cout << doorY << endl;
+
 			doorY += 0.2f * (_float)deltaTime;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pUrsaDunDoor),doorY,XMVectorGetZ(pUrsaDunDoor) });
 
@@ -95,6 +100,7 @@ void CUrsaDunDoor::Update(_double deltaTime)
 
 	if (m_bCloseDoor)
 	{
+		CEngine::GetInstance()->StopSound(CHANNELID::MAPOBJ);
 		m_bOpenDoor = false;
 		closedoordt += deltaTime;
 

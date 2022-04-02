@@ -54,7 +54,7 @@ void CEffectUrsaPajangMesh::Update(_double deltaTime)
 		return;
 
 	StartScail.x += 0.2f;
-	StartScail.z += 0.2f;
+	StartScail.y += 0.2f;
 
 	for (auto iter : childList)
 	{

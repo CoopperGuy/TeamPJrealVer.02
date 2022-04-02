@@ -16,6 +16,8 @@
 #include "EffectDustWh.h"
 #include "EffectUrsaPajang.h"
 #include "EffectUrsaPajangMesh.h"
+#include "EffectSoilDecal.h"
+#include "EffectRockDecal.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -1187,11 +1189,19 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 10.f);
 
 		if (keyFrame == 86) {
-			CGameObject* PajangEff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangDecal", "E_UrsaPajang");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajang::Create(PajangEff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+			CGameObject* Eff = nullptr;
 
-			CGameObject* PajangMesh = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangMesh", "E_UrsaPajangMesh");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajangMesh::Create(PajangMesh, pos), CEngine::GetInstance()->GetCurSceneNumber());
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangDecal", "E_UrsaPajang");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajang::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangMesh", "E_UrsaPajangMesh");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajangMesh::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_ROARDecal", "E_ROARDecal");
+			CEngine::GetInstance()->AddScriptObject(CEffectRockDecal::Create(Eff,pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_Ring", "E_UrsRing");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaWind::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 
 	}
