@@ -61,6 +61,7 @@ void CSound::PlaySound(string pSoundKey, CHANNELID eID)
 	{
 		FMOD_System_PlaySound(m_pSystem, iter->second, nullptr, FALSE, &m_pChannelArr[eID]);
 	}
+
 	FMOD_System_Update(m_pSystem);
 }
 
@@ -91,6 +92,13 @@ void CSound::StopAll()
 {
 	for (int i = 0; i < MAXCHANNEL; ++i)
 		FMOD_Channel_Stop(m_pChannelArr[i]);
+}
+
+void CSound::SetVolume(float volume, CHANNELID eID)
+{
+	FMOD_Channel_SetVolume(m_pChannelArr[eID], volume);
+
+	FMOD_System_Update(m_pSystem);
 }
 
 

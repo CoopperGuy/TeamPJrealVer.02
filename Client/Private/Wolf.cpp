@@ -238,6 +238,12 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 			else {
 				//WolfLookPlayer();
 				m_bMove = false;
+
+				if (keyFrame >= 42)
+				{
+					CEngine::GetInstance()->PlaySoundW("WolfAtt.mp3", CHANNELID::ENEMY);
+					CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY);
+				}
 			}
 		}
 		break;

@@ -2,6 +2,7 @@
 #include "..\Public\FlogasDunDoor.h"
 #include "PortalUI.h"
 #include "Sound.h"
+#include "EventCheck.h"
 USING(Client)
 
 CFlogasDunDoor::CFlogasDunDoor()
@@ -50,9 +51,17 @@ void CFlogasDunDoor::Update(_double deltaTime)
 				m_bOpenDoor = true;
 		}
 		if (m_bOpenDoor && MaxHight >= XMVectorGetY(pFlogasDunDoor)) {
+
 			m_pAlretUI->SetActive(false);
-			CEngine::GetInstance()->PlaySoundW("../SeoSound/DGDoor.mp3", CHANNELID::MAPOBJ);
+			deltatimeee += deltaTime;
+			//cout << deltaTime << endl;
+
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 7, 0.06f);
+			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
+			CEngine::GetInstance()->SetVolume(0.3f, CHANNELID::MAPOBJ);
 			doorY += 0.2f * (_float)deltaTime;
+
+			//cout << doorY << endl;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pFlogasDunDoor),doorY,XMVectorGetZ(pFlogasDunDoor) });
 
 		}

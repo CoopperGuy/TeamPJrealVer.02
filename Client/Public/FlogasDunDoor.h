@@ -25,9 +25,12 @@ private:
 
 	_vector pFlogasDunDoor = {};
 
-	_float MaxHight = 2.f;
+	_float MaxHight = 1.f;
 	_float MinHight = 0.f;
 	_float doorY;
+
+	_double deltatimeee = 0;
+
 
 
 public:
