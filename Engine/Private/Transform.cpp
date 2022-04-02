@@ -39,7 +39,6 @@ void CTransform::SetLook(_fvector vDirection)
 	SetState(CTransform::STATE_RIGHT, vRight);
 	SetState(CTransform::STATE_LOOK, vLook);
 	SetState(CTransform::STATE_UP, vUp);
-
 }
 
 void CTransform::SetScale(_float3 vScale)

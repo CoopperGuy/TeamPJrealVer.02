@@ -373,7 +373,7 @@ void CWolfBoss::BehaviorUpdate(_double dDeltaTime)
 
 void CWolfBoss::CheckAnimFinish()
 {
-	if (m_pModel->Get_isFinished())
+	/*if (m_pModel->Get_isFinished())
 	{
 		switch (m_eState)
 		{
@@ -424,7 +424,7 @@ void CWolfBoss::CheckAnimFinish()
 			SetBehaviorDelay();
 			break;
 		}
-	}
+	}*/
 }
 
 void CWolfBoss::WolfLookPlayer()

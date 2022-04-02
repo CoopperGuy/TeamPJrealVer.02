@@ -91,12 +91,6 @@
     <Filter Include="Buffers">
       <UniqueIdentifier>{2604c2cf-2cbf-4544-93b1-0beb5a2fda68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer">
-      <UniqueIdentifier>{d4cba2c7-b020-45d1-bd99-eaa763bbd8fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\Rect">
-      <UniqueIdentifier>{2ea9e81b-1bb3-4e95-88b4-077aeeb4e5ab}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Utility\02.GameObject\EmptyObject">
       <UniqueIdentifier>{701f2559-62f0-4a9b-b037-41d2daec9b6e}</UniqueIdentifier>
     </Filter>
@@ -106,18 +100,6 @@
     <Filter Include="01.Utility\03.Components\Collider\SphereCollider">
       <UniqueIdentifier>{cc8e8ca0-b595-4b06-ace2-8f3514cb7db7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine">
-      <UniqueIdentifier>{e4ee138d-0fc5-433e-8a14-634e04d74f98}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Sphere">
-      <UniqueIdentifier>{f366b6e2-55cb-4b4b-9a19-4491f441da65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Box">
-      <UniqueIdentifier>{629656b6-379e-4f42-939a-29b15519675c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Capsule">
-      <UniqueIdentifier>{51ae2768-f2b0-4145-b31d-8438da676180}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Utility\03.Components\Collider\BoxCollider">
       <UniqueIdentifier>{e672362d-be1f-45b4-a8b4-4d7e6ac85ac7}</UniqueIdentifier>
     </Filter>
@@ -126,12 +108,6 @@
     </Filter>
     <Filter Include="01.Utility\03.Components\RectTransform">
       <UniqueIdentifier>{3ad9e086-9f34-4d10-8a5e-c6ae60357f63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\RectUI">
-      <UniqueIdentifier>{e0af2ccd-208d-4c3f-bee3-4d37120ce883}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\Terrain">
-      <UniqueIdentifier>{ea0fb18a-0531-4b45-b662-176eb40b26d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Utility\03.Components\Texture">
       <UniqueIdentifier>{70dbd42c-de2e-450b-adbe-11a22ce9f581}</UniqueIdentifier>
@@ -190,29 +166,11 @@
     <Filter Include="99.Defines">
       <UniqueIdentifier>{edae9fc9-d973-47a8-9c0d-b5f682223fd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\RectInstance">
-      <UniqueIdentifier>{239f6e3b-cab2-427f-ad79-df6e90999c80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\PointInstance">
-      <UniqueIdentifier>{8f326a3e-b7a2-4014-a55f-5203220d23a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\Line">
-      <UniqueIdentifier>{3d1ee31d-c97c-408e-b650-9049d37ef230}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Utility\06.RenderTargets">
       <UniqueIdentifier>{614dc949-9e28-4d2f-848b-d01c5667245a}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Utility\06.RenderTargets\Manager">
       <UniqueIdentifier>{cc55947f-09c9-47ef-b268-a14579de8f99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\RectViewport">
-      <UniqueIdentifier>{d1b90eca-0a14-4b91-8f6c-330f89302936}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\LineInstance">
-      <UniqueIdentifier>{b14476d1-7019-432a-8016-36397d935367}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\Cube">
-      <UniqueIdentifier>{0555e5ba-116b-4bbf-858d-b5acdf49c821}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Utility\07.Frustum">
       <UniqueIdentifier>{ac4b5a9d-95da-497c-a5da-e208888dd905}</UniqueIdentifier>
@@ -223,14 +181,8 @@
     <Filter Include="01.Utility\03.Components\Navigation\Cell">
       <UniqueIdentifier>{516c819b-c1b0-40bc-a93a-98b75ed2716c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\Triangle">
-      <UniqueIdentifier>{555f4b5b-31d0-4cf5-b0cd-8832db8c4663}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Utility\03.Components\Effect">
       <UniqueIdentifier>{7b44b3a9-ed8a-427e-8393-15366f01b828}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\RectEffect">
-      <UniqueIdentifier>{d2a1e0ee-2a8c-4e60-8ef6-67511e7b6025}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Utility\02.GameObject\EmptyObject\Effect">
       <UniqueIdentifier>{f33a307d-15ef-4b31-a745-154dc467c774}</UniqueIdentifier>
@@ -243,9 +195,6 @@
     </Filter>
     <Filter Include="01.Utility\03.Components\Model\InsModel">
       <UniqueIdentifier>{48fe2ded-1646-40ff-86bb-784d8f199d74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\ModelInstance">
-      <UniqueIdentifier>{ab0ab66b-c788-4d09-ae88-81f52fd2ce56}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Utility\08.ItemInfoLoader">
       <UniqueIdentifier>{9bf95109-c7ee-4365-b252-b7c41b38d4d3}</UniqueIdentifier>
@@ -286,9 +235,6 @@
     <Filter Include="01.Utility\11.BasicCollider">
       <UniqueIdentifier>{2ec41dee-59dd-4351-94c3-d64434df1397}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\VIBuffer\TrailBuffer">
-      <UniqueIdentifier>{26c08bfb-8d74-4983-9dc7-8aea860687ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Utility\12.AlretManager">
       <UniqueIdentifier>{8b2680b6-0338-433a-b523-1960623d651f}</UniqueIdentifier>
     </Filter>
@@ -309,6 +255,60 @@
     </Filter>
     <Filter Include="01.Utility\02.GameObject\Camera\EmptyCamera\Manager">
       <UniqueIdentifier>{1dc57b7c-9fe1-447b-a53f-333f635b5267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer">
+      <UniqueIdentifier>{d4cba2c7-b020-45d1-bd99-eaa763bbd8fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\Rect">
+      <UniqueIdentifier>{2ea9e81b-1bb3-4e95-88b4-077aeeb4e5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine">
+      <UniqueIdentifier>{e4ee138d-0fc5-433e-8a14-634e04d74f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Sphere">
+      <UniqueIdentifier>{f366b6e2-55cb-4b4b-9a19-4491f441da65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Box">
+      <UniqueIdentifier>{629656b6-379e-4f42-939a-29b15519675c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\DebugLine\Capsule">
+      <UniqueIdentifier>{51ae2768-f2b0-4145-b31d-8438da676180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\RectUI">
+      <UniqueIdentifier>{e0af2ccd-208d-4c3f-bee3-4d37120ce883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\Terrain">
+      <UniqueIdentifier>{ea0fb18a-0531-4b45-b662-176eb40b26d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\RectInstance">
+      <UniqueIdentifier>{239f6e3b-cab2-427f-ad79-df6e90999c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\PointInstance">
+      <UniqueIdentifier>{8f326a3e-b7a2-4014-a55f-5203220d23a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\Line">
+      <UniqueIdentifier>{3d1ee31d-c97c-408e-b650-9049d37ef230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\RectViewport">
+      <UniqueIdentifier>{d1b90eca-0a14-4b91-8f6c-330f89302936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\LineInstance">
+      <UniqueIdentifier>{b14476d1-7019-432a-8016-36397d935367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\Cube">
+      <UniqueIdentifier>{0555e5ba-116b-4bbf-858d-b5acdf49c821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\Triangle">
+      <UniqueIdentifier>{555f4b5b-31d0-4cf5-b0cd-8832db8c4663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\RectEffect">
+      <UniqueIdentifier>{d2a1e0ee-2a8c-4e60-8ef6-67511e7b6025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\ModelInstance">
+      <UniqueIdentifier>{ab0ab66b-c788-4d09-ae88-81f52fd2ce56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.Components\VIBuffer\TrailBuffer">
+      <UniqueIdentifier>{26c08bfb-8d74-4983-9dc7-8aea860687ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

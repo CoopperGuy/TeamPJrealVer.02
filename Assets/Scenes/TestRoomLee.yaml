@@ -255,8 +255,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [-175.984879, 3.72078729, -180]
-      Scale: [0.649886131, 0.708028793, 0.68442595]
+      Rotation: [-166.325455, 7.17004204, 180]
+      Scale: [0.640315533, 0.70637691, 0.67577827]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -298,7 +298,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [4, 0.5, 4]
+      Size: [20, 0.5, 20]
       Angle:
         - 0
         - 0
@@ -320,8 +320,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.0168395545, 1.0680685, 0.160352141]
-      Rotation: [-175.984879, 3.72078729, -180]
-      Scale: [1.66795933, 0.564923525, 1.53852117]
+      Rotation: [-166.325455, 7.17004204, 180]
+      Scale: [1.64336789, 0.564561546, 1.51909685]
     Com_VIBuffer:
       {}
     Effect_Setting:
