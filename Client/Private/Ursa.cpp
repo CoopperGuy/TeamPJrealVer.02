@@ -121,17 +121,10 @@ void CUrsa::Update(_double dDeltaTime)
 
 	m_fDist = SetDistance();
 
-	//TestAnimation(Flying_End);
 	Checking_Phase(dDeltaTime);
-	if (m_bCombat[First])
-	{
-		if (!m_bCB)
-			Adjust_Dist(dDeltaTime);
-	}
-
 	Execute_Pattern(dDeltaTime);
 
-	//if(!m_bWheelWind /*&& !m_bRoar*/)
+	//if(!m_bWheelWind && !m_bRoar)
 		Checking_Finished();
 
 
@@ -144,7 +137,6 @@ void CUrsa::Update(_double dDeltaTime)
 		m_eState = ROAR_Start;
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
 	//	m_eState = ROAR_Start;
-
 
 
 	if (m_bCB)
