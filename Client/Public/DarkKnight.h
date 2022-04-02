@@ -8,7 +8,7 @@ class CDarkKnight : public CEnemy
 {
 public:
 	enum STATE { Walk, SK_SIDESLASH2, SK_RAISING2, SK_SLASH2, SK_STING2, PHASE2_START, PHASE2_LOOP, PHASE2_END, SK_SIDESLASH, SK_SHIELDATTACK, SK_JUMPATTACK, RUN, GROGGY,
-	ENDTRYBATTLE, IDLE, IDLE_BATTLE, GETUP, DOWN_LOOP, DOWN_DEADBODY, DOWN, DMG1, DMG2, DIE, DEADBODY, SLASH, STING, STATE_END };
+	ENDTRYBATTLE, IDLE, IDLE_BATTLE, GETUP, DOWN_LOOP, DOWN_DEADBODY, DOWN, DMG_F, DMG_B, DIE, DEADBODY, SLASH, STING, STATE_END };
 
 private:
 	explicit CDarkKnight();
@@ -58,6 +58,7 @@ private:
 	void Update_Trail(_double dDeltaTime);
 	void Create_Trail();
 	void Hit();
+	_float Calculation_DistanceToPlayer();
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 
@@ -70,7 +71,6 @@ private:
 	CMonHp*	m_pMonHp = nullptr;
 
 private:
-	_float	m_fSpeed = 15.0f;
 	_bool	m_bMove = true;
 
 	// Dissolve
@@ -92,7 +92,7 @@ private:
 	_float m_fBehaviorDelay = 0.f;
 	_float m_fStunDelay = 40.f;
 	_float m_fDist = 0.f;
-	_float m_fSpeed = 0.5f;
+	_float	m_fSpeed = 0.5f;
 private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;

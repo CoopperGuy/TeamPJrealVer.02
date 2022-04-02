@@ -30,6 +30,8 @@ CDarkKnight * CDarkKnight::Create(CGameObject * pObj, _float3 position)
 void CDarkKnight::Free()
 {
 	__super::Free();
+
+	SafeRelease(m_pMonHp);
 }
 
 HRESULT CDarkKnight::Initialize(_float3 position)
@@ -64,8 +66,8 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 	m_pModel->SetAnimationLoop((_uint)STATE::ENDTRYBATTLE, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::GETUP, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::DOWN, false, false);
-	m_pModel->SetAnimationLoop((_uint)STATE::DMG1, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::DMG2, false, true);
+	m_pModel->SetAnimationLoop((_uint)STATE::DMG_F, false, true);
+	m_pModel->SetAnimationLoop((_uint)STATE::DMG_B, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::DIE, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::SLASH, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::STING, false, true);
@@ -102,9 +104,12 @@ void CDarkKnight::Update(_double dDeltaTime)
 		m_pModel->SetUp_AnimationIndex(m_eState);
 
 	}*/
+	Hit();
+	
 	StateUpdate(dDeltaTime);
 	CheckAnimFinish();
 	BehaviorUpdate(dDeltaTime);
+
 
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
@@ -243,7 +248,7 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 	{
 		_int iRand = rand() % 100;
 
-		if (iRand <= 10)
+		if (iRand <= 90)
 		{
 			m_vDestPos = _float3(m_vCreatePos.x + (rand() % 80 - 40) * 0.1f, m_vCreatePos.y, m_vCreatePos.z + (rand() % 80 - 40) * 0.1f);
 			m_fBehaviorTime = (rand() % 20 + 20) * 0.1f;
@@ -259,8 +264,10 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 	}
 	else
 	{
+		m_fDist = Calculation_DistanceToPlayer();
 
-
+		if (m_fDist >= 1.f)
+			m_eState = RUN;
 
 		if (m_bPhase2 == false)
 		{
@@ -272,6 +279,8 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 		{
 
 		}
+
+		//m_bBehavior = true;
 	}
 	/*if (m_bCombat == true && m_bBehavior == false)
 	{	
@@ -345,15 +354,7 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	switch (m_eState)
 	{
 	case Client::CDarkKnight::Walk:
-		m_fBehaviorTime -= (_float)dDeltaTime;
-		_vector vDis = XMVector3Length(XMLoadFloat3(&m_vDestPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
-		
-		if (m_fBehaviorTime <= 0.f || XMVectorGetX(vDis) <= 0.5f)
-		{
-			m_bBehavior = false;
-			m_eState = IDLE;
-			break;
-		}
+		m_fBehaviorTime -= (_float)dDeltaTime;	
 		ChaseTarget(dDeltaTime, m_vDestPos);
 		break;
 	case Client::CDarkKnight::SK_SIDESLASH2:
@@ -375,15 +376,18 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::SK_JUMPATTACK:
 		break;
 	case Client::CDarkKnight::RUN:
+	{
+		_float3 vTargetPos;
+		XMStoreFloat3(&vTargetPos, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+		ChaseTarget(dDeltaTime, vTargetPos);
 		break;
+	}
 	case Client::CDarkKnight::GROGGY:
 		break;
 	case Client::CDarkKnight::ENDTRYBATTLE:
 		break;
 	case Client::CDarkKnight::IDLE:
-		m_fBehaviorTime -= (_float)dDeltaTime;
-		if (m_fBehaviorTime <= 0.f)
-			m_bBehavior = false;
+		m_fBehaviorTime -= (_float)dDeltaTime;		
 		break;
 	case Client::CDarkKnight::IDLE_BATTLE:
 		break;
@@ -395,9 +399,9 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		break;
 	case Client::CDarkKnight::DOWN:
 		break;
-	case Client::CDarkKnight::DMG1:
+	case Client::CDarkKnight::DMG_F:
 		break;
-	case Client::CDarkKnight::DMG2:
+	case Client::CDarkKnight::DMG_B:
 		break;
 	case Client::CDarkKnight::DIE:
 		break;
@@ -455,7 +459,15 @@ void CDarkKnight::CheckAnimFinish()
 		switch (m_eState)
 		{
 		case Client::CDarkKnight::Walk:
+		{
+			_vector vDis = XMVector3Length(XMLoadFloat3(&m_vDestPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
+			if (m_fBehaviorTime <= 0.f || XMVectorGetX(vDis) <= 0.5f)
+			{
+				m_bBehavior = false;
+				m_eState = IDLE;
+			}
 			break;
+		}
 		case Client::CDarkKnight::SK_SIDESLASH2:
 			break;
 		case Client::CDarkKnight::SK_RAISING2:
@@ -477,12 +489,22 @@ void CDarkKnight::CheckAnimFinish()
 		case Client::CDarkKnight::SK_JUMPATTACK:
 			break;
 		case Client::CDarkKnight::RUN:
+		{
+			_vector vDis = XMVector3Length(m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION));
+			if (XMVectorGetX(vDis) < 1.f)
+			{
+				m_bBehavior = false;
+				m_eState = IDLE_BATTLE;
+			}
 			break;
+		}
 		case Client::CDarkKnight::GROGGY:
 			break;
 		case Client::CDarkKnight::ENDTRYBATTLE:
 			break;
 		case Client::CDarkKnight::IDLE:
+			if (m_fBehaviorTime <= 0.f)
+				m_bBehavior = false;
 			break;
 		case Client::CDarkKnight::IDLE_BATTLE:
 			break;
@@ -494,9 +516,13 @@ void CDarkKnight::CheckAnimFinish()
 			break;
 		case Client::CDarkKnight::DOWN:
 			break;
-		case Client::CDarkKnight::DMG1:
+		case Client::CDarkKnight::DMG_F:
+			m_eState = IDLE_BATTLE;
+			m_bBehavior = false;
 			break;
-		case Client::CDarkKnight::DMG2:
+		case Client::CDarkKnight::DMG_B:
+			m_eState = IDLE_BATTLE;
+			m_bBehavior = false;
 			break;
 		case Client::CDarkKnight::DIE:
 			break;
@@ -558,13 +584,33 @@ void CDarkKnight::Create_Trail()
 
 void CDarkKnight::Hit()
 {
-	if (m_pOBB->Get_isHit == true)
+	if (m_pOBB->Get_isHit() == true)
 	{
 		if (m_bCombat == false)
+		{
+			m_fSpeed = 1.f;
 			m_bCombat = true;
+		}
 
+		if (m_eState == IDLE || m_eState == IDLE_BATTLE)
+		{
+			_vector vLook = XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_LOOK));			
+			_vector vDestLook = XMVector3Normalize(m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION));
 
+			if (XMVectorGetX(XMVector3Dot(vLook, vDestLook)) < 0.f)
+				m_eState = DMG_B;
+			else
+				m_eState = DMG_F;
+		}
 	}
+}
+
+_float CDarkKnight::Calculation_DistanceToPlayer()
+{
+	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
+	_vector vTargetPostion = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+	
+	return XMVectorGetX(XMVector3Length(vTargetPostion - vPosition));
 }
 
 void CDarkKnight::ChaseTarget(_double deltaTime, _float3 vTargetPos)
@@ -572,8 +618,8 @@ void CDarkKnight::ChaseTarget(_double deltaTime, _float3 vTargetPos)
 	_float fScale = m_pTransform->GetScale(CTransform::STATE_RIGHT);
 	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 	vPosition = XMVectorSetY(vPosition, 0.f);
-	vPosition = XMVectorSetW(vPosition, 0.f);
-	_vector vTargetPostion = XMVectorSet(vTargetPos.x, vTargetPos.y, vTargetPos.z, 0.f);
+	_vector vTargetPostion = XMVectorSet(vTargetPos.x, vTargetPos.y, vTargetPos.z, 1.f);
+	vTargetPostion = XMVectorSetY(vTargetPostion, 0.f);
 
 	_vector vLook = XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_LOOK));
 	_vector vDestLook = XMVector3Normalize(vTargetPostion - vPosition);
@@ -587,7 +633,7 @@ void CDarkKnight::ChaseTarget(_double deltaTime, _float3 vTargetPos)
 	
 	_float3 vDir;
 	XMStoreFloat3(&vDir, XMVector3Normalize(vLook));
-	m_pController->move(PxVec3(vDir.x, vDir.y, vDir.z) * 0.5f * (_float)deltaTime, 0.0001f, (_float)deltaTime, nullptr);
+	m_pController->move(PxVec3(vDir.x, vDir.y, vDir.z) * m_fSpeed * (_float)deltaTime, 0.0001f, (_float)deltaTime, nullptr);
 
 	m_pTransform->SetState(CTransform::STATE_RIGHT, XMVector3Normalize(vRight) * fScale);
 	m_pTransform->SetState(CTransform::STATE_UP, XMVector3Normalize(vUp) * fScale);
