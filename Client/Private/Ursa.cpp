@@ -18,6 +18,7 @@
 #include "EffectUrsaPajangMesh.h"
 #include "EffectSoilDecal.h"
 #include "EffectRockDecal.h"
+#include "EffectRing.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -1201,7 +1202,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			CEngine::GetInstance()->AddScriptObject(CEffectRockDecal::Create(Eff,pos), CEngine::GetInstance()->GetCurSceneNumber());
 
 			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_Ring", "E_UrsRing");
-			CEngine::GetInstance()->AddScriptObject(CEffectUrsaWind::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CEffectRing::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 
 	}

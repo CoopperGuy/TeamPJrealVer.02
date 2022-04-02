@@ -475,6 +475,9 @@
     <ClInclude Include="..\Public\EffectUrsaPajangMesh.h">
       <Filter>05.Effect\Ursa\Pajang</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectRing.h">
+      <Filter>05.Effect\Ursa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -935,6 +938,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\EffectUrsaPajangMesh.cpp">
       <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectRing.cpp">
+      <Filter>05.Effect\Ursa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
