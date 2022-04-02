@@ -43,6 +43,9 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 	auto EffectFireBall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireBall", "E_EAFireBall");
 	CEngine::GetInstance()->AddScriptObject(m_pEffFire = CEffectEAFire::Create(EffectFireBall, mypos), CEngine::GetInstance()->GetCurSceneNumber());
 
+
+	CEngine::GetInstance()->PlaySoundW("WaterEAAtt6.mp3", CHANNELID::ENEMY12);
+
 	if (m_pEffFire == nullptr)
 		return E_FAIL;
 
@@ -101,15 +104,19 @@ void CEAFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_pOBB->Get_isHit())
 	{
+		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+
 		if (m_pEffFire)
 			m_pEffFire->SetDead();
 		this->SetDead();
 		m_pEAFireBall->SetDead();
+
 	}
 
-	else if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
-		cout << test << endl;
+		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+
 
 		if (m_pEffFire)
 			m_pEffFire->SetDead();
@@ -119,6 +126,9 @@ void CEAFireBall::LateUpdate(_double deltaTime)
 
 	if(m_bDead)
 	{
+		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+
+
 		if (m_pEffFire)
 			m_pEffFire->SetDead();
 		this->SetDead();

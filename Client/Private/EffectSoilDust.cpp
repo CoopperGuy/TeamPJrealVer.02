@@ -104,10 +104,11 @@ void CEffectSoilDust::MakeEffet()
 	}
 #pragma endregion
 
-	//#pragma region MakeDecal
-	//	auto DustDecal= CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_SoilDecal", "E_SoilDecal");
-	//	CEngine::GetInstance()->AddScriptObject(CEffectSoilDecal::Create(DustDecal, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
-	//#pragma endregion
+#pragma region MakeDecal
+	auto DustDecal= CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_SoilDecal", "E_SoilDecal");
+	CEngine::GetInstance()->AddScriptObject(CEffectSoilDecal::Create(DustDecal, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+#pragma endregion
+
 
 
 
