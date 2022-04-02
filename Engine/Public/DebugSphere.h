@@ -2,6 +2,9 @@
 
 #include "Line.h"
 
+
+BEGIN(Engine)
+
 class CDebugSphere : public CLine
 {
 public:
@@ -22,3 +25,4 @@ private:
 	_float3* lines;
 };
 
+END

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "..\Public\DropRockSmall.h"
 #include "PortalUI.h"
 #include "EffectRockDust.h"
@@ -27,7 +27,7 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		randomX = rand() % 10;
 
 
-		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1);
+		pos = XMVectorSetY(pos, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + randomX*0.1f);
 
 		
 
@@ -64,7 +64,7 @@ void CDropRockSmall::Update(_double deltaTime)
 	XMVector3Normalize(MyPos);
 
 	PosY = StartPosY + (3.5f * Time - 0.5f * 9.8f * Time * Time);
-	Time += (_float)deltaTime * 0.1* randomX; //½Ã°£°ªÀ» ÇØÁà¾ßÇÔ 
+	Time += (_float)deltaTime * 0.1f* randomX; //½Ã°£°ªÀ» ÇØÁà¾ßÇÔ 
 
 
 

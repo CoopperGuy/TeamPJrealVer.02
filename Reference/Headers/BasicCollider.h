@@ -12,6 +12,7 @@ BEGIN(Engine)
 class ENGINE_DLL CBasicCollider final : public CComponent
 {
 public:
+	enum STATES { STATES_IDEL, STATES_ATK, STATES_HITTED, STATES_END };
 	enum TYPE { TYPE_AABB, TYPE_OBB, TYPE_SPHERE, TYPE_END };
 	enum COLLSTATE { START, ING, FINESHED, STATEEND };
 	enum COLLISIONTYPE {
@@ -73,18 +74,24 @@ public:
 	void Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyCollider, list<OBJCOLLIDER>& _TargetObj);
 
 public:
+	void SetSTATE(STATES _state) { m_eState = _state; }
+public:
 	_int GetCollisionFlag() {
 		return m_CollisionFlag;
 	}
 	_bool Get_isHit() { return m_isHit; }
+	STATES GetSTATES() { return m_eState; }
+
 public:
 	HRESULT Render();
-
+public:
+	PROPERTY(GetSTATES, SetSTATE)	STATES p_States;
 private:
 	void SetupCollisionFlag(_bool tf);
 
 
 private:
+	STATES	m_eState = STATES::STATES_END;
 	TYPE					m_eType = TYPE_END;
 	COLLIDERDESCS			m_ColliderDesc;
 	COLLSTATE				m_CollState = STATEEND;

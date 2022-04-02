@@ -81,6 +81,7 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 
 	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
 	//thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
+	std::lock_guard<std::mutex> lock(m_Wait);
 	m_Threads.emplace_back(std::thread(ThreadCloneModel, desc));
 }
 

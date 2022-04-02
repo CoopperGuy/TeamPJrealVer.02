@@ -218,8 +218,8 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 		{
 			//cout << "camera Collied \n";
 			m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
-			if (m_vDistance <= 0.2f)
-				m_vDistance = 0.2f;
+			if (m_vDistance <= 0.4f)
+				m_vDistance = 0.4f;
 		}
 		/*    else
 		cout << "camera No Collied \n";*/
@@ -266,9 +266,9 @@ void CCamera_Fly::Set_Pos(_double DeltaTime)
 		if (MouseWheel = m_pEngine->Get_MouseMoveState(CInput_Device::MMS_WHEEL))
 		{
 			m_vDistance -= (_float)MouseWheel * (_float)DeltaTime * m_fCameraWheelSpd;
-			if (m_vDistance <= 0.2f)
+			if (m_vDistance <= 0.4f)
 			{
-				m_vDistance = 0.2f;
+				m_vDistance = 0.4f;
 			}
 			else if (m_vDistance >= 3.f)
 			{

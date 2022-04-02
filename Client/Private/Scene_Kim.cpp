@@ -39,10 +39,10 @@ HRESULT CScene_Kim::ReadyScript()
 	_float3 one = { 2.f,5.f,2.f };
 	_float3 two = { 2.f,5.f,-2.f };
 	_float3 three = { -2.f,5.f,2.f };
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, one), CEngine::GetInstance()->GetCurSceneNumber());
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, two), CEngine::GetInstance()->GetCurSceneNumber());
-	m_pEngine->AddScriptObject(CWolf::Create(nullptr, three), CEngine::GetInstance()->GetCurSceneNumber());
+	CWolf::Create(nullptr);
+	CWolf::Create(nullptr, one);
+	CWolf::Create(nullptr, two);
+	CWolf::Create(nullptr, three);
 
 	return S_OK;
 }

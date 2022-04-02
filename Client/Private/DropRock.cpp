@@ -138,10 +138,10 @@ void CDropRock::LateUpdate(_double deltaTime)
 		CGameObject* EffectRockDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_RockDust", "E_RockEff", &Translation);
 		CEngine::GetInstance()->AddScriptObject(CEffectRockDust::Create(EffectRockDust), CEngine::GetInstance()->GetCurSceneNumber());
 
-		_uint random = rand() % 8;
+		_int random = rand() % 8;
 		random += 1;
 
-		for (int i = 0; i <= random; ++i) {
+		for (_int i = 0; i <= random; ++i) {
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall", &Translation);
 			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(RockSmall, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
 		}

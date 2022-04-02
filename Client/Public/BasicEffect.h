@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "Transform.h"
 #include "IScriptObject.h"
+#include "BasicCollider.h"
 
 BEGIN(Client)
 

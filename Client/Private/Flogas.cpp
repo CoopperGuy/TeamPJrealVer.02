@@ -82,6 +82,8 @@ HRESULT CFlogas::Initialize(_float3 position)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pWeaponOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
@@ -210,7 +212,7 @@ void CFlogas::Update(_double dDeltaTime)
 
 
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
-	m_pStat->SetSTATE(m_eCurSTATES);
+	m_pWeaponOBB->p_States = m_eCurSTATES;
 
 	//fall down
 	PxControllerFilters filters;
@@ -840,11 +842,11 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		if (keyFrame >= 30 && keyFrame <= 35) {
 			/*CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (keyFrame == 28.f) {
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
 			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
@@ -860,11 +862,11 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		if (keyFrame >= 29 && keyFrame <= 36) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		/*if (keyFrame == 28.f) {
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
 			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
@@ -874,28 +876,28 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	}
 	case THRUST:
 		if (keyFrame >= 38 && keyFrame <= 60) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case SWORDTHROWING_START:
 		if (keyFrame >= 82 && keyFrame <= 116) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		break;
 	case SWORDTHROWING_LOOP:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case SWORDTHROWING_END:
 		if (keyFrame >= 64 && keyFrame <= 79) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case FIREWAVE: {
 		_int keyFrame = m_pModel->GetCurrentKeyFrame();
@@ -945,7 +947,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	}
 				   break;
 	case FOOTHAMMER:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (keyFrame >= 30)
 		{
 			if (m_bCreate)
@@ -995,15 +997,15 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		break;
 	}
 	case FLYING_ING:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case FLYING_END:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (m_pEffFly)
 			m_pEffFly->SetDead();
 		break;
 	case FLYING_END2:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		//if (m_pEffFlyLaser)
 		//	m_pEffFlyLaser->SetDead();
 		if (m_pEffFlyLight)

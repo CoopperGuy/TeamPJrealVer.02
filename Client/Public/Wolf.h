@@ -89,6 +89,7 @@ private:
 	CMonHpVIBuffer*	m_pHpBar = nullptr;
 private:
 	CBasicCollider* m_pOBBCom = nullptr;
+	CBasicCollider* m_pWeaponOBB = nullptr;
 
 
 

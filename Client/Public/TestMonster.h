@@ -20,6 +20,7 @@ private:
 	CEmptyGameObject*		m_pThisObj = nullptr;
 	CModel*					m_pThisModel = nullptr;
 	CStat*					m_pThisStat = nullptr;
+	CBasicCollider*			m_pWeapon = nullptr;
 public:
 	static CTestMonster* Create(CGameObject* pObj);
 	virtual void Free() override;

@@ -90,7 +90,7 @@ void CEquipItemHud::Update(_double deltaTime)
 				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) 
 				{
 					string _itemName = iter.second.name->GetText();
-					for (_int i = _itemName.length() - 1; i > 0; i--) 
+					for (size_t i = _itemName.length() - 1; i > 0; i--) 
 					{
 						if (_itemName[i] == '+') 
 						{
@@ -234,7 +234,7 @@ void CEquipItemHud::SetAddPosition(_float x)
 CItem * CEquipItemHud::GetSelectedItem()
 {
 	string _name = m_pEquipItemList[m_iCurSelectedTag][m_iCurSelected].second.name->GetText(); 
-	for (_int i = _name.length() - 1; i > 0; i--)
+	for (size_t i = _name.length() - 1; i > 0; i--)
 	{
 		if (_name[i] == '+')
 		{
