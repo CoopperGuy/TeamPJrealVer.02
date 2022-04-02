@@ -676,7 +676,7 @@ vector PS_MAIN_TRAIL(PS_IN_TRAIL In) : SV_TARGET
     uv.x += vNoise.x * 0.1f;
     uv.y += vNoise.y * 0.1f;
 
-    float4 vDiffuse = g_HDRTexture.Sample(g_DefaultSampler, uv/* + 0.01f*/);
+    float4 vDiffuse = g_HDRTexture.Sample(g_ClampSampler, uv/* + 0.01f*/);
     float4 vColor = g_MaskTexture.Sample(g_DefaultSampler, In.vTexUV);
       
     vColor.a = vColor.r;

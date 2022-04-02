@@ -469,6 +469,9 @@
     <ClInclude Include="..\Public\Helmet.h">
       <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\DarkKnight.h">
+      <Filter>02.GameObjects\Character\Enemy\DarkKnight</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\EffectUrsaPajang.h">
       <Filter>05.Effect\Ursa\Pajang</Filter>
     </ClInclude>
@@ -932,6 +935,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Helmet.cpp">
       <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\DarkKnight.cpp">
+      <Filter>02.GameObjects\Character\Enemy\DarkKnight</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectUrsaPajang.cpp">
       <Filter>05.Effect\Ursa\Pajang</Filter>
@@ -1404,6 +1410,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Equip\Helmet">
       <UniqueIdentifier>{0c237a15-bc85-4561-8a75-d80e9ca8b597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Character\Enemy\DarkKnight">
+      <UniqueIdentifier>{09fe34f1-96b2-438e-b653-51328135d42e}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Effect\Ursa\Pajang">
       <UniqueIdentifier>{a547203e-3316-4986-a1f6-70ecfee13990}</UniqueIdentifier>
