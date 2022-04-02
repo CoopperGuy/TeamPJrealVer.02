@@ -118,10 +118,13 @@ void CSkill_Player::Update(_double dDeltaTime, CPlayer & pPlayer)
 
 	if (m_bLoop)
 	{
-		if (pPlayer.m_pModel->Get_isFinished((_uint)Player_State::WhirlWind_Start) || pPlayer.m_pModel->Get_isFinished((_uint)Player_State::Chop_Start))
+		if (pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::WhirlWind_Start || pPlayer.m_pModel->Get_AnimIndex() == (_uint)Player_State::Chop_Start)
 		{
-			m_iCurIndex = 1;
-			pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
+			if (pPlayer.m_pModel->Get_isFinished())
+			{
+				m_iCurIndex = 1;
+				pPlayer.SetUp_AnimIndex(m_vecSkill[m_iCurIndex]);
+			}
 		}
 		if (m_SkillTime > 5.f)
 		{

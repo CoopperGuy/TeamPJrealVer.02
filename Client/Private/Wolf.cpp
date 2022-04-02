@@ -241,8 +241,8 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 				if (keyFrame >= 42)
 				{
-					CEngine::GetInstance()->PlaySoundW("WolfAtt.mp3", CHANNELID::ENEMY);
-					CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY);
+					CEngine::GetInstance()->PlaySoundW("WolfAtt.mp3", CHANNELID::ENEMY10);
+					CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
 				}
 			}
 		}
