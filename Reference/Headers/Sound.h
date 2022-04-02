@@ -21,8 +21,6 @@ class CSound : public CBase
 {
 	DECLARE_SINGLETON(CSound)
 
-
-
 private:
 	CSound();
 	virtual ~CSound() = default;
@@ -45,7 +43,7 @@ private:
 	FMOD_CHANNEL* m_pChannelArr[MAXCHANNEL];
 	FMOD_SYSTEM* m_pSystem;
 
-	float m_volume;
+	float m_volume;	
 	FMOD_BOOL m_bool;
 };
 

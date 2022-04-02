@@ -72,6 +72,8 @@ private:
 	CBasicCollider* m_pOBBCom			 = nullptr;
 	CMonHp*	m_pMonHp					 = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+	CBasicCollider*		m_pLeftWeapon = nullptr;
+	CBasicCollider*		m_pRightWeapon = nullptr;
 
 
 	class CEffectBlood* m_pBlood = nullptr;

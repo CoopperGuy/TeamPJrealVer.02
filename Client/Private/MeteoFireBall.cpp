@@ -38,7 +38,7 @@ HRESULT CMeteoFireBall::Initailze(CGameObject * pArg, _vector pos)
 	m_pOBB = static_cast<CBasicCollider*>(m_pEAFireBall->GetComponent("Com_OBB"));
 
 	m_pStat = static_cast<CStat*>(m_pEAFireBall->GetComponent("Com_Stat"));
-	m_pStat->SetSTATE(CStat::STATES_ATK);
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 
 
 	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
@@ -58,6 +58,8 @@ void CMeteoFireBall::Update(_double deltaTime)
 {
 	if (m_bDead)
 		true;
+
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 
 	/*if (!m_pOBB->Get_isHit()) {*/
 	if (0.1 <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {

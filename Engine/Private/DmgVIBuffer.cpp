@@ -118,7 +118,7 @@ void CDmgVIBuffer::Update(_double deltaTime)
 
 
 		if (isStartDisable) {
-			m_fAlpha -= 2.f * deltaTime;
+			m_fAlpha -= 2.f * (_float)deltaTime;
 			for (auto& iter : m_listChild)
 				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->SetAlpha(m_fAlpha);
 		}

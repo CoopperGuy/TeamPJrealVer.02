@@ -33,6 +33,7 @@ HRESULT CAxe::Initialize()
 	pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_PLAYER").front());
 	m_pTargetTransform = static_cast<CTransform*>(pPlayer->GetComponent("Com_RenderTransform"));
 	m_pTargetModel = static_cast<CModel*>(pPlayer->GetComponent("Com_Model"));
+
 	Add_EquipList("NoviceAxe");
 	Add_EquipList("RedAxe");
 	Add_EquipList("GoldAxe");
@@ -196,8 +197,7 @@ void CAxe::Set_TrailOnOff()
 		m_effectCreate[i] = false;
 	}
 	m_pTrailBuffer->SetIsActive(false);
-	playerStat->SetSTATE(CStat::STATES_IDEL);
-
+	m_pOBB->p_States = CBasicCollider::STATES_IDEL;
 
 	switch (playerState)
 	{
@@ -261,45 +261,62 @@ void CAxe::Set_TrailOnOff()
 		break;
 	case Client::Player_State::LBCombo1: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		if (keyFrame >= 2 && keyFrame <= 20) {
+		if (keyFrame >= 2 && keyFrame <= 20) 
+		{
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
+
 			playerStat->SetDMGRatio(0.5f);
 		
 		}
-		if(keyFrame == 2)
+		if (keyFrame == 2) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
+			engine->PlaySoundW("PlayerVoice00.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerLeftAttack00.mp3", CHANNELID::PLAYER06);//effect
+		}
 		break;
 	}
 	case Client::Player_State::LBCombo2: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		if (keyFrame >= 3 && keyFrame <= 29) {
+		if (keyFrame >= 3 && keyFrame <= 29) 
+		{
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(0.65f);
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.1f);
 		}
-		if(keyFrame == 3)
+		if (keyFrame == 3)
+		{
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1, 0.03f, 3.f);
+			engine->PlaySoundW("PlayerVoice01.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerLeftAttack00.mp3", CHANNELID::PLAYER07);//effect
 
+		}
 		break;
 	}
 	case Client::Player_State::LBCombo3: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 2 && keyFrame <= 11) {
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(0.35f);
 		}
 		if(keyFrame == 5)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.02f);
+		if(keyFrame==2)
+		{
+			engine->PlaySoundW("PlayerVoice02.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerLeftAttack02.mp3", CHANNELID::PLAYER06);//effect
+		}
 		break;
 	}
 	case Client::Player_State::LBCombo4_0: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		if (keyFrame == 0) {
+		if (keyFrame == 0) 
+		{
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
 			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+			engine->PlaySoundW("PlayerVoice03.mp3", CHANNELID::PLAYER05);//voice
 		}
 		break;
 	}
@@ -307,16 +324,20 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 3 && keyFrame <= 23) {
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(1.f);
 		}
+		if(keyFrame==3)
+			engine->PlaySoundW("PlayerLeftAttack03.mp3", CHANNELID::PLAYER08);//effect
+		if(keyFrame == 11)
+			engine->PlaySoundW("PlayerLeftAttack04.mp3", CHANNELID::PLAYER09);//effect
+
 		if (keyFrame == 14) {
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 6, 0.05f);
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactGround", "E_ImpactGround2");
 			CEngine::GetInstance()->AddScriptObject(CImpactGround::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_DecalCrash", "E_DecalCrash");
 			CEngine::GetInstance()->AddScriptObject(CDecalCrash::Create((CEmptyEffect*)pEffect, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
-
 		}
 
 		break;
@@ -325,12 +346,14 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 13 && keyFrame <= 22) {
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(0.6f);
 		}
 		if (keyFrame == 13) {
 			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_LEFT, 1.f, 0.02f, 3.f);
 			CEventCheck::GetInstance()->ShakeUpDown(4, 0.03f);
+			engine->PlaySoundW("PlayerVoice04.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerLeftAttack00.mp3", CHANNELID::PLAYER06);//effect
 		}
 		break;
 	}
@@ -344,6 +367,10 @@ void CAxe::Set_TrailOnOff()
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_shoulderEffect", "E_shoulderEffect");
 			CEngine::GetInstance()->AddScriptObject(CShoulerAtk::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
+			engine->StopSound(CHANNELID::PLAYER05);
+			engine->PlaySoundW("PlayerVoice05.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerRightAttack02.mp3", CHANNELID::PLAYER07);//effect
+
 		}
 		break;
 	}
@@ -351,8 +378,14 @@ void CAxe::Set_TrailOnOff()
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame >= 0 && keyFrame <= 13) {
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(0.7f);
+		}
+		if (keyFrame == 0)
+		{
+			engine->StopSound(CHANNELID::PLAYER05);
+			engine->PlaySoundW("PlayerVoice06.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerRightAttack03.mp3", CHANNELID::PLAYER08);//effect
 		}
 		if (keyFrame == 13)
 			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 5, 0.02f);
@@ -363,12 +396,16 @@ void CAxe::Set_TrailOnOff()
 		if (keyFrame == 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ChargeEffect", "E_ChargeEffect");
 			CEngine::GetInstance()->AddScriptObject(CChargeAxe::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+			engine->PlaySoundW("PlayerVoice03.mp3", CHANNELID::PLAYER05);//voice
+			engine->PlaySoundW("PlayerRightAttack04.mp3", CHANNELID::PLAYER09);//effect
+
 		}
 		if (keyFrame >= 12 && keyFrame <= 22) {
 			m_pTrailBuffer->SetIsActive(true);
-			playerStat->SetSTATE(CStat::STATES_ATK);
+			m_pOBB->p_States = CBasicCollider::STATES_ATK;
 			playerStat->SetDMGRatio(1.1f);
 		}
+
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 18) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
@@ -401,10 +438,19 @@ void CAxe::Set_TrailOnOff()
 		if (keyFrame >= 2 && keyFrame <= 20) {
 			m_pTrailBuffer->SetIsActive(true);
 		}
+		if (keyFrame <= 2) {
+			engine->PlaySoundW("Skill01Start.mp3", CHANNELID::PLAYER01);
+		}
 		break;
 	}
 	case Client::Player_State::Leap_End: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame <= 2) {
+			engine->PlaySoundW("Skill01End01.mp3", CHANNELID::PLAYER01);
+			engine->PlaySoundW("Skill01End02.mp3", CHANNELID::PLAYER02);
+
+		}
+
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 0) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactBeam", "E_ImpactBeam00");
 			CEngine::GetInstance()->AddScriptObject(CImpactBeam::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
@@ -416,6 +462,10 @@ void CAxe::Set_TrailOnOff()
 	}
 	case Client::Player_State::WhirlWind_Start: {
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
+		if (keyFrame <= 2) {
+			engine->PlaySoundW("Skill02Start00.mp3", CHANNELID::PLAYER01);
+			engine->PlaySoundW("PlayerSkill02Voice.mp3", CHANNELID::PLAYER03);
+		}
 		if (keyFrame >= 16) {
 			m_pTrailBuffer->SetIsActive(true);
 		}
@@ -423,8 +473,9 @@ void CAxe::Set_TrailOnOff()
 	}
 	case Client::Player_State::WhirlWind_ing: {
 		m_pTrailBuffer->SetIsActive(true);
-		playerStat->SetSTATE(CStat::STATES_ATK);
+		m_pOBB->p_States = CBasicCollider::STATES_ATK;
 		playerStat->SetDMGRatio(0.5f);
+		engine->PlaySoundW("Skill02Ing00.mp3", CHANNELID::PLAYER02);
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
 		if (keyFrame == 0) {
 			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_Wind", "E_Winds");
@@ -445,29 +496,43 @@ void CAxe::Set_TrailOnOff()
 		if (keyFrame == 0 ) {
 			CGameObject* pGameObject = engine->AddGameObjectToPrefab(engine->GetCurSceneNumber(), "Prototype_Effect_AuraEffect", "E_AuraEffect");
 			engine->AddScriptObject(CAuraEffect::Create((CEmptyEffect*)pGameObject, pPlayer), engine->GetCurSceneNumber());
+			engine->PlaySoundW("Skill03Start.mp3", CHANNELID::PLAYER03);
 		}
 		break;
 	}
 	case Client::Player_State::Chop_Start: {
+		engine->PlaySoundW("PlayerSkill04Voice.mp3", CHANNELID::PLAYER02);
 		break;
 	}
 	case Client::Player_State::Chop_ing1: {
 		m_pTrailBuffer->SetIsActive(true);
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		playerStat->SetSTATE(CStat::STATES_ATK);
+		m_pOBB->p_States = CBasicCollider::STATES_ATK;
 		playerStat->SetDMGRatio(1.3f);
+		if (keyFrame == 0) {
+			engine->StopSound(CHANNELID::PLAYER02);
+			engine->PlaySoundW("Skill04Start00.mp3", CHANNELID::PLAYER02);
+		}
+		else if (keyFrame == 20) {
+			engine->StopSound(CHANNELID::PLAYER03);
+			engine->PlaySoundW("Skill04Start00.mp3", CHANNELID::PLAYER03);
+		} 
 		if (keyFrame == 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
 			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
 			m_effectCreate[_int(playerState)] = true;
 		}
-
+		if (keyFrame == 23) {
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");
+			CEngine::GetInstance()->AddScriptObject(CImpactShort::Create((CEmptyEffect*)pGameObject, pPlayer), CEngine::GetInstance()->GetCurSceneNumber());
+			m_effectCreate[_int(playerState)] = true;
+		}
 		break;
 	}
 	case Client::Player_State::Chop_ing2: {
 		m_pTrailBuffer->SetIsActive(true);
 		_int keyFrame = playerModel->GetCurrentKeyFrame();
-		playerStat->SetSTATE(CStat::STATES_ATK);
+		m_pOBB->p_States = CBasicCollider::STATES_ATK;
 		playerStat->SetDMGRatio(1.3f);
 		if (m_effectCreate[_int(playerState)] == false && keyFrame >= 4) {
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ImpactShort", "E_ImpactShort");

@@ -29,17 +29,17 @@ HRESULT CGraphicDevice::ReadyGraphicDevice(HWND hWnd, _uint iWidth, _uint iHeigh
 		return E_FAIL;
 
 
-	/* ë©€í‹°ìƒ˜í”Œë§ì˜ ì§€ì›ìˆ˜ì¤€. */
+	/* ¸ÖÆ¼»ùÇÃ¸µÀÇ Áö¿ø¼öÁØ. */
 
-	/* ìŠ¤ì™‘ì²´ì¸ ìƒì„±. */
+	/* ½º¿ÒÃ¼ÀÎ »ı¼º. */
 	if (FAILED(ReadySwapChain(hWnd, iWidth, iHeight)))
 		return E_FAIL;
 
-	/* ë°±ë²„í¼ì— ëŒ€í•œ ë Œë”íƒ€ê²Ÿ ë·°ë¥¼ ìƒì„±í•œë‹¤. */
+	/* ¹é¹öÆÛ¿¡ ´ëÇÑ ·»´õÅ¸°Ù ºä¸¦ »ı¼ºÇÑ´Ù. */
 	if (FAILED(ReadyBackBufferRenderTargetView(iWidth, iHeight)))
 		return E_FAIL;
 
-	/* ëìŠ¤ìŠ¤í…ì‹¤ ë²„í¼ë¥¼ ìƒì„±í•œë‹¤. + ë Œë”íƒ€ê²Ÿ ë·°ìƒì„±. */
+	/* µª½º½ºÅÙ½Ç ¹öÆÛ¸¦ »ı¼ºÇÑ´Ù. + ·»´õÅ¸°Ù ºä»ı¼º. */
 	if (FAILED(ReadyDepthStencilRenderTargetView(iWidth, iHeight)))
 		return E_FAIL;
 
@@ -146,7 +146,7 @@ void CGraphicDevice::Render()
 	//debug->Render();
 
 	Present();
-	// IMGUIìš© ë²„í¼ ë”°ë¡œ ìƒì„±í•´ì„œ Set
+	// IMGUI¿ë ¹öÆÛ µû·Î »ı¼ºÇØ¼­ Set
 	m_pDeviceContext->OMSetRenderTargets(1, m_pBackBufferRTV.GetAddressOf(), m_pDepthStencilRTV.Get());
 	m_pDeviceContext->ClearRenderTargetView(m_pBackBufferRTV.Get(), ClearColor);
 	m_pDeviceContext->ClearDepthStencilView(m_pDepthStencilRTV.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
@@ -713,16 +713,16 @@ void CGraphicDevice::Free()
 //	}
 //
 //	D3D11_BUFFER_DESC desc = { 0 };
-//	desc.Usage = D3D11_USAGE_DEFAULT; // ì–´ë–»ê²Œ ì €ì¥ë ì§€ì— ëŒ€í•œ ì •ë³´
-//	desc.ByteWidth = sizeof(SimpleVertex) * vertexCount; // ì •ì  ë²„í¼ì— ë“¤ì–´ê°ˆ ë°ì´í„°ì˜ í¬ê¸°
+//	desc.Usage = D3D11_USAGE_DEFAULT; // ¾î¶»°Ô ÀúÀåµÉÁö¿¡ ´ëÇÑ Á¤º¸
+//	desc.ByteWidth = sizeof(SimpleVertex) * vertexCount; // Á¤Á¡ ¹öÆÛ¿¡ µé¾î°¥ µ¥ÀÌÅÍÀÇ Å©±â
 //	desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 //
-//	D3D11_SUBRESOURCE_DATA  data = { 0 }; // ì–˜ë¥¼ í†µí•´ì„œ ê°’ì´ ë“¤ì–´ê° lock ëŒ€ì‹ 
-//	data.pSysMem = vertices; // ì“¸ ë°ì´í„°ì˜ ì£¼ì†Œ
+//	D3D11_SUBRESOURCE_DATA  data = { 0 }; // ¾ê¸¦ ÅëÇØ¼­ °ªÀÌ µé¾î°¨ lock ´ë½Å
+//	data.pSysMem = vertices; // ¾µ µ¥ÀÌÅÍÀÇ ÁÖ¼Ò
 //
 //	HRESULT hr = m_pDevice->CreateBuffer(
 //		&desc, &data, &g_pVertexBuffer);
-//	assert(SUCCEEDED(hr)); // ì„±ê³µë˜ë©´ hr 0ë³´ë‹¤ í° ê°’ ë„˜ì–´ì˜´
+//	assert(SUCCEEDED(hr)); // ¼º°øµÇ¸é hr 0º¸´Ù Å« °ª ³Ñ¾î¿È
 //
 //	UINT stride = sizeof(SimpleVertex);
 //	UINT offset = 0;

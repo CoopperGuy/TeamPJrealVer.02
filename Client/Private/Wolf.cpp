@@ -41,11 +41,12 @@ HRESULT CWolf::Initialize(_float3 position)
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 	m_pOBBCom = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pWeaponOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
-	m_pStat->SetSTATE(CStat::STATES_IDEL);
-
+	m_eCurSTATES = CBasicCollider::STATES_IDEL;
+	m_pWeaponOBB->p_States = m_eCurSTATES;
 	m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ position.x,3.f,position.z });
 	m_pCollider->SetPosition(_float3(position.x, position.y, position.z));
 
@@ -90,7 +91,8 @@ void CWolf::Update(_double dDeltaTime)
 
 	if (WolfAtt)
 	{
-		m_pStat->SetSTATE(CStat::STATES_ATK);
+		m_pWeaponOBB->p_States = CBasicCollider::STATES_ATK;
+
 		WolfAttflow(dDeltaTime);
 	}
 
@@ -136,14 +138,16 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	if (m_pWolfState == DIE)
 	{
 
-
+			CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY10);
+			CEngine::GetInstance()->SetVolume(0.1f, CHANNELID::ENEMY10);
+	
 		if (m_pModel->Get_isFinished()) {
+
 			this->SetDead();
 			m_pGameObject->SetDead();
 			m_pCollider->ReleaseController();
 			if (m_pHpBar) {
 				m_pHpBar->SetUpDead(); 
-				m_pHpBar = nullptr;
 			}
 		}
 	}
@@ -202,6 +206,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 			m_pWolfState = DIE;
 			return;
 		}
+		//CEngine::GetInstance()->PlaySoundW("WolfTHREATEN.mp3", CHANNELID::ENEMY10);
 
 		WolfLookPlayer();
 		m_bMove = false;
@@ -241,7 +246,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 				if (keyFrame >= 42)
 				{
-					CEngine::GetInstance()->PlaySoundW("WolfAtt.mp3", CHANNELID::ENEMY10);
+					CEngine::GetInstance()->PlaySoundW("WolfAtt.ogg", CHANNELID::ENEMY10);
 					CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
 				}
 			}
@@ -250,6 +255,10 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	case Client::CWolf::DAMAGE: {
 		if (m_iBlood < 1) {
 			m_iBlood += 1;
+			CEngine::GetInstance()->PlaySoundW("WolfHit.mp3", CHANNELID::ENEMY10);
+			CEngine::GetInstance()->PlaySoundW("WolfDamage.mp3", CHANNELID::ENEMY11);
+			//CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
+
 			_matrix Translation;
 			_int random = rand() % 2;
 			random += 1;
@@ -309,7 +318,7 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 			if (WolfIdle && m_pWolfState != DIE && m_pWolfState != DEADBODY) {
 				SetIdle();
 				m_pWolfState = IDLE0;
-				m_pStat->SetSTATE(CStat::STATES_IDEL);
+				m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
 				m_bMove = false;
 			}
 		}

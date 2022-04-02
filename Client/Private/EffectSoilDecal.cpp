@@ -32,7 +32,7 @@ HRESULT CEffectSoilDecal::Initialize(void* pArg, _vector pos)
 			return E_FAIL;
 
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
-		pos = XMVectorSetY(pos, 1.f);
+		//pos = XMVectorSetY(pos, 1.f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 
 	}

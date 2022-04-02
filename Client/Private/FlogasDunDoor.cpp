@@ -43,10 +43,16 @@ void CFlogasDunDoor::Update(_double deltaTime)
 	_float dist = XMVectorGetZ(XMVector3Length(pFlogasDunDoor - playerPos));
 
 	if (dist < 3.f && XMVectorGetZ(playerPos) <= -11.f) {
-		if (m_pAlretUI) {
+
+		if(XMVectorGetZ(playerPos) > XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)))
+			m_pAlretUI->SetActive(false);
+
+		else
 			m_pAlretUI->SetActive(true);
-		}
+
 		if (CEngine::GetInstance()->IsKeyDown('F')) {
+			CEngine::GetInstance()->PlaySoundW("DGDoor.ogg", CHANNELID::MAPOBJ);
+
 			if (!m_bOpenDoor)
 				m_bOpenDoor = true;
 		}
@@ -56,9 +62,7 @@ void CFlogasDunDoor::Update(_double deltaTime)
 			deltatimeee += deltaTime;
 			//cout << deltaTime << endl;
 
-			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 7, 0.06f);
-			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
-			CEngine::GetInstance()->SetVolume(0.3f, CHANNELID::MAPOBJ);
+			//CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 7, 0.06f);
 			doorY += 0.2f * (_float)deltaTime;
 
 			//cout << doorY << endl;
