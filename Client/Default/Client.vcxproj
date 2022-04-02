@@ -218,6 +218,8 @@
     <ClInclude Include="..\Public\EffectSoilDecal.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
     <ClInclude Include="..\Public\EffectUrsaDust.h" />
+    <ClInclude Include="..\Public\EffectUrsaPajang.h" />
+    <ClInclude Include="..\Public\EffectUrsaPajangMesh.h" />
     <ClInclude Include="..\Public\EffectUrsaShoulder.h" />
     <ClInclude Include="..\Public\EffectUrsaWind.h" />
     <ClInclude Include="..\Public\EffectVine.h" />
@@ -409,6 +411,8 @@
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\Private\EffectSoilDust.cpp" />
     <ClCompile Include="..\Private\EffectUrsaDust.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaPajang.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaPajangMesh.cpp" />
     <ClCompile Include="..\Private\EffectUrsaShoulder.cpp" />
     <ClCompile Include="..\Private\EffectUrsaWind.cpp" />
     <ClCompile Include="..\Private\EffectVine.cpp" />

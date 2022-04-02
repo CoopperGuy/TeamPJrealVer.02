@@ -14,7 +14,8 @@
 #include "EffectUrsaShoulder.h"
 #include "EffectUrsaWind.h"
 #include "EffectDustWh.h"
-#include "EffectPajang.h"
+#include "EffectUrsaPajang.h"
+#include "EffectUrsaPajangMesh.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -150,9 +151,9 @@ void CUrsa::Update(_double dDeltaTime)
 		m_fDist = SetDistance();
 	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = CB_Start;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = ROAR_Casting;
+		m_eState = ROAR_Start;
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
+	//	m_eState = ROAR_Start;
 
 
 
@@ -924,23 +925,17 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::RUN:
 		break;
 	case Client::CUrsa::CB_Start:
-		if (keyFrame <= 40)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
-		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
-
-		if (keyFrame == 13 && m_iMakeDust < 1)
-		{
-			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
-			CEngine::GetInstance()->AddScriptObject(CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
-		}
+		//if (keyFrame <= 40)
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+		//else
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 
 		break;
 	case Client::CUrsa::ROAR_Casting: {
-		if (keyFrame >= 47)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
-		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
+		//if (keyFrame >= 47)
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+		//else
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 	}
 		break;
 	case Client::CUrsa::DASH_ATT: {
@@ -1187,13 +1182,19 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::ROAR_Start: {
 		if (keyFrame >= 46 && keyFrame <= 107)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 10.f);
 		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 10.f);
+
+		if (keyFrame == 86) {
+			CGameObject* PajangEff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangDecal", "E_UrsaPajang");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajang::Create(PajangEff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			CGameObject* PajangMesh = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangMesh", "E_UrsaPajangMesh");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajangMesh::Create(PajangMesh, pos), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 
 	}
-		//�����°�?
-
 		break;
 	case Client::CUrsa::HIT:
 		break;

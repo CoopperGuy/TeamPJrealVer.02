@@ -469,6 +469,12 @@
     <ClInclude Include="..\Public\Helmet.h">
       <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaPajang.h">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaPajangMesh.h">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -923,6 +929,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\Helmet.cpp">
       <Filter>02.GameObjects\Character\Equip\Helmet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaPajang.cpp">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaPajangMesh.cpp">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1386,6 +1398,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Equip\Helmet">
       <UniqueIdentifier>{0c237a15-bc85-4561-8a75-d80e9ca8b597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Pajang">
+      <UniqueIdentifier>{a547203e-3316-4986-a1f6-70ecfee13990}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
