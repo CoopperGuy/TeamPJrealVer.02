@@ -177,7 +177,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 
 		break;
 
-	case CBasicCollider::TYPE_SPHERE: //ì´ˆê¸°ê°’ì„ ì„¸íŒ…
+	case CBasicCollider::TYPE_SPHERE: //ÃÊ±â°ªÀ» ¼¼ÆÃ
 								 // Center(0,0,0), Radius( 1.f ) {}
 		vCenter = _float3(0.f, 0.f, 0.f);
 		fRadius = 1.f;
@@ -222,7 +222,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 	vDestMax = XMVector3TransformCoord(XMLoadFloat3(&pTargetCollider->m_vMax), XMLoadFloat4x4(&pTargetCollider->m_TransformMatrix));
 
 
-	/* ë„ˆë¹„ë¹„êµ */
+	/* ³Êºñºñ±³ */
 	if (max(XMVectorGetX(vSourMin), XMVectorGetX(vDestMin)) >
 		min(XMVectorGetX(vSourMax), XMVectorGetX(vDestMax)))
 	{
@@ -231,7 +231,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 		return false;
 	}
 
-	/* ë†’ì´ë¹„êµ */
+	/* ³ôÀÌºñ±³ */
 	if (max(XMVectorGetY(vSourMin), XMVectorGetY(vDestMin)) >
 		min(XMVectorGetY(vSourMax), XMVectorGetY(vDestMax)))
 	{
@@ -240,7 +240,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 		return false;
 	}
 
-	/* ê¹Šì´ë¹„êµ */
+	/* ±íÀÌºñ±³ */
 	if (max(XMVectorGetZ(vSourMin), XMVectorGetZ(vDestMin)) >
 		min(XMVectorGetZ(vSourMax), XMVectorGetZ(vDestMax)))
 	{
@@ -477,7 +477,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			}
 			else
 			{
-				if (PlayerStat->GetSTATES() == CStat::STATES_ATK)
+				if (pWeaponeCollider->m_eState == STATES::STATES_ATK)
 				{
 					if (pTargetCollider->Collision_OBB(pWeaponeCollider, pTargetCollider))
 					{
@@ -551,7 +551,7 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 				return;
 			}
 
-			if (MyStat->GetSTATES() == CStat::STATES_ATK) {
+			if (pMyCollider->m_eState == STATES::STATES_ATK) {
 				if (pMyCollider->Collision_OBB(pMyCollider, pTargetCollider))
 				{
 					if (pMyCollider->GetCollisionFlag() == COLLISIONTYPE::COLLISION_FOUND) {
@@ -781,7 +781,7 @@ void CBasicCollider::OBBOnEnter(CGameObject* pTarget)
 	CComponent* pStat = pTarget->GetComponent("Com_Stat");
 	static_cast<CStat*>(pStat)->Damaged(static_cast<CStat*>(pStat));
 	cout << "---------------------" << endl;
-	cout << "ì¶©ëŒ" << endl;
+	cout << "Ãæµ¹" << endl;
 	cout << static_cast<CStat*>(pStat)->GetStatInfo().hp << endl;
 	cout << static_cast<CStat*>(pStat)->GetHpPercentage() << endl;
 	cout << "---------------------" << endl;
@@ -809,7 +809,7 @@ _vector* CBasicCollider::GetObbBox()
 		vSourPoint[i] = XMVector3TransformCoord(XMLoadFloat3(&m_vPoint[i]), XMLoadFloat4x4(&m_TransformMatrix));
 	}
 
-	return vSourPoint;
+	return &vSourPoint[0];
 }
 
 CBasicCollider * CBasicCollider::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, TYPE eType)

@@ -23,7 +23,7 @@ HRESULT CEAFireBall::Initailze(CGameObject * pArg, _matrix pos)
 	m_pOBB = static_cast<CBasicCollider*>(m_pEAFireBall->GetComponent("Com_OBB"));
 
 	m_pStat = static_cast<CStat*>(m_pEAFireBall->GetComponent("Com_Stat"));
-	m_pStat->SetSTATE(CStat::STATES_ATK);
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 
 
 	_vector mypos = m_pTransform->GetState(CTransform::STATE_POSITION);

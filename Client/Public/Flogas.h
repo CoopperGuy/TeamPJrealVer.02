@@ -129,5 +129,6 @@ private:
 	_bool				m_DrawTrail = false;
 	CTownPortal*		m_pPortal = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+	CBasicCollider*		m_pWeaponOBB = nullptr;
 };
 END

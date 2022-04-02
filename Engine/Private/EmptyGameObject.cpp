@@ -437,7 +437,7 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 
 	if (m_bRimLightEnable) {
 		m_RimLightTimeAcc += TimeDelta;
-		_float t = m_RimLightTimeAcc / m_RimLightTime;
+		_float t = _float(m_RimLightTimeAcc / m_RimLightTime);
 		XMStoreFloat4(&m_vRimgLightColor,  XMVectorLerp(XMLoadFloat4(&m_vRimLightSrc), XMLoadFloat4(&m_vRimLightDest), t));
 		if (m_RimLightTime < m_RimLightTimeAcc) {
 			m_bRimLightEnable = false;

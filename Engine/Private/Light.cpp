@@ -163,7 +163,7 @@ _uint CLight::Update(_double deltaTime)
 	if (m_bTempLight) {
 		m_DeltaTime += deltaTime;
 		_double lerpTime = 2.2f * (4 * m_DeltaTime / m_LifeTime) *(-m_DeltaTime / m_LifeTime + 1);
-		XMStoreFloat4(&m_LightDesc.vDiffuse, XMVectorLerp(XMVectorZero(), XMLoadFloat4(&m_fDestColor), lerpTime));
+		XMStoreFloat4(&m_LightDesc.vDiffuse, XMVectorLerp(XMVectorZero(), XMLoadFloat4(&m_fDestColor), (_float)lerpTime));
 	}
 	return _uint();
 }

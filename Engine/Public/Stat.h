@@ -32,7 +32,6 @@ public:
 		_bool  isImmortal = false;
 		char   padding[6];
 	}STAT;
-	enum STATES{STATES_IDEL, STATES_ATK, STATES_HITTED, STATES_END};
 	enum STATUSEFFECT{
 		STATUSEFFCT_NONE = 0,
 		BLOOD = (1 << 0)
@@ -44,7 +43,6 @@ private:
 public:
 	void SetStatInfo(STAT _info) { m_tStat = _info; }
 	void SetStaFullHP() { m_tStat.hp = m_tStat.maxExp; }
-	void SetSTATE(STATES _state) { m_eState = _state; }
 	void SetStamina(_float _stamina) { m_fStamina += _stamina; }
 	void SetDMGRatio(_float _ratio) { m_fDMGRatio = _ratio; }
 	void SetCritical(_float critical) { m_tStat.critical = critical; }
@@ -56,7 +54,6 @@ public:
 	_bool GetIsImmortal() { return m_tStat.isImmortal; }
 	_bool GetIsSlow() { return m_bisSlow; }
 	STAT GetStatInfo() { return m_tStat; }
-	STATES GetSTATES() { return m_eState; }
 	_float GetHpPercentage() { return m_tStat.hp / m_tStat.maxHp; }
 	_float GetStaPercentage() { return m_fStamina / m_fStaMax; }
 	_float GetExpPercentage() { return m_tStat.exp / m_tStat.maxExp; }
@@ -89,7 +86,6 @@ private:
 	class CTransform*			m_pTransform = nullptr;
 private:
 	STAT	m_tStat{};
-	STATES	m_eState = STATES::STATES_END;
 	_int	m_StatusEffect = STATUSEFFECT::STATUSEFFCT_NONE;
 private:
 	_float	m_fStamina = 0.f;
