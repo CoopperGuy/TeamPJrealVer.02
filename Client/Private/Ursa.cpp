@@ -135,7 +135,7 @@ void CUrsa::Update(_double dDeltaTime)
 		Checking_Finished();
 
 
-	/*if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
 	{
 		m_eState = IDLE01;
 		m_fDist = SetDistance();
