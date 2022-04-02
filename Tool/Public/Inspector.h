@@ -19,7 +19,7 @@ public:
 	void UpdateMapObject();
 	void UpdateEffect();
 	void UpdateUI();
-
+	void UpdateCamera();
 public:
 	void DrawVec3(const string& label, _float3& values);
 	void DrawCollider();
@@ -42,7 +42,8 @@ public:
 	void DrawEffectImage();
 	void DrawEffectSetting();
 	void DrawTextUI();
-
+public:
+	void DrawCameraSetting();
 
 private:
 	//std::shared_ptr<CGizmo>		m_pGizmo;

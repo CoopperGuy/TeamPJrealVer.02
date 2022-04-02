@@ -60,6 +60,14 @@ void CHierarchy::Update()
 			g_pObjFocused = pObj;
 		}
 
+		if (ImGui::MenuItem("Camera"))
+
+		{
+			//Add GameObject 
+			CGameObject* pObj = m_pEngine->AddGameObject(0,
+				"Prototype_EmptyCamera", "Camera");
+			g_pObjFocused = pObj;
+		}
 		ImGui::EndPopup();
 	}
 

@@ -57,6 +57,7 @@ public:
 	_bool	Get_isFinished(_uint iIndex);
 	_bool	Get_isFinished();
 	_uint	Get_AnimIndex() { return m_iAnimationIndex; }
+	_double Get_AnimTime();
 
 public:
 	HRESULT Bind_Buffers(_uint iPassIndex, CTransform* pTarget = nullptr);

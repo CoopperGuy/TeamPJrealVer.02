@@ -8,6 +8,7 @@
 #include "Log.h"
 #include "Navigation.h"
 #include "EmptyMapObject.h"
+#include "EmptyCamera.h"
 
 CGameObject* g_pObjFocused = nullptr;
 static ImGuizmo::OPERATION m_CurrentGizmoOperation(ImGuizmo::TRANSLATE);
@@ -153,6 +154,8 @@ void CGizmo::LateUpdate()
 		else if (dynamic_cast<CEmptyMapObject*>(g_pObjFocused))
 			ManipulateGameObject();
 		else if (dynamic_cast<CEmptyEffect*>(g_pObjFocused))
+			ManipulateGameObject();
+		else if (dynamic_cast<CEmptyCamera*>(g_pObjFocused))
 			ManipulateGameObject();
 		else
 			ManipulateUI();
