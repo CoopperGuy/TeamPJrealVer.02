@@ -213,12 +213,15 @@
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\EffectRing.h" />
     <ClInclude Include="..\Public\EffectRockDecal.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\EffectSoilDecal.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
     <ClInclude Include="..\Public\EffectUrsaDust.h" />
+    <ClInclude Include="..\Public\EffectUrsaPajang.h" />
+    <ClInclude Include="..\Public\EffectUrsaPajangMesh.h" />
     <ClInclude Include="..\Public\EffectUrsaShoulder.h" />
     <ClInclude Include="..\Public\EffectUrsaWind.h" />
     <ClInclude Include="..\Public\EffectVine.h" />
@@ -403,6 +406,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
+    <ClCompile Include="..\Private\EffectRing.cpp" />
     <ClCompile Include="..\Private\EffectRockDecal.cpp" />
     <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
@@ -411,6 +415,8 @@
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\Private\EffectSoilDust.cpp" />
     <ClCompile Include="..\Private\EffectUrsaDust.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaPajang.cpp" />
+    <ClCompile Include="..\Private\EffectUrsaPajangMesh.cpp" />
     <ClCompile Include="..\Private\EffectUrsaShoulder.cpp" />
     <ClCompile Include="..\Private\EffectUrsaWind.cpp" />
     <ClCompile Include="..\Private\EffectVine.cpp" />

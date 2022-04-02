@@ -31,7 +31,7 @@ void CEffectUrsaWind::Update(_double deltaTime)
 
 void CEffectUrsaWind::LateUpdate(_double deltaTime)
 {
-	if (m_DurationDelta){
+	if (m_DurationDelta>=static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration()){
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

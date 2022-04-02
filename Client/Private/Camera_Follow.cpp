@@ -62,7 +62,7 @@ _uint CCamera_Follow::Update(_double TimeDelta)
 
 
 	// Q || E 누르면 m_pTargetLook을 회전시긴다
-	if (GetActiveWindow() == g_hWnd && m_bIsActive)
+	if (GetActiveWindow() == g_hWnd && m_bIsUse)
 	{
 		if (m_pEngine->GetMouseMoveValue().z > 0)
 			m_fFollowLength -= _float(TimeDelta * 3.f);

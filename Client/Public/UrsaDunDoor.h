@@ -31,7 +31,7 @@ private:
 
 	_vector pUrsaDunDoor = {};
 
-	_float MaxHight = 1.6f;
+	_float MaxHight = 0.8f;
 	_float MinHight = 0.f;
 	_float doorY;
 

@@ -1001,6 +1001,11 @@ _bool CModel::Get_isFinished()
 	return m_isFinished;
 }
 
+_double CModel::Get_AnimTime()
+{
+	return m_Animations[m_iAnimationIndex]->GetTotalTime();
+}
+
 HRESULT CModel::SetUp_AnimationInfo()
 {
 	_uint		iNumAnimation = m_pScene->mNumAnimations;

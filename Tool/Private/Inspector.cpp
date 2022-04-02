@@ -21,11 +21,12 @@
 #include "Layer.h"
 #include "BasicCollider.h"
 #include "Shop.h"
+#include "EmptyCamera.h"
 
 USING(Tool)
 
 static vector<string> idTypes = { "Player","WEAPONE", "MONSTER","MONSTER_ATK","PLAYER_EFFECT", "MONSTER_EFFECT", "EFFECT","NPC","IDEND"};
-
+static vector<string> movieTypes = { "Y","NOY" };
 
 CInspector::CInspector()
 {
@@ -82,6 +83,8 @@ void CInspector::Update()
 			UpdateMapObject();
 		else if (dynamic_cast<CEmptyEffect*>(g_pObjFocused))
 			UpdateEffect();
+		else if (dynamic_cast<CEmptyCamera*>(g_pObjFocused))
+			UpdateCamera();
 		else
 			UpdateUI();
 	}
@@ -472,6 +475,20 @@ void CInspector::UpdateUI()
 	DrawImage();
 
 	DrawTextUI();
+}
+
+void CInspector::UpdateCamera()
+{
+	if (ImGui::Button("Add Component"))
+		ImGui::OpenPopup("AddComponent");
+	if (ImGui::BeginPopup("AddComponent"))
+	{
+		ImGui::EndPopup();
+	}
+	ImGui::Separator();
+	DrawTransform();
+	ImGui::Separator();
+	DrawCameraSetting();
 }
 
 
@@ -1085,6 +1102,52 @@ void CInspector::DrawTextUI()
 
 		if (bDelete)
 			g_pObjFocused->RemoveComponent("Com_Text");
+	}
+}
+
+void CInspector::DrawCameraSetting()
+{
+	if (ImGui::TreeNodeEx("SettingCamera")) {
+		CEmptyCamera*	_camera = static_cast<CEmptyCamera*>(g_pObjFocused);
+		_float _time = _camera->p_moveTime;
+		ImGui::DragFloat("MoveTime", &_time, 0.01f, 0.f, 100.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
+		_float3 srcPos = _camera->p_srcPosition;
+		_float3 destPos = _camera->p_destPosition;
+		_float3 srcLookPos = _camera->p_srcLookPosition;
+		_float3 destLookPos = _camera->p_destLookPosition;
+		
+		DrawVec3("srcPos", srcPos);
+		DrawVec3("destPos", destPos);
+		DrawVec3("srcLookPos", srcLookPos);
+		DrawVec3("destLookPos", destLookPos);
+
+		_camera->p_moveTime = _time;
+		_camera->p_srcPosition = srcPos;
+		_camera->p_destPosition = destPos;
+		_camera->p_srcLookPosition = srcLookPos;
+		_camera->p_destLookPosition = destLookPos;
+
+		_int curMovie = _camera->p_Moive;
+		string typeText = "MovieList : " + to_string(curMovie);
+		ImGui::Text(typeText.c_str());
+		if (ImGui::BeginListBox("TpyeName", ImVec2(-FLT_MIN, 5 * ImGui::GetTextLineHeightWithSpacing())))
+		{
+			for (int j = 0; j < (_int)CEmptyCamera::MOVIE_NONE; j++) {
+				const bool cur_Idx = (curMovie == j);
+				if (ImGui::Selectable(movieTypes[j].c_str(), cur_Idx))
+				{
+					curMovie = j;
+				}
+				if (cur_Idx)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+			_camera->p_Moive = ((CEmptyCamera::MOVIE)curMovie);
+			ImGui::EndListBox();
+		}
+
+		ImGui::TreePop();
 	}
 }
 

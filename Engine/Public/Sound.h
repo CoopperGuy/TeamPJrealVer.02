@@ -8,7 +8,7 @@
 #define SOUND_WEIGHT 0.1f
 
 BEGIN(Engine)
-	enum CHANNELID { BGM, PLAYER, ENEMY, EFFECT, UI, DIALOGUE, ITEM, GUN, SLOWMO, MAXCHANNEL };
+	enum CHANNELID { BGM, PLAYER, ENEMY, EFFECT, UI, DIALOGUE, ITEM, SLOWMO,MAPOBJ, MAXCHANNEL };
 
 class CSound : public CBase
 {
@@ -29,6 +29,7 @@ public:
 	void PlayBGM(string pSoundKey);
 	void StopSound(CHANNELID eID);
 	void StopAll();
+	void SetVolume(float volume, CHANNELID eID);
 
 private:
 	// 사운드 리소스 정보를 갖는 객체 

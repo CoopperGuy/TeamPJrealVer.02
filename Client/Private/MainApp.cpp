@@ -28,6 +28,8 @@
 #include "Shop.h"
 
 #include "EffectDust.h"
+
+#include "EmptyCamera.h"
 CMainApp::CMainApp()
 	: m_pEngine(CEngine::GetInstance())
 {
@@ -389,7 +391,8 @@ HRESULT CMainApp::ReadyPrototypeComponent()
 	if (FAILED(m_pEngine->AddPrototype("Prototype_EmptyGameObject", CEmptyGameObject::Create(m_pDevice, m_pDeviceContext))))
 		return E_FAIL;
 
-
+	if (FAILED(m_pEngine->AddPrototype("Prototype_EmptyCamera", CEmptyCamera::Create(m_pDevice, m_pDeviceContext))))
+		return E_FAIL;
 
 
 	if (FAILED(m_pEngine->AddPrototype("Prototype_EmptyUI", CEmptyUI::Create(m_pDevice, m_pDeviceContext))))

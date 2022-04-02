@@ -472,6 +472,15 @@
     <ClInclude Include="..\Public\DarkKnight.h">
       <Filter>02.GameObjects\Character\Enemy\DarkKnight</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaPajang.h">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectUrsaPajangMesh.h">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectRing.h">
+      <Filter>05.Effect\Ursa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -929,6 +938,15 @@
     </ClCompile>
     <ClCompile Include="..\Private\DarkKnight.cpp">
       <Filter>02.GameObjects\Character\Enemy\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaPajang.cpp">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectUrsaPajangMesh.cpp">
+      <Filter>05.Effect\Ursa\Pajang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectRing.cpp">
+      <Filter>05.Effect\Ursa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1395,6 +1413,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\DarkKnight">
       <UniqueIdentifier>{09fe34f1-96b2-438e-b653-51328135d42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Pajang">
+      <UniqueIdentifier>{a547203e-3316-4986-a1f6-70ecfee13990}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

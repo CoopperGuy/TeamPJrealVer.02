@@ -14,7 +14,11 @@
 #include "EffectUrsaShoulder.h"
 #include "EffectUrsaWind.h"
 #include "EffectDustWh.h"
-#include "EffectPajang.h"
+#include "EffectUrsaPajang.h"
+#include "EffectUrsaPajangMesh.h"
+#include "EffectSoilDecal.h"
+#include "EffectRockDecal.h"
+#include "EffectRing.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -120,28 +124,11 @@ void CUrsa::Update(_double dDeltaTime)
 
 	m_fDist = SetDistance();
 
-	TestAnimation(Flying_End);
 	Checking_Phase(dDeltaTime);
-	if (m_bCombat[First])
-	{
-		if (!m_bCB)
-			Adjust_Dist(dDeltaTime);
-	}
-
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-		m_bCombat[First] = true;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		Roar();
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	{
-		m_bCombat[Second] = true;
-		m_bCombat[First] = false;
-	}
 	Execute_Pattern(dDeltaTime);
 
-	/*if(!m_bWheelWind && !m_bRoar)*/
-	Checking_Finished();
+	//if(!m_bWheelWind && !m_bRoar)
+		Checking_Finished();
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
@@ -150,10 +137,9 @@ void CUrsa::Update(_double dDeltaTime)
 		m_fDist = SetDistance();
 	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = CB_Start;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = ROAR_Casting;
-
+		m_eState = ROAR_Start;
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
+	//	m_eState = ROAR_Start;
 
 
 	if (m_bCB)
@@ -175,6 +161,8 @@ void CUrsa::Update(_double dDeltaTime)
 
 	Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
+	if (!None_Combat())
+		CatchUpToLook(dDeltaTime);
 }
 
 void CUrsa::LateUpdate(_double dDeltaTime)
@@ -586,6 +574,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -597,6 +586,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -607,6 +597,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Big_SLASH);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
@@ -621,6 +612,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -633,6 +625,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -643,6 +636,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -653,11 +647,13 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 4:
+					m_LerpTime = 0.0;
 					m_QueState.push(Big_SLASH);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 5:
+					m_LerpTime = 0.0;
 					m_QueState.push(AXE_STAMP);
 					vTargetLook = XMVectorSetY(vTargetLook, 0.f);
 					m_pTransform->SetLook(vTargetLook);
@@ -675,6 +671,7 @@ void CUrsa::SetUp_Combo()
 				switch (m_iComboIndex)
 				{
 				case 1:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -685,6 +682,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 2:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -695,6 +693,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 3:
+					m_LerpTime = 0.0;
 					m_QueState.push(Combo_1Start);
 					m_QueState.push(Combo_1Hold);
 					m_QueState.push(Combo_1);
@@ -708,6 +707,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 4:
+					m_LerpTime = 0.0;
 					if (m_bAddRand)
 						m_QueState.push(Big_SLASH);
 					else
@@ -716,6 +716,7 @@ void CUrsa::SetUp_Combo()
 					m_pTransform->SetLook(vTargetLook);
 					break;
 				case 5:
+					m_LerpTime = 0.0;
 					if (m_bAddRand)
 						m_QueState.push(AXE_STAMP);
 					else
@@ -729,6 +730,7 @@ void CUrsa::SetUp_Combo()
 				case 6:
 					if (m_bAddRand)
 					{
+						m_LerpTime = 0.0;
 						m_QueState.push(PUMMEL_1);
 						m_QueState.push(PUMMEL_2);
 						vTargetLook = XMVectorSetY(vTargetLook, 0.f);
@@ -759,6 +761,7 @@ void CUrsa::Checking_Finished()
 				}
 				if (!None_Combat())
 				{
+					m_LerpTime = 0.0;
 					if (m_QueState.empty())
 						m_bFinishBlow = true;
 				}
@@ -775,11 +778,11 @@ void CUrsa::Checking_Finished()
 				{
 					m_eState = m_QueState.front();
 					m_QueState.pop();
-
 				}
 			}
 			if (!None_Combat())
 			{
+				m_LerpTime = 0.0;
 				if (m_QueState.empty())
 					m_bFinishBlow = true;
 			}
@@ -794,6 +797,7 @@ void CUrsa::Checking_Finished()
 			}
 			if (!None_Combat())
 			{
+				m_LerpTime = 0.0;
 				if (m_QueState.empty())
 					m_bFinishBlow = true;
 			}
@@ -924,23 +928,17 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::RUN:
 		break;
 	case Client::CUrsa::CB_Start:
-		if (keyFrame <= 40)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
-		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
-
-		if (keyFrame == 13 && m_iMakeDust < 1)
-		{
-			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
-			CEngine::GetInstance()->AddScriptObject(CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
-		}
+		//if (keyFrame <= 40)
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+		//else
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 
 		break;
 	case Client::CUrsa::ROAR_Casting: {
-		if (keyFrame >= 47)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
-		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
+		//if (keyFrame >= 47)
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+		//else
+		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 	}
 		break;
 	case Client::CUrsa::DASH_ATT: {
@@ -1187,13 +1185,27 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		break;
 	case Client::CUrsa::ROAR_Start: {
 		if (keyFrame >= 46 && keyFrame <= 107)
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 10.f);
 		else
-			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 10.f);
+
+		if (keyFrame == 86) {
+			CGameObject* Eff = nullptr;
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangDecal", "E_UrsaPajang");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajang::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PajangMesh", "E_UrsaPajangMesh");
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaPajangMesh::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_ROARDecal", "E_ROARDecal");
+			CEngine::GetInstance()->AddScriptObject(CEffectRockDecal::Create(Eff,pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+			Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_Ring", "E_UrsRing");
+			CEngine::GetInstance()->AddScriptObject(CEffectRing::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 
 	}
-		//�����°�?
-
 		break;
 	case Client::CUrsa::HIT:
 		break;
@@ -1395,5 +1407,14 @@ void CUrsa::Create_Trail()
 	pLeftTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
 	m_pRightTrailBuffer = static_cast<CVIBuffer_Trail*>(pRightTrail->GetComponent("Com_Trail"));
 	m_pLeftTrailBuffer = static_cast<CVIBuffer_Trail*>(pLeftTrail->GetComponent("Com_Trail"));
+}
+
+void CUrsa::CatchUpToLook(_double dDeltaTime)
+{
+	_vector vLook = m_pTransform->GetState(CTransform::STATE_LOOK);
+	_vector vTargetToLook = XMLoadFloat3(&m_vTargetToLook);
+	_float ratio = (_float)m_LerpTime / (_float)m_pModel->Get_AnimTime() * 0.3f;
+	m_pTransform->SetLook(XMVectorLerp(vLook, vTargetToLook, ratio));
+	m_LerpTime += dDeltaTime;
 }
 

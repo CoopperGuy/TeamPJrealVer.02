@@ -175,6 +175,7 @@ public:
 	void PlayBGM(string pSoundKey);
 	void StopSound(CHANNELID eID);
 	void StopAll();
+	void SetVolume(float volume, CHANNELID eID);
 #pragma endregion
 
 #pragma region PHYSX

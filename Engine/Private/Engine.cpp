@@ -721,6 +721,11 @@ void CEngine::StopAll()
 	m_pSoundManager->StopAll();
 }
 
+void CEngine::SetVolume(float volume, CHANNELID eID)
+{
+	m_pSoundManager->SetVolume(volume, eID);
+}
+
 
 void CEngine::PxInitialize()
 {

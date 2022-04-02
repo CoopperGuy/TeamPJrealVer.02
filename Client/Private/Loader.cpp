@@ -210,6 +210,10 @@ HRESULT CLoader::GameUrsaLoader()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_SoilDecal", "E_SoilDecal", 11));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_UrsaWind", "E_UrsaWinds", 12));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_DustWh", "E_Ursa_DustWh", 13));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_PajangDecal", "E_UrsaPajang", 14));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_PajangMesh", "E_UrsaPajangMesh", 15));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_ROARDecal", "E_ROARDecal", 16));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_Ring", "E_UrsRing", 17));
   
 	m_iCompleteBit = 0;
 
@@ -414,14 +418,17 @@ HRESULT CLoader::GameSceneJUN()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(1.f, 0.5f, -4.f));
 
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Jun.yaml", SCENE_JUNG, 1);
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
+	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
+	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 0);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
-
-	if (FAILED(GameFlogasLoader()))
-		MSG_BOX("Failed To Create Flogas Effect");
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1));
+	
+	/*if (FAILED(GameFlogasLoader()))
+		MSG_BOX("Failed To Create Flogas Effect");*/
+	
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
 	
 	m_ThreadLoader->Start_Thread();
 	
