@@ -639,5 +639,3 @@ void CDarkKnight::ChaseTarget(_double deltaTime, _float3 vTargetPos)
 	m_pTransform->SetState(CTransform::STATE_UP, XMVector3Normalize(vUp) * fScale);
 	m_pTransform->SetState(CTransform::STATE_LOOK, XMVector3Normalize(vLook) * fScale);
 }
-
-

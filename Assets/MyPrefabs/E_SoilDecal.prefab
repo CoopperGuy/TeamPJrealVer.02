@@ -1,16 +1,16 @@
 Scene: Untitled
 GameObjects:
   - Name: E_SoilDecal
-    UUID: 1252582048591764389
+    UUID: 16258897216579375896
     Active: true
     Layer: Default
     Type: Effect
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0, 0, 0]
+      Translation: [0.100000001, 0.100000001, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.5, 0.5, 0.5]
+      Scale: [0.5, 0.100000001, 0.5]
     Com_Decal:
       {}
     Effect_Setting:
@@ -26,9 +26,9 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 0.5
-      FadeOutStratTime: 0.5
-      FadeIn: true
+      FadeOutDuration: 1
+      FadeOutStratTime: 0
+      FadeIn: false
       FadeInDuration: 0.300000012
       FadeInStratTime: 0
       EffectDuration: 1

@@ -37,7 +37,7 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 
 		m_pTransform->SetMatrix(pos);
 
-		m_pTransform->SetScale(_float3(1.f, 2.f,1.f));
+		m_pTransform->SetScale(_float3(1.f, 2.f, 1.f));
 
 
 		MyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
@@ -45,8 +45,8 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 		MyPos = XMVectorSetY(MyPos, 0.8f);
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, MyPos);
-		
-		
+
+
 		MakeEffet();
 	}
 	return S_OK;
@@ -90,7 +90,7 @@ void CEffectSoilDust::MakeEffet()
 	_int random = rand() % 3;
 	_int Num = rand() % 2;
 	random += 1;
-	random = random*0.1f;
+	random = random / 10;
 
 	if (Num == 0)
 		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + random);
@@ -104,10 +104,11 @@ void CEffectSoilDust::MakeEffet()
 	}
 #pragma endregion
 
-//#pragma region MakeDecal
-//	auto DustDecal= CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_SoilDecal", "E_SoilDecal");
-//	CEngine::GetInstance()->AddScriptObject(CEffectSoilDecal::Create(DustDecal, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
-//#pragma endregion
+#pragma region MakeDecal
+	auto DustDecal= CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_SoilDecal", "E_SoilDecal");
+	CEngine::GetInstance()->AddScriptObject(CEffectSoilDecal::Create(DustDecal, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+#pragma endregion
+
 
 
 

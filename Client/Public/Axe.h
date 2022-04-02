@@ -2,6 +2,7 @@
 #include "Equipment.h"
 #include "Engine.h"
 #include "Player.h"
+#include "BasicCollider.h"
 
 
 BEGIN(Client)
@@ -41,7 +42,6 @@ public:
 
 private:
 	CGameObject*	pPlayer				= nullptr;
-
 private:
 	CVIBuffer_Trail* m_pTrailBuffer		= nullptr;
 

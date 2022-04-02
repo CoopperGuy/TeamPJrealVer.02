@@ -82,6 +82,8 @@ HRESULT CFlogas::Initialize(_float3 position)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pWeaponOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
@@ -182,6 +184,7 @@ void CFlogas::Update(_double dDeltaTime)
 			m_eState = DIE;
 			if (m_pModel->Get_isFinished(DIE)) {
 				m_eState = DEADBODY;
+				CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY10);
 				if (m_pPortal == nullptr)
 					m_pPortal = CTownPortal::Create();
 			}
@@ -210,7 +213,7 @@ void CFlogas::Update(_double dDeltaTime)
 
 
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
-	m_pStat->SetSTATE(m_eCurSTATES);
+	m_pWeaponOBB->p_States = m_eCurSTATES;
 
 	//fall down
 	PxControllerFilters filters;
@@ -231,7 +234,7 @@ void CFlogas::LateUpdate(_double dDeltaTime)
 	m_pModel->Play_Animation(dDeltaTime * m_dAniSpeed);
 
 	OrganizeEffect(m_eState, dDeltaTime);
-	Hit();
+	Hit(dDeltaTime);
 
 	if (m_bDeadMotion)
 	{
@@ -755,7 +758,7 @@ void CFlogas::Flying(_double dDeltaTime)
 
 		if (iCheck >= 4)
 		{
-			
+
 			m_eState = FLYING_END;
 			for (_uint i = 0; i < 4; ++i)
 				m_pElement[i]->SetExplosion(true);
@@ -832,6 +835,10 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		m_iMakeMeteo = 0;
 		break;
 	case WALK:
+		if (keyFrame == 7 || keyFrame == 17)
+		{
+			//CEngine::GetInstance()->PlaySoundW();
+		}
 		break;
 	case RUN:
 		break;
@@ -840,12 +847,15 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		if (keyFrame >= 30 && keyFrame <= 35) {
 			/*CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (keyFrame == 28.f) {
+			CEngine::GetInstance()->PlaySoundW("FlogasSwordRing.ogg", CHANNELID::ENEMY15);
+
+
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
 			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
 			m_pEffSwordRing->SetSlashR(false);
@@ -860,11 +870,11 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		if (keyFrame >= 29 && keyFrame <= 36) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		/*if (keyFrame == 28.f) {
 			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
 			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
@@ -874,34 +884,36 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	}
 	case THRUST:
 		if (keyFrame >= 38 && keyFrame <= 60) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case SWORDTHROWING_START:
 		if (keyFrame >= 82 && keyFrame <= 116) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		break;
 	case SWORDTHROWING_LOOP:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case SWORDTHROWING_END:
 		if (keyFrame >= 64 && keyFrame <= 79) {
-			m_eCurSTATES = CStat::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
 		else
-			m_eCurSTATES = CStat::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case FIREWAVE: {
 		_int keyFrame = m_pModel->GetCurrentKeyFrame();
 		static bool make = true;
 		if (keyFrame >= 25 && keyFrame <= 26) {
 			if (make) {
+				CEngine::GetInstance()->PlaySoundW("FlogasBlackhole.ogg", CHANNELID::ENEMY15);
+
 				auto EffectBlackhole = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blackhole", "Effect_Blackhole");
 				CEngine::GetInstance()->AddScriptObject(m_pEffBlackhole = CEffectBlackhole::Create(EffectBlackhole), CEngine::GetInstance()->GetCurSceneNumber());
 				make = false;
@@ -910,6 +922,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 		if (keyFrame == 124.f)
 		{
+			CEngine::GetInstance()->PlaySoundW("FlogasSwordRing.ogg", CHANNELID::ENEMY15);
 			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
 			make = true;
@@ -919,6 +932,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	case FIREFIST: {
 		if (keyFrame == 50) {
 			//내려찍기 
+			//	CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY10);
+
 			if (m_bMakeEffect) {
 				auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoTrail", "E_MeteoTrail");
 				CEngine::GetInstance()->AddScriptObject(CEffectMeteoTrail::Create(EffectTrail), CEngine::GetInstance()->GetCurSceneNumber());
@@ -929,6 +944,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		}
 		if (keyFrame >= 51 && keyFrame <= 70)
 		{
+			//CEngine::GetInstance()->SetVolume(0.1f, CHANNELID::ENEMY19);
 
 			if (m_iMakeMeteo <= 8)
 			{
@@ -941,11 +957,14 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 				/*auto EffectDropArea = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectDropArea, pos), CEngine::GetInstance()->GetCurSceneNumber());*/
 			}
+
 		}
+		if (keyFrame > 90)
+			CEngine::GetInstance()->PlaySoundW("FlogasMeteo.mp3", CHANNELID::ENEMY19);
 	}
 				   break;
 	case FOOTHAMMER:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (keyFrame >= 30)
 		{
 			if (m_bCreate)
@@ -960,7 +979,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 				if (m_dCreateTime >= 0.3)
 				{
 					CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FootHammer_Decal", "E_FootHammer_Decal");
-					CEngine::GetInstance()->AddScriptObject(CFootHammer_Decal::Create((CEmptyEffect*)pGameObject, m_pGameObject, m_iCreateCount,XMLoadFloat3(&m_vTargetToLook)), CEngine::GetInstance()->GetCurSceneNumber());
+					CEngine::GetInstance()->AddScriptObject(CFootHammer_Decal::Create((CEmptyEffect*)pGameObject, m_pGameObject, m_iCreateCount, XMLoadFloat3(&m_vTargetToLook)), CEngine::GetInstance()->GetCurSceneNumber());
 					m_dCreateTime = 0.0;
 					++m_iCreateCount;
 				}
@@ -977,6 +996,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		break;
 	case FLYING_START: {
 		if (keyFrame == 30.f) {
+			//CEngine::GetInstance()->PlaySoundW("FlogasFlyStart.ogg", CHANNELID::ENEMY13);
+
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
 				CEngine::GetInstance()->AddScriptObject(m_pEffFly = CEffectFly::Create(EffectFly), CEngine::GetInstance()->GetCurSceneNumber());
@@ -992,18 +1013,28 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			}
 
 		}
+		if (keyFrame >= 31.f)
+			CEngine::GetInstance()->PlaySoundW("FlogasFlyEff.mp3", CHANNELID::ENEMY15);
 		break;
 	}
 	case FLYING_ING:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		if (keyFrame >= 0 && keyFrame < 142)
+			CEngine::GetInstance()->PlaySoundW("FlogasFlyEff.mp3", CHANNELID::ENEMY14);
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		break;
 	case FLYING_END:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (m_pEffFly)
 			m_pEffFly->SetDead();
+
+
 		break;
 	case FLYING_END2:
-		m_eCurSTATES = CStat::STATES_IDEL;
+		if (keyFrame >= 25 && keyFrame < 30) {
+			CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY15);
+		}
+
+		m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		//if (m_pEffFlyLaser)
 		//	m_pEffFlyLaser->SetDead();
 		if (m_pEffFlyLight)
@@ -1013,7 +1044,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	m_pTrailBuffer->SetIsActive(m_DrawTrail);
 }
 
-void CFlogas::Hit()
+void CFlogas::Hit(_double dDeltaTime)
 {
 	if (m_eState == DEADBODY || m_eState == DIE)
 		return;
@@ -1022,14 +1053,25 @@ void CFlogas::Hit()
 	if (m_pStat->GetStatInfo().hp <= 0)
 		return;
 
+	m_bMakeBlood += dDeltaTime;
 	if (m_pOBB->Get_isHit()) {
+
+		CEngine::GetInstance()->PlaySoundW("Blood.mp3", CHANNELID::ENEMY18);
+		//if (m_bMakeBlood >= 0.02f) {
+		//	CEngine::GetInstance()->PlaySoundW("Blood.mp3", CHANNELID::ENEMY18);
+		//	m_bMakeBlood = 0.0;
+		//}
+		//else
+		//	CEngine::GetInstance()->StopSound(CHANNELID::ENEMY18);
+
+
 
 		_matrix Translation;
 		_int random = rand() % 7;
 		_int random2 = rand() % 2;
 		_int random3 = rand() % 2;
 		random += 1;
-		if(random3 == 0)
+		if (random3 == 0)
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));
 		else
 			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random2*-0.1f), XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)) + ((float)random*0.1f), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)));

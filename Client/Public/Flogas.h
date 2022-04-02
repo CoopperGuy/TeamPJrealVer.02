@@ -48,7 +48,7 @@ private:
 	void Flying(_double dDeltaTime);
 	
 	void OrganizeEffect(Flogas eState, _double dDeltaTime);
-	void Hit();
+	void Hit(_double dDeltaTime);
 
 	_float SetDistance();
 	_bool OriginShift(_double dDeltaTime);
@@ -107,6 +107,8 @@ private:
 	_double m_dChangeTime	 = 0.0;
 	_double m_dAniSpeed		 = 1.0;
 	_double m_dCreateTime	 = 0.0;
+	_double m_dBlood		 = 0.0;
+
 
 	_uint m_iLastIndex		 = 0;
 	_uint m_iFlyingCount	 = 0;
@@ -127,5 +129,6 @@ private:
 	_bool				m_DrawTrail = false;
 	CTownPortal*		m_pPortal = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+	CBasicCollider*		m_pWeaponOBB = nullptr;
 };
 END

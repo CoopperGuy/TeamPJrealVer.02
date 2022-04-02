@@ -34,10 +34,12 @@ void CFootHammer_Decal::Update(_double dDeltaTime)
 	{
 		if (m_bCreateEffect)
 		{
+
 			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_FootHamer_Bomb", "E_FootHamer_Bomb");
 			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
 			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
-			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->StopSound(ENEMY20);
+			CEngine::GetInstance()->PlaySoundW("FootHammer_Bomb.mp3", ENEMY20);
 			m_bCreateEffect = false;
 		}
 	}

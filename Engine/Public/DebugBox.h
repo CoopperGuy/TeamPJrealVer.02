@@ -2,6 +2,9 @@
 
 #include "Line.h"
 
+BEGIN(Engine)
+
+
 class CDebugBox : public CLine
 {
 public:
@@ -18,3 +21,4 @@ private:
 	_float3	m_Size;
 };
 
+END

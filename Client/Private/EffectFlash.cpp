@@ -36,8 +36,10 @@ void CEffectFlash::LateUpdate(_double deltaTime)
 	m_DurationDelta += (_float)deltaTime;
 	if (m_DurationDelta > m_pThis->GetFadeOutDuration()) 
 	{
+		CEngine::GetInstance()->StopSound(ENEMY20);
 		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_E_Sprite_Fire", "E_Sprite_Fire");
 		CEngine::GetInstance()->AddScriptObject(CSpriteFire::Create((CEmptyEffect*)pGameObject, m_pThis, m_pEl), CEngine::GetInstance()->GetCurSceneNumber());
+		CEngine::GetInstance()->PlaySoundW("Explosion_Element.mp3", ENEMY20);
 		this->SetDead();
 		m_pThis->SetDead();
 	}

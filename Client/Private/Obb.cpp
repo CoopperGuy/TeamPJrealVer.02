@@ -24,10 +24,13 @@ HRESULT CObb::Initailze(_float3 position, _float3 size, _float dmg, ID _collisio
 	CStat::STAT stat = m_pStat->GetStatInfo();
 	stat.level = 1;
 	stat.levelAtk = dmg;
+	stat.maxHp = 1000000;
+	stat.levelHp = 1000000;
+	stat.hp = 1000000;
 	m_pStat->SetStatInfo(stat);
 	m_fDuration = _duration;
 
-	m_pStat->SetSTATE(CStat::STATES_ATK);
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 	pEngine->AddScriptObject(this, pEngine->GetCurSceneNumber());
 	return S_OK;
 }
@@ -50,10 +53,13 @@ HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _colli
 	CStat::STAT stat = m_pStat->GetStatInfo();
 	stat.level = 1;
 	stat.levelAtk = dmg;
+	stat.maxHp = 1000000;
+	stat.levelHp = 1000000;
+	stat.hp = 1000000;	
 	m_pStat->SetStatInfo(stat);
 	m_fDuration = _duration;
 
-	m_pStat->SetSTATE(CStat::STATES_ATK);
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 
 	pEngine->AddScriptObject(this, pEngine->GetCurSceneNumber());
 	return S_OK;
@@ -61,6 +67,8 @@ HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _colli
 
 void CObb::Update(_double deltaTime)
 {
+	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
+
 	if(m_pTargetTransform)
 		m_pTransform->SetMatrix(m_pTargetTransform->GetWorldMatrix());
 	

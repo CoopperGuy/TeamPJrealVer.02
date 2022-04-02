@@ -2,7 +2,7 @@
 
 #include "Character.h"
 #include "StateMachine.h"
-
+#include "BasicCollider.h"
 //BEGIN(Engine)
 //class CBasicCollider;
 //END
@@ -35,7 +35,6 @@ protected:
 protected:
 	string			m_Timer = "";
 protected:
-	CStat::STATES	m_eCurSTATES = CStat::STATES::STATES_END;
 	_float			m_fSpeedFactor = 40.f;
 
 protected:
@@ -52,6 +51,8 @@ private:
 protected:
 	_bool		m_bDestination = false;
 	_bool		m_bExplosion = false;
+	CBasicCollider::STATES	m_eCurSTATES = CBasicCollider::STATES::STATES_END;
+
 };
 
 END
