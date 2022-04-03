@@ -43,6 +43,13 @@ void CMenuHud::Update(_double deltaTime)
 			g_Menu = m_bisActive;
 		}
 	}
+	for (auto& iter : m_pMenuButton) {
+		if (iter->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI00);
+			CEngine::GetInstance()->PlaySoundW("CURSOL_CLICK.wav", CHANNELID::UI00);
+		}
+
+	}
 	_uint i = 0;
 	for (auto& iter : m_pMenuButton) {
 		if (m_pMenuList[i] == nullptr) {

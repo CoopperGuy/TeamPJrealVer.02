@@ -264,13 +264,13 @@ void CGameObjectManager::CollsionCheck()
 
 	m_pOBB->CollisionWeaponeToTarget(m_pColliderList[(_int)ID::WEAPONE], m_pColliderList[(_int)ID::MONSTER]);
 	m_pOBB->CollisionWeaponeToTarget(m_pColliderList[(_int)ID::PLAYER_EFFECT], m_pColliderList[(_int)ID::MONSTER]);
-	//m_pOBB->Collision_MonsterWeaponToPlayer(m_pColliderList[(_int)ID::MONSTER_ATK], m_pColliderList[(_int)ID::PLAYER]);
+	m_pOBB->Collision_MonsterWeaponToPlayer(m_pColliderList[(_int)ID::MONSTER_ATK], m_pColliderList[(_int)ID::PLAYER]);
 	m_pOBB->Collision_MonsterWeaponToPlayer(m_pColliderList[(_int)ID::MONSTER_EFFECT], m_pColliderList[(_int)ID::PLAYER]);
 }
 
 void CGameObjectManager::ClearList()
 {
-	for (int i = 0; i < (_int)ID::IDEND; ++i)
+	for (int i = 0; i <= (_int)ID::IDEND; ++i)
 	{
 		for (auto& pair : m_pColliderList[i])
 		{

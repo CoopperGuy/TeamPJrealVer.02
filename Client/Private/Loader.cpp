@@ -396,14 +396,7 @@ HRESULT CLoader::GameSceneLEE()
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
 
 	m_ThreadLoader->Start_Thread();
-
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/TestLee.yaml", SCENE_LEE);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_LEE);
-
-	/*if (FAILED(CEngine::GetInstance()->CreatePrefab("Prototype_Instance_Fire", "E_InstanceFire")))
-	{
-		MSG_BOX("Failed To Create INSTANPrefab");
-	}*/
+	
 	while (!m_isFinish) {
 		if (m_ThreadLoader->GetIsEnd())
 			m_isFinish = true;

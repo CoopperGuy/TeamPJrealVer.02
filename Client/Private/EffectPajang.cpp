@@ -84,7 +84,7 @@ void CEffectPajang::Update(_double deltaTime)
 	//m_fScale.y += PlusScale;
 	m_fScale.z += PlusScale;
 	m_pTransform->SetScale(m_fScale);
-	m_pOBB->SetSize(m_fScale);
+	m_pOBB->SetSize(_float3(m_fScale.x * 3.f, m_fScale.y* 3.f, m_fScale.z * 3.f));
 	if (m_fScale.x >= m_fMaxScail)
 	{
 		if (m_bSetFadeOut)

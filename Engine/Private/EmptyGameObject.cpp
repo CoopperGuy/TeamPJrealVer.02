@@ -464,7 +464,7 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 	if (collider)
 		dynamic_cast<CCollider*>(collider)->LateUpdate(TimeDelta);
 
-	int i = 0;
+	_int i = 0;
 	do {
 		string com = "Com_OBB";
 		if (i != 0)

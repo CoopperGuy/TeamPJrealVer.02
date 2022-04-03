@@ -29,7 +29,7 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_vMin(rhs.m_vMin)
 	, m_strBoneName(rhs.m_strBoneName)
 	, m_isAttachBone(rhs.m_isAttachBone)
-	, m_CollisionType(rhs.m_CollisionType)
+	, m_CollisionType(rhs.m_CollisionType)	
 {
 	memcpy(&m_Offset, &rhs.m_Offset, sizeof(_float3));
 	memcpy(m_vPoint, rhs.m_vPoint, sizeof(_float3) * 8);
@@ -490,6 +490,21 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 
 							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
+							_uint _rnd = rand() % 3;
+							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
+							switch (_rnd)
+							{
+							case 0:
+								CEngine::GetInstance()->PlaySoundW("Heats00.wav", CHANNELID::PLAYER13);
+								break;
+							case 1:
+								CEngine::GetInstance()->PlaySoundW("Heats01.wav", CHANNELID::PLAYER13);
+								break;
+							case 2:
+								CEngine::GetInstance()->PlaySoundW("Heats02.wav", CHANNELID::PLAYER13);
+								break;
+	
+							}
 							if (pWeaponeCollider->m_bIsDownAttack) {
 								pTargetCollider->m_bIsDown = true;
 							}
@@ -563,15 +578,15 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 						if (!pTargetCollider->m_isHit)
 							pTargetCollider->SetHit(true);
 
-						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
-						{
-
-							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
-							if (pMyCollider->m_bIsDownAttack) {
-								pTargetCollider->m_bIsDown = true;
-							}
-							return;
+						static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false);
+						CEngine::GetInstance()->StopSound(CHANNELID::PLAYER12);
+						CEngine::GetInstance()->PlaySoundW("Damaged.wav", CHANNELID::PLAYER12);
+						//cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
+						if (pMyCollider->m_bIsDownAttack) {
+							pTargetCollider->m_bIsDown = true;
 						}
+						return;
+						
 					}
 					else {
 						pTargetCollider->SetHit(false);
