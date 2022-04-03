@@ -41,6 +41,14 @@ HRESULT CEffectMagic::Initialize(void* pArg, _vector pos)
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) ,0.1f , XMVectorGetZ(pos) - float(rand() % 5) });
 		else
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ float(rand() % 4) * -1 ,0.1f , XMVectorGetZ(pos) + float(rand() % 5) });
+
+
+
+		//CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
+		//CTransform* m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
+
+		//m_pTransform->SetState(CTransform::STATE_POSITION, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
+
 	}
 	return S_OK;
 }

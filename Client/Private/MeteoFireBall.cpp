@@ -61,8 +61,14 @@ void CMeteoFireBall::Update(_double deltaTime)
 
 	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
 
+	if (m_pOBB->Get_isHit())
+	{
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
+		m_bDead = true;
+	}
+
 	/*if (!m_pOBB->Get_isHit()) {*/
-	if (0.1 <= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
+	if (0.1 < XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
 		mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 		mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
@@ -89,12 +95,12 @@ void CMeteoFireBall::Update(_double deltaTime)
 		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		m_bDead = true;
 	}
-	if (m_pOBB->Get_isHit())
-	{
+
+	/*if(!m_pOBB->Get_isHit() && XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))<=-0.1f) {
 		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		m_bDead = true;
 	}
-
+*/
 
 }
 

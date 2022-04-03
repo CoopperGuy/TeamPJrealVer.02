@@ -10,11 +10,11 @@ CEffectSoilDust::CEffectSoilDust()
 {
 }
 
-CEffectSoilDust * CEffectSoilDust::Create(void * pArg, _matrix pos)
+CEffectSoilDust * CEffectSoilDust::Create(void * pArg, _matrix pos, _bool dustmake)
 {
 	CEffectSoilDust*		pInstance = new CEffectSoilDust();
 
-	if (FAILED(pInstance->Initialize(pArg, pos)))
+	if (FAILED(pInstance->Initialize(pArg, pos, dustmake)))
 	{
 		MSG_BOX("Failed to Create CEffectSoilDust");
 		SafeRelease(pInstance);
@@ -25,7 +25,7 @@ CEffectSoilDust * CEffectSoilDust::Create(void * pArg, _matrix pos)
 }
 
 
-HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
+HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos, _bool dustmake)
 {
 	if (pArg != nullptr) {
 
@@ -46,8 +46,7 @@ HRESULT CEffectSoilDust::Initialize(void* pArg, _matrix pos)
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, MyPos);
 
-
-		MakeEffet();
+		MakeEffet(dustmake);
 	}
 	return S_OK;
 }
@@ -81,26 +80,28 @@ void CEffectSoilDust::Free()
 	__super::Free();
 }
 
-void CEffectSoilDust::MakeEffet()
+void CEffectSoilDust::MakeEffet(_bool dustmake)
 {
 
 #pragma region Make Dust
 
-	_matrix Translation;
-	_int random = rand() % 3;
-	_int Num = rand() % 2;
-	random += 1;
-	random = random / 10;
+	if (dustmake) {
+		_matrix Translation;
+		_int random = rand() % 3;
+		_int Num = rand() % 2;
+		random += 1;
+		random = random / 10;
 
-	if (Num == 0)
-		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + random);
-	else
-		Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) - random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) - random);
+		if (Num == 0)
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) + random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) + random);
+		else
+			Translation = XMMatrixTranslation(XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION)) - random, XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)), XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)) - random);
 
-	Translation = m_pTransform->Remove_Scale(Translation);
-	for (int i = 0; i < 7; ++i) {
-		auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UDust", &Translation);
-		CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+		Translation = m_pTransform->Remove_Scale(Translation);
+		for (int i = 0; i < 7; ++i) {
+			auto Dust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_UrsaeDust", "E_UDust", &Translation);
+			CEngine::GetInstance()->AddScriptObject(CEffectUrsaDust::Create(Dust, MyPos), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 	}
 #pragma endregion
 
