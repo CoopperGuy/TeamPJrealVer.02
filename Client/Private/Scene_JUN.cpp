@@ -33,7 +33,7 @@ HRESULT CScene_JUN::Render()
 
 HRESULT CScene_JUN::ReadyScript()
 {
-	m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_JUNG);
+	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_JUNG);
 	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
 	return S_OK;
 }
