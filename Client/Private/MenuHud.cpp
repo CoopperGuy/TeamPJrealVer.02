@@ -48,7 +48,13 @@ void CMenuHud::Update(_double deltaTime)
 			CEngine::GetInstance()->StopSound(CHANNELID::UI00);
 			CEngine::GetInstance()->PlaySoundW("CURSOL_CLICK.wav", CHANNELID::UI00);
 		}
-
+		if (iter->IsHovered()) {
+			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI01);
+				CEngine::GetInstance()->PlaySoundW("EscMenuselect.ogg", CHANNELID::UI01);
+			}
+		}
 	}
 	_uint i = 0;
 	for (auto& iter : m_pMenuButton) {

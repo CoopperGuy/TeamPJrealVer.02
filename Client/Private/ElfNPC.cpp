@@ -41,6 +41,7 @@ HRESULT CElfNPC::Initailze(CGameObject * pArg)
 		XMStoreFloat3(&float3Pos, pos);
 		m_pAlretUI->SetPosition(float3Pos);
 	}
+	m_pModel->SetUp_AnimationIndex(0);
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
 }
@@ -55,7 +56,8 @@ void CElfNPC::Update(_double deltaTime)
 
 void CElfNPC::LateUpdate(_double deltaTime)
 {
-	__super::LateUpdate(deltaTime);
+	__super::LateUpdate(deltaTime * 0.3);
+	m_pModel->Play_Animation(deltaTime);
 	this->BoxCheck();
 	if (m_bisEndTalk) {
 		if(m_pTalkDesk)

@@ -30,6 +30,7 @@ HRESULT CNpc_Shop::Initailze(CGameObject * pArg)
 	if (pArg) {
 		m_pShopNPC = (CEmptyGameObject*)pArg;
 		m_pNpcTransform = static_cast<CTransform*>(m_pShopNPC->GetComponent("Com_Transform"));
+		m_pModel = static_cast<CModel*>(m_pShopNPC->GetComponent("Com_Model"));
 		m_pShopList = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE::SCENE_STATIC, "ShopList"));
 		/*	std::thread creatShop(SetupShopList, this);
 		creatShop.detach();*/
@@ -37,6 +38,7 @@ HRESULT CNpc_Shop::Initailze(CGameObject * pArg)
 	}
 	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
 	m_pShopHud = CShopHud::Create(nullptr);
+	m_pModel->SetUp_AnimationIndex(0);
 	return S_OK;
 }
 
@@ -45,8 +47,15 @@ void CNpc_Shop::Update(_double deltaTime)
 	if (m_bisCreated) {
 		_uint idx = 0;
 		for (auto& iter : m_ShopList) {
+			if (iter.first->isFristEnter()) {
+				CEngine::GetInstance()->StopSound(CHANNELID::UI07);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI07);
+			}
 			if (iter.first->IsHovered()) {
-				if (CEngine::GetInstance()->IsMouseDown(0)) {
+				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
+				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
+					CEngine::GetInstance()->PlaySoundW("ShopSelect.ogg", CHANNELID::UI08);
 					m_iCurSelectedItem = idx;
 				}
 				else {
@@ -100,6 +109,8 @@ void CNpc_Shop::Update(_double deltaTime)
 
 		if (m_pShopHud) {
 			if (m_pShopHud->IsBuySelected()) {
+				CEngine::GetInstance()->StopSound(CHANNELID::UI08);
+				CEngine::GetInstance()->PlaySoundW("ItemBuy.ogg", CHANNELID::UI08);
 				CEventCheck::GetInstance()->ContractShop(this);
 			}
 		}
@@ -110,6 +121,7 @@ void CNpc_Shop::Update(_double deltaTime)
 
 void CNpc_Shop::LateUpdate(_double deltaTime)
 {
+	m_pModel->Play_Animation(deltaTime);
 	if (m_bisCreated) {
 
 	}

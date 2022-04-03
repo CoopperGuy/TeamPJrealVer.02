@@ -28,8 +28,18 @@ void CPortalUI::Update(_double deltaTime)
 	m_pProtalUI->SetActive(m_bIsActive);
 	m_pPosition->SetActive(m_bIsActive);
 	if (m_bIsActive) {
+		if (m_pLeftArrow->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+			CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI02);
+		}
+		if (m_pRightArrow->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+			CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI02);
+		}
 		if (m_pLeftArrow->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.ogg", CHANNELID::UI02);
 				if (m_iMinIdx < m_iCurIndex) {
 					m_fDestScnensPosX += 640.f;
 					m_iCurIndex--;
@@ -38,17 +48,22 @@ void CPortalUI::Update(_double deltaTime)
 		}
 		if (m_pRightArrow->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.ogg", CHANNELID::UI02);
 				if (m_iMaxIdx > m_iCurIndex) {
 					m_fDestScnensPosX -= 640.f;
 					m_iCurIndex++;
 				}
 			}
 		}
-		if ((m_fDestScnensPosX - m_fCurScnensPosX) >= 0.01f) {
-			m_fCurScnensPosX += 640.f * (_float)deltaTime * 10.f;
+		if (fabsf(m_fDestScnensPosX - m_fCurScnensPosX) >= 0.1f) {
+			m_moveDelta += deltaTime;
+			_float t = _float(m_moveDelta / m_moveTime);
+			m_fCurScnensPosX = m_fPreScnensPosX * (1 - t) + m_fDestScnensPosX * t;
 		}
-		if ((m_fCurScnensPosX - m_fDestScnensPosX) >= 0.01f) {
-			m_fCurScnensPosX -= 640.f * (_float)deltaTime * 10.f;
+		else {
+			m_fPreScnensPosX = m_fDestScnensPosX;
+			m_moveDelta = 0;
 		}
 		_float2 scenesPos = m_pPosition->GetPosition();
 		m_pPosition->SetPosition(m_fCurScnensPosX, scenesPos.y);
@@ -66,8 +81,15 @@ void CPortalUI::Update(_double deltaTime)
 			i++;
 		}
 
+		if (m_pEscape->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+			CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI02);
+		}
 		if (m_pEscape->IsHovered()) {
-			if (CEngine::GetInstance()->IsMouseDown(0)) {
+			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+				CEngine::GetInstance()->PlaySoundW("UIClose.ogg", CHANNELID::UI03);
 				ClosePortalUI();
 				m_fCurScnensPosX = 640.f;
 			}

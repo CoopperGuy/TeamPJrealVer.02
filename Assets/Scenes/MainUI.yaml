@@ -35,6 +35,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 360541464009531842
   - Name: HpBar
@@ -55,6 +56,7 @@ GameObjects:
       TextureNoisePath: ..\..\Assets\UITexture\Gauge_Bar_02.tga
       TextureAnyPath: ..\..\Assets\UITexture\Gauge_Bar_Full1.tga
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: Stamina
     UUID: 14458919065677680900
     Active: true
@@ -73,6 +75,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 5971317390204806477
   - Name: StaminaBar
@@ -93,6 +96,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: Exp
     UUID: 9116170420833322363
     Active: true
@@ -111,6 +115,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 12521340856426920314
   - Name: ExpBar
@@ -131,6 +136,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: LevelFlag
     UUID: 7595816087655284489
     Active: true
@@ -149,6 +155,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 13299719075681608056
       - 7440413138310284788
@@ -171,6 +178,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillIcon00
     UUID: 13536765509469864204
     Active: true
@@ -189,6 +197,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 1251316223543296090
       - 5191734195603716267
@@ -210,6 +219,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SelectItemHud
     UUID: 529759806022810624
     Active: false
@@ -228,6 +238,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: "\n  Items"
       Color: [0.840579689, 0.840579689, 0.840579689, 1]
@@ -256,6 +267,7 @@ GameObjects:
       TextureNoisePath: ..\..\Assets\UITexture\BackImg\Window_BG_ETC_5.dds
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 529759806022810624
       - 16786830591833640957
@@ -278,6 +290,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SelectQuestHud
     UUID: 16786830591833640957
     Active: false
@@ -296,6 +309,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: " \n  Quest"
       Color: [0.869565248, 0.869565248, 0.869565248, 1]
@@ -324,6 +338,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: QuickSlot0
     UUID: 4709607269928993000
     Active: true
@@ -342,6 +357,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 12322287636575365322
       - 15201883921803617419
@@ -363,6 +379,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: QuickBorder
     UUID: 15201883921803617419
     Active: true
@@ -381,6 +398,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: QuickRegi0
     UUID: 9990065505030077495
     Active: false
@@ -391,7 +409,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [552.949341, 360]
+      Position: [640, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
@@ -399,6 +417,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: "\n\n \n  \n   Z"
       Color: [1, 1, 1, 1]
@@ -409,90 +428,6 @@ GameObjects:
       IsKorean: false
     Children:
       - 7651156532380057483
-  - Name: QuickRegi1
-    UUID: 7920380615560780865
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 10
-    PassIndex: 1
-    Hovering: false
-    Com_Transform:
-      Position: [617.432983, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: "   \n\n\n\n   X"
-      Color: [1, 1, 1, 1]
-      Scale: [0.649999976, 0.649999976]
-      LayerDepth: 0
-      IsCenter: true
-      ShaderCut: false
-      IsKorean: false
-    Children:
-      - 17528326666143867850
-  - Name: QuickRegi2
-    UUID: 4453287704084560765
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 10
-    PassIndex: 1
-    Hovering: false
-    Com_Transform:
-      Position: [681.916992, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: "\n\n\n   \n   C"
-      Color: [1, 1, 1, 1]
-      Scale: [0.649999976, 0.649999976]
-      LayerDepth: 0
-      IsCenter: true
-      ShaderCut: false
-      IsKorean: false
-    Children:
-      - 4231274138471713980
-  - Name: QuickRegi3
-    UUID: 4577720191395817431
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 10
-    PassIndex: 1
-    Hovering: false
-    Com_Transform:
-      Position: [746.401001, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-    Com_Text:
-      Text: "\n\n\n\n   V"
-      Color: [1, 1, 1, 1]
-      Scale: [0.649999976, 0.649999976]
-      LayerDepth: 0
-      IsCenter: true
-      ShaderCut: false
-      IsKorean: false
-    Children:
-      - 5413296028055816498
   - Name: QuickRegiIcon
     UUID: 7651156532380057483
     Active: false
@@ -503,7 +438,7 @@ GameObjects:
     PassIndex: 8
     Hovering: false
     Com_Transform:
-      Position: [552.949036, 360]
+      Position: [639.999695, 360]
       Size: [64, 64]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
@@ -511,60 +446,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
-  - Name: QuickRegiIcon1
-    UUID: 17528326666143867850
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 9
-    PassIndex: 8
-    Hovering: false
-    Com_Transform:
-      Position: [617.433044, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-  - Name: QuickRegiIcon2
-    UUID: 4231274138471713980
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 9
-    PassIndex: 8
-    Hovering: false
-    Com_Transform:
-      Position: [681.916992, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
-  - Name: QuickRegiIcon3
-    UUID: 5413296028055816498
-    Active: false
-    Layer: Default
-    Instancing: false
-    Type: UI
-    SortingOrder: 9
-    PassIndex: 8
-    Hovering: false
-    Com_Transform:
-      Position: [746.401001, 360]
-      Size: [64, 64]
-    Com_VIBuffer:
-      TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
-      TextureMaskPath: ""
-      TextureNoisePath: ""
-      TextureAnyPath: ""
-      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: GoldIcon
     UUID: 5159038175060798352
     Active: true
@@ -583,6 +465,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: Gold
     UUID: 7276647562409506089
     Active: true
@@ -621,6 +504,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: LevelFont21
     UUID: 8153880922184464073
     Active: true
@@ -639,6 +523,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: Icon
     UUID: 1251316223543296090
     Active: true
@@ -657,6 +542,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillIcon01
     UUID: 14965003752090874297
     Active: true
@@ -675,6 +561,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 2450450927756622740
       - 7384799410845815373
@@ -696,6 +583,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillBorder
     UUID: 7384799410845815373
     Active: true
@@ -714,6 +602,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillIcon02
     UUID: 16828965550382113538
     Active: true
@@ -732,6 +621,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 13157395383238026214
       - 9863711243995913723
@@ -753,6 +643,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillBorder
     UUID: 9863711243995913723
     Active: true
@@ -771,6 +662,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillIcon03
     UUID: 8047637696585945015
     Active: true
@@ -789,6 +681,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 12738321021896914698
       - 3481039916029682447
@@ -810,6 +703,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SkillBorder
     UUID: 3481039916029682447
     Active: true
@@ -828,6 +722,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: SelectStatusHud
     UUID: 811462122791456894
     Active: false
@@ -846,6 +741,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: " \n  Status"
       Color: [0.869565248, 0.869565248, 0.869565248, 1]
@@ -874,6 +770,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: RegistQuickSlot
     UUID: 8828850492644535637
     Active: false
@@ -892,11 +789,9 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 9990065505030077495
-      - 7920380615560780865
-      - 4453287704084560765
-      - 4577720191395817431
       - 8668102252136602084
   - Name: CloseButton
     UUID: 8668102252136602084
@@ -916,3 +811,4 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
