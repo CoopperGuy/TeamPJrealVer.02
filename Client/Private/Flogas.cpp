@@ -523,7 +523,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 					else
 						continue;
 				}
-				else if (iSecondDrawing < 95)
+			/*	else if (iSecondDrawing < 95)
 				{
 					if (m_QueState.size() >= 3)
 					{
@@ -532,7 +532,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 					}
 					else
 						continue;
-				}
+				}*/
 			}
 			m_bSecondAtt = true;
 			m_dDelayTime = 0.f;
@@ -847,18 +847,21 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		m_iMakeMeteo = 0;
 		break;
 	case WALK:
-		if (keyFrame == 7 || keyFrame == 17)
-		{
-			//CEngine::GetInstance()->PlaySoundW();
-		}
 		break;
 	case RUN:
+		if (keyFrame == 7 || keyFrame == 17)
+		{
+			CEngine::GetInstance()->StopSound(ENEMY22);
+			CEngine::GetInstance()->StopSound(ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("Walk_Flogas.mp3", ENEMY22);
+			CEngine::GetInstance()->PlaySoundW("Walk_FlogasFloor.mp3", ENEMY23);
+		}
 		break;
 	case R_Slash:
 	{
 		if (keyFrame >= 30 && keyFrame <= 35) {
-			/*CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_FireSlash", "E_FireSlash");
-			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());*/
+			CEngine::GetInstance()->StopSound(ENEMY22);
+			CEngine::GetInstance()->PlaySoundW("Slash_Flogas.mp3", CHANNELID::ENEMY22);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
@@ -884,6 +887,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			CEngine::GetInstance()->AddScriptObject(CSlashWave::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		if (keyFrame >= 29 && keyFrame <= 36) {
+			CEngine::GetInstance()->PlaySoundW("Slash_Flogas.mp3", CHANNELID::ENEMY22);
+			CEngine::GetInstance()->PlaySoundW("FireSlash_Flogas.mp3", CHANNELID::ENEMY23);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
 		}
@@ -897,6 +902,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		break;
 	}
 	case THRUST:
+		if (keyFrame == 38 || keyFrame == 37)
+			CEngine::GetInstance()->PlaySoundW("Thrust_Flogas.mp3", ENEMY23);
 		if (keyFrame >= 38 && keyFrame <= 60) {
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
 			m_DrawTrail = true;
@@ -948,7 +955,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			//내려찍기 
 			//	CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY10);
 
-
+			CEngine::GetInstance()->PlaySoundW("FireFist_Flogas.mp3", CHANNELID::ENEMY24);
 
 			if (m_bMakeEffect) {
 				auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoTrail", "E_MeteoTrail");
@@ -986,6 +993,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 				   break;
 	case FOOTHAMMER:
 		m_eCurSTATES = CBasicCollider::STATES_IDEL;
+		if(keyFrame == 29)
+			CEngine::GetInstance()->PlaySoundW("FootHammer_Flogas.mp3", CHANNELID::ENEMY23);
 		if (keyFrame >= 30)
 		{
 			if (m_bCreate)
@@ -1051,8 +1060,11 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 		break;
 	case FLYING_END2:
-		if (keyFrame >= 25 && keyFrame < 30) {
-			CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY15);
+		if (keyFrame >= 26 && keyFrame < 30) {
+			if(!m_bSecondAtt)
+				CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY15);
+			else
+				CEngine::GetInstance()->PlaySoundW("Wrath_Flogas.mp3", CHANNELID::ENEMY22);
 		}
 
 		m_eCurSTATES = CBasicCollider::STATES_IDEL;
@@ -1060,6 +1072,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		//	m_pEffFlyLaser->SetDead();
 		if (m_pEffFlyLight)
 			m_pEffFlyLight->SetDead();
+		break;
+	case DIE:
 		break;
 	}
 	m_pTrailBuffer->SetIsActive(m_DrawTrail);

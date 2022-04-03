@@ -121,6 +121,11 @@ void CObb::SetMatrix(_float4x4 matWorld)
 	m_pObj->SetWorldMatrix(matWorld);
 }
 
+void CObb::SetIsDownAttack(_bool bvalue)
+{
+	m_pOBB->SetIsDownAttack(bvalue);
+}
+
 CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CTransform * pTarget)
 {
 	CObb*	obj = new CObb();

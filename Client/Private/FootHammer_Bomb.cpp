@@ -18,7 +18,7 @@ HRESULT CFootHammer_Bomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	_float3 vTargetPos;
 	XMStoreFloat3(&vTargetPos, pTargetTrans->GetState(CTransform::STATE_POSITION));
 	m_vScale = { m_pEffectTrans->GetScale(CTransform::STATE_RIGHT), m_pEffectTrans->GetScale(CTransform::STATE_UP),1.f };
-	vTargetPos.y = 1.f;
+	vTargetPos.y = 0.7f;
 	CGameObject* pFlogas = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Flogas");
 	CStat* stat = static_cast<CStat*>(pFlogas->GetComponent("Com_Stat"));
 
@@ -38,7 +38,7 @@ void CFootHammer_Bomb::Update(_double dDeltaTime)
 	XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
 	vPos.y = 0.f;
 	m_pOBB->SetPosision(vPos);
-	m_pOBB->SetSize(_float3((m_vScale.x + m_fScale)* 0.5f, (m_vScale.y + m_fScale) * 0.5f, 1.f));
+	m_pOBB->SetSize(_float3((m_vScale.x + m_fScale)* 0.3f, (m_vScale.y + m_fScale) * 0.4f, 1.f));
 }
 
 void CFootHammer_Bomb::LateUpdate(_double dDeltaTime)

@@ -132,7 +132,7 @@ void CEl_Flogas::Update(_double dDeltaTime)
 					}
 					else
 					{
-						static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red * 0.7, 3.0);
+						static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red * 0.7f, 3.0);
 					}
 				}
 			}

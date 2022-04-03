@@ -71,10 +71,10 @@ private:
 	class CTransform* m_pRenderTransform = nullptr;
 	CBasicCollider* m_pOBBCom			 = nullptr;
 	CMonHp*	m_pMonHp					 = nullptr;
-	CBasicCollider*		m_pOBB = nullptr;
-	CBasicCollider*		m_pLeftWeapon = nullptr;
-	CBasicCollider*		m_pRightWeapon = nullptr;
-
+	CBasicCollider*		m_pOBB			= nullptr;
+	CBasicCollider*		m_pLeftWeapon	= nullptr;
+	CBasicCollider*		m_pRightWeapon	= nullptr;
+	CBasicCollider*		m_pHead			= nullptr;
 
 	class CEffectBlood* m_pBlood = nullptr;
 	class CEffectUrsaShoulder* m_pUrsaShoulder = nullptr;
@@ -134,5 +134,8 @@ private:
 	_float4x4			m_LeftwpBoneMatrix;
 	_bool				m_DrawTrail = false;
 
+
+	CBasicCollider::STATES	m_eRightSTATES = CBasicCollider::STATES::STATES_END;
+	CBasicCollider::STATES	m_eHeadSTATES = CBasicCollider::STATES::STATES_END;
 };
 END
