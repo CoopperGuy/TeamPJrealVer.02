@@ -39,10 +39,6 @@ void CModelManager::Free()
 		//cout << "model delete " << model.second << "\n";
 	}
 	m_Threads.clear();
-	for (auto& iter : thread_handles) {
-
-	}
-	thread_handles.clear();
 	m_mapModel.clear();
 	m_CurCloningObj.clear();
 	SafeRelease(m_pDissolveTex);

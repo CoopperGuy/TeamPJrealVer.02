@@ -39,7 +39,7 @@ HRESULT CMeteoFireBall::Initailze(CGameObject * pArg, _vector pos)
 
 	m_pStat = static_cast<CStat*>(m_pEAFireBall->GetComponent("Com_Stat"));
 	m_pOBB->p_States = (CBasicCollider::STATES_ATK);
-
+	m_pStat->SetStaFullHP();
 
 	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 

@@ -55,9 +55,17 @@ void CBackPackHud::Update(_double deltaTime)
 		m_bIsReinforceMenu = m_pReinforceHud->GetIsOnOff();
 		for (auto& iter : m_pBackPackButton) {
 			iter->SetCorrectYSize(0.15f);
+			if (iter->isFristEnter()) {
+				CEngine::GetInstance()->StopSound(CHANNELID::UI00);
+				CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI00);
+			}
+			
 			if (iter->IsHovered()) {
 				if (CEngine::GetInstance()->IsMouseDown(0)) {
 					m_iCurSelected = idx;
+					CEngine::GetInstance()->StopSound(CHANNELID::UI00);
+					CEngine::GetInstance()->PlaySoundW("BackPackUIEnter.mp3", CHANNELID::UI00);
+
 				}
 			}
 
@@ -94,9 +102,15 @@ void CBackPackHud::Update(_double deltaTime)
 			}
 						
 		}
+		if (m_pReinforceButton->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI00);
+			CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI00);
+		}
 		if (m_pReinforceButton->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
 				m_bIsReinforceMenu = true;
+				CEngine::GetInstance()->StopSound(CHANNELID::UI01);
+				CEngine::GetInstance()->PlaySoundW("ReinfroceEnter.mp3", CHANNELID::UI01);
 			}
 		}
 		if (m_bisOpenRightLeft) {
