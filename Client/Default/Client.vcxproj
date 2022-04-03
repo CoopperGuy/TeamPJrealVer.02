@@ -312,6 +312,7 @@
     <ClInclude Include="..\Public\Skull.h" />
     <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Skills.h" />
+    <ClInclude Include="..\public\SoundHud.h" />
     <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
@@ -490,6 +491,7 @@
     <ClCompile Include="..\Private\Skull.cpp" />
     <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Skills.cpp" />
+    <ClCompile Include="..\private\SoundHud.cpp" />
     <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />

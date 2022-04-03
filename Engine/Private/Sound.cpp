@@ -101,4 +101,26 @@ void CSound::SetVolume(float volume, CHANNELID eID)
 	FMOD_System_Update(m_pSystem);
 }
 
+void CSound::SetBGMVolume(float volume)
+{
+	FMOD_Channel_SetVolume(m_pChannelArr[CHANNELID::BGM], volume);
+
+	FMOD_System_Update(m_pSystem);
+
+}
+
+_float CSound::GetVolume(CHANNELID eID)
+{
+	_float _volum = 0.f;
+	FMOD_Channel_GetVolume(m_pChannelArr[eID],&_volum);
+	return _volum; 
+}
+
+_float CSound::GetBGMVolume()
+{
+	_float _volum = 0.f;
+	FMOD_Channel_GetVolume(m_pChannelArr[CHANNELID::BGM], &_volum);
+	return _volum;
+}
+
 

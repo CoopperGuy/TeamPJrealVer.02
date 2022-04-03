@@ -36,7 +36,7 @@ private:
 	CNPCInfo::NPCTAG	m_tNPCTag;
 	_int				m_iCurTalkProgress = 0;
 private:
-	mutable _float		m_fAlretMakeDistance = 0.5f;
+	mutable _float		m_fAlretMakeDistance = 0.6f;
 public:
 	static CElfNPC* Create(CGameObject* pTartget = nullptr);
 	virtual void Free() override;

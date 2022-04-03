@@ -92,6 +92,7 @@ void CTargetOn::Update(_double deltaTime)
 
 void CTargetOn::LateUpdate(_double deltaTime)
 {
+	
 }
 
 void CTargetOn::Render()
@@ -101,6 +102,7 @@ void CTargetOn::Render()
 void CTargetOn::ReleaseThisUI()
 {
 	this->SetDead();
+	m_pThisUI->SetisRender(false);
 }
 
 CTargetOn * CTargetOn::Create(CGameObject* player,CGameObject * pTarget)
