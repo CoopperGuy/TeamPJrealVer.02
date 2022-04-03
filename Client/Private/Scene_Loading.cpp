@@ -28,7 +28,8 @@ HRESULT CScene_Loading::Initialize(SCENE eScene)
 	//Sleep(700);
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_LOADING);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/LoadingTest.yaml", CEngine::GetInstance()->GetCurSceneNumber());
-
+	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
+	CEngine::GetInstance()->PlayBGM("mapleStory.mp3");
 	m_eNextSCENE = eScene;
 
 	return S_OK;

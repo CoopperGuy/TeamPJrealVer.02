@@ -67,7 +67,7 @@ void CEquipItemHud::Update(_double deltaTime)
 		}
 
 		if (iter->IsHovered()) {
-			if (CEngine::GetInstance()->IsMouseDown(0)) {
+			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
 				m_iCurSelectedTag = selectIdx;
 				m_pThisUI->SetTransformOffst(0.f, 0.f);
 				for (int i = 0; i < m_pEquipTagList.size(); i++) {
@@ -93,10 +93,22 @@ void CEquipItemHud::Update(_double deltaTime)
 		iter.first->SetisRender(true);
 		if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_EQUIP)
 		{
+			if (iter.first->isFristEnter())
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+			}
 			if (iter.first->IsHovered())
 			{
-				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) 
+				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) 
 				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("EquipSelect.ogg", CHANNELID::UI03);
+				}
+				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE))
+				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI04);
+					CEngine::GetInstance()->PlaySoundW("EquipItem.ogg", CHANNELID::UI04);
 					string _itemName = iter.second.name->GetText();
 					for (size_t i = _itemName.length() - 1; i > 0; i--) 
 					{

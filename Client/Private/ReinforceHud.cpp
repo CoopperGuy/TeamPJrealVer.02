@@ -27,10 +27,17 @@ void CReinforceHud::Update(_double deltaTime)
 	SetUpREinforceMaterial();*/
 	m_pThisUI->SetActive(m_bIsOnOff);
 	if (m_pThisUI->IsActive()) {
+		if (m_vecReinforceUIs[REINFORCE_BUTTON]->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI07);
+			CEngine::GetInstance()->PlaySoundW("ReinforceButtonEnter.ogg", CHANNELID::UI07);
+		}
 		if (m_vecReinforceUIs[REINFORCE_BUTTON]->IsHovered())
 		{
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI08);
+				CEngine::GetInstance()->PlaySoundW("ReinforoceButtonPush.ogg", CHANNELID::UI08);
+
 				if (!m_bIsReinforceWhile)
 				{
 					m_bIsReinforceWhile = true;
@@ -142,6 +149,7 @@ void CReinforceHud::StartReinforce(_float _deltaTime)
 	if (m_pCurReinforceItem && m_pCurMaterial) {
 		if (m_pCurMaterial->GetItempInfo().numOfItem > 0) {
 			m_fReinforceDelta += _deltaTime;
+			CEngine::GetInstance()->PlaySoundW("ReinforceING.ogg", CHANNELID::UI09);
 			if (m_fReinforceTime < m_fReinforceDelta) {
 				_int _percentage = rand() % 100;
 				_int _succesPer = 0;
@@ -162,11 +170,15 @@ void CReinforceHud::StartReinforce(_float _deltaTime)
 				m_bIsReinforceWhile = false;
 				if (_percentage < _succesPer) //success
 				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
+					CEngine::GetInstance()->PlaySoundW("ReinforceSuccess.ogg", CHANNELID::UI08);
 					m_pCurReinforceItem->ItemLevelUp();
 					CReinforceSuccess::Create(nullptr);
 				}
 				else //fail
 				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
+					CEngine::GetInstance()->PlaySoundW("ReinforceFail.ogg", CHANNELID::UI08);
 					CReinforceFall::Create(nullptr);
 				}
 

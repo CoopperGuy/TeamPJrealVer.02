@@ -100,7 +100,7 @@ HRESULT CPlayer::Initialize()
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
-
+	
 	if (m_pCollider)
 	{
 		m_pController = m_pCollider->GetController();
@@ -241,7 +241,7 @@ void CPlayer::Update(_double dDeltaTime)
 	m_pModel->SetDissolve(m_fDissolveAcc);
 	///////////////////////////////////////////////////////////////
 
-	#ifdef _DEBUG	
+	//#ifdef _DEBUG	
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADMINUS)) {
 		ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NormalReinforce").second;
 		CItem*	tempItem = new CItem(_info);
@@ -249,7 +249,7 @@ void CPlayer::Update(_double dDeltaTime)
 			SafeDelete(tempItem);
 		}
 	}
-	#endif // _DEBUG
+	//#endif // _DEBUG
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}

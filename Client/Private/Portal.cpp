@@ -13,7 +13,7 @@ HRESULT CPortal::Initailze(CGameObject * pArg)
 	m_pPortal = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Portal"));
 
 	m_pPortalUI = CPortalUI::Create(nullptr);
-	CEngine::GetInstance()->AddScriptObject(m_pPortalUI,CEngine::GetInstance()->GetCurSceneNumber());
+	CEngine::GetInstance()->AddScriptObject(m_pPortalUI, CEngine::GetInstance()->GetCurSceneNumber());
 	return S_OK;
 }
 
@@ -31,24 +31,26 @@ _float CPortal::DistanceWithDirection()
 	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
 
 	_vector playerLook = playerTrans->GetState(CTransform::STATE_LOOK);
-	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
-	_vector portalPos = static_cast<CTransform*>(m_pPortal->GetComponent("Com_Transform"))->GetState(CTransform::STATE_POSITION);
-	_vector dir = XMVectorSetY(XMVector3Normalize(playerPos - portalPos) , 0.f);
+	_vector playerPos = XMVectorSetY(playerTrans->GetState(CTransform::STATE_POSITION), 0.f);
+	_vector portalPos = XMVectorSetY(static_cast<CTransform*>(m_pPortal->GetComponent("Com_Transform"))->GetState(CTransform::STATE_POSITION), 0.f);
+	_vector dir = XMVector3Normalize(playerPos - portalPos);
 	_float dist = XMVectorGetX(XMVector3Length(portalPos - playerPos));
 
 	playerLook = XMVector3Normalize(XMVectorSetY(playerLook, 0.f));
 
-	if (dist < 5.f) {
-		_float degree = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(dir, playerLook)));
-		//if (degree < 30.f && degree > -30.f) {
-			if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
-				m_pPortalUI->SetIsActive(true);
-				g_AnotherMenu = true;
+	if (dist < 0.5f)
+	{
+
+		if (CEngine::GetInstance()->Get_DIKDown(DIK_F))
+		{
+			CEngine::GetInstance()->PlaySoundW("PortalOpen.ogg", CHANNELID::UI10);
+			m_pPortalUI->SetIsActive(true);
+			g_AnotherMenu = true;
 			/*	m_eSceneNum = SCENE::SCENE_STAGE2;
 				m_bChangeScene = true;
 				static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, -10.f));*/
-			}
-		//}
+		}
+
 	}
 	if (m_pPortalUI) {
 		CPortalUI::SCENES eScene = m_pPortalUI->GetSCENES();
