@@ -104,7 +104,7 @@ void CEAFireBall::LateUpdate(_double deltaTime)
 {
 	if (m_pOBB->Get_isHit())
 	{
-		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY16);
 
 		if (m_pEffFire)
 			m_pEffFire->SetDead();
@@ -113,20 +113,20 @@ void CEAFireBall::LateUpdate(_double deltaTime)
 
 	}
 
-	if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
-	{
-		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+	//if(XMVectorGetY(m_Targetpos) >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
+	//{
 
+	//	CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::MAPOBJ);
 
-		if (m_pEffFire)
-			m_pEffFire->SetDead();
-		this->SetDead();
-		m_pEAFireBall->SetDead();
-	}
+	//	if (m_pEffFire)
+	//		m_pEffFire->SetDead();
+	//	this->SetDead();
+	//	m_pEAFireBall->SetDead();
+	//}
 
 	if(m_bDead)
 	{
-		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY10);
+		CEngine::GetInstance()->PlaySoundW("FlogasMeteoDrop.ogg", CHANNELID::ENEMY17);
 
 
 		if (m_pEffFire)

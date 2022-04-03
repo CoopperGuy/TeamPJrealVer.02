@@ -39,7 +39,11 @@ private:
 private:
 	_float			m_fCurScnensPosX = 640.f;
 	_float			m_fDestScnensPosX = 640.f;
+	_float			m_fPreScnensPosX = 640.f;
 	_int			m_iCurIndex = 0;
+private:
+	_double			m_moveDelta = 0;
+	_double			m_moveTime = 0.3;
 private:
 	mutable	_int	m_iMaxIdx = 1;
 	mutable	_int	m_iMinIdx = 0;

@@ -205,31 +205,6 @@ void CDarkKnight::SetAttTarget(CGameObject * obj)
 	m_pTargetTransform = static_cast<CTransform*>(obj->GetComponent("Com_Transform"));
 }
 
-void CDarkKnight::SetAttack(_double dDeltaTime)
-{
-	if (!m_bCombat)
-		return;
-
-	_vector vLook, vRight, vWolfLook;
-	vLook = m_pTargetTransform->GetState(CTransform::STATE_LOOK);
-	vRight = m_pTargetTransform->GetState(CTransform::STATE_RIGHT);
-	vWolfLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-	PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
-	PxControllerFilters filters;
-	_float fSpeed = 0.f;
-	_vector vUp = m_pTransform->GetState(CTransform::STATE::STATE_UP);
-
-
-	_vector WolfLook = m_pTransform->GetState(CTransform::STATE_LOOK);
-	WolfLook = XMVectorLerp(WolfLook, vRight, 0.4f);
-	WolfLook = XMVectorSetY(WolfLook, 0.f);
-	memcpy(&vDir, &vWolfLook, sizeof(PxVec3));
-	fSpeed = 0.01f;
-
-	m_pTransform->SetLook(vWolfLook);
-	m_pController->move(vDir * 0.1f * 0.5f, 0.01f, 1.f / (_float)dDeltaTime, nullptr);
-}
-
 void CDarkKnight::SetMonHp(CMonHp * hp)
 {
 	m_pMonHp = hp;
@@ -237,7 +212,7 @@ void CDarkKnight::SetMonHp(CMonHp * hp)
 
 void CDarkKnight::StateUpdate(_double dDeltaTime)
 {
-	if (m_bDead == true || m_bBehavior == true || m_pTargetTransform == nullptr)
+	if (m_bDeadBody == true || m_bBehavior == true || m_pTargetTransform == nullptr)
 		return;
 
 	/*if (CEngine::GetInstance()->IsKeyDown('R'))
@@ -332,7 +307,7 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::PHASE2_START:
 		break;
 	case Client::CDarkKnight::PHASE2_LOOP:
-		m_fPhaseLoopTime -= (_float)dDeltaTime;		
+		m_fPhaseLoopTime -= (_float)dDeltaTime;
 		break;
 	case Client::CDarkKnight::PHASE2_END:
 		break;
@@ -380,10 +355,14 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::DIE:
 		break;
 	case Client::CDarkKnight::DEADBODY:
-		m_fDissolveAcc += (_float)dDeltaTime * 0.5f;
-		if (m_fDissolveAcc > 1.f)
-			m_fDissolveAcc = 1.f;
-		m_pModel->SetDissolve(m_fDissolveAcc);
+		m_fDissolveDelay -= (_float)dDeltaTime;
+		if (m_fDissolveDelay <= 0.f)
+		{
+			m_fDissolveAcc += (_float)dDeltaTime * 0.3f;
+			if (m_fDissolveAcc > 1.f)
+				m_fDissolveAcc = 1.f;
+			m_pModel->SetDissolve(m_fDissolveAcc);
+		}
 		break;
 	case Client::CDarkKnight::SLASH:
 		break;
@@ -572,9 +551,9 @@ void CDarkKnight::Create_Trail()
 
 void CDarkKnight::Hit()
 {
-	if (m_bDead = false && m_pStat->GetStatInfo().hp <= 0.f)
+	if (m_bDeadBody == false && m_pStat->GetStatInfo().hp <= 0.f)
 	{
-		m_bDead = true;
+		m_bDeadBody = true;
 		m_eState = DIE;
 	}
 
@@ -584,6 +563,7 @@ void CDarkKnight::Hit()
 
 		if (m_pStat->GetStatInfo().hp <= fMaxHp * 0.5f)
 		{
+			m_fAttackDelay = 0.f;
 			m_fSpeed = 1.3f;
 			m_bPhase2 = true;
 			m_bBehavior = true;

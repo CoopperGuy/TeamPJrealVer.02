@@ -31,15 +31,12 @@ _float CTownPortal::DistanceWithDirection()
 	CTransform* playerTrans = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
 
 	_vector playerLook = playerTrans->GetState(CTransform::STATE_LOOK);
-	_vector playerPos = playerTrans->GetState(CTransform::STATE_POSITION);
-	_vector portalPos = static_cast<CTransform*>(m_pPortal->GetComponent("Com_Transform"))->GetState(CTransform::STATE_POSITION);
-	_vector dir = XMVectorSetY(XMVector3Normalize(playerPos - portalPos), 0.f);
+	_vector playerPos = XMVectorSetY(playerTrans->GetState(CTransform::STATE_POSITION), 0.f);
+	_vector portalPos = XMVectorSetY(static_cast<CTransform*>(m_pPortal->GetComponent("Com_Transform"))->GetState(CTransform::STATE_POSITION), 0.f);
+	_vector dir = XMVector3Normalize(playerPos - portalPos);
 	_float dist = XMVectorGetX(XMVector3Length(portalPos - playerPos));
 
-	playerLook = XMVector3Normalize(XMVectorSetY(playerLook, 0.f));
-
 	if (dist < 0.6f) {
-		_float degree = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(dir, playerLook)));
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 			CEventCheck::GetInstance()->SetChangeScene(true);
 			CEventCheck::GetInstance()->SetSceneNumber(SCENE::SCENE_STAGE1);

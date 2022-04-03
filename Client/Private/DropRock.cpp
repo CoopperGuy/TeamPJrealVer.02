@@ -128,7 +128,8 @@ void CDropRock::LateUpdate(_double deltaTime)
 	if (0.f >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION)))
 	{
 
-		CEngine::GetInstance()->PlaySoundW("Ursa_RockDrop.ogg", CHANNELID::ENEMY18);
+		CEngine::GetInstance()->StopSound(CHANNELID::ENEMY19);
+		CEngine::GetInstance()->PlaySoundW("Ursa_RockDrop.ogg", CHANNELID::ENEMY19);
 
 		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 

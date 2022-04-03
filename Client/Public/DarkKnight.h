@@ -38,7 +38,6 @@ public:
 	void SetBasicCollider(CBasicCollider* BasicCol);
 	void SetStat(CStat* pstat);
 	void SetAttTarget(CGameObject* obj);
-	void SetAttack(_double dDeltaTime);
 	void SetMonHp(CMonHp* hp);
 
 private:
@@ -46,11 +45,11 @@ private:
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
 
 private:
-	void SetWolfState(STATE _pState) { m_eState = _pState; }
 	void SetAttackDelay() { m_fAttackDelay = (rand() % 10 + 5) * 0.1f; }
 	void SetLookPlayer();
 
 	void ChaseTarget(_double deltaTime, _float3 vTargetPos);
+
 private:
 	void StateUpdate(_double dDeltaTime);
 	void BehaviorUpdate(_double dDeltaTime);
@@ -59,9 +58,8 @@ private:
 	void Update_Trail(_double dDeltaTime);
 	void Create_Trail();
 	void Hit();
+
 	_float Calculation_DistanceToPlayer();
-private:
-	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
 
 private:
 	CStat*				m_pStat = nullptr;
@@ -77,6 +75,7 @@ private:
 	// Dissolve
 	_bool	m_bDissolve = false;
 	_float	m_fDissolveAcc = 0.f;
+	_float  m_fDissolveDelay = 1.5f;
 
 	//trail
 	CVIBuffer_Trail*		m_pTrailBuffer = nullptr;
@@ -99,10 +98,9 @@ private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;
 	_bool m_bPhase2 = false;
+	_bool m_bDeadBody = false;
 private:
 	STATE	m_eState = STATE_END;
 	STATE	m_eCurState = STATE_END;
-
-
 };
 END

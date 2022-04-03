@@ -61,7 +61,7 @@ void CFlogas::Free()
 	if (m_pWaterEA.size() > 0) {
 		for (auto& pair : m_pWaterEA)
 		{
-			SafeRelease(pair);
+			pair->SetDead();
 		}
 		m_pWaterEA.clear();
 
@@ -171,6 +171,10 @@ void CFlogas::Update(_double dDeltaTime)
 	}
 	else
 	{
+
+		if (m_eState == DEADBODY)
+			return;
+
 		if (!m_bDeadMotion)
 			m_pModel->SetUp_AnimationIndex(IDLE);
 		else
@@ -182,15 +186,23 @@ void CFlogas::Update(_double dDeltaTime)
 				m_pMonHp = nullptr;
 			}
 			m_eState = DIE;
-			{
+			if(m_eState == DIE) {
 				_uint keyFrame = m_pModel->GetCurrentKeyFrame();
-				if (keyFrame >= 50 && keyFrame <= 70)
+				if (keyFrame == 50)
 				{
 					CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
 				}
-				if (keyFrame >= 220 && keyFrame <= 270)
+				if (keyFrame == 220)
 				{
-					CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY10);
+					CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY11);
+				}
+				if (keyFrame == 130)
+				{
+					CEngine::GetInstance()->PlaySoundW("FlogasDieEff.ogg", CHANNELID::ENEMY12);
+				}
+				if (keyFrame == 294)
+				{
+					CEngine::GetInstance()->PlaySoundW("FlogasDieEff2.ogg", CHANNELID::ENEMY13);
 				}
 			}
 			if (m_pModel->Get_isFinished(DIE)) {
@@ -206,7 +218,7 @@ void CFlogas::Update(_double dDeltaTime)
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 	{
 		/*m_bStartBattle = true;*/
-		m_eState = FIREFIST;
+		m_eState = DIE;
 	}
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
@@ -933,7 +945,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		static bool make = true;
 		if (keyFrame >= 25 && keyFrame <= 26) {
 			if (make) {
-				CEngine::GetInstance()->PlaySoundW("FlogasBlackhole.ogg", CHANNELID::ENEMY15);
+				CEngine::GetInstance()->PlaySoundW("FlogasBlackhole.ogg", CHANNELID::ENEMY16);
 
 				auto EffectBlackhole = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blackhole", "Effect_Blackhole");
 				CEngine::GetInstance()->AddScriptObject(m_pEffBlackhole = CEffectBlackhole::Create(EffectBlackhole), CEngine::GetInstance()->GetCurSceneNumber());
@@ -943,7 +955,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 		if (keyFrame == 124.f)
 		{
-			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY15);
+			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY14);
 			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
 			make = true;

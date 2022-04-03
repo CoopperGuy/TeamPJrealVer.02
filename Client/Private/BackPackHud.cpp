@@ -124,11 +124,15 @@ void CBackPackHud::Update(_double deltaTime)
 				case Client::CEventCheck::BACK_EQUIP: {
 					CItem* _item = m_pEquipHud->GetSelectedItem();
 					m_pReinforceHud->SetUpReinforceItem(_item);
+					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("EquipSelect.mp3", CHANNELID::UI03);
 				}
 					break;
 				case Client::CEventCheck::BACK_MATERIAL: {
 					CItem* _item = m_pMaterialHud->GetSelectedItem();
 					m_pReinforceHud->SetUpReinforceMaterial(_item);
+					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("MaterialSelect.mp3", CHANNELID::UI03);
 				}
 					break;
 				}

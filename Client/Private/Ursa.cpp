@@ -135,17 +135,13 @@ void CUrsa::Update(_double dDeltaTime)
 
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
-	{
 		m_eState = IDLE01;
-	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = ROAR_ING;
+		m_eState = ROAR_Start;
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = ROAR_End;
+		m_eState = Flying_End;
 	//m_eState = DASH_ATTSpeedup;
 
-//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-//	m_eState = ROAR_Start;
 
 
 	if (m_bCB)
@@ -173,7 +169,6 @@ void CUrsa::Update(_double dDeltaTime)
 		CatchUpToLook(dDeltaTime);
 }
 
-#pragma region zamsizusuk
 void CUrsa::LateUpdate(_double dDeltaTime)
 {
 	__super::LateUpdate(dDeltaTime);
@@ -183,8 +178,8 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 	_matrix OffsetMatrix = XMMatrixIdentity();
 	XMMatrixTranslation(0.f, 0.05f, -0.4f);
 
-	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
-	XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
+	DirectX::XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
+	DirectX::XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
 
 	if (m_pRightTrailBuffer)
 		m_pRightTrailBuffer->Update(dDeltaTime, OffsetMatrix * XMLoadFloat4x4(&m_RightwpBoneMatrix) * XMLoadFloat4x4(&m_pRenderTransform->GetMatrix()));
@@ -909,7 +904,6 @@ void CUrsa::SetRotate()
 		m_pTransform->SetLook(-vRight);
 	}
 }
-#pragma endregion
 
 
 void CUrsa::OrganizeEffect(_double dDeltaTime)
@@ -952,6 +946,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame == 8)
 			CEngine::GetInstance()->PlaySoundW("Roar_Ursa.mp3", ENEMY22);
 
+		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		//if (keyFrame <= 40)
 		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
 		//else
@@ -964,7 +959,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		//else
 		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 1.f);
 	}
-									  break;
+	break;
 	case Client::CUrsa::DASH_ATT: {
 		if (keyFrame == 62)
 			CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY22);
@@ -992,16 +987,16 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		_matrix Offset = XMMatrixTranslation(-0.1f, 0.3f, 0.2f);
 		ArmTwist = Remove_ScaleRotation(Offset * m_pTransform->GetWorldMatrix());
 
-		if (keyFrame == 48 && m_iMakeDust <= 1) {
+		if (keyFrame == 48 && m_iMakeDust < 1) {
 			m_iMakeDust += 1;
 			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
 			CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
 		}
-		else if (keyFrame == 63 && m_iMakeDust <= 1) {
-			m_iMakeDust += 1;
-			auto DustWh = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_DustWh", "E_Ursa_DustWh");
-			CEngine::GetInstance()->AddScriptObject(CEffectDustWh::Create(DustWh, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
-		}
+		//else if (keyFrame == 63 && m_iMakeDust < 1) {
+		//	m_iMakeDust += 1;
+		//	auto DustWh = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_DustWh", "E_Ursa_DustWh");
+		//	CEngine::GetInstance()->AddScriptObject(CEffectDustWh::Create(DustWh, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
+		//}
 		else
 			m_iMakeDust = 0;
 
@@ -1039,6 +1034,9 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_1Hold:
 		break;
 	case Client::CUrsa::Combo_1:
+		if(keyFrame == 20)
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
 		if (keyFrame >= 16 && keyFrame <= 23)
 			m_eRightSTATES = CBasicCollider::STATES_ATK;
 		if (keyFrame == 6)
@@ -1051,8 +1049,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice02.ogg", CHANNELID::ENEMY10);
 		}
 		{
-			if (keyFrame == 19 && m_iMakeDust <= 1) {
+			if (keyFrame == 19 && m_iMakeDust < 1) {
 				m_iMakeDust += 1;
+				CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY11);
+
 				auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 				CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 
@@ -1096,6 +1096,11 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			CEngine::GetInstance()->StopSound(ENEMY23);
 			CEngine::GetInstance()->PlaySoundW("WeakStamp_Ursa.mp3", ENEMY23);
 		}
+
+		if(keyFrame == 39)
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
+
 		if (keyFrame >= 36 && keyFrame <= 41) {
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
@@ -1103,8 +1108,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame >= 24 && keyFrame <= 49)
 			m_pLeftTrailBuffer->SetIsActive(true);
 		{
-			if (keyFrame == 39 && m_iMakeDust <= 1) {
+			if (keyFrame == 39 && m_iMakeDust < 1) {
 				m_iMakeDust += 1;
+				CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY11);
+
 				auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 				CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 
@@ -1195,6 +1202,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
 			CEngine::GetInstance()->PlaySoundW("StrongStamp_Ursa.mp3", CHANNELID::ENEMY23);
 		}
+
+		if(keyFrame ==49)
+			CEventCheck::GetInstance()->ShakeUpDown(5, 0.04f);
+
 		if (keyFrame >= 34 && keyFrame <= 50)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -1216,8 +1227,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			m_pHead->SetIsDownAttack(true);
 		}
 		{
-			if (keyFrame == 47 && m_iMakeDust <= 1) {
+			if (keyFrame == 47 && m_iMakeDust < 1) {
 				m_iMakeDust += 1;
+				CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY11);
+
 				auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 				CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 
@@ -1225,8 +1238,9 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 				CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall");
 				CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(RockSmall, pos), CEngine::GetInstance()->GetCurSceneNumber());
 			}
-			else if (keyFrame == 49 && m_iMakeDust <= 1) {
+			else if (keyFrame == 49 && m_iMakeDust < 1) {
 				m_iMakeDust += 1;
+				CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY12);
 				auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 				CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
 
@@ -1283,6 +1297,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		if (keyFrame == 100 && m_iMakeDust < 1)
 		{
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY11);
 			m_iMakeDust += 1;
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall");
@@ -1292,6 +1307,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else if (keyFrame == 109 && m_iMakeDust < 1)
 		{
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY12);
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust", false);
@@ -1299,6 +1316,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else if (keyFrame == 117 && m_iMakeDust < 1)
 		{
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY13);
 
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall");
@@ -1309,6 +1328,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else if (keyFrame == 126 && m_iMakeDust < 1)
 		{
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY14);
 
 			m_iMakeDust += 1;
@@ -1317,7 +1338,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else if (keyFrame == 135 && m_iMakeDust < 1)
 		{
-			CEventCheck::GetInstance()->ShakeUpDown(7, 0.03f);
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
 
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall");
 			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(RockSmall, pos, true), CEngine::GetInstance()->GetCurSceneNumber());
@@ -1329,6 +1350,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else if (keyFrame == 144 && m_iMakeDust < 1)
 		{
+			CEventCheck::GetInstance()->ShakeUpDown(2, 0.06f);
+
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY16);
 
 			m_iMakeDust += 1;
@@ -1382,6 +1405,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame == 40)
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice07.ogg", CHANNELID::ENEMY11);
 		if (keyFrame == 46) {
+			CEventCheck::GetInstance()->ShakeUpDown(1, 0.08f);
+
 			CEngine::GetInstance()->PlaySoundW("UrsaFootSound2.ogg", CHANNELID::ENEMY12);
 			CGameObject* RockSmall = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_RockSmall", "O_RockSmall");
 			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(RockSmall, pos), CEngine::GetInstance()->GetCurSceneNumber());
@@ -1393,10 +1418,14 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	}
 								  break;
 	case Client::CUrsa::ROAR_End:
-		if (keyFrame >= 15 && keyFrame <= 40)
-			CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY14);
+		//cout << keyFrame << endl;
+
+		if (keyFrame >= 15 && keyFrame <= 59)
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice03.ogg", CHANNELID::ENEMY14);
+		else
+			CEngine::GetInstance()->StopSound( CHANNELID::ENEMY14);
 		break;
-	case Client::CUrsa::DASH_ATTSpeedup: {
+	case Client::CUrsa::DASH_ATTSpeedup: {///////////////////////////////////////////////////////////////////////////////////
 		if (keyFrame >= 15 && keyFrame <= 40)
 		{
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice05.ogg", CHANNELID::ENEMY10);
@@ -1409,7 +1438,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		_matrix Offset = XMMatrixTranslation(-0.1f, 0.3f, 0.2f);
 		ArmTwist = Remove_ScaleRotation(Offset * m_pTransform->GetWorldMatrix());
 
-		if (keyFrame == 14 && m_iMakeDust <= 1) {
+		if (keyFrame == 14 && m_iMakeDust < 1) {
 			m_iMakeDust += 1;
 			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
 			CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
@@ -1432,6 +1461,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::WHEELWIND_Start:
 		break;
 	case Client::CUrsa::WHEELWIND_Ing: {
+		CEngine::GetInstance()->PlaySoundW("UrsaWind.ogg", CHANNELID::ENEMY10);
 		m_pRightTrailBuffer->SetIsActive(true);
 		m_pLeftTrailBuffer->SetIsActive(true);
 		if (keyFrame <= 1)
@@ -1443,8 +1473,11 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		CEngine::GetInstance()->AddScriptObject(m_pUrsaWind = CEffectUrsaWind::Create(UrsaWind, pos), CEngine::GetInstance()->GetCurSceneNumber());
 	}
 
-									   break;
+	 break;
 	case Client::CUrsa::WHEELWIND_End:
+		if(keyFrame == 7)
+			CEngine::GetInstance()->PlaySoundW("UrsaWind2.ogg", CHANNELID::ENEMY11);
+
 		if (keyFrame <= 7)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
@@ -1452,10 +1485,19 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		break;
 	case Client::CUrsa::ROAR_Start: {
+		if (keyFrame == 20)
+			CEngine::GetInstance()->PlaySoundW("UrsaRoarSound01.ogg", CHANNELID::ENEMY10);
+		if (keyFrame == 45)
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY11);
+
 		if (keyFrame >= 46 && keyFrame <= 107)
 			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 10.f);
 		else
 			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 10.f);
+
+		if (keyFrame == 80)
+			CEventCheck::GetInstance()->ShakeCamera(CCamera_Fly::SHAKE::SHAKE_ING, 7, 0.04f);
+
 
 		if (keyFrame == 86) {
 			CGameObject* Eff = nullptr;
@@ -1483,12 +1525,17 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		m_bDissolve = true;
 		break;
 	case Client::CUrsa::Flying_Start:
-		if(keyFrame == 11)
-			CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY25);
+		//if(keyFrame == 11)
+			//CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY25);
+
+		CEngine::GetInstance()->PlaySoundW("UrsaVoice02.ogg", CHANNELID::ENEMY13);
 		break;
 	case Client::CUrsa::Flying_Land:
-		if (keyFrame >= 0 && keyFrame <= 30)
+		if (keyFrame >= 0 && keyFrame <= 30) {
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice08.ogg", CHANNELID::ENEMY14);
+
 			m_pLeftTrailBuffer->SetIsActive(true);
+		}
 		if (keyFrame >= 23)
 			m_pRightTrailBuffer->SetIsActive(true);
 
@@ -1503,11 +1550,18 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			m_eRightSTATES = CBasicCollider::STATES_ATK;
 		}
 		if (keyFrame == 1 && m_iMakeDust <= 1) {
+			CEventCheck::GetInstance()->ShakeUpDown(5, 0.08f);
+
+			CEngine::GetInstance()->PlaySoundW("UrsaFlySound.ogg", CHANNELID::ENEMY16);
+
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust, UrsaAxeL), CEngine::GetInstance()->GetCurSceneNumber());
 			auto SoilDust2 = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");
 			CEngine::GetInstance()->AddScriptObject(CEffectSoilDust::Create(SoilDust2, UrsaAxeR), CEngine::GetInstance()->GetCurSceneNumber());
+
+			auto Eff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_ROARDecal", "E_ROARDecal");
+			CEngine::GetInstance()->AddScriptObject(CEffectRockDecal::Create(Eff, pos), CEngine::GetInstance()->GetCurSceneNumber());
 
 			for (int i = 0; i < 2; ++i) {
 				pos = XMVectorSetY(pos, 0.1f);
@@ -1602,7 +1656,7 @@ void CUrsa::Hit(_double dDeltaTime)
 	//if (m_fMKB >= 0.2f) {
 	if (m_pOBB->Get_isHit()) {
 		CEngine::GetInstance()->PlaySoundW("Blood.mp3", CHANNELID::ENEMY18);
-		CEngine::GetInstance()->PlaySoundW("UrsaHit.ogg", CHANNELID::ENEMY19);
+		CEngine::GetInstance()->PlaySoundW("UrsaHit.ogg", CHANNELID::ENEMY17);
 
 		_matrix Translation;
 		_int random = rand() % 7;

@@ -47,17 +47,29 @@ HRESULT CMaterialHud::Initailze(CGameObject * pArg)
 void CMaterialHud::Update(_double deltaTime)
 {
 	_uint i = 0;
-	for (auto& iter : m_pMaterialList) {
-		if (iter.first->IsHovered()) {
-			if (CEngine::GetInstance()->IsMouseDown(0))
-				m_iCurSelected = i;
+
+
+
+	if (m_pThisUI->IsActive()) 
+	{
+		for (auto& iter : m_pMaterialList) 
+		{
+			if (iter.first->isFristEnter())
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+			}
+			if (iter.first->IsHovered()) 
+			{
+				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
+				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("MaterialSelect.ogg", CHANNELID::UI03);
+					m_iCurSelected = i;
+				}
+			}
+			i++;
 		}
-		i++;
-	}
-
-
-	if (m_pThisUI->IsActive()) {
-		
 	}
 	else {
 		m_iCurSelected = -1;

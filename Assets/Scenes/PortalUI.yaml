@@ -18,6 +18,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 8826417902434231510
       - 6538552279295496399
@@ -40,6 +41,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: RightArrow
     UUID: 6538552279295496399
     Active: false
@@ -58,6 +60,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: ScenePosition
     UUID: 9838132120610020160
     Active: false
@@ -83,7 +86,7 @@ GameObjects:
     PassIndex: 13
     Hovering: true
     Com_Transform:
-      Position: [640, 360]
+      Position: [640, 340]
       Size: [400, 256]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_DG_K11_Nigraturis_SecondHalf.dds
@@ -91,6 +94,9 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 13189748075305192031
   - Name: EscapePortal
     UUID: 787797055287121316
     Active: false
@@ -115,6 +121,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: Boss2
     UUID: 15977328159391518690
     Active: false
@@ -125,7 +132,7 @@ GameObjects:
     PassIndex: 13
     Hovering: true
     Com_Transform:
-      Position: [1280, 360]
+      Position: [1280, 340]
       Size: [400, 256]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_DG_K11_Arena.dds
@@ -133,3 +140,44 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 6920877039123214519
+  - Name: Name00
+    UUID: 13189748075305192031
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 13
+    Hovering: false
+    Com_Transform:
+      Position: [640, 497.685974]
+      Size: [300, 50]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Portal\Name00.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: Name01
+    UUID: 6920877039123214519
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 13
+    Hovering: false
+    Com_Transform:
+      Position: [1280, 497.686005]
+      Size: [300, 50]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Portal\Name01.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]

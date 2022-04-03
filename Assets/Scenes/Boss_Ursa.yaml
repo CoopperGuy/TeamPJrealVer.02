@@ -3,7 +3,7 @@ GameObjects:
   - Name: Ursa
     UUID: 12647524332061194647
     Active: true
-    Layer: Layer_Ursa
+    Layer: Layer_Monster
     Instancing: false
     Type: Object
     PassIndex: 0
