@@ -182,9 +182,19 @@ void CFlogas::Update(_double dDeltaTime)
 				m_pMonHp = nullptr;
 			}
 			m_eState = DIE;
+			{
+				_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+				if (keyFrame >= 50 && keyFrame <= 70)
+				{
+					CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
+				}
+				if (keyFrame >= 220 && keyFrame <= 270)
+				{
+					CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY10);
+				}
+			}
 			if (m_pModel->Get_isFinished(DIE)) {
 				m_eState = DEADBODY;
-				CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY10);
 				if (m_pPortal == nullptr)
 					m_pPortal = CTownPortal::Create();
 			}
@@ -195,12 +205,14 @@ void CFlogas::Update(_double dDeltaTime)
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
 	{
-		m_bStartBattle = true;
+		/*m_bStartBattle = true;*/
+		m_eState = FIREFIST;
 	}
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 	{
-		m_bPhaseSecond = true;
+		//m_bPhaseSecond = true;
+		m_eState = IDLE;
 	}
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
 	//{
@@ -852,13 +864,15 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		}
 		else
 			m_eCurSTATES = CBasicCollider::STATES_IDEL;
-		if (keyFrame == 28.f) {
-			CEngine::GetInstance()->PlaySoundW("FlogasSwordRing.ogg", CHANNELID::ENEMY15);
+		if (keyFrame >= 28.f && keyFrame <= 30.f) {
+			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY15);
 
-
-			auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
-			CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
-			m_pEffSwordRing->SetSlashR(false);
+			if (keyFrame == 28.f && m_iMakeMeteo < 1) {
+				m_iMakeMeteo += 1;
+				auto EffectRing = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordRing", "Effect_SwordRing");
+				CEngine::GetInstance()->AddScriptObject(m_pEffSwordRing = CEffectSwordRing::Create(EffectRing), CEngine::GetInstance()->GetCurSceneNumber());
+				m_pEffSwordRing->SetSlashR(false);
+			}
 		}
 	}
 	break;
@@ -922,7 +936,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 		if (keyFrame == 124.f)
 		{
-			CEngine::GetInstance()->PlaySoundW("FlogasSwordRing.ogg", CHANNELID::ENEMY15);
+			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY15);
 			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
 			make = true;
@@ -934,6 +948,8 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 			//내려찍기 
 			//	CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY10);
 
+
+
 			if (m_bMakeEffect) {
 				auto EffectTrail = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoTrail", "E_MeteoTrail");
 				CEngine::GetInstance()->AddScriptObject(CEffectMeteoTrail::Create(EffectTrail), CEngine::GetInstance()->GetCurSceneNumber());
@@ -944,10 +960,16 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		}
 		if (keyFrame >= 51 && keyFrame <= 70)
 		{
+			if (keyFrame >= 51 && keyFrame <= 55)
+				CEngine::GetInstance()->PlaySoundW("FlogasMeteoStart.ogg", CHANNELID::ENEMY16);
+
 			//CEngine::GetInstance()->SetVolume(0.1f, CHANNELID::ENEMY19);
+
+			CEngine::GetInstance()->PlaySoundW("FlogasMeteoArea.ogg", CHANNELID::ENEMY15);
 
 			if (m_iMakeMeteo <= 8)
 			{
+
 				auto EffectMagic = CEngine::GetInstance()->AddGameObjectToPrefab(0, "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectMagic, pos), CEngine::GetInstance()->GetCurSceneNumber());
 
@@ -957,7 +979,6 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 				/*auto EffectDropArea = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_MeteoDropArea", "E_MeteoDropArea");
 				CEngine::GetInstance()->AddScriptObject(CEffectMagic::Create(EffectDropArea, pos), CEngine::GetInstance()->GetCurSceneNumber());*/
 			}
-
 		}
 		if (keyFrame > 90)
 			CEngine::GetInstance()->PlaySoundW("FlogasMeteo.mp3", CHANNELID::ENEMY19);

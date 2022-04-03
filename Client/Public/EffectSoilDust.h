@@ -12,17 +12,17 @@ private:
 	explicit CEffectSoilDust();
 	virtual ~CEffectSoilDust() = default;
 public:
-	virtual HRESULT Initialize(void* pArg, _matrix pos);
+	virtual HRESULT Initialize(void* pArg, _matrix pos,_bool dustmake = true);
 	virtual void Update(_double deltaTime) ;
 	virtual void LateUpdate(_double deltaTime) ;
 	virtual void Render();
 
 public:
-	static CEffectSoilDust* Create(void*	pTarget, _matrix pos);
+	static CEffectSoilDust* Create(void*	pTarget, _matrix pos, _bool dustmake = true);
 	virtual void Free() override;
 
 private:
-	void MakeEffet();
+	void MakeEffet(_bool dustmake);
 
 private:
 	_double m_dDeadTime = 0;

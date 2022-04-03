@@ -8,9 +8,9 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0.100000001, 0.100000001, 0]
+      Translation: [0.100000001, 1.100000001, 0]
       Rotation: [0, -0, 0]
-      Scale: [0.5, 0.100000001, 0.5]
+      Scale: [1, 0.100000001, 1]
     Com_Decal:
       {}
     Effect_Setting:
@@ -26,12 +26,12 @@ GameObjects:
       DistortionScale: 0.800000012
       DistortionBias: 0.5
       FadeOut: true
-      FadeOutDuration: 1
+      FadeOutDuration: 2
       FadeOutStratTime: 0
       FadeIn: false
       FadeInDuration: 0.300000012
       FadeInStratTime: 0
-      EffectDuration: 1
+      EffectDuration: 2
       SpriteNumX: 0
       SpriteNumY: 0
       SpriteTotal: 0
