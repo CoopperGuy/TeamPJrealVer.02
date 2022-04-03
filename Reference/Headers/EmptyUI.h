@@ -80,6 +80,8 @@ public:
 	_float2 GetPosition();
 	_float2	GetUISize();
 public:
+	_bool isFristEnter();
+public:
 	PROPERTY(GetSpriteTime, SetSpriteTime)_float p_SpriteTime;
 	PROPERTY(GetSpriteNum, SetSpriteNum)_int p_SpriteNum;
 	PROPERTY(GetSpriteX, SetSpriteX)_int p_SpriteX;
@@ -87,6 +89,7 @@ public:
 	PROPERTY(GetAlpha, SetAlpha)_float p_Alpha;
 
 protected:
+	_bool m_bEnter = false;
 	_bool m_bHover = false;
 	_bool m_bSelect = false;
 	_bool m_isHovering = false;
