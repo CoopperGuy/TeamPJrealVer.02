@@ -138,8 +138,7 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	if (m_pWolfState == DIE)
 	{
 
-			CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY10);
-			CEngine::GetInstance()->SetVolume(0.1f, CHANNELID::ENEMY10);
+			CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY13);
 	
 		if (m_pModel->Get_isFinished()) {
 
@@ -246,8 +245,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 				if (keyFrame >= 42)
 				{
-					CEngine::GetInstance()->PlaySoundW("WolfAtt.ogg", CHANNELID::ENEMY10);
-					CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
+					CEngine::GetInstance()->PlaySoundW("WolfAtt.ogg", CHANNELID::ENEMY16);
 				}
 			}
 		}
@@ -255,8 +253,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	case Client::CWolf::DAMAGE: {
 		if (m_iBlood < 1) {
 			m_iBlood += 1;
-			CEngine::GetInstance()->PlaySoundW("WolfHit.mp3", CHANNELID::ENEMY10);
-			CEngine::GetInstance()->PlaySoundW("WolfDamage.mp3", CHANNELID::ENEMY11);
+			CEngine::GetInstance()->PlaySoundW("WolfHit.mp3", CHANNELID::ENEMY17);
 			//CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
 
 			_matrix Translation;

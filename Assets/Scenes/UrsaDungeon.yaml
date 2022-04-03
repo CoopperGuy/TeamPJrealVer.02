@@ -794,7 +794,7 @@ GameObjects:
     UUID: 8562387580380168152
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -807,6 +807,12 @@ GameObjects:
       MeshFileName: door4.fbx
       HasCollider: false
       Equipment: false
+    Translation: [0, 0, -7.60077381]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+    MeshFileName: door4.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 20
   - Name: Decogidung
@@ -1269,7 +1275,7 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-      Rotation: [-1.11217041e-05, 82.4875717, -1.12273501e-05]
+      Rotation: [-1.11216468e-05, 82.4875717, -1.12273501e-05]
       Scale: [1.5, 1.29999995, 0.99999851]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
@@ -1277,7 +1283,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Translation: [-7.71003485, 3.02958258e-09, -0.893863142]
-    Rotation: [-1.11217041e-05, 82.4875717, -1.12273501e-05]
+    Rotation: [-1.11216468e-05, 82.4875717, -1.12273501e-05]
     Scale: [1.5, 1.29999995, 0.99999851]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
     MeshFileName: Door3.fbx
@@ -1640,7 +1646,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.29782748, 0, 3.21683025]
       Rotation: [90, -0, 0]
-      Scale: [0.299980372, 0.300000012, 0.300000012]
+      Scale: [0.299978971, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1648,7 +1654,7 @@ GameObjects:
       Equipment: false
     Translation: [-1.29782748, 0, 3.21683025]
     Rotation: [90, -0, 0]
-    Scale: [0.299980372, 0.300000012, 0.300000012]
+    Scale: [0.299978971, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1665,7 +1671,7 @@ GameObjects:
     Com_Transform:
       Translation: [-2.97619867, 0, 2.27278042]
       Rotation: [90, -0, 0]
-      Scale: [0.299972445, 0.300000012, 0.300000012]
+      Scale: [0.299972415, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1673,7 +1679,7 @@ GameObjects:
       Equipment: false
     Translation: [-2.97619867, 0, 2.27278042]
     Rotation: [90, -0, 0]
-    Scale: [0.299972445, 0.300000012, 0.300000012]
+    Scale: [0.299972415, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1690,7 +1696,7 @@ GameObjects:
     Com_Transform:
       Translation: [2.38819623, -0.00699390192, 1.11379468]
       Rotation: [90, -0, 0]
-      Scale: [0.299982429, 0.300000012, 0.300000012]
+      Scale: [0.299972594, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1698,7 +1704,7 @@ GameObjects:
       Equipment: false
     Translation: [2.38819623, -0.00699390192, 1.11379468]
     Rotation: [90, -0, 0]
-    Scale: [0.299982429, 0.300000012, 0.300000012]
+    Scale: [0.299972594, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1715,7 +1721,7 @@ GameObjects:
     Com_Transform:
       Translation: [-2.97583151, 1.37266554e-07, -3.1402936]
       Rotation: [90, -0, 0]
-      Scale: [0.299964398, 0.300000012, 0.300000012]
+      Scale: [0.299962878, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1723,7 +1729,7 @@ GameObjects:
       Equipment: false
     Translation: [-2.97583151, 1.37266554e-07, -3.1402936]
     Rotation: [90, -0, 0]
-    Scale: [0.299964398, 0.300000012, 0.300000012]
+    Scale: [0.299962878, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1740,7 +1746,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.89712811, 1.10119771e-07, -3.25622416]
       Rotation: [90, -0, 0]
-      Scale: [0.29991889, 0.300000012, 0.300000012]
+      Scale: [0.299917638, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1748,7 +1754,7 @@ GameObjects:
       Equipment: false
     Translation: [5.89712811, 1.10119771e-07, -3.25622416]
     Rotation: [90, -0, 0]
-    Scale: [0.29991889, 0.300000012, 0.300000012]
+    Scale: [0.299917638, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1765,7 +1771,7 @@ GameObjects:
     Com_Transform:
       Translation: [4.24012089, 7.08392704e-08, -4.04402351]
       Rotation: [90, -0, 0]
-      Scale: [0.299981266, 0.300000012, 0.300000012]
+      Scale: [0.299980432, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1773,7 +1779,7 @@ GameObjects:
       Equipment: false
     Translation: [4.24012089, 7.08392704e-08, -4.04402351]
     Rotation: [90, -0, 0]
-    Scale: [0.299981266, 0.300000012, 0.300000012]
+    Scale: [0.299980432, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1790,7 +1796,7 @@ GameObjects:
     Com_Transform:
       Translation: [-7.04490614, 0.0625032261, -2.38052249]
       Rotation: [90, -0, 0]
-      Scale: [0.299980551, 0.300000012, 0.300000012]
+      Scale: [0.299979746, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1798,7 +1804,7 @@ GameObjects:
       Equipment: false
     Translation: [-7.04490614, 0.0625032261, -2.38052249]
     Rotation: [90, -0, 0]
-    Scale: [0.299980551, 0.300000012, 0.300000012]
+    Scale: [0.299979746, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1815,7 +1821,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.142843485, -4.84576539e-08, -5.559834]
       Rotation: [90, -0, 0]
-      Scale: [0.299967587, 0.300000012, 0.300000012]
+      Scale: [0.299966305, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1823,7 +1829,7 @@ GameObjects:
       Equipment: false
     Translation: [0.142843485, -4.84576539e-08, -5.559834]
     Rotation: [90, -0, 0]
-    Scale: [0.299967587, 0.300000012, 0.300000012]
+    Scale: [0.299966305, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1865,7 +1871,7 @@ GameObjects:
     Com_Transform:
       Translation: [0.667874455, -1.39228632e-07, 3.18518066]
       Rotation: [90, -0, 0]
-      Scale: [0.299922734, 0.300000012, 0.300000012]
+      Scale: [0.299921781, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi4.fbx
@@ -1873,7 +1879,7 @@ GameObjects:
       Equipment: false
     Translation: [0.667874455, -1.39228632e-07, 3.18518066]
     Rotation: [90, -0, 0]
-    Scale: [0.299922734, 0.300000012, 0.300000012]
+    Scale: [0.299921781, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi4.fbx
     HasCollider: false
@@ -1890,7 +1896,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.12454319, 0.00708128279, 3.90228987]
       Rotation: [90, -0, 0]
-      Scale: [0.29983139, 0.300000012, 0.300000012]
+      Scale: [0.299830437, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi3.fbx
@@ -1898,7 +1904,7 @@ GameObjects:
       Equipment: false
     Translation: [6.12454319, 0.00708128279, 3.90228987]
     Rotation: [90, -0, 0]
-    Scale: [0.29983139, 0.300000012, 0.300000012]
+    Scale: [0.299830437, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi3.fbx
     HasCollider: false
@@ -1915,7 +1921,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.17473173, -1.37816713e-07, 4.51198959]
       Rotation: [90, -0, 0]
-      Scale: [0.299642384, 0.300000012, 0.300000012]
+      Scale: [0.299639523, 0.300000012, 0.300000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: zandi3.fbx
@@ -1923,7 +1929,7 @@ GameObjects:
       Equipment: false
     Translation: [-5.17473173, -1.37816713e-07, 4.51198959]
     Rotation: [90, -0, 0]
-    Scale: [0.299642384, 0.300000012, 0.300000012]
+    Scale: [0.299639523, 0.300000012, 0.300000012]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: zandi3.fbx
     HasCollider: false
@@ -2033,7 +2039,7 @@ GameObjects:
     UUID: 4255150396954017840
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -2046,6 +2052,12 @@ GameObjects:
       MeshFileName: Sky.fbx
       HasCollider: false
       Equipment: false
+    Translation: [0, -0.746800244, 0]
+    Rotation: [0, -0, 0]
+    Scale: [2, 2, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Sky\
+    MeshFileName: Sky.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 1000
   - Name: PointLight00
@@ -2405,8 +2417,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-4.35752392, 4.18229628, -7.10967112]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [1.35574281, 2.10940552, 8.04235172]
+      Rotation: [4.36306763, -27.4581337, -3.60811299e-07]
+      Scale: [1.35818136, 2.10916543, 8.05430031]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2443,8 +2455,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.5999999, 4.06499147, 0.38495189]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [1.31748569, 2.02994847, 6.72874641]
+      Rotation: [4.3630681, -27.4581337, -3.60811299e-07]
+      Scale: [1.31991541, 2.02878785, 6.73852348]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2481,8 +2493,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.42898369, 4.09444904, 6.71673107]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [1.28588367, 1.69211721, 3.94624305]
+      Rotation: [4.36306858, -27.4581299, -3.60811299e-07]
+      Scale: [1.28824294, 1.69076729, 3.9520278]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2519,8 +2531,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.19999981, 4.10704279, 6.9000001]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [1.28572941, 1.69368196, 3.95530915]
+      Rotation: [4.36306858, -27.4581318, -3.60811271e-07]
+      Scale: [1.28809297, 1.69233119, 3.96111917]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2557,8 +2569,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [8.3721447, 4.04717731, 0.21047309]
-      Rotation: [11.3099308, -0, 0]
-      Scale: [1.29016781, 1.66389775, 3.78321362]
+      Rotation: [4.3630681, -27.4581299, -3.60811299e-07]
+      Scale: [1.29254413, 1.6625526, 3.78870225]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2595,8 +2607,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.79500008, 4.20926952, -6.50600004]
-      Rotation: [11.3099318, -0, 0]
-      Scale: [1.29122972, 1.65613878, 3.72920418]
+      Rotation: [4.3630681, -27.4581318, -3.60811271e-07]
+      Scale: [1.29361248, 1.65481579, 3.73463297]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2634,7 +2646,7 @@ GameObjects:
     Com_Transform:
       Translation: [-4.31833315, 2.37372112, 5.73253393]
       Rotation: [90.221817, -25.6933441, -0.0962173268]
-      Scale: [2.0309186, 0.999991775, 1.15790212]
+      Scale: [2.0309186, 0.999991775, 1.15788758]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
       MeshFileName: Grass6.fbx
@@ -2642,7 +2654,7 @@ GameObjects:
       Equipment: false
     Translation: [-4.31833315, 2.37372112, 5.73253393]
     Rotation: [90.221817, -25.6933441, -0.0962173268]
-    Scale: [2.0309186, 0.999991775, 1.15790212]
+    Scale: [2.0309186, 0.999991775, 1.15788758]
     MeshFilePath: ..\..\Assets\Meshes\Map\Grass\basic\
     MeshFileName: Grass6.fbx
     HasCollider: false
