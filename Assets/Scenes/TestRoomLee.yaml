@@ -255,8 +255,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [34.3454933, -7.49050903, 2.15280338e-07]
-      Scale: [0.244684458, 0.550899744, 0.465276003]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.244684458, 0.550899386, 0.465275973]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -320,8 +320,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.0168395545, 1.0680685, 0.160352141]
-      Rotation: [34.3454933, -7.49050856, 2.15280338e-07]
-      Scale: [0.627977014, 0.439935029, 1.04591978]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.627977014, 0.439934999, 1.04591978]
     Com_VIBuffer:
       {}
     Effect_Setting:

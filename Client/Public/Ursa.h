@@ -96,6 +96,7 @@ private:
 	_double m_dDropRockMkdt = 0;
 	_double m_dTest = 0.0;
 	_double m_LerpTime = 0.0;
+	_double m_MakeWind = 0.0;
 
 	_uint m_iComboIndex = 0;
 	_uint m_iFirst		= 0;
