@@ -29,7 +29,9 @@ HRESULT CScene_Loading::Initialize(SCENE eScene)
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_LOADING);
 	CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/LoadingTest.yaml", CEngine::GetInstance()->GetCurSceneNumber());
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("mapleStory.mp3");
+	CEngine::GetInstance()->PlayBGM("mapleStory.mp3");/*
+	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
+	CEngine::GetInstance()->PlayBGM("GenshinMain.flac");*/
 	m_eNextSCENE = eScene;
 
 	return S_OK;
