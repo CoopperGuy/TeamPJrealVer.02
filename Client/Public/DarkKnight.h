@@ -47,7 +47,8 @@ private:
 
 private:
 	void SetWolfState(STATE _pState) { m_eState = _pState; }
-	void SetBehaviorDelay() { m_fBehaviorDelay = (rand() % 5 + 5) * 0.1f; }
+	void SetAttackDelay() { m_fAttackDelay = (rand() % 10 + 5) * 0.1f; }
+	void SetLookPlayer();
 
 	void ChaseTarget(_double deltaTime, _float3 vTargetPos);
 private:
@@ -87,12 +88,13 @@ private:
 	_float3 m_vDestPos = { 0.f, 0.f, 0.f };
 
 
-	_float m_fBehaviorDuration = 0.f;
-	_float m_fBehaviorTime = 0.f;
-	_float m_fBehaviorDelay = 0.f;
-	_float m_fStunDelay = 40.f;
-	_float m_fDist = 0.f;
+	_float	m_fBehaviorDuration = 0.f;
+	_float	m_fBehaviorTime = 0.f;
+	_float	m_fAttackDelay = 0.f;
+	_float	m_fStunDelay = 40.f;
+	_float	m_fDist = 0.f;
 	_float	m_fSpeed = 0.5f;
+	_float	m_fPhaseLoopTime = 3.f;
 private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;

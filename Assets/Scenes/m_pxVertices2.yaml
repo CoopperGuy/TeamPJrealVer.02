@@ -7,9 +7,9 @@ GameObjects:
     Instancing: false
     Type: Camera
     Com_Transform:
-      Translation: [0.000485454773, 0.000485454773, 0]
-      Rotation: [0.551296711, 44.986084, 0.00506796734]
-      Scale: [0.999620855, 0.999873042, 0.999919295]
+      Translation: [0.0011885917, 0.0011885917, 0]
+      Rotation: [0.551103473, 44.9659233, 0.0047945939]
+      Scale: [0.999619782, 0.999873042, 0.999917805]
     MoveTime: 5
     Movie: 1
     SrcPosition: [5, 5, 0]
@@ -197,7 +197,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867311]
+      Scale: [1, 1.10000002, 1.09867239]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
@@ -280,7 +280,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [5, 1, 5]
+      Size: [50, 1, 50]
       Angle:
         - 0
         - 0
@@ -376,6 +376,68 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [1, 1, 1, 0]
+  - Name: DN
+    UUID: 14102919688422681779
+    Active: true
+    Layer: Layer_Monster
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 3
+    Com_Transform:
+      Translation: [-2.5498445, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.150000006
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.200000003, 0.400000006, 0.200000003]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0.25, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.200000003, 0.200000003, 0.200000003]
+      IsAttach: true
+      BoneName: BN_Weapon_L
+      Offset: [0, 0, 0]
+      CollisionType: 3
+    Com_OBB2:
+      Center: [0, 0, 0]
+      Size: [0.200000003, 0.200000003, 0.200000003]
+      IsAttach: true
+      BoneName: BN_Weapon_R
+      Offset: [0, 0, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\DarkKnight\
+      MeshFileName: DarkKnight.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1729, 0, 1729, 133]
+      HpRegen: [13, 1]
+      Atk: [169, 0, 13]
+      Arm: [169, 0, 13]
+      Exp: [0, 169, 13]
+      Level: 13
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 1
   - Name: testMonster
     UUID: 8617912300921592626
     Active: true

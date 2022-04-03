@@ -294,6 +294,8 @@ void CEmptyUI::InteractMouse()
 	if (m_isHovering) {
 		if (m_pRectTransformCom->IsMouseInRect())
 		{
+			if (m_bHover)
+				m_bEnter = true;
 			m_bHover = true;
 			if (m_pEngine->IsMouseUp(0))
 				m_bSelect = !m_bSelect;
@@ -301,6 +303,7 @@ void CEmptyUI::InteractMouse()
 		else
 		{
 			m_bHover = false;
+			m_bEnter = false;
 		}
 	}
 }
@@ -336,6 +339,13 @@ _float2 CEmptyUI::GetPosition()
 _float2 CEmptyUI::GetUISize()
 {
 	return m_pRectTransformCom->GetUISize();
+}
+
+_bool CEmptyUI::isFristEnter()
+{
+	if (m_bEnter == false && m_bHover == true)
+		return true;
+	return false;
 }
 
 

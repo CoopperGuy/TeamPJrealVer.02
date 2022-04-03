@@ -29,7 +29,7 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_vMin(rhs.m_vMin)
 	, m_strBoneName(rhs.m_strBoneName)
 	, m_isAttachBone(rhs.m_isAttachBone)
-	, m_CollisionType(rhs.m_CollisionType)
+	, m_CollisionType(rhs.m_CollisionType)	
 {
 	memcpy(&m_Offset, &rhs.m_Offset, sizeof(_float3));
 	memcpy(m_vPoint, rhs.m_vPoint, sizeof(_float3) * 8);
@@ -177,7 +177,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 
 		break;
 
-	case CBasicCollider::TYPE_SPHERE: //ÃÊ±â°ªÀ» ¼¼ÆÃ
+	case CBasicCollider::TYPE_SPHERE: //ì´ˆê¸°ê°’ì„ ì„¸íŒ…
 								 // Center(0,0,0), Radius( 1.f ) {}
 		vCenter = _float3(0.f, 0.f, 0.f);
 		fRadius = 1.f;
@@ -222,7 +222,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 	vDestMax = XMVector3TransformCoord(XMLoadFloat3(&pTargetCollider->m_vMax), XMLoadFloat4x4(&pTargetCollider->m_TransformMatrix));
 
 
-	/* ³Êºñºñ±³ */
+	/* ë„ˆë¹„ë¹„êµ */
 	if (max(XMVectorGetX(vSourMin), XMVectorGetX(vDestMin)) >
 		min(XMVectorGetX(vSourMax), XMVectorGetX(vDestMax)))
 	{
@@ -231,7 +231,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 		return false;
 	}
 
-	/* ³ôÀÌºñ±³ */
+	/* ë†’ì´ë¹„êµ */
 	if (max(XMVectorGetY(vSourMin), XMVectorGetY(vDestMin)) >
 		min(XMVectorGetY(vSourMax), XMVectorGetY(vDestMax)))
 	{
@@ -240,7 +240,7 @@ _bool CBasicCollider::Collision_AABB(CBasicCollider * pTargetCollider)
 		return false;
 	}
 
-	/* ±íÀÌºñ±³ */
+	/* ê¹Šì´ë¹„êµ */
 	if (max(XMVectorGetZ(vSourMin), XMVectorGetZ(vDestMin)) >
 		min(XMVectorGetZ(vSourMax), XMVectorGetZ(vDestMax)))
 	{
@@ -490,6 +490,21 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 
 							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
+							_uint _rnd = rand() % 3;
+							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
+							switch (_rnd)
+							{
+							case 0:
+								CEngine::GetInstance()->PlaySoundW("Heats00.wav", CHANNELID::PLAYER13);
+								break;
+							case 1:
+								CEngine::GetInstance()->PlaySoundW("Heats01.wav", CHANNELID::PLAYER13);
+								break;
+							case 2:
+								CEngine::GetInstance()->PlaySoundW("Heats02.wav", CHANNELID::PLAYER13);
+								break;
+	
+							}
 							if (pWeaponeCollider->m_bIsDownAttack) {
 								pTargetCollider->m_bIsDown = true;
 							}
@@ -564,13 +579,14 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							pTargetCollider->SetHit(true);
 
 						static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false);
-						
 
-							//cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
-							if (pMyCollider->m_bIsDownAttack) {
-								pTargetCollider->m_bIsDown = true;
-							}
-							return;
+						CEngine::GetInstance()->StopSound(CHANNELID::PLAYER12);
+						CEngine::GetInstance()->PlaySoundW("Damaged.wav", CHANNELID::PLAYER12);
+						//cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
+						if (pMyCollider->m_bIsDownAttack) {
+							pTargetCollider->m_bIsDown = true;
+						}
+						return;
 						
 					}
 					else {
@@ -584,8 +600,8 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 
 				}
 			}
-			else
-				pTargetCollider->SetHit(false);
+			//else
+			//	pTargetCollider->SetHit(false);
 		}
 	}
 }
@@ -781,7 +797,7 @@ void CBasicCollider::OBBOnEnter(CGameObject* pTarget)
 	CComponent* pStat = pTarget->GetComponent("Com_Stat");
 	static_cast<CStat*>(pStat)->Damaged(static_cast<CStat*>(pStat));
 	cout << "---------------------" << endl;
-	cout << "Ãæµ¹" << endl;
+	cout << "ì¶©ëŒ" << endl;
 	cout << static_cast<CStat*>(pStat)->GetStatInfo().hp << endl;
 	cout << static_cast<CStat*>(pStat)->GetHpPercentage() << endl;
 	cout << "---------------------" << endl;

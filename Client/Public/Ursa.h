@@ -123,6 +123,9 @@ private:
 	// Dissolve
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
+
+
+	int value = 0;
 private:
 	CVIBuffer_Trail*		m_pRightTrailBuffer = nullptr;
 	CVIBuffer_Trail*		m_pLeftTrailBuffer = nullptr;

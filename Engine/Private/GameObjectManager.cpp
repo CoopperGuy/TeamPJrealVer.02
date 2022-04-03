@@ -270,7 +270,7 @@ void CGameObjectManager::CollsionCheck()
 
 void CGameObjectManager::ClearList()
 {
-	for (int i = 0; i < (_int)ID::IDEND; ++i)
+	for (int i = 0; i <= (_int)ID::IDEND; ++i)
 	{
 		for (auto& pair : m_pColliderList[i])
 		{

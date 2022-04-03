@@ -12,7 +12,7 @@ CDropRockSmall::CDropRockSmall()
 {
 }
 
-HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
+HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos, _bool mini)
 {
 
 	if (pArg != nullptr) {
@@ -39,6 +39,9 @@ HRESULT CDropRockSmall::Initailze(CGameObject * pArg, _vector pos)
 		StartPosY = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
 		StartPosX = XMVectorGetX(m_pTransform->GetState(CTransform::STATE_POSITION));
 
+		if(mini)
+			m_pTransform->SetScale(_float3(randomX * 0.0005f, randomX * 0.0005f, randomX * 0.0005f));
+		else
 		m_pTransform->SetScale(_float3(randomX * 0.001f, randomX * 0.001f, randomX * 0.001f));
 
 
@@ -94,11 +97,11 @@ void CDropRockSmall::LateUpdate(_double deltaTime)
 }
 
 
-CDropRockSmall * CDropRockSmall::Create(CGameObject * pArg, _vector pos)
+CDropRockSmall * CDropRockSmall::Create(CGameObject * pArg, _vector pos, _bool mini)
 {
 	CDropRockSmall*		pInstance = new CDropRockSmall();
 
-	if (FAILED(pInstance->Initailze(pArg, pos)))
+	if (FAILED(pInstance->Initailze(pArg, pos, mini)))
 	{
 		MSG_BOX("Failed to Create CDropRockSmall");
 		SafeRelease(pInstance);

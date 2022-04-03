@@ -63,7 +63,7 @@ void CSlashWave::Update(_double dDeltaTime)
 		_float3 vPos = {};
 		XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION) - m_pEffectTrans->GetState(CTransform::STATE_RIGHT) * 0.5f);
 		m_pOBB->SetPosision(vPos);
-		m_pOBB->SetSize(_float3(m_fScale* 0.5f, m_fScale * 0.5f, m_fScale *0.5f));
+		m_pOBB->SetSize(_float3(m_vChildScale.x *m_fScale, m_vChildScale.y *m_fScale, m_vChildScale.z *m_fScale));
 }
 
 void CSlashWave::LateUpdate(_double deltaTime)

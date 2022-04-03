@@ -61,6 +61,11 @@ void CEquipItemHud::Update(_double deltaTime)
 {
 	_uint selectIdx = 0;
 	for (auto& iter : m_pEquipTagList) {
+		if (iter->isFristEnter()) {
+			CEngine::GetInstance()->StopSound(CHANNELID::UI00);
+			CEngine::GetInstance()->PlaySoundW("UIHover.mp3", CHANNELID::UI00);
+		}
+
 		if (iter->IsHovered()) {
 			if (CEngine::GetInstance()->IsMouseDown(0)) {
 				m_iCurSelectedTag = selectIdx;
@@ -70,6 +75,9 @@ void CEquipItemHud::Update(_double deltaTime)
 						m_pEquipTagList[i]->SetIsSelected(false);
 					}
 				}
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("EquipTagEnter.mp3", CHANNELID::UI02);
+
 			}
 		}
 	
