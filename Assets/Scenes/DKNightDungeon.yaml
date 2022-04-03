@@ -1,0 +1,23 @@
+Scene: Untitled
+GameObjects:
+  - Name: Direction
+    UUID: 463561755303631127
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.39999998, 35.7999992, -32]
+      Rotation: [176.999924, 84.1989975, 41.8009987]
+      Scale: [0.999928474, 0.999803364, 0.999817193]
+    Com_Light:
+      Type: 0
+      Range: 10
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [0.637681127, 0.637681127, 0.637681127, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
