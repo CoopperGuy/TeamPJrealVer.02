@@ -118,8 +118,8 @@ vector	PS_MAIN(PS_IN In) : SV_TARGET
     if (vColor.a <= 0.f)
         discard;
 
-    if (vMask.r > 0.99f)
-        vColor.rgb += 0.5f;
+    //if (vMask.r > 0.99f)
+    //    vColor.rgb += 0.5f;
 
     return vColor;
 }

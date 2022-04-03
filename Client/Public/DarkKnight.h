@@ -99,6 +99,7 @@ private:
 	_bool m_bBehavior = false;
 	_bool m_bPhase2 = false;
 	_bool m_bDeadBody = false;
+	_bool m_bCreateEffect = false;
 private:
 	STATE	m_eState = STATE_END;
 	STATE	m_eCurState = STATE_END;

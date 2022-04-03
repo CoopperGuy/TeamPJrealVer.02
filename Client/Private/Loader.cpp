@@ -394,6 +394,8 @@ HRESULT CLoader::GameSceneLEE()
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
+
 
 	m_ThreadLoader->Start_Thread();
 	

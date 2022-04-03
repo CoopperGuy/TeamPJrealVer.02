@@ -219,6 +219,7 @@
     <ClInclude Include="..\Public\EffectSmoke.h" />
     <ClInclude Include="..\Public\EffectSoilDecal.h" />
     <ClInclude Include="..\Public\EffectSoilDust.h" />
+    <ClInclude Include="..\Public\EffectSwordAura.h" />
     <ClInclude Include="..\Public\EffectUrsaDust.h" />
     <ClInclude Include="..\Public\EffectUrsaPajang.h" />
     <ClInclude Include="..\Public\EffectUrsaPajangMesh.h" />
@@ -412,6 +413,7 @@
     <ClCompile Include="..\Private\EffectRockDust.cpp" />
     <ClCompile Include="..\Private\EffectSmoke.cpp" />
     <ClCompile Include="..\Private\EffectSoilDecal.cpp" />
+    <ClCompile Include="..\Private\EffectSwordAura.cpp" />
     <ClCompile Include="..\Private\EffectSwordRing.cpp" />
     <ClCompile Include="..\Private\EffectMeteoTrail.cpp" />
     <ClCompile Include="..\Private\EffectSoilDust.cpp" />

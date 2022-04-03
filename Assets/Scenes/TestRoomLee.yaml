@@ -137,7 +137,7 @@ GameObjects:
       {}
     Effect_Setting:
       TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Decal_Magic1.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -147,10 +147,10 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: false
+      FadeOut: true
       FadeOutDuration: 10
       FadeOutStratTime: 10
-      FadeIn: false
+      FadeIn: true
       FadeInDuration: 10
       FadeInStratTime: 0
       EffectDuration: 20
@@ -158,7 +158,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.599873841, 0, 0.98550725, -0.0299999993]
+      OffsetColor: [0.347826004, 0, 1, 1]
   - Name: E_IIBlood
     UUID: 12569516535572226087
     Active: true
@@ -255,8 +255,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [34.3454933, -7.49050903, 2.15280338e-07]
-      Scale: [0.244684458, 0.550899744, 0.465276003]
+      Rotation: [11.3099308, -0, 0]
+      Scale: [0.240763605, 0.545094728, 0.456344783]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -320,8 +320,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.0168395545, 1.0680685, 0.160352141]
-      Rotation: [34.3454933, -7.49050856, 2.15280338e-07]
-      Scale: [0.627977014, 0.439935029, 1.04591978]
+      Rotation: [11.3099318, -0, 0]
+      Scale: [0.617544532, 0.435210705, 1.02604365]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -413,11 +413,11 @@ GameObjects:
     BillBord: false
     Com_Transform:
       Translation: [2.63986111, 0.717541754, -0.414763659]
-      Rotation: [0, -0, -13.6999922]
-      Scale: [1.99999321, 0.49999842, 1.5000006]
+      Rotation: [0, -0, -9.9999876]
+      Scale: [3.49999976, 0.49999243, 2]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: RevivalLine.fbx
+      MeshFileName: RevivalLine2.fbx
       HasCollider: false
       EffectFilePath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
     Effect_Setting:
@@ -426,7 +426,7 @@ GameObjects:
       TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [0.200000003, 0.300000012, 2.29999995]
+      ScrollSpeedY: [-0.200000003, -0.300000012, 2.29999995]
       Distortion1: [0.100000001, 0.200000003]
       Distortion2: [0.100000001, 0.300000012]
       Distortion3: [0.100000001, 0.100000001]
@@ -443,7 +443,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.304347664, 0, 0.333333313, 1]
+      OffsetColor: [0.304347664, 0, 0.333333313, 0.649999976]
   - Name: RectInst
     UUID: 205108304507836699
     Active: true
@@ -532,4 +532,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.491492987, 0, 0.565217376, 0.800000012]
+      OffsetColor: [0.491492987, 0, 0.565217376, 0.150000006]

@@ -484,6 +484,9 @@
     <ClInclude Include="..\Public\Skull.h">
       <Filter>02.GameObjects\Character\Enemy\Skull</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectSwordAura.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -953,6 +956,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Skull.cpp">
       <Filter>02.GameObjects\Character\Enemy\Skull</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSwordAura.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1425,6 +1431,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Skull">
       <UniqueIdentifier>{abd3dc63-6a78-4e8c-af4f-4a68c4c5cf42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\DarkKnight">
+      <UniqueIdentifier>{4ca6cc62-84ab-4b9d-85cb-542da661b475}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

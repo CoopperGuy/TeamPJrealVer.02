@@ -5,6 +5,8 @@
 #include "Transform.h"
 #include "MonHp.h"
 
+#include "EffectSwordAura.h"
+
 USING(Client)
 
 CDarkKnight::CDarkKnight(CGameObject* pObj)
@@ -103,6 +105,20 @@ void CDarkKnight::Update(_double dDeltaTime)
 		m_pModel->SetUp_AnimationIndex(m_eState);
 
 	}*/
+	if (CEngine::GetInstance()->IsKeyDown('R'))
+	{
+		m_eState = SK_SIDESLASH2;
+		m_bBehavior = true;
+		m_bCreateEffect = true;
+	}
+	else if (CEngine::GetInstance()->IsKeyDown('T'))
+	{
+		m_eState = SK_RAISING2;
+		m_bBehavior = true;
+		m_bCreateEffect = true;
+
+	}
+
 	Hit();
 	
 	StateUpdate(dDeltaTime);
@@ -214,10 +230,7 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 {
 	if (m_bDeadBody == true || m_bBehavior == true || m_pTargetTransform == nullptr)
 		return;
-
-	/*if (CEngine::GetInstance()->IsKeyDown('R'))
-		m_bCombat = !m_bCombat;*/
-
+		
 	_int iRand = rand() % 100;
 	m_fDist = Calculation_DistanceToPlayer();
 
@@ -267,9 +280,15 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 					m_fBehaviorTime = (rand() % 10 + 10) * 0.1f;
 				}
 				else if (iRand < 85)
+				{
 					m_eState = SK_SIDESLASH2;
+					m_bCreateEffect = true;
+				}
 				else
+				{
 					m_eState = SK_RAISING2;
+					m_bCreateEffect = true;
+				}
 			}
 			else
 			{
@@ -291,6 +310,8 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 {
 	/*if (m_bBehavior == false)
 		return;*/
+	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	m_pTrailBuffer->SetIsActive(false);
 
 	switch (m_eState)
 	{
@@ -299,8 +320,23 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		ChaseTarget(dDeltaTime, m_vDestPos);
 		break;
 	case Client::CDarkKnight::SK_SIDESLASH2:
+		if (keyFrame >= 40 && keyFrame <= 55)
+			m_pTrailBuffer->SetIsActive(true);
+
+		if (m_bCreateEffect == true && keyFrame == 43)
+		{
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
+			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, -10.f), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreateEffect = false;
+		}
 		break;
 	case Client::CDarkKnight::SK_RAISING2:
+		if (m_bCreateEffect == true && keyFrame == 45)
+		{
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
+			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreateEffect = false;
+		}
 		break;
 	case Client::CDarkKnight::SK_STING2:
 		break;
