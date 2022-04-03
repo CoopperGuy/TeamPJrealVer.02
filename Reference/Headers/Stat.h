@@ -42,7 +42,7 @@ private:
 	virtual ~CStat() = default;
 public:
 	void SetStatInfo(STAT _info) { m_tStat = _info; }
-	void SetStaFullHP() { m_tStat.hp = m_tStat.maxExp; }
+	void SetStaFullHP() { m_tStat.hp = m_tStat.maxHp; }
 	void SetStamina(_float _stamina) { m_fStamina += _stamina; }
 	void SetDMGRatio(_float _ratio) { m_fDMGRatio = _ratio; }
 	void SetCritical(_float critical) { m_tStat.critical = critical; }
