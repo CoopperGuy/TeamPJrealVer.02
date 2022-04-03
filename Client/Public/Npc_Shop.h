@@ -26,6 +26,7 @@ private:
 	CTransform*							m_pNpcTransform = nullptr;
 	CShopHud*							m_pShopHud = nullptr;
 	CEmptyUI*							m_pShopList = nullptr;
+	CModel*								m_pModel = nullptr;
 private:
 	_int								m_iCurSelectedItem = -1;
 	mutable _float						m_fAlretMakeDistance = 0.5f;

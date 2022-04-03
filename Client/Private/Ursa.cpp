@@ -183,8 +183,8 @@ void CUrsa::LateUpdate(_double dDeltaTime)
 	_matrix OffsetMatrix = XMMatrixIdentity();
 	XMMatrixTranslation(0.f, 0.05f, -0.4f);
 
-	XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
-	XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
+	DirectX::XMStoreFloat4x4(&m_RightwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_R"));
+	DirectX::XMStoreFloat4x4(&m_LeftwpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Axe_L"));
 
 	if (m_pRightTrailBuffer)
 		m_pRightTrailBuffer->Update(dDeltaTime, OffsetMatrix * XMLoadFloat4x4(&m_RightwpBoneMatrix) * XMLoadFloat4x4(&m_pRenderTransform->GetMatrix()));

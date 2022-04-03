@@ -1,0 +1,47 @@
+Scene: Untitled
+GameObjects:
+  - Name: QuickRegi1
+    UUID: 7920380615560780865
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [617.432983, 360]
+      Size: [64, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\Groggy_Bg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Com_Text:
+      Text: "   \n\n\n\n   X"
+      Color: [1, 1, 1, 1]
+      Scale: [0.649999976, 0.649999976]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+    Children:
+      - Name: QuickRegiIcon1
+        UUID: 17528326666143867850
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 9
+        PassIndex: 8
+        Hovering: false
+        Com_Transform:
+          Position: [617.433044, 360]
+          Size: [64, 64]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Item\nullImage.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+          Sprite: [0.100000001, 0, 0, 0]

@@ -52,26 +52,39 @@ HRESULT CConsumItemHud::Initailze(CGameObject * pArg)
 void CConsumItemHud::Update(_double deltaTime)
 {
 	Scroll(deltaTime);
-	_uint i = 0;
-	for (auto& iter : m_pConsumItemList) {
-		if (iter.first->IsHovered()) {
-			if(CEngine::GetInstance()->IsMouseDown(0))
-				m_iCurSelected = i;
+	
+	if (m_pThisUI->IsActive()) 
+	{
+		_uint i = 0;
+		for (auto& iter : m_pConsumItemList) {
+			if (iter.first->isFristEnter())
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+			}
+
+			if (iter.first->IsHovered()) {
+				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
+				{
+					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("ConsumSelect.ogg", CHANNELID::UI03);
+					m_iCurSelected = i;
+				}
+			}
+			i++;
 		}
-		i++;
-	}
 
-
-
-	if (m_pThisUI->IsActive()) {
 		if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_CONSUM) {
 			if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE)) {
 				m_bSelectInputIndex = true;
 				CEventCheck::GetInstance()->OpenAddQuickSlot(m_bSelectInputIndex);
+				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("EscMenuselect.ogg", CHANNELID::UI02);
 			}
 		}
 	}
-	else {
+	else 
+	{
 		m_iCurSelected = -1;
 	}
 }
