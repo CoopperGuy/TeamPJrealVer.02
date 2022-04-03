@@ -4,19 +4,18 @@
 
 BEGIN(Client)
 class CMonHp;
-class CDarkKnight : public CEnemy
+class CSkull : public CEnemy
 {
 public:
-	enum STATE { Walk, SK_SIDESLASH2, SK_RAISING2, SK_SLASH2, SK_STING2, PHASE2_START, PHASE2_LOOP, PHASE2_END, SK_SIDESLASH, SK_SHIELDATTACK, SK_JUMPATTACK, RUN, GROGGY,
-	ENDTRYBATTLE, IDLE, IDLE_BATTLE, GETUP, DOWN_LOOP, DOWN_DEADBODY, DOWN, DMG_F, DMG_B, DIE, DEADBODY, SLASH, STING, STATE_END };
+	enum STATE { SK_TWICESLASH, SK_DOWNSLASH, RUN, IDLE, DMG_F, DMG_B, DIE, DEADBODY, STING, SLASH, STATE_END };
 
 private:
-	explicit CDarkKnight();
-	explicit CDarkKnight(CGameObject* pObj);
-	virtual ~CDarkKnight() = default;
+	explicit CSkull();
+	explicit CSkull(CGameObject* pObj);
+	virtual ~CSkull() = default;
 
 public:
-	static CDarkKnight* Create(CGameObject* pObj, _float3 position = _float3{ 0.f,0.f,0.f });
+	static CSkull* Create(CGameObject* pObj, _float3 position = _float3{ 0.f,0.f,0.f });
 	virtual void Free() override;
 
 public:
@@ -45,7 +44,7 @@ private:
 	void SetUp_AnimIndex(_uint Index) { m_pModel->SetUp_AnimationIndex(Index); }
 
 private:
-	void SetAttackDelay() { m_fAttackDelay = (rand() % 10 + 5) * 0.1f; }
+	void SetAttackDelay() { m_fAttackDelay = (rand() % 10 + 10) * 0.1f; }
 	void SetLookPlayer();
 
 	void ChaseTarget(_double deltaTime, _float3 vTargetPos);
@@ -92,12 +91,10 @@ private:
 	_float	m_fAttackDelay = 0.f;
 	_float	m_fStunDelay = 40.f;
 	_float	m_fDist = 0.f;
-	_float	m_fSpeed = 0.5f;
-	_float	m_fPhaseLoopTime = 3.f;
+	_float	m_fSpeed = 0.7f;
 private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;
-	_bool m_bPhase2 = false;
 	_bool m_bDeadBody = false;
 private:
 	STATE	m_eState = STATE_END;
