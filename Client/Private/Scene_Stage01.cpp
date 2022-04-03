@@ -47,7 +47,7 @@ HRESULT CScene_Stage01::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("Baram.mp3");
+	CEngine::GetInstance()->PlayBGM("DBXenoverseThema.mp3");
 
 
 	return S_OK;
