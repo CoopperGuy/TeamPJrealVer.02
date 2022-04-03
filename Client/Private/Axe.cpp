@@ -49,16 +49,13 @@ HRESULT CAxe::Initialize()
 
 void CAxe::Update(_double deltaTime)
 {
-	if (!m_pModel->Get_Root(true))
-		State_Att();
 	Set_Attack();
+	State_Att();
 }
 
 void CAxe::LateUpdate(_double deltaTime)
 {
-	//State_Att();
-	if(m_pModel->Get_Root(true))
-		State_Att();
+
 
 	if (m_pTrailBuffer)
 		m_pTrailBuffer->Update(deltaTime, XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));

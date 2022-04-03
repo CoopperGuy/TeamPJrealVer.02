@@ -460,9 +460,9 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 		Stat->Update(TimeDelta);
 	}
 
-	CComponent* collider = GetComponent("Com_Collider");
-	if (collider)
-		dynamic_cast<CCollider*>(collider)->LateUpdate(TimeDelta);
+	//CComponent* collider = GetComponent("Com_Collider");
+	//if (collider)
+	//	dynamic_cast<CCollider*>(collider)->LateUpdate(TimeDelta);
 
 	_int i = 0;
 	do {
@@ -516,6 +516,10 @@ _uint CEmptyGameObject::LateUpdate(_double TimeDelta)
 	{
 		m_pTransformCom->SetMatrix(m_pLocalTransformCom->GetWorldMatrix() * m_pParentTransformCom->GetWorldMatrix());
 	}
+
+	CComponent* collider = GetComponent("Com_Collider");
+	if (collider)
+		dynamic_cast<CCollider*>(collider)->LateUpdate(TimeDelta);
 
 	if (CEngine::GetInstance()->isInFrustum(m_pTransformCom->GetState(CTransform::STATE_POSITION), m_fFrustumRange)) {
 		return m_pRendererCom->AddRenderGroup(m_eRenderGroup, this);

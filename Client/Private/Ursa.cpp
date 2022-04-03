@@ -563,7 +563,7 @@ void CUrsa::SetUp_Combo()
 		m_iComboIndex = 0;
 		if (m_bCombat[First])
 		{
-			m_QueState.push(ROAR_Casting);
+			m_QueState.push(CB_Start);
 		}
 		else
 		{
@@ -826,7 +826,7 @@ _float CUrsa::SetDistance()
 _bool CUrsa::None_Combat()
 {
 	if (m_eState == IDLE01 || m_eState == IDLE02
-		|| m_eState == IDLE_CB || m_eState == RUN || m_eState == CB_Start)
+		|| m_eState == IDLE_CB || m_eState == RUN)
 		return true;
 
 	else
@@ -926,6 +926,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 
 	m_pRightTrailBuffer->SetIsActive(false);
 	m_pLeftTrailBuffer->SetIsActive(false);
+	m_pLeftWeapon->SetIsDownAttack(false);
+	m_pRightWeapon->SetIsDownAttack(false);
 	m_eCurSTATES = CBasicCollider::STATES_IDEL;
 	m_eRightSTATES = CBasicCollider::STATES_IDEL;
 	m_eHeadSTATES = CBasicCollider::STATES_IDEL;
@@ -964,10 +966,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	}
 									  break;
 	case Client::CUrsa::DASH_ATT: {
-		if (keyFrame == 42)
-			CEngine::GetInstance()->PlaySoundW("DashAtt_Ursa.mp3", ENEMY23);
 		if (keyFrame == 62)
-			CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY24);
+			CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY22);
 		if (keyFrame >= 42 && keyFrame <= 70)
 		{
 			m_eHeadSTATES = CBasicCollider::STATES_ATK;
@@ -1015,29 +1015,37 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::L_SLASH:
 		if (keyFrame >= 20 && keyFrame <= 29)
 		{
-			CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
+			if (keyFrame >= 20)
+				CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY24);
 
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
 			m_pLeftTrailBuffer->SetIsActive(true);
-			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
 		}
 		break;
 	case Client::CUrsa::R_SLASH:
 		if (keyFrame >= 25 && keyFrame <= 34)
 		{
+			if (keyFrame >= 25)
+				CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY24);
+			
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
-
 			m_pRightTrailBuffer->SetIsActive(true);
-			m_eRightSTATES = CBasicCollider::STATES_ATK;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
 		}
 		break;
 	case Client::CUrsa::Combo_1Start:
 		break;
 	case Client::CUrsa::Combo_1Hold:
-		CEngine::GetInstance()->PlaySoundW("WeakShout_Ursa.mp3", ENEMY24);
 		break;
 	case Client::CUrsa::Combo_1:
 		if (keyFrame >= 16 && keyFrame <= 23)
-			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
+		if (keyFrame == 6)
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", ENEMY22);
+		if (keyFrame == 20)
+			CEngine::GetInstance()->PlaySoundW("WeakStamp_Ursa.mp3", ENEMY23);
+
 		if (keyFrame >= 6 && keyFrame <= 27) {
 			m_pRightTrailBuffer->SetIsActive(true);
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice02.ogg", CHANNELID::ENEMY10);
@@ -1078,6 +1086,16 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_1End:
 		break;
 	case Client::CUrsa::Combo_2Start:
+		if (keyFrame == 36)
+		{
+			CEngine::GetInstance()->StopSound(ENEMY22);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", ENEMY22);
+		}
+		if (keyFrame == 40)
+		{
+			CEngine::GetInstance()->StopSound(ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("WeakStamp_Ursa.mp3", ENEMY23);
+		}
 		if (keyFrame >= 36 && keyFrame <= 41) {
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
@@ -1119,11 +1137,13 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 
 		break;
 	case Client::CUrsa::Combo_2End:
+		if(keyFrame <= 0)
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice03.ogg", CHANNELID::ENEMY26);
 		break;
 	case Client::CUrsa::Combo_3Start:
 		if (keyFrame >= 6 && keyFrame <= 20) {
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice03.ogg", CHANNELID::ENEMY10);
-			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eHeadSTATES = CBasicCollider::STATES_ATK;
 		}
 		if (keyFrame >= 8)
 		{
@@ -1136,8 +1156,16 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_4Start:
 		if (keyFrame >= 7 && keyFrame <= 20)
 		{
+			if(keyFrame >= 7)
+				CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+			if (keyFrame == 12)
+			{
+				CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+				CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+			}
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice04.ogg", CHANNELID::ENEMY10);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
 			m_pRightTrailBuffer->SetIsActive(true);
 			m_pLeftTrailBuffer->SetIsActive(true);
 		}
@@ -1145,19 +1173,48 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::Combo_4End:
 		break;
 	case Client::CUrsa::Big_SLASH:
+		if(keyFrame == 40)
+			CEngine::GetInstance()->PlaySoundW("StrongSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		if (keyFrame >= 13 && keyFrame <= 40)
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 3.f);
+		else
+			static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false, DirectX::Colors::Red, 3.f);
 		if (keyFrame >= 35 && keyFrame <= 50) {
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice02.ogg", CHANNELID::ENEMY10);
 			m_pRightTrailBuffer->SetIsActive(true);
+			m_pRightWeapon->SetIsDownAttack(true);
+
 		}
 		break;
 	case Client::CUrsa::AXE_STAMP:
+		if (keyFrame == 48)
+			CEngine::GetInstance()->PlaySoundW("MiddleStamp_Ursa.mp3", CHANNELID::ENEMY23);
+		if (keyFrame == 50)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("StrongStamp_Ursa.mp3", CHANNELID::ENEMY23);
+		}
 		if (keyFrame >= 34 && keyFrame <= 50)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
 			m_pLeftTrailBuffer->SetIsActive(true);
 		}
 		if (keyFrame >= 40 && keyFrame <= 50)
+		{
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
+			m_pRightWeapon->SetIsDownAttack(true);
+			m_pLeftWeapon->SetIsDownAttack(true);
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice03.ogg", CHANNELID::ENEMY10);
+		}
+		if (keyFrame >= 50 && keyFrame <= 58)
+		{
+			m_eCurSTATES = CBasicCollider::STATES_IDEL;
+			m_eRightSTATES = CBasicCollider::STATES_IDEL;
+			m_eHeadSTATES = CBasicCollider::STATES_ATK;
+			m_pHead->SetIsDownAttack(true);
+		}
 		{
 			if (keyFrame == 47 && m_iMakeDust <= 1) {
 				m_iMakeDust += 1;
@@ -1192,6 +1249,38 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame >= 20 && keyFrame <= 80)
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY10);
 
+		if(keyFrame == 99)
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		if (keyFrame == 108)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
+		if (keyFrame == 116)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
+		if (keyFrame == 125)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
+		if (keyFrame == 125)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
+		if (keyFrame == 134)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
+		if (keyFrame == 143)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY23);
+			CEngine::GetInstance()->PlaySoundW("MiddleSwing_Ursa.mp3", CHANNELID::ENEMY23);
+		}
 		if (keyFrame == 100 && m_iMakeDust < 1)
 		{
 			CEngine::GetInstance()->PlaySoundW("UrsaSoilDust.ogg", CHANNELID::ENEMY11);
@@ -1248,8 +1337,44 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 		else
 			m_iMakeDust = 0;
-
-
+		if (keyFrame >= 99 && keyFrame <= 145)
+		{
+			if (keyFrame >= 102)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_IDEL;
+				m_eRightSTATES = CBasicCollider::STATES_ATK;
+			}
+			else if (keyFrame >= 103)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_ATK;
+				m_eRightSTATES = CBasicCollider::STATES_IDEL;
+			}
+			else if (keyFrame >= 111)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_IDEL;
+				m_eRightSTATES = CBasicCollider::STATES_ATK;
+			}
+			else if (keyFrame >= 120)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_ATK;
+				m_eRightSTATES = CBasicCollider::STATES_IDEL;
+			}
+			else if (keyFrame >= 128)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_IDEL;
+				m_eRightSTATES = CBasicCollider::STATES_ATK;
+			}
+			else if (keyFrame >= 137 && keyFrame <= 150)
+			{
+				m_eCurSTATES = CBasicCollider::STATES_ATK;
+				m_eRightSTATES = CBasicCollider::STATES_IDEL;
+			}
+			else
+			{
+				m_eCurSTATES = CBasicCollider::STATES_IDEL;
+				m_eRightSTATES = CBasicCollider::STATES_IDEL;
+			}
+		}
 		break;
 	case Client::CUrsa::ROAR_ING: {
 		if (keyFrame == 17)
@@ -1309,7 +1434,11 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::WHEELWIND_Ing: {
 		m_pRightTrailBuffer->SetIsActive(true);
 		m_pLeftTrailBuffer->SetIsActive(true);
-
+		if (keyFrame <= 1)
+		{
+			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY26);
+			CEngine::GetInstance()->PlaySoundW("StrongSwing_Ursa.mp3", CHANNELID::ENEMY26);
+		}
 		CGameObject* UrsaWind = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaWind", "E_UrsaWinds");
 		CEngine::GetInstance()->AddScriptObject(m_pUrsaWind = CEffectUrsaWind::Create(UrsaWind, pos), CEngine::GetInstance()->GetCurSceneNumber());
 	}
@@ -1354,6 +1483,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		m_bDissolve = true;
 		break;
 	case Client::CUrsa::Flying_Start:
+		if(keyFrame == 11)
+			CEngine::GetInstance()->PlaySoundW("UrsaVoice06.ogg", CHANNELID::ENEMY25);
 		break;
 	case Client::CUrsa::Flying_Land:
 		if (keyFrame >= 0 && keyFrame <= 30)
@@ -1363,6 +1494,14 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 
 		break;
 	case Client::CUrsa::Flying_End:
+		if (keyFrame > 0 && keyFrame <= 5)
+		{
+			CEngine::GetInstance()->PlaySoundW("StrongStamp_Ursa.mp3", CHANNELID::ENEMY25);
+			m_pLeftWeapon->SetIsDownAttack(true);
+			m_pRightWeapon->SetIsDownAttack(true);
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
+		}
 		if (keyFrame == 1 && m_iMakeDust <= 1) {
 			m_iMakeDust += 1;
 			auto SoilDust = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Ursa_SoilDust", "E_Ursa_SoilDust");

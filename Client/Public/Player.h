@@ -16,6 +16,7 @@ class CTargetOn;
 class CPlayer : public CCharacter
 {
 	enum Decompose{SCALE, ROTATE, POS};
+	enum Ruder {UP, DOWN, LEFT, RIGHT, Ruder_END};
 	enum Evade_Dist {e7,e8,e9,e4,e5,e6,e1,e2,e3,Evade_END};
 private:
 	explicit CPlayer();
@@ -204,5 +205,6 @@ private:
 	CStateMachine*	m_pState = nullptr;
 	CStateMachine*	m_pDynamicState[(_uint)CurState::Max];
 	Evade_Dist		m_eEvadeDist = Evade_END;
+	Ruder			m_eRuder = Ruder_END;
 };
 END
