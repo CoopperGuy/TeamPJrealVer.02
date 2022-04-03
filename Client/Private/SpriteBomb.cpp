@@ -27,7 +27,7 @@ HRESULT CSpriteBomb::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
 
 	m_pOBB = CObb::Create(vTargetPos, m_vScale, stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
-
+	m_pOBB->SetIsDownAttack(true);
 	return S_OK;
 }
 
@@ -35,7 +35,7 @@ void CSpriteBomb::Update(_double dDeltaTime)
 {
 	m_pEffectTrans->SetScale(_float3(m_vScale.x + m_fScale, m_vScale.y + m_fScale, 1.f));
 	m_fScale += (_float)dDeltaTime * 0.5f;
-
+	m_pOBB->SetIsDownAttack(true);
 	_float3 vPos = {};
 	XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
 	vPos.y = 0.f;

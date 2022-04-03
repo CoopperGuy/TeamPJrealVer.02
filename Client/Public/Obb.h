@@ -28,6 +28,7 @@ public:
 	void SetPosision(_float3 _pos);
 	void SetMatrix(_fmatrix matWorld);
 	void SetMatrix(_float4x4 matWorld);
+	void SetIsDownAttack(_bool bvalue);
 private:
 	CEmptyGameObject*	m_pObj = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;

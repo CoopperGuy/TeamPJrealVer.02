@@ -20,7 +20,7 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	_vector vTargetPos = m_pTargetTrans->GetState(CTransform::STATE_POSITION);
 	const _vector	vOffset = XMVectorSet(-0.3f, -0.1f, 0.f, 0.f);
 	m_pChildren = static_cast<CTransform*>(m_pThis->GetChildren().front()->GetComponent("Com_LocalTransform"));
-//	vTargetPos = XMVectorSetY(vTargetPos, -0.1f);
+	vTargetPos = XMVectorSetY(vTargetPos, -0.1f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 	_vector vPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	//m_pEffectTrans->GoRight(0.05);
@@ -36,7 +36,7 @@ HRESULT CSlashWave::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 	CStat* stat = static_cast<CStat*>(pTarget->GetComponent("Com_Stat"));
 
-	m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vChildScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 100.f, nullptr);
+	m_pOBB = CObb::Create(pos, XMLoadFloat3(&m_vChildScale), stat->GetStatInfo().atk, ID::MONSTER_EFFECT, 10.f, nullptr);
 
 	return S_OK;
 }
@@ -61,7 +61,7 @@ void CSlashWave::Update(_double dDeltaTime)
 
 	}
 		_float3 vPos = {};
-		XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION));
+		XMStoreFloat3(&vPos, m_pEffectTrans->GetState(CTransform::STATE_POSITION) - m_pEffectTrans->GetState(CTransform::STATE_RIGHT) * 0.5f);
 		m_pOBB->SetPosision(vPos);
 		m_pOBB->SetSize(_float3(m_fScale* 0.5f, m_fScale * 0.5f, m_fScale *0.5f));
 }

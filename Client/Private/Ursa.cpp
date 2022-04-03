@@ -69,7 +69,7 @@ HRESULT CUrsa::Initialize(_float3 position)
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
 	m_pLeftWeapon = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	m_pRightWeapon = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB2"));
-
+	m_pHead = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB3"));
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 
@@ -101,7 +101,8 @@ HRESULT CUrsa::Initialize(_float3 position)
 	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Start, false);
 	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_Land, false, true);
 	m_pModel->SetAnimationLoop((_uint)Ursa::Flying_End, false);
-
+	m_eRightSTATES = CBasicCollider::STATES_IDEL;
+	m_eHeadSTATES = CBasicCollider::STATES_IDEL;
 	m_eState = IDLE01;
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pMonHp = CMonHp::Create(m_pGameObject);
@@ -145,8 +146,11 @@ void CUrsa::Update(_double dDeltaTime)
 
 	if (m_bCB)
 		SetUp_Combo();
+
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pLeftWeapon->p_States = m_eCurSTATES;
+	m_pRightWeapon->p_States = m_eRightSTATES;
+	m_pHead->p_States = m_eHeadSTATES;
 	if (m_pCollider)
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 
@@ -223,7 +227,6 @@ void CUrsa::Adjust_Dist(_double dDeltaTime)
 		m_bClose = false;
 		vDir = OriginShift();
 		if (!m_bCenter)
-
 			m_pController->move(vDir * 1.f * (_float)dDeltaTime, 0.0001f, (_float)dDeltaTime, nullptr);
 	}
 	else if (m_bWheelWind)
@@ -917,6 +920,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	m_pRightTrailBuffer->SetIsActive(false);
 	m_pLeftTrailBuffer->SetIsActive(false);
 	m_eCurSTATES = CBasicCollider::STATES_IDEL;
+	m_eRightSTATES = CBasicCollider::STATES_IDEL;
+	m_eHeadSTATES = CBasicCollider::STATES_IDEL;
 	switch (m_eState)
 	{
 	case Client::CUrsa::IDLE02:
@@ -926,8 +931,18 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::IDLE_CB:
 		break;
 	case Client::CUrsa::RUN:
+		if (keyFrame == 2 || keyFrame == 14)
+		{
+			CEngine::GetInstance()->StopSound(ENEMY20);
+			CEngine::GetInstance()->StopSound(ENEMY21);
+			CEngine::GetInstance()->PlaySoundW("Walk_Ursa.ogg",ENEMY20);
+			CEngine::GetInstance()->PlaySoundW("WalkFloor_Ursa.ogg", ENEMY21);
+		}
 		break;
 	case Client::CUrsa::CB_Start:
+		if(keyFrame == 8)
+			CEngine::GetInstance()->PlaySoundW("Roar_Ursa.mp3", ENEMY22);
+		
 		//if (keyFrame <= 40)
 		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
 		//else
@@ -942,11 +957,21 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	}
 		break;
 	case Client::CUrsa::DASH_ATT: {
+		if(keyFrame == 42)
+			CEngine::GetInstance()->PlaySoundW("DashAtt_Ursa.mp3", ENEMY23);
+		if(keyFrame == 62)
+			CEngine::GetInstance()->PlaySoundW("WeakSwing_Ursa.mp3", ENEMY24);
 		if (keyFrame >= 42 && keyFrame <= 70)
 		{
+			m_eHeadSTATES = CBasicCollider::STATES_ATK;
+			if (keyFrame >= 62)
+			{
+				m_eHeadSTATES = CBasicCollider::STATES_IDEL;
+				m_eCurSTATES = CBasicCollider::STATES_ATK;
+				m_eRightSTATES = CBasicCollider::STATES_ATK;
+			}
 		}
 
-			m_eCurSTATES = CBasicCollider::STATES_ATK;
 
 		if (keyFrame >= 50 && keyFrame <= 70)
 		{
@@ -977,7 +1002,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	}
 		break;
 	case Client::CUrsa::L_SLASH:
-		if (keyFrame >= 9 && keyFrame <= 29)
+		if (keyFrame >= 19 && keyFrame <= 29)
 		{
 			m_pLeftTrailBuffer->SetIsActive(true);
 			m_eCurSTATES = CBasicCollider::STATES_ATK;
@@ -987,12 +1012,13 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame >= 20 && keyFrame <= 34)
 		{
 			m_pRightTrailBuffer->SetIsActive(true);
-			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
 		}
 		break;
 	case Client::CUrsa::Combo_1Start:		
 		break;
 	case Client::CUrsa::Combo_1Hold:
+		CEngine::GetInstance()->PlaySoundW("WeakShout_Ursa.mp3", ENEMY24);
 		break;
 	case Client::CUrsa::Combo_1:
 		if (keyFrame >= 16 && keyFrame <= 23)

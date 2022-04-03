@@ -563,15 +563,15 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 						if (!pTargetCollider->m_isHit)
 							pTargetCollider->SetHit(true);
 
-						if (static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false))
-						{
+						static_cast<CStat*>(TargetpStat)->Damaged(static_cast<CStat*>(MyStat), false);
+						
 
-							cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
+							//cout << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							if (pMyCollider->m_bIsDownAttack) {
 								pTargetCollider->m_bIsDown = true;
 							}
 							return;
-						}
+						
 					}
 					else {
 						pTargetCollider->SetHit(false);

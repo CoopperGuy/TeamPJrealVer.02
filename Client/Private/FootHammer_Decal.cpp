@@ -39,7 +39,9 @@ void CFootHammer_Decal::Update(_double dDeltaTime)
 			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
 			CEngine::GetInstance()->AddScriptObject(CFootHammer_Bomb::Create((CEmptyEffect*)pGameObject, m_pThis), CEngine::GetInstance()->GetCurSceneNumber());
 			CEngine::GetInstance()->StopSound(ENEMY20);
+			CEngine::GetInstance()->StopSound(ENEMY21);
 			CEngine::GetInstance()->PlaySoundW("FootHammer_Bomb.mp3", ENEMY20);
+			CEngine::GetInstance()->PlaySoundW("BombSub_Flogas.mp3", ENEMY21);
 			m_bCreateEffect = false;
 		}
 	}
