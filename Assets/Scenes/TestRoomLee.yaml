@@ -112,16 +112,16 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Com_Stat:
-      Hp: [1000, 0, 1000, 10]
-      HpRegen: [10, 0.100000001]
-      Atk: [10, 0, 0.100000001]
-      Arm: [10, 0, 0.100000001]
-      Exp: [0, 100000, 1000]
-      Level: 100
+      Hp: [10000, 0, 10000, 200]
+      HpRegen: [5, 0.100000001]
+      Atk: [5, 0, 0.100000001]
+      Arm: [5, 0, 0.100000001]
+      Exp: [0, 50000, 1000]
+      Level: 50
       Gold: 10
     RenderGroup: 1
     FrustumRange: 1
-  - Name: Decal
+  - Name: E_Phase2
     UUID: 13799061387310565508
     Active: true
     Layer: Default
@@ -130,14 +130,14 @@ GameObjects:
     PassIndex: 0
     BillBord: false
     Com_Transform:
-      Translation: [0.587980032, 0.0277339369, -1.40108669]
-      Rotation: [0, -0, 0]
-      Scale: [1, 0.400999993, 1]
+      Translation: [0, 0.00564939762, -3]
+      Rotation: [4.96316206e-05, -0, 4.96323046e-05]
+      Scale: [8, 0.400999904, 8]
     Com_Decal:
       {}
     Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\002.png
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_GstarMagicCircle_001_Tex_PYS.png
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Decal_Magic1.dds
       TextureNoisePath: ""
       TextureNormalPath: ""
       ScrollSpeedX: [0, 0, 0]
@@ -147,10 +147,10 @@ GameObjects:
       Distortion3: [0.100000001, 0.100000001]
       DistortionScale: 0.800000012
       DistortionBias: 0.5
-      FadeOut: true
+      FadeOut: false
       FadeOutDuration: 10
       FadeOutStratTime: 10
-      FadeIn: true
+      FadeIn: false
       FadeInDuration: 10
       FadeInStratTime: 0
       EffectDuration: 20
@@ -158,7 +158,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [0.467000008, 0, 0.878000021, 1]
+      OffsetColor: [0.599873841, 0, 0.98550725, -0.0299999993]
   - Name: E_IIBlood
     UUID: 12569516535572226087
     Active: true
@@ -255,8 +255,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [5.9289546, -3.00319266, 0]
-      Scale: [0.639995217, 0.705577433, 0.674772382]
+      Rotation: [34.3454933, -7.49050903, 2.15280338e-07]
+      Scale: [0.244684458, 0.550899744, 0.465276003]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -320,8 +320,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-0.0168395545, 1.0680685, 0.160352141]
-      Rotation: [5.9289546, -3.00319219, 0]
-      Scale: [1.64253855, 0.5639202, 1.51682794]
+      Rotation: [34.3454933, -7.49050856, 2.15280338e-07]
+      Scale: [0.627977014, 0.439935029, 1.04591978]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -348,3 +348,188 @@ GameObjects:
       SpriteTotal: 64
       SpriteSpeed: 70
       OffsetColor: [0, 0, 0, -0.5]
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-0.513915658, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0.100000001, 0, 0.100000001]
+      Arm: [10, 0, 10]
+      Exp: [0.100000001, 10, 10]
+      Level: 1
+      Gold: 100
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: E_SwordAura
+    UUID: 9755036145278944647
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [2.63986111, 0.717541754, -0.414763659]
+      Rotation: [0, -0, -13.6999922]
+      Scale: [1.99999321, 0.49999842, 1.5000006]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: RevivalLine.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire01_Step_TEX.tga
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0.200000003, 0.300000012, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.304347664, 0, 0.333333313, 1]
+  - Name: RectInst
+    UUID: 205108304507836699
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0, 0.300000012, -4.30000019]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_RectInstance:
+      Shape: 1
+      InstNum: 100
+      Color: [0.682419181, 0.188405812, 1, 0]
+      Speed: 5
+      LifeTime: 5
+      Size: 1.39999998
+      StartRadian: -90
+      RadiationAngle: 90
+      LerpColor: false
+      SrcColor: [0, 0, 0, 0]
+      DestColor: [1, 1, 1, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Trun_FX_Trail02_Tex_HKJ.jpg
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+  - Name: E_Phase2Aura
+    UUID: 15570142538041314338
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0, -0.100000001, -3.0999999]
+      Rotation: [0, -0, 0]
+      Scale: [2.5, 4, 2.5]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: TwistCYL.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Sphere_Ring_Gray_002_TEX_HKB.tga
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_fire_003_TEX_CJH_tile.tga
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.300000012, 0.699999988, 0]
+      ScrollSpeedY: [0.300000012, 0.699999988, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 10
+      DistortionBias: 0.400000006
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.491492987, 0, 0.565217376, 0.800000012]

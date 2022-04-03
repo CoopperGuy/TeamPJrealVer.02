@@ -2,6 +2,7 @@
 #include "..\Public\Scene_LEE.h"
 
 #include "DarkKnight.h"
+#include "Skull.h"
 
 USING(Client)
 
@@ -34,6 +35,7 @@ HRESULT CScene_LEE::Render()
 HRESULT CScene_LEE::ReadyScript()
 {
 	m_pEngine->AddScriptObject(CDarkKnight::Create(nullptr), SCENE_LEE);
+	m_pEngine->AddScriptObject(CSkull::Create(nullptr), SCENE_LEE);
 
 	return S_OK;
 }

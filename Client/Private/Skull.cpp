@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "..\Public\DarkKnight.h"
+#include "..\Public\Skull.h"
 #include "StateMachine.h"
 #include "BasicCollider.h"
 #include "Transform.h"
@@ -7,19 +7,19 @@
 
 USING(Client)
 
-CDarkKnight::CDarkKnight(CGameObject* pObj)
+CSkull::CSkull(CGameObject* pObj)
 	: CEnemy(pObj)
 {
 }
 
 
-CDarkKnight * CDarkKnight::Create(CGameObject * pObj, _float3 position)
+CSkull * CSkull::Create(CGameObject * pObj, _float3 position)
 {
-	CDarkKnight*		pInstance = new CDarkKnight(pObj);
+	CSkull*		pInstance = new CSkull(pObj);
 
 	if (FAILED(pInstance->Initialize(position)))
 	{
-		MSG_BOX("Failed to Create CDarkKnight");
+		MSG_BOX("Failed to Create CSkull");
 		SafeRelease(pInstance);
 		return nullptr;
 	}
@@ -27,17 +27,17 @@ CDarkKnight * CDarkKnight::Create(CGameObject * pObj, _float3 position)
 	return pInstance;
 }
 
-void CDarkKnight::Free()
+void CSkull::Free()
 {
 	__super::Free();
 
 }
 
-HRESULT CDarkKnight::Initialize(_float3 position)
+HRESULT CSkull::Initialize(_float3 position)
 {
 	m_bBehavior = false;
 
-	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "DarkKinght");
+	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Skull");
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
 
@@ -53,18 +53,8 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
 		
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_SIDESLASH2, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_RAISING2, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_SLASH2, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_STING2, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::PHASE2_START, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::PHASE2_END, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_SIDESLASH, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_SHIELDATTACK, false, false);
-	m_pModel->SetAnimationLoop((_uint)STATE::SK_JUMPATTACK, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::ENDTRYBATTLE, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::GETUP, false, true);
-	m_pModel->SetAnimationLoop((_uint)STATE::DOWN, false, false);
+	m_pModel->SetAnimationLoop((_uint)STATE::SK_TWICESLASH, false, true);
+	m_pModel->SetAnimationLoop((_uint)STATE::SK_DOWNSLASH, false, true);	
 	m_pModel->SetAnimationLoop((_uint)STATE::DMG_F, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::DMG_B, false, true);
 	m_pModel->SetAnimationLoop((_uint)STATE::DIE, false, true);
@@ -83,7 +73,7 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 	return S_OK;
 }
 
-void CDarkKnight::Update(_double dDeltaTime)
+void CSkull::Update(_double dDeltaTime)
 {
 	if (!m_pGameObject)
 		return;
@@ -118,7 +108,7 @@ void CDarkKnight::Update(_double dDeltaTime)
 	PxControllerFilters filters;
 	m_pController->move(PxVec3(0.0f, -0.1f, 0.f), 0.01f, PxF32(1.f / dDeltaTime), filters);
 }
-void CDarkKnight::LateUpdate(_double dDeltaTime)
+void CSkull::LateUpdate(_double dDeltaTime)
 {
 	__super::LateUpdate(dDeltaTime);
 	
@@ -137,40 +127,40 @@ void CDarkKnight::LateUpdate(_double dDeltaTime)
 	}
 }
 
-void CDarkKnight::Render()
+void CSkull::Render()
 {
 }
 
-void CDarkKnight::RotateBody(_double deltaTime)
+void CSkull::RotateBody(_double deltaTime)
 {
 }
 
-void CDarkKnight::SetGameObject(CGameObject* obj)
+void CSkull::SetGameObject(CGameObject* obj)
 {
 	m_pGameObject = obj;
 }
 
-void CDarkKnight::SetTransform(CTransform * trans)
+void CSkull::SetTransform(CTransform * trans)
 {
 	m_pTransform = trans;
 }
 
-void CDarkKnight::SetCollision(CCollider * colli)
+void CSkull::SetCollision(CCollider * colli)
 {
 	m_pCollider = colli;
 }
 
-void CDarkKnight::SetNavigation(CNavigation * nav)
+void CSkull::SetNavigation(CNavigation * nav)
 {
 	m_pNavigation = nav;
 }
 
-void CDarkKnight::SetModel(CModel * model)
+void CSkull::SetModel(CModel * model)
 {
 	m_pModel = model;
 }
 
-void CDarkKnight::SettingCollider(CCollider * col)
+void CSkull::SettingCollider(CCollider * col)
 {
 	if (col)
 	{
@@ -186,7 +176,7 @@ void CDarkKnight::SettingCollider(CCollider * col)
 	}
 }
 
-void CDarkKnight::SetBasicCollider(CBasicCollider * BasicCol)
+void CSkull::SetBasicCollider(CBasicCollider * BasicCol)
 {
 	//if (BasicCol)
 	//{
@@ -195,22 +185,22 @@ void CDarkKnight::SetBasicCollider(CBasicCollider * BasicCol)
 	//}
 }
 
-void CDarkKnight::SetStat(CStat * pstat)
+void CSkull::SetStat(CStat * pstat)
 {
 	m_pStat = pstat;
 }
 
-void CDarkKnight::SetAttTarget(CGameObject * obj)
+void CSkull::SetAttTarget(CGameObject * obj)
 {
 	m_pTargetTransform = static_cast<CTransform*>(obj->GetComponent("Com_Transform"));
 }
 
-void CDarkKnight::SetMonHp(CMonHp * hp)
+void CSkull::SetMonHp(CMonHp * hp)
 {
 	m_pMonHp = hp;
 }
 
-void CDarkKnight::StateUpdate(_double dDeltaTime)
+void CSkull::StateUpdate(_double dDeltaTime)
 {
 	if (m_bDeadBody == true || m_bBehavior == true || m_pTargetTransform == nullptr)
 		return;
@@ -220,141 +210,57 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 
 	_int iRand = rand() % 100;
 	m_fDist = Calculation_DistanceToPlayer();
-
-	if (m_bCombat == false)
+	
+	if (m_fDist <= 3.f && m_fDist >= 1.f)
 	{
-		if (iRand <= 90)
-		{
-			m_vDestPos = _float3(m_vCreatePos.x + (rand() % 80 - 40) * 0.1f, m_vCreatePos.y, m_vCreatePos.z + (rand() % 80 - 40) * 0.1f);
-			m_fBehaviorTime = (rand() % 20 + 20) * 0.1f;
-			m_eState = Walk;
-		}
-		else
-		{
-			m_fBehaviorTime = (rand() % 10 + 5)* 0.1f;
-			m_eState = IDLE;
-		}
+		m_fBehaviorTime = (rand() % 10 + 5) * 0.1f;
+		m_eState = RUN;
+	}
+	else if (m_fDist < 1.f)
+	{
+		if (iRand < 10)
+			m_eState = SK_TWICESLASH;
+		else if (iRand < 20)
+			m_eState = SK_DOWNSLASH;
+		else if (iRand < 60)
+			m_eState = STING;
+		else 
+			m_eState = SLASH;
 
+		SetLookPlayer();
 		m_bBehavior = true;
 	}
-	else
-	{		
-		if (m_bPhase2 == false) //Phase1
-		{
-			if (m_fDist >= 1.f)
-				m_eState = RUN;
-			else
-			{
-				if (iRand < 10)
-					m_eState = SK_SHIELDATTACK;
-				else if (iRand < 20)
-					m_eState = SK_SIDESLASH;
-				else if (iRand < 60)
-					m_eState = STING;
-				else 
-					m_eState = SLASH;
-
-				SetLookPlayer();
-			}
-		}
-		else //Phase2
-		{
-			if (m_fDist >= 1.f)
-			{
-				if (iRand < 70)
-				{
-					m_eState = RUN;
-					m_fBehaviorTime = (rand() % 10 + 10) * 0.1f;
-				}
-				else if (iRand < 85)
-					m_eState = SK_SIDESLASH2;
-				else
-					m_eState = SK_RAISING2;
-			}
-			else
-			{
-				if (iRand < 33)
-					m_eState = SK_SHIELDATTACK;
-				else if (iRand < 66)
-					m_eState = SK_SLASH2;
-				else
-					m_eState = SK_STING2;
-			}
-			SetLookPlayer();
-		}
-
-		m_bBehavior = true;
-	}	
 }
 
-void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
+void CSkull::BehaviorUpdate(_double dDeltaTime)
 {
 	/*if (m_bBehavior == false)
 		return;*/
 
 	switch (m_eState)
 	{
-	case Client::CDarkKnight::Walk:
-		m_fBehaviorTime -= (_float)dDeltaTime;	
-		ChaseTarget(dDeltaTime, m_vDestPos);
+	case Client::CSkull::SK_TWICESLASH:
 		break;
-	case Client::CDarkKnight::SK_SIDESLASH2:
+	case Client::CSkull::SK_DOWNSLASH:
 		break;
-	case Client::CDarkKnight::SK_RAISING2:
-		break;
-	case Client::CDarkKnight::SK_STING2:
-		break;
-	case Client::CDarkKnight::PHASE2_START:
-		break;
-	case Client::CDarkKnight::PHASE2_LOOP:
-		m_fPhaseLoopTime -= (_float)dDeltaTime;
-		break;
-	case Client::CDarkKnight::PHASE2_END:
-		break;
-	case Client::CDarkKnight::SK_SIDESLASH:
-		break;
-	case Client::CDarkKnight::SK_SHIELDATTACK:
-		break;
-	case Client::CDarkKnight::SK_JUMPATTACK:
-		break;
-	case Client::CDarkKnight::RUN:
-	{
-		if (m_bPhase2 == true)
-			m_fBehaviorTime -= (_float)dDeltaTime;
+	case Client::CSkull::RUN:
+	{		
+		m_fBehaviorTime -= (_float)dDeltaTime;
 
 		_float3 vTargetPos;
 		XMStoreFloat3(&vTargetPos, m_pTargetTransform->GetState(CTransform::STATE_POSITION));
 		ChaseTarget(dDeltaTime, vTargetPos);
 		break;
-	}
-	case Client::CDarkKnight::GROGGY:
+	}	
+	case Client::CSkull::IDLE:
+		break;	
+	case Client::CSkull::DMG_F:
 		break;
-	case Client::CDarkKnight::ENDTRYBATTLE:
+	case Client::CSkull::DMG_B:
 		break;
-	case Client::CDarkKnight::IDLE:
-		m_fBehaviorTime -= (_float)dDeltaTime;		
+	case Client::CSkull::DIE:
 		break;
-	case Client::CDarkKnight::IDLE_BATTLE:
-		break;
-	case Client::CDarkKnight::GETUP:
-		break;
-	case Client::CDarkKnight::DOWN_LOOP:
-		break;
-	case Client::CDarkKnight::DOWN_DEADBODY:
-		m_fDissolveAcc += (_float)dDeltaTime * 0.5f;
-		if (m_fDissolveAcc > 1.f)
-			m_fDissolveAcc = 1.f;
-		m_pModel->SetDissolve(m_fDissolveAcc);
-		break;
-	case Client::CDarkKnight::DOWN:
-		break;
-	case Client::CDarkKnight::DMG_F:
-		break;
-	case Client::CDarkKnight::DMG_B:
-		break;
-	case Client::CDarkKnight::DIE:
-		break;
-	case Client::CDarkKnight::DEADBODY:
+	case Client::CSkull::DEADBODY:
 		m_fDissolveDelay -= (_float)dDeltaTime;
 		if (m_fDissolveDelay <= 0.f)
 		{
@@ -364,11 +270,11 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 			m_pModel->SetDissolve(m_fDissolveAcc);
 		}
 		break;
-	case Client::CDarkKnight::SLASH:
+	case Client::CSkull::SLASH:
 		break;
-	case Client::CDarkKnight::STING:
+	case Client::CSkull::STING:
 		break;
-	case Client::CDarkKnight::STATE_END:
+	case Client::CSkull::STATE_END:
 		break;
 	default:
 		break;
@@ -386,64 +292,25 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	}
 }
 
-void CDarkKnight::CheckAnimFinish()
+void CSkull::CheckAnimFinish()
 {
 	if (m_pModel->Get_isFinished())
 	{
 		switch (m_eState)
 		{
-		case Client::CDarkKnight::Walk:
+		case Client::CSkull::SK_TWICESLASH:
+			SetAttackDelay();
+			m_eState = IDLE;
+			break;
+		case Client::CSkull::SK_DOWNSLASH:
+			SetAttackDelay();
+			m_eState = IDLE;
+			break;
+		case Client::CSkull::RUN:
 		{
-			_vector vDis = XMVector3Length(XMLoadFloat3(&m_vDestPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
-			if (m_fBehaviorTime <= 0.f || XMVectorGetX(vDis) <= 0.5f)
+			if (m_fBehaviorTime <= 0.f)
 			{
-				m_fBehaviorTime = 0.f;
-				m_bBehavior = false;
 				m_eState = IDLE;
-			}
-			break;
-		}
-		case Client::CDarkKnight::SK_SIDESLASH2:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_RAISING2:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_SLASH2:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_STING2:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::PHASE2_START:
-			m_eState = PHASE2_LOOP;
-			break;
-		case Client::CDarkKnight::PHASE2_LOOP:
-			if (m_fPhaseLoopTime <= 0.f)
-				m_eState = PHASE2_END;
-			break;
-		case Client::CDarkKnight::PHASE2_END:
-			m_bBehavior = false;
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_SIDESLASH:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_SHIELDATTACK:
-			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
-			break;
-		case Client::CDarkKnight::SK_JUMPATTACK:
-			break;
-		case Client::CDarkKnight::RUN:
-		{
-			if (m_bPhase2 == true && m_fBehaviorTime <= 0.f)
-			{
 				m_fBehaviorTime = 0.f;
 				m_bBehavior = false;
 				break;
@@ -453,53 +320,34 @@ void CDarkKnight::CheckAnimFinish()
 			if (XMVectorGetX(vDis) < 1.f)
 			{
 				m_bBehavior = false;
-				m_eState = IDLE_BATTLE;
+				m_eState = IDLE;
 			}
 			break;
 		}
-		case Client::CDarkKnight::GROGGY:
+		case Client::CSkull::IDLE:
 			break;
-		case Client::CDarkKnight::ENDTRYBATTLE:
-			break;
-		case Client::CDarkKnight::IDLE:
-			if (m_fBehaviorTime <= 0.f)
-			{
-				m_fBehaviorTime = 0.f;
-				m_bBehavior = false;
-			}
-			break;
-		case Client::CDarkKnight::IDLE_BATTLE:
-			break;
-		case Client::CDarkKnight::GETUP:
-			break;
-		case Client::CDarkKnight::DOWN_LOOP:
-			break;
-		case Client::CDarkKnight::DOWN_DEADBODY:
-			break;
-		case Client::CDarkKnight::DOWN:
-			break;
-		case Client::CDarkKnight::DMG_F:
+		case Client::CSkull::DMG_F:
 			m_bBehavior = false;
-			m_eState = IDLE_BATTLE;
+			m_eState = IDLE;
 			break;
-		case Client::CDarkKnight::DMG_B:
+		case Client::CSkull::DMG_B:
 			m_bBehavior = false;
-			m_eState = IDLE_BATTLE;
+			m_eState = IDLE;
 			break;
-		case Client::CDarkKnight::DIE:
+		case Client::CSkull::DIE:
 			m_eState = DEADBODY;
 			break;
-		case Client::CDarkKnight::DEADBODY:
+		case Client::CSkull::DEADBODY:
 			break;
-		case Client::CDarkKnight::SLASH:
+		case Client::CSkull::SLASH:
 			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
+			m_eState = IDLE;
 			break;
-		case Client::CDarkKnight::STING:
+		case Client::CSkull::STING:
 			SetAttackDelay();
-			m_eState = IDLE_BATTLE;
+			m_eState = IDLE;
 			break;
-		case Client::CDarkKnight::STATE_END:
+		case Client::CSkull::STATE_END:
 			break;
 		default:
 			break;
@@ -507,18 +355,18 @@ void CDarkKnight::CheckAnimFinish()
 	}
 }
 
-void CDarkKnight::Update_Trail(_double dDeltaTime)
+void CSkull::Update_Trail(_double dDeltaTime)
 {
 	_matrix OffsetMatrix = XMMatrixIdentity();
-	XMMatrixTranslation(-0.0f, 0.f, -0.33f);
+	XMMatrixTranslation(-0.03f, 0.17f, 0.005f);
 
-	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("Bip01-R-Hand"));
+	XMStoreFloat4x4(&m_wpBoneMatrix, m_pModel->Get_BoneWithoutOffset("BN_Weapon_R_01"));
 
 	if (m_pTrailBuffer)
 		m_pTrailBuffer->Update(dDeltaTime, OffsetMatrix * XMLoadFloat4x4(&m_wpBoneMatrix) * XMLoadFloat4x4(&m_pRenderTransform->GetMatrix()));
 }
 
-void CDarkKnight::Create_Trail()
+void CSkull::Create_Trail()
 {
 	CGameObject* pTrail = CEngine::GetInstance()->AddGameObject(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_EmptyEffect", "Kinght_Trail");
 	if (pTrail == nullptr)
@@ -539,47 +387,30 @@ void CDarkKnight::Create_Trail()
 	pEffect->setDistortion(2, _float2(0.1f, 0.1f));
 	pEffect->SetDistortionScale(4.f);
 	pEffect->SetDistortionBias(1.f);
-	pEffect->SetOffsetColor(_float4(0.8f, 0.f, 0.8f, 0.f));
-		
+	pEffect->SetOffsetColor(_float4(1.f, 1.f, 1.f, 0.f));
+	
 	TRAILDESC TrailDesc;
-	TrailDesc.vHighOffset = { 0.f, 0.f, -0.3f };
+	TrailDesc.vHighOffset = { 0.f, 0.2f, 0.f };
 	TrailDesc.vLowOffset = { 0.f, 0.f, 0.f };
 
 	pTrail->AddComponent(0, "Prototype_VIBuffer_Trail", "Com_Trail", &TrailDesc);
 	m_pTrailBuffer = static_cast<CVIBuffer_Trail*>(pTrail->GetComponent("Com_Trail"));
 }
 
-void CDarkKnight::Hit()
+void CSkull::Hit()
 {
 	if (m_bDeadBody == false && m_pStat->GetStatInfo().hp <= 0.f)
 	{
 		m_bDeadBody = true;
 		m_eState = DIE;
 	}
-
-	if (m_bPhase2 == false)
-	{
-		_float fMaxHp = m_pStat->GetStatInfo().maxHp;
-
-		if (m_pStat->GetStatInfo().hp <= fMaxHp * 0.5f)
-		{
-			m_fAttackDelay = 0.f;
-			m_fSpeed = 1.3f;
-			m_bPhase2 = true;
-			m_bBehavior = true;
-			m_eState = PHASE2_START;
-		}
-	}
-
-	if (m_bPhase2 == false && m_pOBB->Get_isHit() == true)
+	
+	if (m_pOBB->Get_isHit() == true)
 	{
 		if (m_bCombat == false)
-		{
-			m_fSpeed = 1.f;
 			m_bCombat = true;
-		}
-				
-		if (m_eState == IDLE || m_eState == IDLE_BATTLE || m_eState == Walk || m_eState == RUN)
+			
+		if (m_eState == IDLE || m_eState == RUN)
 		{
 			_vector vLook = XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_LOOK));
 			_vector vDestLook = XMVector3Normalize(m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION));
@@ -593,7 +424,7 @@ void CDarkKnight::Hit()
 	}	
 }
 
-_float CDarkKnight::Calculation_DistanceToPlayer()
+_float CSkull::Calculation_DistanceToPlayer()
 {
 	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
 	_vector vTargetPostion = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
@@ -601,13 +432,13 @@ _float CDarkKnight::Calculation_DistanceToPlayer()
 	return XMVectorGetX(XMVector3Length(vTargetPostion - vPosition));
 }
 
-void CDarkKnight::SetLookPlayer()
+void CSkull::SetLookPlayer()
 {
 	_vector vLook = XMVector3Normalize(m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION));
 	m_pTransform->SetLook(vLook);
 }
 
-void CDarkKnight::ChaseTarget(_double deltaTime, _float3 vTargetPos)
+void CSkull::ChaseTarget(_double deltaTime, _float3 vTargetPos)
 {
 	_float fScale = m_pTransform->GetScale(CTransform::STATE_RIGHT);
 	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
