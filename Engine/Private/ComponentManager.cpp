@@ -60,8 +60,8 @@ void CComponentManager::Clear(_uint iSceneIndex)
 
 CComponent * CComponentManager::FindPrototype(_uint iSceneIndex, string pPrototypeTag)
 {
-	auto	iter = find_if(m_pPrototypes[iSceneIndex].begin(), m_pPrototypes[iSceneIndex].end(), STagFinder(pPrototypeTag));
-
+	auto	iter = m_pPrototypes[iSceneIndex].find(pPrototypeTag);
+	
 	if (iter == m_pPrototypes[iSceneIndex].end())
 		return nullptr;
 

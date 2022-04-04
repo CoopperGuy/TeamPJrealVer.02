@@ -50,9 +50,9 @@ void CFlogasDunDoor::Update(_double deltaTime)
 		else
 			m_pAlretUI->SetActive(true);
 
-		if (CEngine::GetInstance()->IsKeyDown('F')) {
+		if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 			CEngine::GetInstance()->PlaySoundW("DGDoor.ogg", CHANNELID::MAPOBJ);
-
+			CEngine::GetInstance()->ActiveCameraByIndex(1);
 			if (!m_bOpenDoor)
 				m_bOpenDoor = true;
 		}

@@ -1,0 +1,210 @@
+Scene: Untitled
+GameObjects:
+  - Name: SoundUI
+    UUID: 9056652045481050653
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [512, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Sound\Tooltip_Bg_0.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 18393420607014667259
+      - 8563234386337813842
+      - 7610635975599367528
+      - 17039393454624283840
+      - 10738467829487332636
+      - 6386099594148800019
+      - 5463862917828455339
+      - 16913665797910264319
+  - Name: BGMScrollBar
+    UUID: 18393420607014667259
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 310]
+      Size: [300, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\scroll\Turn_long_Scroll.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: BGMScrollBlock
+    UUID: 8563234386337813842
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: true
+    Com_Transform:
+      Position: [640, 310]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\scroll\Turn_Scroll_Block.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: SoundMinPos
+    UUID: 8298389139618506835
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [490, 0]
+      Size: [50, 50]
+  - Name: SoundMaxPos
+    UUID: 1985266472637920629
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [790, 0]
+      Size: [50, 50]
+  - Name: BGMText
+    UUID: 5463862917828455339
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [517, 305.867737]
+      Size: [50, 50]
+    Com_Text:
+      Text: BGM
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: SEScrollBar
+    UUID: 7610635975599367528
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 400]
+      Size: [300, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\scroll\Turn_long_Scroll.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: SeScrollBlock
+    UUID: 17039393454624283840
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: true
+    Com_Transform:
+      Position: [640, 400]
+      Size: [16, 16]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\scroll\Turn_Scroll_Block.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: SEText
+    UUID: 16913665797910264319
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [517, 390.048218]
+      Size: [50, 50]
+    Com_Text:
+      Text: SE
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+  - Name: CurBgmVolume
+    UUID: 10738467829487332636
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [751.189819, 353.61441]
+      Size: [96.4367065, 50]
+    Com_Text:
+      Text: "BGM : 50"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: CurVolume
+    UUID: 6386099594148800019
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [790.879578, 440.36145]
+      Size: [148.584625, 50]
+    Com_Text:
+      Text: "SE : 50"
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true

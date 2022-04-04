@@ -110,7 +110,7 @@ void CElfNPC::CheckAlret()
 		if (m_pAlretUI) {
 			m_pAlretUI->SetActive(true);
 		}
-		if (CEngine::GetInstance()->IsKeyDown('F')) {
+		if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 			if (!m_bisTalkCreate) {
 				std::thread createDesk(CreateTalkDest, this);
 				createDesk.detach();

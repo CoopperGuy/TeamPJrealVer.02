@@ -1,6 +1,7 @@
 #include "EnginePCH.h"
 #include "..\Public\CameraManager.h"
 #include "Camera.h"
+
 USING(Engine)
 
 IMPLEMENT_SINGLETON(CameraManager)
@@ -28,6 +29,11 @@ _int CameraManager::Update(_double dDeltaTime)
 _int CameraManager::LateUpdate(_double dDeltaTime)
 {
 	return _int();
+}
+
+void CameraManager::SeceneChangeClear()
+{
+	
 }
 
 void CameraManager::Clear()

@@ -36,6 +36,7 @@ private:
 private:
 	SCENES			m_eScenes = SCENES_END;
 	_bool			m_bIsActive = false;
+	_bool			m_bMove = false;
 private:
 	_float			m_fCurScnensPosX = 640.f;
 	_float			m_fDestScnensPosX = 640.f;

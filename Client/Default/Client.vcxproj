@@ -189,6 +189,7 @@
     <ClInclude Include="..\Public\Background.h" />
     <ClInclude Include="..\public\BackPackHud.h" />
     <ClInclude Include="..\Public\BasicEffect.h" />
+    <ClInclude Include="..\public\BossMovie.h" />
     <ClInclude Include="..\Public\Camera_Fly.h" />
     <ClInclude Include="..\Public\Camera_Follow.h" />
     <ClInclude Include="..\Public\Camera_Lobby.h" />
@@ -314,6 +315,7 @@
     <ClInclude Include="..\Public\Skull.h" />
     <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Skills.h" />
+    <ClInclude Include="..\public\SoundHud.h" />
     <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
@@ -372,6 +374,7 @@
     <ClCompile Include="..\Private\Background.cpp" />
     <ClCompile Include="..\private\BackPackHud.cpp" />
     <ClCompile Include="..\Private\BasicEffect.cpp" />
+    <ClCompile Include="..\private\BossMovie.cpp" />
     <ClCompile Include="..\Private\Camera_Fly.cpp" />
     <ClCompile Include="..\Private\Camera_Follow.cpp" />
     <ClCompile Include="..\Private\Camera_Lobby.cpp" />
@@ -494,6 +497,7 @@
     <ClCompile Include="..\Private\Skull.cpp" />
     <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Skills.cpp" />
+    <ClCompile Include="..\private\SoundHud.cpp" />
     <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />

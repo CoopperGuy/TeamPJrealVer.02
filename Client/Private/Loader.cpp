@@ -110,8 +110,6 @@ HRESULT CLoader::Initialize(SCENE eScene)
 	case Client::SCENE_GAMEPLAY:
 		break;
 	case Client::SCENE_TEST: {
-		/*	std::thread t1(ThreadTest, this, "../../Assets/Scenes/InventoryUI.yaml" , SCENE_TEST);
-		t1.detach();*/
 	}
 							 break;
 	case Client::SCENE_EFFECT:
@@ -232,6 +230,9 @@ HRESULT CLoader::GameTestLoader()
 
 HRESULT CLoader::GameSceneStage01()
 {
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(5.f, 1.f, 30.f));
+
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/CityMap.yaml", SCENE_STAGE1, 0);
 
 	m_ThreadLoader->Start_Thread();
@@ -242,9 +243,6 @@ HRESULT CLoader::GameSceneStage01()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		/*else if (m_ThreadLoader->GetIsEnable()) {
-			m_isFinish = true;
-		}*/
 	}
 	return S_OK;
 }
@@ -254,13 +252,9 @@ HRESULT CLoader::GameSceneStage02()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -22.f));
 
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas.yaml", SCENE_STAGE2);
-	//m_pLoadingGauge->SetPercentage(60.f);
-	//CEngine::GetInstance()->DeserializeScene("../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2);
-	//m_pLoadingGauge->SetPercentage(50.f);
-
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_STAGE2, 1);
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
 
 
 	if (FAILED(GameFlogasLoader()))
@@ -278,9 +272,6 @@ HRESULT CLoader::GameSceneStage02()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-	/*	else if (m_ThreadLoader->GetIsEnable()) {
-			m_isFinish = true;
-		}*/
 	}
 	return S_OK;
 }
@@ -329,7 +320,8 @@ HRESULT CLoader::GameSceneLogo()
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ShopUI.yaml", SCENE_STATIC, 4));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/PortalUI.yaml", SCENE_STATIC, 5));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ReinforceUI.yaml", SCENE_STATIC, 6));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/StatusUI.yaml", SCENE_STATIC, 5));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/StatusUI.yaml", SCENE_STATIC, 7));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/SoundUI.yaml", SCENE_STATIC, 8));
 
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
@@ -348,17 +340,11 @@ HRESULT CLoader::GameSceneLogo()
 
 	m_ThreadLoader->Start_Thread();
 
-	m_iCompleteBit = 0;
-
-
 	while (!m_isFinish) {
 		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		/*else if(m_ThreadLoader->GetIsEnable()){
-			m_isFinish = true;
-		}*/
 	}
 
 
@@ -371,15 +357,10 @@ HRESULT CLoader::GameSceneKIM()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 1);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 1);
+	//m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
 
 	m_ThreadLoader->Start_Thread();
-
-	//for (auto& f : futures)
-	//	cout << "return result : " << f.get() << "\n";
-
-
 	
 	while (!m_isFinish) {
 		if (m_ThreadLoader->GetIsEnd())

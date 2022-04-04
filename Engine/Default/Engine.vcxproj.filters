@@ -310,6 +310,9 @@
     <Filter Include="01.Utility\03.Components\VIBuffer\TrailBuffer">
       <UniqueIdentifier>{26c08bfb-8d74-4983-9dc7-8aea860687ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\02.GameObject\Camera\EmptyCamera\MovieImage">
+      <UniqueIdentifier>{102018d4-2ded-4862-97cd-9754a45ab10b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\public\Base.h">
@@ -618,6 +621,9 @@
     <ClInclude Include="..\public\CameraManager.h">
       <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\BossMovie.h">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\MovieImage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -907,6 +913,9 @@
     </ClCompile>
     <ClCompile Include="..\private\CameraManager.cpp">
       <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\BossMovie.cpp">
+      <Filter>01.Utility\02.GameObject\Camera\EmptyCamera\MovieImage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

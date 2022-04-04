@@ -3,12 +3,12 @@
 #include "..\Public\EffectRing.h"
 #include "EmptyEffect.h"
 #include "Obb.h"
-USING(Client)
 
+
+USING(Client)
 CEffectRing::CEffectRing()
 {
 }
-
 CEffectRing * CEffectRing::Create(void * pArg,_vector pos)
 {
 	CEffectRing*		pInstance = new CEffectRing();
