@@ -32,6 +32,7 @@ HRESULT CAxe::Initialize()
 
 	pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_PLAYER").front());
 	m_pTargetTransform = static_cast<CTransform*>(pPlayer->GetComponent("Com_RenderTransform"));
+	m_pTargetRealTransform = static_cast<CTransform*>(pPlayer->GetComponent("Com_Transform"));
 	m_pTargetModel = static_cast<CModel*>(pPlayer->GetComponent("Com_Model"));
 
 	Add_EquipList("NoviceAxe");
@@ -50,13 +51,11 @@ HRESULT CAxe::Initialize()
 void CAxe::Update(_double deltaTime)
 {
 	Set_Attack();
-	State_Att();
 }
 
 void CAxe::LateUpdate(_double deltaTime)
 {
-
-
+	State_Att();
 	if (m_pTrailBuffer)
 		m_pTrailBuffer->Update(deltaTime, XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
 	Set_TrailOnOff();
@@ -102,6 +101,7 @@ void CAxe::State_Att()
 	OffsetMatrix = Scale * Rotate * Translation;
 	//BN_Weapon_R
 	XMStoreFloat4x4(&m_matRightBone, m_pModel->Get_TransformationMatrix("AN_PC_WP_TAX1013_A00_BC") * m_pTargetModel->Get_BoneWithoutOffset("BN_Weapon_R"));
+		
 	m_pTransform->SetMatrix(OffsetMatrix * XMLoadFloat4x4(&m_matRightBone) * XMLoadFloat4x4(&m_pTargetTransform->GetMatrix()));
 }
 

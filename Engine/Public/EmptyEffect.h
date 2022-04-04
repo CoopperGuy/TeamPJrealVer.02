@@ -162,6 +162,7 @@ private:
 private:
 	_float m_fMoveSpd = 1.f;
 	_float m_fProcessTime = 0.f;
+	_float m_fOneSideTime = 0.f;
 };
 
 END

@@ -13,7 +13,7 @@ CScene_JUN::CScene_JUN(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceCont
 HRESULT CScene_JUN::Initialize()
 {
 	__super::Initialize();
-
+	CEngine::GetInstance()->StopAll();
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_JUNG);
 
 	ReadyScript();
@@ -34,7 +34,7 @@ HRESULT CScene_JUN::Render()
 HRESULT CScene_JUN::ReadyScript()
 {
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_JUNG);
-	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
+	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
 	return S_OK;
 }
 
