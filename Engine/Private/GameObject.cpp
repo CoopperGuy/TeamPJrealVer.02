@@ -116,6 +116,7 @@ HRESULT CGameObject::InitializePrefab(CGameObject * rhs, void * pArg)
 _uint CGameObject::Update(_double TimeDelta)
 {
 	for (auto& iter : m_Components) {
+
 		iter.second->SetMaster(this);
 	}
 	return _uint();

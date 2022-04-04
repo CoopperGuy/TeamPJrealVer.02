@@ -79,7 +79,7 @@ void CUrsaDunDoor::Update(_double deltaTime)
 			CEngine::GetInstance()->PlaySoundW("DGDoor.ogg", CHANNELID::MAPOBJ);
 			CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::MAPOBJ);
 
-			cout << doorY << endl;
+			//cout << doorY << endl;
 
 			doorY += 0.2f * (_float)deltaTime;
 			m_pTransform->SetState(CTransform::STATE_POSITION, _vector{ XMVectorGetX(pUrsaDunDoor),doorY,XMVectorGetZ(pUrsaDunDoor) });

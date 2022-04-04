@@ -20,7 +20,7 @@ HRESULT CScene_Stage3::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("Baram.mp3");
+	CEngine::GetInstance()->PlayBGM("DragonBallZThema.mp3");
 
 	return S_OK;
 }

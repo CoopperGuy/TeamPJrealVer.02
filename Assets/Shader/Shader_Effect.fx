@@ -34,6 +34,7 @@ cbuffer EffectBuffer
 {
     float4 g_vOffsetColor;
     float g_fFadeAlpha;
+	float g_OneSideTime;
     uint g_iSpriteNum;
 	uint g_iSpriteNumX;
 	uint g_iSpriteNumY;
@@ -185,6 +186,66 @@ VS_OUT_TEST VS_MAIN_TESTUVMOVEX(VS_IN In)
     Out.vTexCoord3.y = Out.vTexCoord3.y + (g_fFrameTime * g_vScrollSpeedY.z);
 
     return Out;
+}
+
+VS_OUT_TEST VS_MAIN_TESTUVMOVEYSpeed(VS_IN In)
+{
+	VS_OUT_TEST Out = (VS_OUT_TEST)0;
+
+	matrix matWV, matWVP;
+
+	matWV = mul(g_WorldMatrix, g_ViewMatrix);
+	matWVP = mul(matWV, g_ProjMatrix);
+
+	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+
+	/* TexUV */
+	Out.vTexUV.x = In.vTexUV.x;
+	Out.vTexUV.y = In.vTexUV.y + (cos(g_ProcessTime * g_UVSpd) * (float)g_iSpriteNumX);
+
+	Out.vTexCoord1 = In.vTexUV * g_vScale.x;
+	Out.vTexCoord1.x = Out.vTexCoord1.x + (g_fFrameTime * g_vScrollSpeedX.x);
+	Out.vTexCoord1.y = Out.vTexCoord1.y + (g_fFrameTime * g_vScrollSpeedY.x);
+
+	Out.vTexCoord2 = In.vTexUV * g_vScale.y;
+	Out.vTexCoord2.x = Out.vTexCoord2.x + (g_fFrameTime * g_vScrollSpeedX.y);
+	Out.vTexCoord2.y = Out.vTexCoord2.y + (g_fFrameTime * g_vScrollSpeedY.y);
+
+	Out.vTexCoord3 = In.vTexUV * g_vScale.z;
+	Out.vTexCoord3.x = Out.vTexCoord3.x + (g_fFrameTime * g_vScrollSpeedX.z);
+	Out.vTexCoord3.y = Out.vTexCoord3.y + (g_fFrameTime * g_vScrollSpeedY.z);
+
+	return Out;
+}
+
+VS_OUT_TEST VS_MAIN_TESTUVMOVEY(VS_IN In)
+{
+	VS_OUT_TEST Out = (VS_OUT_TEST)0;
+
+	matrix matWV, matWVP;
+
+	matWV = mul(g_WorldMatrix, g_ViewMatrix);
+	matWVP = mul(matWV, g_ProjMatrix);
+
+	Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+	
+	/* TexUV */
+	Out.vTexUV.x = In.vTexUV.x;
+	Out.vTexUV.y = In.vTexUV.y + g_OneSideTime;
+
+	Out.vTexCoord1 = In.vTexUV * g_vScale.x;
+	Out.vTexCoord1.x = Out.vTexCoord1.x + (g_fFrameTime * g_vScrollSpeedX.x);
+	Out.vTexCoord1.y = Out.vTexCoord1.y + (g_fFrameTime * g_vScrollSpeedY.x);
+
+	Out.vTexCoord2 = In.vTexUV * g_vScale.y;
+	Out.vTexCoord2.x = Out.vTexCoord2.x + (g_fFrameTime * g_vScrollSpeedX.y);
+	Out.vTexCoord2.y = Out.vTexCoord2.y + (g_fFrameTime * g_vScrollSpeedY.y);
+
+	Out.vTexCoord3 = In.vTexUV * g_vScale.z;
+	Out.vTexCoord3.x = Out.vTexCoord3.x + (g_fFrameTime * g_vScrollSpeedX.z);
+	Out.vTexCoord3.y = Out.vTexCoord3.y + (g_fFrameTime * g_vScrollSpeedY.z);
+
+	return Out;
 }
 
 VS_OUT_TEST VS_MAIN_UVHALF(VS_IN In)
@@ -824,6 +885,100 @@ vector PS_MAIN_MESHREDUP(PS_IN_TEST In) : SV_TARGET
     return vDiffuseColor;
 }
 
+vector PS_MAIN_MESHREDUPOffset(PS_IN_TEST In) : SV_TARGET
+{
+	float4 vNoise[3];
+	float4 vFinalNoise;
+	float fPerturb;
+	float2 vNoiseCoord;
+	float4 vDiffuseColor;
+	float4 vAlpha;
+
+	vNoise[0] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord1);
+	vNoise[1] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord2);
+	vNoise[2] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord3);
+
+	vNoise[0] = (vNoise[0] - 0.5f) * 2.0f;
+	vNoise[1] = (vNoise[1] - 0.5f) * 2.0f;
+	vNoise[2] = (vNoise[2] - 0.5f) * 2.0f;
+
+	vNoise[0].xy = vNoise[0].xy * g_vDistortion[0].xy;
+	vNoise[1].xy = vNoise[1].xy * g_vDistortion[1].xy;
+	vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
+
+	vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
+
+	fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
+
+	vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
+
+	vDiffuseColor = g_DiffuseTexture.Sample(g_DefaultSampler, vNoiseCoord.xy);
+
+	vAlpha = g_MaskTexture.Sample(g_BorderSampler, vNoiseCoord.xy);
+
+	vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * 3.f;
+
+	if (vAlpha.a <= 0.1f)
+		discard;
+
+	vDiffuseColor.r = 0.5f;
+	vDiffuseColor.g = 0.4f;
+	vDiffuseColor.b = vAlpha.r * 0.5f;
+	vDiffuseColor.rgb += g_vOffsetColor.rgb;
+	vDiffuseColor.a = (vAlpha.a + g_vOffsetColor.a);
+	vDiffuseColor.a *= g_fFadeAlpha;
+
+	if (vDiffuseColor.a <= 0.1f)
+		discard;
+
+	return vDiffuseColor;
+}
+
+vector PS_MAIN_MESHREDUPDiffuse(PS_IN_TEST In) : SV_TARGET
+{
+	float4 vNoise[3];
+	float4 vFinalNoise;
+	float fPerturb;
+	float2 vNoiseCoord;
+	float4 vDiffuseColor;
+	float4 vAlpha;
+
+	vNoise[0] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord1);
+	vNoise[1] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord2);
+	vNoise[2] = g_NoiseTexture.Sample(g_DefaultSampler, In.vTexCoord3);
+
+	vNoise[0] = (vNoise[0] - 0.5f) * 2.0f;
+	vNoise[1] = (vNoise[1] - 0.5f) * 2.0f;
+	vNoise[2] = (vNoise[2] - 0.5f) * 2.0f;
+
+	vNoise[0].xy = vNoise[0].xy * g_vDistortion[0].xy;
+	vNoise[1].xy = vNoise[1].xy * g_vDistortion[1].xy;
+	vNoise[2].xy = vNoise[2].xy * g_vDistortion[2].xy;
+
+	vFinalNoise = vNoise[0] + vNoise[1] + vNoise[2];
+
+	fPerturb = ((1.f - In.vTexUV.y) * g_fDistortionScale) + g_fDistortionBias;
+	In.vTexUV.y += g_OneSideTime;
+	vNoiseCoord = (vFinalNoise.xy * fPerturb) + In.vTexUV.xy;
+
+	vDiffuseColor = g_DiffuseTexture.Sample(g_BorderSampler, vNoiseCoord.xy);
+
+	vAlpha = g_MaskTexture.Sample(g_BorderSampler, vNoiseCoord.xy);
+
+	vAlpha.a = (vAlpha.r + vAlpha.g + vAlpha.b) * 1.5f;
+
+	if (vAlpha.a <= 0.1f)
+	discard;
+
+	vDiffuseColor.rgb += g_vOffsetColor.rgb;
+	vDiffuseColor.a = (vAlpha.a + g_vOffsetColor.a) * g_fFadeAlpha;
+
+	if (vDiffuseColor.a <= 0.1f)
+	discard;
+
+	return vDiffuseColor;
+}
+
 vector PS_MAIN_MESHRED(PS_IN_TEST In) : SV_TARGET
 {
     float4 vNoise[3];
@@ -1175,6 +1330,7 @@ technique11 DefaultDevice
         GeometryShader = NULL;
         PixelShader = compile ps_5_0 PS_MAIN_TESTSPRITE();
     }
+
     pass SPRITE_TWO //18
     {
         SetRasterizerState(Rasterizer_NoneCull);
@@ -1186,4 +1342,25 @@ technique11 DefaultDevice
         PixelShader = compile ps_5_0 PS_MAIN_SPRITEALPHAR();
     }
 
+	pass MeshEffectMoveoffsetcolorX //19
+	{
+		SetRasterizerState(Rasterizer_NoneCull);
+		SetDepthStencilState(DepthStecil_Default, 0);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN_TESTUVMOVEYSpeed();
+		GeometryShader = NULL;
+		PixelShader = compile ps_5_0 PS_MAIN_MESHREDUPOffset();
+	}
+
+	pass MeshEffectMoveXDiffuse //20
+	{
+		SetRasterizerState(Rasterizer_NoneCull);
+		SetDepthStencilState(DepthStecil_Default, 0);
+		SetBlendState(Blend_Alpha, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN_TEST();
+		GeometryShader = NULL;
+		PixelShader = compile ps_5_0 PS_MAIN_MESHREDUPDiffuse();
+	}
 }

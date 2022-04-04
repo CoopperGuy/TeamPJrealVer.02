@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: E_ROARDecal
-    UUID: 4703849150176159675
+    UUID: 11093473810189078132
     Active: true
     Layer: Default
     Type: Effect
@@ -36,4 +36,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 1, 1, 0.270000011]
+      OffsetColor: [0, 0, 0, -0.280000001]

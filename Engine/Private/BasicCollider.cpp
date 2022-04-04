@@ -822,10 +822,10 @@ _vector* CBasicCollider::GetObbBox()
 
 	for (_uint i = 0; i < 8; ++i)
 	{
-		vSourPoint[i] = XMVector3TransformCoord(XMLoadFloat3(&m_vPoint[i]), XMLoadFloat4x4(&m_TransformMatrix));
+		vSourPoint[i] = XMVector3Transform(XMLoadFloat3(&m_vPoint[i]), XMLoadFloat4x4(&m_TransformMatrix));
 	}
 
-	return &vSourPoint[0];
+	return vSourPoint;
 }
 
 CBasicCollider * CBasicCollider::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, TYPE eType)

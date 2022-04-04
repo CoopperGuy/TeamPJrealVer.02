@@ -359,7 +359,7 @@ technique11		DefaultDevice
 {
 	pass NonAnimation
 	{
-		SetRasterizerState(Rasterizer_Solid);
+		SetRasterizerState(Rasterizer_None);
 		SetDepthStencilState(DepthStecil_Default, 0);
 		SetBlendState(Blend_None, vector(0.f, 0.f, 0.f, 0.f), 0xffffffff);
 
@@ -378,4 +378,6 @@ technique11		DefaultDevice
 		GeometryShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN_LIGHT_DEPTH();
 	}
+
+
 }

@@ -52,7 +52,6 @@ private:
 	class CTexture* m_pDissolveTex = nullptr;
 	CModel* m_pTargetModel = nullptr;
 
-	list<HANDLE>				thread_handles;
 	vector<std::thread>			m_Threads;
 	unordered_map<string, _bool>			m_CurCloningObj;
 	CRITICAL_SECTION		m_CS;

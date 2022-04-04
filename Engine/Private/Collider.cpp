@@ -243,8 +243,16 @@ HRESULT CCollider::Render()
 			else {
 				/*_vector setSize;
 				_matrix scaleMat;
-				PxExtendedVec3 pxPos = m_pController->getPosition();
-				_vector pos = XMVectorSet((_float)pxPos.x, (_float)pxPos.y, (_float)pxPos.z, 1.f);
+				_vector pos = XMVectorZero();
+				if (m_pController) 
+				{
+					PxExtendedVec3 pxPos = m_pController->getPosition();
+					pos = XMVectorSet((_float)pxPos.x, (_float)pxPos.y, (_float)pxPos.z, 1.f);
+				}
+				else
+				{
+					pos = m_pObjTransform->GetState(CTransform::STATE_POSITION);
+				}
 				_matrix mat = XMMatrixRotationQuaternion(XMLoadFloat4(&m_quaternion)) * XMMatrixTranslationFromVector(pos);
 				if (dynamic_cast<CBoxCollider*>(this)) {
 					setSize = XMVectorSet(m_Size.x * 0.5f, m_Size.y * 0.5f, m_Size.z * 0.5f, 1.f);

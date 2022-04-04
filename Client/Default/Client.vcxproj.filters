@@ -496,6 +496,18 @@
     <ClInclude Include="..\Public\EffectPhase2Inst.h">
       <Filter>05.Effect\DarkKnight</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Pummel_foot.h">
+      <Filter>05.Effect\Ursa\Pummel_foot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\DashAtt.h">
+      <Filter>05.Effect\Ursa\DashAtt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SoundHud.h">
+      <Filter>04.UI\SoundHUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BossMovie.h">
+      <Filter>04.UI\BossMovie</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -978,6 +990,18 @@
     <ClCompile Include="..\Private\EffectPhase2Inst.cpp">
       <Filter>05.Effect\DarkKnight</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\Pummel_foot.cpp">
+      <Filter>05.Effect\Ursa\Pummel_foot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\DashAtt.cpp">
+      <Filter>05.Effect\Ursa\DashAtt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SoundHud.cpp">
+      <Filter>04.UI\SoundHUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\BossMovie.cpp">
+      <Filter>04.UI\BossMovie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1452,6 +1476,18 @@
     </Filter>
     <Filter Include="05.Effect\DarkKnight">
       <UniqueIdentifier>{4ca6cc62-84ab-4b9d-85cb-542da661b475}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\Pummel_foot">
+      <UniqueIdentifier>{9d2028c2-a192-492b-a017-4c65b57c2cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\Ursa\DashAtt">
+      <UniqueIdentifier>{52888ddf-de1d-4cc2-82e6-f89d3b72887a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\SoundHUD">
+      <UniqueIdentifier>{4cbaa979-ec9c-41c1-8f9d-b30a880c1497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\BossMovie">
+      <UniqueIdentifier>{f2898eae-bb4e-4219-9268-410bec8fe688}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

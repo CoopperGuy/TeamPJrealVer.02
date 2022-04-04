@@ -189,6 +189,7 @@
     <ClInclude Include="..\Public\Background.h" />
     <ClInclude Include="..\public\BackPackHud.h" />
     <ClInclude Include="..\Public\BasicEffect.h" />
+    <ClInclude Include="..\public\BossMovie.h" />
     <ClInclude Include="..\Public\Camera_Fly.h" />
     <ClInclude Include="..\Public\Camera_Follow.h" />
     <ClInclude Include="..\Public\Camera_Lobby.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\public\ComboIcon.h" />
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\Public\DarkKnight.h" />
+    <ClInclude Include="..\Public\DashAtt.h" />
     <ClInclude Include="..\public\DecalCrash.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\DropRock.h" />
@@ -297,6 +299,7 @@
     <ClInclude Include="..\public\Obb.h" />
     <ClInclude Include="..\Public\Portal.h" />
     <ClInclude Include="..\Public\PortalUI.h" />
+    <ClInclude Include="..\Public\Pummel_foot.h" />
     <ClInclude Include="..\public\QuestHud.h" />
     <ClInclude Include="..\public\QuickSlot.h" />
     <ClInclude Include="..\public\ReinforceFall.h" />
@@ -316,6 +319,7 @@
     <ClInclude Include="..\Public\Skull.h" />
     <ClInclude Include="..\Public\SlashWave.h" />
     <ClInclude Include="..\public\Skills.h" />
+    <ClInclude Include="..\public\SoundHud.h" />
     <ClInclude Include="..\public\SparkFlare.h" />
     <ClInclude Include="..\public\Spawn.h" />
     <ClInclude Include="..\public\Skill_Player.h" />
@@ -374,6 +378,7 @@
     <ClCompile Include="..\Private\Background.cpp" />
     <ClCompile Include="..\private\BackPackHud.cpp" />
     <ClCompile Include="..\Private\BasicEffect.cpp" />
+    <ClCompile Include="..\private\BossMovie.cpp" />
     <ClCompile Include="..\Private\Camera_Fly.cpp" />
     <ClCompile Include="..\Private\Camera_Follow.cpp" />
     <ClCompile Include="..\Private\Camera_Lobby.cpp" />
@@ -383,6 +388,7 @@
     <ClCompile Include="..\private\ConsumItemHud.cpp" />
     <ClCompile Include="..\private\Character.cpp" />
     <ClCompile Include="..\Private\DarkKnight.cpp" />
+    <ClCompile Include="..\Private\DashAtt.cpp" />
     <ClCompile Include="..\private\DecalCrash.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
     <ClCompile Include="..\Private\DropRock.cpp" />
@@ -479,6 +485,7 @@
     <ClCompile Include="..\private\Obb.cpp" />
     <ClCompile Include="..\Private\Portal.cpp" />
     <ClCompile Include="..\Private\PortalUI.cpp" />
+    <ClCompile Include="..\Private\Pummel_foot.cpp" />
     <ClCompile Include="..\private\QuestHud.cpp" />
     <ClCompile Include="..\private\QuickSlot.cpp" />
     <ClCompile Include="..\private\ReinforceFall.cpp" />
@@ -498,6 +505,7 @@
     <ClCompile Include="..\Private\Skull.cpp" />
     <ClCompile Include="..\Private\SlashWave.cpp" />
     <ClCompile Include="..\private\Skills.cpp" />
+    <ClCompile Include="..\private\SoundHud.cpp" />
     <ClCompile Include="..\private\SparkFlare.cpp" />
     <ClCompile Include="..\private\Spawn.cpp" />
     <ClCompile Include="..\private\Skill_Player.cpp" />

@@ -7,11 +7,15 @@ GameObjects:
     Instancing: false
     Type: Camera
     Com_Transform:
-      Translation: [0.0011885917, 0.0011885917, 0]
-      Rotation: [0.551103473, 44.9659233, 0.0047945939]
-      Scale: [0.999619782, 0.999873042, 0.999917805]
+      Translation: [4.9944396, 4.9944396, 0]
+      Rotation: [1.54311216, -75.3619843, -1.87771666]
+      Scale: [0.999619842, 0.999873042, 0.999917984]
+    IsWait: false
+    IsBack: false
     MoveTime: 5
+    WaitTime: 0
     Movie: 1
+    NextIdx: 0
     SrcPosition: [5, 5, 0]
     DestPosition: [0, 0, 0]
     SrcLookPosition: [0, 0, 0]
@@ -52,7 +56,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [50, 0.100000001, 50]
+      Size: [5, 0.100000001, 5]
       Angle:
         - 0
         - 0
@@ -90,7 +94,7 @@ GameObjects:
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [10, 10, 0.100000001]
+      Size: [5, 5, 0.100000001]
       Angle:
         - 0
         - 0
@@ -197,7 +201,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867239]
+      Scale: [1, 1.10000002, 1.09867227]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
