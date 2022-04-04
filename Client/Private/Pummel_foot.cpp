@@ -14,15 +14,16 @@ HRESULT CPummel_foot::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	m_pThis = pThis;
 	m_pTargetTransform = static_cast<CTransform*>(pTarget->GetComponent("Com_Transform"));
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
+	CModel* pModel = static_cast<CModel*>(pTarget->GetComponent("Com_Model"));
+	_matrix mat = XMMatrixIdentity();
+	mat.r[3] = (pModel->Get_BoneMatrix("Bip01-L-Foot") * m_pTargetTransform->GetWorldMatrix()).r[3];
+	mat.r[0] = mat.r[0] * m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
+	mat.r[1] = mat.r[1] * m_pEffectTrans->GetScale(CTransform::STATE_UP);
+	mat.r[2] = mat.r[2] * m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
 
-	_vector vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-	_matrix mat = m_pTargetTransform->GetWorldMatrix();
-	mat.r[0] = XMVector3Normalize(mat.r[0]);
-	mat.r[1] = XMVector3Normalize(mat.r[1]);
-	mat.r[2] = XMVector3Normalize(mat.r[2]);
 	m_pEffectTrans->SetMatrix(mat);
-	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_RIGHT),90.f);
-	vTargetPos += m_pTargetTransform->GetState(CTransform::STATE_LOOK) * 0.5f;
+	m_pEffectTrans->SetLook(m_pTargetTransform->GetState(CTransform::STATE_LOOK));
+	_vector vTargetPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 
@@ -31,10 +32,6 @@ HRESULT CPummel_foot::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 void CPummel_foot::Update(_double dDeltaTime)
 {
-	_vector vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-	vTargetPos += m_pTargetTransform->GetState(CTransform::STATE_LOOK) * 0.5f;
-	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
-	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 }
 
 void CPummel_foot::LateUpdate(_double dDeltaTime)

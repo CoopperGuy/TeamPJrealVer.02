@@ -213,6 +213,9 @@ HRESULT CLoader::GameUrsaLoader()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_ROARDecal", "E_ROARDecal", 16);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_Ring", "E_UrsRing", 17);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_DashAtt", "E_DashAtt", 18);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_Dashparticle", "E_Dashparticle", 19);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_Dustparticle_Cone", "E_Dustparticle_Cone", 20);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Ursa_PUMMEL_Start", "E_PUMMEL_Start", 21);
 
 	m_iCompleteBit = 0;
 
