@@ -30,10 +30,10 @@ HRESULT CScene_Logo::Initialize()
 
 	ReadyScript();
 
+	//CEngine::GetInstance()->StopSound(CHANNELID::BGM);
+	//CEngine::GetInstance()->PlayBGM("Baram.mp3");
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("Baram.mp3");
-	/*CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("Logo.flac");*/
+	CEngine::GetInstance()->PlayBGM("Logo.flac");
 	return S_OK;
 }
 

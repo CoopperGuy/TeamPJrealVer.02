@@ -179,6 +179,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClInclude Include="..\Public\Animation.h" />
     <ClInclude Include="..\public\Base.h" />
     <ClInclude Include="..\public\BasicCollider.h" />
+    <ClInclude Include="..\Public\BossMovie.h" />
     <ClInclude Include="..\Public\BoxCollider.h" />
     <ClInclude Include="..\Public\Camera.h" />
     <ClInclude Include="..\public\CameraManager.h" />
@@ -294,6 +295,7 @@ xcopy /y ..\..\Engine\bin\*.dll				..\..\Client\bin\</Command>
     <ClCompile Include="..\Private\Animation.cpp" />
     <ClCompile Include="..\private\Base.cpp" />
     <ClCompile Include="..\private\BasicCollider.cpp" />
+    <ClCompile Include="..\Private\BossMovie.cpp" />
     <ClCompile Include="..\Private\BoxCollider.cpp" />
     <ClCompile Include="..\Private\Camera.cpp" />
     <ClCompile Include="..\private\CameraManager.cpp" />

@@ -53,7 +53,7 @@ public:
 	void Clear(_uint iSceneIndex);
 
 private:
-	unordered_map<string, CComponent*>*			m_pPrototypes = nullptr;
+	unordered_map<string,  CComponent*>*			m_pPrototypes = nullptr;
 	typedef unordered_map<string, CComponent*>	PROTOTYPES;
 private:
 	_uint		m_iNumScenes = 0;

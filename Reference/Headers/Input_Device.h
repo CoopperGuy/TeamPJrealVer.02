@@ -42,10 +42,10 @@ public:
 		return m_MouseState.rgbButtons[eButtonState];
 	}
 
-	_byte Get_MouseButtonStateUp(MOUSEBUTTONSTATE eButtonState) const {
+	_bool Get_MouseButtonStateUp(MOUSEBUTTONSTATE eButtonState) const {
 		return m_MouseState.rgbButtons[eButtonState] > m_prevMouseState.rgbButtons[eButtonState] ? true : false;
 	}
-	_byte Get_MouseButtonStateDown(MOUSEBUTTONSTATE eButtonState) const {
+	_bool Get_MouseButtonStateDown(MOUSEBUTTONSTATE eButtonState) const {
 		return m_MouseState.rgbButtons[eButtonState] < m_prevMouseState.rgbButtons[eButtonState] ? true : false;
 	}
 public:

@@ -612,7 +612,7 @@ void CEmptyEffect::SetUp_ValueOnShader(string ComponentTag)
 
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_ProcessTime", &m_fProcessTime, sizeof(_float));
 	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_UVSpd", &m_fMoveSpd, sizeof(_float));
-
+	static_cast<CVIBuffer*>(buffer)->GetShader()->SetUp_ValueOnShader("g_OneSideTime", &m_fOneSideTime, sizeof(_float));
 }
 
 void CEmptyEffect::SetUp_ValueOnModelShader()

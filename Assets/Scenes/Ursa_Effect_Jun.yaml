@@ -1,0 +1,182 @@
+Scene: Untitled
+GameObjects:
+  - Name: DashAtt
+    UUID: 4828180927347811862
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 19
+    BillBord: false
+    Com_Transform:
+      Translation: [1.29097414, 0.445980191, 0.485011846]
+      Rotation: [90, -0, 0]
+      Scale: [0.798585951, 0.800000012, 0.800000012]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: dome.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_004.dds
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_WaterWave_Mask_001.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\Noise02.dds
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.5, 0.5, 0]
+      ScrollSpeedY: [5, 5, 0]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.200000003]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.100000001
+      FadeOut: true
+      FadeOutDuration: 0.400000006
+      FadeOutStratTime: 0.200000003
+      FadeIn: true
+      FadeInDuration: 0.200000003
+      FadeInStratTime: 0
+      EffectDuration: 0.5
+      SpriteNumX: 5
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.230000004, 0.200000003, 0.140000001, -1.5]
+  - Name: PUMMEL_Start
+    UUID: 7308616460679462282
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 20
+    BillBord: false
+    Com_Transform:
+      Translation: [1.16667879, 0.828670442, 1.34084034]
+      Rotation: [0, -0, 0]
+      Scale: [1, 5, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\ursa\
+      MeshFileName: 45Sphere.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\01.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\05.dds
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [2, 2, 2.29999995]
+      Distortion1: [0.100000001, 0.5]
+      Distortion2: [0.100000001, 0.5]
+      Distortion3: [0.100000001, 0.5]
+      DistortionScale: 0.800000012
+      DistortionBias: 1
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [1, 0.699999988, 0.550000012, -0.379999995]
+  - Name: Dashparticle
+    UUID: 14396861622596111719
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0.638000011, 0.392196596, 0.205889747]
+      Rotation: [21.1604996, -13.9838915, 4.39923014e-07]
+      Scale: [0.999824464, 0.999904633, 0.999772131]
+    Com_PointInstance:
+      {}
+    Com_RectInstance:
+      Shape: 0
+      InstNum: 40
+      Color: [1, 1.00311577, 0.784567058, 0]
+      Speed: 3
+      LifeTime: 0.5
+      Size: 0.300000012
+      StartRadian: 30
+      RadiationAngle: 30
+      LerpColor: true
+      SrcColor: [1, 0.782608688, 0, 0]
+      DestColor: [1, 0.896660328, 0.405797124, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fire_5.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: true
+      FadeOutDuration: 0.5
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0.5
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+  - Name: Dustparticle_Cone
+    UUID: 3524181121532792960
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [-0.200000003, 0.5, 0.400000006]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_RectInstance:
+      Shape: 1
+      InstNum: 15
+      Color: [1.07429206, 1.12779045, 1.32038462, 0]
+      Speed: 0.5
+      LifeTime: 2
+      Size: 0.300000012
+      StartRadian: 0
+      RadiationAngle: 30
+      LerpColor: true
+      SrcColor: [0.768115938, 0.601134181, 0, 0]
+      DestColor: [1, 1, 1, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Smoke_013_TEX_KKJ.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]

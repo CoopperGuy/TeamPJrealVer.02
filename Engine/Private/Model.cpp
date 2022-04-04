@@ -1149,7 +1149,12 @@ HRESULT CModel::Update_CombinedTransformationMatrices(_double TimeDelta)
 		}
 		else
 			pRender->SetMatrix(m_pTransform->GetWorldMatrix());
-		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////
+		_float3 vPos = {};
+		XMStoreFloat3(&vPos, m_pTransform->GetState(CTransform::STATE_POSITION));
+		if (m_pMaster->GetName() == "Player" || m_pMaster->GetName() == "NoviceAxe")
+				cout << m_pMaster->GetName() + "Transform : " << vPos.x <<','<< vPos.y << ',' <<vPos.z << "\n";
+		////////////////////////////////////////////////////////////////////////////////////////////////////////
 		_float ratio = (m_fBlendTime / m_fBlendDuration);
 		//if(!m_Animations[m_iPrevAnimationIndex]->GetLoop())
 			//m_Animations[m_iPrevAnimationIndex]->Update_TransformationMatrices(0.5f);

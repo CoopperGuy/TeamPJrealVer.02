@@ -53,30 +53,8 @@ void CModelManager::CloneModel(CGameObject* pObj, string pMeshFilePath, string p
 {
 	while (m_maxThread < iCurNumThread.load())
 		Sleep(300);
-	//string fullPath = pMeshFilePath + pMeshFileName;
-	//auto& iter = m_CurCloningObj.find(fullPath);
-	//if (iter != m_CurCloningObj.end())
-	//{
-	//	while(iter->second == true)
-	//		Sleep(100);
-	//}
-	//else
-	//	m_CurCloningObj.emplace(fullPath, true);
-
-	//if (m_CurCloningObj.find(fullPath) != m_CurCloningObj.end())
-	//{
-	//	while (iter->second != true)
-	//		Sleep(1000);
-	//}
-	//else
-	//{
-	//	m_CurCloningObj.emplace(fullPath, true);
-	//}
-
-	//CModelManager::GetInstance()->CloneModelThread(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, bEquipment);
-
+	
 	MODELLOADDESC* desc = new MODELLOADDESC(pObj, pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, meshCollider, pArg, m_CS, bEquipment);
-	//thread_handles.emplace_back((HANDLE)_beginthreadex(nullptr, 0, ThreadCloneModel, desc, 0, nullptr));
 	std::lock_guard<std::mutex> lock(m_Wait);
 	m_Threads.emplace_back(std::thread(ThreadCloneModel, desc));
 }
@@ -115,7 +93,6 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		pModel->SetMeshCollider(meshCollider);
 		pModel->SetLinkEquip(bEquipment);
 		pModel->CreateBuffer(pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, pivotMatrix);
-		//EnterCriticalSection(&m_CS);
 		std::lock_guard<std::mutex> locks(m_Mesh_Jobs);
 		if (m_mapModel.find(fullPath) != m_mapModel.end()){
 			SafeRelease(pModel);
@@ -124,9 +101,6 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 		else {
 			m_mapModel.emplace(make_pair(fullPath, pModel));
 		}
-		//EnterCriticalSection(&m_CS);
-
-		//LeaveCriticalSection(&m_CS);
 
 		auto& iter = m_CurCloningObj.find(fullPath);
 		if (iter != m_CurCloningObj.end())
@@ -183,38 +157,7 @@ void CModelManager::CloneModelThreadIns(CGameObject * pObj, string pMeshFilePath
 
 void CModelManager::WaitThreads()
 {
-	//std::lock_guard<std::mutex> lock(m_Wait);
-	/*while (!thread_handles.empty())
-	{
-		list<HANDLE> threads_left;
-		auto& iter = thread_handles.begin();
-		for (; iter != thread_handles.end();) {
-			DWORD rc = WaitForSingleObject(*iter, 60000);
-
-			if (rc == WAIT_OBJECT_0)
-			{
-				CloseHandle(*iter);
-				iter = thread_handles.erase(iter);
-				continue;
-
-			}
-			else if (rc == WAIT_TIMEOUT)
-			{
-				threads_left.emplace_back(*iter);
-				iter = thread_handles.erase(iter);
-				continue;
-			}
-			else
-			{
-				CloseHandle(*iter);
-				iter = thread_handles.erase(iter);
-				continue;
-
-			}
-
-			iter++;
-		}
-	}*/
+	
 	for (auto& iter : m_Threads) {
 		iter.join();
 	}

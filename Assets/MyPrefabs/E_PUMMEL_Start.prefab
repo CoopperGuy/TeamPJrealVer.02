@@ -1,0 +1,42 @@
+Scene: Untitled
+GameObjects:
+  - Name: PUMMEL_Start
+    UUID: 7308616460679462282
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 20
+    BillBord: false
+    Com_Transform:
+      Translation: [1.16667879, 0.828670442, 1.34084034]
+      Rotation: [0, -0, 0]
+      Scale: [1, 5, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\ursa\
+      MeshFileName: 45Sphere.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\01.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Mask\05.dds
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [2, 2, 2.29999995]
+      Distortion1: [0.100000001, 0.5]
+      Distortion2: [0.100000001, 0.5]
+      Distortion3: [0.100000001, 0.5]
+      DistortionScale: 0.800000012
+      DistortionBias: 1
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [1, 0.699999988, 0.550000012, -0.379999995]

@@ -176,6 +176,9 @@ public:
 	void StopSound(CHANNELID eID);
 	void StopAll();
 	void SetVolume(float volume, CHANNELID eID);
+	void SetBGMVolume(float volume);
+	_float GetVolume(CHANNELID eID);
+	_float GetBGMVolume();
 #pragma endregion
 
 #pragma region PHYSX
@@ -239,8 +242,8 @@ public:
 	_bool Get_DIKUp(_ubyte _byKeyID);
 	_long Get_MouseMoveState(CInput_Device::MOUSEMOVESTATE eMoveState);
 	_byte Get_MouseButtonState(CInput_Device::MOUSEBUTTONSTATE eButtonState);
-	_byte Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState);
-	_byte Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState);
+	_bool Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState);
+	_bool Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState);
 
 #pragma endregion
 #pragma region CAMERA

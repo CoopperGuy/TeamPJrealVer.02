@@ -25,6 +25,7 @@ extern HINSTANCE hInst;
 
 static string strScene = "../../Assets/Scenes/DarkKnightDungeon.yaml";
 
+
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
 {
