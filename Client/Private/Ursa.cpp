@@ -129,13 +129,13 @@ void CUrsa::Update(_double dDeltaTime)
 	__super::Update(dDeltaTime);
 
 	m_fDist = SetDistance();
-	/*Checking_Phase(dDeltaTime);
+	Checking_Phase(dDeltaTime);
 	Execute_Pattern(dDeltaTime);
 	Checking_Finished();
 
 	if (m_bCB)
-		SetUp_Combo();*/
-	TestAnimation(DASH_ATT);
+		SetUp_Combo();
+	//TestAnimation(DASH_ATT);
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pLeftWeapon->p_States = m_eCurSTATES;
 	m_pRightWeapon->p_States = m_eRightSTATES;
@@ -155,10 +155,10 @@ void CUrsa::Update(_double dDeltaTime)
 		m_fJumpSpeed = 0.f;
 	}
 
-	//Hit(dDeltaTime);
+	Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
 	
-	//if (!None_Combat())
+	if (!None_Combat())
 		CatchUpToLook(dDeltaTime);
 }
 
