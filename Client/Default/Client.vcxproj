@@ -213,6 +213,9 @@
     <ClInclude Include="..\Public\EffectFlash.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolFire.h" />
     <ClInclude Include="..\Public\EffectMeteoExpolRing.h" />
+    <ClInclude Include="..\Public\EffectPhase2Aura.h" />
+    <ClInclude Include="..\Public\EffectPhase2Inst.h" />
+    <ClInclude Include="..\Public\EffectPhase2Twist.h" />
     <ClInclude Include="..\Public\EffectRing.h" />
     <ClInclude Include="..\Public\EffectRockDecal.h" />
     <ClInclude Include="..\Public\EffectRockDust.h" />
@@ -408,6 +411,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Private\EffectPajang.cpp" />
+    <ClCompile Include="..\Private\EffectPhase2Aura.cpp" />
+    <ClCompile Include="..\Private\EffectPhase2Inst.cpp" />
+    <ClCompile Include="..\Private\EffectPhase2Twist.cpp" />
     <ClCompile Include="..\Private\EffectRing.cpp" />
     <ClCompile Include="..\Private\EffectRockDecal.cpp" />
     <ClCompile Include="..\Private\EffectRockDust.cpp" />

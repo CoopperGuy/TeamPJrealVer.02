@@ -241,7 +241,7 @@ HRESULT CCollider::Render()
 				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);
 			}
 			else {
-				_vector setSize;
+				/*_vector setSize;
 				_matrix scaleMat;
 				PxExtendedVec3 pxPos = m_pController->getPosition();
 				_vector pos = XMVectorSet((_float)pxPos.x, (_float)pxPos.y, (_float)pxPos.z, 1.f);
@@ -257,7 +257,7 @@ HRESULT CCollider::Render()
 					mat = scaleMat * mat;
 				}
 				XMStoreFloat4x4(&m_pxMat, mat);
-				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);
+				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);*/
 
 			}
 		}

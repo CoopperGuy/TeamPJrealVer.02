@@ -65,8 +65,10 @@ private:
 	CStat*				m_pStat = nullptr;
 	CTransform*			m_pTargetTransform = nullptr;
 	CTransform*			m_pRenderTransform = nullptr;
-	CBasicCollider*		m_pOBBCom = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+	CBasicCollider*		m_pOBBCom = nullptr;
+	CBasicCollider*		m_pWeaponOBB = nullptr;
+	CBasicCollider*		m_pShieldOBB = nullptr;
 	CMonHp*	m_pMonHp = nullptr;
 
 private:
@@ -82,18 +84,19 @@ private:
 	_float4x4				m_wpBoneMatrix;
 	_bool					m_DrawTrail = false;
 
+	//Phase2
+	class CEffectPahse2Twist* m_pEffectTwist = nullptr;
 private:
 	_float3 m_vCreatePos = { 0.f, 0.f, 0.f };
 	_float3 m_vDestPos = { 0.f, 0.f, 0.f };
-
-
+	
 	_float	m_fBehaviorDuration = 0.f;
 	_float	m_fBehaviorTime = 0.f;
 	_float	m_fAttackDelay = 0.f;
 	_float	m_fStunDelay = 40.f;
 	_float	m_fDist = 0.f;
 	_float	m_fSpeed = 0.5f;
-	_float	m_fPhaseLoopTime = 3.f;
+	_float	m_fPhaseLoopTime = 5.f;
 private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;

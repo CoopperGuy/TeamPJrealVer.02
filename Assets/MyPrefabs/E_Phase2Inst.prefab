@@ -1,0 +1,49 @@
+Scene: Untitled
+GameObjects:
+  - Name: E_Phase2Inst
+    UUID: 205108304507836699
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [0.200000003, 0.550000012, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_RectInstance:
+      Shape: 0
+      InstNum: 100
+      Color: [0.166187137, 0, 0.283792078, 0]
+      Speed: 5
+      LifeTime: 1
+      Size: 0.5
+      StartRadian: -90
+      RadiationAngle: 180
+      LerpColor: true
+      SrcColor: [0.60869503, 0, 1, 0]
+      DestColor: [0.0982985422, 0, 0.173913062, 0]
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Trun_FX_Trail02_Tex_HKJ.jpg
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [1, 1, 1, 0]

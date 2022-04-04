@@ -395,7 +395,9 @@ HRESULT CLoader::GameSceneLEE()
 
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
-
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Aura", "E_Phase2", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
 
 	m_ThreadLoader->Start_Thread();
 	

@@ -487,6 +487,15 @@
     <ClInclude Include="..\Public\EffectSwordAura.h">
       <Filter>05.Effect\DarkKnight</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Aura.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Twist.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Inst.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -958,6 +967,15 @@
       <Filter>02.GameObjects\Character\Enemy\Skull</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EffectSwordAura.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Aura.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Twist.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Inst.cpp">
       <Filter>05.Effect\DarkKnight</Filter>
     </ClCompile>
   </ItemGroup>

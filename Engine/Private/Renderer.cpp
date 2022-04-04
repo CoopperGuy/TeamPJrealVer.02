@@ -894,9 +894,9 @@ HRESULT CRenderer::RenderAlpha()
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
 		m_pTargetManager->Begin_MainRT(m_pDeviceContext);
-
+	
 	m_RenderGroups[RENDER_ALPHA].sort([&](CGameObject* A, CGameObject* B) {
-		return A->GetViewZ() > B->GetViewZ();
+		return A->GetViewZ() > B->GetViewZ();	
 	});
 	for (auto& pGameObject : m_RenderGroups[RENDER_ALPHA])
 	{

@@ -49,12 +49,6 @@ HRESULT CEffectSwordAura::Initialize(void* pArg, CTransform* pTransform, _float 
 		m_pTransform->SetState(CTransform::STATE_UP, XMVector4Transform(vUp * m_pTransform->GetScale(CTransform::STATE_UP), RotationMatrix));
 		m_pTransform->SetState(CTransform::STATE_LOOK, XMVector4Transform(vLook * m_pTransform->GetScale(CTransform::STATE_LOOK), RotationMatrix));
 		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);
-
-		/*m_pTransform->SetState(CTransform::STATE_RIGHT, m_pTransform->GetState(CTransform::STATE_RIGHT) * -1.f);
-		m_pTransform->SetState(CTransform::STATE_LOOK, m_pTransform->GetState(CTransform::STATE_LOOK )* -1.f);
-		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);*/
-		/*m_pTransform->SetMatrix(test * m_pTransform->GetWorldMatrix());
-		m_pTransform->SetUpRotation(XMVectorSet(0.f, 0.f, 1.f, 0.f), fAngle);*/
 	}
 	return S_OK;
 }
@@ -75,7 +69,7 @@ void CEffectSwordAura::Update(_double deltaTime)
 void CEffectSwordAura::LateUpdate(_double deltaTime)
 {
 	//if (static_cast<CEmptyEffect*>(m_pGameObject)->GetEffectDuration()<= m_dDeadTime)
-	if (m_dDeadTime >= 5.0)
+	if (m_dDeadTime >= 3.0)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();
