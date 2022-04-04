@@ -272,6 +272,7 @@ GameObjects:
       - 529759806022810624
       - 16786830591833640957
       - 811462122791456894
+      - 11082552150818323079
   - Name: TextLine
     UUID: 5923592597401862741
     Active: false
@@ -763,6 +764,54 @@ GameObjects:
     Hovering: false
     Com_Transform:
       Position: [167.802002, 318.923096]
+      Size: [264.524994, 1]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: SelectSoundHud
+    UUID: 11082552150818323079
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 6
+    Hovering: true
+    Com_Transform:
+      Position: [167.802002, 469.15799]
+      Size: [264.524994, 103.958]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Hud\FX_UI_ListBar.png
+      TextureMaskPath: ..\..\Assets\UITexture\Hud\Btn_Fx_Over_Line2.tga
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Com_Text:
+      Text: " \n  Sound"
+      Color: [0.869565248, 0.869565248, 0.869565248, 1]
+      Scale: [0.800000012, 0.800000012]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: false
+    Children:
+      - 5455425440679599037
+  - Name: TextLine
+    UUID: 5455425440679599037
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [167.802002, 448.923401]
       Size: [264.524994, 1]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png

@@ -1,0 +1,57 @@
+Scene: Untitled
+GameObjects:
+  - Name: BossMovie
+    UUID: 15911761643634498217
+    Active: true
+    Layer: Default
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 360]
+      Size: [1280, 720]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Movie\Trun_border.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - Name: BossName
+        UUID: 6847257806172884336
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 1
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [1151.0387, 678.048096]
+          Size: [256, 64]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Movie\Flogas.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+          Sprite: [0.100000001, 0, 0, 0]
+      - Name: BossRedName
+        UUID: 8817616106198412511
+        Active: true
+        Layer: Default
+        Type: UI
+        SortingOrder: 1
+        PassIndex: 1
+        Hovering: false
+        Com_Transform:
+          Position: [259.640503, 69.0843506]
+          Size: [512, 100]
+        Com_VIBuffer:
+          TexturePath: ..\..\Assets\UITexture\Movie\LOP.dds
+          TextureMaskPath: ""
+          TextureNoisePath: ""
+          TextureAnyPath: ""
+          Color: [0, 0, 0, 1]
+          Sprite: [0.100000001, 0, 0, 0]

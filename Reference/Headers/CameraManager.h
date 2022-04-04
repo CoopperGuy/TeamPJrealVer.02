@@ -1,6 +1,6 @@
 #pragma once
 #include "Base.h"
-
+#include "Camera.h"
 BEGIN(Engine)
 class CCamera;
 class CameraManager :
@@ -22,6 +22,7 @@ private:
 private:
 	_int	m_iCurActiveCamera = 0;
 public:
+	void	SeceneChangeClear();
 	void	Clear();
 	virtual void Free() override;
 };

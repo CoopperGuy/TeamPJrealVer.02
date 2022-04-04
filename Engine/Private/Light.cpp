@@ -45,7 +45,7 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 	ViewportDesc.Height = 720.f;
 
 	//m_pDeviceContext->RSGetViewports(&iNumViewports, &ViewportDesc);
-
+	
 	if (m_LightDesc.eType == LIGHTDESC::LIGHT_POINT) {
 		CLight* light = CLightManager::GetInstance()->GetLightFront();
 		m_pVIBuffer = light->GetVIBuffer();

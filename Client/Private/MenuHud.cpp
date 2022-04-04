@@ -4,6 +4,7 @@
 #include "QuestHud.h"
 #include "EventCheck.h"
 #include "StatusUI.h"
+#include "SoundHud.h"
 USING(Client)
 
 CMenuHud::CMenuHud()
@@ -77,6 +78,11 @@ void CMenuHud::Update(_double deltaTime)
 				emptyUI = dynamic_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(0, "StatusUI"));
 				m_pStatus = CStatusUI::Create();
 				CEngine::GetInstance()->AddScriptObject(m_pStatus, 0);
+				break;
+			case Client::CMenuHud::MENU_SOUND:
+				emptyUI = dynamic_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(0, "SoundUI"));
+				m_pSound = CSoundHud::Create();
+				CEngine::GetInstance()->AddScriptObject(m_pSound, 0);
 				break;
 			case Client::CMenuHud::MENU_END:
 				break;

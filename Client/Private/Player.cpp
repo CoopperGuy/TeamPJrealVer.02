@@ -81,9 +81,9 @@ void CPlayer::Free()
 	//for (int i = 0; i < quickSlotSize; i++) {
 	//	SafeRelease(m_pQuickSlot[i]);
 	//}
-	if (m_pTargetOn) {
-		m_pTargetOn->SetDead();
-	}
+	//if (m_pTargetOn) {
+	//	m_pTargetOn->SetDead();
+	//}
 }
 
 HRESULT CPlayer::Initialize()
@@ -100,7 +100,7 @@ HRESULT CPlayer::Initialize()
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
-	
+
 	if (m_pCollider)
 	{
 		m_pController = m_pCollider->GetController();
@@ -224,7 +224,7 @@ void CPlayer::Update(_double dDeltaTime)
 	}
 	m_pState->Update(dDeltaTime, *this);
 	this->UIInput();
-	
+
 	//////////////////Dissolve Test///////////////////////////////
 	if (m_bDissolve)
 	{
@@ -361,7 +361,7 @@ void CPlayer::Collsion()
 _float3 CPlayer::GetLockOnPosition()
 {
 	if (m_listMonsters.size() > 0)
-		return m_listMonsters.front()->GetCollisionPosition();
+		return m_listMonsters.front()->GetPosition();
 	return m_pGameObject->GetCollisionPosition();
 }
 
@@ -795,37 +795,37 @@ void CPlayer::SetUp_HitState()
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::LBCombo2: 
+	case (_uint)Player_State::LBCombo2:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::LBCombo3: 
+	case (_uint)Player_State::LBCombo3:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::LBCombo4_0: 
+	case (_uint)Player_State::LBCombo4_0:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::LBCombo4_1: 
+	case (_uint)Player_State::LBCombo4_1:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::RBCombo1: 
+	case (_uint)Player_State::RBCombo1:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::RBCombo2: 
+	case (_uint)Player_State::RBCombo2:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
@@ -897,55 +897,55 @@ void CPlayer::SetUp_HitState()
 		m_bSuperArmor = true;
 		break;
 	}
-	case (_uint)Player_State::Leap_End: 
+	case (_uint)Player_State::Leap_End:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = true;
 		break;
 	}
-	case (_uint)Player_State::WhirlWind_Start: 
+	case (_uint)Player_State::WhirlWind_Start:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::WhirlWind_ing: 
+	case (_uint)Player_State::WhirlWind_ing:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::WhirlWind_End: 
+	case (_uint)Player_State::WhirlWind_End:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::WarCry: 
+	case (_uint)Player_State::WarCry:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::Chop_Start: 
+	case (_uint)Player_State::Chop_Start:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::Chop_ing1: 
+	case (_uint)Player_State::Chop_ing1:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::Chop_ing2: 
+	case (_uint)Player_State::Chop_ing2:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
 		break;
 	}
-	case (_uint)Player_State::Chop_End: 
+	case (_uint)Player_State::Chop_End:
 	{
 		m_bOnlyDown = true;
 		m_bSuperArmor = false;
@@ -992,7 +992,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		if (CEngine::GetInstance()->IsKeyPressed('W'))
 		{
 			if (m_eRuder == DOWN)
-				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP),45.f);
+				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 45.f);
 			vPlayerLook = XMVectorLerp(vPlayerLook, vLook, 0.4f);
 			vPlayerLook = XMVectorSetY(vPlayerLook, 0.f);
 			memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
@@ -1275,7 +1275,7 @@ void CPlayer::Equip_OnOff(Equip eEquipType, string Name, _uint NumMaterial)
 			if (eEquipType != Equip::Helm)
 				static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, false);
 		}
-		else 
+		else
 		{
 			static_cast<CEmptyGameObject*>(m_pGameObject)->Set_Render(NumMaterial, true);
 		}
@@ -1424,7 +1424,7 @@ void CPlayer::CreateBlood()
 					m_bHit = false;
 				}
 			}
-			else if(!m_bOnlyDown)
+			else if (!m_bOnlyDown)
 				m_bHit = true;
 		}
 
@@ -1566,19 +1566,20 @@ void CPlayer::Transform_ToWorldSpace()
 	_vector*	tempPoint = m_pBox->GetObbBox();
 	for (int i = 0; i < 8; i++)
 		vPoint[i] = tempPoint[i];
-	Make_Plane(vPoint);
+
+	XMStoreFloat4(&m_Plane[0], DirectX::XMPlaneFromPoints(vPoint[1], vPoint[2], vPoint[5]));
+	XMStoreFloat4(&m_Plane[1], DirectX::XMPlaneFromPoints(vPoint[4], vPoint[7], vPoint[0]));
+
+	XMStoreFloat4(&m_Plane[2], DirectX::XMPlaneFromPoints(vPoint[4], vPoint[5], vPoint[1]));
+	XMStoreFloat4(&m_Plane[3], DirectX::XMPlaneFromPoints(vPoint[3], vPoint[6], vPoint[7]));
+
+	XMStoreFloat4(&m_Plane[4], DirectX::XMPlaneFromPoints(vPoint[5], vPoint[4], vPoint[7]));
+	XMStoreFloat4(&m_Plane[5], DirectX::XMPlaneFromPoints(vPoint[0], vPoint[1], vPoint[2]));
 }
 
 void CPlayer::Make_Plane(_fvector * pPoints)
 {
-	XMStoreFloat4(&m_Plane[0], XMPlaneFromPoints(pPoints[1], pPoints[2], pPoints[5]));
-	XMStoreFloat4(&m_Plane[1], XMPlaneFromPoints(pPoints[4], pPoints[7], pPoints[0]));
 
-	XMStoreFloat4(&m_Plane[2], XMPlaneFromPoints(pPoints[4], pPoints[5], pPoints[1]));
-	XMStoreFloat4(&m_Plane[3], XMPlaneFromPoints(pPoints[3], pPoints[6], pPoints[7]));
-
-	XMStoreFloat4(&m_Plane[4], XMPlaneFromPoints(pPoints[5], pPoints[4], pPoints[7]));
-	XMStoreFloat4(&m_Plane[5], XMPlaneFromPoints(pPoints[0], pPoints[1], pPoints[2]));
 }
 
 void CPlayer::SearchMonster()
@@ -1591,6 +1592,11 @@ void CPlayer::SearchMonster()
 				m_pTargetOn->ReleaseThisUI();
 				m_pTargetOn = nullptr;
 			}
+			CStat*	_status = static_cast<CStat*>(m_listMonsters.front()->GetComponent("Com_Stat"));
+			if (_status->GetStatInfo().hp <= 0) {
+				m_pTargetOn->ReleaseThisUI();
+				m_pTargetOn = nullptr;
+			}
 		}
 	}
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_B)) {
@@ -1598,9 +1604,44 @@ void CPlayer::SearchMonster()
 		CEngine* engine = CEngine::GetInstance();
 		list<CGameObject*> monList = engine->GetGameObjectInLayer(engine->GetCurSceneNumber(), "Layer_Monster");
 		for (auto& iter : monList) {
-			if (isInFrustum(XMLoadFloat3(&iter->GetCollisionPosition()), 1.f)) {
-				m_listMonsters.emplace_back(iter);
+			_vector _targetPos = XMLoadFloat3(&iter->GetPosition());
+			_vector _playerPos = XMLoadFloat3(&m_pGameObject->GetPosition());
+			_vector _targetDist = _targetPos - _playerPos;
+			_bool isIn = false;
+			if (XMVectorGetX(XMVector3Length(_targetDist)) < 4.f) {
+				_vector _targetDir = XMVector3Normalize(_targetDist);
+				_vector _playerLook = XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_LOOK));
+				_float _cosTheta = XMVectorGetX(XMVector3Dot(_playerLook, _targetDir));
+				_float _degree = acosf(_cosTheta);
+				_float _cross = XMVectorGetY(XMVector3Cross(_playerLook, _targetDir));
+
+				if (_cross > 0)
+				{
+					if (_degree >= XMConvertToRadians(0.f) && _degree <= XMConvertToRadians(60.f))
+					{
+						isIn = true;
+					}
+					else
+					{
+						isIn = false;
+					}
+				}
+				else
+				{
+					if (_degree <= XMConvertToRadians(0.f) && _degree >= XMConvertToRadians(-60.f))
+					{
+						isIn = true;
+					}
+					else
+					{
+						isIn = false;
+					}
+				}
+				if (isIn) {
+					m_listMonsters.emplace_back(iter);
+				}
 			}
+
 		}
 		sort(m_listMonsters.begin(), m_listMonsters.end(), [](CGameObject* _A, CGameObject* _B) {
 			return _A->GetCollisionPosition().z < _B->GetCollisionPosition().z;

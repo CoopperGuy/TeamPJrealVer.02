@@ -726,6 +726,21 @@ void CEngine::SetVolume(float volume, CHANNELID eID)
 	m_pSoundManager->SetVolume(volume, eID);
 }
 
+void CEngine::SetBGMVolume(float volume)
+{
+	m_pSoundManager->SetBGMVolume(volume);
+}
+
+_float CEngine::GetVolume(CHANNELID eID)
+{
+	return m_pSoundManager->GetVolume(eID);
+}
+
+_float CEngine::GetBGMVolume()
+{
+	return m_pSoundManager->GetBGMVolume();
+}
+
 
 void CEngine::PxInitialize()
 {
@@ -1037,7 +1052,7 @@ _byte CEngine::Get_MouseButtonState(CInput_Device::MOUSEBUTTONSTATE eButtonState
 	return m_pInput_Device->Get_MouseButtonState(eButtonState);
 }
 
-_byte CEngine::Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState)
+_bool CEngine::Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonState)
 {
 	if (m_pInput_Device == nullptr)
 		return 0;
@@ -1045,7 +1060,7 @@ _byte CEngine::Get_MouseButtonStateUp(CInput_Device::MOUSEBUTTONSTATE eButtonSta
 	return m_pInput_Device->Get_MouseButtonStateUp(eButtonState);
 }
 
-_byte CEngine::Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState)
+_bool CEngine::Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE eButtonState)
 {
 	if (m_pInput_Device == nullptr)
 		return 0;

@@ -43,6 +43,7 @@ void CPortalUI::Update(_double deltaTime)
 				if (m_iMinIdx < m_iCurIndex) {
 					m_fDestScnensPosX += 640.f;
 					m_iCurIndex--;
+					m_bMove = true;
 				}
 			}
 		}
@@ -53,17 +54,20 @@ void CPortalUI::Update(_double deltaTime)
 				if (m_iMaxIdx > m_iCurIndex) {
 					m_fDestScnensPosX -= 640.f;
 					m_iCurIndex++;
+					m_bMove = true;
 				}
 			}
 		}
-		if (fabsf(m_fDestScnensPosX - m_fCurScnensPosX) >= 0.1f) {
+		_float t = _float(m_moveDelta / m_moveTime);
+		if (t < 1.f && m_bMove) {
 			m_moveDelta += deltaTime;
-			_float t = _float(m_moveDelta / m_moveTime);
 			m_fCurScnensPosX = m_fPreScnensPosX * (1 - t) + m_fDestScnensPosX * t;
 		}
 		else {
+			m_bMove = false;
 			m_fPreScnensPosX = m_fDestScnensPosX;
 			m_moveDelta = 0;
+			m_fCurScnensPosX = m_fPreScnensPosX * (1 - t) + m_fDestScnensPosX * t;
 		}
 		_float2 scenesPos = m_pPosition->GetPosition();
 		m_pPosition->SetPosition(m_fCurScnensPosX, scenesPos.y);
