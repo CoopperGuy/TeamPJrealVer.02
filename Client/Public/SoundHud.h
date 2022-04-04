@@ -7,7 +7,7 @@ class CSoundHud :
 	public IScriptObject
 {
 private:
-	enum SOUNDS{SOUNDS_BGMSCROLL, SOUNDS_BGMBLOCK, SOUNDS_END};
+	enum SOUNDS{SOUNDS_BGMSCROLL, SOUNDS_BGMBLOCK, SOUNDS_SESCROLL, SOUNDS_SEBLOCK, SOUNDS_BGMVOL, SOUNDS_SEVOL, SOUNDS_END};
 private:
 	explicit CSoundHud();
 	virtual ~CSoundHud() = default;
@@ -24,6 +24,7 @@ private:
 	pair<_float, _float>	m_Positions;
 private:
 	_bool	m_bIsDraged = false;
+	_bool	m_bISSeDraged = false;
 public:
 	static CSoundHud* Create(CGameObject*	pTarget = nullptr);
 	virtual void Free() override;

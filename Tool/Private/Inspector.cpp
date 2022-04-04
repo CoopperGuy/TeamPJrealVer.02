@@ -1109,8 +1109,14 @@ void CInspector::DrawCameraSetting()
 {
 	if (ImGui::TreeNodeEx("SettingCamera")) {
 		CEmptyCamera*	_camera = static_cast<CEmptyCamera*>(g_pObjFocused);
+		_bool	_wait = _camera->p_isWait;
+		_bool	_back = _camera->p_isBack;
 		_float _time = _camera->p_moveTime;
+		_float _waitTime = _camera->p_waitTime;
+		ImGui::Checkbox("isWait", &_wait);
+		ImGui::Checkbox("isBack", &_back);
 		ImGui::DragFloat("MoveTime", &_time, 0.01f, 0.f, 100.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
+		ImGui::DragFloat("WaitTime", &_waitTime, 0.01f, 0.f, 100.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
 		_float3 srcPos = _camera->p_srcPosition;
 		_float3 destPos = _camera->p_destPosition;
 		_float3 srcLookPos = _camera->p_srcLookPosition;
@@ -1121,7 +1127,10 @@ void CInspector::DrawCameraSetting()
 		DrawVec3("srcLookPos", srcLookPos);
 		DrawVec3("destLookPos", destLookPos);
 
+		_camera->p_isWait = _wait;
+		_camera->p_isBack = _back;
 		_camera->p_moveTime = _time;
+		_camera->p_waitTime = _waitTime;
 		_camera->p_srcPosition = srcPos;
 		_camera->p_destPosition = destPos;
 		_camera->p_srcLookPosition = srcLookPos;

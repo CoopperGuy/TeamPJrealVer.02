@@ -1,0 +1,21 @@
+Scene: Untitled
+GameObjects:
+  - Name: MovieCamera
+    UUID: 3264535467397967066
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Camera
+    Com_Transform:
+      Translation: [-0.0827065408, 0.539073288, -15.6798229]
+      Rotation: [-0.326850176, 0.443698764, 0]
+      Scale: [0.999832749, 0.999841213, 0.999886632]
+    IsWait: true
+    IsBack: true
+    MoveTime: 3
+    WaitTime: 1
+    Movie: 0
+    SrcPosition: [0, 0.5, -16]
+    DestPosition: [-3.02900004, 1.93099999, -4.27400017]
+    SrcLookPosition: [0, 0, 0]
+    DestLookPosition: [0, 0.600000024, -5]

@@ -813,7 +813,10 @@ void CSceneSerializer::SerializeCamera(YAML::Emitter & out, CGameObject * obj)
 
 		out << YAML::EndMap;
 	}
+	out << YAML::Key << "IsWait" << YAML::Value << _camera->p_isWait;
+	out << YAML::Key << "IsBack" << YAML::Value << _camera->p_isBack;
 	out << YAML::Key << "MoveTime" << YAML::Value << _camera->p_moveTime;
+	out << YAML::Key << "WaitTime" << YAML::Value << _camera->p_waitTime;
 	out << YAML::Key << "Movie" << YAML::Value << _camera->p_Moive;
 
 	out << YAML::Key << "SrcPosition";
@@ -1061,6 +1064,9 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 	auto SrcLookPosition = obj["SrcLookPosition"];
 	auto DestLookPosition = obj["DestLookPosition"];
 	auto movie = obj["Movie"];
+	auto wait = obj["IsWait"];
+	auto back = obj["IsBack"];
+	auto waitTime = obj["WaitTime"];
 
 	_camera->p_moveTime = moveTime.as<_float>();
 	_float3 srcPos{ SrcPosition[0].as<_float>(),SrcPosition[1].as<_float>() ,SrcPosition[2].as<_float>() };
@@ -1074,6 +1080,12 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 	_camera->p_destLookPosition = destLookPos;
 	if (movie)
 		_camera->p_Moive = (CEmptyCamera::MOVIE)movie.as<_int>();
+	if (wait)
+		_camera->p_isWait = wait.as<_bool>();
+	if (back)
+		_camera->p_isBack = back.as<_bool>();
+	if (waitTime)
+		_camera->p_waitTime = waitTime.as<_float>();
 	return deserializedObject;
 }
 
@@ -2308,7 +2320,6 @@ CGameObject* CSceneSerializer::NoneInstancingObject(YAML::Node & obj, _bool bSpa
 
 			if (!bSpawn)
 				m_pEngine->CloneModel(deserializedObject, meshFilePath, meshFileName, shaderFilePath, EffectFilePath, hasCollider, deserializedObject->GetComponent("Com_Transform"), bEquipment);
-
 			else
 				CModelManager::GetInstance()->CloneModelThread(deserializedObject, meshFilePath, meshFileName, shaderFilePath, EffectFilePath, hasCollider, deserializedObject->GetComponent("Com_Transform"), bEquipment);
 		}

@@ -96,8 +96,9 @@ void CSound::StopAll()
 
 void CSound::SetVolume(float volume, CHANNELID eID)
 {
-	FMOD_Channel_SetVolume(m_pChannelArr[eID], volume);
-
+	for (_int i = PLAYER00; i < MAXCHANNEL; i++) {
+		FMOD_Channel_SetVolume(m_pChannelArr[i], volume);
+	}
 	FMOD_System_Update(m_pSystem);
 }
 

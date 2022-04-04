@@ -23,29 +23,77 @@ HRESULT CEmptyCamera::Initialize(void * pArg)
 {
 	__super::Initialize(pArg);
 	m_bIsUse = false;
+	m_bIsWaiting = true;
 	return S_OK;
 }
 
 _uint CEmptyCamera::Update(_double TimeDelta)
 {
 	__super::Update(TimeDelta);
-	if (m_bIsUse) {
+	if (m_bIsUse)
+	{
 		m_fMoveDelta += (_float)TimeDelta;
-		if (m_fMoveTime < m_fMoveDelta) {
+		_float t = 0.f;
+		if (m_bIsBack)
+		{
+			t = m_fMoveDelta / m_fMoveTime;
+			t = sinf(t * XM_PI) + 0.01f;
+			if (m_bIsWait && m_bIsWaiting)
+			{
+				if (t >= 1.f)
+				{
+					m_fWaitDelta += (_float)TimeDelta;
+					if (m_fWaitTime > m_fWaitDelta)
+					{
+						m_fMoveDelta -= (_float)TimeDelta;
+					}
+					else 
+					{
+						m_bIsWaiting = false;
+					}
+				}
+			}
+		}
+		else
+		{
+			t = m_fMoveDelta / m_fMoveTime;
+
+			if (m_bIsWait && m_bIsWaiting)
+			{
+				if (t >= 1.f)
+				{
+					m_fWaitDelta += (_float)TimeDelta;
+					if (m_fWaitTime < m_fWaitDelta)
+					{
+						m_fMoveDelta = 0.f;
+						m_fWaitDelta = 0.f;
+						m_bIsUse = false;
+						m_bIsWaiting = false;
+						CameraManager::GetInstance()->SetDefaultCamera();
+						return _uint();
+					}
+					return _uint();
+				}
+			}
+		}
+		if (m_fMoveTime < m_fMoveDelta)
+		{
 			m_fMoveDelta = 0.f;
+			m_fWaitDelta = 0.f;
 			m_bIsUse = false;
+			m_bIsWaiting = false;
 			CameraManager::GetInstance()->SetDefaultCamera();
 			return _uint();
 		}
-		
-		_float t = m_fMoveDelta / m_fMoveTime;
+	
 		_vector pos = XMQuaternionSlerp(DirectX::XMLoadFloat3(&m_vSrcPosition), DirectX::XMLoadFloat3(&m_vDestPosition), t);
-		_vector look =XMVector3Normalize(DirectX::XMLoadFloat3(&m_vDestLookPosition) - pos);
+		_vector look = XMVector3Normalize(DirectX::XMLoadFloat3(&m_vDestLookPosition) - pos);
 		m_pTransformCom->SetState(CTransform::STATE_POSITION, pos);
-		if(m_eMovie == MOVIE::MOVIE_NOY)
+		if (m_eMovie == MOVIE::MOVIE_NOY)
 			m_pTransformCom->LookAt(DirectX::XMLoadFloat3(&m_vDestLookPosition));
-		else if(m_eMovie ==MOVIE::MOVIE_Y)
+		else if (m_eMovie == MOVIE::MOVIE_Y)
 			m_pTransformCom->SetLookUpVector(look);
+
 	}
 
 	return _uint();
