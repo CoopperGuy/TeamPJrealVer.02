@@ -1,0 +1,1318 @@
+Scene: Untitled
+GameObjects:
+  - Name: Direction
+    UUID: 463561755303631127
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.699999988, 20.1000004, -31.8999996]
+      Rotation: [125.293983, 54.5004044, 35.4999352]
+      Scale: [0.999798775, 0.999806285, 0.999818921]
+    Com_Light:
+      Type: 0
+      Range: 12.1999998
+      Angle: 20
+      Diffuse: [1, 1, 1, 1]
+      Ambient: [0.144927561, 0.144927561, 0.144927561, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Room
+    UUID: 3802029611451780858
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-8.20631123, 0, 4.41395521]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Room
+    UUID: 12729197830165223206
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.82244778, 0, 16.0711899]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Floor
+    UUID: 4905778768668667250
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -1.24888984e-07, -0.0387736596]
+      Rotation: [90, -0, 0]
+      Scale: [0.999395013, 1, 0.999996781]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -1.24888984e-07, -0.0387736596]
+    Rotation: [90, -0, 0]
+    Scale: [0.999395013, 1, 0.999996781]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Floor
+    UUID: 6683807584559512795
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 1.41047907e-09, 6.84311485]
+      Rotation: [90, -0, 0]
+      Scale: [0.999760628, 1, 0.999997079]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 1.41047907e-09, 6.84311485]
+    Rotation: [90, -0, 0]
+    Scale: [0.999760628, 1, 0.999997079]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Floor
+    UUID: 15175941572143912440
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 5.71007464e-10, 13.7215319]
+      Rotation: [90, -0, 0]
+      Scale: [0.999739885, 1, 0.999999642]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Floor
+    UUID: 11804280301613671250
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -8.99863721e-07, 20.586483]
+      Rotation: [90, -0, 0]
+      Scale: [0.999877691, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -8.99863721e-07, 20.586483]
+    Rotation: [90, -0, 0]
+    Scale: [0.999877691, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Door
+    UUID: 3197711091322300733
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-13.0869913, -0.15315792, 4.36814404]
+      Rotation: [0, 89, 0]
+      Scale: [1.51331186, 1.30506337, 1.74330914]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+      MeshFileName: door4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-13.0869913, -0.15315792, 4.36814404]
+    Rotation: [0, 89, 0]
+    Scale: [1.51331186, 1.30506337, 1.74330914]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+    MeshFileName: door4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Door
+    UUID: 996477130613289429
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [11.8026485, -0.130255699, 16.0618591]
+      Rotation: [0, 89, 0]
+      Scale: [1.51299989, 1.30499995, 1.74300003]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+      MeshFileName: door4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [11.8026485, -0.130255699, 16.0618591]
+    Rotation: [0, 89, 0]
+    Scale: [1.51299989, 1.30499995, 1.74300003]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+    MeshFileName: door4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Door_MeshCollider
+    UUID: 6003535946930379564
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.51782179, 0.381160975, 4.49693775]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.1113385, 1.39676464]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+      MeshFileName: door2.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Door_MeshCollider
+    UUID: 9794889841790220305
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.20568132, 2.67579878e-07, 16.0519505]
+      Rotation: [0, -0, -4.9632461e-05]
+      Scale: [0.734000027, 1.23899996, 1.29200006]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\door\
+      MeshFileName: door2.fbx
+      HasCollider: true
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 60
+  - Name: Roof
+    UUID: 16088465231526030618
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-8.20600033, 4, 4.33456612]
+      Rotation: [90, -0, 0]
+      Scale: [3.29816937, 3.29999995, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
+      MeshFileName: TowerUp.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-8.20600033, 4, 4.33456612]
+    Rotation: [90, -0, 0]
+    Scale: [3.29816937, 3.29999995, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
+    MeshFileName: TowerUp.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 100
+  - Name: Roof
+    UUID: 15916378545113010952
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.82200003, 3.93000007, 16.0709991]
+      Rotation: [90, -0, 0]
+      Scale: [3.29761958, 3.29999995, 2]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
+      MeshFileName: TowerUp.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.82200003, 3.93000007, 16.0709991]
+    Rotation: [90, -0, 0]
+    Scale: [3.29761958, 3.29999995, 2]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
+    MeshFileName: TowerUp.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 60
+  - Name: Floor
+    UUID: 11846677985950274808
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.9147315, -0.0255432688, -1.12437558]
+      Rotation: [90, -0, 0]
+      Scale: [0.999903202, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.9147315, -0.0255432688, -1.12437558]
+    Rotation: [90, -0, 0]
+    Scale: [0.999903202, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 61.7000008
+  - Name: Floor
+    UUID: 18144408595030484416
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-7.01763725, -4.48300597e-07, 10.2559223]
+      Rotation: [90, -0, 0]
+      Scale: [0.999750912, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 34.9000015
+  - Name: Floor
+    UUID: 11596240562329620045
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.98551321, -7.49046876e-07, 17.136198]
+      Rotation: [90, -0, 0]
+      Scale: [0.999872804, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.98551321, -7.49046876e-07, 17.136198]
+    Rotation: [90, -0, 0]
+    Scale: [0.999872804, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 57.7000008
+  - Name: Floor
+    UUID: 2627321486318956406
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.01249981, -4.62087115e-07, 10.5709314]
+      Rotation: [90, -0, 0]
+      Scale: [0.999716341, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.01249981, -4.62087115e-07, 10.5709314]
+    Rotation: [90, -0, 0]
+    Scale: [0.999716341, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Floor
+    UUID: 15387418230544599351
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.01100016, -9.45902912e-07, 21.6397305]
+      Rotation: [90, -0, 0]
+      Scale: [0.999805629, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.01100016, -9.45902912e-07, 21.6397305]
+    Rotation: [90, -0, 0]
+    Scale: [0.999805629, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Floor
+    UUID: 14114171315304734256
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.01000023, -1.60946669e-07, 3.68203068]
+      Rotation: [90, -0, 0]
+      Scale: [0.999879837, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.01000023, -1.60946669e-07, 3.68203068]
+    Rotation: [90, -0, 0]
+    Scale: [0.999879837, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 60
+  - Name: Floor
+    UUID: 18073957149103330611
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.01100636, 1.38197592e-07, -3.16159248]
+      Rotation: [90, -0, 0]
+      Scale: [0.999829054, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.01100636, 1.38197592e-07, -3.16159248]
+    Rotation: [90, -0, 0]
+    Scale: [0.999829054, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Floor
+    UUID: 21003189704377254
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -1.20113225e-06, 27.478693]
+      Rotation: [90, -0, 0]
+      Scale: [0.99986726, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -1.20113225e-06, 27.478693]
+    Rotation: [90, -0, 0]
+    Scale: [0.99986726, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Floor
+    UUID: 6194657553321373372
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
+      Rotation: [90, -0, 0]
+      Scale: [0.999880195, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
+    Rotation: [90, -0, 0]
+    Scale: [0.999880195, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 16236912063314421921
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-9.54160595, 6.69138681e-05, -4.84749556]
+      Rotation: [0.000697230455, 85.5037079, 0.000180773568]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-9.54160595, 6.69138681e-05, -4.84749556]
+    Rotation: [0.000697230455, 85.5037079, 0.000180773568]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 17043743980849136883
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-15.3863277, -0.0196297932, 20.7923775]
+      Rotation: [7.4003241e-05, 89.0855408, 7.40141986e-05]
+      Scale: [2.75791192, 1, 2.94796181]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-15.3863277, -0.0196297932, 20.7923775]
+    Rotation: [7.4003241e-05, 89.0855408, 7.40141986e-05]
+    Scale: [2.75791192, 1, 2.94796181]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 17802843626035762416
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-17.2029953, -0.0200104713, 37.0565758]
+      Rotation: [0, 89, 0]
+      Scale: [2.84934616, 1, 1.97699988]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-17.2029953, -0.0200104713, 37.0565758]
+    Rotation: [0, 89, 0]
+    Scale: [2.84934616, 1, 1.97699988]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 15730926395671447334
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [10.8399172, 1.14977671e-11, 6.94282818]
+      Rotation: [-179.999893, 89.9999466, -179.999893]
+      Scale: [1, 0.999993145, 2.29024172]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [10.8399172, 1.14977671e-11, 6.94282818]
+    Rotation: [-179.999893, 89.9999466, -179.999893]
+    Scale: [1, 0.999993145, 2.29024172]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 2496961605633140818
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [8.0359993, 0, -2.00899243]
+      Rotation: [0, 89, 0]
+      Scale: [0.999996603, 1, 0.999997914]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [8.0359993, 0, -2.00899243]
+    Rotation: [0, 89, 0]
+    Scale: [0.999996603, 1, 0.999997914]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 4267476675193289662
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [8.98438931, 0, 25.3918552]
+      Rotation: [0, 86.6890945, 0]
+      Scale: [1.02529907, 1, 1.77871931]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [8.98438931, 0, 25.3918552]
+    Rotation: [0, 86.6890945, 0]
+    Scale: [1.02529907, 1, 1.77871931]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 62.9000015
+  - Name: Wall
+    UUID: 8877056248571915792
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.864422441, 0, -4.18681097]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 0.305514067]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-0.864422441, 0, -4.18681097]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 0.305514067]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 62.2999992
+  - Name: Wall
+    UUID: 641217075241410739
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [9.55116844, -2.49041545e-06, 34.8596992]
+      Rotation: [0, 89, 0]
+      Scale: [2.60216713, 0.999999523, 0.999902487]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [9.55116844, -2.49041545e-06, 34.8596992]
+    Rotation: [0, 89, 0]
+    Scale: [2.60216713, 0.999999523, 0.999902487]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 50
+  - Name: Wall
+    UUID: 3595885928979731235
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.328829288, 0, 48.7552299]
+      Rotation: [0, -0, 0]
+      Scale: [3.6842165, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+      MeshFileName: untitled.fbx
+      HasCollider: true
+      Equipment: false
+    Translation: [-0.328829288, 0, 48.7552299]
+    Rotation: [0, -0, 0]
+    Scale: [3.6842165, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
+    RenderGroup: 1
+    FrustumRange: 67.0999985
+  - Name: Floor
+    UUID: 17980916635349259035
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -2.09460879e-07, 34.3409767]
+      Rotation: [90, -0, 0]
+      Scale: [0.99994427, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -2.09460879e-07, 34.3409767]
+    Rotation: [90, -0, 0]
+    Scale: [0.99994427, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 24.7999992
+  - Name: Floor
+    UUID: 8400553259636230910
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, -9.50574019e-08, 41.2052727]
+      Rotation: [90, -0, 0]
+      Scale: [0.999474704, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, -9.50574019e-08, 41.2052727]
+    Rotation: [90, -0, 0]
+    Scale: [0.999474704, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 31.1000004
+  - Name: Floor
+    UUID: 16920900774582016401
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
+      Rotation: [90, -0, 0]
+      Scale: [0.999810278, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
+    Rotation: [90, -0, 0]
+    Scale: [0.999810278, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 31.3999996
+  - Name: Floor
+    UUID: 4200820668380393945
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.00759602, 1.8604554e-07, 31.2411652]
+      Rotation: [90, -0, 0]
+      Scale: [0.999931455, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [7.00759602, 1.8604554e-07, 31.2411652]
+    Rotation: [90, -0, 0]
+    Scale: [0.999931455, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 66.1999969
+  - Name: Floor
+    UUID: 1022811353140449071
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [6.98798656, -1.27210498e-07, 38.0731163]
+      Rotation: [90, -0, 0]
+      Scale: [0.999757648, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [6.98798656, -1.27210498e-07, 38.0731163]
+    Rotation: [90, -0, 0]
+    Scale: [0.999757648, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 46.0999985
+  - Name: Floor
+    UUID: 14260363638866535063
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
+      Rotation: [90, -0, 0]
+      Scale: [0.999906421, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
+    Rotation: [90, -0, 0]
+    Scale: [0.999906421, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 59.5
+  - Name: Floor
+    UUID: 9592755840855743006
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
+      Rotation: [90, -0, 0]
+      Scale: [0.999436975, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
+    Rotation: [90, -0, 0]
+    Scale: [0.999436975, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 41.5999985
+  - Name: Floor
+    UUID: 2911758182647381444
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [7.00125313, -1.46524954e-07, 44.9476662]
+      Rotation: [90, -0, 0]
+      Scale: [0.999865055, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+      MeshFileName: Floor4.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 31.1000004
+  - Name: Sky
+    UUID: 16601431722883202181
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 22.1806793]
+      Rotation: [90, -0, 0]
+      Scale: [2.71627998, 5.1651268, 3.89999986]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Sky\
+      MeshFileName: Sky3fbx.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0, 0, 22.1806793]
+    Rotation: [90, -0, 0]
+    Scale: [2.71627998, 5.1651268, 3.89999986]
+    MeshFilePath: ..\..\Assets\Meshes\Sky\
+    MeshFileName: Sky3fbx.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 1000
+  - Name: Empty Object
+    UUID: 392138585123346961
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.5361588, 0.0107404366, 0.125115141]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1.28325891, 1.21295512]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Furniture\
+      MeshFileName: 9.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Empty Object
+    UUID: 11442656574149107850
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.56963611, 0.301738083, 0.125]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 1.39999998
+      Angle: 25.8999996
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.785758376, 0.507246375, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 19.1000004
+  - Name: SmokeEff
+    UUID: 9646065496303920454
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 0
+    BillBord: false
+    Com_Transform:
+      Translation: [3.53600001, 0.36860621, 0.126000002]
+      Rotation: [0, -0, 0]
+      Scale: [0.999948025, 1.12074649, 0.999957323]
+    Com_RectInstance:
+      Shape: 1
+      InstNum: 100
+      Color: [0.509318471, 0.363766193, 0.586946487, 0]
+      Speed: 0.899999976
+      LifeTime: 1.5
+      Size: 0.400000006
+      StartRadian: 270
+      RadiationAngle: 41
+      LerpColor: true
+      SrcColor: [0.805922925, 0.442028999, 1, 0]
+      DestColor: [0.311594188, 0.311594188, 0.311594188, 0]
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\nullImage.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, 0]
+  - Name: Empty Object
+    UUID: 348466159552121155
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 1.52189445, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [1, 1, 1]
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: true
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.759319603, 0.37335375, 26.4462662]
+      Rotation: [2.5396568e-07, -2.74639156e-08, 90]
+      Scale: [3.00000024, 5.83976841, 2.99587154]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.713993907, 0.873773038, 26.0206566]
+      Rotation: [2.53968096e-07, -2.74664611e-08, 90]
+      Scale: [3, 3, 2.99891329]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.784635007, 0.355842501, 25.5144691]
+      Rotation: [2.5368081e-07, -2.74336251e-08, 90]
+      Scale: [3.00000024, 3.04720354, 2.99414253]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.755552292, 0.890097439, 25.0541286]
+      Rotation: [2.53913413e-07, -2.7461283e-08, 90]
+      Scale: [3.00000024, 6.01965046, 2.99568248]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.840887308, 0.38874048, 24.5121441]
+      Rotation: [2.53835509e-07, -2.74506782e-08, 90]
+      Scale: [3.00000024, 4.95030069, 2.99509311]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.845914483, 0.894207954, 23.97085]
+      Rotation: [2.53988077e-07, -2.74687793e-08, 90]
+      Scale: [3.00000024, 3.37949181, 2.99613905]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.880246818, 0.390837371, 23.4282494]
+      Rotation: [2.53949423e-07, -2.74628675e-08, 90]
+      Scale: [3.00000024, 3.53901267, 2.99577808]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91766298, 0.390837371, 23.4282494]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 5.47713184, 2.99536014]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91766191, 0.881356537, 23.9455433]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 6.42768288, 2.99526858]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91766143, 0.390837371, 24.4899158]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 5.27771282, 2.9953711]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91766047, 0.902267218, 25.0290833]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 5.29888296, 2.9953723]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91765928, 0.390837371, 25.5569]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 4.43998051, 2.99514747]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.91766322, 0.889276981, 22.952034]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 4.15328407, 2.98802519]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 23.7999992

@@ -91,8 +91,8 @@ void CWolf::Update(_double dDeltaTime)
 
 	if (WolfAtt)
 	{
-		m_pWeaponOBB->p_States = CBasicCollider::STATES_ATK;
-
+		if (m_pWolfState == IDLE0)
+			m_pWolfState = THREATEN;
 		WolfAttflow(dDeltaTime);
 	}
 
@@ -119,17 +119,23 @@ void CWolf::LateUpdate(_double dDeltaTime)
 
 			//if (m_bLook) {
 			_vector vTargetPos, vPos;
-			vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
-			vDis = vTargetPos - vPos;
-
+			vDis = PlayerPos - vPos;
 			vDis = XMVectorSetY(vDis, 0.f);
 			m_pTransform->SetLook(vDis);
+
+			_float tempX = XMVectorGetX(vDis);
+			_float tempZ = XMVectorGetZ(vDis);
+			if (tempX < 0)
+				tempX = tempX*-1.f;
+			if (tempZ < 0)
+				tempZ = tempZ*-1.f;
 
 
 			memcpy(&vDir, &XMVector3Normalize(vDis), sizeof(_float3));
 			WolfLookPlayer();
 			m_pController->move(vDir * 1.8f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+
 		}
 		WolfSetAni(dDeltaTime);
 		//WolfStateUpdate(dDeltaTime);
@@ -138,15 +144,15 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	if (m_pWolfState == DIE)
 	{
 
-			CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY13);
-	
+		CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY13);
+
 		if (m_pModel->Get_isFinished()) {
 
 			this->SetDead();
 			m_pGameObject->SetDead();
 			m_pCollider->ReleaseController();
 			if (m_pHpBar) {
-				m_pHpBar->SetUpDead(); 
+				m_pHpBar->SetUpDead();
 			}
 		}
 	}
@@ -195,12 +201,17 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	_float dis = 1.f;
 	switch (m_pWolfState)
 	{
-	case Client::CWolf::IDLE0: {
+	case Client::CWolf::THREATEN2: {
 		m_bMove = false;
-		m_pWolfState = THREATEN;
+		m_dAttDelta += dDeltaTime;
+		if (m_dAttDelta >=1.2) {
+			m_pWolfState = THREATEN;
+		}
 		break;
 	}
 	case Client::CWolf::THREATEN: {
+		m_dAttDelta = 0;
+
 		if (m_pStat->GetStatInfo().hp <= 0) {
 			m_pWolfState = DIE;
 			return;
@@ -209,50 +220,47 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 		WolfLookPlayer();
 		m_bMove = false;
+
 		if (m_pModel->Get_isFinished()) {
 			if (XMVectorGetX(TargetDistance) > dis || XMVectorGetZ(TargetDistance) > dis)
 				m_pWolfState = RUN;
 			else
 				m_pWolfState = STRAIGHTATACK;
+
+			m_dAttDelta = 0.f;
 		}
 		break;
 	}
-	case Client::CWolf::ZTTACK:
-		if (m_pModel->Get_isFinished()) {
-			WolfLookPlayer();
-			m_pWolfState = THREATEN;
-		}
-		else {
-			if (keyFrame >= 30 && keyFrame <= 50)
-				m_bMove = true;
-			else {
-				WolfLookPlayer();
-				m_bMove = false;
-			}
-		}
-		break;
 	case Client::CWolf::STRAIGHTATACK:
+
+
+		if (keyFrame == 0)
+			PlayerPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+		
+		if (keyFrame >= 41 && keyFrame <= 43)
+			m_pWeaponOBB->p_States = CBasicCollider::STATES_ATK;
+		else
+			m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
+
+
 		if (m_pModel->Get_isFinished()) {
 			WolfLookPlayer();
-			m_pWolfState = THREATEN;
+			m_bMove = false; 
+			m_pWolfState = THREATEN2;
 		}
 		else {
-			if (keyFrame >= 30 && keyFrame <= 45)
-				m_bMove = true;
-			else {
-				//WolfLookPlayer();
-				m_bMove = false;
-
-				if (keyFrame >= 42)
-				{
-					CEngine::GetInstance()->PlaySoundW("WolfAtt.ogg", CHANNELID::ENEMY16);
-				}
+			m_bMove = true;
+			if (keyFrame >= 42)
+			{
+				CEngine::GetInstance()->PlaySoundW("WolfAtt.ogg", CHANNELID::ENEMY16);
 			}
+
 		}
 		break;
 	case Client::CWolf::DAMAGE: {
 		if (m_iBlood < 1) {
 			m_iBlood += 1;
+			m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
 			CEngine::GetInstance()->PlaySoundW("WolfHit.mp3", CHANNELID::ENEMY17);
 			//CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::ENEMY10);
 
@@ -277,11 +285,16 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 								break;
 	case Client::CWolf::RUN:
 	{
-		if (XMVectorGetX(TargetDistance) > 1.2f || XMVectorGetZ(TargetDistance) > 1.2f)
+		PlayerPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
+		m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
+
+		m_bMove = true;
+
+		if (XMVectorGetX(TargetDistance) >= 1.f || XMVectorGetZ(TargetDistance) >= 1.f)
 			m_bMove = true;
 		else {
-			m_bMove = false;
 			m_pWolfState = THREATEN;
+			m_bMove = false;
 		}
 		break;
 	}
@@ -376,6 +389,10 @@ void CWolf::WolfSetAni(_double dDeltaTime)
 			break;
 		case Client::CWolf::DEADBODY:
 			m_pModel->SetUp_AnimationIndex(DEADBODY);
+			break;
+		case Client::CWolf::THREATEN2:
+			m_pModel->SetUp_AnimationIndex(THREATEN);
+			SetAtt();
 			break;
 		}
 		m_pCurState = m_pWolfState;

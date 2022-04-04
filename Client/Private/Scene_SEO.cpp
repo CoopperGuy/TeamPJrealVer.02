@@ -49,9 +49,9 @@ HRESULT CScene_SEO::ReadyScript()
 
 
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_SEO);
-	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_SEO);
+	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_SEO);
 
-	m_pEngine->AddScriptObject(CUrsaDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	//m_pEngine->AddScriptObject(CUrsaDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 	//m_pEngine->AddScriptObject(CFlogasDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 
 	return S_OK;

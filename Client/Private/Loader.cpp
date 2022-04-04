@@ -424,16 +424,16 @@ HRESULT CLoader::GameSceneSEO()
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_SEO, 1);
 
 		//(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
-		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 0));
-		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 1));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_SEO, 0));
+		//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 1));
 
 		//if (FAILED(GameFlogasLoader()))
 		//	MSG_BOX("Failed To Create Flogas Effect");
 
 	//GameSceneStage02();
 
-	if (FAILED(GameUrsaLoader()))
-		MSG_BOX("Failed To Create Ursa Effect");
+	//if (FAILED(GameUrsaLoader()))
+	//	MSG_BOX("Failed To Create Ursa Effect");
 
 	m_ThreadLoader->Start_Thread();
 

@@ -7,7 +7,7 @@ class CMonHpVIBuffer;
 class CWolf : public CEnemy
 {
 public:
-	enum WOLFSTATE { EAT, IDLE0, IDLE1, WALK, RUN, THREATEN, ZTTACK, STRAIGHTATACK, DAMAGE, DIE, DEADBODY, STATEEND };
+	enum WOLFSTATE { EAT, IDLE0, IDLE1, WALK, RUN, THREATEN, ZTTACK, STRAIGHTATACK, DAMAGE, DIE, DEADBODY, THREATEN2, STATEEND };
 	//µ¿¹° ½ÃÃ¼¸Ô´Â°Å, Ç® ³¿»õ Å¯Å¯, ±×³É ¼­ÀÖ´Â°Å, °È±â, ¶Ù±â, À§Çù, Á¡ÇÁ°ø°Ý, Á÷Áø°ø°Ý, ÇÇÇØ, Á×´Â¸ð¼Ç, Á×Àº ÈÄ 
 private:
 	explicit CWolf();
@@ -75,6 +75,10 @@ private:
 	_bool m_isEnd = false;
 	_bool m_isdeadAni = false;
 	_bool m_bDIE = false;
+
+	_double m_dAttDelta = 0.0;
+
+	_vector vTargetPos = {};
 private:
 	_float m_fJumpSpeed = 0.f;
 	_float m_fSpeed = 15.0f;
@@ -83,6 +87,7 @@ private:
 	_int  m_iBlood =0;
 
 	_vector mypos = {};
+	_vector PlayerPos = {};
 private:
 	class CStat* m_pStat = nullptr;
 	class CTransform* m_pTargetTransform = nullptr;

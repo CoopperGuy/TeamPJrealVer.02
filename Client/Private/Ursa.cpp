@@ -132,6 +132,7 @@ void CUrsa::Update(_double dDeltaTime)
 	/*Checking_Phase(dDeltaTime);
 	Execute_Pattern(dDeltaTime);
 	Checking_Finished();
+
 	if (m_bCB)
 		SetUp_Combo();*/
 	TestAnimation(DASH_ATT);
@@ -996,7 +997,6 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		if (keyFrame == 8)
 			CEngine::GetInstance()->PlaySoundW("Roar_Ursa.mp3", ENEMY22);
 
-		CEventCheck::GetInstance()->ShakeUpDown(5, 0.05f);
 		//if (keyFrame <= 40)
 		//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Red, 1.f);
 		//else
@@ -1509,6 +1509,8 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::WHEELWIND_Start:
 		break;
 	case Client::CUrsa::WHEELWIND_Ing: {
+		m_MakeWind += dDeltaTime;
+
 		CEngine::GetInstance()->PlaySoundW("UrsaWind.ogg", CHANNELID::ENEMY10);
 		m_pRightTrailBuffer->SetIsActive(true);
 		m_pLeftTrailBuffer->SetIsActive(true);
@@ -1520,8 +1522,12 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 			CEngine::GetInstance()->StopSound(CHANNELID::ENEMY26);
 			CEngine::GetInstance()->PlaySoundW("StrongSwing_Ursa.mp3", CHANNELID::ENEMY26);
 		}
-		CGameObject* UrsaWind = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaWind", "E_UrsaWinds");
-		CEngine::GetInstance()->AddScriptObject(m_pUrsaWind = CEffectUrsaWind::Create(UrsaWind, pos), CEngine::GetInstance()->GetCurSceneNumber());
+
+		if (m_MakeWind >= 0.2f) {
+			CGameObject* UrsaWind = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaWind", "E_UrsaWinds");
+			CEngine::GetInstance()->AddScriptObject(m_pUrsaWind = CEffectUrsaWind::Create(UrsaWind, pos), CEngine::GetInstance()->GetCurSceneNumber());
+			m_MakeWind = 0.0;
+		}
 	}
 
 	 break;
