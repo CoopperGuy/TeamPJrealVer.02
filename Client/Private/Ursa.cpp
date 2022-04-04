@@ -19,6 +19,9 @@
 #include "EffectSoilDecal.h"
 #include "EffectRockDecal.h"
 #include "EffectRing.h"
+
+#include "DashAtt.h"
+
 #pragma endregion
 
 #include "DropRock.h"
@@ -126,46 +129,35 @@ void CUrsa::Update(_double dDeltaTime)
 	__super::Update(dDeltaTime);
 
 	m_fDist = SetDistance();
-
-	Checking_Phase(dDeltaTime);
+	/*Checking_Phase(dDeltaTime);
 	Execute_Pattern(dDeltaTime);
-
-	//if(!m_bWheelWind && !m_bRoar)
 	Checking_Finished();
-
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
-		m_eState = IDLE01;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_8))
-		m_eState = ROAR_Start;
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
-		m_eState = Flying_End;
-	//m_eState = DASH_ATTSpeedup;
-
-
-
 	if (m_bCB)
-		SetUp_Combo();
-
+		SetUp_Combo();*/
+	TestAnimation(DASH_ATT);
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pLeftWeapon->p_States = m_eCurSTATES;
 	m_pRightWeapon->p_States = m_eRightSTATES;
 	m_pHead->p_States = m_eHeadSTATES;
+
+
 	if (m_pCollider)
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
-
 	PxControllerFilters filters;
-	if (IsGravity()) {
+	if (IsGravity()) 
+	{
 		m_fJumpSpeed -= _float(m_fSpeed * (_float)dDeltaTime);
 		m_pController->move(PxVec3(0.0f, m_fJumpSpeed, 0.f), 0.01f, PxF32(dDeltaTime), filters);
 	}
-	else {
+	else 
+	{
 		m_fJumpSpeed = 0.f;
 	}
 
-	Hit(dDeltaTime);
+	//Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
-	if (!None_Combat())
+	
+	//if (!None_Combat())
 		CatchUpToLook(dDeltaTime);
 }
 
@@ -386,15 +378,18 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 		{
 			if (m_bSuperFar)
 			{
-				if (m_QueState.empty() && !m_bFinishBlow)
+				if (m_bOneJump)
 				{
-					m_QueState.push(Flying_Start);
-					m_QueState.push(Flying_Land);
-					m_QueState.push(Flying_End);
-
-					_vector	vCenter = (XMLoadFloat3(&m_vCenterPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
-					vCenter = XMVectorSetY(vCenter, 0.f);
-					m_pTransform->SetLook(vCenter);
+					if (m_QueState.empty() && !m_bFinishBlow)
+					{
+						m_QueState.push(Flying_Start);
+						m_QueState.push(Flying_Land);
+						m_QueState.push(Flying_End);
+						m_bOneJump = false;
+						_vector	vCenter = (XMLoadFloat3(&m_vCenterPos) - m_pTransform->GetState(CTransform::STATE_POSITION));
+						vCenter = XMVectorSetY(vCenter, 0.f);
+						m_pTransform->SetLook(vCenter);
+					}
 				}
 			}
 			if (m_QueState.empty() && !m_bFinishBlow)
@@ -939,8 +934,10 @@ void CUrsa::Roar()
 	vCenter = XMVectorSetY(vCenter, 0.f);
 	_float Length = XMVectorGetX(XMVector3Length(vCenter));
 	if (Length >= 3.f)
+	{
 		m_bSuperFar = true;
-
+		m_bOneJump = true;
+	}
 	m_bRoar = true;
 }
 
@@ -1035,10 +1032,13 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		_matrix Offset = XMMatrixTranslation(-0.1f, 0.3f, 0.2f);
 		ArmTwist = Remove_ScaleRotation(Offset * m_pTransform->GetWorldMatrix());
 
-		if (keyFrame == 48 && m_iMakeDust < 1) {
+		if (keyFrame == 48 && m_iMakeDust < 1) 
+		{
 			m_iMakeDust += 1;
-			auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
-			CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());
+			/*auto UrsaShoulder = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_UrsaShoulder", "E_UrsaShoulder");
+			CEngine::GetInstance()->AddScriptObject(m_pUrsaShoulder = CEffectUrsaShoulder::Create(UrsaShoulder, ArmTwist), CEngine::GetInstance()->GetCurSceneNumber());*/
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_DashAtt", "E_DashAtt");
+			CEngine::GetInstance()->AddScriptObject(CDashAtt::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 		//else if (keyFrame == 63 && m_iMakeDust < 1) {
 		//	m_iMakeDust += 1;
@@ -1641,8 +1641,8 @@ PxVec3 CUrsa::OriginShift()
 
 	if (Length > 0.05f)
 	{
-		if(Length >= 3.f)
-			m_bSuperFar = true;
+	/*	if(Length >= 3.f)
+			m_bSuperFar = true;*/
 
 		if(!m_bSuperFar)
 		{

@@ -119,7 +119,7 @@ private:
 	_bool m_bWheelWind		   = false;
 	_bool m_bSkillDelay		   = false;
 	_bool m_bAddRand		   = false;
-
+	_bool m_bOneJump		   = false;
 	// Dissolve
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
