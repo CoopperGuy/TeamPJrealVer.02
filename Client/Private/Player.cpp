@@ -986,13 +986,13 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 	PxControllerFilters filters;
 	_float fSpeed = 0.f;
 	_vector vUp = m_pTransform->GetState(CTransform::STATE::STATE_UP);
-	m_pTransform->Set_RotatePerSec(20.f);
+	m_pTransform->Set_RotatePerSec(200.f);
 	if (Walk() && !m_bEvade && !m_bHit && !m_bDown)
 	{
 		if (CEngine::GetInstance()->IsKeyPressed('W'))
 		{
 			if (m_eRuder == DOWN)
-				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP),45.f);
+				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP),180.f);
 			vPlayerLook = XMVectorLerp(vPlayerLook, vLook, 0.4f);
 			vPlayerLook = XMVectorSetY(vPlayerLook, 0.f);
 			memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
@@ -1002,7 +1002,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		if (CEngine::GetInstance()->IsKeyPressed('S'))
 		{
 			if (m_eRuder == UP)
-				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 45.f);
+				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 180.f);
 			vPlayerLook = XMVectorLerp(vPlayerLook, -vLook, 0.4f);
 			vPlayerLook = XMVectorSetY(vPlayerLook, 0.f);
 			memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
@@ -1012,7 +1012,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		if (CEngine::GetInstance()->IsKeyPressed('A'))
 		{
 			if (m_eRuder == RIGHT)
-				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 45.f);
+				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 180.f);
 			vPlayerLook = XMVectorLerp(vPlayerLook, -vRight, 0.4f);
 			vPlayerLook = XMVectorSetY(vPlayerLook, 0.f);
 			memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
@@ -1022,7 +1022,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		if (CEngine::GetInstance()->IsKeyPressed('D'))
 		{
 			if (m_eRuder == LEFT)
-				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 45.f);
+				m_pTransform->SetUpRotation(m_pTransform->GetState(CTransform::STATE_UP), 180.f);
 			vPlayerLook = XMVectorLerp(vPlayerLook, vRight, 0.4f);
 			vPlayerLook = XMVectorSetY(vPlayerLook, 0.f);
 			memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));

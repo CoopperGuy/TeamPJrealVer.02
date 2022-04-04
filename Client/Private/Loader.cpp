@@ -412,10 +412,10 @@ HRESULT CLoader::GameSceneJUN()
 
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
+	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 0);
-	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 0);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1);
 	
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");

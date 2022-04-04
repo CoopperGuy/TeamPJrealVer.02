@@ -41,7 +41,8 @@ public:
 
 
 private:
-	CGameObject*	pPlayer				= nullptr;
+	CGameObject*	pPlayer			    = nullptr;
+	CTransform* m_pTargetRealTransform  = nullptr;
 private:
 	CVIBuffer_Trail* m_pTrailBuffer		= nullptr;
 
