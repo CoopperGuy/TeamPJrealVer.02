@@ -66,6 +66,7 @@ private:
 	CTransform*			m_pRenderTransform = nullptr;
 	CBasicCollider*		m_pOBBCom = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
+	CBasicCollider*		m_pWeaponOBB = nullptr;
 	CMonHp*	m_pMonHp = nullptr;
 
 private:
@@ -92,6 +93,7 @@ private:
 	_float	m_fStunDelay = 40.f;
 	_float	m_fDist = 0.f;
 	_float	m_fSpeed = 0.7f;
+	_float  m_AttackRange = 0.5f;
 private:
 	_bool m_bCombat = false;
 	_bool m_bBehavior = false;

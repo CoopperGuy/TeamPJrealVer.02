@@ -5,6 +5,11 @@
 #include "Transform.h"
 #include "MonHp.h"
 
+#pragma region Effect
+#include "EffectSwordAura.h"
+#include "EffectPhase2Aura.h"
+#include "EffectPhase2Twist.h"
+#pragma endregion
 USING(Client)
 
 CDarkKnight::CDarkKnight(CGameObject* pObj)
@@ -49,6 +54,8 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pWeaponOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
+	m_pShieldOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB2"));
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
@@ -103,6 +110,31 @@ void CDarkKnight::Update(_double dDeltaTime)
 		m_pModel->SetUp_AnimationIndex(m_eState);
 
 	}*/
+	
+	if (CEngine::GetInstance()->IsKeyDown('R'))
+	{
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+		m_eState = SK_SIDESLASH2;
+		m_bBehavior = true;
+		m_bCreateEffect = true;
+	}
+	else if (CEngine::GetInstance()->IsKeyDown('T'))
+	{
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+		m_eState = SK_RAISING2;
+		m_bBehavior = true;
+		m_bCreateEffect = true;
+
+	}
+	else if (CEngine::GetInstance()->IsKeyDown('Y'))
+	{
+		m_fPhaseLoopTime = 5.f;
+		m_fAttackDelay = 0.f;
+		m_bBehavior = true;
+		m_bCreateEffect = true;
+		m_eState = PHASE2_START;
+	}	
+
 	Hit();
 	
 	StateUpdate(dDeltaTime);
@@ -214,10 +246,7 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 {
 	if (m_bDeadBody == true || m_bBehavior == true || m_pTargetTransform == nullptr)
 		return;
-
-	/*if (CEngine::GetInstance()->IsKeyDown('R'))
-		m_bCombat = !m_bCombat;*/
-
+		
 	_int iRand = rand() % 100;
 	m_fDist = Calculation_DistanceToPlayer();
 
@@ -267,9 +296,17 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 					m_fBehaviorTime = (rand() % 10 + 10) * 0.1f;
 				}
 				else if (iRand < 85)
+				{
+					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
 					m_eState = SK_SIDESLASH2;
+					m_bCreateEffect = true;
+				}
 				else
+				{
+					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
 					m_eState = SK_RAISING2;
+					m_bCreateEffect = true;
+				}
 			}
 			else
 			{
@@ -291,6 +328,10 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 {
 	/*if (m_bBehavior == false)
 		return;*/
+	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	m_pTrailBuffer->SetIsActive(false);
+	m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_IDEL;
+	m_pShieldOBB->p_States = CBasicCollider::STATES::STATES_IDEL;		
 
 	switch (m_eState)
 	{
@@ -299,12 +340,59 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		ChaseTarget(dDeltaTime, m_vDestPos);
 		break;
 	case Client::CDarkKnight::SK_SIDESLASH2:
+		if (keyFrame >= 40 && keyFrame <= 55)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+			
+			m_pTrailBuffer->SetIsActive(true);
+		}
+		if (m_bCreateEffect == true && keyFrame == 43)
+		{
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
+			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, -10.f), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreateEffect = false;
+		}
 		break;
-	case Client::CDarkKnight::SK_RAISING2:
+	case Client::CDarkKnight::SK_RAISING2:		
+		if (keyFrame >= 40 && keyFrame <= 55)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
+
+		if (m_bCreateEffect == true && keyFrame == 45)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
+			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreateEffect = false;
+		}
+		break;
+	case Client::CDarkKnight::SK_SLASH2:
+		if (keyFrame >= 22 && keyFrame <= 35)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CDarkKnight::SK_STING2:
+		if (keyFrame >= 18 && keyFrame <= 38)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CDarkKnight::PHASE2_START:
+		if (m_bCreateEffect)
+		{
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Phase2Aura", "E_Phase2");
+			CEngine::GetInstance()->AddScriptObject(CEffectPhase2Aura::Create(pEffect, m_pTransform), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreateEffect = false;
+		}
 		break;
 	case Client::CDarkKnight::PHASE2_LOOP:
 		m_fPhaseLoopTime -= (_float)dDeltaTime;
@@ -312,8 +400,16 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::PHASE2_END:
 		break;
 	case Client::CDarkKnight::SK_SIDESLASH:
+		if (keyFrame >= 25 && keyFrame <= 38)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CDarkKnight::SK_SHIELDATTACK:
+		if (keyFrame >= 18 && keyFrame <= 22)
+			m_pShieldOBB->p_States = CBasicCollider::STATES::STATES_ATK;
 		break;
 	case Client::CDarkKnight::SK_JUMPATTACK:
 		break;
@@ -365,8 +461,20 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CDarkKnight::SLASH:
+		if (keyFrame >= 5 && keyFrame <= 20)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CDarkKnight::STING:
+		if (keyFrame >= 5 && keyFrame <= 18)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CDarkKnight::STATE_END:
 		break;
@@ -427,8 +535,13 @@ void CDarkKnight::CheckAnimFinish()
 				m_eState = PHASE2_END;
 			break;
 		case Client::CDarkKnight::PHASE2_END:
+		{
+			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Phase2Twist", "E_Phase2Twist");
+			CEngine::GetInstance()->AddScriptObject(m_pEffectTwist = CEffectPahse2Twist::Create(pEffect, m_pRenderTransform, m_pModel), CEngine::GetInstance()->GetCurSceneNumber());
+
 			m_bBehavior = false;
 			m_eState = IDLE_BATTLE;
+		}
 			break;
 		case Client::CDarkKnight::SK_SIDESLASH:
 			SetAttackDelay();
@@ -487,6 +600,7 @@ void CDarkKnight::CheckAnimFinish()
 			m_eState = IDLE_BATTLE;
 			break;
 		case Client::CDarkKnight::DIE:
+			m_pEffectTwist->End_Effect();
 			m_eState = DEADBODY;
 			break;
 		case Client::CDarkKnight::DEADBODY:
@@ -564,9 +678,10 @@ void CDarkKnight::Hit()
 		if (m_pStat->GetStatInfo().hp <= fMaxHp * 0.5f)
 		{
 			m_fAttackDelay = 0.f;
-			m_fSpeed = 1.3f;
+			m_fSpeed = 1.3f;			
 			m_bPhase2 = true;
 			m_bBehavior = true;
+			m_bCreateEffect = true;
 			m_eState = PHASE2_START;
 		}
 	}

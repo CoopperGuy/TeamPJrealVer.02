@@ -49,6 +49,7 @@ HRESULT CSkull::Initialize(_float3 position)
 		m_pController = m_pCollider->GetController();
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pWeaponOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 
 	CGameObject* pTargetObj = CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player");
 	m_pTargetTransform = static_cast<CTransform*>(pTargetObj->GetComponent("Com_Transform"));
@@ -63,7 +64,7 @@ HRESULT CSkull::Initialize(_float3 position)
 	
 	m_eState = IDLE;
 	m_pModel->SetUp_AnimationIndex(m_eState);
-	m_pMonHp = CMonHp::Create(m_pGameObject);
+	//m_pMonHp = CMonHp::Create(m_pGameObject);
 
 	Create_Trail();
 
@@ -211,7 +212,7 @@ void CSkull::StateUpdate(_double dDeltaTime)
 	_int iRand = rand() % 100;
 	m_fDist = Calculation_DistanceToPlayer();
 	
-	if (m_fDist <= 3.f && m_fDist >= 1.f)
+	if (m_fDist <= 3.f && m_fDist >= m_AttackRange)
 	{
 		m_fBehaviorTime = (rand() % 10 + 5) * 0.1f;
 		m_eState = RUN;
@@ -236,12 +237,27 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 {
 	/*if (m_bBehavior == false)
 		return;*/
+	_uint keyFrame = m_pModel->GetCurrentKeyFrame();
+	m_pTrailBuffer->SetIsActive(false);
+	m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_IDEL;
 
 	switch (m_eState)
 	{
 	case Client::CSkull::SK_TWICESLASH:
+		if (keyFrame >= 15 && keyFrame <= 35)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CSkull::SK_DOWNSLASH:
+		if (keyFrame >= 15 && keyFrame <= 30)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CSkull::RUN:
 	{		
@@ -271,10 +287,22 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CSkull::SLASH:
+		if (keyFrame >= 0 && keyFrame <= 15)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
 	case Client::CSkull::STING:
+		if (keyFrame >= 30 && keyFrame <= 50)
+		{
+			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+
+			m_pTrailBuffer->SetIsActive(true);
+		}
 		break;
-	case Client::CSkull::STATE_END:
+	case Client::CSkull::STATE_END:		
 		break;
 	default:
 		break;
@@ -317,7 +345,7 @@ void CSkull::CheckAnimFinish()
 			}
 
 			_vector vDis = XMVector3Length(m_pTargetTransform->GetState(CTransform::STATE_POSITION) - m_pTransform->GetState(CTransform::STATE_POSITION));
-			if (XMVectorGetX(vDis) < 1.f)
+			if (XMVectorGetX(vDis) < m_AttackRange)
 			{
 				m_bBehavior = false;
 				m_eState = IDLE;

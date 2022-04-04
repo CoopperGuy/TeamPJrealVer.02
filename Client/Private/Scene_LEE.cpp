@@ -16,7 +16,6 @@ HRESULT CScene_LEE::Initialize()
 	__super::Initialize();
 
 	CEngine::GetInstance()->SetCurSceneNumber(SCENE_LEE);
-
 	ReadyScript();
 
 	return S_OK;

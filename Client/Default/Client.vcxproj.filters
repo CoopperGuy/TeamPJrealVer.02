@@ -484,6 +484,18 @@
     <ClInclude Include="..\Public\Skull.h">
       <Filter>02.GameObjects\Character\Enemy\Skull</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\EffectSwordAura.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Aura.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Twist.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EffectPhase2Inst.h">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\Pummel_foot.h">
       <Filter>05.Effect\Ursa\Pummel_foot</Filter>
     </ClInclude>
@@ -965,6 +977,18 @@
     </ClCompile>
     <ClCompile Include="..\Private\Skull.cpp">
       <Filter>02.GameObjects\Character\Enemy\Skull</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectSwordAura.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Aura.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Twist.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EffectPhase2Inst.cpp">
+      <Filter>05.Effect\DarkKnight</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Pummel_foot.cpp">
       <Filter>05.Effect\Ursa\Pummel_foot</Filter>
@@ -1449,6 +1473,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Character\Enemy\Skull">
       <UniqueIdentifier>{abd3dc63-6a78-4e8c-af4f-4a68c4c5cf42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Effect\DarkKnight">
+      <UniqueIdentifier>{4ca6cc62-84ab-4b9d-85cb-542da661b475}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Effect\Ursa\Pummel_foot">
       <UniqueIdentifier>{9d2028c2-a192-492b-a017-4c65b57c2cf4}</UniqueIdentifier>
