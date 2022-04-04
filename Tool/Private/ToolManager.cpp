@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/DKNightDungeon.yaml";
+static string strScene = "../../Assets/Scenes/DarkKnightDungeon.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
