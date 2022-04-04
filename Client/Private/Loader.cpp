@@ -253,6 +253,7 @@ HRESULT CLoader::GameSceneStage02()
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_STAGE2, 1);
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
 
 
 	if (FAILED(GameFlogasLoader()))
@@ -355,8 +356,8 @@ HRESULT CLoader::GameSceneKIM()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 1);
-	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 1);
+	//m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
 
 	m_ThreadLoader->Start_Thread();
 	

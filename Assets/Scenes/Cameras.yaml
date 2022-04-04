@@ -1,21 +1,42 @@
 Scene: Untitled
 GameObjects:
-  - Name: MovieCamera
+  - Name: 00MovieCamera
     UUID: 3264535467397967066
     Active: true
     Layer: Default
     Instancing: false
     Type: Camera
     Com_Transform:
-      Translation: [-0.0827065408, 0.539073288, -15.6798229]
-      Rotation: [-0.326850176, 0.443698764, 0]
-      Scale: [0.999832749, 0.999841213, 0.999886632]
-    IsWait: true
-    IsBack: true
+      Translation: [-3.3957696, 2.25339055, -2.54478407]
+      Rotation: [-158.467407, 54.1322403, 180]
+      Scale: [0.99982059, 0.999854743, 0.999918103]
+    IsWait: false
+    IsBack: false
     MoveTime: 3
-    WaitTime: 1
+    WaitTime: 0
     Movie: 0
+    NextIdx: 2
     SrcPosition: [0, 0.5, -16]
-    DestPosition: [-3.02900004, 1.93099999, -4.27400017]
+    DestPosition: [-3.42600012, 2.26900005, -2.42499995]
+    SrcLookPosition: [0, 0, 0]
+    DestLookPosition: [0, 0.600000024, -5]
+  - Name: 01ZoomCamera
+    UUID: 6839259833881903526
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Camera
+    Com_Transform:
+      Translation: [0.157029197, 1.00105131, -2.59985495]
+      Rotation: [-170.533661, -3.74323297, -179.999893]
+      Scale: [0.999646008, 0.999955416, 0.99988395]
+    IsWait: true
+    IsBack: false
+    MoveTime: 0.25
+    WaitTime: 2
+    Movie: 0
+    NextIdx: 0
+    SrcPosition: [-3.42600012, 2.26900005, -2.42499995]
+    DestPosition: [0.159999996, 1, -2.5999999]
     SrcLookPosition: [0, 0, 0]
     DestLookPosition: [0, 0.600000024, -5]

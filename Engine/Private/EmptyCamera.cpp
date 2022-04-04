@@ -1,6 +1,7 @@
 #include "EnginePCH.h"
 #include "..\Public\EmptyCamera.h"
 #include "CameraManager.h"
+#include "BossMovie.h"
 USING(Engine)
 CEmptyCamera::CEmptyCamera(ID3D11Device * pDevice, ID3D11DeviceContext * pDevice_Context)
 	:CCamera(pDevice, pDevice_Context)
@@ -62,6 +63,11 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 			{
 				if (t >= 1.f)
 				{
+					if (m_bIsWait && !m_bIsMake)
+					{
+						m_bIsMake = true;
+						CBossMovie::Create(0, nullptr);
+					}
 					m_fWaitDelta += (_float)TimeDelta;
 					if (m_fWaitTime < m_fWaitDelta)
 					{
@@ -69,7 +75,7 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 						m_fWaitDelta = 0.f;
 						m_bIsUse = false;
 						m_bIsWaiting = false;
-						CameraManager::GetInstance()->SetDefaultCamera();
+						CameraManager::GetInstance()->ActiveCameraByIndex(p_NextIdx);
 						return _uint();
 					}
 					return _uint();
@@ -82,9 +88,11 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 			m_fWaitDelta = 0.f;
 			m_bIsUse = false;
 			m_bIsWaiting = false;
-			CameraManager::GetInstance()->SetDefaultCamera();
+			CameraManager::GetInstance()->ActiveCameraByIndex(p_NextIdx);
 			return _uint();
 		}
+		if (t >= 1.f)
+			t = 1.f;
 	
 		_vector pos = XMQuaternionSlerp(DirectX::XMLoadFloat3(&m_vSrcPosition), DirectX::XMLoadFloat3(&m_vDestPosition), t);
 		_vector look = XMVector3Normalize(DirectX::XMLoadFloat3(&m_vDestLookPosition) - pos);

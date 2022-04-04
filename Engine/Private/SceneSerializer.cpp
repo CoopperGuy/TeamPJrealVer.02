@@ -818,6 +818,7 @@ void CSceneSerializer::SerializeCamera(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::Key << "MoveTime" << YAML::Value << _camera->p_moveTime;
 	out << YAML::Key << "WaitTime" << YAML::Value << _camera->p_waitTime;
 	out << YAML::Key << "Movie" << YAML::Value << _camera->p_Moive;
+	out << YAML::Key << "NextIdx" << YAML::Value << _camera->p_NextIdx;
 
 	out << YAML::Key << "SrcPosition";
 	out << YAML::Value << YAML::Flow;
@@ -1064,6 +1065,7 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 	auto SrcLookPosition = obj["SrcLookPosition"];
 	auto DestLookPosition = obj["DestLookPosition"];
 	auto movie = obj["Movie"];
+	auto nextIdx = obj["NextIdx"];
 	auto wait = obj["IsWait"];
 	auto back = obj["IsBack"];
 	auto waitTime = obj["WaitTime"];
@@ -1086,6 +1088,8 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 		_camera->p_isBack = back.as<_bool>();
 	if (waitTime)
 		_camera->p_waitTime = waitTime.as<_float>();
+	if (nextIdx)
+		_camera->p_NextIdx = nextIdx.as<_int>();
 	return deserializedObject;
 }
 

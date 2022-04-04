@@ -29,6 +29,7 @@ public:
 	PROPERTY(GetIsWait, SetIsWait) _bool p_isWait;
 	PROPERTY(GetIsBack, SetIsBack) _bool p_isBack;
 	PROPERTY(GetMovie, SetMovie) MOVIE p_Moive;
+	PROPERTY(GetNextIdx, SetNextIdx) _int p_NextIdx;
 	PROPERTY(GetMoveTime, SetMoveTime) _float p_moveTime;
 	PROPERTY(GetWaitTime, SetWaitTime) _float p_waitTime;
 	PROPERTY(GetSrcPosition, SetSrcPosition) _float3 p_srcPosition;
@@ -44,6 +45,7 @@ public:
 	_bool GetIsWait() { return m_bIsWait; }
 	_bool GetIsBack() { return m_bIsBack; }
 	MOVIE GetMovie() { return m_eMovie; }
+	_int GetNextIdx() { return m_iNextIdx; }
 	_float GetMoveTime() { return m_fMoveTime; }
 	_float GetWaitTime() { return m_fWaitTime; }
 	_float3 GetSrcPosition() { return m_vSrcPosition; }
@@ -55,6 +57,7 @@ public:
 	void SetIsWait(_bool _wait) { m_bIsWait = _wait; }
 	void SetIsBack(_bool _back) { m_bIsBack = _back; }
 	void SetMovie(MOVIE _movie) { m_eMovie = _movie; }
+	void SetNextIdx(_int _idx) { m_iNextIdx = _idx; }
 	void SetWaitTime(_float _time) { m_fWaitTime = _time; }
 	void SetMoveTime(_float _time) { m_fMoveTime = _time; }
 	void SetSrcPosition(_float3 _pos) { m_vSrcPosition = _pos; }
@@ -63,11 +66,14 @@ public:
 	void SetDestLookPosition(_float3 _pos) { m_vDestLookPosition = _pos; }
 
 private:
+	_bool	m_bIsMake = false;
 	_bool	m_bIsMove = false;
 	_bool	m_bIsWait = false;
 	_bool	m_bIsBack = false;
+	_bool	m_bIsNext = false;
 	MOVIE	m_eMovie = MOVIE_Y;
 private:
+	_int	m_iNextIdx = 0;
 	_float	m_fMoveTime = 0.f;
 	_float	m_fMoveDelta = 0.f;
 	_float	m_fWaitTime = 0.f;
