@@ -1091,45 +1091,6 @@ GameObjects:
     FrustumRange: 1
   - Name: BoxCollider4
     UUID: 16243358632385078110
-      Scale: [0.999948025, 1.12074649, 0.999957323]
-    Com_RectInstance:
-      Shape: 1
-      InstNum: 100
-      Color: [0.465379298, 0.352172315, 0.525756478, 0]
-      Speed: 0.899999976
-      LifeTime: 1.5
-      Size: 0.400000006
-      StartRadian: 270
-      RadiationAngle: 41
-      LerpColor: true
-      SrcColor: [0.805922925, 0.442028999, 1, 0]
-      DestColor: [0.311594188, 0.311594188, 0.311594188, 0]
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\nullImage.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
-  - Name: Empty Object
-    UUID: 348466159552121155
     Active: true
     Layer: Default
     Instancing: false
@@ -2312,8 +2273,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.28168046, 0.37335375, 26.4462662]
-      Rotation: [2.53955022e-07, -2.74529715e-08, 90]
-      Scale: [3.00000024, 11.8788519, 2.9953196]
+      Rotation: [2.53955022e-07, -2.74568048e-08, 90]
+      Scale: [3.00000024, 11.8788519, 2.99553418]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
