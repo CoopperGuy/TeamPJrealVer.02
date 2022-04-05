@@ -23,7 +23,7 @@ public:
 #endif // DEBUG
 
 private:
-	std::atomic<_uint>			m_dwRefCnt = 0;
+	_uint			m_dwRefCnt = 0;
 public:
 	/* 해당 클래스의 멤버를 정리한다. */
 	virtual void Free() = 0;

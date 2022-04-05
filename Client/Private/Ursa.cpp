@@ -3,6 +3,7 @@
 #include "BasicCollider.h"
 #include "Transform.h"
 #include "MonHp.h"
+#include "EventCheck.h"
 
 #include "Obb.h"
 
@@ -129,10 +130,14 @@ void CUrsa::Update(_double dDeltaTime)
 	//	m_pGameObject->SetDead();
 
 	__super::Update(dDeltaTime);
-
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 		m_bAction = true;
 	TestAnimation(DASH_ATT);
+	if (CEventCheck::GetInstance()->CameraEventCheckReverse(_float3{ 0.f,0.f,0.f })) 
+	{
+		//player ani
+		CEngine::GetInstance()->ActiveCameraByIndex(3);
+	}
 
 	m_fDist = SetDistance();
 	Checking_Phase(dDeltaTime);
@@ -1533,7 +1538,7 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 		}
 
 	}
-										 break;
+		 break;
 	case Client::CUrsa::WHEELWIND_Start:
 		break;
 	case Client::CUrsa::WHEELWIND_Ing: {
