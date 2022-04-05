@@ -60,14 +60,14 @@ void CConsumItemHud::Update(_double deltaTime)
 			if (iter.first->isFristEnter())
 			{
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.mp3", CHANNELID::UI02);
 			}
 
 			if (iter.first->IsHovered()) {
 				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 				{
 					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
-					CEngine::GetInstance()->PlaySoundW("ConsumSelect.ogg", CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("ConsumSelect.mp3", CHANNELID::UI03);
 					m_iCurSelected = i;
 				}
 			}
@@ -79,7 +79,7 @@ void CConsumItemHud::Update(_double deltaTime)
 				m_bSelectInputIndex = true;
 				CEventCheck::GetInstance()->OpenAddQuickSlot(m_bSelectInputIndex);
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("EscMenuselect.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("EscMenuselect.mp3", CHANNELID::UI02);
 			}
 		}
 	}

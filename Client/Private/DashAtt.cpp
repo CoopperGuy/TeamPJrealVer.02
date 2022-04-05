@@ -2,7 +2,7 @@
 #include "..\Public\DashAtt.h"
 #include "EventCheck.h"
 #include "Obb.h"
-
+#include "Dashparticle.h"
 USING(Client)
 
 CDashAtt::CDashAtt()
@@ -17,16 +17,15 @@ HRESULT CDashAtt::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 
 	_vector vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 	_matrix mat = XMMatrixIdentity();
-	m_pTargetTransform->GetWorldMatrix();
-	mat.r[0] *= m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
-	mat.r[1] *= m_pEffectTrans->GetScale(CTransform::STATE_UP);
-	mat.r[2] *= m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
-	vTargetPos += m_pTargetTransform->GetState(CTransform::STATE_LOOK) * 0.5f;
-	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
-	XMStoreFloat3(&m_vLook, m_pTargetTransform->GetState(CTransform::STATE_LOOK));
+	mat = m_pTargetTransform->GetWorldMatrix();
+	mat.r[0] = XMVector3Normalize(mat.r[0]) * m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
+	mat.r[1] = XMVector3Normalize(mat.r[1]) * m_pEffectTrans->GetScale(CTransform::STATE_UP);
+	mat.r[2] = XMVector3Normalize(mat.r[2]) * m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
+	//vTargetPos += m_pTargetTransform->GetState(CTransform::STATE_LOOK) * 0.05f;
+	vTargetPos = XMVectorSetY(vTargetPos, -0.1f);
 	mat.r[3] = vTargetPos;
+	XMStoreFloat3(&m_vLook, m_pTargetTransform->GetState(CTransform::STATE_LOOK));
 	m_pEffectTrans->SetMatrix(mat);
-	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_RIGHT),90.f);
 
 	return S_OK;
 }
@@ -43,6 +42,15 @@ void CDashAtt::LateUpdate(_double dDeltaTime)
 {
 	m_DurationDelta += (_float)dDeltaTime;
 
+	if (m_DurationDelta > 0.2f)
+	{
+		if (m_bCreate)
+		{
+			CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_Dashparticle", "E_Dashparticle", &m_pEffectTrans->GetWorldMatrix());
+			CEngine::GetInstance()->AddScriptObject(CDashparticle::Create((CEmptyEffect*)pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+			m_bCreate = false;
+		}
+	}
 	if (m_DurationDelta > 0.3f)
 	{
 		this->SetDead();

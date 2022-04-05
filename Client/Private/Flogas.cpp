@@ -190,19 +190,19 @@ void CFlogas::Update(_double dDeltaTime)
 				_uint keyFrame = m_pModel->GetCurrentKeyFrame();
 				if (keyFrame == 50)
 				{
-					CEngine::GetInstance()->PlaySoundW("UrsaVoice01.ogg", CHANNELID::ENEMY10);
+					CEngine::GetInstance()->PlaySoundW("UrsaVoice01.mp3", CHANNELID::ENEMY10);
 				}
 				if (keyFrame == 220)
 				{
-					CEngine::GetInstance()->PlaySoundW("FlogasDie.ogg", CHANNELID::ENEMY11);
+					CEngine::GetInstance()->PlaySoundW("FlogasDie.mp3", CHANNELID::ENEMY11);
 				}
 				if (keyFrame == 130)
 				{
-					CEngine::GetInstance()->PlaySoundW("FlogasDieEff.ogg", CHANNELID::ENEMY12);
+					CEngine::GetInstance()->PlaySoundW("FlogasDieEff.mp3", CHANNELID::ENEMY12);
 				}
 				if (keyFrame == 294)
 				{
-					CEngine::GetInstance()->PlaySoundW("FlogasDieEff2.ogg", CHANNELID::ENEMY13);
+					CEngine::GetInstance()->PlaySoundW("FlogasDieEff2.mp3", CHANNELID::ENEMY13);
 				}
 			}
 			if (m_pModel->Get_isFinished(DIE)) {
@@ -880,7 +880,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		else
 			m_eCurSTATES = CBasicCollider::STATES_IDEL;
 		if (keyFrame >= 28.f && keyFrame <= 30.f) {
-			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY15);
+			CEngine::GetInstance()->PlaySoundW("FlogasWind.mp3", CHANNELID::ENEMY15);
 
 			if (keyFrame == 28.f && m_iMakeMeteo < 1) {
 				m_iMakeMeteo += 1;
@@ -945,7 +945,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		static bool make = true;
 		if (keyFrame >= 25 && keyFrame <= 26) {
 			if (make) {
-				CEngine::GetInstance()->PlaySoundW("FlogasBlackhole.ogg", CHANNELID::ENEMY16);
+				CEngine::GetInstance()->PlaySoundW("FlogasBlackhole.mp3", CHANNELID::ENEMY16);
 
 				auto EffectBlackhole = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Blackhole", "Effect_Blackhole");
 				CEngine::GetInstance()->AddScriptObject(m_pEffBlackhole = CEffectBlackhole::Create(EffectBlackhole), CEngine::GetInstance()->GetCurSceneNumber());
@@ -955,7 +955,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 
 		if (keyFrame == 124.f)
 		{
-			CEngine::GetInstance()->PlaySoundW("FlogasWind.ogg", CHANNELID::ENEMY14);
+			CEngine::GetInstance()->PlaySoundW("FlogasWind.mp3", CHANNELID::ENEMY14);
 			CGameObject* EffectPajang = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_Pajang", "Effect_Pajang");
 			CEngine::GetInstance()->AddScriptObject(m_pEffPajang = CEffectPajang::Create(EffectPajang), CEngine::GetInstance()->GetCurSceneNumber());
 			make = true;
@@ -965,7 +965,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	case FIREFIST: {
 		if (keyFrame == 50) {
 			//내려찍기 
-			//	CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY10);
+			//	CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.mp3", CHANNELID::ENEMY10);
 
 			CEngine::GetInstance()->PlaySoundW("FireFist_Flogas.mp3", CHANNELID::ENEMY24);
 
@@ -980,11 +980,11 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		if (keyFrame >= 51 && keyFrame <= 70)
 		{
 			if (keyFrame >= 51 && keyFrame <= 55)
-				CEngine::GetInstance()->PlaySoundW("FlogasMeteoStart.ogg", CHANNELID::ENEMY16);
+				CEngine::GetInstance()->PlaySoundW("FlogasMeteoStart.mp3", CHANNELID::ENEMY16);
 
 			//CEngine::GetInstance()->SetVolume(0.1f, CHANNELID::ENEMY19);
 
-			CEngine::GetInstance()->PlaySoundW("FlogasMeteoArea.ogg", CHANNELID::ENEMY15);
+			CEngine::GetInstance()->PlaySoundW("FlogasMeteoArea.mp3", CHANNELID::ENEMY15);
 
 			if (m_iMakeMeteo <= 8)
 			{
@@ -1038,7 +1038,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 		break;
 	case FLYING_START: {
 		if (keyFrame == 30.f) {
-			//CEngine::GetInstance()->PlaySoundW("FlogasFlyStart.ogg", CHANNELID::ENEMY13);
+			//CEngine::GetInstance()->PlaySoundW("FlogasFlyStart.mp3", CHANNELID::ENEMY13);
 
 			if (m_bMakeEffect) {
 				auto EffectFly = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_BossFly", "Effect_BossFly");
@@ -1074,7 +1074,7 @@ void CFlogas::OrganizeEffect(Flogas eState, _double dDeltaTime)
 	case FLYING_END2:
 		if (keyFrame >= 26 && keyFrame < 30) {
 			if(!m_bSecondAtt)
-				CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.ogg", CHANNELID::ENEMY15);
+				CEngine::GetInstance()->PlaySoundW("FlogasFiresfist.mp3", CHANNELID::ENEMY15);
 			else
 				CEngine::GetInstance()->PlaySoundW("Wrath_Flogas.mp3", CHANNELID::ENEMY22);
 		}

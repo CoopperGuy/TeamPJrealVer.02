@@ -19,11 +19,12 @@ private:
 	CTransform*		m_pEffectTrans = nullptr;
 	CTransform*		m_pTargetTransform = nullptr;
 	class CObb*		m_pOBB		   = nullptr;
-
+	_matrix			mat;
 private:
 	_float			m_DurationDelta = 0;
 	_float			m_fScale = 0.f;
 	_float3			m_vScale;
+	_bool			m_bCreate = true;
 public:
 	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget);
 	virtual void Free();

@@ -511,6 +511,9 @@
     <ClInclude Include="..\Public\Dustparticle_Cone.h">
       <Filter>05.Effect\Ursa\Pummel_foot</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Dashparticle.h">
+      <Filter>05.Effect\Ursa\DashAtt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1007,6 +1010,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Dustparticle_Cone.cpp">
       <Filter>05.Effect\Ursa\Pummel_foot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Dashparticle.cpp">
+      <Filter>05.Effect\Ursa\DashAtt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
