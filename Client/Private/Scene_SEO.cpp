@@ -7,6 +7,7 @@
 #include "Ursa.h"
 #include "DropRock.h"
 #include "UrsaDunDoor.h"
+#include "ItemBox.h"
 USING(Client)
 
 CScene_SEO::CScene_SEO(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -26,6 +27,16 @@ HRESULT CScene_SEO::Initialize()
 
 _uint CScene_SEO::Update(_double TimeDelta)
 {
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_8)) {
+		CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BossItemBox", "O_BossItemBox");
+		CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_9)) {
+		CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BasicItemBox", "O_BasicItemBox");
+		CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox), CEngine::GetInstance()->GetCurSceneNumber());
+	}
+
+
 
 	return _uint();
 }

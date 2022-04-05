@@ -517,6 +517,9 @@
     <ClInclude Include="..\Public\ItemDropEffect.h">
       <Filter>05.Effect\Item</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\ItemBox.h">
+      <Filter>02.GameObjects\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1020,6 +1023,9 @@
     <ClCompile Include="..\Private\ItemDropEffect.cpp">
       <Filter>05.Effect\Item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\ItemBox.cpp">
+      <Filter>02.GameObjects\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1509,6 +1515,9 @@
     </Filter>
     <Filter Include="05.Effect\Item">
       <UniqueIdentifier>{4ec86c75-e00d-4d1e-8508-3ae283585e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Item">
+      <UniqueIdentifier>{ba2110b4-33ff-4f99-95aa-32f9cfd821f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

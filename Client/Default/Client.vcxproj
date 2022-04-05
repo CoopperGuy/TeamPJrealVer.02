@@ -243,6 +243,7 @@
     <ClInclude Include="..\Public\FootHammer_Bomb.h" />
     <ClInclude Include="..\Public\FootHammer_Decal.h" />
     <ClInclude Include="..\Public\Helmet.h" />
+    <ClInclude Include="..\Public\ItemBox.h" />
     <ClInclude Include="..\Public\MeteoFireBall.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -411,6 +412,7 @@
     <ClCompile Include="..\Private\EffectFlash.cpp" />
     <ClCompile Include="..\Private\EffectFly.cpp" />
     <ClCompile Include="..\Private\EffectFlyLaser.cpp" />
+    <ClCompile Include="..\Private\ItemBox.cpp" />
     <ClCompile Include="..\Private\ItemDropEffect.cpp" />
     <ClCompile Include="..\Private\EffectMagic.cpp" />
     <ClCompile Include="..\Private\EffectMagicAf.cpp" />

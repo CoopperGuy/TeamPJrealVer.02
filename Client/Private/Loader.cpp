@@ -350,6 +350,9 @@ HRESULT CLoader::GameSceneLogo()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ItemDrop", "E_ItemDrop", 14));
 
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_BossItemBox", "O_BossItemBox", 15));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_BasicItemBox", "O_BasicItemBox", 16));
+
 	m_ThreadLoader->Start_Thread();
 
 	while (!m_isFinish) {

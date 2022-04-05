@@ -34,7 +34,7 @@ HRESULT CItemDropEffect::Initialize(void* pArg, _vector pos)
 		m_pTransform = static_cast<CTransform*>(m_pGameObject->GetComponent("Com_Transform"));
 
 
-		pos = XMVectorSetY(pos, 0.f);
+	//	pos = XMVectorSetY(pos, 0.f);
 		m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 	}
 	return S_OK;

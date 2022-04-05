@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_BossItemBox
+    UUID: 9040300903596245969
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\ItemBox\
+      MeshFileName: BossItem.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
