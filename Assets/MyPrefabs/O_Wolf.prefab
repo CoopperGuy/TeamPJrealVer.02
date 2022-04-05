@@ -1,6 +1,6 @@
 Scene: Untitled
 GameObjects:
-  - Name: O_Wolf
+  - Name: Wolf
     UUID: 16046188935930043936
     Active: true
     Layer: Layer_Monster
