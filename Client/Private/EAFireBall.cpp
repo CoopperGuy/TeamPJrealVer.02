@@ -63,7 +63,7 @@ void CEAFireBall::Update(_double deltaTime)
 
 		_vector		vDirection = m_Targetpos - vPosition;
 
-		vPosition += XMVector3Normalize(vDirection) * 3.f * (_float)deltaTime;
+		vPosition += XMVector3Normalize(vDirection) * 6.f * (_float)deltaTime;
 
 		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);
 
