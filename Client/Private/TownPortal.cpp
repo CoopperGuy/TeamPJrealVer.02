@@ -19,7 +19,8 @@ HRESULT CTownPortal::Initailze(CGameObject * pArg)
 
 void CTownPortal::Update(_double deltaTime)
 {
-	DistanceWithDirection();
+	if(m_pPortal->IsActive())
+		DistanceWithDirection();
 }
 
 void CTownPortal::LateUpdate(_double deltaTime)
