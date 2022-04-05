@@ -315,6 +315,22 @@ HRESULT CLoader::GameSceneStage03()
 
 HRESULT CLoader::GameSceneStage04()
 {
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
+
+	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoomLee.yaml", SCENE_LEE, 0));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_STAGE4, 0));
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Aura", "E_Phase2", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
+
+	m_ThreadLoader->Start_Thread();
+
+	while (!m_isFinish) {
+		if (m_ThreadLoader->GetIsEnd())
+			m_isFinish = true;
+	}
 	return S_OK;
 }
 
@@ -368,8 +384,8 @@ HRESULT CLoader::GameSceneKIM()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 1);
-	//m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 1);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
 
 	m_ThreadLoader->Start_Thread();
 	

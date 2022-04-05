@@ -4,6 +4,8 @@
 #include "Ursa.h"
 #include "DropRock.h"
 #include "UrsaDunDoor.h"
+#include "EventCheck.h"
+#include "Scene_Loading.h"
 USING(Client)
 
 CScene_Stage3::CScene_Stage3(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -28,6 +30,14 @@ HRESULT CScene_Stage3::Initialize()
 _uint CScene_Stage3::Update(_double TimeDelta)
 {
 	__super::Update(TimeDelta);
+
+	if (CEventCheck::GetInstance()->GetChangeScene()) {
+		CEventCheck::GetInstance()->SetChangeScene(false);
+		CEventCheck::GetInstance()->SetSceneNumber(SCENE_END);
+		if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE::SCENE_STAGE1, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
+			return E_FAIL;
+	}
+
 	return _uint();
 }
 

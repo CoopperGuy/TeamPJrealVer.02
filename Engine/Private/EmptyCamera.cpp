@@ -52,6 +52,14 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 					{
 						m_bIsWaiting = false;
 					}
+					if (m_bIsWait && !m_bIsMake)
+					{
+						m_bIsMake = true;
+						if(CameraManager::GetInstance()->GetCurActiveCamera() == 2)
+							CBossMovie::Create(0, nullptr);
+						if (CameraManager::GetInstance()->GetCurActiveCamera() == 3)
+							CBossMovie::Create(1, nullptr);
+					}
 				}
 			}
 		}
@@ -66,7 +74,10 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 					if (m_bIsWait && !m_bIsMake)
 					{
 						m_bIsMake = true;
-						CBossMovie::Create(0, nullptr);
+						if (CameraManager::GetInstance()->GetCurActiveCamera() == 2)
+							CBossMovie::Create(0, nullptr);
+						if (CameraManager::GetInstance()->GetCurActiveCamera() == 3)
+							CBossMovie::Create(1, nullptr);
 					}
 					m_fWaitDelta += (_float)TimeDelta;
 					if (m_fWaitTime < m_fWaitDelta)

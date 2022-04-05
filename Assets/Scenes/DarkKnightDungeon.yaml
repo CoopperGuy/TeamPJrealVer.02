@@ -5057,7 +5057,7 @@ GameObjects:
   - Name: O_DarkKinght
     UUID: 8617912300921592626
     Active: true
-    Layer: Default
+    Layer: Layer_Monster
     Instancing: false
     Type: Object
     PassIndex: 0

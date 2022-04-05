@@ -3,6 +3,8 @@
 
 USING(Engine)
 
+static string _path = "../../Assets/UITexture/Movie/";
+
 CBossMovie::CBossMovie()
 {
 }
@@ -15,14 +17,26 @@ HRESULT CBossMovie::Initailze(_int _type, CGameObject * pArg)
 	pEngine->AddScriptObject(this,pEngine->GetCurSceneNumber());
 	list<CGameObject*> _child = m_pThisUI->GetChildren();
 	auto& iter = _child.front();
-
+	m_pName = static_cast<CVIBuffer_RectUI*>(iter->GetComponent("Com_VIBuffer"));
+	iter++;
+	m_pSubName = static_cast<CVIBuffer_RectUI*>(iter->GetComponent("Com_VIBuffer"));
 	if (_type == 0)
 	{
-		m_pName = static_cast<CVIBuffer_RectUI*>(iter->GetComponent("Com_VIBuffer"));
+		string _name = "Flogas.dds";
+		string _subName = "LOP.dds";
+		string _pullPath = _path + _name;
+		m_pName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
+		_pullPath = _path + _subName;
+		m_pSubName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
 	}
-	else
+	else if(_type == 1)
 	{
-
+		string _name = "Ursa.dds";
+		string _subName = "Varr.dds";
+		string _pullPath = _path + _name;
+		m_pName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
+		_pullPath = _path + _subName;
+		m_pSubName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
 	}
 	return S_OK;
 }
