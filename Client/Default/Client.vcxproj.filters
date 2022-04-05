@@ -517,6 +517,9 @@
     <ClInclude Include="..\Public\Scene_Stage4.h">
       <Filter>01.Scenes\Scene_Stage4</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\TrapSpear.h">
+      <Filter>02.GameObjects\Character\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1019,6 +1022,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Scene_Stage4.cpp">
       <Filter>01.Scenes\Scene_Stage4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\TrapSpear.cpp">
+      <Filter>02.GameObjects\Character\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

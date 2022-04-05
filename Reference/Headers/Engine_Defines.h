@@ -21,7 +21,7 @@
 #include <locale.h>
 #include <utility>
 #include <queue>
-
+#include <random>
 
 #include <d3d11.h>
 #define DIRECTINPUT_VERSION 0x0800

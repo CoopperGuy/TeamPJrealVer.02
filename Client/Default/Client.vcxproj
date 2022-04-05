@@ -334,6 +334,7 @@
     <ClInclude Include="..\public\TestMonster.h" />
     <ClInclude Include="..\public\ThreadLoader.h" />
     <ClInclude Include="..\public\TownPortal.h" />
+    <ClInclude Include="..\Public\TrapSpear.h" />
     <ClInclude Include="..\Public\Ursa.h" />
     <ClInclude Include="..\Public\UrsaDunDoor.h" />
     <ClInclude Include="..\Public\WaterEA.h" />
@@ -523,6 +524,7 @@
     <ClCompile Include="..\private\TestMonster.cpp" />
     <ClCompile Include="..\private\ThreadLoader.cpp" />
     <ClCompile Include="..\private\TownPortal.cpp" />
+    <ClCompile Include="..\Private\TrapSpear.cpp" />
     <ClCompile Include="..\Private\Ursa.cpp" />
     <ClCompile Include="..\Private\UrsaDunDoor.cpp" />
     <ClCompile Include="..\Private\WaterEA.cpp" />
