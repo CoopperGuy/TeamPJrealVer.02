@@ -22,9 +22,9 @@ HRESULT CPummel_foot::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	mat.r[2] = mat.r[2] * m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
 
 	m_pEffectTrans->SetMatrix(mat);
-	m_pEffectTrans->SetLook(m_pTargetTransform->GetState(CTransform::STATE_LOOK));
+	m_pEffectTrans->SetLook(-m_pTargetTransform->GetState(CTransform::STATE_LOOK));
 	_vector vTargetPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
-	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
+	//vTargetPos = XMVectorSetY(vTargetPos, 0.1f);
 	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
 
 	return S_OK;

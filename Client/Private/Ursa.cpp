@@ -22,6 +22,7 @@
 
 #include "DashAtt.h"
 #include "Pummel_foot.h"
+#include "Dustparticle_Cone.h"
 #pragma endregion
 
 #include "DropRock.h"
@@ -128,14 +129,17 @@ void CUrsa::Update(_double dDeltaTime)
 
 	__super::Update(dDeltaTime);
 
-	//m_fDist = SetDistance();
-	//Checking_Phase(dDeltaTime);
-	//Execute_Pattern(dDeltaTime);
-	//Checking_Finished();
-
-	//if (m_bCB)
-	//	SetUp_Combo();
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+		m_bAction = true;
 	TestAnimation(DASH_ATT);
+
+	m_fDist = SetDistance();
+	Checking_Phase(dDeltaTime);
+	Execute_Pattern(dDeltaTime);
+	Checking_Finished();
+
+	if (m_bCB)
+		SetUp_Combo();
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
 	m_pLeftWeapon->p_States = m_eCurSTATES;
 	m_pRightWeapon->p_States = m_eRightSTATES;
@@ -158,11 +162,13 @@ void CUrsa::Update(_double dDeltaTime)
 	{
 		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PUMMEL_Start", "E_PUMMEL_Start");
 		CEngine::GetInstance()->AddScriptObject(CPummel_foot::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
+		pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_Dustparticle_Cone", "E_Dustparticle_Cone");
+		CEngine::GetInstance()->AddScriptObject(CDustparticle_Cone::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
 	}
-	//Hit(dDeltaTime);
+	Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
 	
-	//if (!None_Combat())
+	if (!None_Combat())
 		CatchUpToLook(dDeltaTime);
 }
 
@@ -908,11 +914,17 @@ _bool CUrsa::IsGravity()
 
 void CUrsa::TestAnimation(Ursa eState)
 {
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
+	if (m_bAction)
+	{
 		m_eState = eState;
 
-	if (m_pModel->Get_isFinished())
-		m_eState = IDLE01;
+
+		if (m_pModel->Get_isFinished())
+		{
+			m_eState = IDLE01;
+			m_bAction = false;
+		}
+	}
 }
 
 void CUrsa::Roar()
