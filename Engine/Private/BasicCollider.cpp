@@ -473,7 +473,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			{
 				pWeaponeCollider->m_bStartHit = false;
 				pTargetCollider->m_bIsDown = false;
-				return;
+				continue;
 			}
 			else
 			{

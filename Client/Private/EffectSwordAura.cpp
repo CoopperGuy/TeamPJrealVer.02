@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Client_Struct.h"
 #include "..\Public\EffectSwordAura.h"
+#include "Obb.h"
 
 USING(Client)
 
@@ -49,6 +50,8 @@ HRESULT CEffectSwordAura::Initialize(void* pArg, CTransform* pTransform, _float 
 		m_pTransform->SetState(CTransform::STATE_UP, XMVector4Transform(vUp * m_pTransform->GetScale(CTransform::STATE_UP), RotationMatrix));
 		m_pTransform->SetState(CTransform::STATE_LOOK, XMVector4Transform(vLook * m_pTransform->GetScale(CTransform::STATE_LOOK), RotationMatrix));
 		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);
+
+		m_pObb = CObb::Create(_float3(0.f, 0.f, 0.f), _float3(1.f, 1.f, 1.f), 20.f, Engine::ID::MONSTER_EFFECT, 3.f, m_pTransform);
 	}
 	return S_OK;
 }
@@ -62,7 +65,8 @@ void CEffectSwordAura::Update(_double deltaTime)
 		return;
 
 	m_dDeadTime += deltaTime;
-	m_pTransform->GoStraight(deltaTime * -3.0);
+	m_pObb->SetSize(_float3(1.f, 1.f, 1.f));
+	//m_pTransform->GoStraight(deltaTime * -3.0);
 
 }
 
