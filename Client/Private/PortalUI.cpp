@@ -72,10 +72,14 @@ void CPortalUI::Update(_double deltaTime)
 		_float2 scenesPos = m_pPosition->GetPosition();
 		m_pPosition->SetPosition(m_fCurScnensPosX, scenesPos.y);
 		_uint i = 0; 
-		for (auto& iter : m_pScenes) {
-			if (iter->IsHovered()) {
-				if (m_iCurIndex == i) {
-					if (CEngine::GetInstance()->IsMouseDown(0)) {
+		for (auto& iter : m_pScenes) 
+		{
+			if (iter->IsHovered()) 
+			{
+				if (m_iCurIndex == i) 
+				{
+					if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) 
+					{
 						m_eScenes = SCENES(i + 1);
 						ClosePortalUI();
 						m_fCurScnensPosX = 640.f;

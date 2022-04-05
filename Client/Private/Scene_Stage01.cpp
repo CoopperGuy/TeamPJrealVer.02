@@ -71,7 +71,10 @@ _uint CScene_Stage01::Update(_double TimeDelta)
 			if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE3, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
 				return E_FAIL;
 			break;
-	
+		case Client::SCENE_STAGE4:
+			if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE4, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
+				return E_FAIL;
+			break;
 		}
 
 	}

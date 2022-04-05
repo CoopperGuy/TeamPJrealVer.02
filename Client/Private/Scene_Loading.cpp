@@ -9,6 +9,8 @@
 #include "Scene_Stage01.h"
 #include "Scene_Stage2.h"
 #include "Scene_Stage3.h"
+#include "Scene_Stage4.h"
+
 
 #include "Scene_Logo.h"
 #include "Scene_Kim.h"
@@ -103,6 +105,11 @@ _uint CScene_Loading::Update(_double TimeDelta)
 				CEngine::GetInstance()->SetCurSceneNumber(SCENE_STAGE3);
 				pScene = CScene_Stage3::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE3);
 				sceneTag = SCENE_STAGE3;
+				break;
+			case SCENE_STAGE4:
+				CEngine::GetInstance()->SetCurSceneNumber(SCENE_STAGE4);
+				pScene = CScene_Stage4::Create(m_pDevice, m_pDeviceContext, SCENE_STAGE4);
+				sceneTag = SCENE_STAGE4;
 				break;
 				/*case SCENE_GAMEPLAY1:
 				break;*/

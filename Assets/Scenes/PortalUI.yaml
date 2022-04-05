@@ -76,6 +76,7 @@ GameObjects:
     Children:
       - 3413066835145731984
       - 15977328159391518690
+      - 16233084340126837658
   - Name: Boss1
     UUID: 3413066835145731984
     Active: false
@@ -176,6 +177,46 @@ GameObjects:
       Size: [300, 50]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Portal\Name01.png
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: Boss3
+    UUID: 16233084340126837658
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 13
+    Hovering: true
+    Com_Transform:
+      Position: [1920, 340]
+      Size: [400, 256]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Loading\UI2_Loading_AncientRuins_FirstHalf.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 661985415090790554
+  - Name: Name02
+    UUID: 661985415090790554
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 3
+    PassIndex: 13
+    Hovering: false
+    Com_Transform:
+      Position: [1920, 487.469849]
+      Size: [216.278992, 45.6445808]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Portal\Temple.png
       TextureMaskPath: ""
       TextureNoisePath: ""
       TextureAnyPath: ""

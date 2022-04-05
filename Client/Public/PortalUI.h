@@ -46,7 +46,7 @@ private:
 	_double			m_moveDelta = 0;
 	_double			m_moveTime = 0.3;
 private:
-	mutable	_int	m_iMaxIdx = 1;
+	mutable	_int	m_iMaxIdx = 2;
 	mutable	_int	m_iMinIdx = 0;
 
 public:

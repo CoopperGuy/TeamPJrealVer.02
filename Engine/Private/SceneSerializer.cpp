@@ -1148,7 +1148,7 @@ CGameObject * CSceneSerializer::DeserializeEffect(YAML::Node & obj, _bool bSpawn
 		float _objMat[16]; XMFLOAT4X4 objMat;
 		ImGuizmo::RecomposeMatrixFromComponents(tr, rt, sc, _objMat);
 		memcpy(&objMat, _objMat, sizeof(XMFLOAT4X4));
-
+		static_cast<CEmptyEffect*>(deserializedObject)->p_BillBordScale = _float3(sc[0], sc[1], sc[2]);
 		CComponent* pTransform = deserializedObject->GetComponent("Com_Transform");
 		static_cast<CTransform*>(pTransform)->SetMatrix(objMat);
 	}
@@ -1442,7 +1442,7 @@ CGameObject * CSceneSerializer::DeserializePrototypeEffect(string pPrototypeTag,
 		float _objMat[16]; XMFLOAT4X4 objMat;
 		ImGuizmo::RecomposeMatrixFromComponents(tr, rt, sc, _objMat);
 		memcpy(&objMat, _objMat, sizeof(XMFLOAT4X4));
-
+		static_cast<CEmptyEffect*>(deserializedObject)->p_BillBordScale = _float3(sc[0], sc[1], sc[2]);
 		CComponent* pTransform = deserializedObject->GetComponent("Com_Transform");
 		dynamic_cast<CTransform*>(pTransform)->SetMatrix(objMat);
 	}
