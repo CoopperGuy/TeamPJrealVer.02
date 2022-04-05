@@ -16,17 +16,17 @@ HRESULT CDashAtt::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	m_pEffectTrans = static_cast<CTransform*>(m_pThis->GetComponent("Com_Transform"));
 
 	_vector vTargetPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-	_matrix mat = m_pTargetTransform->GetWorldMatrix();
-	mat.r[0] = XMVector3Normalize(mat.r[0]);
-	mat.r[1] = XMVector3Normalize(mat.r[1]);
-	mat.r[2] = XMVector3Normalize(mat.r[2]);
-	m_pEffectTrans->SetMatrix(mat);
-	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_RIGHT),90.f);
-	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_LOOK), 180.f);
+	_matrix mat = XMMatrixIdentity();
+	m_pTargetTransform->GetWorldMatrix();
+	mat.r[0] *= m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
+	mat.r[1] *= m_pEffectTrans->GetScale(CTransform::STATE_UP);
+	mat.r[2] *= m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
 	vTargetPos += m_pTargetTransform->GetState(CTransform::STATE_LOOK) * 0.5f;
 	vTargetPos = XMVectorSetY(vTargetPos, 0.5f);
 	XMStoreFloat3(&m_vLook, m_pTargetTransform->GetState(CTransform::STATE_LOOK));
-	m_pEffectTrans->SetState(CTransform::STATE_POSITION, vTargetPos);
+	mat.r[3] = vTargetPos;
+	m_pEffectTrans->SetMatrix(mat);
+	m_pEffectTrans->SetUpRotation(m_pEffectTrans->GetState(CTransform::STATE_RIGHT),90.f);
 
 	return S_OK;
 }
