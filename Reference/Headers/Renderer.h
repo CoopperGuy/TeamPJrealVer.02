@@ -55,7 +55,7 @@ private:
 	HRESULT Render_Main();
 
 private:
-	_float	m_fBrightIntensity = 0.06f;
+	_float	m_fBrightIntensity = 0.15f;
 	_uint	m_iValue = 0;
 	_bool	m_bDebuger = false;
 
