@@ -562,7 +562,7 @@ GameObjects:
       Equipment: false
     Com_NPCInfo:
       NPCID: 100
-      QuestID: 1000
+      QuestID: 10000
       BoxID: 1000
     RenderGroup: 1
     FrustumRange: 50
