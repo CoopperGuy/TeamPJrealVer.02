@@ -6,6 +6,7 @@
 #include "MonHpVIBuffer.h"
 #include "EffectBlood.h"
 #include "EffectBloodDecal.h"
+#include "ItemDropEffect.h"
 CWolf::CWolf(CGameObject* pObj)
 	: CEnemy(pObj)
 {
@@ -150,6 +151,10 @@ void CWolf::LateUpdate(_double dDeltaTime)
 
 			this->SetDead();
 			m_pGameObject->SetDead();
+
+			CGameObject* ItempDropEff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ItemDrop", "E_ItemDrop");
+			CEngine::GetInstance()->AddScriptObject(CItemDropEffect::Create(ItempDropEff,mypos), CEngine::GetInstance()->GetCurSceneNumber());
+
 			m_pCollider->ReleaseController();
 			if (m_pHpBar) {
 				m_pHpBar->SetUpDead();
