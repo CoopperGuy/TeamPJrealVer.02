@@ -514,6 +514,9 @@
     <ClInclude Include="..\Public\Dashparticle.h">
       <Filter>05.Effect\Ursa\DashAtt</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Scene_Stage4.h">
+      <Filter>01.Scenes\Scene_Stage4</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1014,6 +1017,9 @@
     <ClCompile Include="..\Private\Dashparticle.cpp">
       <Filter>05.Effect\Ursa\DashAtt</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\Scene_Stage4.cpp">
+      <Filter>01.Scenes\Scene_Stage4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1500,6 +1506,9 @@
     </Filter>
     <Filter Include="04.UI\BossMovie">
       <UniqueIdentifier>{f2898eae-bb4e-4219-9268-410bec8fe688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scenes\Scene_Stage4">
+      <UniqueIdentifier>{512fd54b-2785-448e-92a0-12700539c01e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

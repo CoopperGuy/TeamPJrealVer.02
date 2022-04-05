@@ -26,16 +26,18 @@ public:
 public:
 	virtual HRESULT InitializePrototype() override;
 	virtual HRESULT Initialize(void* pArg) override;
-	virtual HRESULT InitializePrefab(CEmptyEffect* rhs, void* pArg) ;
+	virtual HRESULT InitializePrefab(CEmptyEffect* rhs, void* pArg);
 	virtual HRESULT InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect* Parent, void* pArg);
 	virtual _uint Update(_double TimeDelta) override;
 	virtual _uint LateUpdate(_double TimeDelta) override;
 	virtual HRESULT Render(_uint iPassIndex = 0) override;
-	
+public:
+	PROPERTY(GetBillBordScale, SetBillBordScale) _float3 p_BillBordScale;
 public:
 	string GetTextureFilePath(TEXTUREID idx);
 	_float3 GetScrollSpeedX() { return m_vScrollSpeedX; }
 	_float3 GetScrollSpeedY() { return m_vScrollSpeedY; }
+	_float3	GetBillBordScale() { return m_vBillbordScale; }
 	_float2 GetDistortion(_uint iIdx) { return m_vDistortion[iIdx]; }
 
 	_float GetPadding() { return m_fPadding; }
@@ -98,6 +100,7 @@ public:
 	void SetSpriteY(_uint NumY) { m_iSpriteNumY = NumY; }
 	void SetSpriteTotal(_uint Num) { m_iSpriteNumTotal = Num; }
 
+	void SetBillBordScale(_float3 _scale) { m_vBillbordScale = _scale; }
 private:
 	HRESULT SetUpComponents();
 	virtual void LinkTranformWithParent();
@@ -163,6 +166,8 @@ private:
 	_float m_fMoveSpd = 1.f;
 	_float m_fProcessTime = 0.f;
 	_float m_fOneSideTime = 0.f;
+private:
+	_float3	m_vBillbordScale = { 0.f,0.f,0.f };
 };
 
 END

@@ -53,6 +53,9 @@ unsigned int APIENTRY ThreadMain(void* pArg)
 	case SCENE_STAGE3:
 		hr = pLoader->GameSceneStage03();
 		break;
+	case SCENE_STAGE4:
+		hr = pLoader->GameSceneStage04();
+		break;
 	case Client::SCENE_KIM:
 		hr = pLoader->GameSceneKIM();
 		break;
@@ -307,6 +310,11 @@ HRESULT CLoader::GameSceneStage03()
 		}
 	}
 
+	return S_OK;
+}
+
+HRESULT CLoader::GameSceneStage04()
+{
 	return S_OK;
 }
 

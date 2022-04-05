@@ -134,7 +134,7 @@ HRESULT CEmptyEffect::InitializePrefab(CEmptyEffect* rhs, void * pArg)
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
 	m_vOffsetColor = rhs->m_vOffsetColor;
-
+	m_vBillbordScale = rhs->m_vBillbordScale;
 	for (_uint i = 0; i < 3; ++i)
 	{
 		m_vDistortion[i] = rhs->m_vDistortion[i];
@@ -246,6 +246,7 @@ HRESULT CEmptyEffect::InitializeChildrenPrefab(CEmptyEffect* rhs, CEmptyEffect *
 	m_iSpriteNumTotal = rhs->m_iSpriteNumTotal;
 	m_bBillBord = rhs->m_bBillBord;
 	m_vOffsetColor = rhs->m_vOffsetColor;
+	m_vBillbordScale = rhs->m_vBillbordScale;
 
 	for (_uint i = 0; i < 3; ++i)
 	{
@@ -424,11 +425,9 @@ HRESULT CEmptyEffect::Render(_uint iPassIndex)
 		_matrix viewInverse = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
 		_float4x4 newWorld;
 		_float4x4 world = m_pTransformCom->GetMatrix();
-		_vector scale, rotation, position;
-		XMMatrixDecompose(&scale, &rotation, &position, m_pTransformCom->GetWorldMatrix());
 		XMStoreFloat4x4(&newWorld, viewInverse);
 		memcpy(newWorld.m[3], world.m[3], sizeof(_float3));
-		m_pTransformCom->SetMatrix(XMMatrixScalingFromVector(scale) * XMLoadFloat4x4(&newWorld));
+		m_pTransformCom->SetMatrix(XMMatrixScalingFromVector(XMLoadFloat3(&m_vBillbordScale)) * XMLoadFloat4x4(&newWorld));
 	}
 
 	/* Render RectTexture */
