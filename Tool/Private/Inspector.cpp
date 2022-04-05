@@ -1111,11 +1111,13 @@ void CInspector::DrawCameraSetting()
 		CEmptyCamera*	_camera = static_cast<CEmptyCamera*>(g_pObjFocused);
 		_bool	_wait = _camera->p_isWait;
 		_bool	_back = _camera->p_isBack;
+		_bool	_slerp = _camera->p_isSlerp;
 		_int	_nextIdx = _camera->p_NextIdx;
 		_float _time = _camera->p_moveTime;
 		_float _waitTime = _camera->p_waitTime;
 		ImGui::Checkbox("isWait", &_wait);
 		ImGui::Checkbox("isBack", &_back);
+		ImGui::Checkbox("isSlerp", &_slerp);
 		ImGui::DragFloat("MoveTime", &_time, 0.01f, 0.f, 100.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
 		ImGui::DragFloat("WaitTime", &_waitTime, 0.01f, 0.f, 100.f, "%.3f", ImGuiSliderFlags_ClampOnInput);
 		ImGui::InputInt("NextIdx", &_nextIdx);
@@ -1131,6 +1133,7 @@ void CInspector::DrawCameraSetting()
 
 		_camera->p_isWait = _wait;
 		_camera->p_isBack = _back;
+		_camera->p_isSlerp = _slerp;
 		_camera->p_moveTime = _time;
 		_camera->p_waitTime = _waitTime;
 		_camera->p_srcPosition = srcPos;

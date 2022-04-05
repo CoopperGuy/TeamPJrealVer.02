@@ -205,7 +205,7 @@ _uint CCollider::LateUpdate(double deltaTime)
 
 HRESULT CCollider::Render()
 {
-#ifdef _DEBUG
+//#ifdef _DEBUG
 
 	if (m_pDebugLine)
 	{
@@ -241,7 +241,7 @@ HRESULT CCollider::Render()
 				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);
 			}
 			else {
-				/*_vector setSize;
+				_vector setSize;
 				_matrix scaleMat;
 				_vector pos = XMVectorZero();
 				if (m_pController) 
@@ -255,7 +255,7 @@ HRESULT CCollider::Render()
 				}
 				_matrix mat = XMMatrixRotationQuaternion(XMLoadFloat4(&m_quaternion)) * XMMatrixTranslationFromVector(pos);
 				if (dynamic_cast<CBoxCollider*>(this)) {
-					setSize = XMVectorSet(m_Size.x * 0.5f, m_Size.y * 0.5f, m_Size.z * 0.5f, 1.f);
+					setSize = XMVectorSet(m_Size.x, m_Size.y, m_Size.z, 1.f);
 					scaleMat = XMMatrixScalingFromVector(setSize);
 					mat = scaleMat * mat;
 				}
@@ -265,12 +265,12 @@ HRESULT CCollider::Render()
 					mat = scaleMat * mat;
 				}
 				XMStoreFloat4x4(&m_pxMat, mat);
-				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);*/
+				dynamic_cast<CVIBuffer*>(m_pDebugLine)->RenderDebug(m_pxMat);
 
 			}
 		}
 	}
-#endif // _DEBUG
+//#endif // _DEBUG
 
 	return S_OK;
 }

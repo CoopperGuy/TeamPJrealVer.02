@@ -25,7 +25,6 @@ extern HINSTANCE hInst;
 
 static string strScene = "../../Assets/Scenes/Ursa_Effect_Jun.yaml";
 
-
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
 {

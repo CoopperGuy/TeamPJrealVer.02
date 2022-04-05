@@ -14,7 +14,7 @@ GameObjects:
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
-    RenderGroup: 3
+    RenderGroup: 4
     FrustumRange: 5
     Children:
       - Name: VIHpbar
@@ -31,5 +31,5 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
-        RenderGroup: 1
+        RenderGroup: 3
         FrustumRange: 5
