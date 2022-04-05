@@ -1,7 +1,7 @@
 Scene: Untitled
 GameObjects:
   - Name: TalkBox
-    UUID: 2855803263849067272
+    UUID: 9772623247533600748
     Active: false
     Layer: Default
     Type: UI
@@ -17,15 +17,18 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: ""
       Color: [1, 1, 1, 1]
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: false
+      ShaderCut: false
+      IsKorean: true
     Children:
       - Name: BoxText
-        UUID: 15806603572233763376
+        UUID: 11964402047064839038
         Active: false
         Layer: Default
         Type: UI
@@ -41,3 +44,5 @@ GameObjects:
           Scale: [1, 1]
           LayerDepth: 0
           IsCenter: true
+          ShaderCut: false
+          IsKorean: true

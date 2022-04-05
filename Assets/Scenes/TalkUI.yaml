@@ -2,8 +2,9 @@ Scene: Untitled
 GameObjects:
   - Name: TalkDesk
     UUID: 9297548254404690024
-    Active: true
+    Active: false
     Layer: Default
+    Instancing: false
     Type: UI
     SortingOrder: 0
     PassIndex: 1
@@ -17,12 +18,14 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 3275693566338373554
   - Name: Text
     UUID: 3275693566338373554
-    Active: true
+    Active: false
     Layer: Default
+    Instancing: false
     Type: UI
     SortingOrder: 0
     PassIndex: 0
@@ -36,3 +39,5 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: false
+      ShaderCut: false
+      IsKorean: true

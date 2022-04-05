@@ -46,13 +46,13 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Com_Stat:
-      Hp: [4000, 0, 4000, 100]
+      Hp: [10000, 0, 10000, 2000]
       HpRegen: [0, 0]
-      Atk: [200, 0, 5]
-      Arm: [40, 0, 1]
-      Exp: [0, 0, 0]
-      Level: 40
-      Gold: 0
+      Atk: [250, 0, 50]
+      Arm: [5, 0, 1]
+      Exp: [5000, 5000, 5000]
+      Level: 5
+      Gold: 5000
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas01
@@ -100,7 +100,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 0
+      Gold: 200
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas02
@@ -148,7 +148,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 0
+      Gold: 200
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas03
@@ -196,7 +196,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 0
+      Gold: 200
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas04
@@ -244,6 +244,6 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 0
+      Gold: 200
     RenderGroup: 1
     FrustumRange: 1

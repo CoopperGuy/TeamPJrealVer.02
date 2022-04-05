@@ -4,6 +4,7 @@
 
 BEGIN(Client)
 class CMonHp;
+class CTownPortal;
 class CUrsa : public CEnemy
 {
 public:
@@ -139,5 +140,8 @@ private:
 
 	CBasicCollider::STATES	m_eRightSTATES = CBasicCollider::STATES::STATES_END;
 	CBasicCollider::STATES	m_eHeadSTATES = CBasicCollider::STATES::STATES_END;
+
+	CTownPortal*		m_pPortal = nullptr;
+
 };
 END
