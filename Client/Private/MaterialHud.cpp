@@ -57,14 +57,14 @@ void CMaterialHud::Update(_double deltaTime)
 			if (iter.first->isFristEnter())
 			{
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.mp3", CHANNELID::UI02);
 			}
 			if (iter.first->IsHovered()) 
 			{
 				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 				{
 					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
-					CEngine::GetInstance()->PlaySoundW("MaterialSelect.ogg", CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("MaterialSelect.mp3", CHANNELID::UI03);
 					m_iCurSelected = i;
 				}
 			}

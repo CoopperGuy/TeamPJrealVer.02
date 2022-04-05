@@ -49,13 +49,13 @@ void CNpc_Shop::Update(_double deltaTime)
 		for (auto& iter : m_ShopList) {
 			if (iter.first->isFristEnter()) {
 				CEngine::GetInstance()->StopSound(CHANNELID::UI07);
-				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI07);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.mp3", CHANNELID::UI07);
 			}
 			if (iter.first->IsHovered()) {
 				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 				{
 					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
-					CEngine::GetInstance()->PlaySoundW("ShopSelect.ogg", CHANNELID::UI08);
+					CEngine::GetInstance()->PlaySoundW("ShopSelect.mp3", CHANNELID::UI08);
 					m_iCurSelectedItem = idx;
 				}
 				else {
@@ -110,7 +110,7 @@ void CNpc_Shop::Update(_double deltaTime)
 		if (m_pShopHud) {
 			if (m_pShopHud->IsBuySelected()) {
 				CEngine::GetInstance()->StopSound(CHANNELID::UI08);
-				CEngine::GetInstance()->PlaySoundW("ItemBuy.ogg", CHANNELID::UI08);
+				CEngine::GetInstance()->PlaySoundW("ItemBuy.mp3", CHANNELID::UI08);
 				CEventCheck::GetInstance()->ContractShop(this);
 			}
 		}

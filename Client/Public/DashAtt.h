@@ -25,6 +25,7 @@ private:
 	_float			m_fScale = 0.f;
 	_float3			m_vScale;
 	_float3			m_vLook;
+	_bool			m_bCreate = true;
 public:
 	static CBasicEffect* Create(CEmptyEffect* pThis, CGameObject* _pTarget);
 	virtual void Free();

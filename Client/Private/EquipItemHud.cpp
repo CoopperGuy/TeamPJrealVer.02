@@ -96,19 +96,19 @@ void CEquipItemHud::Update(_double deltaTime)
 			if (iter.first->isFristEnter())
 			{
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("ItemHover.mp3", CHANNELID::UI02);
 			}
 			if (iter.first->IsHovered())
 			{
 				if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) 
 				{
 					CEngine::GetInstance()->StopSound(CHANNELID::UI03);
-					CEngine::GetInstance()->PlaySoundW("EquipSelect.ogg", CHANNELID::UI03);
+					CEngine::GetInstance()->PlaySoundW("EquipSelect.mp3", CHANNELID::UI03);
 				}
 				if (CEngine::GetInstance()->Get_DIKDown(DIK_SPACE))
 				{
 					CEngine::GetInstance()->StopSound(CHANNELID::UI04);
-					CEngine::GetInstance()->PlaySoundW("EquipItem.ogg", CHANNELID::UI04);
+					CEngine::GetInstance()->PlaySoundW("EquipItem.mp3", CHANNELID::UI04);
 					string _itemName = iter.second.name->GetText();
 					for (size_t i = _itemName.length() - 1; i > 0; i--) 
 					{

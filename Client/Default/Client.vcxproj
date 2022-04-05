@@ -203,6 +203,7 @@
     <ClInclude Include="..\public\ConsumItemHud.h" />
     <ClInclude Include="..\Public\DarkKnight.h" />
     <ClInclude Include="..\Public\DashAtt.h" />
+    <ClInclude Include="..\Public\Dashparticle.h" />
     <ClInclude Include="..\public\DecalCrash.h" />
     <ClInclude Include="..\public\DmgVIBuffer.h" />
     <ClInclude Include="..\Public\DropRock.h" />
@@ -390,6 +391,7 @@
     <ClCompile Include="..\private\Character.cpp" />
     <ClCompile Include="..\Private\DarkKnight.cpp" />
     <ClCompile Include="..\Private\DashAtt.cpp" />
+    <ClCompile Include="..\Private\Dashparticle.cpp" />
     <ClCompile Include="..\private\DecalCrash.cpp" />
     <ClCompile Include="..\private\DmgVIBuffer.cpp" />
     <ClCompile Include="..\Private\DropRock.cpp" />
