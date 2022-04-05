@@ -76,7 +76,7 @@ void CUrsaDunDoor::Update(_double deltaTime)
 	if (m_bOpenDoor)
 	{
 		if (MaxHight >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
-			CEngine::GetInstance()->PlaySoundW("DGDoor.ogg", CHANNELID::MAPOBJ);
+			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
 			CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::MAPOBJ);
 
 			//cout << doorY << endl;
@@ -143,7 +143,7 @@ void CUrsaDunDoor::LateUpdate(_double deltaTime)
 	}
 
 
-	if (UrsaStat->GetStatInfo().hp <= 0) {
+	if (UrsaStat->GetStatInfo().hp <= 0 || !m_pUrsa) {
 		if (m_pWolf.size() > 0) {
 			for (auto Wolf : m_pWolf)
 			{

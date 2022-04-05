@@ -395,29 +395,7 @@ HRESULT CRenderer::RenderNonAlpha()
 {
 	if (nullptr == m_pTargetManager)
 		return E_FAIL;
-
-	// Light depth¸¦ ±¸ÇÑ´Ù
-
-	//if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
-	//{
-	//	if (FAILED(m_pTargetManager->Begin_MRT(m_pDeviceContext, "MRT_Shadow")))
-	//		return E_FAIL;
-
-	//	for (auto& pGameObject : m_RenderGroups[RENDER_NONALPHA])
-	//	{
-	//		if (nullptr != pGameObject)
-	//		{
-	//			if (FAILED(pGameObject->Render(4)))
-	//				return E_FAIL;
-
-	//			// SafeRelease(pGameObject);
-	//		}
-	//	}
-	//	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
-	//		return E_FAIL;
-	//}
-
-
+	
 	if (FAILED(m_pTargetManager->Begin_MRT(m_pDeviceContext, "MRT_Deferred")))
 		return E_FAIL;
 
@@ -433,6 +411,18 @@ HRESULT CRenderer::RenderNonAlpha()
 		}
 	}
 	m_RenderGroups[RENDER_NONALPHA].clear();
+
+	for (auto& pGameObject : m_RenderGroups[RENDER_INSTANCEMAP])
+	{
+		if (nullptr != pGameObject)
+		{
+			if (FAILED(pGameObject->Render()))
+				return E_FAIL;
+
+			SafeRelease(pGameObject);
+		}
+	}
+	m_RenderGroups[RENDER_INSTANCEMAP].clear();
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{

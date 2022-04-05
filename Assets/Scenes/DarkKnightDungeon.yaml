@@ -70,7 +70,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.24888984e-07, -0.0387736596]
       Rotation: [90, -0, 0]
-      Scale: [0.999394417, 1, 0.999996781]
+      Scale: [0.99939388, 1, 0.999996781]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -78,7 +78,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.24888984e-07, -0.0387736596]
     Rotation: [90, -0, 0]
-    Scale: [0.999394417, 1, 0.999996781]
+    Scale: [0.99939388, 1, 0.999996781]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -95,7 +95,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 1.41047907e-09, 6.84311485]
       Rotation: [90, -0, 0]
-      Scale: [0.999760032, 1, 0.999997079]
+      Scale: [0.999759495, 1, 0.999997079]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -103,7 +103,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 1.41047907e-09, 6.84311485]
     Rotation: [90, -0, 0]
-    Scale: [0.999760032, 1, 0.999997079]
+    Scale: [0.999759495, 1, 0.999997079]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -120,7 +120,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 5.71007464e-10, 13.7215319]
       Rotation: [90, -0, 0]
-      Scale: [0.999739289, 1, 0.999999642]
+      Scale: [0.999738753, 1, 0.999999642]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -139,7 +139,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -8.99863721e-07, 20.586483]
       Rotation: [90, -0, 0]
-      Scale: [0.999877095, 1, 1]
+      Scale: [0.999868751, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -147,7 +147,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -8.99863721e-07, 20.586483]
     Rotation: [90, -0, 0]
-    Scale: [0.999877095, 1, 1]
+    Scale: [0.999868751, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -250,17 +250,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-8.20600033, 2.12839699, 4.33456612]
+      Translation: [-8.20600033, 2.05802536, 4.33456612]
       Rotation: [90, -0, 0]
-      Scale: [3.29725909, 3.29999995, 1.44033277]
+      Scale: [3.29496908, 3.29999995, 1.44033277]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-8.20600033, 2.12839699, 4.33456612]
+    Translation: [-8.20600033, 2.05802536, 4.33456612]
     Rotation: [90, -0, 0]
-    Scale: [3.29725909, 3.29999995, 1.44033277]
+    Scale: [3.29496908, 3.29999995, 1.44033277]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -277,7 +277,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.82200003, 1.75389552, 16.0709991]
       Rotation: [90, -0, 0]
-      Scale: [3.29677129, 3.29999995, 2]
+      Scale: [3.29676914, 3.29999995, 2]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
@@ -285,7 +285,7 @@ GameObjects:
       Equipment: false
     Translation: [7.82200003, 1.75389552, 16.0709991]
     Rotation: [90, -0, 0]
-    Scale: [3.29677129, 3.29999995, 2]
+    Scale: [3.29676914, 3.29999995, 2]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -302,7 +302,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.9147315, -0.0255432688, -1.12437558]
       Rotation: [90, -0, 0]
-      Scale: [0.999902606, 1, 1]
+      Scale: [0.999894679, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -310,7 +310,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.9147315, -0.0255432688, -1.12437558]
     Rotation: [90, -0, 0]
-    Scale: [0.999902606, 1, 1]
+    Scale: [0.999894679, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -325,9 +325,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-7.01763725, -4.48300597e-07, 10.2559223]
+      Translation: [-7.00402164, -0.0299999993, 10.2559223]
       Rotation: [90, -0, 0]
-      Scale: [0.999750316, 1, 1]
+      Scale: [0.999362946, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -346,7 +346,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.98551321, -7.49046876e-07, 17.136198]
       Rotation: [90, -0, 0]
-      Scale: [0.999872208, 1, 1]
+      Scale: [0.999871671, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -354,7 +354,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.98551321, -7.49046876e-07, 17.136198]
     Rotation: [90, -0, 0]
-    Scale: [0.999872208, 1, 1]
+    Scale: [0.999871671, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -371,7 +371,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01249981, -4.62087115e-07, 10.5709314]
       Rotation: [90, -0, 0]
-      Scale: [0.999715745, 1, 1]
+      Scale: [0.999715209, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -379,7 +379,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01249981, -4.62087115e-07, 10.5709314]
     Rotation: [90, -0, 0]
-    Scale: [0.999715745, 1, 1]
+    Scale: [0.999715209, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -396,7 +396,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100016, -9.45902912e-07, 21.6397305]
       Rotation: [90, -0, 0]
-      Scale: [0.999805033, 1, 1]
+      Scale: [0.999804497, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -404,7 +404,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100016, -9.45902912e-07, 21.6397305]
     Rotation: [90, -0, 0]
-    Scale: [0.999805033, 1, 1]
+    Scale: [0.999804497, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -421,7 +421,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01000023, -1.60946669e-07, 3.68203068]
       Rotation: [90, -0, 0]
-      Scale: [0.999879241, 1, 1]
+      Scale: [0.999878705, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -429,7 +429,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01000023, -1.60946669e-07, 3.68203068]
     Rotation: [90, -0, 0]
-    Scale: [0.999879241, 1, 1]
+    Scale: [0.999878705, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -446,7 +446,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100636, 1.38197592e-07, -3.16159248]
       Rotation: [90, -0, 0]
-      Scale: [0.999828458, 1, 1]
+      Scale: [0.999827921, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -454,7 +454,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100636, 1.38197592e-07, -3.16159248]
     Rotation: [90, -0, 0]
-    Scale: [0.999828458, 1, 1]
+    Scale: [0.999827921, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -471,7 +471,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.20113225e-06, 27.478693]
       Rotation: [90, -0, 0]
-      Scale: [0.999866664, 1, 1]
+      Scale: [0.999866128, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -479,7 +479,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.20113225e-06, 27.478693]
     Rotation: [90, -0, 0]
-    Scale: [0.999866664, 1, 1]
+    Scale: [0.999866128, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -496,7 +496,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
       Rotation: [90, -0, 0]
-      Scale: [0.999879599, 1, 1]
+      Scale: [0.999879062, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -504,7 +504,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
     Rotation: [90, -0, 0]
-    Scale: [0.999879599, 1, 1]
+    Scale: [0.999879062, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -544,7 +544,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-15.3907995, -0.0196297988, 21.0725327]
+      Translation: [-15.4017506, -0.0196298044, 21.1296024]
       Rotation: [7.4003241e-05, 89.0855408, 7.40141986e-05]
       Scale: [2.75791192, 1, 2.94796181]
     Com_Model:
@@ -552,7 +552,7 @@ GameObjects:
       MeshFileName: untitled.fbx
       HasCollider: true
       Equipment: false
-    Translation: [-15.3907995, -0.0196297988, 21.0725327]
+    Translation: [-15.4017506, -0.0196298044, 21.1296024]
     Rotation: [7.4003241e-05, 89.0855408, 7.40141986e-05]
     Scale: [2.75791192, 1, 2.94796181]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
@@ -746,7 +746,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -2.09460879e-07, 34.3409767]
       Rotation: [90, -0, 0]
-      Scale: [0.999939322, 1, 1]
+      Scale: [0.999938786, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -754,7 +754,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -2.09460879e-07, 34.3409767]
     Rotation: [90, -0, 0]
-    Scale: [0.999939322, 1, 1]
+    Scale: [0.999938786, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -771,7 +771,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -9.50574019e-08, 41.2052727]
       Rotation: [90, -0, 0]
-      Scale: [0.999474108, 1, 1]
+      Scale: [0.999473572, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -779,7 +779,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -9.50574019e-08, 41.2052727]
     Rotation: [90, -0, 0]
-    Scale: [0.999474108, 1, 1]
+    Scale: [0.999473572, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -796,7 +796,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
       Rotation: [90, -0, 0]
-      Scale: [0.999809682, 1, 1]
+      Scale: [0.999809146, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -804,7 +804,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
     Rotation: [90, -0, 0]
-    Scale: [0.999809682, 1, 1]
+    Scale: [0.999809146, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -821,7 +821,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.00759602, 1.8604554e-07, 31.2411652]
       Rotation: [90, -0, 0]
-      Scale: [0.999930859, 1, 1]
+      Scale: [0.999930322, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -829,7 +829,7 @@ GameObjects:
       Equipment: false
     Translation: [7.00759602, 1.8604554e-07, 31.2411652]
     Rotation: [90, -0, 0]
-    Scale: [0.999930859, 1, 1]
+    Scale: [0.999930322, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -846,7 +846,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.98798656, -1.27210498e-07, 38.0731163]
       Rotation: [90, -0, 0]
-      Scale: [0.999757051, 1, 1]
+      Scale: [0.999756515, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -854,7 +854,7 @@ GameObjects:
       Equipment: false
     Translation: [6.98798656, -1.27210498e-07, 38.0731163]
     Rotation: [90, -0, 0]
-    Scale: [0.999757051, 1, 1]
+    Scale: [0.999756515, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -871,7 +871,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
       Rotation: [90, -0, 0]
-      Scale: [0.999905825, 1, 1]
+      Scale: [0.999905288, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -879,7 +879,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
     Rotation: [90, -0, 0]
-    Scale: [0.999905825, 1, 1]
+    Scale: [0.999905288, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -896,7 +896,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
       Rotation: [90, -0, 0]
-      Scale: [0.999436378, 1, 1]
+      Scale: [0.999435842, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -904,7 +904,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
     Rotation: [90, -0, 0]
-    Scale: [0.999436378, 1, 1]
+    Scale: [0.999435842, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -921,7 +921,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.00125313, -1.46524954e-07, 44.9476662]
       Rotation: [90, -0, 0]
-      Scale: [0.99985677, 1, 1]
+      Scale: [0.999856234, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -940,7 +940,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 22.1806793]
       Rotation: [90, -0, 0]
-      Scale: [2.71615267, 5.1651268, 3.89999986]
+      Scale: [2.71615052, 5.1651268, 3.89999986]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Sky\
       MeshFileName: Sky3fbx.fbx
@@ -948,7 +948,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 0, 22.1806793]
     Rotation: [90, -0, 0]
-    Scale: [2.71615267, 5.1651268, 3.89999986]
+    Scale: [2.71615052, 5.1651268, 3.89999986]
     MeshFilePath: ..\..\Assets\Meshes\Sky\
     MeshFileName: Sky3fbx.fbx
     HasCollider: false
@@ -990,7 +990,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-0.49244386, 2.52772307, -3.0108757]
+      Translation: [-0.49244386, 4.00085163, -3.31639147]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1071,7 +1071,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [2.93405104, 4, 4.35026932]
+      Translation: [2.93405104, 1.73091161, 4.4594636]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1091,45 +1091,6 @@ GameObjects:
     FrustumRange: 1
   - Name: BoxCollider4
     UUID: 16243358632385078110
-      Scale: [0.999948025, 1.12074649, 0.999957323]
-    Com_RectInstance:
-      Shape: 1
-      InstNum: 100
-      Color: [0.465379298, 0.352172315, 0.525756478, 0]
-      Speed: 0.899999976
-      LifeTime: 1.5
-      Size: 0.400000006
-      StartRadian: 270
-      RadiationAngle: 41
-      LerpColor: true
-      SrcColor: [0.805922925, 0.442028999, 1, 0]
-      DestColor: [0.311594188, 0.311594188, 0.311594188, 0]
-    Effect_Setting:
-      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\nullImage.dds
-      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_blizzardDecal_01_TEX_KJS.png
-      TextureNoisePath: ""
-      TextureNormalPath: ""
-      ScrollSpeedX: [0, 0, 0]
-      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
-      Distortion1: [0.100000001, 0.200000003]
-      Distortion2: [0.100000001, 0.300000012]
-      Distortion3: [0.100000001, 0.100000001]
-      DistortionScale: 0.800000012
-      DistortionBias: 0.5
-      FadeOut: false
-      FadeOutDuration: 0
-      FadeOutStratTime: 0
-      FadeIn: false
-      FadeInDuration: 0
-      FadeInStratTime: 0
-      EffectDuration: 0
-      SpriteNumX: 0
-      SpriteNumY: 0
-      SpriteTotal: 0
-      SpriteSpeed: 5
-      OffsetColor: [0, 0, 0, 0]
-  - Name: Empty Object
-    UUID: 348466159552121155
     Active: true
     Layer: Default
     Instancing: false
@@ -1137,13 +1098,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.587515593, 2.37060881, 6.9981904]
+      Translation: [1.10993207, 2.37060881, 6.96685123]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [1, 6, 5]
+      Size: [1, 6.0999999, 4]
       Angle:
         - 0
         - 0
@@ -1164,7 +1125,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [3.55267334, 1.09494829, 10.1119642]
+      Translation: [3.41925621, 1.09494829, 9.47670746]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1173,7 +1134,7 @@ GameObjects:
       Size: [1, 4.9000001, 7]
       Angle:
         - 0
-        - 65.3000031
+        - 63.7999954
         - 0
       RigidBody:
         Enabled: false
@@ -1191,13 +1152,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [3.47588253, 2.12486553, 21.6828251]
+      Translation: [3.47588253, 2.12486553, 22.7198753]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [6, 6, 1]
+      Size: [5, 6, 1]
       Angle:
         - 0
         - 26.4999962
@@ -1218,13 +1179,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [1.90866685, 1.8009603, 24.7584705]
+      Translation: [2.93909693, 1.8009603, 25.2701092]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [2, 6, 6]
+      Size: [2, 6, 4.80000019]
       Angle:
         - 0
         - -2.49999905
@@ -1272,7 +1233,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [5.13808489, 2.1925602, 35.0295219]
+      Translation: [5.13808489, 3.62477469, 35.0295219]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1299,7 +1260,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-0.904725552, 1.9158932, 40.3389969]
+      Translation: [-1.58375096, 3.04315281, 40.875946]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1326,7 +1287,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-8.86486053, 1.98580956, 35.8135643]
+      Translation: [-9.58963966, 4.06181955, 35.8135643]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1353,7 +1314,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-5.31182671, 2.58495617, 28.8239555]
+      Translation: [-5.5671711, 3.35632086, 29.0883064]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1380,7 +1341,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-2.06149721, 2.15241504, 20.9274807]
+      Translation: [-2.48176336, 3.38916135, 21.50033]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1407,7 +1368,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-4.90414238, 2.05740666, 13.1035938]
+      Translation: [-5.50215483, 3.05929613, 13.1035938]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -1836,7 +1797,7 @@ GameObjects:
     Com_Transform:
       Translation: [-4.03639889, 0.0261751823, 1.5117079]
       Rotation: [90, -0, 0]
-      Scale: [0.00999627635, 0.0134258317, 0.00999999885]
+      Scale: [0.00999626797, 0.0134258317, 0.00999999885]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1844,7 +1805,7 @@ GameObjects:
       Equipment: false
     Translation: [-4.03639889, 0.0261751823, 1.5117079]
     Rotation: [90, -0, 0]
-    Scale: [0.00999627635, 0.0134258317, 0.00999999885]
+    Scale: [0.00999626797, 0.0134258317, 0.00999999885]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1911,7 +1872,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.72579336, -0.00108735613, 39.286972]
       Rotation: [90, -0, 0]
-      Scale: [0.0228818767, 0.0215992462, 0.0159028191]
+      Scale: [0.0228818599, 0.0215992462, 0.0159028191]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1919,7 +1880,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.72579336, -0.00108735613, 39.286972]
     Rotation: [90, -0, 0]
-    Scale: [0.0228818767, 0.0215992462, 0.0159028191]
+    Scale: [0.0228818599, 0.0215992462, 0.0159028191]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1936,7 +1897,7 @@ GameObjects:
     Com_Transform:
       Translation: [2.36021113, -0.089638859, 3.76426864]
       Rotation: [90, -0, 0]
-      Scale: [0.0153251123, 0.0146310246, 0.0147861093]
+      Scale: [0.0153251039, 0.0146310246, 0.0147861093]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1944,7 +1905,7 @@ GameObjects:
       Equipment: false
     Translation: [2.36021113, -0.089638859, 3.76426864]
     Rotation: [90, -0, 0]
-    Scale: [0.0153251123, 0.0146310246, 0.0147861093]
+    Scale: [0.0153251039, 0.0146310246, 0.0147861093]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -2075,7 +2036,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.30982399, 0.00437767617, 42.8291931]
       Rotation: [-90, -0, 0]
-      Scale: [0.999487638, 1.77297831, 0.658898652]
+      Scale: [0.999485493, 1.77297831, 0.658898652]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2140,6 +2101,196 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0, 0, 0, -0.109999999]
+  - Name: BloodEff
+    UUID: 15510149264430682592
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [2.72289896, 0.00437607337, 10.6594429]
+      Rotation: [-90, 60.8545113, -6.22429025e-06]
+      Scale: [2.03681087, 3.07083035, 0.658898652]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, -0.109999999]
+  - Name: BloodEff
+    UUID: 15510149264430682592
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [3.27942133, 0.00437648129, 19.8245373]
+      Rotation: [-90, 35.5664482, -1.73303624e-06]
+      Scale: [1.1362747, 3.07083082, 0.658898652]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, -0.109999999]
+  - Name: BloodEff
+    UUID: 15510149264430682592
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [2.58150196, 0.00300000003, 21.0521526]
+      Rotation: [-90, 35.5664482, -1.73303317e-06]
+      Scale: [2.77056074, 3.07083082, 0.658898652]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, -0.109999999]
+  - Name: BloodEff
+    UUID: 15510149264430682592
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [3.06508112, 0.00437679281, 28.4192657]
+      Rotation: [-90, 35.5664482, -1.73303647e-06]
+      Scale: [2.430902, 3.07083082, 0.658898652]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, -0.109999999]
+  - Name: BloodEff
+    UUID: 15510149264430682592
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [3.9854939, 0.0043768473, 30.0724907]
+      Rotation: [-90, 35.5664291, -1.73303522e-06]
+      Scale: [2.47213602, 3.07083082, 0.658898652]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\T_FX_BloodEffect_Color.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Blood_New01_TEX_KKJ02.png
+      TextureNoisePath: ""
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0, 0, 0, -0.109999999]
   - Name: BoxCollider15
     UUID: 8814480781674078472
     Active: true
@@ -2149,7 +2300,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-5.38463545, 1.74592066, 8.41539192]
+      Translation: [-4.9558363, 3.27953792, 0.762359083]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2158,7 +2309,7 @@ GameObjects:
       Size: [4.0999999, 6.5, 0.5]
       Angle:
         - 0
-        - 40.6999969
+        - -43.4000015
         - 0
       RigidBody:
         Enabled: false
@@ -2176,7 +2327,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-13.522068, 1.98715568, 4.81022358]
+      Translation: [-13.1386681, 3.3468132, 4.63945436]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2203,7 +2354,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-8.29116821, 0, 9.28286839]
+      Translation: [-8.51544762, 4.61032391, -0.627800882]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2230,13 +2381,13 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [4.2740221, 3.00397015, 12.4435272]
+      Translation: [4.66405678, 5.41452551, 12.5454073]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Box
-      Size: [4.80000019, 10.6999998, 1]
+      Size: [4.80000019, 10.6999998, 0.300000012]
       Angle:
         - 0
         - 41.599987
@@ -2257,7 +2408,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [13.1685543, 3.59996009, 15.0753345]
+      Translation: [12.592, 5.61732054, 15.9820004]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2284,7 +2435,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [8.35856724, 2.68505383, 11.4863787]
+      Translation: [8.35856724, 4.70789242, 11.0424356]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2302,6 +2453,1507 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 1
+  - Name: BoxCollider21
+    UUID: 4071595577671366118
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-11.7441463, 6.19593811, 0.827424169]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [2.5, 3.5, 1]
+      Angle:
+        - 0
+        - 45.3999901
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: BoxCollider22
+    UUID: 9026195282199976881
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [10.8483524, 1.96728492, 12.6176558]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [3.29999995, 3.9000001, 0.400000006]
+      Angle:
+        - 0
+        - -45.3999901
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: BoxCollider23
+    UUID: 17662180932342844199
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-12.1646748, 2.53025579, 1.77047348]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Box
+      Size: [0.5, 2.20000005, 2.5]
+      Angle:
+        - 0
+        - -45.3989792
+        - 0
+      RigidBody:
+        Enabled: false
+        Gravity: false
+        Kinematic: false
+        CharacterController: false
+    RenderGroup: 1
+    FrustumRange: 66
+  - Name: dead
+    UUID: 15452750848733647949
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.57858801, 0.0061711967, 10.9462166]
+      Rotation: [0, -0, 0]
+      Scale: [4.5999999, 3.79999948, 4.0999999]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Seonpc\
+      MeshFileName: q.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: dead
+    UUID: 15452750848733647949
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.41531897, 0.0061711967, 21.2096806]
+      Rotation: [0, -0, 0]
+      Scale: [4.5999999, 3.79999948, 4.0999999]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Seonpc\
+      MeshFileName: q.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: dead
+    UUID: 15452750848733647949
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.84847236, 0.0061711967, 19.1039314]
+      Rotation: [0, 87.4476471, 0]
+      Scale: [4.59999895, 3.79999948, 4.10000038]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Seonpc\
+      MeshFileName: q.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: dead
+    UUID: 15452750848733647949
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.10053396, 0.273327231, 29.054451]
+      Rotation: [44.1352234, -0, 0]
+      Scale: [4.5999999, 3.79999876, 4.10000134]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Seonpc\
+      MeshFileName: q.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.14714909, 0.0663813055, -0.196684659]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [3.14714909, 0.0663813055, -0.196684659]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [3.14753604, 0.514540076, -0.187731728]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [3.18000007, 0.675115943, -0.194000006]
+      Rotation: [20.2145004, 12.2075481, -4.36770222e-07]
+      Scale: [0.217941195, 0.555342436, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.379365027, 0.0663813055, 4.93034315]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0.379365027, 0.0663813055, 4.93034315]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.379000008, 0.514999986, 4.92999983]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0.420004815, 0.668282509, 4.96334934]
+      Rotation: [20.2145004, 12.2075491, -4.36770193e-07]
+      Scale: [0.21793896, 0.555334628, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.0635099113, 0.0663813055, 8.72653389]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [0.0635099113, 0.0663813055, 8.72653389]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [0.064000003, 0.514540076, 8.72700024]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0.0762365311, 0.680951715, 8.72606754]
+      Rotation: [20.2145004, 12.2075472, -4.36770193e-07]
+      Scale: [0.217935294, 0.555342436, 0.148030922]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [2.76459241, 0.0663813055, 13.780364]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.76459241, 0.0663813055, 13.780364]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [2.7650001, 0.514540076, 13.7799997]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [2.7650001, 0.675115943, 13.7799997]
+      Rotation: [20.2145004, 12.2075472, -4.36770222e-07]
+      Scale: [0.217931956, 0.555345953, 0.148034245]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.15082312, 0.0663813055, 14.6746511]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.15082312, 0.0663813055, 14.6746511]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.15100002, 0.514999986, 14.6750002]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-2.15530515, 0.666142941, 14.7052088]
+      Rotation: [20.2145004, 12.2075491, -4.36770193e-07]
+      Scale: [0.21793896, 0.555334628, 0.148034245]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-5.75456142, 0.0663813055, 8.73466873]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.75456142, 0.0663813055, 8.73466873]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-5.75500011, 0.514540076, 8.73499966]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-5.76212835, 0.682058275, 8.72066784]
+      Rotation: [20.2145004, 12.2075491, -4.36770193e-07]
+      Scale: [0.21793896, 0.555342436, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [2.43288994, 0.0663813055, 18.4458008]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [2.43288994, 0.0663813055, 18.4458008]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [2.43300009, 0.514540076, 18.4459991]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [2.43300009, 0.675115943, 18.4459991]
+      Rotation: [20.2145004, 12.2075472, -4.36770193e-07]
+      Scale: [0.217935294, 0.555342436, 0.148030922]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [1.72711074, 0.0663813055, 22.8086777]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.72711074, 0.0663813055, 22.8086777]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [1.727, 0.514540076, 22.809]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [1.727, 0.675115943, 22.809]
+      Rotation: [20.2145004, 12.2075481, -4.36770193e-07]
+      Scale: [0.217935294, 0.555345953, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.78159404, 0.0663813055, 22.3141384]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-1.78159404, 0.0663813055, 22.3141384]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-1.78199995, 0.514540076, 22.3139992]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-1.78199995, 0.675115943, 22.3139992]
+      Rotation: [20.2145004, 12.2075472, -4.36770222e-07]
+      Scale: [0.217941195, 0.555342436, 0.148030922]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [1.34099996, 0.0663813055, 27.4374084]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [1.34099996, 0.0663813055, 27.4374084]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [1.34099996, 0.514540076, 27.4370003]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [1.34099996, 0.675115943, 27.4370003]
+      Rotation: [20.2145004, 12.2075472, -4.36770222e-07]
+      Scale: [0.217942283, 0.555345953, 0.148030922]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.51349926, 0.0663813055, 27.4370003]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-2.51349926, 0.0663813055, 27.4370003]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-2.51300001, 0.514540076, 27.4370003]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-2.51300001, 0.675115943, 27.4370003]
+      Rotation: [20.2145004, 12.2075491, -4.36770193e-07]
+      Scale: [0.21793896, 0.555352151, 0.148034245]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.33327341, 0.0663813055, 39.3464813]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [4.33327341, 0.0663813055, 39.3464813]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [4.33300018, 0.514540076, 39.3460007]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [4.36005354, 0.837918043, 39.3634338]
+      Rotation: [20.2145023, 12.2075472, -4.36770193e-07]
+      Scale: [0.340319514, 0.820626497, 0.147693977]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-7.77364016, 0.0663813055, 32.2183456]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-7.77364016, 0.0663813055, 32.2183456]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-7.77400017, 0.514540076, 32.2179985]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-7.77400017, 0.675115943, 32.2179985]
+      Rotation: [20.2145023, 12.2075472, -4.36770193e-07]
+      Scale: [0.217932999, 0.555331886, 0.148026705]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.03140497, 0.0663813055, 2.44514942]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.03140497, 0.0663813055, 2.44514942]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.0309999, 0.514540076, 2.44499993]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-3.05975223, 0.713044226, 2.45125818]
+      Rotation: [20.2145023, 12.2075481, -4.36770222e-07]
+      Scale: [0.217942283, 0.555331886, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.2518177, 0.0663813055, 6.2859931]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-3.2518177, 0.0663813055, 6.2859931]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-3.25200009, 0.514540076, 6.28599977]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-3.25603437, 0.704494417, 6.28885078]
+      Rotation: [20.2145004, 12.2075462, -4.36770193e-07]
+      Scale: [0.217941508, 0.555348635, 0.148033097]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
+  - Name: Lamp
+    UUID: 10969986787066448640
+    Active: true
+    Layer: Default
+    Instancing: true
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-5.61723518, 0.0663813055, -0.196684659]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\
+      MeshFileName: qweqweqweqweqweqwe.fbx
+      HasCollider: false
+      Equipment: false
+    Translation: [-5.61723518, 0.0663813055, -0.196684659]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: qweqweqweqweqweqwe.fbx
+    HasCollider: false
+    RenderGroup: 1
+    FrustumRange: 10.8000002
+  - Name: LampPointLight
+    UUID: 14133101911886860517
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-5.6170001, 0.514540076, -0.196999997]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    Com_Light:
+      Type: 1
+      Range: 0.899999976
+      Angle: 20
+      Diffuse: [0, 0, 0, 1]
+      Ambient: [0.803402305, 0.623188376, 1, 1]
+      Specular: [1, 1, 1, 1]
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: FireEffect
+    UUID: 10629907324803852843
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [-5.65251303, 0.714548886, -0.118134677]
+      Rotation: [20.2145004, 12.2075481, -4.36770222e-07]
+      Scale: [0.217941195, 0.555347145, 0.148034245]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_fireMask_02_Clamp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_Firedust_01_Xclamp.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.800000012, 0.600000024, 0]
+      ScrollSpeedY: [1.39999998, 1.5, 2.29999995]
+      Distortion1: [0.100000001, 0.100000001]
+      Distortion2: [0.5, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.400000006
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.565216541, 0, 1, -0.129999995]
   - Name: Spear
     UUID: 16157342029874271761
     Active: true
@@ -2312,8 +3964,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.28168046, 0.37335375, 26.4462662]
-      Rotation: [2.53955022e-07, -2.74529715e-08, 90]
-      Scale: [3.00000024, 11.8788519, 2.9953196]
+      Rotation: [2.53955022e-07, -2.7456764e-08, 90]
+      Scale: [3.00000024, 11.8788519, 2.99553204]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2331,8 +3983,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.31012797, 0.873773038, 26.0206566]
-      Rotation: [2.53956046e-07, -2.74664647e-08, 90]
-      Scale: [3, 7.45765066, 2.99881983]
+      Rotation: [2.53955704e-07, -2.74664647e-08, 90]
+      Scale: [3, 7.45765066, 2.99881768]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2350,8 +4002,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.36682594, 0.355842501, 25.5144691]
-      Rotation: [2.5366171e-07, -2.7431124e-08, 90]
-      Scale: [3.00000024, 11.9569101, 2.99403048]
+      Rotation: [2.53661369e-07, -2.74310867e-08, 90]
+      Scale: [3.00000024, 11.9569101, 2.99402833]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2369,8 +4021,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.34843421, 0.890097439, 25.0541286]
-      Rotation: [2.5390068e-07, -2.74595742e-08, 90]
-      Scale: [3.00000024, 6.01965046, 2.99558711]
+      Rotation: [2.53900396e-07, -2.74595404e-08, 90]
+      Scale: [3.00000024, 6.01965046, 2.99558496]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2388,8 +4040,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.40216756, 0.38874048, 24.5121441]
-      Rotation: [2.53809645e-07, -2.74466405e-08, 90]
-      Scale: [3.00000024, 9.57579994, 2.99494219]
+      Rotation: [2.53809247e-07, -2.74465979e-08, 90]
+      Scale: [3.00000024, 9.57579994, 2.99494004]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2407,8 +4059,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.43176699, 0.894207954, 23.97085]
-      Rotation: [2.53988077e-07, -2.74674559e-08, 90]
-      Scale: [3.00000024, 3.37949181, 2.99606586]
+      Rotation: [2.53988077e-07, -2.7467415e-08, 90]
+      Scale: [3.00000024, 3.37949181, 2.99606371]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2426,8 +4078,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.47765052, 0.390837371, 23.5490608]
-      Rotation: [2.53877289e-07, -2.7453023e-08, 90]
-      Scale: [3.00000024, 13.0346251, 2.99524379]
+      Rotation: [2.53877005e-07, -2.74529821e-08, 90]
+      Scale: [3.00000024, 13.0346251, 2.99524164]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2446,7 +4098,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91766298, 0.390837371, 23.4282494]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 10.3545799, 2.99511957]
+      Scale: [2.99993134, 10.3545799, 2.99511743]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2465,7 +4117,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91766191, 0.881356537, 23.9455433]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 10.09058, 2.99521303]
+      Scale: [2.99993134, 10.09058, 2.99521089]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2484,7 +4136,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91766143, 0.390837371, 24.4899158]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 8.34124756, 2.99534011]
+      Scale: [2.99993134, 8.34124756, 2.99533796]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2503,7 +4155,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91766047, 0.902267218, 25.0290833]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 8.81243515, 2.99532199]
+      Scale: [2.99993134, 8.81243515, 2.99531984]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2522,7 +4174,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91765928, 0.390837371, 25.5569]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 7.18246412, 2.99504209]
+      Scale: [2.99993134, 7.18246412, 2.99503994]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -2541,7 +4193,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91766322, 0.889276981, 22.952034]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 8.8648243, 2.98781133]
+      Scale: [2.99993134, 8.8648243, 2.98780918]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx

@@ -53,7 +53,7 @@ void CMenuHud::Update(_double deltaTime)
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 			{
 				CEngine::GetInstance()->StopSound(CHANNELID::UI01);
-				CEngine::GetInstance()->PlaySoundW("EscMenuselect.ogg", CHANNELID::UI01);
+				CEngine::GetInstance()->PlaySoundW("EscMenuselect.mp3", CHANNELID::UI01);
 			}
 		}
 	}

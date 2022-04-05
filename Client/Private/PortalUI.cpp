@@ -39,7 +39,7 @@ void CPortalUI::Update(_double deltaTime)
 		if (m_pLeftArrow->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.mp3", CHANNELID::UI02);
 				if (m_iMinIdx < m_iCurIndex) {
 					m_fDestScnensPosX += 640.f;
 					m_iCurIndex--;
@@ -50,7 +50,7 @@ void CPortalUI::Update(_double deltaTime)
 		if (m_pRightArrow->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.ogg", CHANNELID::UI02);
+				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.mp3", CHANNELID::UI02);
 				if (m_iMaxIdx > m_iCurIndex) {
 					m_fDestScnensPosX -= 640.f;
 					m_iCurIndex++;
@@ -93,7 +93,7 @@ void CPortalUI::Update(_double deltaTime)
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 			{
 				CEngine::GetInstance()->StopSound(CHANNELID::UI03);
-				CEngine::GetInstance()->PlaySoundW("UIClose.ogg", CHANNELID::UI03);
+				CEngine::GetInstance()->PlaySoundW("UIClose.mp3", CHANNELID::UI03);
 				ClosePortalUI();
 				m_fCurScnensPosX = 640.f;
 			}

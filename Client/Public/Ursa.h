@@ -122,6 +122,7 @@ private:
 	_bool m_bSkillDelay		   = false;
 	_bool m_bAddRand		   = false;
 	_bool m_bOneJump		   = false;
+	_bool m_bAction			   = false;
 	// Dissolve
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;

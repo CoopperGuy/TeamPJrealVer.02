@@ -13,7 +13,7 @@ GameObjects:
       Scale: [0.798591971, 0.800000012, 0.800000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
-      MeshFileName: dome.fbx
+      MeshFileName: Dome2.fbx
       HasCollider: false
       EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_color_004.dds
     Effect_Setting:
