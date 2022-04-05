@@ -819,6 +819,7 @@ void CSceneSerializer::SerializeCamera(YAML::Emitter & out, CGameObject * obj)
 	out << YAML::Key << "WaitTime" << YAML::Value << _camera->p_waitTime;
 	out << YAML::Key << "Movie" << YAML::Value << _camera->p_Moive;
 	out << YAML::Key << "NextIdx" << YAML::Value << _camera->p_NextIdx;
+	out << YAML::Key << "Slerp" << YAML::Value << _camera->p_isSlerp;
 
 	out << YAML::Key << "SrcPosition";
 	out << YAML::Value << YAML::Flow;
@@ -1069,7 +1070,7 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 	auto wait = obj["IsWait"];
 	auto back = obj["IsBack"];
 	auto waitTime = obj["WaitTime"];
-
+	auto slerp = obj["Slerp"];
 	_camera->p_moveTime = moveTime.as<_float>();
 	_float3 srcPos{ SrcPosition[0].as<_float>(),SrcPosition[1].as<_float>() ,SrcPosition[2].as<_float>() };
 	_float3 destPos{ DestPosition[0].as<_float>(),DestPosition[1].as<_float>() ,DestPosition[2].as<_float>() };
@@ -1090,6 +1091,8 @@ CGameObject * CSceneSerializer::DeserializeCamera(YAML::Node & obj, _bool bSpawn
 		_camera->p_waitTime = waitTime.as<_float>();
 	if (nextIdx)
 		_camera->p_NextIdx = nextIdx.as<_int>();
+	if (slerp)
+		_camera->p_isSlerp = slerp.as<_bool>();
 	return deserializedObject;
 }
 
