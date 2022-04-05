@@ -76,7 +76,7 @@ void CUrsaDunDoor::Update(_double deltaTime)
 	if (m_bOpenDoor)
 	{
 		if (MaxHight >= XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION))) {
-			CEngine::GetInstance()->PlaySoundW("DGDoor.ogg", CHANNELID::MAPOBJ);
+			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
 			CEngine::GetInstance()->SetVolume(0.2f, CHANNELID::MAPOBJ);
 
 			//cout << doorY << endl;

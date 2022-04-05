@@ -43,7 +43,7 @@ _float CPortal::DistanceWithDirection()
 
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_F))
 		{
-			CEngine::GetInstance()->PlaySoundW("PortalOpen.ogg", CHANNELID::UI10);
+			CEngine::GetInstance()->PlaySoundW("PortalOpen.mp3", CHANNELID::UI10);
 			m_pPortalUI->SetIsActive(true);
 			g_AnotherMenu = true;
 			/*	m_eSceneNum = SCENE::SCENE_STAGE2;

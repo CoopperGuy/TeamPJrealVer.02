@@ -99,7 +99,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 40
-      Color: [1, 0.873851717, 0.32464388, 0]
+      Color: [1, 0.95755285, 0.622453451, 0]
       Speed: 3
       LifeTime: 0.5
       Size: 0.300000012
@@ -147,7 +147,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 1
       InstNum: 15
-      Color: [1.16232741, 1.27922082, 1.70003712, 0]
+      Color: [0.857037842, 0.754089534, 0.383475751, 0]
       Speed: 0.5
       LifeTime: 2
       Size: 0.300000012

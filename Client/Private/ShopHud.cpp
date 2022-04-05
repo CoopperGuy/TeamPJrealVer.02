@@ -38,7 +38,7 @@ _bool CShopHud::IsBuySelected()
 	if (m_pBuy) {
 		if (m_pBuy->isFristEnter()) {
 			CEngine::GetInstance()->StopSound(CHANNELID::UI07);
-			CEngine::GetInstance()->PlaySoundW("ItemHover.ogg", CHANNELID::UI07);
+			CEngine::GetInstance()->PlaySoundW("ItemHover.mp3", CHANNELID::UI07);
 		}
 		if (m_pBuy->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)){
