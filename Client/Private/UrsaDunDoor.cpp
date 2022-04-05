@@ -143,7 +143,7 @@ void CUrsaDunDoor::LateUpdate(_double deltaTime)
 	}
 
 
-	if (UrsaStat->GetStatInfo().hp <= 0) {
+	if (UrsaStat->GetStatInfo().hp <= 0 || !m_pUrsa) {
 		if (m_pWolf.size() > 0) {
 			for (auto Wolf : m_pWolf)
 			{
