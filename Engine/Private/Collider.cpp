@@ -255,7 +255,7 @@ HRESULT CCollider::Render()
 				}
 				_matrix mat = XMMatrixRotationQuaternion(XMLoadFloat4(&m_quaternion)) * XMMatrixTranslationFromVector(pos);
 				if (dynamic_cast<CBoxCollider*>(this)) {
-					setSize = XMVectorSet(m_Size.x * 0.5f, m_Size.y * 0.5f, m_Size.z * 0.5f, 1.f);
+					setSize = XMVectorSet(m_Size.x, m_Size.y, m_Size.z, 1.f);
 					scaleMat = XMMatrixScalingFromVector(setSize);
 					mat = scaleMat * mat;
 				}

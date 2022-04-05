@@ -93,10 +93,17 @@ _uint CEmptyCamera::Update(_double TimeDelta)
 		}
 		if (t >= 1.f)
 			t = 1.f;
-	
-		_vector pos = XMQuaternionSlerp(DirectX::XMLoadFloat3(&m_vSrcPosition), DirectX::XMLoadFloat3(&m_vDestPosition), t);
+		_vector pos = XMVectorZero();
+		if (m_bIsSlerp)
+		{
+			pos = XMQuaternionSlerp(DirectX::XMLoadFloat3(&m_vSrcPosition), DirectX::XMLoadFloat3(&m_vDestPosition), t);
+		}
+		else {
+			pos = XMVectorLerp(DirectX::XMLoadFloat3(&m_vSrcPosition), DirectX::XMLoadFloat3(&m_vDestPosition), t);
+		}
 		_vector look = XMVector3Normalize(DirectX::XMLoadFloat3(&m_vDestLookPosition) - pos);
 		m_pTransformCom->SetState(CTransform::STATE_POSITION, pos);
+
 		if (m_eMovie == MOVIE::MOVIE_NOY)
 			m_pTransformCom->LookAt(DirectX::XMLoadFloat3(&m_vDestLookPosition));
 		else if (m_eMovie == MOVIE::MOVIE_Y)
