@@ -1,6 +1,6 @@
 Scene: Untitled
 GameObjects:
-  - Name: U_MonHpVIBuffer
+  - Name: U_waaawMonHpVIBuffer
     UUID: 6085631469789567160
     Active: true
     Layer: Default
@@ -9,8 +9,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [9.43365574, 31.0286942, -4.98170266e-07]
-      Scale: [0.299923956, 0.0299972668, 0.300033629]
+      Rotation: [9.43365574, 31.0286942, -4.98170323e-07]
+      Scale: [0.299970746, 0.0299995039, 0.300008029]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png

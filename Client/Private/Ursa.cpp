@@ -27,6 +27,7 @@
 #include "DropRock.h"
 #include "DropRockSmall.h"
 #include "EventCheck.h"
+#include "TownPortal.h"
 
 
 USING(Client)
@@ -371,7 +372,13 @@ void CUrsa::Execute_Pattern(_double dDeltaTime)
 		}
 		m_eState = DIE;
 		if (m_pModel->Get_isFinished(DIE))
+		{
 			m_eState = DEADBODY;
+			if (m_pPortal == nullptr)
+			{
+				m_pPortal = CTownPortal::Create();
+			}
+		}
 	}
 	else
 	{

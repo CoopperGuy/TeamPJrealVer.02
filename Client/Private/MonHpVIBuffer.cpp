@@ -44,7 +44,7 @@ void CMonHpVIBuffer::Update(_double deltaTime)
 		if (m_pTargetStat) {
 			m_fPercetage = m_pTargetStat->GetHpPercentage();
 			if (m_fPercetage < m_fBackPercentage) {
-				m_fBackPercentage -= _float(0.05f*deltaTime);
+				m_fBackPercentage -= _float(0.5f*deltaTime);
 			}
 			m_pHpBar->SetPercentage(m_fPercetage);
 			m_pHpBar->SetBackPercentage(m_fBackPercentage);
