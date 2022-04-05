@@ -15,14 +15,14 @@ private:
 	virtual ~CSkull() = default;
 
 public:
-	static CSkull* Create(CGameObject* pObj, _float3 position = _float3{ 0.f,0.f,0.f });
+	static CSkull* Create(CGameObject* pObj);
 	virtual void Free() override;
 
 public:
 	virtual void GetDamage(_vector sourceLocation) {}
 
 public:
-	HRESULT Initialize(_float3 position);
+	HRESULT Initialize();
 	virtual void Update(_double dDeltaTime);
 	virtual void LateUpdate(_double dDeltaTime);
 	virtual void Render();

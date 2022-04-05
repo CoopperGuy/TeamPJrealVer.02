@@ -171,7 +171,7 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.41224837, 0.540380895, 0.14303574]
-      Rotation: [-4.83656883, -7.75393581, -1.07706498e-07]
+      Rotation: [11.3099318, -0, 0]
       Scale: [0.16369164, 0.408916384, 0.278309792]
     Com_VIBuffer:
       {}
@@ -296,7 +296,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 100
-      Color: [-0.242261112, 0, -0.377289534, 0]
+      Color: [0.268427789, 0, 0.449270606, 0]
       Speed: 5
       LifeTime: 1
       Size: 0.5

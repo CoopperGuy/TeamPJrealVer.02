@@ -1,8 +1,8 @@
 Scene: Untitled
 GameObjects:
   - Name: QuestShortcut
-    UUID: 16287995631125625181
-    Active: true
+    UUID: 7028102765286701512
+    Active: false
     Layer: Default
     Type: UI
     SortingOrder: 0
@@ -17,17 +17,18 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - Name: QuestName
-        UUID: 8499379159806179817
-        Active: true
+        UUID: 18056048060875853363
+        Active: false
         Layer: Default
         Type: UI
         SortingOrder: 0
         PassIndex: 0
         Hovering: false
         Com_Transform:
-          Position: [1051.73877, 286.065582]
+          Position: [1051.73877, 279.125824]
           Size: [344.843445, 50]
         Com_Text:
           Text: QuestName
@@ -35,16 +36,18 @@ GameObjects:
           Scale: [0.699999988, 0.699999988]
           LayerDepth: 0
           IsCenter: false
+          ShaderCut: false
+          IsKorean: true
       - Name: QuestPurpose
-        UUID: 13067805310386615929
-        Active: true
+        UUID: 984636841193776388
+        Active: false
         Layer: Default
         Type: UI
         SortingOrder: 0
         PassIndex: 0
         Hovering: false
         Com_Transform:
-          Position: [1067.39075, 323.161682]
+          Position: [1067.39075, 309.282166]
           Size: [500, 100]
         Com_Text:
           Text: QuestPurPose
@@ -52,3 +55,5 @@ GameObjects:
           Scale: [0.649999976, 0.649999976]
           LayerDepth: 0
           IsCenter: false
+          ShaderCut: false
+          IsKorean: true

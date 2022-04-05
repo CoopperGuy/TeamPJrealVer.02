@@ -42,7 +42,7 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 {
 	m_bBehavior = false;
 
-	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "DarkKinght");
+	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "O_DarkKinght");
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
 
@@ -113,14 +113,14 @@ void CDarkKnight::Update(_double dDeltaTime)
 	
 	if (CEngine::GetInstance()->IsKeyDown('R'))
 	{
-		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 		m_eState = SK_SIDESLASH2;
 		m_bBehavior = true;
 		m_bCreateEffect = true;
 	}
 	else if (CEngine::GetInstance()->IsKeyDown('T'))
 	{
-		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 		m_eState = SK_RAISING2;
 		m_bBehavior = true;
 		m_bCreateEffect = true;
@@ -297,13 +297,13 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 				}
 				else if (iRand < 85)
 				{
-					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 					m_eState = SK_SIDESLASH2;
 					m_bCreateEffect = true;
 				}
 				else
 				{
-					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 2.f);
+					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 					m_eState = SK_RAISING2;
 					m_bCreateEffect = true;
 				}
@@ -348,6 +348,8 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		}
 		if (m_bCreateEffect == true && keyFrame == 43)
 		{
+			CEngine::GetInstance()->PlaySoundW("DarkKight_Slash1.mp3", ENEMY01);
+
 			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
 			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, -10.f), CEngine::GetInstance()->GetCurSceneNumber());
 			m_bCreateEffect = false;
@@ -365,6 +367,7 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
 
+			CEngine::GetInstance()->PlaySoundW("DarkKight_Slash2.mp3", ENEMY00);
 			CGameObject* pEffect = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_SwordAura", "E_SwordAura");
 			CEngine::GetInstance()->AddScriptObject(CEffectSwordAura::Create(pEffect, m_pTransform, 90.f), CEngine::GetInstance()->GetCurSceneNumber());
 			m_bCreateEffect = false;
@@ -410,6 +413,9 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::SK_SHIELDATTACK:
 		if (keyFrame >= 18 && keyFrame <= 22)
 			m_pShieldOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+		if (keyFrame == 20)
+			CEngine::GetInstance()->PlaySoundW("DarkKnight_Shield.wav", ENEMY02);
+
 		break;
 	case Client::CDarkKnight::SK_JUMPATTACK:
 		break;
@@ -462,7 +468,10 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		break;
 	case Client::CDarkKnight::SLASH:
 		if (keyFrame >= 5 && keyFrame <= 20)
-		{
+		{			
+			if (keyFrame == 10)
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_Slash3.wav", ENEMY03);
+			
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
 
 			m_pTrailBuffer->SetIsActive(true);
@@ -669,6 +678,8 @@ void CDarkKnight::Hit()
 	{
 		m_bDeadBody = true;
 		m_eState = DIE;
+		CEngine::GetInstance()->PlaySoundW("DarkKnight_Die.wav", ENEMY02);
+
 	}
 
 	if (m_bPhase2 == false)

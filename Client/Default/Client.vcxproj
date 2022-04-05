@@ -314,6 +314,7 @@
     <ClInclude Include="..\Public\Scene_Stage01.h" />
     <ClInclude Include="..\Public\Scene_Stage2.h" />
     <ClInclude Include="..\public\Scene_Stage3.h" />
+    <ClInclude Include="..\Public\Scene_Stage4.h" />
     <ClInclude Include="..\public\ShopHud.h" />
     <ClInclude Include="..\public\ShopInvenHud.h" />
     <ClInclude Include="..\public\ShoulerAtk.h" />
@@ -502,6 +503,7 @@
     <ClCompile Include="..\Private\Scene_Stage01.cpp" />
     <ClCompile Include="..\Private\Scene_Stage2.cpp" />
     <ClCompile Include="..\private\Scene_Stage3.cpp" />
+    <ClCompile Include="..\Private\Scene_Stage4.cpp" />
     <ClCompile Include="..\private\ShopHud.cpp" />
     <ClCompile Include="..\private\ShopInvenHud.cpp" />
     <ClCompile Include="..\private\ShoulerAtk.cpp" />

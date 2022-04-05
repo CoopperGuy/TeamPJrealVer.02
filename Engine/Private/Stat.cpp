@@ -170,8 +170,7 @@ void CStat::EarnGold(_int _gold)
 
 void CStat::EarnExp(CStat * enemyStat)
 {
-	STAT enemyStatus = enemyStat->GetStatInfo();
-	m_tStat.exp += enemyStatus.maxExp;
+	m_tStat.exp += enemyStat->m_tStat.maxExp;
 	while (m_tStat.exp >= m_tStat.maxExp) {
 		m_tStat.level++;
 		m_tStat.exp -= m_tStat.maxExp;

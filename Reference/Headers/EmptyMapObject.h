@@ -68,9 +68,8 @@ private:
 	class CInstanceModel*	m_pModelCom = nullptr;
 
 private:
-	CRenderer::RENDER m_eRenderGroup = CRenderer::RENDER_NONALPHA;
-
-
+	CRenderer::RENDER m_eRenderGroup = CRenderer::RENDER_INSTANCEMAP;
+	
 private:
 	//스테이지 나누기
 	_bool m_bVillage = false;

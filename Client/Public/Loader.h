@@ -41,6 +41,7 @@ public:
 	HRESULT GameSceneStage01();
 	HRESULT GameSceneStage02();
 	HRESULT	GameSceneStage03();
+	HRESULT	GameSceneStage04();
 	HRESULT GameSceneLogo();
 	HRESULT GameSceneKIM();
 	HRESULT GameSceneLEE();
