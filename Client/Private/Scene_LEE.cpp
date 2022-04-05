@@ -34,7 +34,12 @@ HRESULT CScene_LEE::Render()
 HRESULT CScene_LEE::ReadyScript()
 {
 	m_pEngine->AddScriptObject(CDarkKnight::Create(nullptr), SCENE_LEE);
-	m_pEngine->AddScriptObject(CSkull::Create(nullptr), SCENE_LEE);
+	//m_pEngine->AddScriptObject(CSkull::Create(nullptr), SCENE_LEE);
+	list<CGameObject*> listSkull = m_pEngine->GetGameObjectInLayer(SCENE_LEE, "O_Skull");
+	for (auto pSkull : listSkull)
+	{
+		m_pEngine->AddScriptObject(CSkull::Create(pSkull), SCENE_LEE);
+	}
 
 	return S_OK;
 }

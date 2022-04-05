@@ -166,11 +166,10 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 {
 	m_TimeAcc += TimeDelta;
-
-
+	
 	D3D11_MAPPED_SUBRESOURCE		SubResource;
 
-	if (FAILED(m_pDeviceContext->Mzap(m_pVB.Get(), 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
+	if (FAILED(m_pDeviceContext->Map(m_pVB.Get(), 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
 		return E_FAIL;
 
 
