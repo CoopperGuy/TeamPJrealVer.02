@@ -285,7 +285,7 @@ HRESULT CLoader::GameSceneStage02()
 HRESULT CLoader::GameSceneStage03()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 0.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 5.f));
 
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3, 0);
@@ -303,9 +303,6 @@ HRESULT CLoader::GameSceneStage03()
 	while (!m_isFinish) {
 		Sleep(200);
 		if (m_ThreadLoader->GetIsEnd()) {
-			m_isFinish = true;
-		}
-		else if (m_ThreadLoader->GetIsEnable()) {
 			m_isFinish = true;
 		}
 	}

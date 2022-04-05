@@ -12,6 +12,7 @@ class CInsHierarchyNode final : public CBase
 {
 public:
 	CInsHierarchyNode();
+	CInsHierarchyNode();
 	virtual ~CInsHierarchyNode() = default;
 public:
 	_uint Get_Depth() const {
