@@ -1,0 +1,56 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-0.513915658, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [0.100000001, 0, 0.100000001]
+      Arm: [10, 0, 10]
+      Exp: [0.100000001, 10, 10]
+      Level: 1
+      Gold: 100
+    RenderGroup: 1
+    FrustumRange: 1

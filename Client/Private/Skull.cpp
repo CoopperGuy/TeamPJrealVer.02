@@ -13,11 +13,11 @@ CSkull::CSkull(CGameObject* pObj)
 }
 
 
-CSkull * CSkull::Create(CGameObject * pObj, _float3 position)
+CSkull * CSkull::Create(CGameObject * pObj)
 {
 	CSkull*		pInstance = new CSkull(pObj);
 
-	if (FAILED(pInstance->Initialize(position)))
+	if (FAILED(pInstance->Initialize()))
 	{
 		MSG_BOX("Failed to Create CSkull");
 		SafeRelease(pInstance);
@@ -33,11 +33,12 @@ void CSkull::Free()
 
 }
 
-HRESULT CSkull::Initialize(_float3 position)
+HRESULT CSkull::Initialize()
 {
 	m_bBehavior = false;
 
-	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Skull");
+	//m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "Skull");
+	
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
 

@@ -35,11 +35,7 @@ HRESULT CCamera::Initialize(void * pArg)
 		m_pTransformCom->SetMatrix(XMMatrixIdentity());
 		return S_OK;
 	}
-	//AddComponent(0, "Prototype_Transform", "Com_Transform");
-
-	//m_pTransformCom = dynamic_cast<CTransform*>(GetComponent("Com_Transform"));
-
-
+	
 	if (nullptr == m_pTransformCom)
 		return E_FAIL;
 
