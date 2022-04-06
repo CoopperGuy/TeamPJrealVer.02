@@ -28,6 +28,7 @@ public:
 	void SetReinforceHud(CReinforceHud* _reinforce);
 public:
 	void AddItemAtQuickSlot(CItem* item, _int idx);
+	void AddDropItem();
 public:
 	void ContractShop(CNpc_Shop* _shop);
 	void isOpeningShop(_bool right);

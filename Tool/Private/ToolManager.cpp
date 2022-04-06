@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/m_pxVerticesSY.yaml";
+static string strScene = "../../Assets/Scenes/ItemDropUI.yaml";
 
 
 CToolManager::CToolManager()
@@ -36,6 +36,7 @@ CToolManager::CToolManager()
 CToolManager::~CToolManager()
 {
 	Release();
+
 }
 
 HRESULT CToolManager::Initialize()

@@ -1,0 +1,64 @@
+Scene: Untitled
+GameObjects:
+  - Name: ItemDropHud
+    UUID: 4619061872513985752
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [640, 528.144592]
+      Size: [256, 64]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\ItemDrop\Alert_Bg_Cen.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 13295353413070786864
+      - 2948615727076230704
+  - Name: ItemDrop
+    UUID: 13295353413070786864
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 2
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [723.738586, 538.55426]
+      Size: [217.164108, 50]
+    Com_Text:
+      Text: "아이템 획득\n"
+      Color: [1, 1, 1, 1]
+      Scale: [0.5, 0.5]
+      LayerDepth: 0
+      IsCenter: true
+      ShaderCut: false
+      IsKorean: true
+  - Name: PrssFe
+    UUID: 2948615727076230704
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 1
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [634.4599, 535.783142]
+      Size: [392.000671, 103.99369]
+    Com_Text:
+      Text: "'F'"
+      Color: [1, 0, 0, 1]
+      Scale: [0.5, 0.5]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: false

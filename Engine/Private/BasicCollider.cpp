@@ -655,6 +655,8 @@ void CBasicCollider::Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLI
 
 HRESULT CBasicCollider::Render()
 {
+#ifdef _DEBUG
+
 	if (nullptr == m_pEffect)
 		return E_FAIL;
 
@@ -686,6 +688,8 @@ HRESULT CBasicCollider::Render()
 	}
 
 	m_pBatch->End();
+
+#endif // _DEBUG
 
 
 	return S_OK;

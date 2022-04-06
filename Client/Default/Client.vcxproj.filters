@@ -523,6 +523,9 @@
     <ClInclude Include="..\Public\ItemBox.h">
       <Filter>02.GameObjects\Item</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ItemDropAlret.h">
+      <Filter>04.UI\ItemDropAlret</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1032,6 +1035,9 @@
     <ClCompile Include="..\Private\ItemBox.cpp">
       <Filter>02.GameObjects\Item</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\ItemDropAlret.cpp">
+      <Filter>04.UI\ItemDropAlret</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1524,6 +1530,9 @@
     </Filter>
     <Filter Include="02.GameObjects\Item">
       <UniqueIdentifier>{ba2110b4-33ff-4f99-95aa-32f9cfd821f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ItemDropAlret">
+      <UniqueIdentifier>{0b9bc964-78ba-4661-9211-ea352484f327}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

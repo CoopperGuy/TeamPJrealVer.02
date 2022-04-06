@@ -17,7 +17,7 @@ public:
 private:
 	CEmptyGameObject*	m_pItemBox = nullptr;
 	CEmptyGameObject*	m_pPlayer = nullptr;
-	CEmptyGameObject*	m_pAlretUI = nullptr;
+	CEmptyUI*			m_pAlretUI = nullptr;
 	CTransform*			m_pTransform = nullptr;
 	CModel*				m_pModel = nullptr;
 	class CItemDropEffect*    m_pItemDropEff = nullptr;
@@ -32,6 +32,7 @@ private:
 	_float  m_fDissolveDelay = 1.5f;
 
 	_double deaddt = 0.0;
+private:
 
 
 public:

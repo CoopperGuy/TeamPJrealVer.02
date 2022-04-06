@@ -4,6 +4,7 @@
 #include "Sound.h"
 #include "EventCheck.h"
 #include "ItemDropEffect.h"
+#include "ItemDropAlret.h"
 USING(Client)
 
 CItemBox::CItemBox()
@@ -15,7 +16,7 @@ HRESULT CItemBox::Initailze(CGameObject * pArg, _vector pos)
 	m_pItemBox = (CEmptyGameObject*)pArg;
 	m_pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	m_pTransform = static_cast<CTransform*>(m_pItemBox->GetComponent("Com_Transform"));
-
+	m_pAlretUI = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "ItemDropHud"));
 	if (m_pItemBox == nullptr || m_pPlayer == nullptr)
 		return E_FAIL;
 	
@@ -23,14 +24,6 @@ HRESULT CItemBox::Initailze(CGameObject * pArg, _vector pos)
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 	m_pModel = static_cast<CModel*>(m_pItemBox->GetComponent("Com_Model"));
-
-
-	m_pAlretUI = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->SpawnPrefab("O_NPC_FSmall"));
-
-	_vector position = XMVector3TransformCoord(XMVectorSet(0.f, 0.2f, 0.f, 0.f), m_pTransform->GetWorldMatrix());
-	_float3 float3Pos;
-	XMStoreFloat3(&float3Pos, position);
-	m_pAlretUI->SetPosition(float3Pos);
 
 	m_vMyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
@@ -52,28 +45,32 @@ void CItemBox::Update(_double deltaTime)
 	_float dist = XMVectorGetZ(XMVector3Length(m_vMyPos - playerPos));
 
 
-	if (dist < 1.f && !m_bGetItem) {
+	if (dist < 0.1f && !m_bGetItem) 
+	{
 		m_pAlretUI->SetActive(true);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(true, DirectX::Colors::Gold, 1.f);
 	}
-	else {
+	else 
+	{
 		m_pAlretUI->SetActive(false);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(false, DirectX::Colors::Gold, 1.f);
 	}
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) 
+	{
 		m_bGetItem = true;
+		CEventCheck::GetInstance()->AddDropItem();
 	}
 
 
-	if (!m_bGetItem) {
+	if (!m_bGetItem) 
+	{
 		m_pModel->SetUp_AnimationIndex(0);
 		m_pModel->Play_Animation(deltaTime);
 	}
-
-	else {
-
+	else 
+	{
 
 		m_pAlretUI->SetActive(false);
 
@@ -92,7 +89,8 @@ void CItemBox::Update(_double deltaTime)
 	if (m_bDissolve)
 	{
 		m_fDissolveAcc += (_float)deltaTime * 0.5f;
-		if (m_fDissolveAcc > 0.925f) {
+		if (m_fDissolveAcc > 0.925f) 
+		{
 
 			if (m_pItemDropEff)
 				m_pItemDropEff->SetDead();

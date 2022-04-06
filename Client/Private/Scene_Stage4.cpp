@@ -49,15 +49,14 @@ HRESULT CScene_Stage4::Render()
 
 HRESULT CScene_Stage4::ReadyScript()
 {
-	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
-	//m_pEngine->AddScriptObject(CUrsaDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
-	m_pEngine->AddScriptObject(CDarkKnight::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	m_pEngine->AddScriptObject(CDarkKnight::Create(nullptr), SCENE_STAGE4);
 	//m_pEngine->AddScriptObject(CSkull::Create(nullptr), SCENE_LEE);
-	list<CGameObject*> listSkull = m_pEngine->GetGameObjectInLayer(CEngine::GetInstance()->GetCurSceneNumber(), "O_Skull");
+	list<CGameObject*> listSkull = m_pEngine->GetGameObjectInLayer(SCENE_STAGE4, "O_Skull");
 	for (auto pSkull : listSkull)
 	{
-		m_pEngine->AddScriptObject(CSkull::Create(pSkull), CEngine::GetInstance()->GetCurSceneNumber());
+		m_pEngine->AddScriptObject(CSkull::Create(pSkull), SCENE_STAGE4);
 	}
+
 
 	return S_OK;
 }
