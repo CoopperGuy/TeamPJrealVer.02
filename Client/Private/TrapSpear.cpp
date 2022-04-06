@@ -38,10 +38,9 @@ HRESULT CTrapSpear::Initialize(void* pArg, _double dEndTime)
 
 void CTrapSpear::Update(_double dDeltaTime)
 {
-
 	m_pOBB->p_States = CBasicCollider::STATES::STATES_ATK;
-	if(m_pOBB1)
-		m_pOBB1->p_States = CBasicCollider::STATES::STATES_ATK;
+	m_pOBB1->p_States = CBasicCollider::STATES::STATES_ATK;
+
 	if (m_dStartTime > m_dStart)
 	{
 		if(State_IDLE())

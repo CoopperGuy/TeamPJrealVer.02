@@ -38,15 +38,15 @@ HRESULT CScene_JUN::ReadyScript()
 	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
 
 
-	list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_JUNG, "Layer_Spear");
+	//list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_JUNG, "Layer_Spear");
 
-	for (auto pSpear : listSpear)
-	{
-		_double End = (_double)(rand() % 30) / 10.0;
-		if (End > 2.0)
-			End += 1.0;
-		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, End), SCENE_JUNG);
-	}
+	//for (auto pSpear : listSpear)
+	//{
+	//	_double End = (_double)(rand() % 30) / 10.0;
+	//	if (End > 2.0)
+	//		End += 1.0;
+	//	m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, End), SCENE_JUNG);
+	//}
 
 	return S_OK;
 }
