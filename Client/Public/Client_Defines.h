@@ -32,6 +32,7 @@ using namespace Client;
 #define CHANGE	 0
 #define WINCX	1280
 #define WINCY	720
+#define _ITERATOR_DEBUG_LEVEL 0
 
 #include "imgui.h"
 #include "imgui_internal.h"

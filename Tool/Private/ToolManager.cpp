@@ -22,7 +22,6 @@
 USING(Tool)
 
 extern HINSTANCE hInst;
-
 static string strScene = "../../Assets/Scenes/TrapSpaer.yaml";
 
 
@@ -36,6 +35,7 @@ CToolManager::CToolManager()
 CToolManager::~CToolManager()
 {
 	Release();
+
 }
 
 HRESULT CToolManager::Initialize()

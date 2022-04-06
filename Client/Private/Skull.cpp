@@ -4,7 +4,7 @@
 #include "BasicCollider.h"
 #include "Transform.h"
 #include "MonHp.h"
-
+#include "ItemBox.h"
 USING(Client)
 
 CSkull::CSkull(CGameObject* pObj)
@@ -130,6 +130,12 @@ void CSkull::LateUpdate(_double dDeltaTime)
 
 	if (m_fDissolveAcc >= 1.f)
 	{
+		_int _rand = rand() % 4;
+		if (_rand < 1)
+		{
+			CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BasicItemBox", "O_BasicItemBox");
+			CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 		this->SetDead();
 		m_pGameObject->SetDead();
 	}

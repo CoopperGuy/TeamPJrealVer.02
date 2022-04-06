@@ -347,6 +347,7 @@ HRESULT CLoader::GameSceneLogo()
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ReinforceUI.yaml", SCENE_STATIC, 6));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/StatusUI.yaml", SCENE_STATIC, 7));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/SoundUI.yaml", SCENE_STATIC, 8));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/ItemDropUI.yaml", SCENE_STATIC, 9));
 
 
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));

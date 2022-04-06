@@ -4,6 +4,8 @@
 
 BEGIN(Client)
 class CMonHp;
+class CTownPortal;
+
 class CDarkKnight : public CEnemy
 {
 public:
@@ -69,7 +71,8 @@ private:
 	CBasicCollider*		m_pOBBCom = nullptr;
 	CBasicCollider*		m_pWeaponOBB = nullptr;
 	CBasicCollider*		m_pShieldOBB = nullptr;
-	CMonHp*	m_pMonHp = nullptr;
+	CTownPortal*		m_pPortal = nullptr;
+	CMonHp*				m_pMonHp = nullptr;
 
 private:
 	_bool	m_bCinematic = false;

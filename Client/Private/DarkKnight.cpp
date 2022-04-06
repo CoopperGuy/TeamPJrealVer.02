@@ -2,6 +2,7 @@
 #include "..\Public\DarkKnight.h"
 #include "StateMachine.h"
 #include "BasicCollider.h"
+#include "TownPortal.h"
 #include "Transform.h"
 #include "MonHp.h"
 
@@ -617,6 +618,8 @@ void CDarkKnight::CheckAnimFinish()
 			m_eState = DEADBODY;
 			break;
 		case Client::CDarkKnight::DEADBODY:
+			if (m_pPortal == nullptr)
+				m_pPortal = CTownPortal::Create(nullptr);
 			break;
 		case Client::CDarkKnight::SLASH:
 			SetAttackDelay();

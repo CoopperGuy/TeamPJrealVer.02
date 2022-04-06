@@ -21,6 +21,7 @@
 #include "Gold.h"
 #include "SkillIcon.h"
 #include "TargetOn.h"
+#include "ItemDropAlret.h"
 #pragma endregion
 
 #pragma region Equipment
@@ -197,7 +198,9 @@ HRESULT CPlayer::Initialize()
 	}
 
 	CEventCheck::GetInstance()->SetPlayer(this);
-
+	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NoviceAxe").second;
+	CItem*	tempItem = new CItem(_info);
+	m_pInven->AddItem("NoviceAxe", tempItem);
 	return S_OK;
 }
 
@@ -370,6 +373,31 @@ const CStat::STAT CPlayer::GetStatus() const
 	if (m_pStatus)
 		return m_pStatus->GetStatInfo();
 	return CStat::STAT();
+}
+
+void CPlayer::AddItem(_int _idx)
+{
+	string _name;
+	switch (_idx)
+	{
+	case 0:
+		_name = "NormalReinforce";
+		break;
+	case 1:
+		_name = ("MediumReinforce");
+		break;
+	case 2:
+		_name = ("HighReinForce");
+		break;
+	}
+	CEngine::GetInstance()->AddScriptObject(CItemDropAlret::Create(_name, nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+
+	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName(_name).second;
+	CItem*	tempItem = new CItem(_info);
+	if (!m_pInven->AddItem(_name, tempItem)) {
+		SafeDelete(tempItem);
+	}
+
 }
 
 void CPlayer::EquipmentsStatusUpdate()

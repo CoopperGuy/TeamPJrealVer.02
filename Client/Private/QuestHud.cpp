@@ -31,9 +31,9 @@ void CQuestHud::Update(_double deltaTime)
 	CEngine::GetInstance()->GetQuestData(10);
 	
 	m_pSideQuestHud->LinkQuestList(m_QuestList);
-	std::thread updateQuest(UpdateQuestList, this);
-	updateQuest.detach();
-
+	//std::thread updateQuest(UpdateQuestList, this);
+	//updateQuest.detach();
+	this->AddQuestAtList();
 	this->CheckQuestProgress();
 	this->RemoveQuest(0);
 }
@@ -103,8 +103,8 @@ void CQuestHud::RemoveQuest(_int questID)
 	}
 	_float y = 0;
 	for (auto& iter : m_QuestList) {
-		_float2 pos = iter.first->GetPosition();
-		iter.first->SetPosition(pos.x,y);
+		_float2 pos = iter.first->GetTransformOffst();
+		iter.first->SetTransformOffst(pos.x,y);
 		y += m_fYPosPadding;
 	}
 	m_fQuestYPos = m_fYPosPadding;
