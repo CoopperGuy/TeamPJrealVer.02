@@ -114,7 +114,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	}
 
 	if (enemyStat->m_StatusEffect & STATUSEFFECT::BLOOD) {
-		enemyStatus.hp += dmg /** 0.1f*/;
+		enemyStat->m_tStat.hp += dmg /** 0.1f*/;
 		enemyStat->CorrectMaxHp();
 	}
 

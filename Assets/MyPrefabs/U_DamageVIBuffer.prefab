@@ -1,6 +1,6 @@
 Scene: Untitled
 GameObjects:
-  - Name: DamageVIBuffer
+  - Name: U_DamageVIBuffer
     UUID: 13290502650889082438
     Active: true
     Layer: Default
@@ -9,12 +9,12 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [20.9414711, 58.5375328, 0]
-      Scale: [0.0998205692, 0.0995257273, 0.10006468]
+      Rotation: [37.4479904, 69.467598, 4.86842464e-06]
+      Scale: [0.0997909978, 0.0995076895, 0.10002479]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
-    RenderGroup: 3
+    RenderGroup: 4
     FrustumRange: 1
     Children:
       - Name: Damagefont
@@ -31,7 +31,7 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 1
       - Name: Damagefont
         UUID: 13932161908818813126
@@ -47,7 +47,7 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 1
       - Name: Damagefont
         UUID: 10092246606210197394
@@ -63,7 +63,7 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 1
       - Name: Damagefont
         UUID: 15025472052366320204
@@ -79,7 +79,7 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Font\nullImage.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 1
       - Name: DamageEffect
         UUID: 8726014127316743946
@@ -95,5 +95,5 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Alret\Fx_StrongLight.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 1

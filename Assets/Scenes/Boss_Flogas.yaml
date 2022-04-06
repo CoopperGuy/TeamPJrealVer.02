@@ -46,11 +46,11 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Com_Stat:
-      Hp: 100000, 10000, 2000]
+      Hp: [10000, 0, 10000, 2000]
       HpRegen: [0, 0]
-      Atk: [200, 0, 50]
-      Arm: [40, 0, 1]
-      Exp: [0, 5000, 5000]
+      Atk: [250, 0, 50]
+      Arm: [5, 0, 1]
+      Exp: [5000, 5000, 5000]
       Level: 5
       Gold: 5000
     RenderGroup: 1

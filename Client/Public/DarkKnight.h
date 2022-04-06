@@ -72,6 +72,7 @@ private:
 	CMonHp*	m_pMonHp = nullptr;
 
 private:
+	_bool	m_bCinematic = false;
 	_bool	m_bMove = true;
 
 	// Dissolve

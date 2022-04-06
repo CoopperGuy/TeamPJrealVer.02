@@ -9,15 +9,15 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.699999988, 18.7000008, 19.5]
-      Rotation: [-50.5063553, 74.5999603, -144.5]
-      Scale: [0.999799967, 0.999817491, 0.999845028]
+      Translation: [0.142500177, 23.8330002, -35.1529999]
+      Rotation: [15.1000004, -0, 3.59720216e-05]
+      Scale: [0.999805808, 0.999819815, 0.999842048]
     Com_Light:
       Type: 0
       Range: 42.7000008
       Angle: 20.8999996
-      Diffuse: [1, 1, 1, 1]
-      Ambient: [0.0434782505, 0.0434782505, 0.0434782505, 1]
+      Diffuse: [0.340579689, 0.340579689, 0.340579689, 1]
+      Ambient: [0.260869563, 0.260869563, 0.260869563, 1]
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
@@ -25,7 +25,7 @@ GameObjects:
     UUID: 3802029611451780858
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -38,13 +38,19 @@ GameObjects:
       MeshFileName: untitled.fbx
       HasCollider: true
       Equipment: false
+    Translation: [-8.20631123, 0, 4.41395521]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
     RenderGroup: 1
     FrustumRange: 100
   - Name: Room
     UUID: 12729197830165223206
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
@@ -57,6 +63,12 @@ GameObjects:
       MeshFileName: untitled.fbx
       HasCollider: true
       Equipment: false
+    Translation: [7.66418219, 0, 16.1251678]
+    Rotation: [0, -0, 0]
+    Scale: [1, 1, 0.991045892]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon3\
+    MeshFileName: untitled.fbx
+    HasCollider: true
     RenderGroup: 1
     FrustumRange: 100
   - Name: Floor
@@ -70,7 +82,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.24888984e-07, -0.0387736596]
       Rotation: [90, -0, 0]
-      Scale: [0.999393582, 1, 0.999996781]
+      Scale: [0.999386728, 1, 0.999996781]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -78,7 +90,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.24888984e-07, -0.0387736596]
     Rotation: [90, -0, 0]
-    Scale: [0.999393582, 1, 0.999996781]
+    Scale: [0.999386728, 1, 0.999996781]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -95,7 +107,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 1.41047907e-09, 6.84311485]
       Rotation: [90, -0, 0]
-      Scale: [0.999759197, 1, 0.999997079]
+      Scale: [0.999754667, 1, 0.999997079]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -103,7 +115,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 1.41047907e-09, 6.84311485]
     Rotation: [90, -0, 0]
-    Scale: [0.999759197, 1, 0.999997079]
+    Scale: [0.999754667, 1, 0.999997079]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -113,19 +125,25 @@ GameObjects:
     UUID: 15175941572143912440
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
       Translation: [0, 5.71007464e-10, 13.7215319]
       Rotation: [90, -0, 0]
-      Scale: [0.999738455, 1, 0.999999642]
+      Scale: [0.99972856, 1, 0.999999642]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
       HasCollider: false
       Equipment: false
+    Translation: [0, 5.71007464e-10, 13.7215319]
+    Rotation: [90, -0, 0]
+    Scale: [0.99972856, 1, 0.999999642]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 100
   - Name: Floor
@@ -139,7 +157,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -8.99863721e-07, 20.586483]
       Rotation: [90, -0, 0]
-      Scale: [0.999868453, 1, 1]
+      Scale: [0.999861598, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -147,7 +165,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -8.99863721e-07, 20.586483]
     Rotation: [90, -0, 0]
-    Scale: [0.999868453, 1, 1]
+    Scale: [0.999861598, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -252,7 +270,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.20600033, 2.05802536, 4.33456612]
       Rotation: [90, -0, 0]
-      Scale: [3.29496789, 3.29999995, 1.44033277]
+      Scale: [3.29495931, 3.29999995, 1.44033277]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
@@ -260,7 +278,7 @@ GameObjects:
       Equipment: false
     Translation: [-8.20600033, 2.05802536, 4.33456612]
     Rotation: [90, -0, 0]
-    Scale: [3.29496789, 3.29999995, 1.44033277]
+    Scale: [3.29495931, 3.29999995, 1.44033277]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -277,7 +295,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.82200003, 1.75389552, 16.0709991]
       Rotation: [90, -0, 0]
-      Scale: [3.29676795, 3.29999995, 2]
+      Scale: [3.29676342, 3.29999995, 2]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
@@ -285,7 +303,7 @@ GameObjects:
       Equipment: false
     Translation: [7.82200003, 1.75389552, 16.0709991]
     Rotation: [90, -0, 0]
-    Scale: [3.29676795, 3.29999995, 2]
+    Scale: [3.29676342, 3.29999995, 2]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -302,7 +320,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.9147315, -0.0255432688, -1.12437558]
       Rotation: [90, -0, 0]
-      Scale: [0.999894381, 1, 1]
+      Scale: [0.999891877, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -310,7 +328,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.9147315, -0.0255432688, -1.12437558]
     Rotation: [90, -0, 0]
-    Scale: [0.999894381, 1, 1]
+    Scale: [0.999891877, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -320,19 +338,25 @@ GameObjects:
     UUID: 18144408595030484416
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
       Translation: [-7.00402164, -0.0299999993, 10.2559223]
       Rotation: [90, -0, 0]
-      Scale: [0.999362648, 1, 1]
+      Scale: [0.999326944, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
       HasCollider: false
       Equipment: false
+    Translation: [-7.00402164, -0.0299999993, 10.2559223]
+    Rotation: [90, -0, 0]
+    Scale: [0.999326944, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 34.9000015
   - Name: Floor
@@ -346,7 +370,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.98551321, -7.49046876e-07, 17.136198]
       Rotation: [90, -0, 0]
-      Scale: [0.999871373, 1, 1]
+      Scale: [0.999868274, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -354,7 +378,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.98551321, -7.49046876e-07, 17.136198]
     Rotation: [90, -0, 0]
-    Scale: [0.999871373, 1, 1]
+    Scale: [0.999868274, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -371,7 +395,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01249981, -4.62087115e-07, 10.5709314]
       Rotation: [90, -0, 0]
-      Scale: [0.999714911, 1, 1]
+      Scale: [0.99971348, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -379,7 +403,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01249981, -4.62087115e-07, 10.5709314]
     Rotation: [90, -0, 0]
-    Scale: [0.999714911, 1, 1]
+    Scale: [0.99971348, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -396,7 +420,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100016, -9.45902912e-07, 21.6397305]
       Rotation: [90, -0, 0]
-      Scale: [0.999804199, 1, 1]
+      Scale: [0.999801815, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -404,7 +428,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100016, -9.45902912e-07, 21.6397305]
     Rotation: [90, -0, 0]
-    Scale: [0.999804199, 1, 1]
+    Scale: [0.999801815, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -421,7 +445,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01000023, -1.60946669e-07, 3.68203068]
       Rotation: [90, -0, 0]
-      Scale: [0.999878407, 1, 1]
+      Scale: [0.999877036, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -429,7 +453,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01000023, -1.60946669e-07, 3.68203068]
     Rotation: [90, -0, 0]
-    Scale: [0.999878407, 1, 1]
+    Scale: [0.999877036, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -446,7 +470,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100636, 1.38197592e-07, -3.16159248]
       Rotation: [90, -0, 0]
-      Scale: [0.999827623, 1, 1]
+      Scale: [0.999826133, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -454,7 +478,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100636, 1.38197592e-07, -3.16159248]
     Rotation: [90, -0, 0]
-    Scale: [0.999827623, 1, 1]
+    Scale: [0.999826133, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -471,7 +495,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.20113225e-06, 27.478693]
       Rotation: [90, -0, 0]
-      Scale: [0.99986583, 1, 1]
+      Scale: [0.999864459, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -479,7 +503,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.20113225e-06, 27.478693]
     Rotation: [90, -0, 0]
-    Scale: [0.99986583, 1, 1]
+    Scale: [0.999864459, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -496,7 +520,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
       Rotation: [90, -0, 0]
-      Scale: [0.999878764, 1, 1]
+      Scale: [0.999873877, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -504,7 +528,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
     Rotation: [90, -0, 0]
-    Scale: [0.999878764, 1, 1]
+    Scale: [0.999873877, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -746,7 +770,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -2.09460879e-07, 34.3409767]
       Rotation: [90, -0, 0]
-      Scale: [0.999938488, 1, 1]
+      Scale: [0.999937177, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -754,7 +778,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -2.09460879e-07, 34.3409767]
     Rotation: [90, -0, 0]
-    Scale: [0.999938488, 1, 1]
+    Scale: [0.999937177, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -771,7 +795,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -9.50574019e-08, 41.2052727]
       Rotation: [90, -0, 0]
-      Scale: [0.999473274, 1, 1]
+      Scale: [0.99947232, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -779,7 +803,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -9.50574019e-08, 41.2052727]
     Rotation: [90, -0, 0]
-    Scale: [0.999473274, 1, 1]
+    Scale: [0.99947232, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -796,7 +820,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
       Rotation: [90, -0, 0]
-      Scale: [0.999808848, 1, 1]
+      Scale: [0.999807119, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -804,7 +828,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
     Rotation: [90, -0, 0]
-    Scale: [0.999808848, 1, 1]
+    Scale: [0.999807119, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -821,7 +845,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.00759602, 1.8604554e-07, 31.2411652]
       Rotation: [90, -0, 0]
-      Scale: [0.999930024, 1, 1]
+      Scale: [0.999928176, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -829,7 +853,7 @@ GameObjects:
       Equipment: false
     Translation: [7.00759602, 1.8604554e-07, 31.2411652]
     Rotation: [90, -0, 0]
-    Scale: [0.999930024, 1, 1]
+    Scale: [0.999928176, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -846,7 +870,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.98798656, -1.27210498e-07, 38.0731163]
       Rotation: [90, -0, 0]
-      Scale: [0.999756217, 1, 1]
+      Scale: [0.999754727, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -854,7 +878,7 @@ GameObjects:
       Equipment: false
     Translation: [6.98798656, -1.27210498e-07, 38.0731163]
     Rotation: [90, -0, 0]
-    Scale: [0.999756217, 1, 1]
+    Scale: [0.999754727, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -871,7 +895,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
       Rotation: [90, -0, 0]
-      Scale: [0.99990499, 1, 1]
+      Scale: [0.999903381, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -879,7 +903,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
     Rotation: [90, -0, 0]
-    Scale: [0.99990499, 1, 1]
+    Scale: [0.999903381, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -896,7 +920,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
       Rotation: [90, -0, 0]
-      Scale: [0.999435544, 1, 1]
+      Scale: [0.999432325, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -904,7 +928,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
     Rotation: [90, -0, 0]
-    Scale: [0.999435544, 1, 1]
+    Scale: [0.999432325, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -914,19 +938,25 @@ GameObjects:
     UUID: 2911758182647381444
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
       Translation: [7.00125313, -1.46524954e-07, 44.9476662]
       Rotation: [90, -0, 0]
-      Scale: [0.999855936, 1, 1]
+      Scale: [0.99977982, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
       HasCollider: false
       Equipment: false
+    Translation: [7.00125313, -1.46524954e-07, 44.9476662]
+    Rotation: [90, -0, 0]
+    Scale: [0.99977982, 1, 1]
+    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
+    MeshFileName: Floor4.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 31.1000004
   - Name: Sky
@@ -940,7 +970,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 22.1806793]
       Rotation: [90, -0, 0]
-      Scale: [2.71614933, 5.1651268, 3.89999986]
+      Scale: [2.71614909, 5.1651268, 3.89999986]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Sky\
       MeshFileName: Sky3fbx.fbx
@@ -948,7 +978,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 0, 22.1806793]
     Rotation: [90, -0, 0]
-    Scale: [2.71614933, 5.1651268, 3.89999986]
+    Scale: [2.71614909, 5.1651268, 3.89999986]
     MeshFilePath: ..\..\Assets\Meshes\Sky\
     MeshFileName: Sky3fbx.fbx
     HasCollider: false
@@ -1797,7 +1827,7 @@ GameObjects:
     Com_Transform:
       Translation: [-4.03639889, 0.0261751823, 1.5117079]
       Rotation: [90, -0, 0]
-      Scale: [0.00999626331, 0.0134258317, 0.00999999885]
+      Scale: [0.00999626238, 0.0134258317, 0.00999999885]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1805,7 +1835,7 @@ GameObjects:
       Equipment: false
     Translation: [-4.03639889, 0.0261751823, 1.5117079]
     Rotation: [90, -0, 0]
-    Scale: [0.00999626331, 0.0134258317, 0.00999999885]
+    Scale: [0.00999626238, 0.0134258317, 0.00999999885]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1872,7 +1902,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.72579336, -0.00108735613, 39.286972]
       Rotation: [90, -0, 0]
-      Scale: [0.0228818506, 0.0215992462, 0.0159028191]
+      Scale: [0.0228818487, 0.0215992462, 0.0159028191]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1880,7 +1910,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.72579336, -0.00108735613, 39.286972]
     Rotation: [90, -0, 0]
-    Scale: [0.0228818506, 0.0215992462, 0.0159028191]
+    Scale: [0.0228818487, 0.0215992462, 0.0159028191]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1897,7 +1927,7 @@ GameObjects:
     Com_Transform:
       Translation: [2.36021113, -0.089638859, 3.76426864]
       Rotation: [90, -0, 0]
-      Scale: [0.0153250992, 0.0146310246, 0.0147861093]
+      Scale: [0.0153250983, 0.0146310246, 0.0147861093]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1905,7 +1935,7 @@ GameObjects:
       Equipment: false
     Translation: [2.36021113, -0.089638859, 3.76426864]
     Rotation: [90, -0, 0]
-    Scale: [0.0153250992, 0.0146310246, 0.0147861093]
+    Scale: [0.0153250983, 0.0146310246, 0.0147861093]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -2036,7 +2066,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.30982399, 0.00437767617, 42.8291931]
       Rotation: [-90, -0, 0]
-      Scale: [0.999485195, 1.77297831, 0.658898652]
+      Scale: [0.999485135, 1.77297831, 0.658898652]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2666,8 +2696,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.18000007, 0.675115943, -0.194000006]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181750149, 0.538043857, 0.163158745]
+      Rotation: [158.768021, 23.999012, 180]
+      Scale: [0.181748942, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2750,8 +2780,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.420004815, 0.668282509, 4.96334934]
-      Rotation: [30.1075439, -5.64904356, 2.1448507e-07]
-      Scale: [0.181746885, 0.538039148, 0.163158715]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.181745678, 0.538038254, 0.163159832]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2834,8 +2864,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.0762365311, 0.680951715, 8.72606754]
-      Rotation: [30.1075478, -5.64904547, 2.14485098e-07]
-      Scale: [0.181745246, 0.538043857, 0.163156047]
+      Rotation: [158.768036, 23.9990101, 180]
+      Scale: [0.181744054, 0.538043022, 0.16315715]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2918,8 +2948,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.7650001, 0.675115943, 13.7799997]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181739897, 0.538043857, 0.163158745]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.18173869, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3002,8 +3032,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.15530515, 0.666142941, 14.7052088]
-      Rotation: [30.1075439, -5.64904356, 2.1448507e-07]
-      Scale: [0.181746885, 0.538039148, 0.163158715]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.181745678, 0.538038254, 0.163159832]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3086,8 +3116,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-5.76212835, 0.682058275, 8.72066784]
-      Rotation: [30.1075478, -5.64904404, 2.1448507e-07]
-      Scale: [0.181746885, 0.538043857, 0.163158745]
+      Rotation: [158.768021, 23.999012, 180]
+      Scale: [0.181745678, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3170,8 +3200,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.43300009, 0.675115943, 18.4459991]
-      Rotation: [30.1075478, -5.64904547, 2.14485098e-07]
-      Scale: [0.181745246, 0.538043857, 0.163156047]
+      Rotation: [158.768036, 23.9990101, 180]
+      Scale: [0.181744054, 0.538043022, 0.16315715]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3254,8 +3284,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.727, 0.675115943, 22.809]
-      Rotation: [30.1075478, -5.64904547, 2.14485098e-07]
-      Scale: [0.181745246, 0.538043857, 0.163158745]
+      Rotation: [158.768021, 23.999012, 180]
+      Scale: [0.181744054, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3338,8 +3368,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.78199995, 0.675115943, 22.3139992]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181750149, 0.538043857, 0.163156047]
+      Rotation: [158.768036, 23.9990101, 180]
+      Scale: [0.181748942, 0.538043022, 0.16315715]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3422,8 +3452,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.34099996, 0.675115943, 27.4370003]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181750149, 0.538043857, 0.163156047]
+      Rotation: [158.768036, 23.9990101, 180]
+      Scale: [0.181748942, 0.538043022, 0.16315715]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3506,8 +3536,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.51300001, 0.675115943, 27.4370003]
-      Rotation: [30.1075478, -5.64904308, 2.1448507e-07]
-      Scale: [0.181746885, 0.538050354, 0.163158715]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.181745678, 0.538049579, 0.163159832]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3590,8 +3620,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.36005354, 0.837918043, 39.3634338]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.283791155, 0.79519856, 0.162777305]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.283789247, 0.795197368, 0.162778422]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3674,8 +3704,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.77400017, 0.675115943, 32.2179985]
-      Rotation: [30.1075478, -5.64904404, 2.14485041e-07]
-      Scale: [0.181740716, 0.53802532, 0.163150921]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.181739509, 0.538024485, 0.163152024]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3758,8 +3788,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.05975223, 0.713044226, 2.45125818]
-      Rotation: [30.1075439, -5.64904404, 2.1448507e-07]
-      Scale: [0.181750149, 0.53802532, 0.163158715]
+      Rotation: [158.768021, 23.9990101, 180]
+      Scale: [0.181748942, 0.538024485, 0.163159832]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3842,8 +3872,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.25603437, 0.704494417, 6.28885078]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181750149, 0.538043857, 0.163158745]
+      Rotation: [158.768021, 23.999012, 180]
+      Scale: [0.181748942, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3904,7 +3934,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-5.59848881, 0.514540076, -0.308152497]
+      Translation: [-5.6170001, 0.514540076, -0.196999997]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Light:
@@ -3925,9 +3955,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-5.64124393, 0.714548886, -0.198668495]
-      Rotation: [30.1075478, -5.64904451, 2.1448507e-07]
-      Scale: [0.181750149, 0.538043857, 0.163158745]
+      Translation: [-5.65251303, 0.714548886, -0.118134677]
+      Rotation: [158.768021, 23.999012, 180]
+      Scale: [0.181748942, 0.538043022, 0.163159862]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3954,1107 +3984,7 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0.565216541, 0, 1, -0.129999995]
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-10.8310356, 0, 4.36298561]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-9.29043198, 0, 1.99891055]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-10.2361383, 0, 2.69160938]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-8.44238186, 0, 1.54416823]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-9.29043198, 0, 6.58282995]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-8.6181879, 0, 7.03750849]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-7.77941799, 0, 7.02806854]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-7.77609539, 0, 1.86243057]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-7.11924028, 0, 6.82717991]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [-10.3525763, 0, 6.10590887]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [10.1182728, 0, 16.5703831]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [10.5676517, 0, 15.9971294]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [8.24927711, 0, 19.1919231]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [9.86061478, 0, 15.8917446]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [7.98594379, 0, 18.3462639]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [7.85615253, 0, 13.7554855]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [8.89972973, 0, 18.7027435]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [8.24815941, 0, 12.9012852]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [7.39443779, 0, 18.7751637]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_Skull
-    UUID: 7420576480574651297
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 2
-    Com_Transform:
-      Translation: [8.79010582, 0, 13.664258]
-      Rotation: [0, -0, 0]
-      Scale: [1.5, 1.5, 1.5]
-    Com_Collider:
-      Center: [0, 0, 0]
-      Type: Capsule
-      Radius: 0.100000001
-      Height: 0.300000012
-      Angle:
-        - 0
-        - 0
-        - 0
-      RigidBody:
-        Enabled: true
-        Gravity: true
-        Kinematic: false
-        CharacterController: true
-    Com_OBB:
-      Center: [0, 0, 0]
-      Size: [0.300000012, 0.699999988, 0.300000012]
-      IsAttach: false
-      BoneName: ""
-      Offset: [0, 0, 0]
-      CollisionType: 2
-    Com_OBB1:
-      Center: [0.100000001, 0, 0]
-      Size: [0.100000001, 0.370000005, 0.109999999]
-      IsAttach: true
-      BoneName: BN_Weapon_R_01
-      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
-      CollisionType: 3
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
-      MeshFileName: Skull.fbx
-      HasCollider: false
-      Equipment: false
-    Com_Stat:
-      Hp: [200, 0, 200, 200]
-      HpRegen: [0.100000001, 0.100000001]
-      Atk: [15, 0, 15]
-      Arm: [0.100000001, 0, 0.100000001]
-      Exp: [0.100000001, 100, 100]
-      Level: 1
-      Gold: 300
-    RenderGroup: 1
-    FrustumRange: 1
-  - Name: O_DarkKinght
+  - Name: DarkKinght
     UUID: 8617912300921592626
     Active: true
     Layer: Default
@@ -5116,6 +4046,1106 @@ GameObjects:
       Gold: 5000
     RenderGroup: 1
     FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-10.8310356, 0, 4.36298561]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-9.29043198, 0, 1.99891055]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-10.2361383, 0, 2.69160938]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-8.44238186, 0, 1.54416823]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-9.29043198, 0, 6.58282995]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-8.6181879, 0, 7.03750849]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-7.77941799, 0, 7.02806854]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-7.77609539, 0, 1.86243057]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-7.11924028, 0, 6.82717991]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-10.3525763, 0, 6.10590887]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [10.1182728, 0, 16.5703831]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [10.5676517, 0, 15.9971294]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [8.24927711, 0, 19.1919231]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [9.86061478, 0, 15.8917446]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [7.98594379, 0, 18.3462639]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [7.85615253, 0, 13.7554855]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [8.89972973, 0, 18.7027435]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [8.24815941, 0, 12.9012852]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [7.39443779, 0, 18.7751637]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
+  - Name: Skull
+    UUID: 7420576480574651297
+    Active: true
+    Layer: O_Skull
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [8.79010582, 0, 13.664258]
+      Rotation: [0, -0, 0]
+      Scale: [1.5, 1.5, 1.5]
+    Com_Collider:
+      Center: [0, 0, 0]
+      Type: Capsule
+      Radius: 0.100000001
+      Height: 0.300000012
+      Angle:
+        - 0
+        - 0
+        - 0
+      RigidBody:
+        Enabled: true
+        Gravity: true
+        Kinematic: false
+        CharacterController: true
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.300000012, 0.699999988, 0.300000012]
+      IsAttach: false
+      BoneName: ""
+      Offset: [0, 0, 0]
+      CollisionType: 2
+    Com_OBB1:
+      Center: [0.100000001, 0, 0]
+      Size: [0.100000001, 0.370000005, 0.109999999]
+      IsAttach: true
+      BoneName: BN_Weapon_R_01
+      Offset: [-0.0299999993, 0.170000002, 0.00499999989]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Monster\Skull\
+      MeshFileName: Skull.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [200, 0, 200, 200]
+      HpRegen: [0.100000001, 0.100000001]
+      Atk: [15, 0, 15]
+      Arm: [0.100000001, 0, 0.100000001]
+      Exp: [0.100000001, 100, 100]
+      Level: 1
+      Gold: 300
+    RenderGroup: 1
+    FrustumRange: 1
   - Name: Spear
     UUID: 16157342029874271761
     Active: true
@@ -5125,9 +5155,9 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [1.24980474, 0.37335375, 26.4462662]
-      Rotation: [2.53954568e-07, -2.74548331e-08, 90]
-      Scale: [3, 12, 2.99995899]
+      Translation: [1.28168046, 0.37335375, 26.4462662]
+      Rotation: [2.53955022e-07, -2.74567356e-08, 90]
+      Scale: [3.00000024, 11.8788519, 2.99553061]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5145,8 +5175,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.31012797, 0.873773038, 26.0206566]
-      Rotation: [2.53949707e-07, -2.74664647e-08, 90]
-      Scale: [3, 12, 2.99997807]
+      Rotation: [2.53955449e-07, -2.74664611e-08, 90]
+      Scale: [3, 7.45765066, 2.99881625]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5164,8 +5194,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.36682594, 0.355842501, 25.5144691]
-      Rotation: [2.53656481e-07, -2.74305627e-08, 90]
-      Scale: [3, 12, 2.99998021]
+      Rotation: [2.53661142e-07, -2.74310583e-08, 90]
+      Scale: [3.00000024, 11.9569101, 2.9940269]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5183,8 +5213,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.34843421, 0.890097439, 25.0541286]
-      Rotation: [2.53895735e-07, -2.74589933e-08, 90]
-      Scale: [3, 12, 2.99996376]
+      Rotation: [2.53900168e-07, -2.74595084e-08, 90]
+      Scale: [3.00000024, 6.01965046, 2.99558353]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5202,8 +5232,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.40216756, 0.38874048, 24.5121441]
-      Rotation: [2.53804643e-07, -2.74461183e-08, 90]
-      Scale: [3, 12, 2.99997711]
+      Rotation: [2.53808992e-07, -2.74465695e-08, 90]
+      Scale: [3.00000024, 9.57579994, 2.99493861]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5221,8 +5251,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.43176699, 0.894207954, 23.97085]
-      Rotation: [2.53987849e-07, -2.74669194e-08, 90]
-      Scale: [3, 12, 2.99993372]
+      Rotation: [2.53988077e-07, -2.74673866e-08, 90]
+      Scale: [3.00000024, 3.37949181, 2.99606228]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5240,8 +5270,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [1.47765052, 0.390837371, 23.5490608]
-      Rotation: [2.53871207e-07, -2.74523142e-08, 90]
-      Scale: [3, 12, 2.99998045]
+      Rotation: [2.53876777e-07, -2.74529501e-08, 90]
+      Scale: [3.00000024, 13.0346251, 2.99524021]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5259,8 +5289,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-1.91766298, 0.390837371, 23.4282494]
-      Rotation: [-179.999893, -2.74607999e-08, 90]
-      Scale: [3, 12, 2.99997735]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 10.3545799, 2.995116]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5278,8 +5308,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-1.91766191, 0.881356537, 23.9455433]
-      Rotation: [-179.999893, -2.74607999e-08, 90]
-      Scale: [3, 12, 2.99997735]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 10.09058, 2.99520946]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5297,8 +5327,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-1.91766143, 0.390837371, 24.4899158]
-      Rotation: [-179.999893, -2.74607999e-08, 90]
-      Scale: [3, 12, 2.99996996]
+      Rotation: [-179.999893, -2.74608496e-08, 90]
+      Scale: [2.99993134, 8.34124756, 2.99533653]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5316,8 +5346,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-1.91766047, 0.902267218, 25.0290833]
-      Rotation: [-179.999893, -2.74607999e-08, 90]
-      Scale: [3, 12, 2.99997687]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 8.81243515, 2.99531841]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5336,7 +5366,7 @@ GameObjects:
     Com_Transform:
       Translation: [-1.91765928, 0.390837371, 25.5569]
       Rotation: [-179.999893, -2.74608478e-08, 90]
-      Scale: [2.99993134, 12, 2.99971795]
+      Scale: [2.99993134, 7.18246412, 2.99503851]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
@@ -5354,8 +5384,8 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [-1.91766322, 0.889276981, 22.952034]
-      Rotation: [-179.999893, -2.74607999e-08, 90]
-      Scale: [3, 12, 2.99976921]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 8.8648243, 2.98780775]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
       MeshFileName: Spear.fbx
