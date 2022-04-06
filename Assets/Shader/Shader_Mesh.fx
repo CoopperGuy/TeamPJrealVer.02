@@ -355,12 +355,19 @@ PS_OUT PS_MAIN(PS_IN In)
     float3x3 TBN = float3x3(In.vTangent, In.vBiNormal, In.vNormal);
     vNormal = mul(vNormal, TBN);
 
+    /////////////////////////////RimLight////////////////////////////////////////////////
+    float3 vCamPos = normalize(g_CamPosition - In.vWPos);
+    float RimLightIntensity = smoothstep(0.7f, 1.f, 1 - max(0, dot(vNormal, vCamPos)));
+    color.xyz += float4(1.f, 1.f, 1.f, 1.f) * RimLightIntensity;
+
+
     if (g_RimLightEnable)
     {
         float3 vCamPos = normalize(g_CamPosition - In.vWPos);
         float RimLightIntensity = smoothstep(1.f - g_RimWidth, 1.f, 1 - max(0, dot(vNormal, vCamPos)));
         color.xyz += g_RimLitghColor * RimLightIntensity;
     }
+    ////////////////////////////////////////////////////////////////////////////////////////
 
     Out.vDiffuse = color;
     Out.vNormal = vector(vNormal.xyz * 0.5f + 0.5f, 1.0f);
