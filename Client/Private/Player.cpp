@@ -501,7 +501,6 @@ void CPlayer::InputLB(_double dDeltaTime)
 		{
 			if (m_pModel->Get_isFinished())
 			{
-				//if (!m_bMixCombo)
 				m_bCombo = true;
 			}
 		}
@@ -509,7 +508,6 @@ void CPlayer::InputLB(_double dDeltaTime)
 		{
 			if (m_pModel->Get_isFinished())
 			{
-				//if (!m_bMixCombo)
 				m_bCombo = true;
 			}
 		}

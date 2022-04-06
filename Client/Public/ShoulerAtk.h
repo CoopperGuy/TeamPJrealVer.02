@@ -2,7 +2,7 @@
 #include "BasicEffect.h"
 
 BEGIN(Client)
-
+class CObb;
 class CShoulerAtk :
 	public CBasicEffect
 {
@@ -18,6 +18,8 @@ private:
 	CTransform*		m_pEffectTrans = nullptr;
 private:
 	CTransform*		m_pPlayerTrans = nullptr;
+private:
+	CObb*			m_pObb = nullptr;
 private:
 	_double			m_Duration = 0.2;
 	_double			m_DurationDelta = 0;

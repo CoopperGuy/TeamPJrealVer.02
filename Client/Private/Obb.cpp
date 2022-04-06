@@ -49,6 +49,9 @@ HRESULT CObb::Initailze(_fvector position, _fvector _size, _float dmg, ID _colli
 	_float3 size;
 	XMStoreFloat3(&size, _size);
 	m_pOBB->SetSize(size);
+	_float3 pos;
+	XMStoreFloat3(&pos, position);
+	SetPosision(pos);
 	m_pOBB->SetCollisionType(_collisionType);
 	CStat::STAT stat = m_pStat->GetStatInfo();
 	stat.level = 1;
@@ -124,6 +127,11 @@ void CObb::SetMatrix(_float4x4 matWorld)
 void CObb::SetIsDownAttack(_bool bvalue)
 {
 	m_pOBB->SetIsDownAttack(bvalue);
+}
+
+void CObb::Idle()
+{
+	m_pOBB->p_States = (CBasicCollider::STATES_IDEL);
 }
 
 CObb * CObb::Create(_float3 position, _float3 size, _float dmg, ID _collisionType, _float _duration, CTransform * pTarget)
