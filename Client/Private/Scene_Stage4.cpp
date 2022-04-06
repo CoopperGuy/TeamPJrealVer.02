@@ -5,6 +5,8 @@
 #include "Skull.h"
 #include "EventCheck.h"
 #include "Scene_Loading.h"
+#include "TrapSpear.h"
+
 USING(Client)
 
 CScene_Stage4::CScene_Stage4(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -56,7 +58,15 @@ HRESULT CScene_Stage4::ReadyScript()
 	{
 		m_pEngine->AddScriptObject(CSkull::Create(pSkull), SCENE_STAGE4);
 	}
+	list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_STAGE4, "Layer_Spear");
 
+	for (auto pSpear : listSpear)
+	{
+		_double End = (_double)(rand() % 30) / 10.0;
+		if (End < 2.0)
+			End += 1.0;
+		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, End), SCENE_STAGE4);
+	}
 
 	return S_OK;
 }
