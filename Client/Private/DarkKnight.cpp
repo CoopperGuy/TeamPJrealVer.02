@@ -42,7 +42,7 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 {
 	m_bBehavior = false;
 
-	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "O_DarkKinght");
+	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "DarkKinght");
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
 
