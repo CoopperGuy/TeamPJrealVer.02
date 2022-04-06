@@ -1,0 +1,535 @@
+Scene: Untitled
+GameObjects:
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.24980474, 0.37335375, 26.4462662]
+      Rotation: [2.53954568e-07, -2.74548331e-08, 90]
+      Scale: [3, 12, 2.99671912]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.31012797, 0.873773038, 26.0206566]
+      Rotation: [2.53949679e-07, -2.74664611e-08, 90]
+      Scale: [3, 12, 2.99869394]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.36682594, 0.355842501, 25.5144691]
+      Rotation: [2.53656452e-07, -2.74305592e-08, 90]
+      Scale: [3, 12, 2.9989965]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.34843421, 0.890097439, 25.0541286]
+      Rotation: [2.53895763e-07, -2.74589969e-08, 90]
+      Scale: [3, 12, 2.99879169]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.40216756, 0.38874048, 24.5121441]
+      Rotation: [2.53804643e-07, -2.74461183e-08, 90]
+      Scale: [3, 12, 2.99883151]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.43176699, 0.894207954, 23.97085]
+      Rotation: [2.53987849e-07, -2.74669194e-08, 90]
+      Scale: [3, 12, 2.99890971]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [1.47765052, 0.390837371, 23.5490608]
+      Rotation: [2.53871207e-07, -2.74523142e-08, 90]
+      Scale: [3, 12, 2.99922371]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91766298, 0.390837371, 23.4282494]
+      Rotation: [-179.999893, -2.74608034e-08, 90]
+      Scale: [3, 12, 2.9991889]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91766191, 0.881356537, 23.9455433]
+      Rotation: [-179.999893, -2.74607999e-08, 90]
+      Scale: [3, 12, 2.99902439]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91766143, 0.390837371, 24.4899158]
+      Rotation: [-179.999893, -2.74607999e-08, 90]
+      Scale: [3, 12, 2.99919653]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91766047, 0.902267218, 25.0290833]
+      Rotation: [-179.999893, -2.74607999e-08, 90]
+      Scale: [3, 12, 2.99919248]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91765928, 0.390837371, 25.5569]
+      Rotation: [-179.999893, -2.74608478e-08, 90]
+      Scale: [2.99993134, 12, 2.99895239]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
+  - Name: Spear
+    UUID: 16157342029874271761
+    Active: true
+    Layer: Layer_Spear
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 2
+    Com_Transform:
+      Translation: [-1.91766322, 0.889276981, 22.952034]
+      Rotation: [-179.999893, -2.74607999e-08, 90]
+      Scale: [3, 12, 2.9972074]
+    Com_OBB:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_12
+      Offset: [1.45000005, 0.300000012, 0]
+      CollisionType: 3
+    Com_OBB1:
+      Center: [0, 0, 0]
+      Size: [0.330000013, 0.550000012, 0.550000012]
+      IsAttach: true
+      BoneName: Bone_Spear_8
+      Offset: [1.35000002, -0.300000012, 0]
+      CollisionType: 3
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\ironSpear\
+      MeshFileName: Spear.fbx
+      HasCollider: false
+      Equipment: false
+    Com_Stat:
+      Hp: [1000, 0, 1000, 1000]
+      HpRegen: [0, 0]
+      Atk: [10, 0, 10]
+      Arm: [0, 0, 0]
+      Exp: [0, 0, 0]
+      Level: 1
+      Gold: 0
+    RenderGroup: 1
+    FrustumRange: 23.7999992
