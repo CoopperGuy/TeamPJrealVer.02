@@ -322,7 +322,7 @@ HRESULT CLoader::GameSceneStage04()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
-
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TrapSpaer.yaml", SCENE_STAGE4, 1);
 	m_ThreadLoader->Start_Thread();
 
 	while (!m_isFinish) {
