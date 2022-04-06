@@ -357,7 +357,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     /////////////////////////////RimLight////////////////////////////////////////////////
     float3 vCamPos = normalize(g_CamPosition - In.vWPos);
-    float RimLightIntensity = smoothstep(0.7f, 1.f, 1 - max(0, dot(vNormal, vCamPos)));
+    float RimLightIntensity = smoothstep(0.9f, 1.f, 1 - max(0, dot(vNormal, vCamPos)));
     color.xyz += float4(1.f, 1.f, 1.f, 1.f) * RimLightIntensity;
 
 

@@ -183,8 +183,7 @@ HRESULT CRenderer::InitializePrototype()
 	if (nullptr == m_pVIBuffer_SSAO)
 		return E_FAIL;
 
-	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_ShadowDepth", 0.f, 0.f, 200.f, 200.f)))
-		return E_FAIL;
+	
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Diffuse", 0.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Normal", 0.f, 200.f, 200.f, 200.f)))
@@ -194,6 +193,8 @@ HRESULT CRenderer::InitializePrototype()
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular2", 200.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_DecalDepth", 200.f, 200.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_ShadowDepth", 200.f, 400.f, 200.f, 200.f)))
 		return E_FAIL;
 	
 	m_pTargetManager->Initialize(m_pDevice, m_pDeviceContext);
@@ -283,8 +284,8 @@ HRESULT CRenderer::DrawRenderGroup()
 	if (m_bDebuger) {
 		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
 			return E_FAIL;
-		//if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
-			//return E_FAIL;
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
+			return E_FAIL;
 	}
 	
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_LBRACKET)) {
@@ -345,39 +346,31 @@ HRESULT CRenderer::RenderLightDepth()
 {
 	CLightManager::GetInstance()->SortLight();
 
-	/*_uint numLights = CLightManager::GetInstance()->GetNumRenderLights();
-	for (int i = 0; i < (_int)numLights; ++i)
+	if (FAILED(m_pTargetManager->Begin_ShadowRT(m_pDeviceContext, "Target_ShadowDepth")))
+		return E_FAIL;
+
+	for (auto& pGameObject : m_RenderGroups[RENDER_NONALPHA])
 	{
-		CLightManager::GetInstance()->SetCurrentIndex(i);
-
-		string targetName = CLightManager::GetInstance()->GetTargetName(i);*/
-		if (FAILED(m_pTargetManager->Begin_ShadowRT(m_pDeviceContext, "Target_ShadowDepth")))
-			return E_FAIL;
-
-		for (auto& pGameObject : m_RenderGroups[RENDER_NONALPHA])
+		if (nullptr != pGameObject)
 		{
-			if (nullptr != pGameObject)
-			{
-				if (FAILED(pGameObject->Render(4)))
-					return E_FAIL;
-			}
+			if (FAILED(pGameObject->Render(4)))
+				return E_FAIL;
 		}
+	}
+
+	for (auto& pGameObject : m_RenderGroups[RENDER_INSTANCEMAP])
+	{
+		if (nullptr != pGameObject)
+		{
+			if (FAILED(pGameObject->Render(1)))
+				return E_FAIL;
+		}
+	}
 		
-		if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
-		{
-			m_pTargetManager->End_MRT(m_pDeviceContext);
-
-			if (FAILED(m_pTargetManager->Set_MRT(m_pDeviceContext, "MRT_EditorWindow")))
-				return E_FAIL;
-		}
-		else
-		{
-			if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
-				return E_FAIL;
-		}
-	//}
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
+		m_pTargetManager->End_MRT(m_pDeviceContext);
+
 		if (FAILED(m_pTargetManager->Set_MRT(m_pDeviceContext, "MRT_EditorWindow")))
 			return E_FAIL;
 	}
@@ -386,7 +379,6 @@ HRESULT CRenderer::RenderLightDepth()
 		if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 			return E_FAIL;
 	}
-
 
 	return S_OK;
 }
