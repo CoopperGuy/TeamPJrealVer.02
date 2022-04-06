@@ -2,6 +2,7 @@
 #include "..\Public\Scene_JUN.h"
 #include "Flogas.h"
 #include "Ursa.h"
+#include "TrapSpear.h"
 
 USING(Client)
 
@@ -34,7 +35,19 @@ HRESULT CScene_JUN::Render()
 HRESULT CScene_JUN::ReadyScript()
 {
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_JUNG);
-	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
+	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
+
+
+	list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_JUNG, "Layer_Spear");
+
+	for (auto pSpear : listSpear)
+	{
+		_double End = (_double)(rand() % 30) / 10.0;
+		if (End > 2.0)
+			End += 1.0;
+		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, End), SCENE_JUNG);
+	}
+
 	return S_OK;
 }
 

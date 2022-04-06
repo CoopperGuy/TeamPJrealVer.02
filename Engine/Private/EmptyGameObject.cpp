@@ -458,8 +458,8 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 		CComponent* pModel = GetComponent("Com_Model");
 		if (pModel)
 		{
-			dynamic_cast<CModel*>(pModel)->SetUp_AnimationIndex(1);
-			dynamic_cast<CModel*>(pModel)->Play_Animation(TimeDelta);
+			dynamic_cast<CModel*>(pModel)->SetUp_AnimationIndex(0);
+			dynamic_cast<CModel*>(pModel)->Play_Animation(TimeDelta * 0.1);
 		}
 	}
 

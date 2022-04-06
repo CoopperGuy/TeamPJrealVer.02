@@ -425,20 +425,22 @@ HRESULT CLoader::GameSceneLEE()
 HRESULT CLoader::GameSceneJUN()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(1.f, 0.5f, -4.f));
+	//static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(1.f, 0.5f, -4.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 1.f, 0.f));
 
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Ursa_Effect_Jun.yaml", SCENE_JUNG, 0));
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1);
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
+	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1);
+	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon_Jun.yaml", SCENE_JUNG, 0);
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");
 	
-	if (FAILED(GameUrsaLoader()))
-		MSG_BOX("Failed To Create Ursa Effect");
+	//if (FAILED(GameUrsaLoader()))
+		//MSG_BOX("Failed To Create Ursa Effect");
 	
 	m_ThreadLoader->Start_Thread();
 	

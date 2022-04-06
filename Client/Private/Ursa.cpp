@@ -142,6 +142,7 @@ void CUrsa::Update(_double dDeltaTime)
 	{
 		m_bCinematic = true;
 		m_bAction = true;
+
 		//play ani
 		CEngine::GetInstance()->ActiveCameraByIndex(3);
 	}
@@ -1618,9 +1619,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::HIT:
 		break;
 	case Client::CUrsa::DIE:
+		if(keyFrame >= 50)
+			m_bDissolve = true;
 		break;
 	case Client::CUrsa::DEADBODY:
-		m_bDissolve = true;
 		break;
 	case Client::CUrsa::Flying_Start:
 		//if(keyFrame == 11)

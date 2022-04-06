@@ -9,6 +9,7 @@
 #define MAX_LOADSTRING 100
 
 // Global Variables:
+
 int			g_eCurScene;
 HWND		g_hWnd;
 BOOL		g_First = false;
