@@ -30,6 +30,7 @@ private:
  private:
 	_float			m_fShopLength = 0.f;
 	_float			m_fcorrectionYSize = 0.f;
+	_float			m_yRatio = 0.f;
 private:
 	_bool			m_bIsScrolled = false;
 public:

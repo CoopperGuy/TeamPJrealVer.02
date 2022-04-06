@@ -11,7 +11,7 @@ HRESULT CComboHud::Initailze(CGameObject * pArg)
 	if (pArg != nullptr) {
 		pTarget = pArg;
 	}
-	CGameObject*	hud = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "ComboHud");
+	CGameObject*	hud = CEngine::GetInstance()->FindGameObjectWithName(0, "ComboHud");
 	list<CGameObject*> child = hud->GetChildren();
 	auto& iter = child.begin();
 	for (_int i = 0; i < COMBOHUDCHILDMAX; i++) {

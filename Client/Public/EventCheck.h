@@ -41,6 +41,7 @@ public:
 	void ShakeCamera(CCamera_Fly::SHAKE _shake, _int _cnt, _float _duration, _float _spd = 1.f);
 	void ShakeUpDown(_int _cnt, _float _duration, _float _spd = 1.f);
 	void ZoomFov(_float _duration, _float _destFov, _float _spd);
+	void SetCameraPosition(_float3 _cameraPos);
 public:
 	void SetUpEquip(string _equipName);
 	void SlowAttack();
@@ -48,7 +49,6 @@ public:
 	void OffAllMenus();
 	_bool CameraEventCheck(_float3 _pos);
 	_bool CameraEventCheckReverse(_float3 _pos);
-
 public:
 	void SetUpReinforceItem(CItem*	_item);
 	void SetUpReinforceMaterial(CItem*	_item);

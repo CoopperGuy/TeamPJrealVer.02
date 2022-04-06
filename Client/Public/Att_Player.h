@@ -23,6 +23,7 @@ public:
 	_bool m_bRB = false;
 	_int m_iRBComboIndex = -1;
 	_uint m_iCurIndex = 0;
+private:
 };
 
 END
