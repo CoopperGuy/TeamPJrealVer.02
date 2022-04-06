@@ -46,8 +46,15 @@ void CUrsaDunDoor::Update(_double deltaTime)
 		second = true;
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_6))
+	{
 		first = true;
-
+		second = false;
+	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_7))
+	{
+		second = true;
+		first = false;
+	}
 
 
 	if (first && make == 0 || second&& make == 1)

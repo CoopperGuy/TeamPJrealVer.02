@@ -79,7 +79,6 @@ void CWolf::Update(_double dDeltaTime)
 	if (!m_pGameObject->IsActive())
 		return;
 
-
 	if (m_pStat->GetStatInfo().hp <= 0) {
 		m_pWolfState = DIE;
 		WolfAtt = false;
@@ -87,9 +86,9 @@ void CWolf::Update(_double dDeltaTime)
 	}
 	__super::Update(dDeltaTime);
 
-	WolfStateUpdate(dDeltaTime);
+	//WolfStateUpdate(dDeltaTime);
 
-	mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
+	//mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	if (WolfAtt)
 	{
@@ -112,53 +111,34 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	}
 
 	if (!m_bDead) {
-		if (m_bMove)
-		{
-			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
-			PxControllerFilters filters;
-			_vector vLook{}, vTargetLook{};
-			_vector vDis;
-
-			//if (m_bLook) {
-			_vector vTargetPos, vPos;
-			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
-			vDis = PlayerPos - vPos;
-			vDis = XMVectorSetY(vDis, 0.f);
-			m_pTransform->SetLook(vDis);
-
-			_float tempX = XMVectorGetX(vDis);
-			_float tempZ = XMVectorGetZ(vDis);
-			if (tempX < 0)
-				tempX = tempX*-1.f;
-			if (tempZ < 0)
-				tempZ = tempZ*-1.f;
-
-
-			memcpy(&vDir, &XMVector3Normalize(vDis), sizeof(_float3));
-			WolfLookPlayer();
-			m_pController->move(vDir * 1.8f * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
-
-		}
 		WolfSetAni(dDeltaTime);
 		//WolfStateUpdate(dDeltaTime);
 	}
 
 	if (m_pWolfState == DIE)
 	{
-
+		m_bMove = false;
 		CEngine::GetInstance()->PlaySoundW("WolfDie.mp3", CHANNELID::ENEMY13);
 
 		if (m_pModel->Get_isFinished()) {
-
-			this->SetDead();
-			m_pGameObject->SetDead();
-
-			CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ItemDrop", "E_ItemDrop");
-			CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox,mypos), CEngine::GetInstance()->GetCurSceneNumber());
-
-			m_pCollider->ReleaseController();
+			m_pModel->SetDissolve(dDeltaTime*0.5f);
 			if (m_pHpBar) {
 				m_pHpBar->SetUpDead();
+
+				int random = rand() % 3;
+				//	if (random == 0) {
+				if (m_iDrop < 1) {
+					m_iDrop += 1;
+					CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BasicItemBox", "O_BasicItemBox");
+					CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+				}
+				//}
+
+
+				this->SetDead();
+				m_pGameObject->SetDead();
+
+				m_pCollider->ReleaseController();
 			}
 		}
 	}
@@ -204,13 +184,13 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	if (XMVectorGetZ(TargetDistance) <= 0 || XMVectorGetX(TargetDistance) <= 0)
 		TargetDistance = TargetDistance*-1;
 
-	_float dis = 1.f;
+	_float dis = 1.3f;
 	switch (m_pWolfState)
 	{
 	case Client::CWolf::THREATEN2: {
 		m_bMove = false;
 		m_dAttDelta += dDeltaTime;
-		if (m_dAttDelta >=1.2) {
+		if (m_dAttDelta >= 1.2) {
 			m_pWolfState = THREATEN;
 		}
 		break;
@@ -230,39 +210,54 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		if (m_pModel->Get_isFinished()) {
 			if (XMVectorGetX(TargetDistance) > dis || XMVectorGetZ(TargetDistance) > dis)
 				m_pWolfState = RUN;
-			else
+			else {
 				m_pWolfState = STRAIGHTATACK;
+				PlayerPos = PlayerTF;
+			}
 
 			m_dAttDelta = 0.f;
 		}
 		break;
 	}
 	case Client::CWolf::STRAIGHTATACK:
+	{
+		//if (keyFrame == 0)
+			//PlayerPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 
-
-		if (keyFrame == 0)
-			PlayerPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
-		
 		if (keyFrame >= 41 && keyFrame <= 43)
 			m_pWeaponOBB->p_States = CBasicCollider::STATES_ATK;
 		else
 			m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
 
-
 		if (m_pModel->Get_isFinished()) {
 			WolfLookPlayer();
-			m_bMove = false; 
 			m_pWolfState = THREATEN2;
 		}
 		else {
-			m_bMove = true;
-			if (keyFrame >= 42)
+
+			//m_bMove = true;
+
+			if (keyFrame == 45)
+				m_pWolfState = THREATEN2;
+
+			_float3 vTargetPos;
+			if (keyFrame == 40) {
+				XMStoreFloat3(&vTargetPos, PlayerPos);
+
+				m_bMove = true;
+
+			}
+
+			if (keyFrame >= 42 && keyFrame <= 44)
+				//ChaseTarget(dDeltaTime, vTargetPos);
+				m_bMove = true;
 			{
 				CEngine::GetInstance()->PlaySoundW("WolfAtt.mp3", CHANNELID::ENEMY16);
 			}
 
 		}
-		break;
+	}
+	break;
 	case Client::CWolf::DAMAGE: {
 		if (m_iBlood < 1) {
 			m_iBlood += 1;
@@ -284,7 +279,7 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 		}
 		m_bMove = false;
 		if (m_pModel->Get_isFinished()) {
-			m_pWolfState = THREATEN;
+			m_pWolfState = THREATEN2;
 			SetAtt();
 		}
 	}
@@ -293,15 +288,19 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 	{
 		PlayerPos = m_pTargetTransform->GetState(CTransform::STATE_POSITION);
 		m_pWeaponOBB->p_States = CBasicCollider::STATES_IDEL;
+		_float3 vTargetPos;
+		XMStoreFloat3(&vTargetPos, PlayerPos);
 
 		m_bMove = true;
 
-		if (XMVectorGetX(TargetDistance) >= 1.f || XMVectorGetZ(TargetDistance) >= 1.f)
-			m_bMove = true;
-		else {
-			m_pWolfState = THREATEN;
-			m_bMove = false;
-		}
+		//ChaseTarget(dDeltaTime, vTargetPos);
+
+		//if (XMVectorGetX(TargetDistance) >= 1.f || XMVectorGetZ(TargetDistance) >= 1.f)
+		//	m_bMove = true;
+		//else {
+		//	m_pWolfState = THREATEN2;
+		//	m_bMove = false;
+		//}
 		break;
 	}
 	}
@@ -324,12 +323,9 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 	_float dis = 2.f;
 
 
-	if (m_pWolfState != DAMAGE) {
+	/*if (m_pWolfState != DAMAGE) {
 		if (m_pStat->GetStatInfo().maxHp > m_pStat->GetStatInfo().hp)
-		{
-			SetAtt();
 			m_iBlood = 0;
-		}
 		else {
 			if (WolfIdle && m_pWolfState != DIE && m_pWolfState != DEADBODY) {
 				SetIdle();
@@ -338,7 +334,7 @@ void CWolf::WolfStateUpdate(_double dDeltaTime)
 				m_bMove = false;
 			}
 		}
-	}
+	}*/
 }
 
 _float CWolf::Gethp()
@@ -455,4 +451,34 @@ _fmatrix CWolf::Remove_ScaleRotation(_fmatrix TransformMatrix)
 	NonRotateMatrix.r[3] = TransformMatrix.r[3];
 
 	return NonRotateMatrix;
+}
+
+void CWolf::ChaseTarget(_double deltaTime, _float3 vTargetPos)
+{
+	_float fScale = m_pTransform->GetScale(CTransform::STATE_RIGHT);
+	_vector vPosition = m_pTransform->GetState(CTransform::STATE_POSITION);
+	vPosition = XMVectorSetY(vPosition, 0.f);
+	_vector vTargetPostion = XMVectorSet(vTargetPos.x, vTargetPos.y, vTargetPos.z, 1.f);
+	vTargetPostion = XMVectorSetY(vTargetPostion, 0.f);
+
+	_vector vLook = XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_LOOK));
+	_vector vDestLook = XMVector3Normalize(vTargetPostion - vPosition);
+	_vector vAxisY = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+	_vector vUp;
+	_vector vRight;
+
+	if (XMVectorGetX(XMVector3Dot(vLook, vDestLook)) < 0.f)
+		vLook = XMVectorLerp(vLook, vDestLook, 0.7f);
+	else
+		vLook = XMVectorLerp(vLook, vDestLook, 0.1f);
+	vRight = XMVector3Cross(vAxisY, vLook);
+	vUp = XMVector3Cross(vLook, vRight);
+
+	_float3 vDir;
+	XMStoreFloat3(&vDir, XMVector3Normalize(vLook));
+	m_pController->move(PxVec3(vDir.x, vDir.y, vDir.z) * m_fSpeed * (_float)deltaTime, 0.0001f, (_float)deltaTime, nullptr);
+
+	m_pTransform->SetState(CTransform::STATE_RIGHT, XMVector3Normalize(vRight) * fScale);
+	m_pTransform->SetState(CTransform::STATE_UP, XMVector3Normalize(vUp) * fScale);
+	m_pTransform->SetState(CTransform::STATE_LOOK, XMVector3Normalize(vLook) * fScale);
 }

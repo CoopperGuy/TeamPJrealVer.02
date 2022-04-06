@@ -42,8 +42,8 @@ HRESULT CItemDropEffect::Initialize(void* pArg, _vector pos)
 
 void CItemDropEffect::Update(_double deltaTime)
 {
-	if (m_bDead)
-		return;
+	//if (m_bDead)
+	//	return;
 
 	if (!m_pGameObject)
 		return;

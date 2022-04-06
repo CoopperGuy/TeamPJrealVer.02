@@ -16,12 +16,10 @@ HRESULT CItemBox::Initailze(CGameObject * pArg, _vector pos)
 	m_pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	m_pTransform = static_cast<CTransform*>(m_pItemBox->GetComponent("Com_Transform"));
 
-	CTransform* playerpos = static_cast<CTransform*>(m_pPlayer->GetComponent("Com_Transform"));
-	pos = playerpos->GetState(CTransform::STATE_POSITION);
-
-
 	if (m_pItemBox == nullptr || m_pPlayer == nullptr)
 		return E_FAIL;
+	
+	pos = XMVectorSetY(pos, 0.f);
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
 	m_pModel = static_cast<CModel*>(m_pItemBox->GetComponent("Com_Model"));
@@ -37,7 +35,7 @@ HRESULT CItemBox::Initailze(CGameObject * pArg, _vector pos)
 	m_vMyPos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 	CGameObject* ItempDropEff = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_Effect_ItemDrop", "E_ItemDrop");
-	CEngine::GetInstance()->AddScriptObject(m_pItemDropEff = CItemDropEffect::Create(ItempDropEff, pos), CEngine::GetInstance()->GetCurSceneNumber());
+	CEngine::GetInstance()->AddScriptObject(m_pItemDropEff = CItemDropEffect::Create(ItempDropEff, m_vMyPos), CEngine::GetInstance()->GetCurSceneNumber());
 
 
 	return S_OK;
@@ -91,26 +89,31 @@ void CItemBox::Update(_double deltaTime)
 			m_pModel->Play_Animation(deltaTime);
 	}
 
+	if (m_bDissolve)
+	{
+		m_fDissolveAcc += (_float)deltaTime * 0.5f;
+		if (m_fDissolveAcc > 0.925f) {
+
+			if (m_pItemDropEff)
+				m_pItemDropEff->SetDead();
+
+
+			m_bDead = true;
+
+		}
+
+		m_pModel->SetDissolve(m_fDissolveAcc);
+	}
+
 }
 
 void CItemBox::LateUpdate(_double deltaTime)
 {
 
-	if (m_bDissolve)
+	if (m_bDead)
 	{
-
-
-		m_fDissolveAcc += (_float)deltaTime * 0.5f;
-		if (m_fDissolveAcc > 0.925f) {
-
-		if (m_pItemDropEff)
-			m_pItemDropEff->SetDead();
-
-			m_pItemBox->SetDead();
-			this->SetDead();
-		}
-
-		m_pModel->SetDissolve(m_fDissolveAcc);
+		m_pItemBox->SetDead();
+		this->SetDead();
 	}
 }
 
