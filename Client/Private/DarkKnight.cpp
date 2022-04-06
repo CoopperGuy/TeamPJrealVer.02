@@ -384,6 +384,24 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CDarkKnight::SK_SLASH2:
+		if (keyFrame == 25)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing1.wav", ENEMY05);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing2.wav", ENEMY05);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing3.wav", ENEMY05);
+				break;
+			}
+		}
+
 		if (keyFrame >= 22 && keyFrame <= 35)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -392,6 +410,24 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CDarkKnight::SK_STING2:
+		if (keyFrame == 25)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 18 && keyFrame <= 38)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -413,6 +449,24 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::PHASE2_END:
 		break;
 	case Client::CDarkKnight::SK_SIDESLASH:
+		if (keyFrame == 30)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing1.wav", ENEMY05);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing2.wav", ENEMY05);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_LongSwing3.wav", ENEMY05);
+				break;
+			}
+		}
+
 		if (keyFrame >= 25 && keyFrame <= 38)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -471,17 +525,50 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::DEADBODY:
 		break;
 	case Client::CDarkKnight::SLASH:
+		if (keyFrame == 10)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 5 && keyFrame <= 20)
 		{			
-			if (keyFrame == 10)
-				CEngine::GetInstance()->PlaySoundW("DarkKnight_Slash3.wav", ENEMY03);
-			
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
 
 			m_pTrailBuffer->SetIsActive(true);
 		}
 		break;
 	case Client::CDarkKnight::STING:
+		if (keyFrame == 10)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 5 && keyFrame <= 18)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -690,8 +777,7 @@ void CDarkKnight::Hit()
 	{
 		m_bDeadBody = true;
 		m_eState = DIE;
-		CEngine::GetInstance()->PlaySoundW("DarkKnight_Die.wav", ENEMY02);
-
+		CEngine::GetInstance()->PlaySoundW("DarkKnight_Die.mp3", ENEMY06);
 	}
 
 	if (m_bPhase2 == false)
@@ -701,7 +787,8 @@ void CDarkKnight::Hit()
 		if (m_pStat->GetStatInfo().hp <= fMaxHp * 0.5f)
 		{
 			m_fAttackDelay = 0.f;
-			m_fSpeed = 1.3f;			
+			m_fSpeed = 1.3f;	
+			m_pStat->Immortal(true);
 			m_bPhase2 = true;
 			m_bBehavior = true;
 			m_bCreateEffect = true;
@@ -714,8 +801,7 @@ void CDarkKnight::Hit()
 		if (m_bCombat == false)
 		{
 			m_fSpeed = 1.f;
-			m_bCombat = true;
-			m_pStat->Immortal(true);
+			m_bCombat = true;			
 		}
 				
 		if (m_eState == IDLE || m_eState == IDLE_BATTLE || m_eState == Walk || m_eState == RUN)
