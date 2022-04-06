@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Att_Player.h"
 #include "Idle_Player.h"
-
 CAtt_Player::CAtt_Player()
 {
 	m_eState = CurState::ATT;
@@ -14,7 +13,12 @@ void CAtt_Player::Enter(CPlayer & pPlayer)
 	
 	else if (pPlayer.Get_Down() && !pPlayer.Get_SuperArmor())
 		pPlayer.SetUp_AnimIndex((_uint)Player_State::KnockDown_Start);
-
+	//if (m_pEngine->IsKeyDown(VK_LBUTTON)) {
+	//	testHud->CreateComboIcon(CComboHud::COMBOPOS_TOP, false);
+	//}
+	//if (m_pEngine->IsKeyDown(VK_RBUTTON)) {
+	//	testHud->CreateComboIcon(CComboHud::COMBOPOS_BOT, true, true);
+	//}
 	else if (pPlayer.Get_Evade())
 		pPlayer.m_pModel->SetUp_AnimationIndex((_uint)Player_State::CBEvade);
 	else if (pPlayer.Get_RBComboIndex() >= 0)

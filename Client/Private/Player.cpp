@@ -22,6 +22,8 @@
 #include "SkillIcon.h"
 #include "TargetOn.h"
 #include "ItemDropAlret.h"
+#include "ComboHud.h"
+#include "ComboIcon.h"
 #pragma endregion
 
 #pragma region Equipment
@@ -196,6 +198,7 @@ HRESULT CPlayer::Initialize()
 		m_pQuickSlot[i] = CQuickSlot::Create(nullptr);
 		CEngine::GetInstance()->AddScriptObject(m_pQuickSlot[i], SCENE_STATIC);
 	}
+	comboHud = CComboHud::Create();
 
 	CEventCheck::GetInstance()->SetPlayer(this);
 	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NoviceAxe").second;
@@ -465,6 +468,7 @@ void CPlayer::PlayerCombo(_double dDeltaTime)
 			m_bDuring = false;
 			m_dCombatTime = 0.f;
 			m_iLB = 0;
+			//comboHud->CreateComboIcon(CComboHud::COMBOPOS_TOP, false);
 		}
 		else if (CEngine::GetInstance()->IsMouseDown(1))
 		{
@@ -472,6 +476,7 @@ void CPlayer::PlayerCombo(_double dDeltaTime)
 			m_bDuring = false;
 			m_dCombatTime = 0.f;
 			m_iRB = 0;
+			//comboHud->CreateComboIcon(CComboHud::COMBOPOS_TOP, true);
 		}
 	}
 }
@@ -496,7 +501,6 @@ void CPlayer::InputLB(_double dDeltaTime)
 		{
 			if (m_pModel->Get_isFinished())
 			{
-				//if (!m_bMixCombo)
 				m_bCombo = true;
 			}
 		}
@@ -504,7 +508,6 @@ void CPlayer::InputLB(_double dDeltaTime)
 		{
 			if (m_pModel->Get_isFinished())
 			{
-				//if (!m_bMixCombo)
 				m_bCombo = true;
 			}
 		}

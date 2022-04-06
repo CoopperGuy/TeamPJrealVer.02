@@ -479,16 +479,16 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			{
 				if (pWeaponeCollider->m_eState == STATES::STATES_ATK)
 				{
-					if (pTargetCollider->Collision_OBB(pWeaponeCollider, pTargetCollider))
+					if (pWeaponeCollider->Collision_OBB(pWeaponeCollider, pTargetCollider))
 					{
 						if (TargetpStat->GetStatInfo().isImmortal == true)
 							return;
-						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
+						if (pWeaponeCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
 							if(!pTargetCollider->m_isHit)
 								pTargetCollider->m_isHit = true;
 
-							pWeaponeCollider->m_bStartHit = true;
+							//pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							_uint _rnd = rand() % 3;
 							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);

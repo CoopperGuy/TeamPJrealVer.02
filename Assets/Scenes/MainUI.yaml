@@ -820,6 +820,71 @@ GameObjects:
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
       Sprite: [0.100000001, 0, 0, 0]
+  - Name: ComboHud
+    UUID: 17435416333520032877
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [800, 340]
+      Size: [50, 50]
+    Children:
+      - 8160749169662054940
+      - 8356771319184626946
+      - 13658258711577957671
+      - 10047481380153073025
+  - Name: 0
+    UUID: 8160749169662054940
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [900, 340]
+      Size: [50, 50]
+  - Name: 1
+    UUID: 8356771319184626946
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [900, 390]
+      Size: [50, 50]
+  - Name: 2
+    UUID: 13658258711577957671
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [800, 340]
+      Size: [50, 50]
+  - Name: 3
+    UUID: 10047481380153073025
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 0
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [800, 390]
+      Size: [50, 50]
   - Name: RegistQuickSlot
     UUID: 8828850492644535637
     Active: false

@@ -25,7 +25,7 @@ public:
 	void	ShakePosition(_fvector _pos, _float _duration);
 	void	ShakeUpDown(_int _cnt, _float _duration, _float _spd);
 	void	ZoomFov(_float _duration, _float _destFov, _float _spd);
-
+	void	SetPosition(_float3 _pos);
 private:
 	void	PhysxCameraCollision(_double deltaTime);
 private:
@@ -34,6 +34,7 @@ private:
 	void ShakeX(_double DeltaTime);
 	void ShakeY(_double DeltaTime);
 	void ShakeFov(_double DeltaTime);
+
 private:
 	CTransform* m_pTargetTransform = nullptr;
 	CCollider*	m_pTargetCollider = nullptr;

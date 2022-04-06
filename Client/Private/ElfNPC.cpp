@@ -115,6 +115,7 @@ void CElfNPC::CheckAlret()
 				std::thread createDesk(CreateTalkDest, this);
 				createDesk.detach();
 				m_iCurTalkProgress = 0;
+				g_Menu = true;
 			}
 		}
 

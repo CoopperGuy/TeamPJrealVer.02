@@ -208,5 +208,7 @@ private:
 	CStateMachine*	m_pDynamicState[(_uint)CurState::Max];
 	Evade_Dist		m_eEvadeDist = Evade_END;
 	Ruder			m_eRuder = Ruder_END;
+	class CComboHud*	comboHud = nullptr;
+
 };
 END

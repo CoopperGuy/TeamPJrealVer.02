@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\ComboIcon.h"
 static string leftPath = "../../Assets/UITexture/Alret/leftClick.png";
-static string rightPath = "../../Assets/UITexture/Alret/leftClick.png";
+static string rightPath = "../../Assets/UITexture/Alret/RightClick.png";
 
 BEGIN(Client)
 void prefabCreateThread(CGameObject** thisUI, CComboIcon*	script, CRectTransform**	pTransform, _float2	pDst, _bool leftRight, _bool isEffect) {
@@ -47,10 +47,41 @@ CComboIcon::CComboIcon()
 HRESULT CComboIcon::Initailze(CRectTransform*	pSrc, CRectTransform*	pDst, _bool leftRight, _bool isEffect)
 {
 	m_fDst = { pDst->GetPosition().x, pDst->GetPosition().y };
-	m_fSrc = { pSrc->GetPosition().x, pSrc->GetPosition().y };
+	m_fSrc = { pSrc->GetPosition().x + 300.f, pSrc->GetPosition().y };
 	m_isEffect = isEffect;
-	std::thread createPrefab(prefabCreateThread, &m_thisUI, this, &m_pTransform, m_fDst, leftRight, isEffect);
-	createPrefab.detach();
+	/*std::thread createPrefab(prefabCreateThread, &m_thisUI, this, &m_pTransform, m_fDst, leftRight, isEffect);
+	createPrefab.detach();*/
+
+	m_thisUI = CEngine::GetInstance()->SpawnPrefab("U_ComboPrefab");
+
+	m_pTransform = dynamic_cast<CRectTransform*>((m_thisUI)->GetComponent("Com_Transform"));
+	(m_pTransform)->SetPosition(m_fDst.x, m_fDst.y);
+
+	this->SetIsCreated();
+
+	list<CGameObject*> child = (m_thisUI)->GetChildren();
+	int i = 0;
+	for (auto& iter : child) {
+		CVIBuffer_RectUI* buf = dynamic_cast<CVIBuffer_RectUI*>((iter)->GetComponent("Com_VIBuffer"));
+		CRectTransform* trans = dynamic_cast<CRectTransform*>((iter)->GetComponent("Com_Transform"));
+
+		this->SetVIBuffer(buf, i);
+		this->SetUI(dynamic_cast<CEmptyUI*>(iter), i);
+		if (i == CComboIcon::COMBOHUD_MOUSE) {
+			if (!leftRight) {
+				buf->UpdateTexture(leftPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+			}
+			else {
+				buf->UpdateTexture(rightPath, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
+			}
+		}
+		if (i == CComboIcon::COMBOHUD_EFFECT) {
+			iter->SetActive(isEffect);
+		}
+		i++;
+	}
+	CEngine::GetInstance()->AddScriptObject(this, CEngine::GetInstance()->GetCurSceneNumber());
+
 	return S_OK;
 }
 
@@ -58,10 +89,11 @@ void CComboIcon::Update(_double deltaTime)
 {
 	if (isCreated) {
 		if (m_isGoing) {
-			m_lerpDelta += deltaTime;
-			_vector pos = XMVectorLerp(XMLoadFloat2(&m_fDst), XMLoadFloat2(&m_fSrc), (_float)m_lerpDelta*6.f);
+			_float t = m_lifeDelta / m_lifeTime;
+			_vector pos = XMVectorLerp(XMLoadFloat2(&m_fDst), XMLoadFloat2(&m_fSrc), (_float)t);
 			_float2 movePos;
 			XMStoreFloat2(&movePos, pos);
+			movePos.y = m_fDst.y;
 			m_pTransform->SetPosition(movePos.x, movePos.y);
 			if (movePos.x <= m_fSrc.x)
 				m_isGoing = false;

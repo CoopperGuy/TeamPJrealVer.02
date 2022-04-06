@@ -9,7 +9,7 @@
 #include "LoadingGauge.h"
 #include "Player.h"
 #include "FlogasDunDoor.h"
-
+#include "EventCheck.h"
 
 CLoader::CLoader()
 	:m_isFinish(false)
@@ -238,7 +238,7 @@ HRESULT CLoader::GameSceneStage01()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(5.f, 1.f, 30.f));
-
+	CEventCheck::GetInstance()->SetCameraPosition(_float3(5.f, 1.f, 33.f));
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/CityMap.yaml", SCENE_STAGE1, 0);
 
 	m_ThreadLoader->Start_Thread();
@@ -257,6 +257,7 @@ HRESULT CLoader::GameSceneStage02()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, -22.f));
+	CEventCheck::GetInstance()->SetCameraPosition(_float3(0.f, 0.5f, -19.f));
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Flogas_Dungeon.yaml", SCENE_STAGE2, 0);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_STAGE2, 1);
@@ -286,6 +287,7 @@ HRESULT CLoader::GameSceneStage03()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 5.f));
+	CEventCheck::GetInstance()->SetCameraPosition(_float3(0.f, 0.5f, 7.f));
 
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3, 0);
@@ -315,6 +317,7 @@ HRESULT CLoader::GameSceneStage04()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
+	CEventCheck::GetInstance()->SetCameraPosition(_float3(0.f, 2.f, 3.f));
 
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_STAGE4, 0));
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
@@ -430,9 +433,8 @@ HRESULT CLoader::GameSceneJUN()
 	//static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 1.f, 0.f));
 
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Ursa_Effect_Jun.yaml", SCENE_JUNG, 0));
-	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_JunT.yaml", SCENE_JUNG, 1));
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/JunTest.yaml", SCENE_JUNG, 1));
 	//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_JUNG, 0));
-	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_seo.yaml", SCENE_JUNG, 1));
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TestRoom_Effect_Jun.yaml", SCENE_JUNG, 3);
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_JUNG, 1);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_JUNG, 2);
