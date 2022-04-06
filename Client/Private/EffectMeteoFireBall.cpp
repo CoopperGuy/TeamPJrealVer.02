@@ -58,7 +58,7 @@ void CEffectMeteoFireBall::Update(_double deltaTime)
 
 	posy = XMVectorGetY(m_pTransform->GetState(CTransform::STATE_POSITION));
 	pos = m_pTransform->GetState(CTransform::STATE_POSITION);
-	deaddt += deltaTime;
+	deaddt += (_float)deltaTime;
 	
 	//if (deaddt >=0.8f)
 	//{

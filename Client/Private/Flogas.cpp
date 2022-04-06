@@ -10,7 +10,6 @@
 
 #pragma region Effect
 #include "EffectFly.h"
-#include "EffectGrab.h"
 #include "EffectPajang.h"
 #include "EffectFlyLaser.h"
 #include "EffectFireTwist.h"

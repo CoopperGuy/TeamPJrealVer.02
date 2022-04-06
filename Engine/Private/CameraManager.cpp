@@ -38,6 +38,13 @@ void CameraManager::SeceneChangeClear()
 
 void CameraManager::Clear()
 {
+	auto& iter = m_vecCamera.begin();
+	iter++;
+	for (; iter != m_vecCamera.end();) 
+	{
+		SafeRelease(*iter);
+		iter = m_vecCamera.erase(iter);
+	}
 }
 
 void CameraManager::Free()

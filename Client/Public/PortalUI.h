@@ -7,7 +7,7 @@ class CPortalUI :
 	public IScriptObject
 {
 public:
-	enum SCENES {STAGE01,STAGE02, STAGE03,SCENES_END};
+	enum SCENES {STAGE01,STAGE02, STAGE03, STAGE04, SCENES_END};
 private:
 	explicit CPortalUI();
 	virtual ~CPortalUI() = default;

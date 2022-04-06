@@ -10,6 +10,8 @@
 #include "EffectPhase2Aura.h"
 #include "EffectPhase2Twist.h"
 #pragma endregion
+
+#include "EventCheck.h"
 USING(Client)
 
 CDarkKnight::CDarkKnight(CGameObject* pObj)
@@ -42,7 +44,7 @@ HRESULT CDarkKnight::Initialize(_float3 position)
 {
 	m_bBehavior = false;
 
-	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "O_DarkKinght");
+	m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(CEngine::GetInstance()->GetCurSceneNumber(), "DarkKinght");
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
 
@@ -99,6 +101,13 @@ void CDarkKnight::Update(_double dDeltaTime)
 		return;
 	
 	__super::Update(dDeltaTime);
+
+	if (!m_bCinematic && CEventCheck::GetInstance()->CameraEventCheck(_float3{ 0.f,0.f,25.f }))
+	{
+		m_bCinematic = true;
+		//play ani
+		CEngine::GetInstance()->ActiveCameraByIndex(4);
+	}
 
 	/*if (CEngine::GetInstance()->IsKeyDown('R'))
 	{

@@ -473,7 +473,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			{
 				pWeaponeCollider->m_bStartHit = false;
 				pTargetCollider->m_bIsDown = false;
-				return;
+				continue;
 			}
 			else
 			{
@@ -563,7 +563,7 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(MyStat)->GetStatInfo().hp <= 0)
 			{
 				pTargetCollider->SetHit(false);
-				return;
+				continue;
 			}
 
 			if (pMyCollider->m_eState == STATES::STATES_ATK) {

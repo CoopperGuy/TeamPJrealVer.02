@@ -127,6 +127,12 @@ void CSkull::LateUpdate(_double dDeltaTime)
 
 		m_pModel->SetDissolve(m_fDissolveAcc);
 	}
+
+	if (m_fDissolveAcc >= 1.f)
+	{
+		this->SetDead();
+		m_pGameObject->SetDead();
+	}
 }
 
 void CSkull::Render()

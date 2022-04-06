@@ -70,7 +70,6 @@ public:
 
 private:
 	_bool	m_bIsSlerp = true;
-	_bool	m_bIsMake = false;
 	_bool	m_bIsMove = false;
 	_bool	m_bIsWait = false;
 	_bool	m_bIsBack = false;

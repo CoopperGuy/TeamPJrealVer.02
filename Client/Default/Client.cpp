@@ -66,7 +66,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		return FALSE;
 
 	_double			TimeAcc = 0.0;
-	srand((unsigned int)time(NULL));
+	srand((_uint)time(NULL));	
 
 	while (true)
 	{

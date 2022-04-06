@@ -13,5 +13,5 @@ GameObjects:
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Alret\pressF.png
-    RenderGroup: 3
+    RenderGroup: 4
     FrustumRange: 1

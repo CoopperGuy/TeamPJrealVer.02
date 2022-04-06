@@ -64,7 +64,7 @@ tagSSAO_Out Get_SSAO(tagSSAO_In In)
 
     int iColor = 0;
 
-    for (int i = 0; i < 16; ++i)
+    [enroll] for (int i = 0; i < 16; ++i)
     {
         vRay = reflect(randomNormal(In.vUV), g_vRandom[i]);
         vReflect = normalize(reflect(vRay, In.vNormal)) * g_fRadius;

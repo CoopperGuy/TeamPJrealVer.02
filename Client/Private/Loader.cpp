@@ -285,11 +285,12 @@ HRESULT CLoader::GameSceneStage02()
 HRESULT CLoader::GameSceneStage03()
 {
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
-	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 0.f));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 5.f));
 
 
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_STAGE3, 0);
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_STAGE3, 1);
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
 
 	if (FAILED(GameUrsaLoader()))
 		MSG_BOX("Failed To Create Ursa Effect");
@@ -305,9 +306,6 @@ HRESULT CLoader::GameSceneStage03()
 		if (m_ThreadLoader->GetIsEnd()) {
 			m_isFinish = true;
 		}
-		else if (m_ThreadLoader->GetIsEnable()) {
-			m_isFinish = true;
-		}
 	}
 
 	return S_OK;
@@ -315,6 +313,22 @@ HRESULT CLoader::GameSceneStage03()
 
 HRESULT CLoader::GameSceneStage04()
 {
+	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
+	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
+
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_STAGE4, 0));
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Aura", "E_Phase2", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
+	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
+
+	m_ThreadLoader->Start_Thread();
+
+	while (!m_isFinish) {
+		if (m_ThreadLoader->GetIsEnd())
+			m_isFinish = true;
+	}
 	return S_OK;
 }
 
@@ -334,6 +348,7 @@ HRESULT CLoader::GameSceneLogo()
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/StatusUI.yaml", SCENE_STATIC, 7));
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/SoundUI.yaml", SCENE_STATIC, 8));
 
+
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_OBBs", "O_OBBs", 0));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_DMGFont", "U_DamageVIBuffer", 1));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_shoulderEffect", "E_shoulderEffect", 2));
@@ -348,6 +363,10 @@ HRESULT CLoader::GameSceneLogo()
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_IIBlood", "E_IIBlood", 13));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactBeam", "E_ImpactBeam00", 4));
 	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ImpactShort", "E_ImpactShort", 5));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_ItemDrop", "E_ItemDrop", 14));
+
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_BossItemBox", "O_BossItemBox", 15));
+	(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObject_BasicItemBox", "O_BasicItemBox", 16));
 
 	m_ThreadLoader->Start_Thread();
 
@@ -368,8 +387,8 @@ HRESULT CLoader::GameSceneKIM()
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 2.f, 0.f));
 
-	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/m_pxVertices2.yaml", SCENE_KIM, 1);
-	//m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
+	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Dungeon1_kim.yaml", SCENE_KIM, 1);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1);
 
 	m_ThreadLoader->Start_Thread();
 	
@@ -442,16 +461,15 @@ HRESULT CLoader::GameSceneSEO()
 	//m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Flogas.yaml", SCENE_SEO, 1);
 
 		//(m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Wolf", "O_Wolf", 1));
-		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_SEO, 0));
-		//(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 1));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/UrsaDungeon.yaml", SCENE_SEO, 0));
+		(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Boss_Ursa.yaml", SCENE_SEO, 1));
 
 		//if (FAILED(GameFlogasLoader()))
 		//	MSG_BOX("Failed To Create Flogas Effect");
 
-	//GameSceneStage02();
 
-	//if (FAILED(GameUrsaLoader()))
-	//	MSG_BOX("Failed To Create Ursa Effect");
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
 
 	m_ThreadLoader->Start_Thread();
 
