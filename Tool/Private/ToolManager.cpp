@@ -22,8 +22,8 @@
 USING(Tool)
 
 extern HINSTANCE hInst;
-
 static string strScene = "../../Assets/Scenes/DarkKnightDungeon.yaml";
+
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
@@ -35,6 +35,7 @@ CToolManager::CToolManager()
 CToolManager::~CToolManager()
 {
 	Release();
+
 }
 
 HRESULT CToolManager::Initialize()

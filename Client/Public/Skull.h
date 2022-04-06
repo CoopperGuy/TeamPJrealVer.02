@@ -67,8 +67,7 @@ private:
 	CBasicCollider*		m_pOBBCom = nullptr;
 	CBasicCollider*		m_pOBB = nullptr;
 	CBasicCollider*		m_pWeaponOBB = nullptr;
-	CMonHp*	m_pMonHp = nullptr;
-
+	class CMonHpVIBuffer* m_pHpBar = nullptr;
 private:
 	_bool	m_bMove = true;
 

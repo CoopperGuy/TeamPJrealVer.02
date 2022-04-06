@@ -41,7 +41,7 @@ _float CTownPortal::DistanceWithDirection()
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 			CEventCheck::GetInstance()->SetChangeScene(true);
 			CEventCheck::GetInstance()->SetSceneNumber(SCENE::SCENE_STAGE1);
-			static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 5.f, 27.f));
+			static_cast<CCollider*>(m_pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 1.f, 30.f));
 		}
 	}
 

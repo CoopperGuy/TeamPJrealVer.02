@@ -4,7 +4,8 @@
 #include "BasicCollider.h"
 #include "Transform.h"
 #include "MonHp.h"
-
+#include "ItemBox.h"
+#include "MonHpVIBuffer.h"
 USING(Client)
 
 CSkull::CSkull(CGameObject* pObj)
@@ -68,6 +69,7 @@ HRESULT CSkull::Initialize()
 	//m_pMonHp = CMonHp::Create(m_pGameObject);
 
 	Create_Trail();
+	m_pHpBar = CMonHpVIBuffer::Create(m_pGameObject);
 
 	if (m_pTransform)
 		XMStoreFloat3(&m_vCreatePos, m_pTransform->GetState(CTransform::STATE_POSITION));
@@ -130,8 +132,18 @@ void CSkull::LateUpdate(_double dDeltaTime)
 
 	if (m_fDissolveAcc >= 1.f)
 	{
+		_int _rand = rand() % 4;
+		if (_rand < 1)
+		{
+			CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BasicItemBox", "O_BasicItemBox");
+			CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());
+		}
 		this->SetDead();
 		m_pGameObject->SetDead();
+		if (m_pHpBar) 
+		{
+			m_pHpBar->SetUpDead();
+		}
 	}
 }
 
@@ -205,7 +217,6 @@ void CSkull::SetAttTarget(CGameObject * obj)
 
 void CSkull::SetMonHp(CMonHp * hp)
 {
-	m_pMonHp = hp;
 }
 
 void CSkull::StateUpdate(_double dDeltaTime)

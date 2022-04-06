@@ -199,13 +199,12 @@ _uint CCollider::LateUpdate(double deltaTime)
 			EulerToQuaternion(m_euler, m_quaternion);
 		}
 	}
-	
 	return _uint();
 }
 
 HRESULT CCollider::Render()
 {
-//#ifdef _DEBUG
+#ifdef _DEBUG
 
 	if (m_pDebugLine)
 	{
@@ -270,7 +269,7 @@ HRESULT CCollider::Render()
 			}
 		}
 	}
-//#endif // _DEBUG
+#endif // _DEBUG
 
 	return S_OK;
 }

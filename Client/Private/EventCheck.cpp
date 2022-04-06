@@ -57,6 +57,24 @@ void CEventCheck::AddItemAtQuickSlot(CItem * item, _int idx)
 		m_pPlayerScript->AddItemQuickSlot(item, idx);
 }
 
+void CEventCheck::AddDropItem()
+{
+	if (m_pPlayerScript)
+	{
+		_int _rand = rand() % 10;
+		_int _idx = 0;
+		if (_rand < 1)
+			_idx = 2;
+		else if (_rand < 7)
+			_idx = 0;
+		else
+			_idx = 1;
+		m_pPlayerScript->AddItem(_idx);
+
+	}
+
+}
+
 void CEventCheck::ContractShop(CNpc_Shop* _shop)
 {
 	ITEMINFO item = _shop->GetBuyingItem();

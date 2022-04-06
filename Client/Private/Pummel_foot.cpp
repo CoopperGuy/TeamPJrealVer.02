@@ -20,7 +20,9 @@ HRESULT CPummel_foot::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	mat.r[0] = XMVector3Normalize(mat.r[0]) * m_pEffectTrans->GetScale(CTransform::STATE_RIGHT);
 	mat.r[1] = XMVector3Normalize(mat.r[1]) * m_pEffectTrans->GetScale(CTransform::STATE_UP);
 	mat.r[2] = XMVector3Normalize(mat.r[2]) * -m_pEffectTrans->GetScale(CTransform::STATE_LOOK);
-	mat.r[3] = (pModel->Get_BoneMatrix("Bip01-L-Foot") * m_pTargetTransform->GetWorldMatrix()).r[3];
+	_vector vamtPos = (pModel->Get_BoneMatrix("Bip01-L-Foot") * m_pTargetTransform->GetWorldMatrix()).r[3];
+	vamtPos = XMVectorSetY(vamtPos, 0.01f);
+	mat.r[3] = vamtPos;
 	_float4 color = m_pThis->GetOffsetColor();
 	color.w = 0.f;
 	m_pThis->SetOffsetColor(color);

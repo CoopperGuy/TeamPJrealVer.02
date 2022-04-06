@@ -2,6 +2,7 @@
 #include "..\Public\DarkKnight.h"
 #include "StateMachine.h"
 #include "BasicCollider.h"
+#include "TownPortal.h"
 #include "Transform.h"
 #include "MonHp.h"
 
@@ -552,6 +553,7 @@ void CDarkKnight::CheckAnimFinish()
 			CEngine::GetInstance()->AddScriptObject(m_pEffectTwist = CEffectPahse2Twist::Create(pEffect, m_pRenderTransform, m_pModel), CEngine::GetInstance()->GetCurSceneNumber());
 
 			m_bBehavior = false;
+			m_pStat->Immortal(false);
 			m_eState = IDLE_BATTLE;
 		}
 			break;
@@ -612,11 +614,17 @@ void CDarkKnight::CheckAnimFinish()
 			m_eState = IDLE_BATTLE;
 			break;
 		case Client::CDarkKnight::DIE:
-			SafeRelease(m_pMonHp);
+			if (m_pMonHp)
+			{
+				m_pMonHp->SetRelease();
+				m_pMonHp = nullptr;
+			}
 			m_pEffectTwist->End_Effect();
 			m_eState = DEADBODY;
 			break;
 		case Client::CDarkKnight::DEADBODY:
+			if (m_pPortal == nullptr)
+				m_pPortal = CTownPortal::Create(nullptr);
 			break;
 		case Client::CDarkKnight::SLASH:
 			SetAttackDelay();
@@ -707,6 +715,7 @@ void CDarkKnight::Hit()
 		{
 			m_fSpeed = 1.f;
 			m_bCombat = true;
+			m_pStat->Immortal(true);
 		}
 				
 		if (m_eState == IDLE || m_eState == IDLE_BATTLE || m_eState == Walk || m_eState == RUN)

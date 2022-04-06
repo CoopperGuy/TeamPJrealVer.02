@@ -91,6 +91,8 @@ public:
 public:
 	void SetUpEquip(string Name);
 
+public:
+	void AddItem(_int _idx);
 private:
 	void EquipmentsStatusUpdate();
 	void Input();
