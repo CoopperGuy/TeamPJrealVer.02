@@ -1,0 +1,8 @@
+Diffuse=CH_PropNPC_HumA_F_0002_D
+Normal=CH_PropNPC_HumA_F_0002_N
+Other[0]=CH_PropNPC_HumA_F_0002_A
+Other[1]=CH_PropNPC_HumA_F_0002_S
+Other[2]=CH_MM_ColorVariationMask_V_HSI
+Other[3]=CH_MM_Default_D_HSI
+Other[4]=T_Default_Normal
+Other[5]=CH_MM_Default_D_DX5

@@ -534,8 +534,8 @@ GameObjects:
       Rotation: [-179.998978, 22.342308, -179.999237]
       Scale: [1.50000048, 1.5, 1.50000048]
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\NPC\PointHuman\
-      MeshFileName: Npc_Human.fbx
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PropNpc\
+      MeshFileName: npc2.fbx
       HasCollider: false
       Equipment: false
     Com_Shop:
@@ -556,8 +556,8 @@ GameObjects:
       Rotation: [0, -78.6363907, 0]
       Scale: [1.9999969, 1.99999535, 1.9999969]
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\NPC\PointElf\
-      MeshFileName: Npc_Elf.fbx
+      MeshFilePath: ..\..\Assets\Meshes\NPC\PropNpc\
+      MeshFileName: npc3.fbx
       HasCollider: false
       Equipment: false
     Com_NPCInfo:
@@ -1903,8 +1903,8 @@ GameObjects:
       Rotation: [-179.996368, -84.352951, 179.997147]
       Scale: [1.50000036, 1.5, 1.50000036]
     Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\NPC\Elf\
-      MeshFileName: NpcElfF.fbx
+      MeshFilePath: ..\..\Assets\Meshes\NPC\\PropNpc\
+      MeshFileName: npc4.fbx
       HasCollider: false
       Equipment: false
     Com_Shop:
