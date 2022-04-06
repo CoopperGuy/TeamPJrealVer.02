@@ -6,6 +6,7 @@
 #include "IScriptObject.h"
 #include "Client_Enum.h"
 #include "Inventory.h"
+#include "ItemInfo.h"
 BEGIN(Client)
 
 class CEquipItemHud :
@@ -41,6 +42,7 @@ private:
 	CEmptyUI*			m_pThisUI = nullptr;
 private:
 	CInventory*			m_pInven = nullptr;
+	CItemInfo*			m_pItemInfo = nullptr;
 private:
 	_uint				m_iCurSelectedTag = 0;
 	_uint				m_iCurSelected = 0;

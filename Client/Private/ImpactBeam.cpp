@@ -23,7 +23,7 @@ HRESULT CImpactBeam::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 	for (auto& iter : child) {
 		m_Child.emplace_back(static_cast<CTransform*>(iter->GetComponent("Com_LocalTransform")));
 	}
-	m_pObb = CObb::Create(position, XMVectorSet(1.f, 1.f, 1.f,0.f), 50.f, ID::PLAYER_EFFECT, (_float)m_Duration);
+	m_pObb = CObb::Create(position, XMVectorSet(1.f, 4.f, 2.f,0.f), 50.f, ID::PLAYER_EFFECT, (_float)m_Duration);
 	return S_OK;
 }
 

@@ -218,8 +218,8 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 		{
 			//cout << "camera Collied \n";
 			m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
-			if (m_vDistance <= 0.4f)
-				m_vDistance = 0.4f;
+			/*if (m_vDistance <= 0.4f)
+				m_vDistance = 0.4f;*/
 		}
 		/*    else
 		cout << "camera No Collied \n";*/
@@ -402,6 +402,11 @@ void CCamera_Fly::ZoomFov(_float _duration, _float _destFov, _float _spd)
 	m_fDestFov = _destFov;
 	m_FovShakeDuration = _duration;
 	m_fFovSpd = _spd;
+}
+
+void CCamera_Fly::SetPosition(_float3 _pos)
+{
+	m_pTransformCom->SetState(CTransform::STATE_POSITION, XMLoadFloat3(&_pos));
 }
 
 CCamera_Fly * CCamera_Fly::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)

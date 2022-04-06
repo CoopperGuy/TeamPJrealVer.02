@@ -134,6 +134,13 @@ void CEventCheck::ZoomFov(_float _duration, _float _destFov, _float _spd)
 
 }
 
+void CEventCheck::SetCameraPosition(_float3 _cameraPos)
+{
+	if (m_pCameraFly)
+		m_pCameraFly->SetPosition(_cameraPos);
+
+}
+
 void CEventCheck::SetUpEquip(string _equipName)
 {
 	if (m_pPlayerScript)

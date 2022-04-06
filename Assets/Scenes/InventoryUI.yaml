@@ -18,6 +18,7 @@ GameObjects:
       TextureNoisePath: ..\..\Assets\UITexture\BackImg\Window_BG_BattlePass.dds
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Children:
       - 11123017261122148341
       - 2534542176139175624
@@ -94,6 +95,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Weapon
       Color: [1, 1, 1, 1]
@@ -120,6 +122,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Helmet
       Color: [1, 1, 1, 1]
@@ -146,6 +149,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Chest
       Color: [1, 1, 1, 1]
@@ -172,6 +176,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Glove
       Color: [1, 1, 1, 1]
@@ -198,6 +203,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Shoose
       Color: [1, 1, 1, 1]
@@ -224,6 +230,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: Lower
       Color: [1, 1, 1, 1]
@@ -326,6 +333,131 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: ItemInfoHud
+    UUID: 10119141900634929928
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [700, 320]
+      Size: [256, 193.942947]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\InvenItem\WindowBg.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+    Children:
+      - 15177459522433799378
+      - 15229960809365166872
+      - 16616424422019424367
+      - 12558321422733651723
+      - 15439717666098389688
+  - Name: ItemName
+    UUID: 15177459522433799378
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [575, 227.024857]
+      Size: [360.711273, 50]
+    Com_Text:
+      Text: ItemName
+      Color: [1, 1, 1, 1]
+      Scale: [1, 1]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: true
+  - Name: ItemImage
+    UUID: 15229960809365166872
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 6
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [641.492249, 323.719055]
+      Size: [128, 128]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\InvenItem\axe00.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
+  - Name: ItemHp
+    UUID: 16616424422019424367
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [715, 270]
+      Size: [1186.91895, 50]
+    Com_Text:
+      Text: "Hp : 10"
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: true
+  - Name: ItemAtk
+    UUID: 12558321422733651723
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [715, 310]
+      Size: [283.569824, 111.559387]
+    Com_Text:
+      Text: Atk:10
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: true
+  - Name: ItemDef
+    UUID: 15439717666098389688
+    Active: false
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 7
+    PassIndex: 0
+    Hovering: false
+    Com_Transform:
+      Position: [715, 350]
+      Size: [213.532257, 50]
+    Com_Text:
+      Text: "Def: 10"
+      Color: [1, 1, 1, 1]
+      Scale: [0.699999988, 0.699999988]
+      LayerDepth: 0
+      IsCenter: false
+      ShaderCut: false
+      IsKorean: true
   - Name: SelectEquip
     UUID: 12944058087480305985
     Active: false
@@ -351,6 +483,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: "     Eqiup"
       Color: [1, 1, 1, 1]
@@ -384,6 +517,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: "    Consum"
       Color: [1, 1, 1, 1]
@@ -417,6 +551,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
     Com_Text:
       Text: "   Material"
       Color: [1, 1, 1, 1]
