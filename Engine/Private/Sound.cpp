@@ -96,10 +96,11 @@ void CSound::StopAll()
 
 void CSound::SetVolume(float volume, CHANNELID eID)
 {
-	std::lock_guard<std::mutex> lock(m_sound);
+	//std::lock_guard<std::mutex> lock(m_sound);
 	for (_int i = PLAYER00; i < MAXCHANNEL; i++) 
 	{
-		FMOD_Channel_SetVolume(m_pChannelArr[i], volume);
+		if (m_pChannelArr[i] != nullptr)
+			FMOD_Channel_SetVolume(m_pChannelArr[i], volume);
 	}
 	FMOD_System_Update(m_pSystem);
 }
