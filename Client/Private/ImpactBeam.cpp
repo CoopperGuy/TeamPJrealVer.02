@@ -23,7 +23,7 @@ HRESULT CImpactBeam::Initialize(CEmptyEffect * _pThisEffect, CGameObject * _pPla
 	for (auto& iter : child) {
 		m_Child.emplace_back(static_cast<CTransform*>(iter->GetComponent("Com_LocalTransform")));
 	}
-	m_pObb = CObb::Create(position, XMVectorSet(1.f, 1.f, 1.f,0.f), 50.f, ID::PLAYER_EFFECT, (_float)m_Duration);
+	m_pObb = CObb::Create(position, XMVectorSet(1.f, 1.f, 1.f, 0.f), 50.f, ID::PLAYER_EFFECT, (_float)m_Duration);
 	return S_OK;
 }
 
@@ -38,6 +38,8 @@ void CImpactBeam::Update(_double deltaTime)
 
 void CImpactBeam::LateUpdate(_double deltaTime)
 {
+	if (m_DurationDelta > 0)
+		m_pObb->Idle();
 	m_DurationDelta += deltaTime;
 	if (m_DurationDelta > m_Duration) {
 		this->SetDead();

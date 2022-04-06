@@ -22,7 +22,7 @@
 USING(Tool)
 
 extern HINSTANCE hInst;
-static string strScene = "../../Assets/Scenes/DarkKnightDungeon.yaml";
+static string strScene = "../../Assets/Scenes/JunTest.yaml";
 
 
 CToolManager::CToolManager()
