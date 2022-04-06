@@ -1,0 +1,83 @@
+Scene: Untitled
+GameObjects:
+  - Name: ItemDrop
+    UUID: 13384811345579694097
+    Active: true
+    Layer: Default
+    Type: Effect
+    PassIndex: 4
+    BillBord: false
+    Com_Transform:
+      Translation: [0, -0.389472216, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.200000003, 1.5, 0.200000003]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: BombBeam2.fbx
+      HasCollider: false
+      EffectFilePath: ""
+    Effect_Setting:
+      TextureDiffusePath: ""
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_gradient_light02_TEX_CJS_Warp.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AuraTile_001_TEX_KKJ1.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.600000024, 0.699999988, 0]
+      ScrollSpeedY: [0.5, 0.800000012, 2.29999995]
+      Distortion1: [0.100000001, 1]
+      Distortion2: [0.200000003, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 1.60000002
+      DistortionBias: 0.100000001
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.804347813, 0.804347813, 0.804347813, 0.0900000036]
+    Children:
+      - Name: DropSphere
+        UUID: 1942561307840455863
+        Active: true
+        Layer: Default
+        Type: Effect
+        PassIndex: 1
+        BillBord: false
+        Com_Transform:
+          Translation: [0, -0.0520000011, 0]
+          Rotation: [0, -0, 0]
+          Scale: [0.5, 0.5, 0.5]
+        Com_Model:
+          MeshFilePath: ..\..\Assets\Meshes\Effect\
+          MeshFileName: sphere.fbx
+          HasCollider: false
+          EffectFilePath: ""
+        Effect_Setting:
+          TextureDiffusePath: ""
+          TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\smoke.png
+          TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\222.tga
+          TextureNormalPath: ""
+          ScrollSpeedX: [0, 0, 0]
+          ScrollSpeedY: [1.29999995, 2.0999999, 2.29999995]
+          Distortion1: [0.100000001, 0.200000003]
+          Distortion2: [0.100000001, 0.300000012]
+          Distortion3: [0.100000001, 0.100000001]
+          DistortionScale: 0.100000001
+          DistortionBias: 0.100000001
+          FadeOut: false
+          FadeOutDuration: 0
+          FadeOutStratTime: 0
+          FadeIn: false
+          FadeInDuration: 0
+          FadeInStratTime: 0
+          EffectDuration: 0
+          SpriteNumX: 0
+          SpriteNumY: 0
+          SpriteTotal: 0
+          SpriteSpeed: 5
+          OffsetColor: [0.731884062, 0.731884062, 0.731884062, 0.389999986]

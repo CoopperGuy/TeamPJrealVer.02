@@ -63,6 +63,8 @@ public:
 
 	_fmatrix Remove_ScaleRotation(_fmatrix TransformMatrix);
 
+	void ChaseTarget(_double deltaTime, _float3 vTargetPos);
+
 
 
 
@@ -85,9 +87,15 @@ private:
 	_float3 m_vTargetToLook;
 
 	_int  m_iBlood =0;
+	_int	m_iDrop = 0;
 
 	_vector mypos = {};
 	_vector PlayerPos = {};
+
+	// Dissolve
+	_bool	m_bDissolve = false;
+	_float	m_fDissolveAcc = 0.f;
+	_float  m_fDissolveDelay = 1.5f;
 private:
 	class CStat* m_pStat = nullptr;
 	class CTransform* m_pTargetTransform = nullptr;

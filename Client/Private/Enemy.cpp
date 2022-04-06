@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\Enemy.h"
 #include "PathFinding.h"
-
+#include "ItemDropEffect.h"
 
 USING(Client)
 CEnemy::CEnemy()

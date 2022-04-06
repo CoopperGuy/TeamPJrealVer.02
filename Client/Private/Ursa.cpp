@@ -1766,7 +1766,7 @@ void CUrsa::Hit(_double dDeltaTime)
 
 		_matrix Translation;
 		_int random = rand() % 7;
-		_int random2 = rand() % 5;
+		_int random2 = rand() % 2;
 		_int random3 = rand() % 2;
 		random += 1;
 		if (random3 == 0)
