@@ -132,7 +132,7 @@ void CUrsa::Update(_double dDeltaTime)
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
 		m_bAction = true;
-	TestAnimation(DASH_ATT);
+	TestAnimation(DIE);
 
 	m_fDist = SetDistance();
 	Checking_Phase(dDeltaTime);
@@ -1605,9 +1605,10 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 	case Client::CUrsa::HIT:
 		break;
 	case Client::CUrsa::DIE:
+		if(keyFrame >= 50)
+			m_bDissolve = true;
 		break;
 	case Client::CUrsa::DEADBODY:
-		m_bDissolve = true;
 		break;
 	case Client::CUrsa::Flying_Start:
 		//if(keyFrame == 11)

@@ -14,19 +14,22 @@ CTrapSpear::CTrapSpear(CGameObject * pObj)
 {
 }
 
-HRESULT CTrapSpear::Initialize(void* pArg, _double dStartTime)
+HRESULT CTrapSpear::Initialize(void* pArg, _double dEndTime)
 {
 	if(pArg)
 		m_pGameObject = (CGameObject*)pArg;
 	if (m_pGameObject == nullptr)
 		return E_FAIL;
-	m_dStart = dStartTime;
+	m_dEnd = dEndTime;
 	m_pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 	m_pStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
+	m_pOBB1 = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	if (m_pCollider)
 		m_pController = m_pCollider->GetController();
+	
 	m_pModel->SetAnimationLoop((_uint)eTrapSpear::PRICK, false);
+	m_pModel->SetAnimationLoop((_uint)eTrapSpear::ATK, false);
 	m_pModel->SetAnimationLoop((_uint)eTrapSpear::GO_INTO, false);
 	m_eState = eTrapSpear::IDLE;
 	m_pModel->SetUp_AnimationIndex((_uint)m_eState);
@@ -35,19 +38,27 @@ HRESULT CTrapSpear::Initialize(void* pArg, _double dStartTime)
 
 void CTrapSpear::Update(_double dDeltaTime)
 {
-	m_pOBB->p_States = CBasicCollider::STATES::STATES_ATK;
 
-	if (m_dDeltaTime > m_dStart)
+	m_pOBB->p_States = CBasicCollider::STATES::STATES_ATK;
+	if(m_pOBB1)
+		m_pOBB1->p_States = CBasicCollider::STATES::STATES_ATK;
+	if (m_dStartTime > m_dStart)
 	{
 		if(State_IDLE())
 			m_bStart = true;
 	}
-	m_dDeltaTime += dDeltaTime;
 
-	if (m_bStart)
+	m_dStartTime += dDeltaTime;
+	
+	if (m_bEnd)
+		m_dEndTime += dDeltaTime;
+
+	else if (m_bStart)
 	{
 		m_eState = eTrapSpear::PRICK;
-		m_dAnimSpeed = 0.7;
+		m_dAnimSpeed = 0.3;
+		m_dStartTime = 0.0;
+		m_bEnd = true;
 		m_bStart = false;
 	}
 
@@ -65,11 +76,11 @@ void CTrapSpear::Render()
 {
 }
 
-CTrapSpear * CTrapSpear::Create(void* pArg, _double dStartTime)
+CTrapSpear * CTrapSpear::Create(void* pArg, _double dEndTime)
 {
 	CTrapSpear*		pInstance = new CTrapSpear();
 
-	if (FAILED(pInstance->Initialize(pArg, dStartTime)))
+	if (FAILED(pInstance->Initialize(pArg, dEndTime)))
 	{
 		MSG_BOX("Failed to Create CTrapSpear");
 		SafeRelease(pInstance);
@@ -86,24 +97,26 @@ void CTrapSpear::Free()
 
 void CTrapSpear::CheckingFinished()
 {
-	if (m_pModel->Get_AnimIndex() != (_uint)eTrapSpear::IDLE)
-		m_dDeltaTime = 0.0;
-
 	if (m_pModel->Get_isFinished())
 	{
 		switch (m_eState)
 		{
 		case eTrapSpear::ATK:
-			m_dAnimSpeed = 1.0;
-			m_eState = eTrapSpear::GO_INTO;
+			if (m_dEndTime > m_dEnd)
+			{
+				m_eState = eTrapSpear::GO_INTO;
+				m_bEnd = false;
+				m_dEndTime = 0.0;
+				m_dAnimSpeed = 0.3;
+			}
 			break;
 		case eTrapSpear::PRICK:
-			m_dAnimSpeed = 0.6;
+			m_dAnimSpeed = 1.5;
 			m_eState = eTrapSpear::ATK;
 			break;
 		case eTrapSpear::GO_INTO:
+			m_dAnimSpeed = 1.0;
 			m_eState = eTrapSpear::IDLE;
-			m_dDeltaTime = 0.0;
 			break;
 		case eTrapSpear::IDLE:
 			break;

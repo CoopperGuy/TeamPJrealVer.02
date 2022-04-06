@@ -39,12 +39,13 @@ HRESULT CScene_JUN::ReadyScript()
 
 
 	list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_JUNG, "Layer_Spear");
+
 	for (auto pSpear : listSpear)
 	{
-		_double start = (_double)(rand() % 50) / 10.0;
-		if (start > 3.0)
-			start += 2.0;
-		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, start), SCENE_JUNG);
+		_double End = (_double)(rand() % 30) / 10.0;
+		if (End > 2.0)
+			End += 1.0;
+		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, End), SCENE_JUNG);
 	}
 
 	return S_OK;
