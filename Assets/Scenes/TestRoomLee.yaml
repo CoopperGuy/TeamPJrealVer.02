@@ -203,3 +203,84 @@ GameObjects:
       Gold: 100
     RenderGroup: 1
     FrustumRange: 1
+  - Name: E_Phase2Twist
+    UUID: 2981367982395366703
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: false
+    Com_Transform:
+      Translation: [0.200000003, 0.550000012, 0]
+      Rotation: [0, -16.2990017, 0]
+      Scale: [0.400000095, 0.400000006, 0.400000095]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Effect\
+      MeshFileName: TwistMesh3.fbx
+      HasCollider: false
+      EffectFilePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\001.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\Glow.dds
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AEAura_001_TEX_PHS.tga
+      TextureNormalPath: ""
+      ScrollSpeedX: [0.200000003, 0.300000012, 0]
+      ScrollSpeedY: [0, 0, 2.29999995]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.600000024
+      DistortionBias: 1.60000002
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.4710145, 0.0682629794, 0.435992837, -0.119999997]
+    Children:
+      - 12410049596550406802
+  - Name: Empty Object
+    UUID: 12410049596550406802
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Effect
+    PassIndex: 1
+    BillBord: true
+    Com_Transform:
+      Translation: [0, 0.300000012, 0]
+      Rotation: [0, -0, 0]
+      Scale: [0.899999976, 2, 1]
+    Com_VIBuffer:
+      {}
+    Effect_Setting:
+      TextureDiffusePath: ..\..\Assets\Textures\Effect\Diffuse\FX_aura_001_TEX_KJS.dds
+      TextureMaskPath: ..\..\Assets\Textures\Effect\Mask\FX_Circle_mask01.png
+      TextureNoisePath: ..\..\Assets\Textures\Effect\Noise\FX_AuraTile_001_TEX_KKJ1.png
+      TextureNormalPath: ""
+      ScrollSpeedX: [0, 0, 0]
+      ScrollSpeedY: [0.699999988, 0.899999976, 0]
+      Distortion1: [0.100000001, 0.200000003]
+      Distortion2: [0.100000001, 0.300000012]
+      Distortion3: [0.100000001, 0.100000001]
+      DistortionScale: 0.800000012
+      DistortionBias: 0.5
+      FadeOut: false
+      FadeOutDuration: 0
+      FadeOutStratTime: 0
+      FadeIn: false
+      FadeInDuration: 0
+      FadeInStratTime: 0
+      EffectDuration: 0
+      SpriteNumX: 0
+      SpriteNumY: 0
+      SpriteTotal: 0
+      SpriteSpeed: 5
+      OffsetColor: [0.231363475, 0.00945179351, 0.434782624, -0.479999989]

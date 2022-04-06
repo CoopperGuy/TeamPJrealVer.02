@@ -23,8 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/m_pxVerticesSY.yaml";
-
+static string strScene = "../../Assets/Scenes/CityMap.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
