@@ -171,7 +171,7 @@ void CDarkKnight::LateUpdate(_double dDeltaTime)
 
 	if (m_bDissolve)
 	{
-		m_fDissolveAcc += (_float)dDeltaTime * 0.5f;
+		m_fDissolveAcc += (_float)dDeltaTime * 0.1f;
 		if (m_fDissolveAcc > 1.f)
 			m_fDissolveAcc = 1.f;
 
@@ -465,16 +465,10 @@ void CDarkKnight::BehaviorUpdate(_double dDeltaTime)
 	case Client::CDarkKnight::DMG_B:
 		break;
 	case Client::CDarkKnight::DIE:
+		if (keyFrame == 70)
+			m_bDissolve = true;
 		break;
 	case Client::CDarkKnight::DEADBODY:
-		m_fDissolveDelay -= (_float)dDeltaTime;
-		if (m_fDissolveDelay <= 0.f)
-		{
-			m_fDissolveAcc += (_float)dDeltaTime * 0.3f;
-			if (m_fDissolveAcc > 1.f)
-				m_fDissolveAcc = 1.f;
-			m_pModel->SetDissolve(m_fDissolveAcc);
-		}
 		break;
 	case Client::CDarkKnight::SLASH:
 		if (keyFrame >= 5 && keyFrame <= 20)
@@ -619,6 +613,7 @@ void CDarkKnight::CheckAnimFinish()
 			m_eState = IDLE_BATTLE;
 			break;
 		case Client::CDarkKnight::DIE:
+			SafeRelease(m_pMonHp);
 			m_pEffectTwist->End_Effect();
 			m_eState = DEADBODY;
 			break;

@@ -90,6 +90,10 @@ void CWolf::Update(_double dDeltaTime)
 
 	//mypos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
+	if (m_pWolfState == IDLE0)
+	{
+		m_bMove = false;
+	}
 	if (WolfAtt)
 	{
 		if (m_pWolfState == IDLE0)
@@ -111,6 +115,39 @@ void CWolf::LateUpdate(_double dDeltaTime)
 	}
 
 	if (!m_bDead) {
+		if (m_bMove)
+		{
+			PxVec3 vDir = PxVec3(0.f, 0.f, 0.f);
+			PxControllerFilters filters;
+			_vector vLook{}, vTargetLook{};
+			_vector vDis;
+			_float Speed = 0.f;
+
+			if (m_pWolfState == STRAIGHTATACK || m_pWolfState == RUN)
+				Speed = 1.f;
+			else
+				Speed = 0.f;
+
+			//if (m_bLook) {
+			_vector vTargetPos, vPos;
+			vPos = m_pTransform->GetState(CTransform::STATE_POSITION);
+			vDis = PlayerPos - vPos;
+			vDis = XMVectorSetY(vDis, 0.f);
+			m_pTransform->SetLook(vDis);
+
+			_float tempX = XMVectorGetX(vDis);
+			_float tempZ = XMVectorGetZ(vDis);
+			if (tempX < 0)
+				tempX = tempX*-1.f;
+			if (tempZ < 0)
+				tempZ = tempZ*-1.f;
+
+
+			memcpy(&vDir, &XMVector3Normalize(vDis), sizeof(_float3));
+			WolfLookPlayer();
+			m_pController->move(vDir * Speed * (_float)dDeltaTime, 0.f, (_float)dDeltaTime, nullptr);
+
+		}
 		WolfSetAni(dDeltaTime);
 		//WolfStateUpdate(dDeltaTime);
 	}
@@ -295,12 +332,12 @@ void CWolf::WolfAttflow(_double dDeltaTime)
 
 		//ChaseTarget(dDeltaTime, vTargetPos);
 
-		//if (XMVectorGetX(TargetDistance) >= 1.f || XMVectorGetZ(TargetDistance) >= 1.f)
-		//	m_bMove = true;
-		//else {
-		//	m_pWolfState = THREATEN2;
-		//	m_bMove = false;
-		//}
+		if (XMVectorGetX(TargetDistance) >= 1.f || XMVectorGetZ(TargetDistance) >= 1.f)
+			m_bMove = true;
+		else {
+			m_pWolfState = THREATEN2;
+			m_bMove = false;
+		}
 		break;
 	}
 	}

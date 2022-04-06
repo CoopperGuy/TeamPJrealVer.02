@@ -22,8 +22,7 @@
 USING(Tool)
 
 extern HINSTANCE hInst;
-
-static string strScene = "../../Assets/Scenes/ItemDropUI.yaml";
+static string strScene = "../../Assets/Scenes/TrapSpaer.yaml";
 
 
 CToolManager::CToolManager()

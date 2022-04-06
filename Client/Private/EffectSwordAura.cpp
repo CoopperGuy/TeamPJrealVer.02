@@ -67,7 +67,7 @@ void CEffectSwordAura::Update(_double deltaTime)
 
 	m_dDeadTime += deltaTime;
 
-	m_pTransform->GoStraight(deltaTime * -3.0);
+	m_pTransform->GoStraight(deltaTime * -2.5);
 
 	m_pObb->SetSize(_float3(1.8f, 0.2f, 0.5f));
 	_matrix ObbTransform = XMMatrixTranslation(0.f, 0.f, -0.5f) * m_pTransform->GetWorldMatrix();
@@ -77,7 +77,7 @@ void CEffectSwordAura::Update(_double deltaTime)
 
 void CEffectSwordAura::LateUpdate(_double deltaTime)
 {
-	if (m_dDeadTime >= 3.0)
+	if (m_dDeadTime >= 1.5)
 	{
 		this->SetDead();
 		m_pGameObject->SetDead();

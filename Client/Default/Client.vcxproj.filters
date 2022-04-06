@@ -502,9 +502,6 @@
     <ClInclude Include="..\public\BossMovie.h">
       <Filter>04.UI\BossMovie</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Equipment.h">
-      <Filter>02.GameObjects\Character\Equip\Weapon</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\Dustparticle_Cone.h">
       <Filter>05.Effect\Ursa\Pummel_foot</Filter>
     </ClInclude>
@@ -525,6 +522,9 @@
     </ClInclude>
     <ClInclude Include="..\public\ItemDropAlret.h">
       <Filter>04.UI\ItemDropAlret</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Equipment.h">
+      <Filter>02.GameObjects\Character\Equip</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

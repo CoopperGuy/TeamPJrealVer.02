@@ -45,10 +45,16 @@ void CItemBox::Update(_double deltaTime)
 	_float dist = XMVectorGetZ(XMVector3Length(m_vMyPos - playerPos));
 
 
-	if (dist < 0.1f && !m_bGetItem) 
+	if (dist < 0.1f/* && !m_bGetItem*/) 
 	{
 		m_pAlretUI->SetActive(true);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(true, DirectX::Colors::Gold, 1.f);
+    if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) 
+    {
+			  m_bGetItem = true;
+        CEventCheck::GetInstance()->AddDropItem();
+
+    }
 	}
 	else 
 	{
@@ -57,15 +63,7 @@ void CItemBox::Update(_double deltaTime)
 	}
 
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) 
-	{
-		m_bGetItem = true;
-		CEventCheck::GetInstance()->AddDropItem();
-	}
-
-
-	if (!m_bGetItem) 
-	{
+	if (!m_bGetItem) {
 		m_pModel->SetUp_AnimationIndex(0);
 		m_pModel->Play_Animation(deltaTime);
 	}

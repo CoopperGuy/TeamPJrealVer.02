@@ -11,7 +11,7 @@ GameObjects:
     Com_Transform:
       Translation: [1.29097414, 0.445980191, 0.485011846]
       Rotation: [90, -0, 0]
-      Scale: [0.798582852, 0.800000012, 0.800000012]
+      Scale: [0.798582792, 0.800000012, 0.800000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: dome.fbx
@@ -99,7 +99,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 0
       InstNum: 40
-      Color: [1, 1.00311351, 0.784559011, 0]
+      Color: [1, 0.980307758, 0.703415632, 0]
       Speed: 3
       LifeTime: 0.5
       Size: 0.300000012
@@ -147,7 +147,7 @@ GameObjects:
     Com_RectInstance:
       Shape: 1
       InstNum: 15
-      Color: [1.11208618, 1.1928004, 1.48337162, 0]
+      Color: [0.984547734, 0.973420382, 0.933362007, 0]
       Speed: 0.5
       LifeTime: 2
       Size: 0.300000012
