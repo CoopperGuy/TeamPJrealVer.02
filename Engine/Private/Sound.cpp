@@ -1,6 +1,6 @@
 #include "EnginePCH.h"
 #include "..\Public\Sound.h"
-
+#include <fmod.hpp>
 static const FILESYSTEM::path s_Path = "../../Sound";
 
 IMPLEMENT_SINGLETON(CSound)
@@ -15,7 +15,7 @@ void CSound::Initialize()
 {
 	FMOD_System_Create(&m_pSystem, FMOD_VERSION);
 	FMOD_System_Init(m_pSystem, 32, FMOD_INIT_NORMAL, NULL);
-
+	
 	LoadSoundFile();
 }
 
@@ -96,7 +96,9 @@ void CSound::StopAll()
 
 void CSound::SetVolume(float volume, CHANNELID eID)
 {
-	for (_int i = PLAYER00; i < MAXCHANNEL; i++) {
+	std::lock_guard<std::mutex> lock(m_sound);
+	for (_int i = PLAYER00; i < MAXCHANNEL; i++) 
+	{
 		FMOD_Channel_SetVolume(m_pChannelArr[i], volume);
 	}
 	FMOD_System_Update(m_pSystem);

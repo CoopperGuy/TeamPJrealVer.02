@@ -9,12 +9,12 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [0, 0, 0]
-      Rotation: [9.43365574, 31.0286942, -4.98170266e-07]
-      Scale: [0.299923956, 0.0299972668, 0.300033629]
+      Rotation: [33.2061996, 57.1584015, 1.57429679e-06]
+      Scale: [0.265732348, 0.0287951343, 0.29013449]
     Com_VIBuffer:
       Type: Rect
       TexturePath: ..\..\Assets\UITexture\Hud\HpBarAlpha2.png
-    RenderGroup: 4
+    RenderGroup: 5
     FrustumRange: 5
     Children:
       - Name: VIHpbar
@@ -31,5 +31,5 @@ GameObjects:
         Com_VIBuffer:
           Type: Rect
           TexturePath: ..\..\Assets\UITexture\Hud\HpHud.png
-        RenderGroup: 3
+        RenderGroup: 4
         FrustumRange: 5

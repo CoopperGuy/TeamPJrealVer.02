@@ -107,6 +107,7 @@ private:
 
 	_uint m_iMakeDust = 0;
 
+	_bool m_bCinematic			= false;
 	_bool m_bCombat[Phase_End] = {};
 	_bool m_bDeadMotion		   = false;
 	_bool m_bCenter			   = false;
@@ -127,8 +128,6 @@ private:
 	_bool m_bDissolve = false;
 	_float m_fDissolveAcc = 0.f;
 
-
-	int value = 0;
 private:
 	CVIBuffer_Trail*		m_pRightTrailBuffer = nullptr;
 	CVIBuffer_Trail*		m_pLeftTrailBuffer = nullptr;

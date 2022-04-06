@@ -45,6 +45,9 @@ public:
 	void SlowAttack();
 public:
 	void OffAllMenus();
+	_bool CameraEventCheck(_float3 _pos);
+	_bool CameraEventCheckReverse(_float3 _pos);
+
 public:
 	void SetUpReinforceItem(CItem*	_item);
 	void SetUpReinforceMaterial(CItem*	_item);
