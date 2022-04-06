@@ -526,6 +526,9 @@
     <ClInclude Include="..\public\Equipment.h">
       <Filter>02.GameObjects\Character\Equip</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\ItemInfo.h">
+      <Filter>04.UI\ItemInfo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1038,6 +1041,9 @@
     <ClCompile Include="..\private\ItemDropAlret.cpp">
       <Filter>04.UI\ItemDropAlret</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\ItemInfo.cpp">
+      <Filter>04.UI\ItemInfo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1533,6 +1539,9 @@
     </Filter>
     <Filter Include="04.UI\ItemDropAlret">
       <UniqueIdentifier>{0b9bc964-78ba-4661-9211-ea352484f327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\ItemInfo">
+      <UniqueIdentifier>{ad7c4c5a-3e59-49e4-958c-0a0127760f83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

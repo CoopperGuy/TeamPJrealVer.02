@@ -29,6 +29,7 @@
 #include "Boots.h"
 #include "Portal.h"
 #include "Scene_Loading.h"
+#include "EventCheck.h"
 #pragma endregion
 
 USING(Client)
