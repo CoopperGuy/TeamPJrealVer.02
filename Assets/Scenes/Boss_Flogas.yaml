@@ -66,7 +66,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.5, 0, -0.600000024]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.20000005, 1.20000005, 1.20000005]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -83,9 +83,9 @@ GameObjects:
         CharacterController: true
     Com_OBB:
       Center: [0, 0, 0]
-      Size: [0.150000006, 0.150000006, 0.150000006]
-      IsAttach: false
-      BoneName: ""
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: true
+      BoneName: Root
       Offset: [-0.0500000007, 0.25, 0]
       CollisionType: 2
     Com_Model:
@@ -100,7 +100,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 200
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas02
@@ -114,7 +114,7 @@ GameObjects:
     Com_Transform:
       Translation: [6, 0, -1]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.20000005, 1.20000005, 1.20000005]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -131,9 +131,9 @@ GameObjects:
         CharacterController: true
     Com_OBB:
       Center: [0, 0, 0]
-      Size: [0.150000006, 0.150000006, 0.150000006]
-      IsAttach: false
-      BoneName: ""
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: true
+      BoneName: Root
       Offset: [-0.0500000007, 0.25, 0]
       CollisionType: 2
     Com_Model:
@@ -148,7 +148,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 200
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas03
@@ -162,7 +162,7 @@ GameObjects:
     Com_Transform:
       Translation: [-5.80000019, 0, -8.5]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.20000005, 1.20000005, 1.20000005]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -179,9 +179,9 @@ GameObjects:
         CharacterController: true
     Com_OBB:
       Center: [0, 0, 0]
-      Size: [0.150000006, 0.150000006, 0.150000006]
-      IsAttach: false
-      BoneName: ""
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: true
+      BoneName: Root
       Offset: [-0.0500000007, 0.25, 0]
       CollisionType: 2
     Com_Model:
@@ -196,7 +196,7 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 200
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1
   - Name: El_Flogas04
@@ -210,7 +210,7 @@ GameObjects:
     Com_Transform:
       Translation: [5.80000019, 0, -8.80000019]
       Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
+      Scale: [1.20000005, 1.20000005, 1.20000005]
     Com_Collider:
       Center: [0, 0, 0]
       Type: Capsule
@@ -227,10 +227,10 @@ GameObjects:
         CharacterController: true
     Com_OBB:
       Center: [0, 0, 0]
-      Size: [0.150000006, 0.150000006, 0.150000006]
-      IsAttach: false
-      BoneName: ""
-      Offset: [-0.0500000007, -0.25, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsAttach: true
+      BoneName: Root
+      Offset: [-0.0500000007, 0.25, 0]
       CollisionType: 2
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Monster\Element_Flogas\
@@ -244,6 +244,6 @@ GameObjects:
       Arm: [1, 0, 1]
       Exp: [0, 100, 100]
       Level: 1
-      Gold: 200
+      Gold: 0
     RenderGroup: 1
     FrustumRange: 1

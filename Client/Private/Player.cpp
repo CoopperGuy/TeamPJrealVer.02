@@ -345,7 +345,7 @@ CStateMachine * CPlayer::GetState(CurState eState)
 _float3 CPlayer::Get_CenterPosition()
 {
 
-	return _float3();
+	return m_pGameObject->GetPosition();
 }
 
 void CPlayer::Collsion()

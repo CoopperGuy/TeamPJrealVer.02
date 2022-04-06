@@ -41,8 +41,8 @@ public:
 //public:
 //	void SetRolling(_bool result) { m_bRolling = result; }
 public:
-	void	OnCamera() { m_bIsUse = true;  m_bIsWaiting = true; m_bIsMake = false; }
-	void	OffCamera() { m_bIsUse = false; m_bIsWaiting = false;  m_bIsMake = true;}
+	void	OnCamera() { m_bIsUse = true;  m_bIsWaiting = true; }
+	void	OffCamera() { m_bIsUse = false; m_bIsWaiting = false;  m_bIsMake = false;}
 protected:
 	class CTransform*			m_pTransformCom = nullptr;
 	class CPipeline*			m_pPipeline = nullptr;

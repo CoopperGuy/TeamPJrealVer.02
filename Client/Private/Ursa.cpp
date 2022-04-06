@@ -121,6 +121,14 @@ HRESULT CUrsa::Initialize(_float3 position)
 
 void CUrsa::Update(_double dDeltaTime)
 {
+	if (CEngine::GetInstance()->GetCurSceneNumber() < SCENE_STAGE1) {
+		m_pGameObject->SetActive(false);
+		return;
+	}
+	else {
+		m_pGameObject->SetActive(true);
+	}
+
 	if (!m_pGameObject)
 		return;
 
@@ -130,14 +138,14 @@ void CUrsa::Update(_double dDeltaTime)
 	//	m_pGameObject->SetDead();
 
 	__super::Update(dDeltaTime);
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-		m_bAction = true;
-	TestAnimation(DASH_ATT);
-	if (CEventCheck::GetInstance()->CameraEventCheckReverse(_float3{ 0.f,0.f,0.f })) 
+	if (!m_bCinematic && CEventCheck::GetInstance()->CameraEventCheckReverse(_float3{ 0.f,0.f,3.f }))
 	{
-		//player ani
+		m_bCinematic = true;
+		m_bAction = true;
+		//play ani
 		CEngine::GetInstance()->ActiveCameraByIndex(3);
 	}
+	TestAnimation(ROAR_Start);
 
 	m_fDist = SetDistance();
 	Checking_Phase(dDeltaTime);

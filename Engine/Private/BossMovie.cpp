@@ -16,10 +16,11 @@ HRESULT CBossMovie::Initailze(_int _type, CGameObject * pArg)
 	m_pThisUI = static_cast<CEmptyUI*>(pEngine->SpawnPrefab("BossMovie"));
 	pEngine->AddScriptObject(this,pEngine->GetCurSceneNumber());
 	list<CGameObject*> _child = m_pThisUI->GetChildren();
-	auto& iter = _child.front();
-	m_pName = static_cast<CVIBuffer_RectUI*>(iter->GetComponent("Com_VIBuffer"));
+	auto& iter = _child.begin();
+	m_pName = static_cast<CVIBuffer_RectUI*>((*iter)->GetComponent("Com_VIBuffer"));
 	iter++;
-	m_pSubName = static_cast<CVIBuffer_RectUI*>(iter->GetComponent("Com_VIBuffer"));
+	m_pSubName = static_cast<CVIBuffer_RectUI*>((*iter)->GetComponent("Com_VIBuffer"));
+
 	if (_type == 0)
 	{
 		string _name = "Flogas.dds";
@@ -33,6 +34,15 @@ HRESULT CBossMovie::Initailze(_int _type, CGameObject * pArg)
 	{
 		string _name = "Ursa.dds";
 		string _subName = "Varr.dds";
+		string _pullPath = _path + _name;
+		m_pName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
+		_pullPath = _path + _subName;
+		m_pSubName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
+	}
+	else if (_type == 2)
+	{
+		string _name = "Dark.dds";
+		string _subName = "Death.dds";
 		string _pullPath = _path + _name;
 		m_pName->UpdateTexture(_pullPath, CVIBuffer_RectUI::TEXTUREID::TEXTURE_DIFFUSE);
 		_pullPath = _path + _subName;

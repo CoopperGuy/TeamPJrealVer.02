@@ -151,7 +151,7 @@ _bool CEventCheck::CameraEventCheckReverse(_float3 _pos)
 	if (m_pPlayerScript)
 	{
 		_float3 _playerPos = m_pPlayerScript->Get_CenterPosition();
-		if (_playerPos.z <= _pos.z)
+		if (_playerPos.z < _pos.z)
 			return true;
 	}
 	return false;
