@@ -9,7 +9,7 @@
 #define MAX_LOADSTRING 100
 
 // Global Variables:
-mt19937		g_MTengine((unsigned int)time(NULL));
+
 int			g_eCurScene;
 HWND		g_hWnd;
 BOOL		g_First = false;

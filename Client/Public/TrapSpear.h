@@ -3,10 +3,10 @@
 #include "Engine.h"
 
 BEGIN(Client)
+enum class eTrapSpear {ATK, PRICK, GO_INTO, IDLE, TRAPSPEAR_END};
 
 class CTrapSpear : public CEnemy
 {
-	enum eTrapSpear {ATK, PRICK, GO_INTO, IDLE, TRAPSPEAR_END};
 public:
 	explicit CTrapSpear();
 	explicit CTrapSpear(CGameObject* pObj);
@@ -24,6 +24,7 @@ public:
 
 private:
 	void CheckingFinished();
+	_bool State_IDLE();
 private:
 	class CStat*	m_pStat			= nullptr;
 	CBasicCollider* m_pOBB			= nullptr;
@@ -31,9 +32,10 @@ private:
 private:
 	_double m_dDeltaTime = 0.0;
 	_double m_dStart	 = 0.0;
+	_double m_dAnimSpeed  = 0.0;
 
 	_bool m_bStart = false;
-	eTrapSpear m_eState  = TRAPSPEAR_END;
+	eTrapSpear m_eState  = eTrapSpear::TRAPSPEAR_END;
 };
 
 END

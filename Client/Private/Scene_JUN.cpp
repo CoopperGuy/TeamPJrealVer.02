@@ -35,15 +35,17 @@ HRESULT CScene_JUN::Render()
 HRESULT CScene_JUN::ReadyScript()
 {
 	//m_pEngine->AddScriptObject(CFlogas::Create(nullptr), SCENE_JUNG);
-	m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
+	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), SCENE_JUNG);
 
-	uniform_int_distribution<_double> distribution(-1.0, 3.0);
-	auto generator = bind(distribution, g_MTengine);
 
 	list<CGameObject*> listSpear = m_pEngine->GetGameObjectInLayer(SCENE_JUNG, "Layer_Spear");
 	for (auto pSpear : listSpear)
-		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, generator()), SCENE_JUNG);
-	
+	{
+		_double start = (_double)(rand() % 50) / 10.0;
+		if (start > 3.0)
+			start += 2.0;
+		m_pEngine->AddScriptObject(CTrapSpear::Create(pSpear, start), SCENE_JUNG);
+	}
 
 	return S_OK;
 }
