@@ -90,7 +90,7 @@ private:
 private:
 	_float	m_fStamina = 0.f;
 	_float	m_fStaMax = 100.f;
-	_float	m_fStaRegen = 1.f;
+	_float	m_fStaRegen = 3.f;
 private:
 	_float	m_fmagnification = 1.f;
 	_float	m_fDMGRatio = 1.f;

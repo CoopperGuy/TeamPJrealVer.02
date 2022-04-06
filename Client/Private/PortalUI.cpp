@@ -19,6 +19,8 @@ HRESULT CPortalUI::Initailze(CGameObject * pArg)
 	m_pScenes.emplace_back(Scenes);
 	Scenes = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Boss2"));
 	m_pScenes.emplace_back(Scenes);
+	Scenes = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Boss3"));
+	m_pScenes.emplace_back(Scenes);
 
 	return S_OK;
 }

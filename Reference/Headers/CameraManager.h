@@ -17,6 +17,8 @@ public:
 	void	ActiveCameraByIndex(_int _idx) { m_iCurActiveCamera = _idx; }
 	HRESULT	AddCamera(CCamera* _camera) { SafeAddRef(_camera);  m_vecCamera.emplace_back(_camera); return S_OK; }
 	HRESULT	SetDefaultCamera() { m_iCurActiveCamera = 0; return S_OK;}
+public:
+	_int	GetCurActiveCamera() { return m_iCurActiveCamera; }
 private:
 	vector<CCamera*>	m_vecCamera;
 private:

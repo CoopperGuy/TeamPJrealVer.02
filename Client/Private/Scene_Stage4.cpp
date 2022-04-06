@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "..\Public\Scene_Stage4.h"
 #include "Engine.h"
-#include "Ursa.h"
-#include "DropRock.h"
-#include "UrsaDunDoor.h"
+#include "DarkKnight.h"
+#include "Skull.h"
+#include "EventCheck.h"
+#include "Scene_Loading.h"
 USING(Client)
 
 CScene_Stage4::CScene_Stage4(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iLevelIndex)
@@ -28,6 +29,14 @@ HRESULT CScene_Stage4::Initialize()
 _uint CScene_Stage4::Update(_double TimeDelta)
 {
 	__super::Update(TimeDelta);
+
+	if (CEventCheck::GetInstance()->GetChangeScene()) {
+		CEventCheck::GetInstance()->SetChangeScene(false);
+		CEventCheck::GetInstance()->SetSceneNumber(SCENE_END);
+		if (FAILED(CEngine::GetInstance()->SetUpCurrentScene(CScene_Loading::Create(m_pDevice, m_pDeviceContext, SCENE::SCENE_STAGE1, (_uint)SCENE_LOADING), CEngine::GetInstance()->GetCurSceneNumber())))
+			return E_FAIL;
+	}
+
 	return _uint();
 }
 
@@ -42,6 +51,13 @@ HRESULT CScene_Stage4::ReadyScript()
 {
 	//m_pEngine->AddScriptObject(CUrsa::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
 	//m_pEngine->AddScriptObject(CUrsaDunDoor::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	m_pEngine->AddScriptObject(CDarkKnight::Create(nullptr), CEngine::GetInstance()->GetCurSceneNumber());
+	//m_pEngine->AddScriptObject(CSkull::Create(nullptr), SCENE_LEE);
+	list<CGameObject*> listSkull = m_pEngine->GetGameObjectInLayer(CEngine::GetInstance()->GetCurSceneNumber(), "O_Skull");
+	for (auto pSkull : listSkull)
+	{
+		m_pEngine->AddScriptObject(CSkull::Create(pSkull), CEngine::GetInstance()->GetCurSceneNumber());
+	}
 
 	return S_OK;
 }

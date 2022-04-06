@@ -345,7 +345,7 @@ CStateMachine * CPlayer::GetState(CurState eState)
 _float3 CPlayer::Get_CenterPosition()
 {
 
-	return _float3();
+	return m_pGameObject->GetPosition();
 }
 
 void CPlayer::Collsion()
@@ -1498,11 +1498,19 @@ void CPlayer::InputSkill()
 {
 	if (CEngine::GetInstance()->IsKeyDown('1'))
 	{
-		if (m_pSkillIcon->IsCoolDown(0)) {
-			m_bCB = true;
-			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot1];
-			m_pSkillIcon->UseSkill(0);
-			m_bUsableSkill = true;
+		if (m_pSkillIcon->IsCoolDown(0)) 
+		{
+			if (m_pStatus->UseStamina(10.f)) 
+			{
+				m_bCB = true;
+				m_iSkillIndex = m_iSkill[(_uint)Skill::Slot1];
+				m_pSkillIcon->UseSkill(0);
+				m_bUsableSkill = true;
+			}
+			else
+			{
+				m_bUsableSkill = false;
+			}
 		}
 		else {
 			m_bUsableSkill = false;
@@ -1511,10 +1519,17 @@ void CPlayer::InputSkill()
 	if (CEngine::GetInstance()->IsKeyDown('2'))
 	{
 		if (m_pSkillIcon->IsCoolDown(1)) {
-			m_bCB = true;
-			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot2];
-			m_pSkillIcon->UseSkill(1);
-			m_bUsableSkill = true;
+			if (m_pStatus->UseStamina(20.f))
+			{
+				m_bCB = true;
+				m_iSkillIndex = m_iSkill[(_uint)Skill::Slot2];
+				m_pSkillIcon->UseSkill(1);
+				m_bUsableSkill = true;
+			}
+			else
+			{
+				m_bUsableSkill = false;
+			}
 		}
 		else {
 			m_bUsableSkill = false;
@@ -1523,10 +1538,17 @@ void CPlayer::InputSkill()
 	if (CEngine::GetInstance()->IsKeyDown('3'))
 	{
 		if (m_pSkillIcon->IsCoolDown(2)) {
-			m_bCB = true;
-			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot3];
-			m_pSkillIcon->UseSkill(2);
-			m_bUsableSkill = true;
+			if (m_pStatus->UseStamina(7.f))
+			{
+				m_bCB = true;
+				m_iSkillIndex = m_iSkill[(_uint)Skill::Slot3];
+				m_pSkillIcon->UseSkill(2);
+				m_bUsableSkill = true;
+			}
+			else
+			{
+				m_bUsableSkill = false;
+			}
 		}
 		else {
 			m_bUsableSkill = false;
@@ -1535,10 +1557,17 @@ void CPlayer::InputSkill()
 	if (CEngine::GetInstance()->IsKeyDown('4'))
 	{
 		if (m_pSkillIcon->IsCoolDown(3)) {
-			m_bCB = true;
-			m_iSkillIndex = m_iSkill[(_uint)Skill::Slot4];
-			m_pSkillIcon->UseSkill(3);
-			m_bUsableSkill = true;
+			if (m_pStatus->UseStamina(25.f))
+			{
+				m_bCB = true;
+				m_iSkillIndex = m_iSkill[(_uint)Skill::Slot4];
+				m_pSkillIcon->UseSkill(3);
+				m_bUsableSkill = true;
+			}
+			else 
+			{
+				m_bUsableSkill = false;
+			}
 		}
 		else {
 			m_bUsableSkill = false;

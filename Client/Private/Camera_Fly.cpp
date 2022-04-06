@@ -203,7 +203,7 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 	PxRaycastHit    hitbuf[256];
 	PxRaycastBuffer buf(hitbuf, 256);
 	PxQueryFilterData filterData;
-	//.data.word0 = CPxManager::GROUP1;
+	filterData.data.word0 = CPxManager::GROUP1;
 	filterData.data.word1 = CPxManager::GROUP4;
 	filterData.data.word2 = CPxManager::GROUP4;
 	filterData.flags |= PxQueryFlag::eANY_HIT;

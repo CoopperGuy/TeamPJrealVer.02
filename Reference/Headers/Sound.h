@@ -49,6 +49,8 @@ private:
 
 	float m_volume;	
 	FMOD_BOOL m_bool;
+
+	std::mutex	m_sound;
 };
 
 END
