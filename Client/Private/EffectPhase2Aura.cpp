@@ -36,7 +36,9 @@ HRESULT CEffectPhase2Aura::Initialize(void* pArg, CTransform* pTransform)
 		_vector vPosition = pTransform->GetState(CTransform::STATE_POSITION);
 		XMVectorSetY(vPosition, 0.f);
 
-		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);		
+		m_pTransform->SetState(CTransform::STATE_POSITION, vPosition);
+
+		CEngine::GetInstance()->PlaySoundW("DarkKnight_Phase2.wav", ENEMY05);
 	}
 		
 
@@ -53,7 +55,7 @@ void CEffectPhase2Aura::Update(_double deltaTime)
 
 	m_dDeadTime += deltaTime;
 
-	_matrix RotationMatrix = XMMatrixRotationAxis(XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_UP)), XMConvertToRadians((_float)deltaTime * 3.f));
+	_matrix RotationMatrix = XMMatrixRotationAxis(XMVector3Normalize(m_pTransform->GetState(CTransform::STATE_UP)), XMConvertToRadians((_float)deltaTime * 4.f));
 	m_pTransform->SetState(CTransform::STATE_RIGHT, XMVector4Transform(m_pTransform->GetState(CTransform::STATE_RIGHT), RotationMatrix));
 	m_pTransform->SetState(CTransform::STATE_UP, XMVector4Transform(m_pTransform->GetState(CTransform::STATE_UP), RotationMatrix));
 	m_pTransform->SetState(CTransform::STATE_LOOK, XMVector4Transform(m_pTransform->GetState(CTransform::STATE_LOOK), RotationMatrix));
