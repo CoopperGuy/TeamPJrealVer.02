@@ -284,3 +284,22 @@ GameObjects:
       SpriteTotal: 0
       SpriteSpeed: 5
       OffsetColor: [0.231363475, 0.00945179351, 0.434782624, -0.479999989]
+  - Name: O_Bone
+    UUID: 11109961963016461859
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.342254311, 0.317842424, 0.0915146023]
+      Rotation: [-151.898926, 88.8999786, 139.799942]
+      Scale: [0.0499998964, 0.0500000268, 0.0499999151]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Bone\
+      MeshFileName: Bone.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

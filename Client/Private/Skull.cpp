@@ -6,6 +6,9 @@
 #include "MonHp.h"
 #include "ItemBox.h"
 #include "MonHpVIBuffer.h"
+
+#include "DropRockSmall.h"
+
 USING(Client)
 
 CSkull::CSkull(CGameObject* pObj)
@@ -534,6 +537,9 @@ void CSkull::Create_Trail()
 
 void CSkull::Hit()
 {
+	if (m_bDeadBody == true)
+		return;
+
 	if (m_bDeadBody == false && m_pStat->GetStatInfo().hp <= 0.f)
 	{
 		m_bDeadBody = true;
@@ -542,6 +548,14 @@ void CSkull::Hit()
 	
 	if (m_pOBB->Get_isHit() == true)
 	{
+		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
+
+		for (int i = 0; i < 3; ++i) {
+			pos = XMVectorSetY(pos, 0.2f);
+			CGameObject* pBone = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Bone", "O_Bone");
+			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(pBone, pos), CEngine::GetInstance()->GetCurSceneNumber());
+		}
+
 		if (m_bCombat == false)
 			m_bCombat = true;
 			
