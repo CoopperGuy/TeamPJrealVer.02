@@ -443,8 +443,8 @@ HRESULT CLoader::GameSceneJUN()
 	//if (FAILED(GameFlogasLoader()))
 	//	MSG_BOX("Failed To Create Flogas Effect");
 	
-	//if (FAILED(GameUrsaLoader()))
-		//MSG_BOX("Failed To Create Ursa Effect");
+	if (FAILED(GameUrsaLoader()))
+		MSG_BOX("Failed To Create Ursa Effect");
 	
 	m_ThreadLoader->Start_Thread();
 	
