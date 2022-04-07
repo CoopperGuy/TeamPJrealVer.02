@@ -19,7 +19,7 @@ HRESULT CItemBox::Initailze(CGameObject * pArg, _vector pos)
 	m_pAlretUI = static_cast<CEmptyUI*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "ItemDropHud"));
 	if (m_pItemBox == nullptr || m_pPlayer == nullptr)
 		return E_FAIL;
-	
+
 	pos = XMVectorSetY(pos, 0.f);
 
 	m_pTransform->SetState(CTransform::STATE_POSITION, pos);
@@ -45,20 +45,20 @@ void CItemBox::Update(_double deltaTime)
 	_float dist = XMVectorGetZ(XMVector3Length(m_vMyPos - playerPos));
 
 
-	if (dist < 0.1f/* && !m_bGetItem*/) 
+	if (dist < 0.1f && !m_bGetItem)
 	{
 		m_pAlretUI->SetActive(true);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(true, DirectX::Colors::Gold, 1.f);
-    if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) 
-    {
-			  m_bGetItem = true;
-        CEventCheck::GetInstance()->AddDropItem();
-
-    }
+		if (CEngine::GetInstance()->Get_DIKDown(DIK_F))
+		{
+			m_bGetItem = true;
+			CEventCheck::GetInstance()->AddDropItem();
+			m_pAlretUI->SetActive(false);
+		}
 	}
-	else 
+	else
 	{
-		m_pAlretUI->SetActive(false);
+		//m_pAlretUI->SetActive(false);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(false, DirectX::Colors::Gold, 1.f);
 	}
 
@@ -67,10 +67,9 @@ void CItemBox::Update(_double deltaTime)
 		m_pModel->SetUp_AnimationIndex(0);
 		m_pModel->Play_Animation(deltaTime);
 	}
-	else 
+	else
 	{
 
-		m_pAlretUI->SetActive(false);
 
 		if (m_pModel->Get_AnimIndex() == 0)
 			m_pModel->SetUp_AnimationIndex(1);
@@ -87,7 +86,7 @@ void CItemBox::Update(_double deltaTime)
 	if (m_bDissolve)
 	{
 		m_fDissolveAcc += (_float)deltaTime * 0.5f;
-		if (m_fDissolveAcc > 0.925f) 
+		if (m_fDissolveAcc > 0.925f)
 		{
 
 			if (m_pItemDropEff)

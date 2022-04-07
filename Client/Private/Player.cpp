@@ -265,14 +265,14 @@ void CPlayer::Update(_double dDeltaTime)
 
 	CreateBlood();
 
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	{
-		SetUpEquip("JusinArmor");
-		SetUpEquip("JusinBoots");
-		SetUpEquip("JusinGlove");
-		SetUpEquip("JusinLower");
-		SetUpEquip("JusinHelmet");
-	}
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
+	//{
+	//	SetUpEquip("JusinArmor");
+	//	SetUpEquip("JusinBoots");
+	//	SetUpEquip("JusinGlove");
+	//	SetUpEquip("JusinLower");
+	//	SetUpEquip("JusinHelmet");
+	//}
 
 	SlowMotion(dDeltaTime);
 	SlowAttack(dDeltaTime);
@@ -1248,7 +1248,7 @@ void CPlayer::SetUpEquip(string Name)
 		{
 		case EQUIPTYPE::WEAPON:
 			i = 9;
-			_equipType = EQUIPTYPE::CHEST;
+			_equipType = EQUIPTYPE::WEAPON;
 			Equip_OnOff(Equip::Weapon, Name, i);
 			break;
 		case EQUIPTYPE::CHEST:

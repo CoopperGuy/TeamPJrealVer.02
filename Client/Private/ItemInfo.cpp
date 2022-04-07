@@ -40,9 +40,14 @@ void CItemInfo::SetActive(_bool _active)
 void CItemInfo::SetItemInfo(ITEMINFO _info)
 {
 	m_tItemInfo = _info;
-	m_strHP = "HP : " + to_string((_int)m_tItemInfo.hp);
-	m_strAtk = "ATK : " + to_string((_int)m_tItemInfo.atk);
-	m_strDef = "DEF : " + to_string((_int)m_tItemInfo.def);
+	_int _level = m_tItemInfo.level;
+	_int _hp = m_tItemInfo.hp + (m_tItemInfo.hp * 0.1f) *_level;
+	_int _atk = m_tItemInfo.atk + (m_tItemInfo.atk * 0.1f) *_level;
+	_int _def = m_tItemInfo.def + (m_tItemInfo.def * 0.1f) *_level;
+
+	m_strHP = "HP : " + to_string(_hp);
+	m_strAtk = "ATK : " + to_string(_atk);
+	m_strDef = "DEF : " + to_string(_def);
 	m_strImagePath = _itemImgPath + m_tItemInfo.imageName + ".dds";
 	static_cast<CText*>(m_vecUIs[IINFO_NAME]->GetComponent("Com_Text"))->SetString(m_tItemInfo.itemName);
 	static_cast<CText*>(m_vecUIs[IINFO_HP]->GetComponent("Com_Text"))->SetString(m_strHP);
