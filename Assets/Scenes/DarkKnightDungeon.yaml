@@ -82,7 +82,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.24888984e-07, -0.0387736596]
       Rotation: [90, -0, 0]
-      Scale: [0.99938643, 1, 0.999996781]
+      Scale: [0.99938637, 1, 0.999996781]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -90,7 +90,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.24888984e-07, -0.0387736596]
     Rotation: [90, -0, 0]
-    Scale: [0.99938643, 1, 0.999996781]
+    Scale: [0.99938637, 1, 0.999996781]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -107,7 +107,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 1.41047907e-09, 6.84311485]
       Rotation: [90, -0, 0]
-      Scale: [0.999754369, 1, 0.999997079]
+      Scale: [0.99975431, 1, 0.999997079]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -115,7 +115,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 1.41047907e-09, 6.84311485]
     Rotation: [90, -0, 0]
-    Scale: [0.999754369, 1, 0.999997079]
+    Scale: [0.99975431, 1, 0.999997079]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -132,7 +132,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 5.71007464e-10, 13.7215319]
       Rotation: [90, -0, 0]
-      Scale: [0.999728262, 1, 0.999999642]
+      Scale: [0.999728203, 1, 0.999999642]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -140,7 +140,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 5.71007464e-10, 13.7215319]
     Rotation: [90, -0, 0]
-    Scale: [0.999728262, 1, 0.999999642]
+    Scale: [0.999728203, 1, 0.999999642]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -157,7 +157,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -8.99863721e-07, 20.586483]
       Rotation: [90, -0, 0]
-      Scale: [0.9998613, 1, 1]
+      Scale: [0.99986124, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -165,7 +165,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -8.99863721e-07, 20.586483]
     Rotation: [90, -0, 0]
-    Scale: [0.9998613, 1, 1]
+    Scale: [0.99986124, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -270,7 +270,7 @@ GameObjects:
     Com_Transform:
       Translation: [-7.90621424, 2.05802536, 4.27709961]
       Rotation: [90, -0, 0]
-      Scale: [3.29906225, 3.5, 1.44000006]
+      Scale: [3.29906201, 3.5, 1.44000006]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
@@ -278,7 +278,7 @@ GameObjects:
       Equipment: false
     Translation: [-7.90621424, 2.05802536, 4.27709961]
     Rotation: [90, -0, 0]
-    Scale: [3.29906225, 3.5, 1.44000006]
+    Scale: [3.29906201, 3.5, 1.44000006]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -295,7 +295,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.38546419, 2.2193079, 16.0709991]
       Rotation: [90, -0, -3.59720834e-05]
-      Scale: [3.39595151, 3.9000001, 1.60000002]
+      Scale: [3.39595127, 3.9000001, 1.60000002]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
       MeshFileName: TowerUp.fbx
@@ -303,7 +303,7 @@ GameObjects:
       Equipment: false
     Translation: [7.38546419, 2.2193079, 16.0709991]
     Rotation: [90, -0, -3.59720834e-05]
-    Scale: [3.39595151, 3.9000001, 1.60000002]
+    Scale: [3.39595127, 3.9000001, 1.60000002]
     MeshFilePath: ..\..\Assets\Meshes\Map\Housing\Tower\
     MeshFileName: TowerUp.fbx
     HasCollider: false
@@ -320,7 +320,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.9147315, -0.0255432688, -1.12437558]
       Rotation: [90, -0, 0]
-      Scale: [0.999891579, 1, 1]
+      Scale: [0.99989152, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -328,7 +328,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.9147315, -0.0255432688, -1.12437558]
     Rotation: [90, -0, 0]
-    Scale: [0.999891579, 1, 1]
+    Scale: [0.99989152, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -345,7 +345,7 @@ GameObjects:
     Com_Transform:
       Translation: [-7.00402164, -0.0299999993, 10.2559223]
       Rotation: [90, -0, 0]
-      Scale: [0.999326646, 1, 1]
+      Scale: [0.999326587, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -353,7 +353,7 @@ GameObjects:
       Equipment: false
     Translation: [-7.00402164, -0.0299999993, 10.2559223]
     Rotation: [90, -0, 0]
-    Scale: [0.999326646, 1, 1]
+    Scale: [0.999326587, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -370,7 +370,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.98551321, -7.49046876e-07, 17.136198]
       Rotation: [90, -0, 0]
-      Scale: [0.999867976, 1, 1]
+      Scale: [0.999867916, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -378,7 +378,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.98551321, -7.49046876e-07, 17.136198]
     Rotation: [90, -0, 0]
-    Scale: [0.999867976, 1, 1]
+    Scale: [0.999867916, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -395,7 +395,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01249981, -4.62087115e-07, 10.5709314]
       Rotation: [90, -0, 0]
-      Scale: [0.999713182, 1, 1]
+      Scale: [0.999713123, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -403,7 +403,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01249981, -4.62087115e-07, 10.5709314]
     Rotation: [90, -0, 0]
-    Scale: [0.999713182, 1, 1]
+    Scale: [0.999713123, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -420,7 +420,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100016, -9.45902912e-07, 21.6397305]
       Rotation: [90, -0, 0]
-      Scale: [0.999801517, 1, 1]
+      Scale: [0.999801457, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -428,7 +428,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100016, -9.45902912e-07, 21.6397305]
     Rotation: [90, -0, 0]
-    Scale: [0.999801517, 1, 1]
+    Scale: [0.999801457, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -445,7 +445,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01000023, -1.60946669e-07, 3.68203068]
       Rotation: [90, -0, 0]
-      Scale: [0.999876738, 1, 1]
+      Scale: [0.999876678, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -453,7 +453,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01000023, -1.60946669e-07, 3.68203068]
     Rotation: [90, -0, 0]
-    Scale: [0.999876738, 1, 1]
+    Scale: [0.999876678, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -470,7 +470,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.01100636, 1.38197592e-07, -3.16159248]
       Rotation: [90, -0, 0]
-      Scale: [0.999825835, 1, 1]
+      Scale: [0.999825776, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -478,7 +478,7 @@ GameObjects:
       Equipment: false
     Translation: [7.01100636, 1.38197592e-07, -3.16159248]
     Rotation: [90, -0, 0]
-    Scale: [0.999825835, 1, 1]
+    Scale: [0.999825776, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -495,7 +495,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -1.20113225e-06, 27.478693]
       Rotation: [90, -0, 0]
-      Scale: [0.999864161, 1, 1]
+      Scale: [0.999864101, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -503,7 +503,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -1.20113225e-06, 27.478693]
     Rotation: [90, -0, 0]
-    Scale: [0.999864161, 1, 1]
+    Scale: [0.999864101, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -520,7 +520,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
       Rotation: [90, -0, 0]
-      Scale: [0.999873579, 1, 1]
+      Scale: [0.999873519, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -528,7 +528,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99329853, -1.04985122e-06, 24.0177917]
     Rotation: [90, -0, 0]
-    Scale: [0.999873579, 1, 1]
+    Scale: [0.999873519, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -770,7 +770,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -2.09460879e-07, 34.3409767]
       Rotation: [90, -0, 0]
-      Scale: [0.999936879, 1, 1]
+      Scale: [0.999936819, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -778,7 +778,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -2.09460879e-07, 34.3409767]
     Rotation: [90, -0, 0]
-    Scale: [0.999936879, 1, 1]
+    Scale: [0.999936819, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -795,7 +795,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -9.50574019e-08, 41.2052727]
       Rotation: [90, -0, 0]
-      Scale: [0.999472022, 1, 1]
+      Scale: [0.999471962, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -803,7 +803,7 @@ GameObjects:
       Equipment: false
     Translation: [0, -9.50574019e-08, 41.2052727]
     Rotation: [90, -0, 0]
-    Scale: [0.999472022, 1, 1]
+    Scale: [0.999471962, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -820,7 +820,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
       Rotation: [90, -0, 0]
-      Scale: [0.999806821, 1, 1]
+      Scale: [0.999806762, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -828,7 +828,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.99881649, 2.6477241e-07, 30.9043255]
     Rotation: [90, -0, 0]
-    Scale: [0.999806821, 1, 1]
+    Scale: [0.999806762, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -845,7 +845,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.00759602, 1.8604554e-07, 31.2411652]
       Rotation: [90, -0, 0]
-      Scale: [0.999927878, 1, 1]
+      Scale: [0.999927819, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -853,7 +853,7 @@ GameObjects:
       Equipment: false
     Translation: [7.00759602, 1.8604554e-07, 31.2411652]
     Rotation: [90, -0, 0]
-    Scale: [0.999927878, 1, 1]
+    Scale: [0.999927819, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -870,7 +870,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.98798656, -1.27210498e-07, 38.0731163]
       Rotation: [90, -0, 0]
-      Scale: [0.999754429, 1, 1]
+      Scale: [0.999754369, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -878,7 +878,7 @@ GameObjects:
       Equipment: false
     Translation: [6.98798656, -1.27210498e-07, 38.0731163]
     Rotation: [90, -0, 0]
-    Scale: [0.999754429, 1, 1]
+    Scale: [0.999754369, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -895,7 +895,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
       Rotation: [90, -0, 0]
-      Scale: [0.999903083, 1, 1]
+      Scale: [0.999903023, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -903,7 +903,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.95023251, -5.13978478e-08, 37.7081223]
     Rotation: [90, -0, 0]
-    Scale: [0.999903083, 1, 1]
+    Scale: [0.999903023, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -920,7 +920,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
       Rotation: [90, -0, 0]
-      Scale: [0.999432027, 1, 1]
+      Scale: [0.999431968, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -928,7 +928,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.94666958, -4.08977144e-07, 44.5830956]
     Rotation: [90, -0, 0]
-    Scale: [0.999432027, 1, 1]
+    Scale: [0.999431968, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -945,7 +945,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.00125313, -1.46524954e-07, 44.9476662]
       Rotation: [90, -0, 0]
-      Scale: [0.999779522, 1, 1]
+      Scale: [0.999779463, 1, 1]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
       MeshFileName: Floor4.fbx
@@ -953,7 +953,7 @@ GameObjects:
       Equipment: false
     Translation: [7.00125313, -1.46524954e-07, 44.9476662]
     Rotation: [90, -0, 0]
-    Scale: [0.999779522, 1, 1]
+    Scale: [0.999779463, 1, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Badak\
     MeshFileName: Floor4.fbx
     HasCollider: false
@@ -970,7 +970,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, 0, 22.1806793]
       Rotation: [90, -0, 0]
-      Scale: [2.7161479, 5.1651268, 3.89999986]
+      Scale: [2.71614766, 5.1651268, 3.89999986]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Sky\
       MeshFileName: Sky3fbx.fbx
@@ -978,7 +978,7 @@ GameObjects:
       Equipment: false
     Translation: [0, 0, 22.1806793]
     Rotation: [90, -0, 0]
-    Scale: [2.7161479, 5.1651268, 3.89999986]
+    Scale: [2.71614766, 5.1651268, 3.89999986]
     MeshFilePath: ..\..\Assets\Meshes\Sky\
     MeshFileName: Sky3fbx.fbx
     HasCollider: false
@@ -1827,7 +1827,7 @@ GameObjects:
     Com_Transform:
       Translation: [-4.03639889, 0.0261751823, 1.5117079]
       Rotation: [90, -0, 0]
-      Scale: [0.00999625772, 0.0134258317, 0.00999999885]
+      Scale: [0.00999625679, 0.0134258317, 0.00999999885]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1835,7 +1835,7 @@ GameObjects:
       Equipment: false
     Translation: [-4.03639889, 0.0261751823, 1.5117079]
     Rotation: [90, -0, 0]
-    Scale: [0.00999625772, 0.0134258317, 0.00999999885]
+    Scale: [0.00999625679, 0.0134258317, 0.00999999885]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1902,7 +1902,7 @@ GameObjects:
     Com_Transform:
       Translation: [-6.72579336, -0.00108735613, 39.286972]
       Rotation: [90, -0, 0]
-      Scale: [0.0228818394, 0.0215992462, 0.0159028191]
+      Scale: [0.0228818376, 0.0215992462, 0.0159028191]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1910,7 +1910,7 @@ GameObjects:
       Equipment: false
     Translation: [-6.72579336, -0.00108735613, 39.286972]
     Rotation: [90, -0, 0]
-    Scale: [0.0228818394, 0.0215992462, 0.0159028191]
+    Scale: [0.0228818376, 0.0215992462, 0.0159028191]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -1927,7 +1927,7 @@ GameObjects:
     Com_Transform:
       Translation: [2.36021113, -0.089638859, 3.76426864]
       Rotation: [90, -0, 0]
-      Scale: [0.0153250936, 0.0146310246, 0.0147861093]
+      Scale: [0.0153250927, 0.0146310246, 0.0147861093]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: CorpseSet.fbx
@@ -1935,7 +1935,7 @@ GameObjects:
       Equipment: false
     Translation: [2.36021113, -0.089638859, 3.76426864]
     Rotation: [90, -0, 0]
-    Scale: [0.0153250936, 0.0146310246, 0.0147861093]
+    Scale: [0.0153250927, 0.0146310246, 0.0147861093]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: CorpseSet.fbx
     HasCollider: false
@@ -2066,7 +2066,7 @@ GameObjects:
     Com_Transform:
       Translation: [-8.30982399, 0.00437767617, 42.8291931]
       Rotation: [-90, -0, 0]
-      Scale: [0.999484837, 1.77297831, 0.658898652]
+      Scale: [0.999484777, 1.77297831, 0.658898652]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2696,8 +2696,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.18000007, 0.675115943, -0.194000006]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2780,8 +2780,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.420004815, 0.668282509, 4.96334934]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181742266, 0.538060784, 0.163168147]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2864,8 +2864,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [0.0762365311, 0.680951715, 8.72606754]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181740642, 0.538065553, 0.163165465]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2948,8 +2948,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.7650001, 0.675115943, 13.7799997]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181735277, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3032,8 +3032,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.15530515, 0.666142941, 14.7052088]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181742266, 0.538060784, 0.163168147]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3116,8 +3116,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-5.76212835, 0.682058275, 8.72066784]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181742266, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3200,8 +3200,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [2.43300009, 0.675115943, 18.4459991]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181740642, 0.538065553, 0.163165465]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3284,8 +3284,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.727, 0.675115943, 22.809]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181740642, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3368,8 +3368,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.78199995, 0.675115943, 22.3139992]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538065553, 0.163165465]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3452,8 +3452,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.34099996, 0.675115943, 27.4370003]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538065553, 0.163165465]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3536,8 +3536,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-2.51300001, 0.675115943, 27.4370003]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181742266, 0.538072228, 0.163168147]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3620,8 +3620,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [4.36005354, 0.837918043, 39.3634338]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.283783942, 0.795230806, 0.162786722]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3704,8 +3704,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-7.77400017, 0.675115943, 32.2179985]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181736097, 0.538047075, 0.163160354]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3788,8 +3788,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.05975223, 0.713044226, 2.45125818]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538047075, 0.163168147]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3872,8 +3872,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-3.25603437, 0.704494417, 6.28885078]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -3956,8 +3956,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-5.65251303, 0.714548886, -0.118134677]
-      Rotation: [-150.489136, 87.6277924, 179.999985]
-      Scale: [0.181745544, 0.538065553, 0.163168177]
+      Rotation: [-2.70447922, 13.8493805, -5.49585693e-08]
+      Scale: [0.199999899, 0.499999672, 0.160000041]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -4076,7 +4076,7 @@ GameObjects:
     Com_Transform:
       Translation: [7.81831217, -0.0681672916, 14.0140085]
       Rotation: [90, -0, 0]
-      Scale: [4.6257453, 2.19184327, 0.999999821]
+      Scale: [4.62574482, 2.19184327, 0.999999821]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon4\
       MeshFileName: badack.fbx
@@ -4270,7 +4270,7 @@ GameObjects:
     Com_Transform:
       Translation: [6.13885593, -1.18605959, 34.7997246]
       Rotation: [-179.983841, 89, -179.983719]
-      Scale: [1.44944787, 0.999868333, 0.999870181]
+      Scale: [1.44944787, 0.999868274, 0.999870121]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -4278,7 +4278,7 @@ GameObjects:
       Equipment: false
     Translation: [6.13885593, -1.18605959, 34.7997246]
     Rotation: [-179.983841, 89, -179.983719]
-    Scale: [1.44944787, 0.999868333, 0.999870181]
+    Scale: [1.44944787, 0.999868274, 0.999870121]
     MeshFilePath: ..\..\Assets\Meshes\Map\
     MeshFileName: sagak.fbx
     HasCollider: false
@@ -4295,7 +4295,7 @@ GameObjects:
     Com_Transform:
       Translation: [-9.03874874, -1.20316005, 36.0281906]
       Rotation: [-179.974075, -89.0202789, 179.974075]
-      Scale: [0.999973536, 0.999820292, 0.999760151]
+      Scale: [0.999973536, 0.999820232, 0.999760151]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
@@ -4303,7 +4303,7 @@ GameObjects:
       Equipment: false
     Translation: [-9.03874874, -1.20316005, 36.0281906]
     Rotation: [-179.974075, -89.0202789, 179.974075]
-    Scale: [0.999973536, 0.999820292, 0.999760151]
+    Scale: [0.999973536, 0.999820232, 0.999760151]
     MeshFilePath: ..\..\Assets\Meshes\Map\
     MeshFileName: sagak.fbx
     HasCollider: false
@@ -4369,16 +4369,16 @@ GameObjects:
     NumOBB: 0
     Com_Transform:
       Translation: [2.34022498, -1.26188207, 25.0560417]
-      Rotation: [-0.0165326986, 88.2495804, -0.0163746662]
-      Scale: [0.49420628, 0.999808669, 0.99979794]
+      Rotation: [-0.0165327005, 88.2495804, -0.0163746662]
+      Scale: [0.49420628, 0.999808609, 0.99979794]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
       HasCollider: false
       Equipment: false
     Translation: [2.34022498, -1.26188207, 25.0560417]
-    Rotation: [-0.0165326986, 88.2495804, -0.0163746662]
-    Scale: [0.49420628, 0.999808669, 0.99979794]
+    Rotation: [-0.0165327005, 88.2495804, -0.0163746662]
+    Scale: [0.49420628, 0.999808609, 0.99979794]
     MeshFilePath: ..\..\Assets\Meshes\Map\
     MeshFileName: sagak.fbx
     HasCollider: false
