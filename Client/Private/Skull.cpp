@@ -262,6 +262,41 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 	switch (m_eState)
 	{
 	case Client::CSkull::SK_TWICESLASH:
+		if (keyFrame == 22)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+		if (keyFrame == 33)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY05);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY05);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY05);
+				break;
+			}
+		}
+
 		if (keyFrame >= 15 && keyFrame <= 35)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -270,6 +305,24 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CSkull::SK_DOWNSLASH:
+		if (keyFrame == 18)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 15 && keyFrame <= 30)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -305,6 +358,24 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CSkull::SLASH:
+		if (keyFrame == 12)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 0 && keyFrame <= 15)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
@@ -313,6 +384,24 @@ void CSkull::BehaviorUpdate(_double dDeltaTime)
 		}
 		break;
 	case Client::CSkull::STING:
+		if (keyFrame == 42)
+		{
+			_uint iRand = rand() % 3;
+
+			switch (iRand)
+			{
+			case 0:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing1.wav", ENEMY04);
+				break;
+			case 1:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing2.wav", ENEMY04);
+				break;
+			case 2:
+				CEngine::GetInstance()->PlaySoundW("DarkKnight_NormalSwing3.wav", ENEMY04);
+				break;
+			}
+		}
+
 		if (keyFrame >= 30 && keyFrame <= 50)
 		{
 			m_pWeaponOBB->p_States = CBasicCollider::STATES::STATES_ATK;
