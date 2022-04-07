@@ -297,6 +297,7 @@
     <ClInclude Include="..\public\MenuHud.h" />
     <ClInclude Include="..\public\MonHp.h" />
     <ClInclude Include="..\public\MonHpVIBuffer.h" />
+    <ClInclude Include="..\public\MouseUI.h" />
     <ClInclude Include="..\public\NPC.h" />
     <ClInclude Include="..\public\Npc_Shop.h" />
     <ClInclude Include="..\Public\Armor.h" />
@@ -490,6 +491,7 @@
     </ClCompile>
     <ClCompile Include="..\private\MonHp.cpp" />
     <ClCompile Include="..\private\MonHpVIBuffer.cpp" />
+    <ClCompile Include="..\private\MouseUI.cpp" />
     <ClCompile Include="..\private\NPC.cpp" />
     <ClCompile Include="..\private\Npc_Shop.cpp" />
     <ClCompile Include="..\Private\Armor.cpp" />

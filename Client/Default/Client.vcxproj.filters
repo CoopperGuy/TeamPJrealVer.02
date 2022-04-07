@@ -529,6 +529,9 @@
     <ClInclude Include="..\public\ItemInfo.h">
       <Filter>04.UI\ItemInfo</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\MouseUI.h">
+      <Filter>04.UI\MoseUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -1044,6 +1047,9 @@
     <ClCompile Include="..\private\ItemInfo.cpp">
       <Filter>04.UI\ItemInfo</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\MouseUI.cpp">
+      <Filter>04.UI\MoseUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -1542,6 +1548,9 @@
     </Filter>
     <Filter Include="04.UI\ItemInfo">
       <UniqueIdentifier>{ad7c4c5a-3e59-49e4-958c-0a0127760f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.UI\MoseUI">
+      <UniqueIdentifier>{2ed41188-afb4-4f1e-bde8-730479762918}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

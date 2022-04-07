@@ -218,8 +218,8 @@ void CCamera_Fly::PhysxCameraCollision(_double deltaTime)
 		{
 			//cout << "camera Collied \n";
 			m_vDistance -= (_float)deltaTime * m_fCameraColliedSpd;
-			/*if (m_vDistance <= 0.4f)
-				m_vDistance = 0.4f;*/
+			if (m_vDistance <= 0.4f)
+				m_vDistance = 0.4f;
 		}
 		/*    else
 		cout << "camera No Collied \n";*/

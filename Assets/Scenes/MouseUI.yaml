@@ -1,0 +1,21 @@
+Scene: Untitled
+GameObjects:
+  - Name: MouseCursor
+    UUID: 15796590300325735240
+    Active: true
+    Layer: Default
+    Instancing: false
+    Type: UI
+    SortingOrder: 10
+    PassIndex: 1
+    Hovering: false
+    Com_Transform:
+      Position: [636.797852, 341.570221]
+      Size: [32, 32]
+    Com_VIBuffer:
+      TexturePath: ..\..\Assets\UITexture\Mouse\MouseCursor.dds
+      TextureMaskPath: ""
+      TextureNoisePath: ""
+      TextureAnyPath: ""
+      Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
