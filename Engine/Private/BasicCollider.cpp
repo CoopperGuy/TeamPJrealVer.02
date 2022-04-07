@@ -463,9 +463,9 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			if (TargetpStat == nullptr)
 				return;
 			CGameObject * m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(0, "Player");
+			CStat* PlayerStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 			CModel * pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 			CComponent* ComPlayer = m_pGameObject->GetComponent("Com_Player");
-			CStat* PlayerStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 			if (PlayerStat == nullptr)
 				return;
 
@@ -557,6 +557,8 @@ void CBasicCollider::CollisionEffectToTarget(list<OBJCOLLIDER>& pMyCollider, lis
 
 			CStat* TargetpStat = static_cast<CStat*>(TargetObj.first->GetComponent("Com_Stat"));
 			CStat* PlayerStat = static_cast<CStat*>(MyObj.first->GetComponent("Com_Stat"));
+			CGameObject * m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(0, "Player");
+			CStat* Statss = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 
 			if (TargetpStat == nullptr)
 				return;
@@ -584,7 +586,7 @@ void CBasicCollider::CollisionEffectToTarget(list<OBJCOLLIDER>& pMyCollider, lis
 								pTargetCollider->m_isHit = true;
 
 							effectCollider->m_bStartHit = true;
-							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
+							static_cast<CStat*>(TargetpStat)->Damaged(Statss, true);
 							_uint _rnd = rand() % 3;
 							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
 							switch (_rnd)
