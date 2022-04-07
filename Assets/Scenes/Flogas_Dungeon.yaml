@@ -1080,7 +1080,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-7.62156296, 7.66368103e-05, -10.6207104]
+      Translation: [-7.62156248, -0.0214464813, -10.6207104]
       Rotation: [-179.998322, -34.8275948, 179.997406]
       Scale: [1.49999964, 1.20000005, 1]
     Com_Model:
@@ -1088,7 +1088,7 @@ GameObjects:
       MeshFileName: Door1.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-7.62156296, 7.66368103e-05, -10.6207104]
+    Translation: [-7.62156248, -0.0214464813, -10.6207104]
     Rotation: [-179.998322, -34.8275948, 179.997406]
     Scale: [1.49999964, 1.20000005, 1]
     MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Door\
@@ -1271,56 +1271,6 @@ GameObjects:
     HasCollider: false
     RenderGroup: 1
     FrustumRange: 50
-  - Name: Wall6
-    UUID: 17079252491827660230
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [8.60191917, 0.820488751, -11.1388693]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
-      MeshFileName: Wal3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [8.60191917, 0.820488751, -11.1388693]
-    Rotation: [0, -0, 0]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
-    MeshFileName: Wal3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 50
-  - Name: Wall6
-    UUID: 7291413162328943345
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-7.77249432, 0.820488751, -10.5845985]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
-      MeshFileName: Wal3.fbx
-      HasCollider: false
-      Equipment: false
-    Translation: [-7.77249432, 0.820488751, -10.5845985]
-    Rotation: [0, -0, 0]
-    Scale: [1, 1, 1]
-    MeshFilePath: ..\..\Assets\Meshes\Map\Dungeon\Wall\DecoWall\
-    MeshFileName: Wal3.fbx
-    HasCollider: false
-    RenderGroup: 1
-    FrustumRange: 50
   - Name: Deco
     UUID: 1817444043057183087
     Active: true
@@ -1330,17 +1280,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [8.12173843, -0.0855195299, 0.205125853]
-      Rotation: [-179.999237, -52.17453, -179.999496]
-      Scale: [0.00399999972, 0.00422536256, 0.00414462714]
+      Translation: [8.19018555, -0.0873118639, 0.140149862]
+      Rotation: [92.3010025, 43.4999962, -1.49999905]
+      Scale: [0.00400001416, 0.00422536721, 0.00414468767]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Statue.fbx
       HasCollider: false
       Equipment: false
-    Translation: [8.12173843, -0.0855195299, 0.205125853]
-    Rotation: [-179.999237, -52.17453, -179.999496]
-    Scale: [0.00399999972, 0.00422536256, 0.00414462714]
+    Translation: [8.19018555, -0.0873118639, 0.140149862]
+    Rotation: [92.3010025, 43.4999962, -1.49999905]
+    Scale: [0.00400001416, 0.00422536721, 0.00414468767]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Statue.fbx
     HasCollider: false
@@ -1355,17 +1305,17 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-8.22900963, -2.44866868e-07, 0.708603859]
-      Rotation: [-179.999756, 62.9673882, -179.999756]
-      Scale: [0.00400000112, 0.00400000019, 0.00400000112]
+      Translation: [-8.05379868, 0.11713206, 0.600107908]
+      Rotation: [94.4989777, -58.2330132, 0]
+      Scale: [0.00400000019, 0.00400000159, 0.00400000159]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
       MeshFileName: Statue.fbx
       HasCollider: false
       Equipment: false
-    Translation: [-8.22900963, -2.44866868e-07, 0.708603859]
-    Rotation: [-179.999756, 62.9673882, -179.999756]
-    Scale: [0.00400000112, 0.00400000019, 0.00400000112]
+    Translation: [-8.05379868, 0.11713206, 0.600107908]
+    Rotation: [94.4989777, -58.2330132, 0]
+    Scale: [0.00400000019, 0.00400000159, 0.00400000159]
     MeshFilePath: ..\..\Assets\Meshes\Map\ObjC\
     MeshFileName: Statue.fbx
     HasCollider: false
@@ -1526,7 +1476,7 @@ GameObjects:
     Com_Transform:
       Translation: [0, -0.583999753, -9.61990929]
       Rotation: [90, -0, 0]
-      Scale: [22.5214882, 26.0779991, 1.79999995]
+      Scale: [22.5214691, 26.0779991, 1.79999995]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1582,19 +1532,25 @@ GameObjects:
     UUID: 1361245669408703193
     Active: true
     Layer: Default
-    Instancing: false
+    Instancing: true
     Type: Object
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0.129999995, -1.02199996, -4.74100018]
-      Rotation: [0, 1.99999964, 0]
-      Scale: [1.63300002, 1.26800013, 0.837000072]
+      Translation: [0.00190845737, -0.684659958, -4.68532991]
+      Rotation: [90, 1.99955618, 0]
+      Scale: [1.63299441, 0.821683347, 0.837000012]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Map\
       MeshFileName: sagak.fbx
-      HasCollider: true
+      HasCollider: false
       Equipment: false
+    Translation: [0.00190845737, -0.684659958, -4.68532991]
+    Rotation: [90, 1.99955618, 0]
+    Scale: [1.63299441, 0.821683347, 0.837000012]
+    MeshFilePath: ..\..\Assets\Meshes\Map\
+    MeshFileName: sagak.fbx
+    HasCollider: false
     RenderGroup: 1
     FrustumRange: 50
   - Name: collsionPlane
@@ -1606,7 +1562,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [-0.132494479, -0.194499999, -22.8979321]
+      Translation: [-0.132494479, -0.194499999, -22.9722672]
       Rotation: [0, -0, 0]
       Scale: [3.21327662, 0.99998939, 4.33625412]
     Com_Model:
@@ -1650,9 +1606,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-7.69327307, 1.31196868, -8.28250313]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.0520300157, 0.0432914943, 0.277004778]
+      Translation: [-7.68902159, 1.39164031, -8.28057861]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.675496161, 0.407377243, 0.600000262]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -1688,9 +1644,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-3.36255193, 2.15149903, 1.52762651]
-      Rotation: [-178.891083, -13.0333805, 180]
-      Scale: [0.113319866, 0.0840908289, 0.601418197]
+      Translation: [-3.32427788, 2.15149903, 1.52886343]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [1.00040972, 0.525162399, 0.60000056]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2046,8 +2002,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [3.45357752, 2.11951017, 1.27384841]
-      Rotation: [-178.891083, -13.0333796, 180]
-      Scale: [0.113134854, 0.0839160234, 0.601666749]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.486773133, 0.368978411, 0.599999964]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2083,9 +2039,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [7.93538809, 1.34698355, -8.84075165]
-      Rotation: [-178.891083, -13.0333796, 180]
-      Scale: [0.0565878302, 0.0676327944, 0.601736963]
+      Translation: [7.9711833, 1.41847634, -8.84981632]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.692685604, 0.397770405, 0.599999666]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2121,9 +2077,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [8.08104706, 1.34008193, -3.44539356]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.0565686561, 0.0676405802, 0.601666749]
+      Translation: [8.03399849, 1.34447122, -3.39362526]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.484240919, 0.306158781, 0.600000918]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2159,9 +2115,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-7.58388233, 1.30740726, -0.59903425]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.0565810874, 0.0676531196, 0.601736963]
+      Translation: [-7.58578062, 1.30740726, -0.621967793]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.291637897, 0.223601744, 0.600000739]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2197,9 +2153,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [8.8090992, 2.12478662, -5.06439114]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.113222361, 0.0839221627, 0.601666749]
+      Translation: [8.80980587, 2.12478662, -5.07488966]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.747320414, 0.42964974, 0.600000262]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2235,9 +2191,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [1.99510837, 2.0846324, -11.0818748]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.113184616, 0.0839293823, 0.601666749]
+      Translation: [1.99658167, 2.00759339, -11.0757132]
+      Rotation: [177.059402, -89.1648941, -180]
+      Scale: [0.410119116, 0.323561102, 0.600000083]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2273,9 +2229,9 @@ GameObjects:
     PassIndex: 1
     BillBord: true
     Com_Transform:
-      Translation: [-2.36362243, 2.15001464, -11.0893078]
-      Rotation: [-178.891083, -13.0333796, 180]
-      Scale: [0.0931361616, 0.111319229, 0.601755738]
+      Translation: [-2.36343408, 2.00317311, -11.0878096]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.480517864, 0.428512454, 0.600000501]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2312,8 +2268,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-8.99177265, 2.11422968, -4.94483566]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.0955943018, 0.113466024, 0.662743449]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [0.597861409, 0.625043631, 0.600000322]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2350,8 +2306,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [1.39247227, 2.56994104, 0.420668274]
-      Rotation: [-178.891083, -13.0333786, 180]
-      Scale: [0.158334196, 0.126033947, 0.601755738]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [1.67623079, 0.912550509, 0.600000858]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2388,8 +2344,8 @@ GameObjects:
     BillBord: true
     Com_Transform:
       Translation: [-1.08791733, 2.59111428, 0.498315632]
-      Rotation: [-178.891083, -13.0333805, 180]
-      Scale: [0.161526442, 0.122569755, 0.601666749]
+      Rotation: [177.059418, -89.1648941, -180]
+      Scale: [1.26049733, 0.962685049, 0.600000501]
     Com_VIBuffer:
       {}
     Effect_Setting:
@@ -2783,7 +2739,7 @@ GameObjects:
       Specular: [1, 1, 1, 1]
     RenderGroup: 1
     FrustumRange: 1
-  - Name: CamCollider
+  - Name: badack
     UUID: 16166435338269575696
     Active: true
     Layer: Default
@@ -2792,7 +2748,7 @@ GameObjects:
     PassIndex: 0
     NumOBB: 0
     Com_Transform:
-      Translation: [0, -1.03840292, -4.29167938]
+      Translation: [0, -0.959999979, -4.00326204]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
     Com_Collider:
@@ -2801,7 +2757,7 @@ GameObjects:
       Size: [93.9000015, 1.89999998, 10.1000004]
       Angle:
         - 0
-        - 0
+        - 1.99999928
         - 0
       RigidBody:
         Enabled: false
@@ -3268,50 +3224,6 @@ GameObjects:
         CharacterController: false
     RenderGroup: 1
     FrustumRange: 27.7999992
-  - Name: BokdoWall
-    UUID: 2747437417898251859
-    Active: true
-    Layer: Default
-    Instancing: true
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [-5.29617071, 2.41690159, -18.3300323]
-      Rotation: [0, -0, -92.8961105]
-      Scale: [1.05534685, 0.999999881, 0.999998868]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\
-      MeshFileName: sagak.fbx
-      HasCollider: true
-      Equipment: false
-    Translation: [-5.29617071, 2.41690159, -18.3300323]
-    Rotation: [0, -0, -92.8961105]
-    Scale: [1.05534685, 0.999999881, 0.999998868]
-    MeshFilePath: ..\..\Assets\Meshes\Map\
-    MeshFileName: sagak.fbx
-    HasCollider: true
-    RenderGroup: 1
-    FrustumRange: 100
-  - Name: BokdoWall
-    UUID: 1899260058293726673
-    Active: true
-    Layer: Default
-    Instancing: false
-    Type: Object
-    PassIndex: 0
-    NumOBB: 0
-    Com_Transform:
-      Translation: [5.08791924, 2.33590579, -20.7867146]
-      Rotation: [0, -0, 92.8265991]
-      Scale: [0.999999762, 0.999999762, 0.999999702]
-    Com_Model:
-      MeshFilePath: ..\..\Assets\Meshes\Map\
-      MeshFileName: sagak.fbx
-      HasCollider: true
-      Equipment: false
-    RenderGroup: 1
-    FrustumRange: 50
   - Name: CamCollider
     UUID: 3278669181217834212
     Active: true

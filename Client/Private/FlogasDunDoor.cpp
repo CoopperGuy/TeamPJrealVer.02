@@ -47,15 +47,18 @@ void CFlogasDunDoor::Update(_double deltaTime)
 		if(XMVectorGetZ(playerPos) > XMVectorGetZ(m_pTransform->GetState(CTransform::STATE_POSITION)))
 			m_pAlretUI->SetActive(false);
 
-		else
-			m_pAlretUI->SetActive(true);
-
 		if (CEngine::GetInstance()->Get_DIKDown(DIK_F)) {
 			CEngine::GetInstance()->PlaySoundW("DGDoor.mp3", CHANNELID::MAPOBJ);
 			CEngine::GetInstance()->ActiveCameraByIndex(1);
+			m_pAlretUI->SetActive(false);
 			if (!m_bOpenDoor)
 				m_bOpenDoor = true;
 		}
+
+		if (!m_bOpenDoor)
+			m_pAlretUI->SetActive(true);
+
+
 		if (m_bOpenDoor && MaxHight >= XMVectorGetY(pFlogasDunDoor)) {
 
 			m_pAlretUI->SetActive(false);
