@@ -201,9 +201,8 @@ HRESULT CPlayer::Initialize()
 	comboHud = CComboHud::Create();
 
 	CEventCheck::GetInstance()->SetPlayer(this);
-	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NoviceAxe").second;
-	CItem*	tempItem = new CItem(_info);
-	m_pInven->AddItem("NoviceAxe", tempItem);
+
+	//BuyItem("NoviceAxe", tempItem->GetItempInfo());
 	return S_OK;
 }
 
@@ -259,6 +258,12 @@ void CPlayer::Update(_double dDeltaTime)
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}
+	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
+	//{
+	//	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NoviceAxe").second;
+	//	CItem*	tempItem = new CItem(_info);
+	//	m_pInven->AddItem("NoviceAxe", tempItem);
+	//}
 	Collsion();
 	Transform_ToWorldSpace();
 	SearchMonster();

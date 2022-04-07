@@ -129,7 +129,7 @@ void CMaterialHud::RemoveMaterialItem(_uint idx)
 	for (; iter != m_pMaterialList.end(); iter++) {
 		_float2 offset = (*iter).first->GetTransformOffst();
 		offset.y -= m_constYScale;
-		(*iter).first->SetTransformOffst(0.f, offset.y);
+		(*iter).first->SetTransformOffst(offset.x, offset.y);
 	}
 
 

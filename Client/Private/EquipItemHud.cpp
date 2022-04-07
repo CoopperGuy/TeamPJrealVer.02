@@ -94,6 +94,7 @@ void CEquipItemHud::Update(_double deltaTime)
 				iter.first->SetisRender(false);
 			}
 		}
+		_int idx = 0;
 		for (auto& iter : m_pEquipItemList[m_iCurSelectedTag]) {
 			iter.first->SetisRender(true);
 			if (CEventCheck::GetInstance()->GetBackPackState() == CEventCheck::BACK_EQUIP)
@@ -126,6 +127,7 @@ void CEquipItemHud::Update(_double deltaTime)
 
 					if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON))
 					{
+						m_iCurSelected = idx;
 						CEngine::GetInstance()->StopSound(CHANNELID::UI03);
 						CEngine::GetInstance()->PlaySoundW("EquipSelect.mp3", CHANNELID::UI03);
 					}
@@ -138,6 +140,7 @@ void CEquipItemHud::Update(_double deltaTime)
 					}
 				}
 			}
+			idx++;
 		}
 	}
 	Scroll(deltaTime);
