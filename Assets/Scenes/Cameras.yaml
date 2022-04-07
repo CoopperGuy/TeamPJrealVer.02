@@ -79,6 +79,6 @@ GameObjects:
     NextIdx: 0
     Slerp: true
     SrcPosition: [0, 1, 20]
-    DestPosition: [0, 2, 30]
+    DestPosition: [2.5, 2, 30]
     SrcLookPosition: [0, 0, 0]
-    DestLookPosition: [0, 0, 35]
+    DestLookPosition: [-2.5, 1, 35]

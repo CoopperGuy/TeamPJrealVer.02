@@ -67,7 +67,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	_double			TimeAcc = 0.0;
 	srand((_uint)time(NULL));	
-
+	ShowCursor(FALSE);
 	while (true)
 	{
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))

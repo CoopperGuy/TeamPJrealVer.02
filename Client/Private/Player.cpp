@@ -1239,7 +1239,7 @@ void CPlayer::SetUpEquip(string Name)
 		{
 		case EQUIPTYPE::WEAPON:
 			i = 9;
-			_equipType = EQUIPTYPE::CHEST;
+			_equipType = EQUIPTYPE::WEAPON;
 			Equip_OnOff(Equip::Weapon, Name, i);
 			break;
 		case EQUIPTYPE::CHEST:

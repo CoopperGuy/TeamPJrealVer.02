@@ -29,7 +29,7 @@ CBasicCollider::CBasicCollider(const CBasicCollider & rhs)
 	, m_vMin(rhs.m_vMin)
 	, m_strBoneName(rhs.m_strBoneName)
 	, m_isAttachBone(rhs.m_isAttachBone)
-	, m_CollisionType(rhs.m_CollisionType)	
+	, m_CollisionType(rhs.m_CollisionType)
 {
 	memcpy(&m_Offset, &rhs.m_Offset, sizeof(_float3));
 	memcpy(m_vPoint, rhs.m_vPoint, sizeof(_float3) * 8);
@@ -178,7 +178,7 @@ HRESULT CBasicCollider::Initialize(void * pArg)
 		break;
 
 	case CBasicCollider::TYPE_SPHERE: //초기값을 세팅
-								 // Center(0,0,0), Radius( 1.f ) {}
+									  // Center(0,0,0), Radius( 1.f ) {}
 		vCenter = _float3(0.f, 0.f, 0.f);
 		fRadius = 1.f;
 		m_pSphere = new BoundingSphere(vCenter, fRadius);
@@ -463,9 +463,9 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			if (TargetpStat == nullptr)
 				return;
 			CGameObject * m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(0, "Player");
+			CStat* PlayerStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 			CModel * pModel = static_cast<CModel*>(m_pGameObject->GetComponent("Com_Model"));
 			CComponent* ComPlayer = m_pGameObject->GetComponent("Com_Player");
-			CStat* PlayerStat = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 			if (PlayerStat == nullptr)
 				return;
 
@@ -479,16 +479,16 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 			{
 				if (pWeaponeCollider->m_eState == STATES::STATES_ATK)
 				{
-					if (pWeaponeCollider->Collision_OBB(pWeaponeCollider, pTargetCollider))
+					if (pTargetCollider->Collision_OBB(pWeaponeCollider, pTargetCollider))
 					{
 						if (TargetpStat->GetStatInfo().isImmortal == true)
 							return;
-						if (pWeaponeCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
+						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
 							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
-							if(!pTargetCollider->m_isHit)
+							if (!pTargetCollider->m_isHit)
 								pTargetCollider->m_isHit = true;
 
-							//pWeaponeCollider->m_bStartHit = true;
+							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
 							_uint _rnd = rand() % 3;
 							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
@@ -503,7 +503,7 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 							case 2:
 								CEngine::GetInstance()->PlaySoundW("Heats02.wav", CHANNELID::PLAYER13);
 								break;
-	
+
 							}
 							if (pWeaponeCollider->m_bIsDownAttack) {
 								pTargetCollider->m_bIsDown = true;
@@ -528,6 +528,102 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 					pWeaponeCollider->m_bStartHit = false;
 					pTargetCollider->m_bIsDown = false;
 					pWeaponeCollider->Collision_OBBToReset(pWeaponeCollider, pTargetCollider);
+				}
+			}
+		}
+	}
+}
+
+void CBasicCollider::CollisionEffectToTarget(list<OBJCOLLIDER>& pMyCollider, list<OBJCOLLIDER>& _TargetObj)
+{
+	for (auto& MyObj : pMyCollider)
+	{
+
+		for (auto& TargetObj : _TargetObj)
+		{
+			CBasicCollider * effectCollider = MyObj.second;
+			if (effectCollider == nullptr)
+			{
+				MSG_BOX("CBaiscCollider :: CollisionCheckObj > pMyCollider is nullptr");
+				return;
+			}
+
+			CBasicCollider * pTargetCollider = TargetObj.second;
+			if (pTargetCollider == nullptr)
+			{
+				MSG_BOX("CBaiscCollider :: CollisionCheckObj > pTargetCollider is nullptr");
+				return;
+			}
+
+			CStat* TargetpStat = static_cast<CStat*>(TargetObj.first->GetComponent("Com_Stat"));
+			CStat* PlayerStat = static_cast<CStat*>(MyObj.first->GetComponent("Com_Stat"));
+			CGameObject * m_pGameObject = CEngine::GetInstance()->FindGameObjectWithName(0, "Player");
+			CStat* Statss = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
+
+			if (TargetpStat == nullptr)
+				return;
+			if (PlayerStat == nullptr)
+				return;
+		
+			
+			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(PlayerStat)->GetStatInfo().hp <= 0)
+			{
+				effectCollider->m_bStartHit = false;
+				pTargetCollider->m_bIsDown = false;
+				continue;
+			}
+			else
+			{
+				if (effectCollider->m_eState == STATES::STATES_ATK)
+				{
+					if (effectCollider->Collision_OBB(effectCollider, pTargetCollider))
+					{
+						if (TargetpStat->GetStatInfo().isImmortal == true)
+							return;
+						if (effectCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
+							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
+							if (!pTargetCollider->m_isHit)
+								pTargetCollider->m_isHit = true;
+
+							effectCollider->m_bStartHit = true;
+							static_cast<CStat*>(TargetpStat)->Damaged(Statss, true);
+							_uint _rnd = rand() % 3;
+							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
+							switch (_rnd)
+							{
+							case 0:
+								CEngine::GetInstance()->PlaySoundW("Heats00.wav", CHANNELID::PLAYER13);
+								break;
+							case 1:
+								CEngine::GetInstance()->PlaySoundW("Heats01.wav", CHANNELID::PLAYER13);
+								break;
+							case 2:
+								CEngine::GetInstance()->PlaySoundW("Heats02.wav", CHANNELID::PLAYER13);
+								break;
+
+							}
+							if (effectCollider->m_bIsDownAttack) {
+								pTargetCollider->m_bIsDown = true;
+							}
+							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
+							return;
+						}
+						else {
+							pTargetCollider->m_isHit = false;
+							effectCollider->m_bStartHit = false;
+							pTargetCollider->m_bIsDown = false;
+						}
+					}
+					else {
+						pTargetCollider->m_isHit = false;
+						effectCollider->m_bStartHit = false;
+						pTargetCollider->m_bIsDown = false;
+					}
+				}
+				else {
+					pTargetCollider->m_isHit = false;
+					effectCollider->m_bStartHit = false;
+					pTargetCollider->m_bIsDown = false;
 				}
 			}
 		}
@@ -587,7 +683,7 @@ void CBasicCollider::Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyColli
 							pTargetCollider->m_bIsDown = true;
 						}
 						return;
-						
+
 					}
 					else {
 						pTargetCollider->SetHit(false);
@@ -637,7 +733,7 @@ void CBasicCollider::Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLI
 
 			if (static_cast<CStat*>(TargetpStat)->GetStatInfo().hp <= 0 || static_cast<CStat*>(MyStat)->GetStatInfo().hp <= 0)
 			{
-				return;
+				continue;
 			}
 
 			if (Collision_OBB(pMyCollider, pTargetCollider))
@@ -655,8 +751,6 @@ void CBasicCollider::Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLI
 
 HRESULT CBasicCollider::Render()
 {
-#ifdef _DEBUG
-
 	if (nullptr == m_pEffect)
 		return E_FAIL;
 
@@ -688,8 +782,6 @@ HRESULT CBasicCollider::Render()
 	}
 
 	m_pBatch->End();
-
-#endif // _DEBUG
 
 
 	return S_OK;

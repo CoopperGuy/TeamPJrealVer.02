@@ -11,6 +11,7 @@
 #include "Scene_LEE.h"
 #include "Scene_JUN.h"
 #include "Scene_SEO.h"
+#include "MouseUI.h"
 CScene_Logo::CScene_Logo(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext, _uint iSceneIndex)
 	: CScene(pDevice, pDeviceContext, iSceneIndex)
 {
@@ -88,7 +89,7 @@ HRESULT CScene_Logo::ReadyScript()
 {
 	m_pEngine->AddScriptObject(CPlayer::Create(nullptr), SCENE_STATIC);
 	//m_pEngine->AddScriptObject(CAxe::Create(nullptr), SCENE_STATIC);
-
+	CMouseUI::Create();
 	return S_OK;
 }
 

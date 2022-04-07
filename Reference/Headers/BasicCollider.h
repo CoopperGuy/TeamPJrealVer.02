@@ -71,6 +71,7 @@ public:
 	_bool Collision_OBB(CBasicCollider* pMyCollider, CBasicCollider* pTargetCollider);
 	void Collision_PlayerToTarget(CBasicCollider* pMyCollider, list<OBJCOLLIDER>& _TargetObj);
 	void CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, list<OBJCOLLIDER>& _TargetObj);
+	void CollisionEffectToTarget(list<OBJCOLLIDER>& pMyCollider, list<OBJCOLLIDER>& _TargetObj);
 	void Collision_MonsterWeaponToPlayer(list<OBJCOLLIDER>& pMyCollider, list<OBJCOLLIDER>& _TargetObj);
 
 public:
