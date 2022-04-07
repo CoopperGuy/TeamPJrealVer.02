@@ -213,23 +213,6 @@ void CFlogas::Update(_double dDeltaTime)
 
 	}
 
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	{
-		/*m_bStartBattle = true;*/
-		m_eState = DIE;
-	}
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	{
-		//m_bPhaseSecond = true;
-		m_eState = IDLE;
-	}
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	//{
-	//	m_bDeadMotion = true;
-	//}
-
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 	}
@@ -470,6 +453,7 @@ void CFlogas::SecondCombat(_double dDeltaTime)
 		{
 			if (m_pModel->Get_AnimIndex() == FLYING_END)
 			{
+				m_pStat->Immortal(false);
 				m_eState = FLYING_END2;
 				m_bFly = false;
 				m_dFlyTime = 0.f;
@@ -791,6 +775,7 @@ void CFlogas::Flying(_double dDeltaTime)
 		{
 			if (m_dFlyTime <= 0)
 			{
+				m_pStat->Immortal(true);
 				m_eState = FLYING_START;
 				for (_uint i = 0; i < 4; ++i)
 					m_pElement[i]->SetActive(true);

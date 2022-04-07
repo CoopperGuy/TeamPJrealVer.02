@@ -48,7 +48,7 @@ HRESULT CScene_Stage01::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("DBXenoverseThema.mp3");
+	CEngine::GetInstance()->PlayBGM("BGM_CityMap.mp3");
 
 
 	return S_OK;
@@ -80,10 +80,10 @@ _uint CScene_Stage01::Update(_double TimeDelta)
 
 	}
 
-	if (m_pEngine->IsKeyDown('M')) {
+	/*if (m_pEngine->IsKeyDown('M')) {
 		m_pEngine->AddDeadObject("Wolf");
 	}
-
+*/
 
 	return _uint();
 }
