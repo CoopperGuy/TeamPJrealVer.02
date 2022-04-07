@@ -22,7 +22,7 @@ HRESULT CScene_Stage3::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("DragonBallZThema.mp3");
+	CEngine::GetInstance()->PlayBGM("Ursa_BGM.mp3");
 
 	CEmptyGameObject* pPlayer = static_cast<CEmptyGameObject*>(CEngine::GetInstance()->FindGameObjectWithName(SCENE_STATIC, "Player"));
 	static_cast<CCollider*>(pPlayer->GetComponent("Com_Collider"))->SetPosition(_float3(0.f, 0.5f, 5.f));

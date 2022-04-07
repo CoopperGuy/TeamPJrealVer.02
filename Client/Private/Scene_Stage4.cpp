@@ -23,7 +23,7 @@ HRESULT CScene_Stage4::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("DragonBallZThema.mp3");
+	CEngine::GetInstance()->PlayBGM("DarkKnight_BGM.mp3");
 
 	return S_OK;
 }

@@ -20,7 +20,7 @@ HRESULT CScene_Stage02::Initialize()
 	ReadyScript();
 
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("FriezaThema.mp3");
+	CEngine::GetInstance()->PlayBGM("Flogas_BGM.mp3");
 
 	return S_OK;
 }
