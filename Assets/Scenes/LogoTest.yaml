@@ -10,7 +10,7 @@ GameObjects:
     PassIndex: 1
     Hovering: false
     Com_Transform:
-      Position: [751.304565, 375.175537]
+      Position: [751.304565, 360]
       Size: [1516.35999, 720]
     Com_VIBuffer:
       TexturePath: ..\..\Assets\UITexture\Lobby\Logo.png
@@ -18,6 +18,7 @@ GameObjects:
       TextureNoisePath: ""
       TextureAnyPath: ""
       Color: [0, 0, 0, 1]
+      Sprite: [0.100000001, 0, 0, 0]
   - Name: StartMeesage
     UUID: 1973818521863027044
     Active: true
@@ -36,3 +37,5 @@ GameObjects:
       Scale: [1, 1]
       LayerDepth: 0
       IsCenter: true
+      ShaderCut: false
+      IsKorean: false
