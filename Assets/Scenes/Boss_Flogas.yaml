@@ -46,7 +46,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     Com_Stat:
-      Hp: [10000, 0, 10000, 2000]
+      Hp: [15000, 0, 15000, 3000]
       HpRegen: [0, 0]
       Atk: [250, 0, 50]
       Arm: [5, 0, 1]

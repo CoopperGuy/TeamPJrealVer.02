@@ -146,7 +146,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     RenderGroup: 1
-    FrustumRange: 1
+    FrustumRange: 5000
   - Name: GoldAxe
     UUID: 16941634311098207806
     Active: true
@@ -172,7 +172,7 @@ GameObjects:
       HasCollider: false
       Equipment: false
     RenderGroup: 1
-    FrustumRange: 1
+    FrustumRange: 5000
   - Name: PlateHelmet
     UUID: 13740799227708094368
     Active: true

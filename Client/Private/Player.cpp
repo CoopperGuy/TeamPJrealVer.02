@@ -1082,7 +1082,6 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			m_bEvade = true;
 			vEvadeLook = XMVectorSetY(vEvadeLook, 0.f);
 			vPlayerLook = vEvadeLook;
-			m_pStatus->Immortal(true);
 		}
 	}
 
@@ -1133,7 +1132,6 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 		m_EvadeDelayTime = 0.f;
 		isFinish_Combo();
 		m_dAnimSpeed = 1.7f;
-		m_pStatus->Immortal(true);
 		switch (m_pModel->Get_AnimIndex())
 		{
 		case (_uint)Player_State::Evade:
@@ -1142,6 +1140,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			{
 				memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
 				fSpeed = 4.f;
+				m_pStatus->Immortal(true);
 			}
 			else
 			{
@@ -1157,6 +1156,7 @@ void CPlayer::PlayerMove(_double dDeltaTime)
 			{
 				memcpy(&vDir, &vPlayerLook, sizeof(PxVec3));
 				fSpeed = 2.f;
+				m_pStatus->Immortal(true);
 			}
 			else
 			{
