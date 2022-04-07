@@ -165,7 +165,7 @@ GameObjects:
       IsAttach: false
       BoneName: ""
       Offset: [-0.0350000001, 0.150000006, -0.0199999996]
-      CollisionType: 8
+      CollisionType: 1
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Equip\Weapon\GoldAxe\
       MeshFileName: GoldAxe.fbx
