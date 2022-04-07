@@ -551,9 +551,9 @@ void CSkull::Hit()
 		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 
 		for (int i = 0; i < 3; ++i) {
-			pos = XMVectorSetY(pos, 0.2f);
+			pos = XMVectorSetY(pos, 0.1f);
 			CGameObject* pBone = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Bone", "O_Bone");
-			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(pBone, pos), CEngine::GetInstance()->GetCurSceneNumber());
+			CEngine::GetInstance()->AddScriptObject(CDropRockSmall::Create(pBone, pos, false, true), CEngine::GetInstance()->GetCurSceneNumber());
 		}
 
 		if (m_bCombat == false)
