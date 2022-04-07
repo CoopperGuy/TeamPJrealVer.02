@@ -158,7 +158,7 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 1, 1, -0.25]
+      OffsetColor: [1, 1, 1, -0.25999999]
   - Name: Empty Object
     UUID: 13455082856678141479
     Active: true
