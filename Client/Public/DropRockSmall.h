@@ -10,7 +10,7 @@ public:
 	virtual ~CDropRockSmall() = default;
 
 public:
-	virtual HRESULT Initailze(CGameObject * pArg, _vector pos,_bool mini = false);
+	virtual HRESULT Initailze(CGameObject * pArg, _vector pos,_bool mini = false, _bool bone = false);
 	virtual void Update(_double deltaTime) override;
 	virtual void LateUpdate(_double deltaTime) override;
 
@@ -32,11 +32,14 @@ private:
 	_float Speed = 3.f;
 
 	_float Time = 0.f;
+	_float fAngleAcc;
 
 	int randompos = 0;
 	int randomX = 0;
+
+	_bool m_bBone = false;
 public:
-	static CDropRockSmall*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f}, _bool mini = false);
+	static CDropRockSmall*	Create(CGameObject*	pArg, _vector pos = {0.f,0.f,0.f}, _bool mini = false, _bool bone = false);
 	virtual void Free() override;
 };
 
