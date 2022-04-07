@@ -33,7 +33,7 @@ HRESULT CScene_Loading::Initialize(SCENE eScene)
 	//CEngine::GetInstance()->StopSound(CHANNELID::BGM);
 	//CEngine::GetInstance()->PlayBGM("mapleStory.mp3");
 	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("GenshinMain.flac");
+	CEngine::GetInstance()->PlayBGM("BGM_Loading.mp3");
 	m_eNextSCENE = eScene;
 
 	return S_OK;

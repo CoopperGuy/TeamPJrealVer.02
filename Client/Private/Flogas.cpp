@@ -213,23 +213,6 @@ void CFlogas::Update(_double dDeltaTime)
 
 	}
 
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	{
-		/*m_bStartBattle = true;*/
-		m_eState = DIE;
-	}
-
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_O))
-	{
-		//m_bPhaseSecond = true;
-		m_eState = IDLE;
-	}
-	//if (CEngine::GetInstance()->Get_DIKDown(DIK_I))
-	//{
-	//	m_bDeadMotion = true;
-	//}
-
 	if (m_pCollider) {
 		PxExtendedVec3 footpos = m_pCollider->GetController()->getFootPosition();
 	}
