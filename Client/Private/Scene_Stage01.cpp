@@ -80,10 +80,10 @@ _uint CScene_Stage01::Update(_double TimeDelta)
 
 	}
 
-	if (m_pEngine->IsKeyDown('M')) {
+	/*if (m_pEngine->IsKeyDown('M')) {
 		m_pEngine->AddDeadObject("Wolf");
 	}
-
+*/
 
 	return _uint();
 }

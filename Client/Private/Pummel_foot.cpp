@@ -27,6 +27,7 @@ HRESULT CPummel_foot::Initialize(CEmptyEffect* pThis, CGameObject* pTarget)
 	color.w = 0.f;
 	m_pThis->SetOffsetColor(color);
 	m_pEffectTrans->SetMatrix(mat);
+	m_pOBB = CObb::Create(mat.r[3], XMVectorSet(m_pEffectTrans->GetScale(CTransform::STATE_RIGHT), m_pEffectTrans->GetScale(CTransform::STATE_UP), m_pEffectTrans->GetScale(CTransform::STATE_LOOK), 0.f), 20.f, ID::MONSTER_EFFECT, 10.f);
 	_vector vTargetPos = m_pEffectTrans->GetState(CTransform::STATE_POSITION);
 	_float3 vPos = {};
 	XMStoreFloat3(&vPos, vTargetPos);

@@ -173,11 +173,7 @@ void CUrsa::Update(_double dDeltaTime)
 	{
 		m_fJumpSpeed = 0.f;
 	}
-	if (CEngine::GetInstance()->Get_DIKDown(DIK_P))
-	{
-		CGameObject* pGameObject = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObecjt_Ursa_PUMMEL_Start", "E_PUMMEL_Start");
-		CEngine::GetInstance()->AddScriptObject(CPummel_foot::Create((CEmptyEffect*)pGameObject, m_pGameObject), CEngine::GetInstance()->GetCurSceneNumber());
-	}
+
 	Hit(dDeltaTime);
 	OrganizeEffect(dDeltaTime);
 	
@@ -327,6 +323,8 @@ void CUrsa::Checking_Phase(_double dDeltaTime)
 
 		if (m_dPatternTime > 0.5)
 		{
+			if(m_bRoar)
+				m_pStat->Immortal(false);
 			m_dPatternTime = 0.0;
 			m_bSuperFar = false;
 			m_bFar = false;
@@ -1509,13 +1507,29 @@ void CUrsa::OrganizeEffect(_double dDeltaTime)
 								  break;
 	case Client::CUrsa::ROAR_End:
 		//cout << keyFrame << endl;
-
+		if (keyFrame >= 18 && keyFrame <= 38)
+		{
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
+		}
 		if (keyFrame >= 15 && keyFrame <= 59)
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice03.mp3", CHANNELID::ENEMY14);
 		else
 			CEngine::GetInstance()->StopSound( CHANNELID::ENEMY14);
 		break;
 	case Client::CUrsa::DASH_ATTSpeedup: {///////////////////////////////////////////////////////////////////////////////////
+		if (keyFrame >= 9 && keyFrame <= 25)
+		{
+			m_eHeadSTATES = CBasicCollider::STATES_ATK;
+		}
+
+		if (keyFrame >= 27)
+		{
+			m_eHeadSTATES = CBasicCollider::STATES_IDEL;
+			m_eCurSTATES = CBasicCollider::STATES_ATK;
+			m_eRightSTATES = CBasicCollider::STATES_ATK;
+		}
+		
 		if (keyFrame >= 15 && keyFrame <= 40)
 		{
 			CEngine::GetInstance()->PlaySoundW("UrsaVoice05.mp3", CHANNELID::ENEMY10);
@@ -1709,6 +1723,7 @@ PxVec3 CUrsa::OriginShift()
 		if (!m_bCenter)
 		{
 			//m_eState = IDLE_CB;
+			m_pStat->Immortal(true);
 			m_pTransform->SetLook(XMLoadFloat3(&m_vTargetToLook));
 		}
 		m_bSuperFar = false;
