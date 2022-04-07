@@ -39,4 +39,4 @@ GameObjects:
       SpriteNumY: 0
       SpriteTotal: 0
       SpriteSpeed: 5
-      OffsetColor: [1, 1, 1, -0.25]
+      OffsetColor: [1, 1, 1, -0.25999999]
