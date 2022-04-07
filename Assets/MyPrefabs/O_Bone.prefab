@@ -1,0 +1,20 @@
+Scene: Untitled
+GameObjects:
+  - Name: O_Bone
+    UUID: 11109961963016461859
+    Active: true
+    Layer: Default
+    Type: Object
+    PassIndex: 0
+    NumOBB: 0
+    Com_Transform:
+      Translation: [-0.342254311, 0.317842424, 0.0915146023]
+      Rotation: [-151.898926, 88.8999786, 139.799942]
+      Scale: [1.0, 1.0, 1.0]
+    Com_Model:
+      MeshFilePath: ..\..\Assets\Meshes\Bone\
+      MeshFileName: Bone.fbx
+      HasCollider: false
+      Equipment: false
+    RenderGroup: 1
+    FrustumRange: 1

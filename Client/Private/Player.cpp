@@ -1605,10 +1605,10 @@ void CPlayer::InputSkill()
 		}
 	}
 
-	if (CEngine::GetInstance()->IsKeyDown('5')) {
-		m_bDissolve = !m_bDissolve;
-		//static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
-	}
+	//if (CEngine::GetInstance()->IsKeyDown('5')) {
+	//	m_bDissolve = !m_bDissolve;
+	//	//static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
+	//}
 	//if (CEngine::GetInstance()->IsKeyDown('6')) {
 	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
 	//}

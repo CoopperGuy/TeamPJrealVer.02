@@ -109,19 +109,8 @@ void CDarkKnight::Update(_double dDeltaTime)
 		//play ani
 		CEngine::GetInstance()->ActiveCameraByIndex(4);
 	}
-
+		
 	/*if (CEngine::GetInstance()->IsKeyDown('R'))
-	{
-		_uint i = (_uint)m_eState;
-		++i;
-		if ((_uint)STATE_END == i)
-			i = 0;
-		m_eState = (STATE)i;
-		m_pModel->SetUp_AnimationIndex(m_eState);
-
-	}*/
-	
-	if (CEngine::GetInstance()->IsKeyDown('R'))
 	{
 		static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 		m_eState = SK_SIDESLASH2;
@@ -143,7 +132,7 @@ void CDarkKnight::Update(_double dDeltaTime)
 		m_bBehavior = true;
 		m_bCreateEffect = true;
 		m_eState = PHASE2_START;
-	}	
+	}	*/
 
 	Hit();
 	

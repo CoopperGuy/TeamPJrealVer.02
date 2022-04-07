@@ -320,12 +320,14 @@ HRESULT CLoader::GameSceneStage04()
 	CEventCheck::GetInstance()->SetCameraPosition(_float3(0.f, 2.f, 3.f));
 
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/DarkKnightDungeon.yaml", SCENE_STAGE4, 0));
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Bone", "O_Bone", 2);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_SwordAura", "E_SwordAura", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Aura", "E_Phase2", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
 	(m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/Cameras.yaml", SCENE_STATIC, 9));
 	m_ThreadLoader->EnqueueJob(ThreadTest, this, "../../Assets/Scenes/TrapSpaer.yaml", SCENE_STAGE4, 1);
+
 	m_ThreadLoader->Start_Thread();
 
 	while (!m_isFinish) {
@@ -415,6 +417,7 @@ HRESULT CLoader::GameSceneLEE()
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Aura", "E_Phase2", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Twist", "E_Phase2Twist", 0);
 	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_Effect_Phase2Inst", "E_Phase2Inst", 0);
+	m_ThreadLoader->EnqueueJob(ThreadPrefab, this, "Prototype_GameObecjt_Bone", "O_Bone", 2);
 
 	m_ThreadLoader->Start_Thread();
 	
