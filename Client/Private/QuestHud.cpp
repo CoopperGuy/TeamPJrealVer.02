@@ -53,7 +53,9 @@ void CQuestHud::AddQuestAtList()
 	size_t acceptQuestCnt = acceptQuest.size();
 	size_t curQuestList = m_QuestList.size();
 	
-	for (int i = 0; i < acceptQuestCnt - curQuestList; i++) {
+	_int cnt = (acceptQuestCnt - curQuestList);
+
+	for (int i = 0; i < cnt; i++) {
 		CEmptyUI*	questObj = static_cast<CEmptyUI*>(CEngine::GetInstance()->SpawnPrefab("U_Quest"));
 		questObj->SetActive(false);
 		_float2 pos = questObj->GetPosition();

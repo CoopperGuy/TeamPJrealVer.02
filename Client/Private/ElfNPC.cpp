@@ -131,7 +131,7 @@ void CElfNPC::MakeTalkDesk(_double deltaTime)
 {
 	if (m_bisTalkCreate) {
 		if (m_pModel) {
-			m_pModel->SetAnimationLoop(1, true);
+			m_pModel->SetAnimationLoop(0, true);
 			m_pModel->Play_Animation(deltaTime);
 		}
 		CQuestData* questData = CEngine::GetInstance()->GetQuestData(m_tNPCTag.hasQuestID);
