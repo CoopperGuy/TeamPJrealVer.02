@@ -99,7 +99,6 @@ HRESULT CPlayer::Initialize()
 	m_pCollider = static_cast<CCollider*>(m_pGameObject->GetComponent("Com_Collider"));
 	m_pStatus = static_cast<CStat*>(m_pGameObject->GetComponent("Com_Stat"));
 	m_pOBB = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB"));
-	m_pBox = static_cast<CBasicCollider*>(m_pGameObject->GetComponent("Com_OBB1"));
 	CGameObject* pCamera = CEngine::GetInstance()->GetGameObjectInLayer(0, "LAYER_CAMERA").front();
 	m_pCameraTransform = static_cast<CTransform*>(pCamera->GetComponent("Com_Transform"));
 	XMStoreFloat4x4(&m_matRoot, XMMatrixIdentity());
@@ -258,6 +257,11 @@ void CPlayer::Update(_double dDeltaTime)
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPADPLUS)) {
 		m_pStatus->EarnGold(100);
 	}
+	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMPAD1))
+	{
+		m_isDraw = !m_isDraw;
+		m_pOBB->DrawDebugDraw(m_isDraw);
+	}
 	//if (CEngine::GetInstance()->Get_DIKDown(DIK_9))
 	//{
 	//	ITEMINFO _info = CEngine::GetInstance()->GetItemAsName("NoviceAxe").second;
@@ -265,7 +269,6 @@ void CPlayer::Update(_double dDeltaTime)
 	//	m_pInven->AddItem("NoviceAxe", tempItem);
 	//}
 	Collsion();
-	Transform_ToWorldSpace();
 	SearchMonster();
 
 	CreateBlood();
@@ -1615,28 +1618,6 @@ void CPlayer::InputSkill()
 	//}	
 }
 
-void CPlayer::Transform_ToWorldSpace()
-{
-
-	_vector		vPoint[8];
-	_vector*	tempPoint = m_pBox->GetObbBox();
-	for (int i = 0; i < 8; i++)
-		vPoint[i] = tempPoint[i];
-
-	XMStoreFloat4(&m_Plane[0], DirectX::XMPlaneFromPoints(vPoint[1], vPoint[2], vPoint[5]));
-	XMStoreFloat4(&m_Plane[1], DirectX::XMPlaneFromPoints(vPoint[4], vPoint[7], vPoint[0]));
-
-	XMStoreFloat4(&m_Plane[2], DirectX::XMPlaneFromPoints(vPoint[4], vPoint[5], vPoint[1]));
-	XMStoreFloat4(&m_Plane[3], DirectX::XMPlaneFromPoints(vPoint[3], vPoint[6], vPoint[7]));
-
-	XMStoreFloat4(&m_Plane[4], DirectX::XMPlaneFromPoints(vPoint[5], vPoint[4], vPoint[7]));
-	XMStoreFloat4(&m_Plane[5], DirectX::XMPlaneFromPoints(vPoint[0], vPoint[1], vPoint[2]));
-}
-
-void CPlayer::Make_Plane(_fvector * pPoints)
-{
-
-}
 
 void CPlayer::SearchMonster()
 {
@@ -1721,14 +1702,3 @@ void CPlayer::SearchMonster()
 	}
 
 }
-
-_bool CPlayer::isInFrustum(_fvector vPosition, _float fRange)
-{
-	for (_uint i = 0; i < 6; ++i)
-	{
-		if (fRange < XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&m_Plane[i]), vPosition)))
-			return false;
-	}
-	return true;
-}
-

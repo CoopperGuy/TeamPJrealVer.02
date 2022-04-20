@@ -104,7 +104,7 @@ _uint CMainApp::Update(_double dDeltaTime)
 #endif
 	if (g_Done)
 		return _uint();
-
+	
 	m_pEngine->Update(dDeltaTime);
 	m_pEngine->UpdateScene(dDeltaTime);
 

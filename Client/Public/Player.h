@@ -109,10 +109,7 @@ private:
 	void UIInput();
 	void InputSkill();
 private:
-	void Transform_ToWorldSpace();
-	void Make_Plane(_fvector* pPoints);
 	void SearchMonster();
-	_bool isInFrustum(_fvector vPosition, _float fRange = 0.f);
 
 private:
 	PxVec3 PlayerDirection = PxVec3(0.f, 0.f, 0.f);
@@ -200,7 +197,7 @@ private://hud
 	CTargetOn*	m_pTargetOn = nullptr;
 private:
 	CBasicCollider* m_pOBB = nullptr;
-	CBasicCollider* m_pBox = nullptr;
+	_bool	m_isDraw = false;
 private:
 	class CEquipment* m_pEquip[(_uint)Equip::Max_Equip] = {nullptr};
 	CItem*			m_pEquipItemList[(_uint)EQUIPTYPE::TYPE_END] = { nullptr };

@@ -8,6 +8,8 @@
 
 USING(Engine)
 
+bool CBasicCollider::m_bisDrawDebugDraw = false;
+
 CBasicCollider::CBasicCollider(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContext)
 	: CComponent(pDevice, pDeviceContext)
 {
@@ -751,42 +753,42 @@ void CBasicCollider::Collision_CheckObj(list<OBJCOLLIDER>& _MyObj, list<OBJCOLLI
 
 HRESULT CBasicCollider::Render()
 {
-#ifdef _DEBUG
-
-	if (nullptr == m_pEffect)
-		return E_FAIL;
-
-	m_pEffect->SetWorld(XMLoadFloat4x4(&m_TransformMatrix));
-
-
-	_matrix view = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW);
-	_matrix Proj = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ);
-
-	m_pEffect->SetView(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
-	m_pEffect->SetProjection(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ));
-
-	m_pDeviceContext->IASetInputLayout(m_pInputLayOut);
-	m_pEffect->Apply(m_pDeviceContext);
-
-	_vector		vColor = m_isCollision == true ? DirectX::Colors::Red : DirectX::Colors::Green;
-
-	m_pBatch->Begin();
-
-	switch (m_eType)
+	if (m_bisDrawDebugDraw)
 	{
-	case CBasicCollider::TYPE_AABB: case CBasicCollider::TYPE_OBB:
-		DX::Draw(m_pBatch, *m_pBB, vColor);
-		break;
 
-	case CBasicCollider::TYPE_SPHERE:
-		DX::Draw(m_pBatch, *m_pSphere, vColor);
-		break;
+		if (nullptr == m_pEffect)
+			return E_FAIL;
+
+		m_pEffect->SetWorld(XMLoadFloat4x4(&m_TransformMatrix));
+
+
+		_matrix view = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW);
+		_matrix Proj = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ);
+
+		m_pEffect->SetView(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
+		m_pEffect->SetProjection(CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ));
+
+		m_pDeviceContext->IASetInputLayout(m_pInputLayOut);
+		m_pEffect->Apply(m_pDeviceContext);
+
+		_vector		vColor = m_isCollision == true ? DirectX::Colors::Red : DirectX::Colors::Green;
+
+		m_pBatch->Begin();
+
+		switch (m_eType)
+		{
+		case CBasicCollider::TYPE_AABB: case CBasicCollider::TYPE_OBB:
+			DX::Draw(m_pBatch, *m_pBB, vColor);
+			break;
+
+		case CBasicCollider::TYPE_SPHERE:
+			DX::Draw(m_pBatch, *m_pSphere, vColor);
+			break;
+		}
+
+		m_pBatch->End();
+
 	}
-
-	m_pBatch->End();
-
-#endif // _DEBUG
-
 
 	return S_OK;
 }

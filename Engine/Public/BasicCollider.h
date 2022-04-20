@@ -173,10 +173,14 @@ public:
 	string	GetBoneName() { return m_strBoneName; }
 	_vector* GetObbBox();
 	
+public:
+	void DrawDebugDraw(_bool _draw) { m_bisDrawDebugDraw = _draw; }
 private:
 	_bool	m_isAttachBone = false;
 	_float3	m_Offset;
 	string	m_strBoneName;
+private:
+	static _bool	m_bisDrawDebugDraw;
 public:
 	static CBasicCollider* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, TYPE eType);
 	static CBasicCollider* Create_Sphere(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContext, _fvector vCenter);

@@ -33,8 +33,8 @@ HRESULT CScene_Logo::Initialize()
 
 	//CEngine::GetInstance()->StopSound(CHANNELID::BGM);
 	//CEngine::GetInstance()->PlayBGM("Baram.mp3");
-	CEngine::GetInstance()->StopSound(CHANNELID::BGM);
-	CEngine::GetInstance()->PlayBGM("BGM_Logo.mp3");
+	//CEngine::GetInstance()->StopSound(CHANNELID::BGM);
+	//CEngine::GetInstance()->PlayBGM("BGM_Logo.mp3");
 	return S_OK;
 }
 
