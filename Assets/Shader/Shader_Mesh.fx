@@ -357,7 +357,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     /////////////////////////////RimLight////////////////////////////////////////////////
     float3 vCamPos = normalize(g_CamPosition - In.vWPos);
-    float RimLightIntensity = smoothstep(0.9f, 1.f, 1 - max(0, dot(vNormal, vCamPos)));
+    float RimLightIntensity = smoothstep(0.8f, 1.f, 1 - max(0, dot(In.vNormal, vCamPos)));
     color.xyz += float4(1.f, 1.f, 1.f, 1.f) * RimLightIntensity;
 
 
@@ -371,7 +371,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
     Out.vDiffuse = color;
     Out.vNormal = vector(vNormal.xyz * 0.5f + 0.5f, 1.0f);
-    Out.vDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);    
+    Out.vDepth = vector(In.vProjPos.w / 300.f, In.vProjPos.z / In.vProjPos.w, 0.f, 0.f);
     Out.vSpecular = g_SpecularTexture.Sample(g_DiffuseSampler, In.vTexUV);
 
     return Out;

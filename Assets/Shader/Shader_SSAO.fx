@@ -1,7 +1,7 @@
 
 #include "Shader_Defines.hpp"
 
-float g_fRadius = 0.0005f;
+float g_fRadius = 0.001f;
 float g_fFar = 300.f;
 float g_fFalloff = 0.000002f;
 float g_fStrength = 0.0007f;

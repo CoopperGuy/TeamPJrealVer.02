@@ -31,7 +31,7 @@ HRESULT CRenderer::InitializePrototype()
 	D3D11_VIEWPORT			ViewportDesc;
 
 	m_pDeviceContext->RSGetViewports(&iNumViewports, &ViewportDesc);
-	
+
 	/* MainBuffer */
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Main", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
@@ -55,7 +55,7 @@ HRESULT CRenderer::InitializePrototype()
 	/* Target_Shadow_Depth*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_ShadowDepth", (_uint)ViewportDesc.Width * SHADOWRATIO, (_uint)ViewportDesc.Height * SHADOWRATIO, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 1.f, 1.f))))
 		return E_FAIL;
-	
+
 	/* Target_Reflect*/
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Specular2", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R32G32B32A32_FLOAT, _float4(0.f, 0.f, 0.f, 1.f))))
 		return E_FAIL;
@@ -118,7 +118,7 @@ HRESULT CRenderer::InitializePrototype()
 	/* Target_Trail */
 	if (FAILED(m_pTargetManager->Add_RenderTarget(m_pDevice, m_pDeviceContext, "Target_Trail", (_uint)ViewportDesc.Width, (_uint)ViewportDesc.Height, DXGI_FORMAT_R16G16B16A16_FLOAT, _float4(0.f, 0.f, 0.f, 0.f))))
 		return E_FAIL;
-	
+
 	/* MRT_Deferred */
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Deferred", "Target_Diffuse")))
 		return E_FAIL;
@@ -138,17 +138,17 @@ HRESULT CRenderer::InitializePrototype()
 
 	/* MRT_Shader */
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_HDR", "Target_HDR")))
-		return E_FAIL;	
+		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_HDR", "Target_Bright")))
 		return E_FAIL;
-	/*if (FAILED(m_pTargetManager->Add_MRT("MRT_Bloom", "Target_DownTexture")))
-		return E_FAIL;*/
+	if (FAILED(m_pTargetManager->Add_MRT("MRT_Bloom", "Target_DownTexture")))
+		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Bloom", "Target_BlurX")))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_Bloom", "Target_BlurY")))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_SSAO", "Target_SSAO")))
-		return E_FAIL; 
+		return E_FAIL;
 	if (FAILED(m_pTargetManager->Add_MRT("MRT_SSAO", "Target_SSAO_Blur")))
 		return E_FAIL;
 
@@ -166,11 +166,11 @@ HRESULT CRenderer::InitializePrototype()
 		if (FAILED(m_pTargetManager->Add_MRT("MRT_EditorWindow", "Target_EditorWindow")))
 			return E_FAIL;
 	}
-	
+
 	m_pVIBuffer = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, ViewportDesc.Width, ViewportDesc.Height, "../../Assets/Shader/Shader_Rect_Viewport.fx");
 	if (nullptr == m_pVIBuffer)
 		return E_FAIL;
-	
+
 	m_pVIBuffer_HDR = CVIBuffer_Rect_Viewport::Create(m_pDevice, m_pDeviceContext, 0.f, 0.f, ViewportDesc.Width, ViewportDesc.Height, "../../Assets/Shader/Shader_HDR.fx");
 	if (nullptr == m_pVIBuffer_HDR)
 		return E_FAIL;
@@ -183,20 +183,38 @@ HRESULT CRenderer::InitializePrototype()
 	if (nullptr == m_pVIBuffer_SSAO)
 		return E_FAIL;
 
-	
+
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Diffuse", 0.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Normal", 0.f, 200.f, 200.f, 200.f)))
-		return E_FAIL;	
-	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Depth", 0.f, 400.f, 200.f, 200.f)))
-		return E_FAIL; 
-	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular2", 200.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Specular2", 0.f, 400.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Depth", 200.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
 	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_DecalDepth", 200.f, 200.f, 200.f, 200.f)))
 		return E_FAIL;
-	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_ShadowDepth", 200.f, 400.f, 200.f, 200.f)))
+
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_HDR", 400.f, 0.f, 200.f, 200.f)))
 		return E_FAIL;
-	
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_Bright", 400.f, 200.f, 200.f, 200.f)))
+		return E_FAIL;
+
+	/*if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_SSAO", 600.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_SSAO_Blur", 600.f, 200.f, 200.f, 200.f)))
+		return E_FAIL;*/
+
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_DownTexture", 600.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_BlurX", 600.f, 200.f, 200.f, 200.f)))
+		return E_FAIL;
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_BlurY", 600.f, 400.f, 200.f, 200.f)))
+		return E_FAIL;
+
+	if (FAILED(m_pTargetManager->Ready_DebugBuffer("Target_ShadowDepth", 800.f, 0.f, 200.f, 200.f)))
+		return E_FAIL;
+
 	m_pTargetManager->Initialize(m_pDevice, m_pDeviceContext);
 
 	return S_OK;
@@ -233,7 +251,7 @@ HRESULT CRenderer::DrawRenderGroup()
 		m_pTargetManager->Clear_MRT(m_pDeviceContext, "MRT_EditorWindow");
 		m_pTargetManager->Set_MRT(m_pDeviceContext, "MRT_EditorWindow");
 	}
-	else 
+	else
 	{
 		m_pTargetManager->Clear_MainRT(m_pDeviceContext);
 	}
@@ -255,7 +273,7 @@ HRESULT CRenderer::DrawRenderGroup()
 		return E_FAIL;
 
 	//if (FAILED(Render_Extra()))
-		//return E_FAIL;
+	//return E_FAIL;
 
 	if (FAILED(RenderAlpha()))
 		return E_FAIL;
@@ -272,9 +290,9 @@ HRESULT CRenderer::DrawRenderGroup()
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
 	{
 		//if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
-			//return E_FAIL;
+		//return E_FAIL;
 		//if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Bloom")))
-			//return E_FAIL;
+		//return E_FAIL;
 	}
 
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_NUMLOCK)) {
@@ -282,12 +300,16 @@ HRESULT CRenderer::DrawRenderGroup()
 	}
 
 	if (m_bDebuger) {
-		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
-			return E_FAIL;
 		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Deferred")))
 			return E_FAIL;
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_HDR")))
+			return E_FAIL;
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_ShadowDepth")))
+			return E_FAIL;
+		if (FAILED(m_pTargetManager->Render_DebugBuffers("MRT_Bloom")))
+			return E_FAIL;
 	}
-	
+
 	if (CEngine::GetInstance()->Get_DIKDown(DIK_LBRACKET)) {
 		m_fBrightIntensity += 0.01f;
 
@@ -300,7 +322,7 @@ HRESULT CRenderer::DrawRenderGroup()
 		if (m_fBrightIntensity < 0.f)
 			m_fBrightIntensity = 0.f;
 	}
-	
+
 
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
@@ -366,7 +388,7 @@ HRESULT CRenderer::RenderLightDepth()
 				return E_FAIL;
 		}
 	}
-		
+
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
 		m_pTargetManager->End_MRT(m_pDeviceContext);
@@ -387,7 +409,7 @@ HRESULT CRenderer::RenderNonAlpha()
 {
 	if (nullptr == m_pTargetManager)
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTargetManager->Begin_MRT(m_pDeviceContext, "MRT_Deferred")))
 		return E_FAIL;
 
@@ -463,7 +485,7 @@ HRESULT CRenderer::Render_Blend()
 {
 	if (nullptr == m_pTargetManager)
 		return E_FAIL;
-	
+
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_TOOL)
 	{
 		ID3D11ShaderResourceView*	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Diffuse");
@@ -517,7 +539,7 @@ HRESULT CRenderer::Render_Blend()
 
 		if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 			return E_FAIL;
-		
+
 		//Render_Shader();
 	}
 
@@ -525,8 +547,8 @@ HRESULT CRenderer::Render_Blend()
 }
 
 HRESULT CRenderer::Render_Shader()
-{		
-	
+{
+
 	// LDR(Tone Mapping)
 	m_pTargetManager->Begin_SingleRT(m_pDeviceContext, "Target_HDR");
 
@@ -538,7 +560,7 @@ HRESULT CRenderer::Render_Shader()
 	m_pVIBuffer_HDR->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 
 	m_pVIBuffer_HDR->Render(0);
-	
+
 	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 		return E_FAIL;
 
@@ -558,12 +580,12 @@ HRESULT CRenderer::Render_Shader()
 		return E_FAIL;
 
 	Render_Bloom();
-	
-	
+
+
 	//// Draw Trail
 	m_pTargetManager->Begin_SingleRT(m_pDeviceContext, "Target_Trail");
 
-	 pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_HDR");
+	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_HDR");
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
 
@@ -608,7 +630,7 @@ HRESULT CRenderer::Render_Shader()
 }
 
 HRESULT CRenderer::Render_Bloom()
-{	
+{
 #pragma region Bloom x4
 	_uint iNum = 1;
 	_float fRatio = 4.f;
@@ -622,7 +644,7 @@ HRESULT CRenderer::Render_Bloom()
 	DownViewPort.Height = BackViewPort.Height / (_float)m_iValue;
 
 	m_pDeviceContext->RSSetViewports(iNum, &DownViewPort);
-	
+
 	// DownSample
 	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture");
 
@@ -640,7 +662,7 @@ HRESULT CRenderer::Render_Bloom()
 	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_DownTexture");
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
-	
+
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
 
@@ -673,7 +695,7 @@ HRESULT CRenderer::Render_Bloom()
 	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture2");
 
 	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Bright");
-	
+
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 
 	m_pVIBuffer_Bloom->Render(0);
@@ -717,7 +739,7 @@ HRESULT CRenderer::Render_Bloom()
 	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture3");
 
 	pDiffuseSRV = m_pTargetManager->GetShaderResourceView("Target_Bright");
-	
+
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
 
 	m_pVIBuffer_Bloom->Render(0);
@@ -757,6 +779,8 @@ HRESULT CRenderer::Render_Bloom()
 
 HRESULT CRenderer::Render_SSAO()
 {
+	_float fRatio = 4.f;
+
 	m_pTargetManager->Begin_SingleRT(m_pDeviceContext, "Target_SSAO");
 
 	ID3D11ShaderResourceView*	pDepthSRV = m_pTargetManager->GetShaderResourceView("Target_Depth");
@@ -766,7 +790,7 @@ HRESULT CRenderer::Render_SSAO()
 	ID3D11ShaderResourceView*	pNormalSRV = m_pTargetManager->GetShaderResourceView("Target_Normal");
 	if (nullptr == pNormalSRV)
 		return E_FAIL;
-	
+
 	m_pVIBuffer_SSAO->GetShader()->SetUp_TextureOnShader("g_DepthTexture", pDepthSRV);
 	m_pVIBuffer_SSAO->GetShader()->SetUp_TextureOnShader("g_NormalTexture", pNormalSRV);
 
@@ -786,7 +810,7 @@ HRESULT CRenderer::Render_SSAO()
 	DownViewPort.Height = BackViewPort.Height / (_float)m_iValue;
 
 	m_pDeviceContext->RSSetViewports(iNum, &DownViewPort);
-
+	
 	// DownSample
 	m_pTargetManager->Begin_RT(m_pDeviceContext, "Target_DownTexture");
 
@@ -794,7 +818,7 @@ HRESULT CRenderer::Render_SSAO()
 	if (nullptr == pDiffuseSRV)
 		return E_FAIL;
 
-	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);	
 
 	m_pVIBuffer_Bloom->Render(0);
 
@@ -806,6 +830,7 @@ HRESULT CRenderer::Render_SSAO()
 		return E_FAIL;
 
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
 
 	m_pVIBuffer_Bloom->Render(1);
 
@@ -817,6 +842,7 @@ HRESULT CRenderer::Render_SSAO()
 		return E_FAIL;
 
 	m_pVIBuffer_Bloom->GetShader()->SetUp_TextureOnShader("g_DiffuseTexture", pDiffuseSRV);
+	m_pVIBuffer_Bloom->GetShader()->SetUp_ValueOnShader("g_fRatio", &fRatio, sizeof(_float));
 
 	m_pVIBuffer_Bloom->Render(2);
 
@@ -836,7 +862,7 @@ HRESULT CRenderer::Render_SSAO()
 
 	if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 		return E_FAIL;
-	
+
 
 	return S_OK;
 }
@@ -876,9 +902,9 @@ HRESULT CRenderer::RenderAlpha()
 
 	if (CEngine::GetInstance()->GetCurrentUsage() == CEngine::USAGE::USAGE_CLIENT)
 		m_pTargetManager->Begin_MainRT(m_pDeviceContext);
-	
+
 	m_RenderGroups[RENDER_ALPHA].sort([&](CGameObject* A, CGameObject* B) {
-		return A->GetViewZ() > B->GetViewZ();	
+		return A->GetViewZ() > B->GetViewZ();
 	});
 	for (auto& pGameObject : m_RenderGroups[RENDER_ALPHA])
 	{
@@ -896,7 +922,7 @@ HRESULT CRenderer::RenderAlpha()
 	{
 		if (FAILED(m_pTargetManager->End_MRT(m_pDeviceContext)))
 			return E_FAIL;
-		
+
 		Render_Shader();
 		//Render_Main();
 	}
