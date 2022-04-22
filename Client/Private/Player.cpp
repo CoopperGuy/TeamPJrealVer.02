@@ -47,6 +47,7 @@
 #pragma endregion
 
 #include "DropRock.h"
+#include "ItemBox.h"
 USING(Client)
 
 
@@ -1604,10 +1605,11 @@ void CPlayer::InputSkill()
 		}
 	}
 
-	//if (CEngine::GetInstance()->IsKeyDown('5')) {
-	//	m_bDissolve = !m_bDissolve;
-	//	//static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true);
-	//}
+	if (CEngine::GetInstance()->IsKeyDown('5')) 
+	{		
+		CGameObject* ItemBox = CEngine::GetInstance()->AddGameObjectToPrefab(CEngine::GetInstance()->GetCurSceneNumber(), "Prototype_GameObject_BasicItemBox", "O_BasicItemBox");
+		CEngine::GetInstance()->AddScriptObject(CItemBox::Create(ItemBox, m_pTransform->GetState(CTransform::STATE_POSITION)), CEngine::GetInstance()->GetCurSceneNumber());		
+	}
 	//if (CEngine::GetInstance()->IsKeyDown('6')) {
 	//	static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(false);
 	//}
