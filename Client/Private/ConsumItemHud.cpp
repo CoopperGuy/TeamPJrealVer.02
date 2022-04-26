@@ -196,8 +196,8 @@ void CConsumItemHud::Scroll(_double deltaTime)
 		checking.detach();
 		if (CEngine::GetInstance()->GetMouseMoveValue().z > 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y >= 0.f) {
-				pos.y -= fScrollSpd*(_float)deltaTime;
+			if (pos.y <= 0.f) {
+				pos.y += fScrollSpd*(_float)deltaTime;
 			}
 			else {
 				pos.y = 0.f;
@@ -206,8 +206,8 @@ void CConsumItemHud::Scroll(_double deltaTime)
 		}
 		else if (CEngine::GetInstance()->GetMouseMoveValue().z < 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y <= m_fCurYSize - m_constYScale) {
-				pos.y += fScrollSpd*(_float)deltaTime;
+			if (pos.y >= -(m_fCurYSize - m_constYScale)) {
+				pos.y -= fScrollSpd*(_float)deltaTime;
 			}
 			else {
 				pos.y = m_fCurYSize - m_constYScale;

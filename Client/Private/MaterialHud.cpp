@@ -176,23 +176,27 @@ void CMaterialHud::Scroll(_double deltaTime)
 		this->CheckItems();
 		if (CEngine::GetInstance()->GetMouseMoveValue().z > 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y >= 0.f) {
-				pos.y -= fScrollSpd*(_float)deltaTime;
+			if (pos.y <= 0.f) {
+				pos.y += fScrollSpd*(_float)deltaTime;
 			}
 			else {
 				pos.y = 0.f;
 			}
 			m_pThisUI->SetTransformOffst(pos.x, pos.y);
 		}
-		if (CEngine::GetInstance()->GetMouseMoveValue().z < 0) {
+		else if (CEngine::GetInstance()->GetMouseMoveValue().z < 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y <= m_fCurYSize - m_constYScale) {
-				pos.y += fScrollSpd*(_float)deltaTime;
+			if (pos.y >= -(m_fCurYSize - m_constYScale)) {
+				pos.y -= fScrollSpd*(_float)deltaTime;
 			}
 			else {
 				pos.y = m_fCurYSize - m_constYScale;
 			}
 			m_pThisUI->SetTransformOffst(pos.x, pos.y);
+		}
+		else {
+			_float2 offest = m_pThisUI->GetTransformOffst();
+			m_pThisUI->SetTransformOffst(offest.x, offest.y);
 		}
 	}
 	else {

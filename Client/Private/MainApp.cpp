@@ -52,9 +52,9 @@ void CMainApp::Free()
 {	
 	CEventCheck::GetInstance()->DestroyInstance();
 
-	ImGui_ImplDX11_Shutdown();
+	/*ImGui_ImplDX11_Shutdown();
 	ImGui_ImplWin32_Shutdown();
-	ImGui::DestroyContext();
+	ImGui::DestroyContext();*/
 
 	SafeRelease(m_pRenderer);
 
@@ -91,7 +91,7 @@ HRESULT CMainApp::Initialize()
 	if (FAILED(OpenScene((SCENE)g_eCurScene)))
 		return E_FAIL;
 
-	ImGuiInitialize();
+	//ImGuiInitialize();
 
 
 	return S_OK;
@@ -111,9 +111,9 @@ _uint CMainApp::Update(_double dDeltaTime)
 	// TODO: Fix Update Order
 	m_pEngine->UpdatePx(dDeltaTime);
 
-	ImGui_ImplDX11_NewFrame();
-	ImGui_ImplWin32_NewFrame();
-	ImGui::NewFrame();
+	//ImGui_ImplDX11_NewFrame();
+	//ImGui_ImplWin32_NewFrame();
+	//ImGui::NewFrame();
 	return 0;
 }
 
@@ -130,10 +130,10 @@ HRESULT CMainApp::Render()
 
 
 	m_pEngine->UpdateImGui();
-	ImGui::Render();
+	/*ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	ImGui::UpdatePlatformWindows();
-	ImGui::RenderPlatformWindowsDefault();
+	ImGui::RenderPlatformWindowsDefault();*/
 
 	m_pEngine->Present();
 

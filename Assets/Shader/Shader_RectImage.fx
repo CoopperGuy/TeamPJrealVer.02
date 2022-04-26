@@ -357,7 +357,7 @@ float4 PS_MAIN_DISALPHA(PS_IN input) : SV_TARGET
 float4 PS_MAIN_ITEMLIST(PS_INITEM input) : SV_TARGET
 {
     float4 color = Map.Sample(Sampler, input.vTexUV);
-    if (input.vPos.y < 300.f && input.vPos.y > -300.f)
+    if (input.vPos.y < 300.f && input.vPos.y > -250.f)
     {
         if (g_isSelected || g_isHover)
         {

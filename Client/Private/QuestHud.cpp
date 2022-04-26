@@ -63,7 +63,7 @@ void CQuestHud::AddQuestAtList()
 		m_fQuestYPos += m_fYPosPadding;
 		m_QuestList.emplace_back(questObj, nullptr);
 	}
-	_uint i = 0;
+	_int i = 0;
 	for (auto& iter : acceptQuest) {
 		m_QuestList[i].second = iter.second;
 
@@ -97,6 +97,7 @@ void CQuestHud::RemoveQuest(_int questID)
 	auto&iter = m_QuestList.begin();
 	for (; iter != m_QuestList.end();) {
 		if ((*iter).second->isClear) {
+			(*iter).first->SetDead();
 			iter = m_QuestList.erase(iter);
 		}
 		else {

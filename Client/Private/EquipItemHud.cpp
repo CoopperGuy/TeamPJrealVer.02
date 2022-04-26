@@ -240,18 +240,18 @@ void CEquipItemHud::Scroll(_double deltaTime)
 		CheckingItem.detach();
 		if (CEngine::GetInstance()->GetMouseMoveValue().z > 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y >= 0) {
-				pos.y -= fScrollSpd*(_float)deltaTime;
+			if (pos.y <= 0.f) {
+				pos.y += fScrollSpd*(_float)deltaTime;
 			}
 			else {
-				pos.y = 0;
+				pos.y = 0.f;
 			}
 			m_pThisUI->SetTransformOffst(pos.x, pos.y);
 		}
 		if (CEngine::GetInstance()->GetMouseMoveValue().z < 0) {
 			_float2 pos = m_pThisUI->GetTransformOffst();
-			if (pos.y <= m_fCurYSize[m_iCurSelectedTag] - m_constYScale) {
-				pos.y += fScrollSpd*(_float)deltaTime;
+			if (pos.y >= -(m_fCurYSize[m_iCurSelectedTag] - m_constYScale)) {
+				pos.y -= fScrollSpd*(_float)deltaTime;
 			}
 			else {
 				pos.y = m_fCurYSize[m_iCurSelectedTag] - m_constYScale;
