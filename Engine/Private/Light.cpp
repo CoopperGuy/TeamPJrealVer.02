@@ -41,8 +41,8 @@ HRESULT CLight::Initialize(const LIGHTDESC & LightDesc, CTransform* pTransform, 
 	_uint		iNumViewports = 1;
 
 	D3D11_VIEWPORT		ViewportDesc;
-	ViewportDesc.Width = 1280.f;
-	ViewportDesc.Height = 720.f;
+	ViewportDesc.Width = WINCX;
+	ViewportDesc.Height = WINCY;
 
 	//m_pDeviceContext->RSGetViewports(&iNumViewports, &ViewportDesc);
 	

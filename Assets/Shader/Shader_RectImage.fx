@@ -357,7 +357,7 @@ float4 PS_MAIN_DISALPHA(PS_IN input) : SV_TARGET
 float4 PS_MAIN_ITEMLIST(PS_INITEM input) : SV_TARGET
 {
     float4 color = Map.Sample(Sampler, input.vTexUV);
-    if (input.vPos.y < 300.f && input.vPos.y > -250.f)
+    if (input.vPos.y < 400.f && input.vPos.y > -450.f)
     {
         if (g_isSelected || g_isHover)
         {
@@ -400,7 +400,7 @@ float4 PS_MAIN_SELECTEDTEXT(PS_IN input) : SV_Target
 float4 PS_MAIN_SHOPIST(PS_INITEM input) : SV_TARGET
 {
     float4 color = Map.Sample(Sampler, input.vTexUV);
-    if (input.vPos.y < 300.f && input.vPos.y > -300.f)
+    if (input.vPos.y < 450.f && input.vPos.y > -450.f)
         return color;
     else
         discard;
@@ -442,7 +442,7 @@ float4 PS_MAIN_QUICK(PS_IN input) : SV_Target
 float4 PS_MAIN_PORTAL(PS_INITEM input) : SV_Target
 {
     float4 color = Map.Sample(Sampler, input.vTexUV);
-    if (input.vPos.x < 300.f && input.vPos.x > -300.f)
+    if (input.vPos.x < 450.f && input.vPos.x > -450.f)
         return color;
     else
         discard;

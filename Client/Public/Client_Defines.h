@@ -6,8 +6,8 @@
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif
 
-static const unsigned int g_iWinCX = 1280;
-static const unsigned int g_iWinCY = 720;
+static const unsigned int g_iWinCX = 1920;
+static const unsigned int g_iWinCY = 1080;
 
 
 extern int	g_eCurScene;
@@ -30,8 +30,8 @@ using namespace Client;
 
 #define NO_EVENT 0
 #define CHANGE	 0
-#define WINCX	1280
-#define WINCY	720
+#define WINCX	1920
+#define WINCY	1080
 #define _ITERATOR_DEBUG_LEVEL 0
 
 #include "imgui.h"

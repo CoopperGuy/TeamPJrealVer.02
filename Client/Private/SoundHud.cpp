@@ -45,7 +45,8 @@ void CSoundHud::Update(_double deltaTime)
 			GetCursorPos(&ptMouse);
 			ScreenToClient(g_hWnd, &ptMouse);
 
-			if (ptMouse.x > m_Positions.first && ptMouse.x < m_Positions.second) 
+
+			if (ptMouse.x > m_Positions.first * _float((_float)WINCX/1280.f)  && ptMouse.x < m_Positions.second * _float((_float)WINCX / 1280.f))
 			{
 				_float2 _blockOffset = m_vecUIs[SOUNDS::SOUNDS_BGMBLOCK]->GetTransformOffst();
 				_float _center = _float(WINCX >> 1);

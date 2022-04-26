@@ -76,10 +76,10 @@ bool CRectTransform::IsMouseInRect()
 	float defaultWindowSizeX = 1280.f;
 	float defaultWindowSizeY = 720.f;
 
-	_float fSizeX = m_TransformDesc.sizeX * (curWindowSizeX / defaultWindowSizeX);
-	_float fSizeY = m_TransformDesc.sizeY * (curWindowSizeY / defaultWindowSizeY);
-	_float fPosX = m_TransformDesc.posX * (curWindowSizeX / defaultWindowSizeX);
-	_float fPosY = m_TransformDesc.posY * (curWindowSizeY / defaultWindowSizeY);
+	_float fSizeX = m_TransformDesc.sizeX / (defaultWindowSizeX / curWindowSizeX);
+	_float fSizeY = m_TransformDesc.sizeY / (defaultWindowSizeY / curWindowSizeY);
+	_float fPosX = m_TransformDesc.posX / (defaultWindowSizeX / curWindowSizeX);
+	_float fPosY = m_TransformDesc.posY / (defaultWindowSizeY / curWindowSizeY);
 
 	_float3 mousePos = m_pEngine->GetMousePosition();
 	if (mousePos.x <= fPosX + (fSizeX / 2) &&
@@ -102,13 +102,12 @@ void CRectTransform::SetTransformMat(RECTTRANSFORMDESC _desc)
 	float defaultWindowSizeX = 1280.f;
 	float defaultWindowSizeY = 720.f;
 
-
-	_float fSizeX = _desc.sizeX * (curWindowSizeX / defaultWindowSizeX);
-	_float fSizeY = _desc.sizeY * (curWindowSizeY / defaultWindowSizeY);
+	_float fSizeX = m_TransformDesc.sizeX / (defaultWindowSizeX / curWindowSizeX);
+	_float fSizeY = m_TransformDesc.sizeY / (defaultWindowSizeY / curWindowSizeY);
 	_float fCrrtX = _desc.correctX;
 	_float fCrrtY = _desc.correctY;
-	_float fPosX = _desc.posX * (curWindowSizeX / defaultWindowSizeX);
-	_float fPosY = _desc.posY * (curWindowSizeY / defaultWindowSizeY);
+	_float fPosX = m_TransformDesc.posX / (defaultWindowSizeX / curWindowSizeX);
+	_float fPosY = m_TransformDesc.posY / (defaultWindowSizeY / curWindowSizeY);
 
 	XMStoreFloat4x4(&m_TransformMatrix, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_CorrectMatrix, XMMatrixIdentity());

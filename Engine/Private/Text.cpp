@@ -79,7 +79,7 @@ HRESULT CText::Render()
 		LONG((desc.posX + (desc.sizeX / 2.f)) * xFactor), LONG((desc.posY + (desc.sizeY / 2.f)) * yFactor));
 	_float2 vPos = { (float)rt.left, (float)rt.top };
 	if (m_bisShaderCut) {
-		if (rt.top < 60 || rt.bottom > 660) {
+		if (rt.top < 90 || rt.bottom > 990) {
 			rt.top = rt.bottom;
 		}
 	}

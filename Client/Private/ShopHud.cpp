@@ -62,7 +62,7 @@ _bool CShopHud::IsBuySelected()
 				POINT		ptMouse;
 				GetCursorPos(&ptMouse);
 				ScreenToClient(g_hWnd, &ptMouse);
-				ptMouse.y = ptMouse.y - (WINCY >> 1);
+				ptMouse.y = ptMouse.y - (1080 >> 1);
 				_float2 scrollPos = m_pScrollBar->GetPosition();
 				_float2 scrollSize = m_pScrollBar->GetUISize();
 				_float2 scrollOffset = m_pScrollBar->GetTransformOffst();

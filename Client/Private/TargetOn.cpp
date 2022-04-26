@@ -24,8 +24,8 @@ HRESULT CTargetOn::Initailze(CGameObject* player, CGameObject * pArg)
 	transform._11 = 1.f;
 	transform._22 = 1.f;
 
-	transform._41 = XMVectorGetX(targetPos) * (WINCX >> 1) + (WINCX >> 1);
-	transform._42 = -XMVectorGetY(targetPos) * (WINCY >> 1) + (WINCY >> 1);
+	transform._41 = XMVectorGetX(targetPos) * (1280 >> 1) + (1280 >> 1);
+	transform._42 = -XMVectorGetY(targetPos) * (720 >> 1) + (720 >> 1);
 	m_pTargetTrans = static_cast<CRectTransform*>(m_pThisUI->GetComponent("Com_Transform"));
 	CRectTransform::RECTTRANSFORMDESC desc = m_pTargetTrans->GetTransformDesc();
 	desc.posX = transform._41;
@@ -56,8 +56,8 @@ void CTargetOn::Update(_double deltaTime)
 	transform._11 = 1.f;
 	transform._22 = 1.f;
 
-	transform._41 = XMVectorGetX(targetPos) * (WINCX >> 1) + (WINCX >> 1);
-	transform._42 = -XMVectorGetY(targetPos) * (WINCY >> 1) + (WINCY >> 1);
+	transform._41 = XMVectorGetX(targetPos) * (1280 >> 1) + (1280 >> 1);
+	transform._42 = -XMVectorGetY(targetPos) * (720 >> 1) + (720 >> 1);
 	CRectTransform::RECTTRANSFORMDESC desc = m_pTargetTrans->GetTransformDesc();
 	desc.posX = transform._41;
 	desc.posY = transform._42;
