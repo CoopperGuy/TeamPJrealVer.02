@@ -289,12 +289,12 @@ void CDarkKnight::StateUpdate(_double dDeltaTime)
 		{
 			if (m_fDist >= 1.f)
 			{
-				if (iRand < 70)
+				if (iRand < 50)
 				{
 					m_eState = RUN;
 					m_fBehaviorTime = (rand() % 10 + 10) * 0.1f;
 				}
-				else if (iRand < 85)
+				else if (iRand < 75)
 				{
 					static_cast<CEmptyGameObject*>(m_pGameObject)->SetRimLight(true, DirectX::Colors::Purple, 3.0);
 					m_eState = SK_SIDESLASH2;
