@@ -18,8 +18,6 @@ _float CThreadLoader::loadingPercentage()
 {
 	if (m_fMax_Jobs == 0)
 		return 0.f;
-	for (size_t i = 0; i < m_iNum_Threads; i++) {
-	}
 	return (_float)m_fCur_Jobs / (_float)m_fMax_Jobs;
 }
 

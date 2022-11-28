@@ -37,13 +37,6 @@ void CHierarchy::Update()
 			string s = to_string( pObj->GetUUID());
 			dynamic_cast<CLog*>(m_pEngine->GetWindow("Log"))->AddLog(s.c_str());
 		}
-		//if (ImGui::MenuItem("MapObject"))
-		//{
-		//	//Add GameObject 
-		//	CGameObject* pObj = m_pEngine->AddGameObject(0,
-		//		"Prototype_EmptyMapObject", "MapObject");
-		//	g_pObjFocused = pObj;
-		//}
 		if (ImGui::MenuItem("UI"))
 		{
 			//Add GameObject 
@@ -74,66 +67,40 @@ void CHierarchy::Update()
 
 	// 여기서 리스트 순회하면서 추가
 	int iCount = 0;
-	unordered_map<string, CLayer*>* layers = m_pEngine->GetLayers();
-	for (auto& pair : *layers)
-	{
-		if (pair.first == "LAYER_TOOL")
+	unordered_map<string, CLayer*> *layers = m_pEngine->GetLayers();
+	for (auto& pair : *layers){
+		if (pair.first == "LAYER_TOOLCAMERA")
 			continue;
 
 		list<CGameObject*> pObjList = (pair.second)->GetGameObjectList();
 		list<CGameObject*> pObjListNoParent;
-		for (auto& obj : pObjList)
-		{
+		for (auto& obj : pObjList)	{
 			if (!obj->GetParent())
 				pObjListNoParent.push_back(obj);
 		}
 		for (auto& pObj : pObjListNoParent)
-		{
 			SetObjectHierarchy(pObj, iCount);
-		}
 	}
-	//list<CGameObject*> pObjList = m_pEngine->GetGameObjectInLayer(0, TEXT("LAYER_TOOL"));
-	//list<CGameObject*> pObjListNoParent;
-	//for (auto& obj : pObjList)
-	//{
-	//	if (!obj->GetParent())
-	//		pObjListNoParent.push_back(obj);
-	//}
 
-	//int iCount = 0;
-	//for (auto& pObj : pObjListNoParent)
-	//{
-	//	SetObjectHierarchy(pObj, iCount);
-	//}
 	if (openPopup)
 	{
 		ImGui::OpenPopup("my_select_popup");
 
 		if (ImGui::BeginPopup("my_select_popup"))
 		{
-			if (ImGui::MenuItem("Make Prefab"))
-			{
+			if (ImGui::MenuItem("Make Prefab")){
 				CSceneSerializer serializer;
 				serializer.SerializePrefab(g_pObjFocused);
 			}
 			ImGui::Separator();
-
-			if (ImGui::MenuItem("Delete"))
-			{
-				/* Delete Object*/
-				//g_pObjFocused->SetDead();
-				g_pObjFocused->DeleteRealObject();
+			if (ImGui::MenuItem("Delete")){
+				g_pObjFocused->SetDead();
 				g_pObjFocused = nullptr;
 				openPopup = !openPopup;
 			}
-
 			ImGui::Separator();
-
 			if (ImGui::MenuItem("Close"))
-			{
-				/* Close Popup*/
 				openPopup = !openPopup;
-			}
 
 			ImGui::EndPopup();
 		}
@@ -170,7 +137,6 @@ void CHierarchy::SetObjectHierarchy(CGameObject* pObj, int& iCount)
 
 	if (ImGui::BeginDragDropSource())
 	{
-		//const CGameObject* obj = pObj;
 		ImGui::SetDragDropPayload("GameObject", &pObj, sizeof(pObj), ImGuiCond_Once);
 		ImGui::Text("GameObject");
 		ImGui::EndDragDropSource();
@@ -178,8 +144,7 @@ void CHierarchy::SetObjectHierarchy(CGameObject* pObj, int& iCount)
 
 	if (ImGui::BeginDragDropTarget())
 	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
-		{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject")){
 			CGameObject** droppedObj = (CGameObject**)(payload->Data);
 			pObj->AddChild(*droppedObj);
 		}

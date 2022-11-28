@@ -168,7 +168,7 @@ void CEquipItemHud::AddEquipItem(CEmptyUI * item, EQUIPTYPE _category)
 
 	m_pEquipItemList[(_int)_category].emplace_back(make_pair(item, itemSub));
 	m_fCurYSize[(_int)_category] += m_constYScale;
-	item->SetPosition(x, m_fCurYSize[(_int)_category] + 120.f);
+	item->SetPosition(x, m_fCurYSize[(_int)_category] + m_fCorrectY);
 	m_pThisUI->AddChild(item);
 }
 

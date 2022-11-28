@@ -73,7 +73,6 @@ void CSideQuestHud::UpdateList()
 		}
 		
 		purpose->SetString(purposStr);
-		//CText* text = static_cast<CText*>(m_pQuestSubList[i]->GetComponent("Com_Text"));
 		m_pQuestSubList[i]->SetActive(true);
 	}
 	for (; i < m_pQuestSubList.size(); i++) {

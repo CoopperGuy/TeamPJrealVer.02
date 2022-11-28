@@ -54,8 +54,6 @@ public:
 public:
 	void SetParent(CGameObject* pParent);
 	void AddChild(CGameObject* pChild);
-	void AddChild2(CGameObject* pChild);
-	void AddChildPrototypeTag(string pPrototypeTag);
 	void RemoveChild(CGameObject* pChild);
 	void RemoveParent();
 
@@ -64,14 +62,16 @@ public:
 	list<CGameObject*> GetChildren() { return m_listChildren; }
 	list<string> GetChildrenPrototypeTag() { return m_listChildrenPrototypeTag; }
 	CGameObject* FindChildWithName(string name);
-
+	void AddChild2(CGameObject* pChild);
+	void AddChildPrototypeTag(string pPrototypeTag);
 public:
-	_bool&	IsActive() { return m_bIsActive; }
-	const _bool	GetActive() const { return m_bIsActive; }
-	void	SetActive(_bool value);
-	void	SetFrustum(_float value) { m_fFrustumRange = value; }
 	virtual void	SetisRender(_bool tf) { m_bisRender = tf; }
-	void SetCollisionSize(_float x, _float y , _float z) { m_CollisionSize = _float3(x, y, z); }
+	void			SetActive(_bool value);
+	void			SetFrustum(_float value) { m_fFrustumRange = value; }
+	void			SetCollisionSize(_float x, _float y , _float z) { m_CollisionSize = _float3(x, y, z); }
+	_bool&			IsActive() { return m_bIsActive; }
+	const _bool		GetActive() const { return m_bIsActive; }
+
 public:
 	_float& GetFrustum() { return m_fFrustumRange; }
 	_bool  GetIsRender() { return m_bisRender; }

@@ -86,9 +86,7 @@ bool CRectTransform::IsMouseInRect()
 		mousePos.x >= fPosX - (fSizeX / 2) &&
 		mousePos.y <= fPosY + (fSizeY / 2) &&
 		mousePos.y >= fPosY - (fSizeY / 2))
-	{
 		return true;
-	}
 	return false;
 }
 

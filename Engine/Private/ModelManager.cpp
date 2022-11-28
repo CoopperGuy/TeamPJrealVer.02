@@ -14,10 +14,8 @@ unsigned int APIENTRY ThreadCloneModel(void* pArg)
 	CModelManager::GetInstance()->CloneModelThread(
 		desc->pObj, desc->pMeshFilePath, desc->pMeshFileName, desc->pShaderFilePath, desc->pEffectFilePath,
 		desc->bMeshCollider, desc->pArg, desc->bEquipment); 
-
 	SafeDelete(desc);
 	iCurNumThread.fetch_sub(1);
-
 
 	return 0;
 }
@@ -87,21 +85,16 @@ void CModelManager::CloneModelThread(CGameObject* pObj, string pMeshFilePath, st
 
 	string fullPath = pMeshFilePath + pMeshFileName;
 
-	if (m_mapModel.find(fullPath) == m_mapModel.end())
-	{
+	if (m_mapModel.find(fullPath) == m_mapModel.end()){
 		CModel* pModel = CModel::Create(pDevice, pDeviceContext);
 		pModel->SetMeshCollider(meshCollider);
 		pModel->SetLinkEquip(bEquipment);
 		pModel->CreateBuffer(pMeshFilePath, pMeshFileName, pShaderFilePath, pEffectFilePath, pivotMatrix);
 		std::lock_guard<std::mutex> locks(m_Mesh_Jobs);
-		if (m_mapModel.find(fullPath) != m_mapModel.end()){
+		if (m_mapModel.find(fullPath) != m_mapModel.end())
 			SafeRelease(pModel);
-			cout << "/////////////Same Model Inputed////////////\n";
-		}
-		else {
+		else 
 			m_mapModel.emplace(make_pair(fullPath, pModel));
-		}
-
 		auto& iter = m_CurCloningObj.find(fullPath);
 		if (iter != m_CurCloningObj.end())
 			iter->second = false;

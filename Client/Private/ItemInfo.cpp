@@ -39,11 +39,12 @@ void CItemInfo::SetActive(_bool _active)
 
 void CItemInfo::SetItemInfo(ITEMINFO _info)
 {
+	_float reinforceRatio = 0.1f;
 	m_tItemInfo = _info;
 	_int _level = m_tItemInfo.level;
-	_int _hp = m_tItemInfo.hp + (m_tItemInfo.hp * 0.1f) *_level;
-	_int _atk = m_tItemInfo.atk + (m_tItemInfo.atk * 0.1f) *_level;
-	_int _def = m_tItemInfo.def + (m_tItemInfo.def * 0.1f) *_level;
+	_int _hp = m_tItemInfo.hp + (m_tItemInfo.hp * reinforceRatio) *_level;
+	_int _atk = m_tItemInfo.atk + (m_tItemInfo.atk * reinforceRatio) *_level;
+	_int _def = m_tItemInfo.def + (m_tItemInfo.def * reinforceRatio) *_level;
 
 	m_strHP = "HP : " + to_string(_hp);
 	m_strAtk = "ATK : " + to_string(_atk);

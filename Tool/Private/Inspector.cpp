@@ -79,8 +79,6 @@ void CInspector::Update()
 
 		if (dynamic_cast<CEmptyGameObject*>(g_pObjFocused))
 			UpdateGameObject();
-		else if (dynamic_cast<CEmptyMapObject*>(g_pObjFocused))
-			UpdateMapObject();
 		else if (dynamic_cast<CEmptyEffect*>(g_pObjFocused))
 			UpdateEffect();
 		else if (dynamic_cast<CEmptyCamera*>(g_pObjFocused))
@@ -449,18 +447,15 @@ void CInspector::UpdateUI()
 
 	if (ImGui::Button("Add Component"))
 		ImGui::OpenPopup("AddComponent");
-	if (ImGui::BeginPopup("AddComponent"))
-	{
-		if (ImGui::MenuItem("Image"))
-		{
-			/* Add Collider */
-			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_RectUI", "Com_VIBuffer", g_pObjFocused->GetComponent("Com_Transform"))))
+	if (ImGui::BeginPopup("AddComponent")){
+		if (ImGui::MenuItem("Image")){
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_VIBuffer_RectUI", "Com_VIBuffer"
+				, g_pObjFocused->GetComponent("Com_Transform"))))
 				MSG_BOX("Failed to AddComponent");
 		}
-		if (ImGui::MenuItem("Text"))
-		{
-			/* Add Collider */
-			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_Text", "Com_Text", g_pObjFocused->GetComponent("Com_Transform"))))
+		if (ImGui::MenuItem("Text")){
+			if (FAILED(g_pObjFocused->AddComponent(0, "Prototype_Text", "Com_Text"
+				, g_pObjFocused->GetComponent("Com_Transform"))))
 				MSG_BOX("Failed to AddComponent");
 		}
 
@@ -469,11 +464,8 @@ void CInspector::UpdateUI()
 	if (ImGui::Button("RemoveParent")) {
 		g_pObjFocused->RemoveParent();
 	}
-
 	DrawRectTransform();
-
 	DrawImage();
-
 	DrawTextUI();
 }
 

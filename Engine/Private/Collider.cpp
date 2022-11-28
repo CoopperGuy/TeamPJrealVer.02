@@ -68,17 +68,10 @@ _uint CCollider::LateUpdate(double deltaTime)
 			if (pModel)
 			{
 				PxExtendedVec3 physxPos = m_pController->getFootPosition();
-
-
-				//if (pModel->Get_isChangedAnimation()) {
-				//	//cout << m_pMaster->GetName() << "change\n";
-				//	m_pObjTransform->SetPxPosition(physxPos);
-				//	pRender->SetMatrix(m_pObjTransform->GetWorldMatrix());
-				//}
-
 				if (pModel->Get_Root(true))
 				{
 					//caluate RootAnimation Position
+					_float minDist = 0.001f;
 					_vector rootScale, rootRotation, rootPosition;
 					if(m_pMaster->GetName() != "Ursa")
 						XMMatrixDecompose(&rootScale, &rootRotation, &rootPosition, pModel->Get_BoneMatrix("Root"));
@@ -86,17 +79,15 @@ _uint CCollider::LateUpdate(double deltaTime)
 						XMMatrixDecompose(&rootScale, &rootRotation, &rootPosition, pModel->Get_BoneWithoutOffset("Root"));
 					rootPosition = XMVectorSetY(rootPosition, 0.f);
 
-					// root animation correction when detected collision
 					_vector vecPhysxPos = XMVectorSet((_float)physxPos.x, (_float)physxPos.y, (_float)physxPos.z, 1.f);
 					_vector realPos =  XMLoadFloat3(&m_preFramePosition);
 
 					_vector physxLength = XMVector3Length(XMVector3TransformCoord(rootPosition, m_pObjTransform->GetWorldMatrix()) - vecPhysxPos);
 					_vector realLength = XMVector3Length(XMVector3TransformCoord(rootPosition, m_pObjTransform->GetWorldMatrix())  - realPos);
 
-					if (XMVectorGetX(realLength) < XMVectorGetX(physxLength) && fabs(XMVectorGetX(realLength) - XMVectorGetX(physxLength)) > 0.001f) {
+					if (XMVectorGetX(physxLength) - XMVectorGetX(realLength) > minDist) {
 						_vector physx_ThisGap = (XMVectorSetY(realPos, 0.f) - XMVectorSetY(vecPhysxPos, 0.f));
 						pRender->SetState(CTransform::STATE_POSITION, pRender->GetState(CTransform::STATE_POSITION) - physx_ThisGap);
-						//m_pObjTransform->SetState(CTransform::STATE_POSITION, vecPhysxPos);
 						XMStoreFloat3(&m_preFramePosition, vecPhysxPos);
 						_vector correctPos = XMVector3TransformCoord(rootPosition, pRender->GetWorldMatrix());
 						m_pObjTransform->SetState(CTransform::STATE_POSITION, correctPos);
@@ -121,36 +112,6 @@ _uint CCollider::LateUpdate(double deltaTime)
 						_float3 cenPos = _float3{ (_float)centerPos.x,(_float)centerPos.y,(_float)centerPos.z };
 						memcpy(&m_pxMat.m[3], &cenPos, sizeof(_float3));
 					}
-					
-
-					//_vector physx_ThisGap = (XMVectorSetY(realPos,0.f) - XMVectorSetY(vecPhysxPos, 0.f));
-					//if (XMVectorGetX(XMVector3Length(physx_ThisGap)) != 0) {
-					//	pRender->SetState(CTransform::STATE_POSITION, pRender->GetState(CTransform::STATE_POSITION) - physx_ThisGap);
-					//	//m_pObjTransform->SetState(CTransform::STATE_POSITION, vecPhysxPos);
-					//	XMStoreFloat3(&m_preFramePosition, vecPhysxPos);
-					//	_vector correctPos = XMVector3TransformCoord(rootPosition, pRender->GetWorldMatrix());
-					//	m_pObjTransform->SetState(CTransform::STATE_POSITION, correctPos);
-
-					//	XMStoreFloat4x4(&m_pxMat, m_pObjTransform->GetWorldMatrix());
-					//	PxExtendedVec3 centerPos = m_pController->getPosition();
-					//	_float3 cenPos = _float3{ (_float)centerPos.x,(_float)centerPos.y,(_float)centerPos.z };
-					//	memcpy(&m_pxMat.m[3], &cenPos, sizeof(_float3));
-					//}
-					//else {
-					//	//root anim none collision
-					//	_vector correctPos = XMVector3TransformCoord(rootPosition, pRender->GetWorldMatrix());
-					//	m_pObjTransform->SetState(CTransform::STATE_POSITION, correctPos);
-
-
-					//	_vector frameGap = correctPos - XMLoadFloat3(&m_preFramePosition);
-					//	PxVec3 moveRoot = PxVec3(XMVectorGetX(frameGap), XMVectorGetY(frameGap), XMVectorGetZ(frameGap));
-					//	m_pController->move(moveRoot, 0.001f, (_float)deltaTime, nullptr);
-
-					//	XMStoreFloat4x4(&m_pxMat, m_pObjTransform->GetWorldMatrix());
-					//	PxExtendedVec3 centerPos = m_pController->getPosition();
-					//	_float3 cenPos = _float3{ (_float)centerPos.x,(_float)centerPos.y,(_float)centerPos.z };
-					//	memcpy(&m_pxMat.m[3], &cenPos, sizeof(_float3));
-					//}
 				}
 				else
 				{

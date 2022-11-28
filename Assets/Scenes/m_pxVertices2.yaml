@@ -7,9 +7,9 @@ GameObjects:
     Instancing: false
     Type: Camera
     Com_Transform:
-      Translation: [0.0212892555, 0.0212892555, 0]
-      Rotation: [0.545593143, 44.3836021, -0.00304189301]
-      Scale: [0.999620736, 0.999873042, 0.999914706]
+      Translation: [0.0181925762, 0.0181925762, 0]
+      Rotation: [0.546438217, 44.4740562, -0.00183458149]
+      Scale: [0.999620497, 0.999873042, 0.999912739]
     IsWait: false
     IsBack: false
     MoveTime: 5
@@ -202,7 +202,7 @@ GameObjects:
     Com_Transform:
       Translation: [-3.45907974, 2.72718154e-07, 4.04530668]
       Rotation: [0, -0, -90]
-      Scale: [1, 1.10000002, 1.09867203]
+      Scale: [1, 1.10000002, 1.09867132]
     Com_Model:
       MeshFilePath: ..\..\Assets\Meshes\Effect\
       MeshFileName: untitled.fbx
@@ -306,7 +306,7 @@ GameObjects:
     PassIndex: 8
     BillBord: false
     Com_Transform:
-      Translation: [-0.475563407, -0.276769996, 0]
+      Translation: [-0.507616639, -0.193354174, 0.573313773]
       Rotation: [0, -0, 0]
       Scale: [0.142385542, 0.0876625702, 0.0870637819]
     Com_Model:

@@ -44,8 +44,8 @@ using namespace std;
 extern HWND		g_hWnd;
 extern _bool	g_Done;
 extern CGameObject* g_pObjFocused;
-#define WINCX	1280
-#define WINCY	720
+#define WINCX	1920
+#define WINCY	1080
 #define FILESYSTEM std::experimental::filesystem
 
 

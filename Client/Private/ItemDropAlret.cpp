@@ -2,7 +2,7 @@
 #include "..\Public\ItemDropAlret.h"
 #include "RectTransform.h"
 USING(Client)
-
+#define UISPEED 30.F;
 CItemDropAlret::CItemDropAlret()
 {
 }
@@ -23,8 +23,10 @@ HRESULT CItemDropAlret::Initailze(string _itemName,CGameObject * pArg)
 
 void CItemDropAlret::Update(_double deltaTime)
 {
+	_float fUISpeed = 30.f;
+
 	CRectTransform::RECTTRANSFORMDESC _desc =  m_pTransform->GetTransformDesc();
-	_desc.posY += (_float)deltaTime * 30.f;
+	_desc.posY += (_float)deltaTime * fUISpeed;
 	m_pTransform->SetTransformMat(_desc);
 }
 

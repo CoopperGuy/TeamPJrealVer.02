@@ -111,10 +111,8 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 
 	auto gameObjects = data["GameObjects"];
 
-	if (gameObjects)
-	{
-		for (auto obj : gameObjects)
-		{
+	if (gameObjects){
+		for (auto obj : gameObjects){
 			CGameObject* deserializedObject = nullptr;
 			if (obj["Type"].as<string>() == "UI")
 				deserializedObject = DeserializeUI(obj, false, curScene);
@@ -124,8 +122,6 @@ bool CSceneSerializer::Deserialize(const string & filePath, _uint curScene)
 				deserializedObject = DeserializeCamera(obj, false, curScene);
 			else
 				deserializedObject = DeserializeObject(obj, false, curScene);
-			if(deserializedObject)
-				cout << deserializedObject->GetName() << "is created \n";
 		}
 	}
 
@@ -2576,9 +2572,11 @@ HRESULT CSceneSerializer::CreatePrefab(string pPrototypeTag, YAML::Node data, _u
 			if (obj["Type"].as<string>() == "UI")
 				return E_FAIL;
 			else if (obj["Type"].as<string>() == "Effect")
-				deserializedPrototype = DeserializePrototypeEffect(pPrototypeTag, obj, false, 0);
+				deserializedPrototype =
+					DeserializePrototypeEffect(pPrototypeTag, obj, false, 0);
 			else
-				deserializedPrototype = DeserializePrototypeGameObject(pPrototypeTag, obj, false, 0);
+				deserializedPrototype = 
+					DeserializePrototypeGameObject(pPrototypeTag, obj, false, 0);
 			if(deserializedPrototype)
 				cout << "prefab prototype created  : " << deserializedPrototype->GetName() << "\n";
 			auto children = obj["Children"];
@@ -2632,9 +2630,7 @@ CGameObject * CSceneSerializer::SpawnPrefab(YAML::Node data, _uint curScene)
 			if (obj["Type"].as<string>() == "UI")
 				deserializedObject = DeserializeUI(obj, true, curScene);
 			else if (obj["Type"].as<string>() == "Effect")
-			{
 				deserializedObject = DeserializeEffect(obj, true, curScene);
-			}
 			else
 				deserializedObject = DeserializeObject(obj, true, curScene);
 

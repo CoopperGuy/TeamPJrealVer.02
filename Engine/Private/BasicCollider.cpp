@@ -486,31 +486,13 @@ void CBasicCollider::CollisionWeaponeToTarget(list<OBJCOLLIDER>& pMyCollider, li
 						if (TargetpStat->GetStatInfo().isImmortal == true)
 							return;
 						if (pTargetCollider->GetCollisionFlag() == CBasicCollider::COLLISION_FOUND) {
-							//_float Playeratk = static_cast<CStat*>(PlayerStat)->GetStatInfo().atk;
 							if (!pTargetCollider->m_isHit)
 								pTargetCollider->m_isHit = true;
 
 							pWeaponeCollider->m_bStartHit = true;
 							static_cast<CStat*>(TargetpStat)->Damaged(PlayerStat, true);
-							_uint _rnd = rand() % 3;
-							CEngine::GetInstance()->StopSound(CHANNELID::PLAYER13);
-							switch (_rnd)
-							{
-							case 0:
-								CEngine::GetInstance()->PlaySoundW("Heats00.wav", CHANNELID::PLAYER13);
-								break;
-							case 1:
-								CEngine::GetInstance()->PlaySoundW("Heats01.wav", CHANNELID::PLAYER13);
-								break;
-							case 2:
-								CEngine::GetInstance()->PlaySoundW("Heats02.wav", CHANNELID::PLAYER13);
-								break;
-
-							}
-							if (pWeaponeCollider->m_bIsDownAttack) {
+							if (pWeaponeCollider->m_bIsDownAttack) 
 								pTargetCollider->m_bIsDown = true;
-							}
-							//cout << "HP:" << static_cast<CStat*>(TargetpStat)->GetStatInfo().hp << endl;
 							return;
 						}
 						else {
@@ -816,8 +798,6 @@ void CBasicCollider::SetupCollisionFlag(_bool tf)
 			break;
 		case Engine::CBasicCollider::COLLISION_END:
 			break;
-		default:
-			break;
 		}
 		break;
 	}
@@ -838,8 +818,6 @@ void CBasicCollider::SetupCollisionFlag(_bool tf)
 			m_CollisionFlag = COLLSION_NONE;
 			break;
 		case Engine::CBasicCollider::COLLISION_END:
-			break;
-		default:
 			break;
 		}
 		break;

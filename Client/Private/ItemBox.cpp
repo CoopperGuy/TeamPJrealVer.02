@@ -57,11 +57,7 @@ void CItemBox::Update(_double deltaTime)
 		}
 	}
 	else
-	{
-		//m_pAlretUI->SetActive(false);
 		static_cast<CEmptyGameObject*>(m_pItemBox)->SetRimLight(false, DirectX::Colors::Gold, 1.f);
-	}
-
 
 	if (!m_bGetItem) {
 		m_pModel->SetUp_AnimationIndex(0);
@@ -69,8 +65,6 @@ void CItemBox::Update(_double deltaTime)
 	}
 	else
 	{
-
-
 		if (m_pModel->Get_AnimIndex() == 0)
 			m_pModel->SetUp_AnimationIndex(1);
 
@@ -88,15 +82,11 @@ void CItemBox::Update(_double deltaTime)
 		m_fDissolveAcc += (_float)deltaTime * 0.5f;
 		if (m_fDissolveAcc > 0.925f)
 		{
-
 			if (m_pItemDropEff)
 				m_pItemDropEff->SetDead();
-
-
 			m_bDead = true;
 
 		}
-
 		m_pModel->SetDissolve(m_fDissolveAcc);
 	}
 

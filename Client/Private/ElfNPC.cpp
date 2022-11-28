@@ -136,19 +136,16 @@ void CElfNPC::MakeTalkDesk(_double deltaTime)
 		}
 		CQuestData* questData = CEngine::GetInstance()->GetQuestData(m_tNPCTag.hasQuestID);
 		_int talkID = questData->questProgress + m_tNPCTag.hasQuestID + m_tNPCTag.npcID;
-		//이미 퀘스트 중이거나 클리어 했을 경우
 		if (CEngine::GetInstance()->SearchAcceptQuest(m_tNPCTag.hasQuestID) || CEngine::GetInstance()->SearchClearQuest(m_tNPCTag.hasQuestID)) {
 			if (questData->isQuestClear() || !questData->isQuestAcheive()) {
 				talkID = m_tNPCTag.npcID;
 				NormalTalk(talkID);
 			}
-			else {
+			else 
 				QuestTalk(talkID);
-			}
 		}
-		else {
+		else 
 			QuestTalk(talkID);
-		}
 	}
 }
 
@@ -221,8 +218,6 @@ void CElfNPC::QuestTalk(_int talkID)
 	if (CEngine::GetInstance()->IsKeyDown(VK_SPACE)) {
 		m_iCurTalkProgress++;
 		if (m_iCurTalkProgress >= talkSize - 1) {
-			/*_int talkBoxID = m_tNPCTag.boxID + m_tNPCTag.npcID;
-			vector<string> talkBox = CEngine::GetInstance()->GetTalk(talkBoxID);*/
 			CQuestData* questData = CEngine::GetInstance()->GetQuestData(m_tNPCTag.hasQuestID);
 			if (!questData->isQuestAcheive()) {
 				MakeTalkBox(0);

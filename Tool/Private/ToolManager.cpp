@@ -23,7 +23,7 @@ USING(Tool)
 
 extern HINSTANCE hInst;
 
-static string strScene = "../../Assets/Scenes/DarkKnightDungeon.yaml";
+static string strScene = "../../Assets/Scenes/m_pxVertices2.yaml";
 
 CToolManager::CToolManager()
 	: m_pEngine(CEngine::GetInstance())
@@ -326,8 +326,8 @@ void CToolManager::SetImGuiColor()
 
 	colors[ImGuiCol_Text] = ImVec4(1.000f, 1.000f, 1.000f, 1.000f);
 	colors[ImGuiCol_TextDisabled] = ImVec4(0.500f, 0.500f, 0.500f, 1.000f);
-	colors[ImGuiCol_WindowBg] = ImVec4(0.180f, 0.180f, 0.180f, 0.000f);
-	colors[ImGuiCol_ChildBg] = ImVec4(0.280f, 0.280f, 0.280f, 0.000f);
+	colors[ImGuiCol_WindowBg] = ImVec4(0.180f, 0.180f, 0.180f, 1.000f);
+	colors[ImGuiCol_ChildBg] = ImVec4(0.280f, 0.280f, 0.280f, 1.000f);
 	colors[ImGuiCol_PopupBg] = ImVec4(0.313f, 0.313f, 0.313f, 1.000f);
 	colors[ImGuiCol_Border] = ImVec4(0.266f, 0.266f, 0.266f, 1.000f);
 	colors[ImGuiCol_BorderShadow] = ImVec4(0.000f, 0.000f, 0.000f, 0.000f);

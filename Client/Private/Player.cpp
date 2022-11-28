@@ -771,11 +771,9 @@ _bool CPlayer::BuyItem(string itemName, ITEMINFO _item)
 		if (!m_pInven->AddItem(itemName, tempItem)) {
 			SafeDelete(tempItem);
 		}
-		//gold decrease please
 		return true;
 	}
 	else {
-		//fail
 		return false;
 	}
 

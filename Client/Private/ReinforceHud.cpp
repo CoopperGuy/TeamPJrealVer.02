@@ -23,8 +23,6 @@ HRESULT CReinforceHud::Initailze(CGameObject * pArg)
 
 void CReinforceHud::Update(_double deltaTime)
 {
-	/*SetUpReinforceItem();
-	SetUpREinforceMaterial();*/
 	m_pThisUI->SetActive(m_bIsOnOff);
 	if (m_pThisUI->IsActive()) {
 		if (m_vecReinforceUIs[REINFORCE_BUTTON]->isFristEnter()) {
@@ -146,7 +144,7 @@ void CReinforceHud::SetUpReinforceMaterial(CItem*	_item)
 
 void CReinforceHud::StartReinforce(_float _deltaTime)
 {
-	if (m_pCurReinforceItem && m_pCurMaterial) {
+	if (m_pCurReinforceItem != nullptr && m_pCurMaterial != nullptr) {
 		if (m_pCurMaterial->GetItempInfo().numOfItem > 0) {
 			m_fReinforceDelta += _deltaTime;
 			CEngine::GetInstance()->PlaySoundW("ReinforceING.mp3", CHANNELID::UI09);
@@ -168,20 +166,13 @@ void CReinforceHud::StartReinforce(_float _deltaTime)
 				m_pCurMaterial->UseItem();
 				m_fReinforceDelta = 0.f;
 				m_bIsReinforceWhile = false;
-				if (_percentage < _succesPer) //success
+				if (_percentage < _succesPer)
 				{
-					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
-					CEngine::GetInstance()->PlaySoundW("ReinforceSuccess.mp3", CHANNELID::UI08);
 					m_pCurReinforceItem->ItemLevelUp();
 					CReinforceSuccess::Create(nullptr);
 				}
 				else //fail
-				{
-					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
-					CEngine::GetInstance()->PlaySoundW("ReinforceFail.mp3", CHANNELID::UI08);
 					CReinforceFall::Create(nullptr);
-				}
-
 			}
 		}
 		else 

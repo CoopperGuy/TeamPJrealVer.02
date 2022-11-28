@@ -289,13 +289,9 @@ float4 PS_MAIN_SKILL(PS_IN input) : SV_TARGET
         float up = (x) * upVec.x + (y) * upVec.y;
         float dir = (x) * dirVec.x + (y) * dirVec.y;
         if (up < 0 && dir > 0)
-        {
             return color;
-        }
         else if (x > 0.f)
-        {
             return color;
-        }
     }
     else
     {
@@ -308,9 +304,7 @@ float4 PS_MAIN_SKILL(PS_IN input) : SV_TARGET
         float up = (x) * upVec.x + (y) * upVec.y;
         float dir = (x) * dirVec.x + (y) * dirVec.y;
         if (up < 0 && dir > 0)
-        {
             return color;
-        }
     }
 
     

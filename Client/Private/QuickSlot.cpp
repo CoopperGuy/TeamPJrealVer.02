@@ -37,21 +37,21 @@ void CQuickSlot::Render()
 {
 }
 
-void CQuickSlot::RegistItem(CItem * _item, _int idx)
+void CQuickSlot::RegistItem(CItem * _item, _int _idx)
 {
-	m_iMyIdx = idx;
+	m_iMyIdx = _idx;
 	if (_item != nullptr) {
 		string path = itemImagePath + _item->GetItempInfo().imageName + ".dds";
 		m_childVIBuffer[QUICK_ICON]->UpdateTexture(path, CVIBuffer_RectUI::TEXTURE_DIFFUSE);
 		m_CurItem = _item;
-		CEventCheck::GetInstance()->SetAddQuickIcon(path, idx);
+		CEventCheck::GetInstance()->SetAddQuickIcon(path, m_iMyIdx);
 	}
 }
 
 void CQuickSlot::UseItem(CPlayer* _obj)
 {
 	if (m_CurItem != nullptr) {
-		m_CurItem->UseItem();//add Side Effect
+		m_CurItem->UseItem();
 		ITEMINFO info = m_CurItem->GetItempInfo();
 		_obj->HealHp(info.hp);
 		if (info.numOfItem == 0) {

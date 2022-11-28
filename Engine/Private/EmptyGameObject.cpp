@@ -468,10 +468,6 @@ _uint CEmptyGameObject::Update(_double TimeDelta)
 		Stat->Update(TimeDelta);
 	}
 
-	//CComponent* collider = GetComponent("Com_Collider");
-	//if (collider)
-	//	dynamic_cast<CCollider*>(collider)->LateUpdate(TimeDelta);
-
 	_int i = 0;
 	do {
 		string com = "Com_OBB";

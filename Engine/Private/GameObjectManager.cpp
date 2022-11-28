@@ -291,14 +291,6 @@ CGameObject * CGameObjectManager::SpawnPrefab(string name)
 {
 	CSceneSerializer serializer;
 	if (m_pPrefabs[name]) {
-		/*auto &iter = m_pPrefabs.find(name);
-		if (m_pPrefabs.end() == iter) {
-
-		}
-		else {
-
-		}*/
-
 		return serializer.SpawnPrefab(m_pPrefabs[name]);
 	}
 	return nullptr;

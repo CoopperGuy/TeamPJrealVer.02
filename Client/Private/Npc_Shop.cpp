@@ -112,11 +112,7 @@ void CNpc_Shop::Update(_double deltaTime)
 			if (m_pShopHud) 
 			{
 				if (m_pShopHud->IsBuySelected()) 
-				{
-					CEngine::GetInstance()->StopSound(CHANNELID::UI08);
-					CEngine::GetInstance()->PlaySoundW("ItemBuy.mp3", CHANNELID::UI08);
 					CEventCheck::GetInstance()->ContractShop(this);
-				}
 			}
 		}
 

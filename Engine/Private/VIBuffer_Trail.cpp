@@ -37,21 +37,6 @@ HRESULT CVIBuffer_Trail::InitializePrototype()
 	m_VBDesc.MiscFlags = 0;
 	m_VBDesc.StructureByteStride = m_iStride;
 
-	//m_pVertices = new VTXTEX[m_iNumVertices];
-	//ZeroMemory(m_pVertices, sizeof(VTXTEX) * m_iNumVertices);
-
-	//for (_uint i = 0; i < m_iNumVertices; i += 2)
-	//{
-	//	((VTXTEX*)m_pVertices)[i].vPosition = _float3(0.f, 0.f, 0.f);
-	//	((VTXTEX*)m_pVertices)[i].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 1.f);
-
-	//	((VTXTEX*)m_pVertices)[i + 1].vPosition = _float3(0.f, 0.f, 0.f);
-	//	((VTXTEX*)m_pVertices)[i + 1].vTexUV = _float2(((_float)i / (_float)(m_iNumVertices - 2)), 0.f);
-	//}
-
-	///* For.D3D11_SUBRESOURCE_DATA */
-	//m_VBSubResourceData.pSysMem = m_pVertices;
-
 #pragma endregion VERTEXBUFFER
 
 #pragma region INDEXBUFFER
@@ -135,24 +120,6 @@ HRESULT CVIBuffer_Trail::Initialize(void * pArg)
 		m_vLowOffset = static_cast<TRAILDESC*>(pArg)->vLowOffset;
 		m_vHighOffset = static_cast<TRAILDESC*>(pArg)->vHighOffset;
 
-		/*_matrix WeaponTransform;
-		memcpy(&WeaponTransform, pArg, sizeof(_matrix));
-
-		D3D11_MAPPED_SUBRESOURCE		SubResource;
-
-		if (FAILED(m_pDeviceContext->Map(m_pVB.Get(), 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
-			return E_FAIL;
-
-		_vector vLocalPosLow = XMVectorSet(0.f, -0.2f, 0.f, 0.f);
-		_vector vLocalPosHigh = XMVectorSet(0.f, 0.45f, 0.f, 0.f);
-
-		for (_uint i = 0; i < m_iNumVertices; i += 2)
-		{
-			XMStoreFloat3(&((VTXTEX*)SubResource.pData)[i].vPosition, XMVector3TransformCoord(vLocalPosLow, WeaponTransform));
-			XMStoreFloat3(&((VTXTEX*)SubResource.pData)[i + 1].vPosition, XMVector3TransformCoord(vLocalPosHigh, WeaponTransform));
-		}
-
-		m_pDeviceContext->Unmap(m_pVB.Get(), 0);*/
 	}	
 
 	for (_int i = m_iNumVertices; i > 0; i--) {
@@ -227,7 +194,6 @@ HRESULT CVIBuffer_Trail::Update(_double TimeDelta, _fmatrix WeaponTransform)
 					XMLoadFloat3(&m_vecCatmullRom[m_iCatmullRomIdx[3] + 1].vPosition),
 					fWeight);
 
-				//m_vecCatmullRom[m_iVtxCnt - 2 + i].vPosition;
 				XMStoreFloat3(&m_vecCatmullRom[idx].vPosition, pos0);
 				XMStoreFloat3(&m_vecCatmullRom[idx+1].vPosition, pos1);
 			}

@@ -84,13 +84,7 @@ HRESULT CDmgVIBuffer::Initailze(CGameObject * pArg, _float3 pos, _float dmg, _bo
 			}
 			i++;
 		}
-		else {
-			if (idx != 4) {
-				string dmgFontPath = "../../Assets/UITexture/Font/nullImage.dds";
-				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->UpdateTexture(dmgFontPath);
-			}
 
-		}
 		static_cast<CEmptyGameObject*>(iter)->SetLocalPosition(_float3{ (_float)i,0,0 });
 		if (idx == 4) {
 			static_cast<CEmptyGameObject*>(iter)->SetLocalPosition(_float3{ (_float)i / 2.f + 0.5f,0,-0.1f });
@@ -110,8 +104,11 @@ void CDmgVIBuffer::Update(_double deltaTime)
 	if (isEnd) {
 		if (__super::IsDead() || m_pThisUI == nullptr || m_pThisUI->isDead())
 			return;
+		_float criShrinkSpd = 0.825f;
+		_float shrinkSpd = 0.5f;
 
-
+		_float minCriSize = 0.1f;
+		_float minSize = 0.65f;
 		_vector pos = m_pTransform->GetState(CTransform::STATE_POSITION);
 		_float y = XMVectorGetY(pos) - 0.2f * (_float)deltaTime;
 		m_pTransform->SetState(CTransform::STATE_POSITION, XMVectorSetY(pos, y));
@@ -123,26 +120,20 @@ void CDmgVIBuffer::Update(_double deltaTime)
 				static_cast<CVIBuffer_Rect*>(iter->GetComponent("Com_VIBuffer"))->SetAlpha(m_fAlpha);
 		}
 		if (isShrink) {
-			if (m_IsCritical) {
-				m_startSize += 0.825f * (_float)deltaTime;
-			}
-			else {
-				m_startSize += 0.5f * (_float)deltaTime;
-			}
-			m_fEffectSize += 0.5f * (_float)deltaTime;
+			if (m_IsCritical) 
+				m_startSize += criShrinkSpd * (_float)deltaTime;
+			else 
+				m_startSize += shrinkSpd * (_float)deltaTime;
 		}
 		else {
 			if (m_IsCritical) {
-				if (m_startSize > 0.1f)
-					m_startSize -= 0.5f*(_float)deltaTime;
+				if (m_startSize > minCriSize)
+					m_startSize -= shrinkSpd*(_float)deltaTime;
 			}
 			else {
-				if (m_startSize > 0.065f)
-					m_startSize -= 0.5f*(_float)deltaTime;
+				if (m_startSize > minSize)
+					m_startSize -= shrinkSpd*(_float)deltaTime;
 			}
-			if (m_fEffectSize > 0.65)
-				m_fEffectSize -= 0.5f * (_float)deltaTime;
-
 		}
 		m_pTransform->SetScale(_float3{ m_startSize ,m_startSize ,m_startSize });
 		CTransform* local = static_cast<CTransform*>(m_listChild[4]->GetComponent("Com_LocalTransform"));

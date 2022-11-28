@@ -180,13 +180,6 @@ struct PS_IN
 
 vector PS_MAIN(PS_IN In) : SV_TARGET
 {
-    //vector vColor = (vector) 0;
-    
-    //vColor.r = 1;
-    //vColor.a = 0.6;
-
-    //return vColor;
-
     vector vColor = (vector) 0;
     vColor = g_DiffuseTexture.Sample(g_DiffuseSampler, In.vTexUV);
     vector red = { 1, 0, 0, 1 };

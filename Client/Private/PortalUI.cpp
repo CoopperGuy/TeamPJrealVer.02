@@ -40,10 +40,8 @@ void CPortalUI::Update(_double deltaTime)
 		}
 		if (m_pLeftArrow->IsHovered()) {
 			if (CEngine::GetInstance()->Get_MouseButtonStateDown(CInput_Device::MOUSEBUTTONSTATE::MBS_LBUTTON)) {
-				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
-				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.mp3", CHANNELID::UI02);
 				if (m_iMinIdx < m_iCurIndex) {
-					m_fDestScnensPosX += 640.f;
+					m_fDestScnensPosX += WINCX >> 1;
 					m_iCurIndex--;
 					m_bMove = true;
 				}
@@ -54,7 +52,7 @@ void CPortalUI::Update(_double deltaTime)
 				CEngine::GetInstance()->StopSound(CHANNELID::UI02);
 				CEngine::GetInstance()->PlaySoundW("PortalArrowSelect.mp3", CHANNELID::UI02);
 				if (m_iMaxIdx > m_iCurIndex) {
-					m_fDestScnensPosX -= 640.f;
+					m_fDestScnensPosX -= WINCX >> 1;
 					m_iCurIndex++;
 					m_bMove = true;
 				}
@@ -84,7 +82,7 @@ void CPortalUI::Update(_double deltaTime)
 					{
 						m_eScenes = SCENES(i + 1);
 						ClosePortalUI();
-						m_fCurScnensPosX = 640.f;
+						m_fCurScnensPosX = _float(WINCX>>1);
 					}
 				}
 			}

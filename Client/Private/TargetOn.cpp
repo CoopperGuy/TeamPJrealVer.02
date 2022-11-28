@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\TargetOn.h"
-
+#define DEFAULTX 1280
+#define DEFAULTY 720
 USING(Client)
 
 CTargetOn::CTargetOn()
@@ -46,7 +47,7 @@ HRESULT CTargetOn::Initailze(CGameObject* player, CGameObject * pArg)
 void CTargetOn::Update(_double deltaTime)
 {
 	m_pThisUI->SetisRender(true);
-	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition()) - XMVectorSet(0.f, 0.25f, 0.f, 0.f);
+	_vector targetPos = XMLoadFloat3(&m_pTarget->GetCollisionPosition());
 	_matrix view = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW);
 	_matrix proj = CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_PROJ);
 	targetPos = XMVector3TransformCoord(targetPos, view);
@@ -56,8 +57,8 @@ void CTargetOn::Update(_double deltaTime)
 	transform._11 = 1.f;
 	transform._22 = 1.f;
 
-	transform._41 = XMVectorGetX(targetPos) * (1280 >> 1) + (1280 >> 1);
-	transform._42 = -XMVectorGetY(targetPos) * (720 >> 1) + (720 >> 1);
+	transform._41 = XMVectorGetX(targetPos) * (DEFAULTX >> 1) + (DEFAULTX >> 1);
+	transform._42 = -XMVectorGetY(targetPos) * (DEFAULTY >> 1) + (DEFAULTY >> 1);
 	CRectTransform::RECTTRANSFORMDESC desc = m_pTargetTrans->GetTransformDesc();
 	desc.posX = transform._41;
 	desc.posY = transform._42;

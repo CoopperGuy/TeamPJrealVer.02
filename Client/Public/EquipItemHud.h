@@ -48,6 +48,7 @@ private:
 	_uint				m_iCurSelected = 0;
 	_float				m_fCurYSize[(_int)EQUIPTYPE::TYPE_END];
 	const _float		m_constYScale = 65.f;
+	const _float		m_fCorrectY = 120.f;
 	_float				m_fAddItemPosX = 390.f;
 	
 	_int				m_iCurThread = 0;

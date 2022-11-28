@@ -62,9 +62,8 @@ void CStat::HpHeal(_float healPoint)
 	CorrectMaxHp();
 }
 
-_bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
+_bool CStat::Damaged(CStat* enemyStat, _bool printDmg)
 {
-	STAT enemyStatus = enemyStat->m_tStat;
 	_int ratio = 80 + rand() % 20;
 	_int crit = rand() % 100;
 
@@ -75,7 +74,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	_bool isCrit = false;
 	_bool isEFfect = false;
 
-	if (crit < enemyStatus.critical * 100.f) {
+	if (crit < enemyStat->m_tStat.critical * 100.f) {
 		criRatio = 1.5f;
 		isCrit = true;
 	}
@@ -83,7 +82,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 		isEFfect = true;
 
 
-	_float dmg = (enemyStatus.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000)))
+	_float dmg = (enemyStat->m_tStat.atk * (1 - (m_tStat.armor / (m_tStat.armor + 1000)))
 		* dmgRation * balance) * criRatio;
 
 	_matrix cameraMat = XMMatrixInverse(nullptr, CEngine::GetInstance()->GetTransform(CPipeline::D3DTS_VIEW));
@@ -114,7 +113,7 @@ _bool CStat::Damaged(CStat * enemyStat, _bool printDmg)
 	}
 
 	if (enemyStat->m_StatusEffect & STATUSEFFECT::BLOOD) {
-		enemyStat->m_tStat.hp += dmg /** 0.1f*/;
+		enemyStat->m_tStat.hp += dmg;
 		enemyStat->CorrectMaxHp();
 	}
 
